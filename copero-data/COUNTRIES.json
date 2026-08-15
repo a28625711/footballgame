@@ -1,0 +1,2231 @@
+[
+  {
+    "clubs": [
+      "Tigre",
+      "Argentinos Juniors",
+      "San Lorenzo",
+      "Boca Juniors",
+      "River Plate"
+    ],
+    "code": "AR",
+    "flag": "🇦🇷",
+    "kit": "repeating-linear-gradient(90deg, #f7f4e7 0 18%, #74b5df 18% 35%, #f7f4e7 35% 52%)",
+    "name": "Argentina",
+    "nationalStrength": 90,
+    "region": "South America",
+    "fifaCode": "ARG",
+    "confederation": "CONMEBOL"
+  },
+  {
+    "clubs": [
+      "Bahia",
+      "Santos",
+      "Corinthians",
+      "Palmeiras",
+      "Flamengo"
+    ],
+    "code": "BR",
+    "flag": "🇧🇷",
+    "kit": "linear-gradient(135deg, transparent 0 34%, #1f7a4b 35% 45%, transparent 46%), #f3d43b",
+    "name": "Brazil",
+    "nationalStrength": 91,
+    "region": "South America",
+    "fifaCode": "BRA",
+    "confederation": "CONMEBOL"
+  },
+  {
+    "clubs": [
+      "Pumas UNAM",
+      "Cruz Azul",
+      "Guadalajara",
+      "Tigres UANL",
+      "Club América"
+    ],
+    "code": "MX",
+    "flag": "🇲🇽",
+    "kit": "linear-gradient(90deg, #176b45 0 30%, #f4f0df 30% 70%, #c83b32 70%)",
+    "name": "Mexico",
+    "nationalStrength": 78,
+    "region": "North America",
+    "fifaCode": "MEX",
+    "confederation": "CONCACAF"
+  },
+  {
+    "clubs": [
+      "Austin FC",
+      "Atlanta United",
+      "Seattle Sounders FC",
+      "LA Galaxy",
+      "Inter Miami CF"
+    ],
+    "code": "US",
+    "flag": "🇺🇸",
+    "kit": "repeating-linear-gradient(0deg, #f4f0df 0 12px, #c8323a 12px 24px)",
+    "name": "United States",
+    "nationalStrength": 79,
+    "region": "North America",
+    "fifaCode": "USA",
+    "confederation": "CONCACAF"
+  },
+  {
+    "clubs": [
+      "Deportivo Cali",
+      "Junior FC",
+      "América de Cali",
+      "Millonarios",
+      "Atlético Nacional"
+    ],
+    "code": "CO",
+    "flag": "🇨🇴",
+    "kit": "linear-gradient(0deg, #c8323a 0 18%, #173b68 18% 36%, #f2cf38 36%)",
+    "name": "Colombia",
+    "nationalStrength": 80,
+    "region": "South America",
+    "fifaCode": "COL",
+    "confederation": "CONMEBOL"
+  },
+  {
+    "clubs": [
+      "Chelsea",
+      "Manchester United",
+      "Arsenal",
+      "Liverpool",
+      "Manchester City"
+    ],
+    "code": "GB",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "kit": "linear-gradient(90deg, transparent 0 42%, #c9363d 42% 58%, transparent 58%), linear-gradient(0deg, transparent 0 44%, #c9363d 44% 58%, transparent 58%), #f4f0df",
+    "name": "England",
+    "nationalStrength": 88,
+    "region": "Europe",
+    "fifaCode": "ENG",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "Sevilla FC",
+      "Athletic Club",
+      "Atlético de Madrid",
+      "FC Barcelona",
+      "Real Madrid"
+    ],
+    "code": "ES",
+    "flag": "🇪🇸",
+    "kit": "linear-gradient(90deg, #9f1f2f 0 16%, #d53b35 16% 84%, #9f1f2f 84%)",
+    "name": "Spain",
+    "nationalStrength": 90,
+    "region": "Europe",
+    "fifaCode": "ESP",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "Lille OSC",
+      "Olympique Lyonnais",
+      "AS Monaco",
+      "Olympique de Marseille",
+      "Paris Saint-Germain"
+    ],
+    "code": "FR",
+    "flag": "🇫🇷",
+    "kit": "linear-gradient(90deg, #173b68 0 34%, #f4f0df 34% 66%, #d63b3f 66%)",
+    "name": "France",
+    "nationalStrength": 92,
+    "region": "Europe",
+    "fifaCode": "FRA",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "Eintracht Frankfurt",
+      "RB Leipzig",
+      "Bayer 04 Leverkusen",
+      "Borussia Dortmund",
+      "FC Bayern München"
+    ],
+    "code": "DE",
+    "flag": "🇩🇪",
+    "kit": "linear-gradient(145deg, transparent 0 62%, #e0b93a 63% 70%, #b53232 70% 77%, #151918 77%), #f4f0df",
+    "name": "Germany",
+    "nationalStrength": 90,
+    "region": "Europe",
+    "fifaCode": "GER",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "AS Roma",
+      "SSC Napoli",
+      "Juventus",
+      "AC Milan",
+      "Inter"
+    ],
+    "code": "IT",
+    "flag": "🇮🇹",
+    "kit": "linear-gradient(90deg, #166cba 0 82%, #f4f0df 82% 88%, #c9363d 88%)",
+    "name": "Italy",
+    "nationalStrength": 89,
+    "region": "Europe",
+    "fifaCode": "ITA",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "Vitória SC",
+      "SC Braga",
+      "Sporting CP",
+      "FC Porto",
+      "SL Benfica"
+    ],
+    "code": "PT",
+    "flag": "🇵🇹",
+    "kit": "linear-gradient(90deg, #1e754f 0 38%, #b52637 38%)",
+    "name": "Portugal",
+    "nationalStrength": 86,
+    "region": "Europe",
+    "fifaCode": "POR",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "Wisła Kraków",
+      "Raków Częstochowa",
+      "Jagiellonia Białystok",
+      "Lech Poznań",
+      "Legia Warszawa"
+    ],
+    "code": "PL",
+    "flag": "🇵🇱",
+    "kit": "linear-gradient(180deg, #f4f0df 0 72%, #d4213d 72%)",
+    "name": "Poland",
+    "nationalStrength": 78,
+    "region": "Europe",
+    "fifaCode": "POL",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "FC Utrecht",
+      "AZ",
+      "Feyenoord",
+      "PSV",
+      "Ajax"
+    ],
+    "code": "NL",
+    "flag": "🇳🇱",
+    "kit": "linear-gradient(135deg, #f16d2f 0 76%, #173b68 76%)",
+    "name": "Netherlands",
+    "nationalStrength": 86,
+    "region": "Europe",
+    "fifaCode": "NED",
+    "confederation": "UEFA"
+  },
+  {
+    "clubs": [
+      "FC Tokyo",
+      "Kawasaki Frontale",
+      "Yokohama F. Marinos",
+      "Urawa Red Diamonds",
+      "Vissel Kobe"
+    ],
+    "code": "JP",
+    "flag": "🇯🇵",
+    "kit": "linear-gradient(135deg, #174a91 0 72%, #d23b43 72% 78%, #f4f0df 78%)",
+    "name": "Japan",
+    "nationalStrength": 77,
+    "region": "Asia",
+    "fifaCode": "JPN",
+    "confederation": "AFC"
+  },
+  {
+    "clubs": [
+      "Suwon Samsung Bluewings",
+      "FC Seoul",
+      "Pohang Steelers",
+      "Jeonbuk Hyundai Motors",
+      "Ulsan HD"
+    ],
+    "code": "KR",
+    "flag": "🇰🇷",
+    "kit": "linear-gradient(145deg, #e94b58 0 78%, #173b68 78% 84%, #f4f0df 84%)",
+    "name": "South Korea",
+    "nationalStrength": 76,
+    "region": "Asia",
+    "fifaCode": "KOR",
+    "confederation": "AFC"
+  },
+  {
+    "clubs": [
+      "FUS Rabat",
+      "RS Berkane",
+      "AS FAR",
+      "Raja Club Athletic",
+      "Wydad Athletic Club"
+    ],
+    "code": "MA",
+    "flag": "🇲🇦",
+    "kit": "linear-gradient(135deg, transparent 0 46%, #176b45 46% 54%, transparent 54%), #b92f3b",
+    "name": "Morocco",
+    "nationalStrength": 80,
+    "region": "Africa",
+    "fifaCode": "MAR",
+    "confederation": "CAF"
+  },
+  {
+    "clubs": [
+      "Kano Pillars",
+      "Shooting Stars",
+      "Rivers United",
+      "Remo Stars",
+      "Enyimba"
+    ],
+    "code": "NG",
+    "flag": "🇳🇬",
+    "kit": "repeating-linear-gradient(90deg, #1e754f 0 24%, #f4f0df 24% 48%)",
+    "name": "Nigeria",
+    "nationalStrength": 79,
+    "region": "Africa",
+    "fifaCode": "NGA",
+    "confederation": "CAF"
+  },
+  {
+    "clubs": [],
+    "code": "AFG",
+    "confederation": "AFC",
+    "fifaCode": "AFG",
+    "flag": "⚽",
+    "name": "Afghanistan",
+    "nationalStrength": 63,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "ALB",
+    "confederation": "UEFA",
+    "fifaCode": "ALB",
+    "flag": "⚽",
+    "name": "Albania",
+    "nationalStrength": 80,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "ALG",
+    "confederation": "CAF",
+    "fifaCode": "ALG",
+    "flag": "⚽",
+    "name": "Algeria",
+    "nationalStrength": 70,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "ASA",
+    "confederation": "OFC",
+    "fifaCode": "ASA",
+    "flag": "⚽",
+    "name": "American Samoa",
+    "nationalStrength": 53,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "AND",
+    "confederation": "UEFA",
+    "fifaCode": "AND",
+    "flag": "⚽",
+    "name": "Andorra",
+    "nationalStrength": 80,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "ANG",
+    "confederation": "CAF",
+    "fifaCode": "ANG",
+    "flag": "⚽",
+    "name": "Angola",
+    "nationalStrength": 61,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "AIA",
+    "confederation": "CONCACAF",
+    "fifaCode": "AIA",
+    "flag": "⚽",
+    "name": "Anguilla",
+    "nationalStrength": 67,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "ATG",
+    "confederation": "CONCACAF",
+    "fifaCode": "ATG",
+    "flag": "⚽",
+    "name": "Antigua and Barbuda",
+    "nationalStrength": 59,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "ARM",
+    "confederation": "UEFA",
+    "fifaCode": "ARM",
+    "flag": "⚽",
+    "name": "Armenia",
+    "nationalStrength": 66,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "ARU",
+    "confederation": "CONCACAF",
+    "fifaCode": "ARU",
+    "flag": "⚽",
+    "name": "Aruba",
+    "nationalStrength": 65,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "AUS",
+    "confederation": "AFC",
+    "fifaCode": "AUS",
+    "flag": "⚽",
+    "name": "Australia",
+    "nationalStrength": 68,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "AUT",
+    "confederation": "UEFA",
+    "fifaCode": "AUT",
+    "flag": "⚽",
+    "name": "Austria",
+    "nationalStrength": 69,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "AZE",
+    "confederation": "UEFA",
+    "fifaCode": "AZE",
+    "flag": "⚽",
+    "name": "Azerbaijan",
+    "nationalStrength": 68,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "BAH",
+    "confederation": "CONCACAF",
+    "fifaCode": "BAH",
+    "flag": "⚽",
+    "name": "Bahamas",
+    "nationalStrength": 66,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "BHR",
+    "confederation": "AFC",
+    "fifaCode": "BHR",
+    "flag": "⚽",
+    "name": "Bahrain",
+    "nationalStrength": 64,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "BAN",
+    "confederation": "AFC",
+    "fifaCode": "BAN",
+    "flag": "⚽",
+    "name": "Bangladesh",
+    "nationalStrength": 69,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "BRB",
+    "confederation": "CONCACAF",
+    "fifaCode": "BRB",
+    "flag": "⚽",
+    "name": "Barbados",
+    "nationalStrength": 65,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "BLR",
+    "confederation": "UEFA",
+    "fifaCode": "BLR",
+    "flag": "⚽",
+    "name": "Belarus",
+    "nationalStrength": 76,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "BEL",
+    "confederation": "UEFA",
+    "fifaCode": "BEL",
+    "flag": "⚽",
+    "name": "Belgium",
+    "nationalStrength": 76,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "BLZ",
+    "confederation": "CONCACAF",
+    "fifaCode": "BLZ",
+    "flag": "⚽",
+    "name": "Belize",
+    "nationalStrength": 60,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "BEN",
+    "confederation": "CAF",
+    "fifaCode": "BEN",
+    "flag": "⚽",
+    "name": "Benin",
+    "nationalStrength": 69,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "BER",
+    "confederation": "CONCACAF",
+    "fifaCode": "BER",
+    "flag": "⚽",
+    "name": "Bermuda",
+    "nationalStrength": 61,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "BHU",
+    "confederation": "AFC",
+    "fifaCode": "BHU",
+    "flag": "⚽",
+    "name": "Bhutan",
+    "nationalStrength": 67,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "BOL",
+    "confederation": "CONMEBOL",
+    "fifaCode": "BOL",
+    "flag": "⚽",
+    "name": "Bolivia",
+    "nationalStrength": 70,
+    "region": "South America"
+  },
+  {
+    "clubs": [],
+    "code": "BIH",
+    "confederation": "UEFA",
+    "fifaCode": "BIH",
+    "flag": "⚽",
+    "name": "Bosnia and Herzegovina",
+    "nationalStrength": 79,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "BOT",
+    "confederation": "CAF",
+    "fifaCode": "BOT",
+    "flag": "⚽",
+    "name": "Botswana",
+    "nationalStrength": 72,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "VGB",
+    "confederation": "CONCACAF",
+    "fifaCode": "VGB",
+    "flag": "⚽",
+    "name": "British Virgin Islands",
+    "nationalStrength": 57,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "BRU",
+    "confederation": "AFC",
+    "fifaCode": "BRU",
+    "flag": "⚽",
+    "name": "Brunei Darussalam",
+    "nationalStrength": 59,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "BUL",
+    "confederation": "UEFA",
+    "fifaCode": "BUL",
+    "flag": "⚽",
+    "name": "Bulgaria",
+    "nationalStrength": 71,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "BFA",
+    "confederation": "CAF",
+    "fifaCode": "BFA",
+    "flag": "⚽",
+    "name": "Burkina Faso",
+    "nationalStrength": 74,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "BDI",
+    "confederation": "CAF",
+    "fifaCode": "BDI",
+    "flag": "⚽",
+    "name": "Burundi",
+    "nationalStrength": 73,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "CPV",
+    "confederation": "CAF",
+    "fifaCode": "CPV",
+    "flag": "⚽",
+    "name": "Cabo Verde",
+    "nationalStrength": 61,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "CAM",
+    "confederation": "AFC",
+    "fifaCode": "CAM",
+    "flag": "⚽",
+    "name": "Cambodia",
+    "nationalStrength": 58,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "CMR",
+    "confederation": "CAF",
+    "fifaCode": "CMR",
+    "flag": "⚽",
+    "name": "Cameroon",
+    "nationalStrength": 67,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "CAN",
+    "confederation": "CONCACAF",
+    "fifaCode": "CAN",
+    "flag": "⚽",
+    "name": "Canada",
+    "nationalStrength": 69,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "CAY",
+    "confederation": "CONCACAF",
+    "fifaCode": "CAY",
+    "flag": "⚽",
+    "name": "Cayman Islands",
+    "nationalStrength": 60,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "CTA",
+    "confederation": "CAF",
+    "fifaCode": "CTA",
+    "flag": "⚽",
+    "name": "Central African Republic",
+    "nationalStrength": 66,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "CHA",
+    "confederation": "CAF",
+    "fifaCode": "CHA",
+    "flag": "⚽",
+    "name": "Chad",
+    "nationalStrength": 63,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "CHI",
+    "confederation": "CONMEBOL",
+    "fifaCode": "CHI",
+    "flag": "⚽",
+    "name": "Chile",
+    "nationalStrength": 78,
+    "region": "South America"
+  },
+  {
+    "clubs": [],
+    "code": "CHN",
+    "confederation": "AFC",
+    "fifaCode": "CHN",
+    "flag": "⚽",
+    "name": "China PR",
+    "nationalStrength": 60,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "TPE",
+    "confederation": "AFC",
+    "fifaCode": "TPE",
+    "flag": "⚽",
+    "name": "Chinese Taipei",
+    "nationalStrength": 66,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "COM",
+    "confederation": "CAF",
+    "fifaCode": "COM",
+    "flag": "⚽",
+    "name": "Comoros",
+    "nationalStrength": 73,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "CGO",
+    "confederation": "CAF",
+    "fifaCode": "CGO",
+    "flag": "⚽",
+    "name": "Congo",
+    "nationalStrength": 65,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "COD",
+    "confederation": "CAF",
+    "fifaCode": "COD",
+    "flag": "⚽",
+    "name": "Congo DR",
+    "nationalStrength": 65,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "COK",
+    "confederation": "OFC",
+    "fifaCode": "COK",
+    "flag": "⚽",
+    "name": "Cook Islands",
+    "nationalStrength": 60,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "CRC",
+    "confederation": "CONCACAF",
+    "fifaCode": "CRC",
+    "flag": "⚽",
+    "name": "Costa Rica",
+    "nationalStrength": 64,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "CIV",
+    "confederation": "CAF",
+    "fifaCode": "CIV",
+    "flag": "⚽",
+    "name": "Côte d'Ivoire",
+    "nationalStrength": 69,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "CRO",
+    "confederation": "UEFA",
+    "fifaCode": "CRO",
+    "flag": "⚽",
+    "name": "Croatia",
+    "nationalStrength": 76,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "CUB",
+    "confederation": "CONCACAF",
+    "fifaCode": "CUB",
+    "flag": "⚽",
+    "name": "Cuba",
+    "nationalStrength": 58,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "CUW",
+    "confederation": "CONCACAF",
+    "fifaCode": "CUW",
+    "flag": "⚽",
+    "name": "Curaçao",
+    "nationalStrength": 62,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "CYP",
+    "confederation": "UEFA",
+    "fifaCode": "CYP",
+    "flag": "⚽",
+    "name": "Cyprus",
+    "nationalStrength": 79,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "CZE",
+    "confederation": "UEFA",
+    "fifaCode": "CZE",
+    "flag": "⚽",
+    "name": "Czechia",
+    "nationalStrength": 76,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "DEN",
+    "confederation": "UEFA",
+    "fifaCode": "DEN",
+    "flag": "⚽",
+    "name": "Denmark",
+    "nationalStrength": 78,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "DJI",
+    "confederation": "CAF",
+    "fifaCode": "DJI",
+    "flag": "⚽",
+    "name": "Djibouti",
+    "nationalStrength": 74,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "DMA",
+    "confederation": "CONCACAF",
+    "fifaCode": "DMA",
+    "flag": "⚽",
+    "name": "Dominica",
+    "nationalStrength": 68,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "DOM",
+    "confederation": "CONCACAF",
+    "fifaCode": "DOM",
+    "flag": "⚽",
+    "name": "Dominican Republic",
+    "nationalStrength": 70,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "PRK",
+    "confederation": "AFC",
+    "fifaCode": "PRK",
+    "flag": "⚽",
+    "name": "DPR Korea",
+    "nationalStrength": 66,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "ECU",
+    "confederation": "CONMEBOL",
+    "fifaCode": "ECU",
+    "flag": "⚽",
+    "name": "Ecuador",
+    "nationalStrength": 68,
+    "region": "South America"
+  },
+  {
+    "clubs": [],
+    "code": "EGY",
+    "confederation": "CAF",
+    "fifaCode": "EGY",
+    "flag": "⚽",
+    "name": "Egypt",
+    "nationalStrength": 72,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SLV",
+    "confederation": "CONCACAF",
+    "fifaCode": "SLV",
+    "flag": "⚽",
+    "name": "El Salvador",
+    "nationalStrength": 70,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "EQG",
+    "confederation": "CAF",
+    "fifaCode": "EQG",
+    "flag": "⚽",
+    "name": "Equatorial Guinea",
+    "nationalStrength": 69,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "ERI",
+    "confederation": "CAF",
+    "fifaCode": "ERI",
+    "flag": "⚽",
+    "name": "Eritrea",
+    "nationalStrength": 73,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "EST",
+    "confederation": "UEFA",
+    "fifaCode": "EST",
+    "flag": "⚽",
+    "name": "Estonia",
+    "nationalStrength": 79,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "SWZ",
+    "confederation": "CAF",
+    "fifaCode": "SWZ",
+    "flag": "⚽",
+    "name": "Eswatini",
+    "nationalStrength": 64,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "ETH",
+    "confederation": "CAF",
+    "fifaCode": "ETH",
+    "flag": "⚽",
+    "name": "Ethiopia",
+    "nationalStrength": 68,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "FRO",
+    "confederation": "UEFA",
+    "fifaCode": "FRO",
+    "flag": "⚽",
+    "name": "Faroe Islands",
+    "nationalStrength": 80,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "FIJ",
+    "confederation": "OFC",
+    "fifaCode": "FIJ",
+    "flag": "⚽",
+    "name": "Fiji",
+    "nationalStrength": 52,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "FIN",
+    "confederation": "UEFA",
+    "fifaCode": "FIN",
+    "flag": "⚽",
+    "name": "Finland",
+    "nationalStrength": 78,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "GAB",
+    "confederation": "CAF",
+    "fifaCode": "GAB",
+    "flag": "⚽",
+    "name": "Gabon",
+    "nationalStrength": 70,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "GEO",
+    "confederation": "UEFA",
+    "fifaCode": "GEO",
+    "flag": "⚽",
+    "name": "Georgia",
+    "nationalStrength": 71,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "GHA",
+    "confederation": "CAF",
+    "fifaCode": "GHA",
+    "flag": "⚽",
+    "name": "Ghana",
+    "nationalStrength": 64,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "GIB",
+    "confederation": "UEFA",
+    "fifaCode": "GIB",
+    "flag": "⚽",
+    "name": "Gibraltar",
+    "nationalStrength": 80,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "GRE",
+    "confederation": "UEFA",
+    "fifaCode": "GRE",
+    "flag": "⚽",
+    "name": "Greece",
+    "nationalStrength": 69,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "GRN",
+    "confederation": "CONCACAF",
+    "fifaCode": "GRN",
+    "flag": "⚽",
+    "name": "Grenada",
+    "nationalStrength": 67,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "GUM",
+    "confederation": "AFC",
+    "fifaCode": "GUM",
+    "flag": "⚽",
+    "name": "Guam",
+    "nationalStrength": 66,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "GUA",
+    "confederation": "CONCACAF",
+    "fifaCode": "GUA",
+    "flag": "⚽",
+    "name": "Guatemala",
+    "nationalStrength": 61,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "GUI",
+    "confederation": "CAF",
+    "fifaCode": "GUI",
+    "flag": "⚽",
+    "name": "Guinea",
+    "nationalStrength": 73,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "GNB",
+    "confederation": "CAF",
+    "fifaCode": "GNB",
+    "flag": "⚽",
+    "name": "Guinea-Bissau",
+    "nationalStrength": 67,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "GUY",
+    "confederation": "CONCACAF",
+    "fifaCode": "GUY",
+    "flag": "⚽",
+    "name": "Guyana",
+    "nationalStrength": 68,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "HAI",
+    "confederation": "CONCACAF",
+    "fifaCode": "HAI",
+    "flag": "⚽",
+    "name": "Haiti",
+    "nationalStrength": 66,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "HON",
+    "confederation": "CONCACAF",
+    "fifaCode": "HON",
+    "flag": "⚽",
+    "name": "Honduras",
+    "nationalStrength": 71,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "HKG",
+    "confederation": "AFC",
+    "fifaCode": "HKG",
+    "flag": "⚽",
+    "name": "Hong Kong, China",
+    "nationalStrength": 67,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "HUN",
+    "confederation": "UEFA",
+    "fifaCode": "HUN",
+    "flag": "⚽",
+    "name": "Hungary",
+    "nationalStrength": 70,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "ISL",
+    "confederation": "UEFA",
+    "fifaCode": "ISL",
+    "flag": "⚽",
+    "name": "Iceland",
+    "nationalStrength": 72,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "IND",
+    "confederation": "AFC",
+    "fifaCode": "IND",
+    "flag": "⚽",
+    "name": "India",
+    "nationalStrength": 68,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "IDN",
+    "confederation": "AFC",
+    "fifaCode": "IDN",
+    "flag": "⚽",
+    "name": "Indonesia",
+    "nationalStrength": 60,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "IRN",
+    "confederation": "AFC",
+    "fifaCode": "IRN",
+    "flag": "⚽",
+    "name": "IR Iran",
+    "nationalStrength": 61,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "IRQ",
+    "confederation": "AFC",
+    "fifaCode": "IRQ",
+    "flag": "⚽",
+    "name": "Iraq",
+    "nationalStrength": 69,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "ISR",
+    "confederation": "UEFA",
+    "fifaCode": "ISR",
+    "flag": "⚽",
+    "name": "Israel",
+    "nationalStrength": 75,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "JAM",
+    "confederation": "CONCACAF",
+    "fifaCode": "JAM",
+    "flag": "⚽",
+    "name": "Jamaica",
+    "nationalStrength": 62,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "JOR",
+    "confederation": "AFC",
+    "fifaCode": "JOR",
+    "flag": "⚽",
+    "name": "Jordan",
+    "nationalStrength": 64,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "KAZ",
+    "confederation": "UEFA",
+    "fifaCode": "KAZ",
+    "flag": "⚽",
+    "name": "Kazakhstan",
+    "nationalStrength": 77,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "KEN",
+    "confederation": "CAF",
+    "fifaCode": "KEN",
+    "flag": "⚽",
+    "name": "Kenya",
+    "nationalStrength": 72,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "KOS",
+    "confederation": "UEFA",
+    "fifaCode": "KOS",
+    "flag": "⚽",
+    "name": "Kosovo",
+    "nationalStrength": 79,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "KUW",
+    "confederation": "AFC",
+    "fifaCode": "KUW",
+    "flag": "⚽",
+    "name": "Kuwait",
+    "nationalStrength": 62,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "KGZ",
+    "confederation": "AFC",
+    "fifaCode": "KGZ",
+    "flag": "⚽",
+    "name": "Kyrgyz Republic",
+    "nationalStrength": 67,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "LAO",
+    "confederation": "AFC",
+    "fifaCode": "LAO",
+    "flag": "⚽",
+    "name": "Laos",
+    "nationalStrength": 62,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "LVA",
+    "confederation": "UEFA",
+    "fifaCode": "LVA",
+    "flag": "⚽",
+    "name": "Latvia",
+    "nationalStrength": 73,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "LBN",
+    "confederation": "AFC",
+    "fifaCode": "LBN",
+    "flag": "⚽",
+    "name": "Lebanon",
+    "nationalStrength": 58,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "LES",
+    "confederation": "CAF",
+    "fifaCode": "LES",
+    "flag": "⚽",
+    "name": "Lesotho",
+    "nationalStrength": 61,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "LBR",
+    "confederation": "CAF",
+    "fifaCode": "LBR",
+    "flag": "⚽",
+    "name": "Liberia",
+    "nationalStrength": 71,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "LBY",
+    "confederation": "CAF",
+    "fifaCode": "LBY",
+    "flag": "⚽",
+    "name": "Libya",
+    "nationalStrength": 63,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "LIE",
+    "confederation": "UEFA",
+    "fifaCode": "LIE",
+    "flag": "⚽",
+    "name": "Liechtenstein",
+    "nationalStrength": 70,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "LTU",
+    "confederation": "UEFA",
+    "fifaCode": "LTU",
+    "flag": "⚽",
+    "name": "Lithuania",
+    "nationalStrength": 70,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "LUX",
+    "confederation": "UEFA",
+    "fifaCode": "LUX",
+    "flag": "⚽",
+    "name": "Luxembourg",
+    "nationalStrength": 78,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "MAC",
+    "confederation": "AFC",
+    "fifaCode": "MAC",
+    "flag": "⚽",
+    "name": "Macau",
+    "nationalStrength": 61,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "MAD",
+    "confederation": "CAF",
+    "fifaCode": "MAD",
+    "flag": "⚽",
+    "name": "Madagascar",
+    "nationalStrength": 72,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "MWI",
+    "confederation": "CAF",
+    "fifaCode": "MWI",
+    "flag": "⚽",
+    "name": "Malawi",
+    "nationalStrength": 65,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "MAS",
+    "confederation": "AFC",
+    "fifaCode": "MAS",
+    "flag": "⚽",
+    "name": "Malaysia",
+    "nationalStrength": 62,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "MDV",
+    "confederation": "AFC",
+    "fifaCode": "MDV",
+    "flag": "⚽",
+    "name": "Maldives",
+    "nationalStrength": 60,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "MLI",
+    "confederation": "CAF",
+    "fifaCode": "MLI",
+    "flag": "⚽",
+    "name": "Mali",
+    "nationalStrength": 69,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "MLT",
+    "confederation": "UEFA",
+    "fifaCode": "MLT",
+    "flag": "⚽",
+    "name": "Malta",
+    "nationalStrength": 72,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "MTN",
+    "confederation": "CAF",
+    "fifaCode": "MTN",
+    "flag": "⚽",
+    "name": "Mauritania",
+    "nationalStrength": 66,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "MRI",
+    "confederation": "CAF",
+    "fifaCode": "MRI",
+    "flag": "⚽",
+    "name": "Mauritius",
+    "nationalStrength": 64,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "MDA",
+    "confederation": "UEFA",
+    "fifaCode": "MDA",
+    "flag": "⚽",
+    "name": "Moldova",
+    "nationalStrength": 79,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "MNG",
+    "confederation": "AFC",
+    "fifaCode": "MNG",
+    "flag": "⚽",
+    "name": "Mongolia",
+    "nationalStrength": 58,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "MNE",
+    "confederation": "UEFA",
+    "fifaCode": "MNE",
+    "flag": "⚽",
+    "name": "Montenegro",
+    "nationalStrength": 79,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "MSR",
+    "confederation": "CONCACAF",
+    "fifaCode": "MSR",
+    "flag": "⚽",
+    "name": "Montserrat",
+    "nationalStrength": 70,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "MOZ",
+    "confederation": "CAF",
+    "fifaCode": "MOZ",
+    "flag": "⚽",
+    "name": "Mozambique",
+    "nationalStrength": 67,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "MYA",
+    "confederation": "AFC",
+    "fifaCode": "MYA",
+    "flag": "⚽",
+    "name": "Myanmar",
+    "nationalStrength": 68,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "NAM",
+    "confederation": "CAF",
+    "fifaCode": "NAM",
+    "flag": "⚽",
+    "name": "Namibia",
+    "nationalStrength": 70,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "NEP",
+    "confederation": "AFC",
+    "fifaCode": "NEP",
+    "flag": "⚽",
+    "name": "Nepal",
+    "nationalStrength": 62,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "NCL",
+    "confederation": "OFC",
+    "fifaCode": "NCL",
+    "flag": "⚽",
+    "name": "New Caledonia",
+    "nationalStrength": 55,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "NZL",
+    "confederation": "OFC",
+    "fifaCode": "NZL",
+    "flag": "⚽",
+    "name": "New Zealand",
+    "nationalStrength": 54,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "NCA",
+    "confederation": "CONCACAF",
+    "fifaCode": "NCA",
+    "flag": "⚽",
+    "name": "Nicaragua",
+    "nationalStrength": 65,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "NIG",
+    "confederation": "CAF",
+    "fifaCode": "NIG",
+    "flag": "⚽",
+    "name": "Niger",
+    "nationalStrength": 74,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "MKD",
+    "confederation": "UEFA",
+    "fifaCode": "MKD",
+    "flag": "⚽",
+    "name": "North Macedonia",
+    "nationalStrength": 66,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "NIR",
+    "confederation": "UEFA",
+    "fifaCode": "NIR",
+    "flag": "⚽",
+    "name": "Northern Ireland",
+    "nationalStrength": 68,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "NOR",
+    "confederation": "UEFA",
+    "fifaCode": "NOR",
+    "flag": "⚽",
+    "name": "Norway",
+    "nationalStrength": 77,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "OMA",
+    "confederation": "AFC",
+    "fifaCode": "OMA",
+    "flag": "⚽",
+    "name": "Oman",
+    "nationalStrength": 64,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "PAK",
+    "confederation": "AFC",
+    "fifaCode": "PAK",
+    "flag": "⚽",
+    "name": "Pakistan",
+    "nationalStrength": 67,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "PLE",
+    "confederation": "AFC",
+    "fifaCode": "PLE",
+    "flag": "⚽",
+    "name": "Palestine",
+    "nationalStrength": 60,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "PAN",
+    "confederation": "CONCACAF",
+    "fifaCode": "PAN",
+    "flag": "⚽",
+    "name": "Panama",
+    "nationalStrength": 63,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "PNG",
+    "confederation": "OFC",
+    "fifaCode": "PNG",
+    "flag": "⚽",
+    "name": "Papua New Guinea",
+    "nationalStrength": 60,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "PAR",
+    "confederation": "CONMEBOL",
+    "fifaCode": "PAR",
+    "flag": "⚽",
+    "name": "Paraguay",
+    "nationalStrength": 69,
+    "region": "South America"
+  },
+  {
+    "clubs": [],
+    "code": "PER",
+    "confederation": "CONMEBOL",
+    "fifaCode": "PER",
+    "flag": "⚽",
+    "name": "Peru",
+    "nationalStrength": 69,
+    "region": "South America"
+  },
+  {
+    "clubs": [],
+    "code": "PHI",
+    "confederation": "AFC",
+    "fifaCode": "PHI",
+    "flag": "⚽",
+    "name": "Philippines",
+    "nationalStrength": 58,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "PUR",
+    "confederation": "CONCACAF",
+    "fifaCode": "PUR",
+    "flag": "⚽",
+    "name": "Puerto Rico",
+    "nationalStrength": 57,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "QAT",
+    "confederation": "AFC",
+    "fifaCode": "QAT",
+    "flag": "⚽",
+    "name": "Qatar",
+    "nationalStrength": 68,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "IRL",
+    "confederation": "UEFA",
+    "fifaCode": "IRL",
+    "flag": "⚽",
+    "name": "Republic of Ireland",
+    "nationalStrength": 67,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "ROU",
+    "confederation": "UEFA",
+    "fifaCode": "ROU",
+    "flag": "⚽",
+    "name": "Romania",
+    "nationalStrength": 67,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "RUS",
+    "confederation": "UEFA",
+    "fifaCode": "RUS",
+    "flag": "⚽",
+    "name": "Russia",
+    "nationalStrength": 68,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "RWA",
+    "confederation": "CAF",
+    "fifaCode": "RWA",
+    "flag": "⚽",
+    "name": "Rwanda",
+    "nationalStrength": 68,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SAM",
+    "confederation": "OFC",
+    "fifaCode": "SAM",
+    "flag": "⚽",
+    "name": "Samoa",
+    "nationalStrength": 54,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "SMR",
+    "confederation": "UEFA",
+    "fifaCode": "SMR",
+    "flag": "⚽",
+    "name": "San Marino",
+    "nationalStrength": 78,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "STP",
+    "confederation": "CAF",
+    "fifaCode": "STP",
+    "flag": "⚽",
+    "name": "São Tomé and Príncipe",
+    "nationalStrength": 74,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "KSA",
+    "confederation": "AFC",
+    "fifaCode": "KSA",
+    "flag": "⚽",
+    "name": "Saudi Arabia",
+    "nationalStrength": 65,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "SCO",
+    "confederation": "UEFA",
+    "fifaCode": "SCO",
+    "flag": "⚽",
+    "name": "Scotland",
+    "nationalStrength": 69,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "SEN",
+    "confederation": "CAF",
+    "fifaCode": "SEN",
+    "flag": "⚽",
+    "name": "Senegal",
+    "nationalStrength": 63,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SRB",
+    "confederation": "UEFA",
+    "fifaCode": "SRB",
+    "flag": "⚽",
+    "name": "Serbia",
+    "nationalStrength": 67,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "SEY",
+    "confederation": "CAF",
+    "fifaCode": "SEY",
+    "flag": "⚽",
+    "name": "Seychelles",
+    "nationalStrength": 61,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SLE",
+    "confederation": "CAF",
+    "fifaCode": "SLE",
+    "flag": "⚽",
+    "name": "Sierra Leone",
+    "nationalStrength": 72,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SGP",
+    "confederation": "AFC",
+    "fifaCode": "SGP",
+    "flag": "⚽",
+    "name": "Singapore",
+    "nationalStrength": 67,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "SVK",
+    "confederation": "UEFA",
+    "fifaCode": "SVK",
+    "flag": "⚽",
+    "name": "Slovakia",
+    "nationalStrength": 68,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "SVN",
+    "confederation": "UEFA",
+    "fifaCode": "SVN",
+    "flag": "⚽",
+    "name": "Slovenia",
+    "nationalStrength": 73,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "SOL",
+    "confederation": "OFC",
+    "fifaCode": "SOL",
+    "flag": "⚽",
+    "name": "Solomon Islands",
+    "nationalStrength": 52,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "SOM",
+    "confederation": "CAF",
+    "fifaCode": "SOM",
+    "flag": "⚽",
+    "name": "Somalia",
+    "nationalStrength": 62,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "RSA",
+    "confederation": "CAF",
+    "fifaCode": "RSA",
+    "flag": "⚽",
+    "name": "South Africa",
+    "nationalStrength": 62,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SSD",
+    "confederation": "CAF",
+    "fifaCode": "SSD",
+    "flag": "⚽",
+    "name": "South Sudan",
+    "nationalStrength": 72,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SRI",
+    "confederation": "AFC",
+    "fifaCode": "SRI",
+    "flag": "⚽",
+    "name": "Sri Lanka",
+    "nationalStrength": 67,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "SKN",
+    "confederation": "CONCACAF",
+    "fifaCode": "SKN",
+    "flag": "⚽",
+    "name": "St Kitts and Nevis",
+    "nationalStrength": 58,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "LCA",
+    "confederation": "CONCACAF",
+    "fifaCode": "LCA",
+    "flag": "⚽",
+    "name": "St Lucia",
+    "nationalStrength": 60,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "VIN",
+    "confederation": "CONCACAF",
+    "fifaCode": "VIN",
+    "flag": "⚽",
+    "name": "St Vincent and the Grenadines",
+    "nationalStrength": 70,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "SDN",
+    "confederation": "CAF",
+    "fifaCode": "SDN",
+    "flag": "⚽",
+    "name": "Sudan",
+    "nationalStrength": 62,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "SUR",
+    "confederation": "CONCACAF",
+    "fifaCode": "SUR",
+    "flag": "⚽",
+    "name": "Suriname",
+    "nationalStrength": 67,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "SWE",
+    "confederation": "UEFA",
+    "fifaCode": "SWE",
+    "flag": "⚽",
+    "name": "Sweden",
+    "nationalStrength": 80,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "SUI",
+    "confederation": "UEFA",
+    "fifaCode": "SUI",
+    "flag": "⚽",
+    "name": "Switzerland",
+    "nationalStrength": 70,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "SYR",
+    "confederation": "AFC",
+    "fifaCode": "SYR",
+    "flag": "⚽",
+    "name": "Syria",
+    "nationalStrength": 60,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "TAH",
+    "confederation": "OFC",
+    "fifaCode": "TAH",
+    "flag": "⚽",
+    "name": "Tahiti",
+    "nationalStrength": 53,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "TJK",
+    "confederation": "AFC",
+    "fifaCode": "TJK",
+    "flag": "⚽",
+    "name": "Tajikistan",
+    "nationalStrength": 58,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "TAN",
+    "confederation": "CAF",
+    "fifaCode": "TAN",
+    "flag": "⚽",
+    "name": "Tanzania",
+    "nationalStrength": 70,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "THA",
+    "confederation": "AFC",
+    "fifaCode": "THA",
+    "flag": "⚽",
+    "name": "Thailand",
+    "nationalStrength": 66,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "GAM",
+    "confederation": "CAF",
+    "fifaCode": "GAM",
+    "flag": "⚽",
+    "name": "The Gambia",
+    "nationalStrength": 69,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "TLS",
+    "confederation": "AFC",
+    "fifaCode": "TLS",
+    "flag": "⚽",
+    "name": "Timor-Leste",
+    "nationalStrength": 59,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "TOG",
+    "confederation": "CAF",
+    "fifaCode": "TOG",
+    "flag": "⚽",
+    "name": "Togo",
+    "nationalStrength": 65,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "TGA",
+    "confederation": "OFC",
+    "fifaCode": "TGA",
+    "flag": "⚽",
+    "name": "Tonga",
+    "nationalStrength": 63,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "TRI",
+    "confederation": "CONCACAF",
+    "fifaCode": "TRI",
+    "flag": "⚽",
+    "name": "Trinidad and Tobago",
+    "nationalStrength": 68,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "TUN",
+    "confederation": "CAF",
+    "fifaCode": "TUN",
+    "flag": "⚽",
+    "name": "Tunisia",
+    "nationalStrength": 74,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "TUR",
+    "confederation": "UEFA",
+    "fifaCode": "TUR",
+    "flag": "⚽",
+    "name": "Türkiye",
+    "nationalStrength": 75,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "TKM",
+    "confederation": "AFC",
+    "fifaCode": "TKM",
+    "flag": "⚽",
+    "name": "Turkmenistan",
+    "nationalStrength": 69,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "TCA",
+    "confederation": "CONCACAF",
+    "fifaCode": "TCA",
+    "flag": "⚽",
+    "name": "Turks and Caicos Islands",
+    "nationalStrength": 59,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "UGA",
+    "confederation": "CAF",
+    "fifaCode": "UGA",
+    "flag": "⚽",
+    "name": "Uganda",
+    "nationalStrength": 68,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "UKR",
+    "confederation": "UEFA",
+    "fifaCode": "UKR",
+    "flag": "⚽",
+    "name": "Ukraine",
+    "nationalStrength": 78,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "UAE",
+    "confederation": "AFC",
+    "fifaCode": "UAE",
+    "flag": "⚽",
+    "name": "United Arab Emirates",
+    "nationalStrength": 65,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "URU",
+    "confederation": "CONMEBOL",
+    "fifaCode": "URU",
+    "flag": "⚽",
+    "name": "Uruguay",
+    "nationalStrength": 82,
+    "region": "South America"
+  },
+  {
+    "clubs": [],
+    "code": "VIR",
+    "confederation": "CONCACAF",
+    "fifaCode": "VIR",
+    "flag": "⚽",
+    "name": "US Virgin Islands",
+    "nationalStrength": 66,
+    "region": "North America"
+  },
+  {
+    "clubs": [],
+    "code": "UZB",
+    "confederation": "AFC",
+    "fifaCode": "UZB",
+    "flag": "⚽",
+    "name": "Uzbekistan",
+    "nationalStrength": 62,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "VAN",
+    "confederation": "OFC",
+    "fifaCode": "VAN",
+    "flag": "⚽",
+    "name": "Vanuatu",
+    "nationalStrength": 53,
+    "region": "Oceania"
+  },
+  {
+    "clubs": [],
+    "code": "VEN",
+    "confederation": "CONMEBOL",
+    "fifaCode": "VEN",
+    "flag": "⚽",
+    "name": "Venezuela",
+    "nationalStrength": 81,
+    "region": "South America"
+  },
+  {
+    "clubs": [],
+    "code": "VIE",
+    "confederation": "AFC",
+    "fifaCode": "VIE",
+    "flag": "⚽",
+    "name": "Vietnam",
+    "nationalStrength": 65,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "WAL",
+    "confederation": "UEFA",
+    "fifaCode": "WAL",
+    "flag": "⚽",
+    "name": "Wales",
+    "nationalStrength": 73,
+    "region": "Europe"
+  },
+  {
+    "clubs": [],
+    "code": "YEM",
+    "confederation": "AFC",
+    "fifaCode": "YEM",
+    "flag": "⚽",
+    "name": "Yemen",
+    "nationalStrength": 70,
+    "region": "Asia"
+  },
+  {
+    "clubs": [],
+    "code": "ZAM",
+    "confederation": "CAF",
+    "fifaCode": "ZAM",
+    "flag": "⚽",
+    "name": "Zambia",
+    "nationalStrength": 66,
+    "region": "Africa"
+  },
+  {
+    "clubs": [],
+    "code": "ZIM",
+    "confederation": "CAF",
+    "fifaCode": "ZIM",
+    "flag": "⚽",
+    "name": "Zimbabwe",
+    "nationalStrength": 63,
+    "region": "Africa"
+  }
+]

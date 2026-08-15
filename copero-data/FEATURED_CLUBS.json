@@ -1,0 +1,597 @@
+[
+  {
+    "name": "Tigre",
+    "level": 1,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Argentinos Juniors",
+    "level": 2,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "San Lorenzo",
+    "level": 3,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Boca Juniors",
+    "level": 4,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "River Plate",
+    "level": 5,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Bahia",
+    "level": 1,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Santos",
+    "level": 2,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Corinthians",
+    "level": 3,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Palmeiras",
+    "level": 4,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Flamengo",
+    "level": 5,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Pumas UNAM",
+    "level": 1,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Cruz Azul",
+    "level": 2,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Guadalajara",
+    "level": 3,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Tigres UANL",
+    "level": 4,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Club América",
+    "level": 5,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Austin FC",
+    "level": 1,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Atlanta United",
+    "level": 2,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Seattle Sounders FC",
+    "level": 3,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "LA Galaxy",
+    "level": 4,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Inter Miami CF",
+    "level": 5,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Deportivo Cali",
+    "level": 1,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Junior FC",
+    "level": 2,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "América de Cali",
+    "level": 3,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Millonarios",
+    "level": 4,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Atlético Nacional",
+    "level": 5,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Chelsea",
+    "level": 1,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Manchester United",
+    "level": 2,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Arsenal",
+    "level": 3,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Liverpool",
+    "level": 4,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Manchester City",
+    "level": 5,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Sevilla FC",
+    "level": 1,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Athletic Club",
+    "level": 2,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Atlético de Madrid",
+    "level": 3,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Barcelona",
+    "level": 4,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Real Madrid",
+    "level": 5,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Lille OSC",
+    "level": 1,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Olympique Lyonnais",
+    "level": 2,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AS Monaco",
+    "level": 3,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Olympique de Marseille",
+    "level": 4,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Paris Saint-Germain",
+    "level": 5,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Eintracht Frankfurt",
+    "level": 1,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "RB Leipzig",
+    "level": 2,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Bayer 04 Leverkusen",
+    "level": 3,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Borussia Dortmund",
+    "level": 4,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Bayern München",
+    "level": 5,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AS Roma",
+    "level": 1,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "SSC Napoli",
+    "level": 2,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Juventus",
+    "level": 3,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AC Milan",
+    "level": 4,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Inter",
+    "level": 5,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Vitória SC",
+    "level": 1,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "SC Braga",
+    "level": 2,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Sporting CP",
+    "level": 3,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Porto",
+    "level": 4,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "SL Benfica",
+    "level": 5,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Wisła Kraków",
+    "level": 1,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Raków Częstochowa",
+    "level": 2,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Jagiellonia Białystok",
+    "level": 3,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Lech Poznań",
+    "level": 4,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Legia Warszawa",
+    "level": 5,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Utrecht",
+    "level": 1,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AZ",
+    "level": 2,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Feyenoord",
+    "level": 3,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "PSV",
+    "level": 4,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Ajax",
+    "level": 5,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Tokyo",
+    "level": 1,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Kawasaki Frontale",
+    "level": 2,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Yokohama F. Marinos",
+    "level": 3,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Urawa Red Diamonds",
+    "level": 4,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Vissel Kobe",
+    "level": 5,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Suwon Samsung Bluewings",
+    "level": 1,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Seoul",
+    "level": 2,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Pohang Steelers",
+    "level": 3,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Jeonbuk Hyundai Motors",
+    "level": 4,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Ulsan HD",
+    "level": 5,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FUS Rabat",
+    "level": 1,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "RS Berkane",
+    "level": 2,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AS FAR",
+    "level": 3,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Raja Club Athletic",
+    "level": 4,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Wydad Athletic Club",
+    "level": 5,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Kano Pillars",
+    "level": 1,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Shooting Stars",
+    "level": 2,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Rivers United",
+    "level": 3,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Remo Stars",
+    "level": 4,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Enyimba",
+    "level": 5,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  }
+]

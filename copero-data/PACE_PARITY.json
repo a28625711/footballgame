@@ -1,0 +1,26 @@
+{
+  "1": {
+    "lowRotationPeriods": 3,
+    "personalEventCount": [
+      6,
+      7
+    ],
+    "substitutePeriods": 2
+  },
+  "2": {
+    "lowRotationPeriods": 2,
+    "personalEventCount": [
+      3,
+      4
+    ],
+    "substitutePeriods": 1
+  },
+  "3": {
+    "lowRotationPeriods": 2,
+    "personalEventCount": [
+      2,
+      3
+    ],
+    "substitutePeriods": 1
+  }
+}

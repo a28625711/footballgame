@@ -1,0 +1,17 @@
+# 临时文件
+*.tmp
+*.log
+__pycache__/
+*.pyc
+
+# 备份文件
+*.bak
+
+# 快照目录
+career-sim-snapshot*/
+
+# 下载的开源项目（90MB，不入库）
+open-source/
+
+# 临时脚本
+/temp/

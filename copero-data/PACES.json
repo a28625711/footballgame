@@ -1,0 +1,17 @@
+[
+  {
+    "detail": "A decision every season",
+    "name": "Intense",
+    "value": 1
+  },
+  {
+    "detail": "A decision every 2 seasons",
+    "name": "Normal",
+    "value": 2
+  },
+  {
+    "detail": "A decision every 3 seasons",
+    "name": "Express",
+    "value": 3
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "AFC Asian Cup": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/afc-asian-cup.png"
+  },
+  "Africa Cup of Nations": {
+    "contrast": "none",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/africa-cup-of-nations.png"
+  },
+  "CAF Champions League": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/caf-champions-league.png"
+  },
+  "CAF Confederation Cup": {
+    "contrast": "light_plate",
+    "honour": "Continental secondary champion",
+    "src": "/assets/trophies/caf-confederation-cup.png"
+  },
+  "CONMEBOL Copa América": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/conmebol-copa-america.png"
+  },
+  "CONMEBOL Libertadores": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/conmebol-libertadores.png"
+  },
+  "CONMEBOL Sudamericana": {
+    "contrast": "light_plate",
+    "honour": "Continental secondary champion",
+    "src": "/assets/trophies/conmebol-sudamericana.png"
+  },
+  "Concacaf Champions Cup": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/concacaf-champions-cup.png"
+  },
+  "Concacaf Gold Cup": {
+    "contrast": "none",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/concacaf-gold-cup.png"
+  },
+  "OFC Men's Nations Cup": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/ofc-mens-nations-cup.png"
+  },
+  "UEFA Champions League": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/uefa-champions-league.png"
+  },
+  "UEFA Europa League": {
+    "contrast": "light_plate",
+    "honour": "Continental secondary champion",
+    "src": "/assets/trophies/uefa-europa-league.png"
+  },
+  "UEFA European Championship": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/uefa-european-championship.png"
+  },
+  "World Championship": {
+    "contrast": "none",
+    "honour": "World champion",
+    "src": "/assets/trophies/world-championship.png"
+  },
+  "World Club Championship": {
+    "contrast": "light_plate",
+    "honour": "Club world champion",
+    "src": "/assets/trophies/world-club-championship.png"
+  }
+}

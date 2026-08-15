@@ -1,0 +1,1268 @@
+{
+  "AFG": {
+    "background": "linear-gradient(108.41deg, #000001 0 65%, #009900 65% 78%, #bf0000 78%)",
+    "primary": "#000001",
+    "secondary": "#009900",
+    "tertiary": "#bf0000"
+  },
+  "AIA": {
+    "background": "linear-gradient(112.79deg, #012169 0 64%, #ff9900 64% 79%, #ffffff 79%)",
+    "primary": "#012169",
+    "secondary": "#ff9900",
+    "tertiary": "#ffffff"
+  },
+  "ALB": {
+    "background": "linear-gradient(109.14deg, #000001 0 66%, #f4f0df 66% 80%, #000001 80%)",
+    "primary": "#000001",
+    "secondary": "#f4f0df",
+    "tertiary": "#000001"
+  },
+  "ALG": {
+    "background": "linear-gradient(109.87deg, #ffffff 0 67%, #006233 67% 82%, #d21034 82%)",
+    "primary": "#ffffff",
+    "secondary": "#006233",
+    "tertiary": "#d21034"
+  },
+  "AND": {
+    "background": "linear-gradient(111.33deg, #d0103a 0 62%, #fedf00 62% 75%, #0018a8 75%)",
+    "primary": "#d0103a",
+    "secondary": "#fedf00",
+    "tertiary": "#0018a8"
+  },
+  "ANG": {
+    "background": "linear-gradient(112.06deg, #000001 0 63%, #ffec00 63% 77%, #000001 77%)",
+    "primary": "#000001",
+    "secondary": "#ffec00",
+    "tertiary": "#000001"
+  },
+  "ARG": {
+    "background": "linear-gradient(96deg, #74acdf 0 62%, #ffffff 62% 74%, #f6b40e 74%)",
+    "primary": "#74acdf",
+    "secondary": "#ffffff",
+    "tertiary": "#f6b40e"
+  },
+  "ARM": {
+    "background": "linear-gradient(114.25deg, #d90012 0 66%, #0033a0 66% 79%, #f2a800 79%)",
+    "primary": "#d90012",
+    "secondary": "#0033a0",
+    "tertiary": "#f2a800"
+  },
+  "ARU": {
+    "background": "linear-gradient(114.98deg, #3399cc 0 67%, #ffff00 67% 81%, #99cccc 81%)",
+    "primary": "#3399cc",
+    "secondary": "#ffff00",
+    "tertiary": "#99cccc"
+  },
+  "ASA": {
+    "background": "linear-gradient(110.60deg, #000066 0 68%, #bd1021 68% 80%, #ffffff 80%)",
+    "primary": "#000066",
+    "secondary": "#bd1021",
+    "tertiary": "#ffffff"
+  },
+  "ATG": {
+    "background": "linear-gradient(113.52deg, #ffffff 0 65%, #000001 65% 77%, #0072c6 77%)",
+    "primary": "#ffffff",
+    "secondary": "#000001",
+    "tertiary": "#0072c6"
+  },
+  "AUS": {
+    "background": "linear-gradient(115.71deg, #00008b 0 68%, #ffffff 68% 83%, #00008b 83%)",
+    "primary": "#00008b",
+    "secondary": "#ffffff",
+    "tertiary": "#00008b"
+  },
+  "AUT": {
+    "background": "linear-gradient(116.44deg, #ffffff 0 62%, #c8102e 62% 74%, #ffffff 74%)",
+    "primary": "#ffffff",
+    "secondary": "#c8102e",
+    "tertiary": "#ffffff"
+  },
+  "AZE": {
+    "background": "linear-gradient(117.17deg, #3f9c35 0 63%, #ed2939 63% 76%, #00b9e4 76%)",
+    "primary": "#3f9c35",
+    "secondary": "#ed2939",
+    "tertiary": "#00b9e4"
+  },
+  "BAH": {
+    "background": "linear-gradient(117.90deg, #ffffff 0 64%, #ffe900 64% 78%, #08ced6 78%)",
+    "primary": "#ffffff",
+    "secondary": "#ffe900",
+    "tertiary": "#08ced6"
+  },
+  "BAN": {
+    "background": "linear-gradient(119.36deg, #006a4e 0 66%, #f42a41 66% 78%, #006a4e 78%)",
+    "primary": "#006a4e",
+    "secondary": "#f42a41",
+    "tertiary": "#006a4e"
+  },
+  "BDI": {
+    "background": "linear-gradient(130.31deg, #18b637 0 67%, #cf0921 67% 82%, #ffffff 82%)",
+    "primary": "#18b637",
+    "secondary": "#cf0921",
+    "tertiary": "#ffffff"
+  },
+  "BEL": {
+    "background": "linear-gradient(121.55deg, #f31830 0 62%, #000001 62% 77%, #ffd90c 77%)",
+    "primary": "#f31830",
+    "secondary": "#000001",
+    "tertiary": "#ffd90c"
+  },
+  "BEN": {
+    "background": "linear-gradient(123.01deg, #319400 0 64%, #ffd600 64% 77%, #de2110 77%)",
+    "primary": "#319400",
+    "secondary": "#ffd600",
+    "tertiary": "#de2110"
+  },
+  "BER": {
+    "background": "linear-gradient(123.74deg, #cf142b 0 65%, #ffffff 65% 79%, #2f8f22 79%)",
+    "primary": "#cf142b",
+    "secondary": "#ffffff",
+    "tertiary": "#2f8f22"
+  },
+  "BFA": {
+    "background": "linear-gradient(129.58deg, #de0000 0 66%, #35a100 66% 80%, #fff300 80%)",
+    "primary": "#de0000",
+    "secondary": "#35a100",
+    "tertiary": "#fff300"
+  },
+  "BHR": {
+    "background": "linear-gradient(118.63deg, #ffffff 0 65%, #ce1126 65% 80%, #ffffff 80%)",
+    "primary": "#ffffff",
+    "secondary": "#ce1126",
+    "tertiary": "#ffffff"
+  },
+  "BHU": {
+    "background": "linear-gradient(124.47deg, #ffd520 0 66%, #ff4e12 66% 81%, #ffffff 81%)",
+    "primary": "#ffd520",
+    "secondary": "#ff4e12",
+    "tertiary": "#ffffff"
+  },
+  "BIH": {
+    "background": "linear-gradient(125.93deg, #000099 0 68%, #ffcc00 68% 81%, #ffffff 81%)",
+    "primary": "#000099",
+    "secondary": "#ffcc00",
+    "tertiary": "#ffffff"
+  },
+  "BLR": {
+    "background": "linear-gradient(120.82deg, #ce1720 0 68%, #ffffff 68% 82%, #007c30 82%)",
+    "primary": "#ce1720",
+    "secondary": "#ffffff",
+    "tertiary": "#007c30"
+  },
+  "BLZ": {
+    "background": "linear-gradient(122.28deg, #ce1126 0 63%, #003f87 63% 75%, #ffffff 75%)",
+    "primary": "#ce1126",
+    "secondary": "#003f87",
+    "tertiary": "#ffffff"
+  },
+  "BOL": {
+    "background": "linear-gradient(125.20deg, #007934 0 67%, #ffe000 67% 79%, #d52b1e 79%)",
+    "primary": "#007934",
+    "secondary": "#ffe000",
+    "tertiary": "#d52b1e"
+  },
+  "BOT": {
+    "background": "linear-gradient(126.66deg, #00cbff 0 62%, #ffffff 62% 76%, #000001 76%)",
+    "primary": "#00cbff",
+    "secondary": "#ffffff",
+    "tertiary": "#000001"
+  },
+  "BRA": {
+    "background": "linear-gradient(96.73deg, #229e45 0 63%, #f8e509 63% 76%, #2b49a3 76%)",
+    "primary": "#229e45",
+    "secondary": "#f8e509",
+    "tertiary": "#2b49a3"
+  },
+  "BRB": {
+    "background": "linear-gradient(120.09deg, #00267f 0 67%, #ffc726 67% 80%, #000001 80%)",
+    "primary": "#00267f",
+    "secondary": "#ffc726",
+    "tertiary": "#000001"
+  },
+  "BRU": {
+    "background": "linear-gradient(128.12deg, #f7e017 0 64%, #ffffff 64% 76%, #000001 76%)",
+    "primary": "#f7e017",
+    "secondary": "#ffffff",
+    "tertiary": "#000001"
+  },
+  "BUL": {
+    "background": "linear-gradient(128.85deg, #ffffff 0 65%, #00966e 65% 78%, #d62612 78%)",
+    "primary": "#ffffff",
+    "secondary": "#00966e",
+    "tertiary": "#d62612"
+  },
+  "CAM": {
+    "background": "linear-gradient(131.77deg, #032ea1 0 62%, #e00025 62% 75%, #ffffff 75%)",
+    "primary": "#032ea1",
+    "secondary": "#e00025",
+    "tertiary": "#ffffff"
+  },
+  "CAN": {
+    "background": "linear-gradient(133.23deg, #ffffff 0 64%, #d52b1e 64% 79%, #ffffff 79%)",
+    "primary": "#ffffff",
+    "secondary": "#d52b1e",
+    "tertiary": "#ffffff"
+  },
+  "CAY": {
+    "background": "linear-gradient(133.96deg, #000066 0 65%, #ffffff 65% 77%, #012169 77%)",
+    "primary": "#000066",
+    "secondary": "#ffffff",
+    "tertiary": "#012169"
+  },
+  "CGO": {
+    "background": "linear-gradient(139.07deg, #ffff00 0 65%, #00ca00 65% 80%, #ffff00 80%)",
+    "primary": "#ffff00",
+    "secondary": "#00ca00",
+    "tertiary": "#ffff00"
+  },
+  "CHA": {
+    "background": "linear-gradient(135.42deg, #002664 0 67%, #c60c30 67% 81%, #fecb00 81%)",
+    "primary": "#002664",
+    "secondary": "#c60c30",
+    "tertiary": "#fecb00"
+  },
+  "CHI": {
+    "background": "linear-gradient(136.15deg, #ffffff 0 68%, #0039a6 68% 83%, #d52b1e 83%)",
+    "primary": "#ffffff",
+    "secondary": "#0039a6",
+    "tertiary": "#d52b1e"
+  },
+  "CHN": {
+    "background": "linear-gradient(136.88deg, #ee1c25 0 62%, #ffff00 62% 74%, #ee1c25 74%)",
+    "primary": "#ee1c25",
+    "secondary": "#ffff00",
+    "tertiary": "#ee1c25"
+  },
+  "CIV": {
+    "background": "linear-gradient(141.99deg, #00cd00 0 62%, #ff9a00 62% 77%, #ffffff 77%)",
+    "primary": "#00cd00",
+    "secondary": "#ff9a00",
+    "tertiary": "#ffffff"
+  },
+  "CMR": {
+    "background": "linear-gradient(132.50deg, #fcd116 0 63%, #007a5e 63% 77%, #ce1126 77%)",
+    "primary": "#fcd116",
+    "secondary": "#007a5e",
+    "tertiary": "#ce1126"
+  },
+  "COD": {
+    "background": "linear-gradient(139.80deg, #007fff 0 66%, #f7d618 66% 78%, #ce1021 78%)",
+    "primary": "#007fff",
+    "secondary": "#f7d618",
+    "tertiary": "#ce1021"
+  },
+  "COK": {
+    "background": "linear-gradient(140.53deg, #000066 0 67%, #ffffff 67% 80%, #c8102e 80%)",
+    "primary": "#000066",
+    "secondary": "#ffffff",
+    "tertiary": "#c8102e"
+  },
+  "COL": {
+    "background": "linear-gradient(98.92deg, #ffe800 0 66%, #00148e 66% 78%, #da0010 78%)",
+    "primary": "#ffe800",
+    "secondary": "#00148e",
+    "tertiary": "#da0010"
+  },
+  "COM": {
+    "background": "linear-gradient(138.34deg, #ffff00 0 64%, #ffffff 64% 78%, #be0027 78%)",
+    "primary": "#ffff00",
+    "secondary": "#ffffff",
+    "tertiary": "#be0027"
+  },
+  "CPV": {
+    "background": "linear-gradient(131.04deg, #ffffff 0 68%, #081873 68% 80%, #de3929 80%)",
+    "primary": "#ffffff",
+    "secondary": "#081873",
+    "tertiary": "#de3929"
+  },
+  "CRC": {
+    "background": "linear-gradient(141.26deg, #0000b4 0 68%, #ffffff 68% 82%, #d90000 82%)",
+    "primary": "#0000b4",
+    "secondary": "#ffffff",
+    "tertiary": "#d90000"
+  },
+  "CRO": {
+    "background": "linear-gradient(142.72deg, #171796 0 63%, #ffffff 63% 75%, #0093dd 75%)",
+    "primary": "#171796",
+    "secondary": "#ffffff",
+    "tertiary": "#0093dd"
+  },
+  "CTA": {
+    "background": "linear-gradient(134.69deg, #0000ff 0 66%, #ffff00 66% 79%, #009a00 79%)",
+    "primary": "#0000ff",
+    "secondary": "#ffff00",
+    "tertiary": "#009a00"
+  },
+  "CUB": {
+    "background": "linear-gradient(143.45deg, #002a8f 0 64%, #ffffff 64% 77%, #cb1515 77%)",
+    "primary": "#002a8f",
+    "secondary": "#ffffff",
+    "tertiary": "#cb1515"
+  },
+  "CUW": {
+    "background": "linear-gradient(144.18deg, #002b7f 0 65%, #f9e814 65% 79%, #ffffff 79%)",
+    "primary": "#002b7f",
+    "secondary": "#f9e814",
+    "tertiary": "#ffffff"
+  },
+  "CYP": {
+    "background": "linear-gradient(144.91deg, #ffffff 0 66%, #435125 66% 81%, #d47600 81%)",
+    "primary": "#ffffff",
+    "secondary": "#435125",
+    "tertiary": "#d47600"
+  },
+  "CZE": {
+    "background": "linear-gradient(145.64deg, #ffffff 0 67%, #d7141a 67% 79%, #11457e 79%)",
+    "primary": "#ffffff",
+    "secondary": "#d7141a",
+    "tertiary": "#11457e"
+  },
+  "DEN": {
+    "background": "linear-gradient(146.37deg, #c8102e 0 68%, #ffffff 68% 81%, #c8102e 81%)",
+    "primary": "#c8102e",
+    "secondary": "#ffffff",
+    "tertiary": "#c8102e"
+  },
+  "DJI": {
+    "background": "linear-gradient(147.10deg, #00cc00 0 62%, #6699ff 62% 76%, #fffefe 76%)",
+    "primary": "#00cc00",
+    "secondary": "#6699ff",
+    "tertiary": "#fffefe"
+  },
+  "DMA": {
+    "background": "linear-gradient(147.83deg, #108c00 0 63%, #ffd600 63% 78%, #000001 78%)",
+    "primary": "#108c00",
+    "secondary": "#ffd600",
+    "tertiary": "#000001"
+  },
+  "DOM": {
+    "background": "linear-gradient(148.56deg, #ffffff 0 64%, #002d62 64% 76%, #ce1126 76%)",
+    "primary": "#ffffff",
+    "secondary": "#002d62",
+    "tertiary": "#ce1126"
+  },
+  "ECU": {
+    "background": "linear-gradient(150.02deg, #ffe800 0 66%, #00148e 66% 80%, #da0010 80%)",
+    "primary": "#ffe800",
+    "secondary": "#00148e",
+    "tertiary": "#da0010"
+  },
+  "EGY": {
+    "background": "linear-gradient(150.75deg, #000001 0 67%, #ffffff 67% 82%, #ce1126 82%)",
+    "primary": "#000001",
+    "secondary": "#ffffff",
+    "tertiary": "#ce1126"
+  },
+  "ENG": {
+    "background": "linear-gradient(99.65deg, #ffffff 0 67%, #ce1124 67% 80%, #ffffff 80%)",
+    "primary": "#ffffff",
+    "secondary": "#ce1124",
+    "tertiary": "#ffffff"
+  },
+  "EQG": {
+    "background": "linear-gradient(152.21deg, #e32118 0 62%, #ffffff 62% 75%, #3e9a00 75%)",
+    "primary": "#e32118",
+    "secondary": "#ffffff",
+    "tertiary": "#3e9a00"
+  },
+  "ERI": {
+    "background": "linear-gradient(152.94deg, #be0027 0 63%, #b4d7f4 63% 77%, #239e46 77%)",
+    "primary": "#be0027",
+    "secondary": "#b4d7f4",
+    "tertiary": "#239e46"
+  },
+  "ESP": {
+    "background": "linear-gradient(100.38deg, #aa151b 0 68%, #f1bf00 68% 82%, #c8b100 82%)",
+    "primary": "#aa151b",
+    "secondary": "#f1bf00",
+    "tertiary": "#c8b100"
+  },
+  "EST": {
+    "background": "linear-gradient(153.67deg, #1791ff 0 64%, #000001 64% 79%, #ffffff 79%)",
+    "primary": "#1791ff",
+    "secondary": "#000001",
+    "tertiary": "#ffffff"
+  },
+  "ETH": {
+    "background": "linear-gradient(155.13deg, #ffc621 0 66%, #ef2118 66% 79%, #298c08 79%)",
+    "primary": "#ffc621",
+    "secondary": "#ef2118",
+    "tertiary": "#298c08"
+  },
+  "FIJ": {
+    "background": "linear-gradient(156.59deg, #68bfe5 0 68%, #ffffff 68% 83%, #d21034 83%)",
+    "primary": "#68bfe5",
+    "secondary": "#ffffff",
+    "tertiary": "#d21034"
+  },
+  "FIN": {
+    "background": "linear-gradient(157.32deg, #ffffff 0 62%, #002f6c 62% 74%, #ffffff 74%)",
+    "primary": "#ffffff",
+    "secondary": "#002f6c",
+    "tertiary": "#ffffff"
+  },
+  "FRA": {
+    "background": "linear-gradient(101.11deg, #ffffff 0 62%, #000091 62% 77%, #e1000f 77%)",
+    "primary": "#ffffff",
+    "secondary": "#000091",
+    "tertiary": "#e1000f"
+  },
+  "FRO": {
+    "background": "linear-gradient(155.86deg, #ffffff 0 67%, #003897 67% 81%, #d72828 81%)",
+    "primary": "#ffffff",
+    "secondary": "#003897",
+    "tertiary": "#d72828"
+  },
+  "GAB": {
+    "background": "linear-gradient(158.05deg, #ffe700 0 63%, #36a100 63% 76%, #006dbc 76%)",
+    "primary": "#ffe700",
+    "secondary": "#36a100",
+    "tertiary": "#006dbc"
+  },
+  "GAM": {
+    "background": "linear-gradient(233.97deg, #ffffff 0 62%, #000099 62% 75%, #009900 75%)",
+    "primary": "#ffffff",
+    "secondary": "#000099",
+    "tertiary": "#009900"
+  },
+  "GEO": {
+    "background": "linear-gradient(158.78deg, #ffffff 0 64%, #071712 64% 78%, #ffffff 78%)",
+    "primary": "#ffffff",
+    "secondary": "#071712",
+    "tertiary": "#ffffff"
+  },
+  "GER": {
+    "background": "linear-gradient(101.84deg, #ffcc00 0 63%, #000001 63% 75%, #ffcc00 75%)",
+    "primary": "#ffcc00",
+    "secondary": "#000001",
+    "tertiary": "#ffcc00"
+  },
+  "GHA": {
+    "background": "linear-gradient(159.51deg, #006b3f 0 65%, #fcd116 65% 80%, #ce1126 80%)",
+    "primary": "#006b3f",
+    "secondary": "#fcd116",
+    "tertiary": "#ce1126"
+  },
+  "GIB": {
+    "background": "linear-gradient(160.24deg, #da000c 0 66%, #ffffff 66% 78%, #000001 78%)",
+    "primary": "#da000c",
+    "secondary": "#ffffff",
+    "tertiary": "#000001"
+  },
+  "GNB": {
+    "background": "linear-gradient(164.62deg, #ce1126 0 65%, #fcd116 65% 79%, #009e49 79%)",
+    "primary": "#ce1126",
+    "secondary": "#fcd116",
+    "tertiary": "#009e49"
+  },
+  "GRE": {
+    "background": "linear-gradient(160.97deg, #0d5eaf 0 67%, #ffffff 67% 80%, #0d5eaf 80%)",
+    "primary": "#0d5eaf",
+    "secondary": "#ffffff",
+    "tertiary": "#0d5eaf"
+  },
+  "GRN": {
+    "background": "linear-gradient(161.70deg, #ce1126 0 68%, #fcd116 68% 82%, #007a5e 82%)",
+    "primary": "#ce1126",
+    "secondary": "#fcd116",
+    "tertiary": "#007a5e"
+  },
+  "GUA": {
+    "background": "linear-gradient(163.16deg, #4997d0 0 63%, #ffffff 63% 75%, #406325 75%)",
+    "primary": "#4997d0",
+    "secondary": "#ffffff",
+    "tertiary": "#406325"
+  },
+  "GUI": {
+    "background": "linear-gradient(163.89deg, #009900 0 64%, #ffff00 64% 77%, #009900 77%)",
+    "primary": "#009900",
+    "secondary": "#ffff00",
+    "tertiary": "#009900"
+  },
+  "GUM": {
+    "background": "linear-gradient(162.43deg, #be0027 0 62%, #3b5aa3 62% 77%, #cbe0e5 77%)",
+    "primary": "#be0027",
+    "secondary": "#3b5aa3",
+    "tertiary": "#cbe0e5"
+  },
+  "GUY": {
+    "background": "linear-gradient(165.35deg, #399408 0 66%, #ffffff 66% 81%, #ffde08 81%)",
+    "primary": "#399408",
+    "secondary": "#ffffff",
+    "tertiary": "#ffde08"
+  },
+  "HAI": {
+    "background": "linear-gradient(166.08deg, #d21034 0 67%, #00209f 67% 79%, #f1b517 79%)",
+    "primary": "#d21034",
+    "secondary": "#00209f",
+    "tertiary": "#f1b517"
+  },
+  "HKG": {
+    "background": "linear-gradient(167.54deg, #ec1b2e 0 62%, #ffffff 62% 76%, #ec1b2e 76%)",
+    "primary": "#ec1b2e",
+    "secondary": "#ffffff",
+    "tertiary": "#ec1b2e"
+  },
+  "HON": {
+    "background": "linear-gradient(166.81deg, #18c3df 0 68%, #ffffff 68% 81%, #18c3df 81%)",
+    "primary": "#18c3df",
+    "secondary": "#ffffff",
+    "tertiary": "#18c3df"
+  },
+  "HUN": {
+    "background": "linear-gradient(168.27deg, #ffffff 0 63%, #388d00 63% 78%, #d43516 78%)",
+    "primary": "#ffffff",
+    "secondary": "#388d00",
+    "tertiary": "#d43516"
+  },
+  "IDN": {
+    "background": "linear-gradient(170.46deg, #e70011 0 66%, #ffffff 66% 80%, #e70011 80%)",
+    "primary": "#e70011",
+    "secondary": "#ffffff",
+    "tertiary": "#e70011"
+  },
+  "IND": {
+    "background": "linear-gradient(169.73deg, #ff9933 0 65%, #ffffff 65% 78%, #128807 78%)",
+    "primary": "#ff9933",
+    "secondary": "#ffffff",
+    "tertiary": "#128807"
+  },
+  "IRL": {
+    "background": "linear-gradient(209.88deg, #ffffff 0 64%, #009a49 64% 76%, #ff7900 76%)",
+    "primary": "#ffffff",
+    "secondary": "#009a49",
+    "tertiary": "#ff7900"
+  },
+  "IRN": {
+    "background": "linear-gradient(171.19deg, #ffffff 0 67%, #da0000 67% 82%, #239f40 82%)",
+    "primary": "#ffffff",
+    "secondary": "#da0000",
+    "tertiary": "#239f40"
+  },
+  "IRQ": {
+    "background": "linear-gradient(171.92deg, #ffffff 0 68%, #ce1126 68% 80%, #000001 80%)",
+    "primary": "#ffffff",
+    "secondary": "#ce1126",
+    "tertiary": "#000001"
+  },
+  "ISL": {
+    "background": "linear-gradient(169deg, #003897 0 64%, #ffffff 64% 76%, #d72828 76%)",
+    "primary": "#003897",
+    "secondary": "#ffffff",
+    "tertiary": "#d72828"
+  },
+  "ISR": {
+    "background": "linear-gradient(172.65deg, #ffffff 0 62%, #0038b8 62% 75%, #ffffff 75%)",
+    "primary": "#ffffff",
+    "secondary": "#0038b8",
+    "tertiary": "#ffffff"
+  },
+  "ITA": {
+    "background": "linear-gradient(102.57deg, #ffffff 0 64%, #009246 64% 77%, #ce2b37 77%)",
+    "primary": "#ffffff",
+    "secondary": "#009246",
+    "tertiary": "#ce2b37"
+  },
+  "JAM": {
+    "background": "linear-gradient(173.38deg, #000001 0 63%, #009900 63% 77%, #ffcc00 77%)",
+    "primary": "#000001",
+    "secondary": "#009900",
+    "tertiary": "#ffcc00"
+  },
+  "JOR": {
+    "background": "linear-gradient(174.11deg, #000001 0 64%, #ffffff 64% 79%, #009900 79%)",
+    "primary": "#000001",
+    "secondary": "#ffffff",
+    "tertiary": "#009900"
+  },
+  "JPN": {
+    "background": "linear-gradient(105.49deg, #ffffff 0 68%, #bc002d 68% 81%, #ffffff 81%)",
+    "primary": "#ffffff",
+    "secondary": "#bc002d",
+    "tertiary": "#ffffff"
+  },
+  "KAZ": {
+    "background": "linear-gradient(174.84deg, #00abc2 0 65%, #ffec2d 65% 77%, #00abc2 77%)",
+    "primary": "#00abc2",
+    "secondary": "#ffec2d",
+    "tertiary": "#00abc2"
+  },
+  "KEN": {
+    "background": "linear-gradient(175.57deg, #ffffff 0 66%, #000001 66% 79%, #006600 79%)",
+    "primary": "#ffffff",
+    "secondary": "#000001",
+    "tertiary": "#006600"
+  },
+  "KGZ": {
+    "background": "linear-gradient(177.76deg, #ffff00 0 62%, #071712 62% 74%, #ffff00 74%)",
+    "primary": "#ffff00",
+    "secondary": "#071712",
+    "tertiary": "#ffff00"
+  },
+  "KOR": {
+    "background": "linear-gradient(106.22deg, #ffffff 0 62%, #000001 62% 76%, #cd2e3a 76%)",
+    "primary": "#ffffff",
+    "secondary": "#000001",
+    "tertiary": "#cd2e3a"
+  },
+  "KOS": {
+    "background": "linear-gradient(176.30deg, #244aa5 0 67%, #d0a650 67% 81%, #ffffff 81%)",
+    "primary": "#244aa5",
+    "secondary": "#d0a650",
+    "tertiary": "#ffffff"
+  },
+  "KSA": {
+    "background": "linear-gradient(214.99deg, #165d31 0 64%, #ffffff 64% 79%, #165d31 79%)",
+    "primary": "#165d31",
+    "secondary": "#ffffff",
+    "tertiary": "#165d31"
+  },
+  "KUW": {
+    "background": "linear-gradient(177.03deg, #ffffff 0 68%, #f31830 68% 83%, #00d941 83%)",
+    "primary": "#ffffff",
+    "secondary": "#f31830",
+    "tertiary": "#00d941"
+  },
+  "LAO": {
+    "background": "linear-gradient(178.49deg, #ce1126 0 63%, #002868 63% 76%, #ffffff 76%)",
+    "primary": "#ce1126",
+    "secondary": "#002868",
+    "tertiary": "#ffffff"
+  },
+  "LBN": {
+    "background": "linear-gradient(179.95deg, #ee161f 0 65%, #ffffff 65% 80%, #00a850 80%)",
+    "primary": "#ee161f",
+    "secondary": "#ffffff",
+    "tertiary": "#00a850"
+  },
+  "LBR": {
+    "background": "linear-gradient(181.41deg, #ffffff 0 67%, #000066 67% 80%, #cc0000 80%)",
+    "primary": "#ffffff",
+    "secondary": "#000066",
+    "tertiary": "#cc0000"
+  },
+  "LBY": {
+    "background": "linear-gradient(182.14deg, #239e46 0 68%, #000001 68% 82%, #e70013 82%)",
+    "primary": "#239e46",
+    "secondary": "#000001",
+    "tertiary": "#e70013"
+  },
+  "LCA": {
+    "background": "linear-gradient(225.94deg, #65cfff 0 65%, #ffffff 65% 79%, #000001 79%)",
+    "primary": "#65cfff",
+    "secondary": "#ffffff",
+    "tertiary": "#000001"
+  },
+  "LES": {
+    "background": "linear-gradient(180.68deg, #ffffff 0 66%, #009543 66% 78%, #00209f 78%)",
+    "primary": "#ffffff",
+    "secondary": "#009543",
+    "tertiary": "#00209f"
+  },
+  "LIE": {
+    "background": "linear-gradient(182.87deg, #002b7f 0 62%, #ce1126 62% 77%, #ffd83d 77%)",
+    "primary": "#002b7f",
+    "secondary": "#ce1126",
+    "tertiary": "#ffd83d"
+  },
+  "LTU": {
+    "background": "linear-gradient(183.60deg, #006a44 0 63%, #c1272d 63% 75%, #fdb913 75%)",
+    "primary": "#006a44",
+    "secondary": "#c1272d",
+    "tertiary": "#fdb913"
+  },
+  "LUX": {
+    "background": "linear-gradient(184.33deg, #ed2939 0 64%, #ffffff 64% 77%, #00a1de 77%)",
+    "primary": "#ed2939",
+    "secondary": "#ffffff",
+    "tertiary": "#00a1de"
+  },
+  "LVA": {
+    "background": "linear-gradient(179.22deg, #ffffff 0 64%, #981e32 64% 78%, #ffffff 78%)",
+    "primary": "#ffffff",
+    "secondary": "#981e32",
+    "tertiary": "#ffffff"
+  },
+  "MAC": {
+    "background": "linear-gradient(185.06deg, #00785e 0 65%, #fbd116 65% 79%, #ffffff 79%)",
+    "primary": "#00785e",
+    "secondary": "#fbd116",
+    "tertiary": "#ffffff"
+  },
+  "MAD": {
+    "background": "linear-gradient(185.79deg, #fc3d32 0 66%, #007e3a 66% 81%, #ffffff 81%)",
+    "primary": "#fc3d32",
+    "secondary": "#007e3a",
+    "tertiary": "#ffffff"
+  },
+  "MAR": {
+    "background": "linear-gradient(106.95deg, #c1272d 0 63%, #f4f0df 63% 78%, #c1272d 78%)",
+    "primary": "#c1272d",
+    "secondary": "#f4f0df",
+    "tertiary": "#c1272d"
+  },
+  "MAS": {
+    "background": "linear-gradient(187.25deg, #cc0000 0 68%, #ffffff 68% 81%, #000066 81%)",
+    "primary": "#cc0000",
+    "secondary": "#ffffff",
+    "tertiary": "#000066"
+  },
+  "MDA": {
+    "background": "linear-gradient(191.63deg, #de2110 0 67%, #00319c 67% 82%, #ffde00 82%)",
+    "primary": "#de2110",
+    "secondary": "#00319c",
+    "tertiary": "#ffde00"
+  },
+  "MDV": {
+    "background": "linear-gradient(187.98deg, #d21034 0 62%, #007e3a 62% 76%, #ffffff 76%)",
+    "primary": "#d21034",
+    "secondary": "#007e3a",
+    "tertiary": "#ffffff"
+  },
+  "MEX": {
+    "background": "linear-gradient(97.46deg, #ce1126 0 64%, #ffffff 64% 78%, #006847 78%)",
+    "primary": "#ce1126",
+    "secondary": "#ffffff",
+    "tertiary": "#006847"
+  },
+  "MKD": {
+    "background": "linear-gradient(200.39deg, #d20000 0 65%, #ffe600 65% 80%, #d20000 80%)",
+    "primary": "#d20000",
+    "secondary": "#ffe600",
+    "tertiary": "#d20000"
+  },
+  "MLI": {
+    "background": "linear-gradient(188.71deg, #009a00 0 63%, #ffff00 63% 78%, #009a00 78%)",
+    "primary": "#009a00",
+    "secondary": "#ffff00",
+    "tertiary": "#009a00"
+  },
+  "MLT": {
+    "background": "linear-gradient(189.44deg, #ffffff 0 64%, #cf142b 64% 76%, #ffffff 76%)",
+    "primary": "#ffffff",
+    "secondary": "#cf142b",
+    "tertiary": "#ffffff"
+  },
+  "MNE": {
+    "background": "linear-gradient(193.09deg, #d3ae3b 0 62%, #c40308 62% 75%, #b96b29 75%)",
+    "primary": "#d3ae3b",
+    "secondary": "#c40308",
+    "tertiary": "#b96b29"
+  },
+  "MNG": {
+    "background": "linear-gradient(192.36deg, #da2032 0 68%, #ffd900 68% 80%, #0066b3 80%)",
+    "primary": "#da2032",
+    "secondary": "#ffd900",
+    "tertiary": "#0066b3"
+  },
+  "MOZ": {
+    "background": "linear-gradient(194.55deg, #009a00 0 64%, #ffffff 64% 79%, #000001 79%)",
+    "primary": "#009a00",
+    "secondary": "#ffffff",
+    "tertiary": "#000001"
+  },
+  "MRI": {
+    "background": "linear-gradient(190.90deg, #00a04d 0 66%, #151f6d 66% 80%, #ee2737 80%)",
+    "primary": "#00a04d",
+    "secondary": "#151f6d",
+    "tertiary": "#ee2737"
+  },
+  "MSR": {
+    "background": "linear-gradient(193.82deg, #012169 0 63%, #ffffff 63% 77%, #00a2bd 77%)",
+    "primary": "#012169",
+    "secondary": "#ffffff",
+    "tertiary": "#00a2bd"
+  },
+  "MTN": {
+    "background": "linear-gradient(190.17deg, #cd2a3e 0 65%, #006233 65% 78%, #ffc400 78%)",
+    "primary": "#cd2a3e",
+    "secondary": "#006233",
+    "tertiary": "#ffc400"
+  },
+  "MWI": {
+    "background": "linear-gradient(186.52deg, #f41408 0 67%, #21873b 67% 79%, #000001 79%)",
+    "primary": "#f41408",
+    "secondary": "#21873b",
+    "tertiary": "#000001"
+  },
+  "MYA": {
+    "background": "linear-gradient(195.28deg, #fecb00 0 65%, #34b233 65% 77%, #ea2839 77%)",
+    "primary": "#fecb00",
+    "secondary": "#34b233",
+    "tertiary": "#ea2839"
+  },
+  "NAM": {
+    "background": "linear-gradient(196.01deg, #ffffff 0 66%, #3662a2 66% 79%, #38a100 79%)",
+    "primary": "#ffffff",
+    "secondary": "#3662a2",
+    "tertiary": "#38a100"
+  },
+  "NCA": {
+    "background": "linear-gradient(198.93deg, #0067c6 0 63%, #ffffff 63% 76%, #c8a400 76%)",
+    "primary": "#0067c6",
+    "secondary": "#ffffff",
+    "tertiary": "#c8a400"
+  },
+  "NCL": {
+    "background": "linear-gradient(197.47deg, #009543 0 68%, #ed4135 68% 83%, #0035ad 83%)",
+    "primary": "#009543",
+    "secondary": "#ed4135",
+    "tertiary": "#0035ad"
+  },
+  "NED": {
+    "background": "linear-gradient(104.76deg, #ae1c28 0 67%, #ffffff 67% 79%, #21468b 79%)",
+    "primary": "#ae1c28",
+    "secondary": "#ffffff",
+    "tertiary": "#21468b"
+  },
+  "NEP": {
+    "background": "linear-gradient(196.74deg, #ce0000 0 67%, #ffffff 67% 81%, #ce0000 81%)",
+    "primary": "#ce0000",
+    "secondary": "#ffffff",
+    "tertiary": "#ce0000"
+  },
+  "NGA": {
+    "background": "linear-gradient(107.68deg, #ffffff 0 64%, #008753 64% 76%, #ffffff 76%)",
+    "primary": "#ffffff",
+    "secondary": "#008753",
+    "tertiary": "#ffffff"
+  },
+  "NIG": {
+    "background": "linear-gradient(199.66deg, #0db02b 0 64%, #ffffff 64% 78%, #e05206 78%)",
+    "primary": "#0db02b",
+    "secondary": "#ffffff",
+    "tertiary": "#e05206"
+  },
+  "NIR": {
+    "background": "linear-gradient(201.12deg, #ffffff 0 66%, #cc0000 66% 78%, #ebeae3 78%)",
+    "primary": "#ffffff",
+    "secondary": "#cc0000",
+    "tertiary": "#ebeae3"
+  },
+  "NOR": {
+    "background": "linear-gradient(201.85deg, #ed2939 0 67%, #ffffff 67% 80%, #002664 80%)",
+    "primary": "#ed2939",
+    "secondary": "#ffffff",
+    "tertiary": "#002664"
+  },
+  "NZL": {
+    "background": "linear-gradient(198.20deg, #00247d 0 62%, #ffffff 62% 74%, #cc142b 74%)",
+    "primary": "#00247d",
+    "secondary": "#ffffff",
+    "tertiary": "#cc142b"
+  },
+  "OMA": {
+    "background": "linear-gradient(202.58deg, #ef2d29 0 68%, #009025 68% 82%, #ffffff 82%)",
+    "primary": "#ef2d29",
+    "secondary": "#009025",
+    "tertiary": "#ffffff"
+  },
+  "PAK": {
+    "background": "linear-gradient(203.31deg, #0c590b 0 62%, #ffffff 62% 77%, #0c590b 77%)",
+    "primary": "#0c590b",
+    "secondary": "#ffffff",
+    "tertiary": "#0c590b"
+  },
+  "PAN": {
+    "background": "linear-gradient(204.77deg, #ffffff 0 64%, #db0000 64% 77%, #0000ab 77%)",
+    "primary": "#ffffff",
+    "secondary": "#db0000",
+    "tertiary": "#0000ab"
+  },
+  "PAR": {
+    "background": "linear-gradient(206.23deg, #0038a8 0 66%, #ffffff 66% 81%, #d52b1e 81%)",
+    "primary": "#0038a8",
+    "secondary": "#ffffff",
+    "tertiary": "#d52b1e"
+  },
+  "PER": {
+    "background": "linear-gradient(206.96deg, #d91023 0 67%, #ffffff 67% 79%, #d91023 79%)",
+    "primary": "#d91023",
+    "secondary": "#ffffff",
+    "tertiary": "#d91023"
+  },
+  "PHI": {
+    "background": "linear-gradient(207.69deg, #0038a8 0 68%, #ce1126 68% 81%, #ffffff 81%)",
+    "primary": "#0038a8",
+    "secondary": "#ce1126",
+    "tertiary": "#ffffff"
+  },
+  "PLE": {
+    "background": "linear-gradient(204.04deg, #009639 0 63%, #ffffff 63% 75%, #ed2e38 75%)",
+    "primary": "#009639",
+    "secondary": "#ffffff",
+    "tertiary": "#ed2e38"
+  },
+  "PNG": {
+    "background": "linear-gradient(205.50deg, #000001 0 65%, #ffcc00 65% 79%, #ffffff 79%)",
+    "primary": "#000001",
+    "secondary": "#ffcc00",
+    "tertiary": "#ffffff"
+  },
+  "POL": {
+    "background": "linear-gradient(104.03deg, #ffffff 0 66%, #dc143c 66% 81%, #ffffff 81%)",
+    "primary": "#ffffff",
+    "secondary": "#dc143c",
+    "tertiary": "#ffffff"
+  },
+  "POR": {
+    "background": "linear-gradient(103.30deg, #006600 0 65%, #ffff00 65% 79%, #ffffff 79%)",
+    "primary": "#006600",
+    "secondary": "#ffff00",
+    "tertiary": "#ffffff"
+  },
+  "PRK": {
+    "background": "linear-gradient(149.29deg, #ffffff 0 65%, #3e5698 65% 78%, #c60000 78%)",
+    "primary": "#ffffff",
+    "secondary": "#3e5698",
+    "tertiary": "#c60000"
+  },
+  "PUR": {
+    "background": "linear-gradient(208.42deg, #ed0000 0 62%, #ffffff 62% 76%, #0050f0 76%)",
+    "primary": "#ed0000",
+    "secondary": "#ffffff",
+    "tertiary": "#0050f0"
+  },
+  "QAT": {
+    "background": "linear-gradient(209.15deg, #8d1b3d 0 63%, #ffffff 63% 78%, #8d1b3d 78%)",
+    "primary": "#8d1b3d",
+    "secondary": "#ffffff",
+    "tertiary": "#8d1b3d"
+  },
+  "ROU": {
+    "background": "linear-gradient(210.61deg, #de2110 0 65%, #00319c 65% 78%, #ffde00 78%)",
+    "primary": "#de2110",
+    "secondary": "#00319c",
+    "tertiary": "#ffde00"
+  },
+  "RSA": {
+    "background": "linear-gradient(223.02deg, #000001 0 68%, #000c8a 68% 82%, #e1392d 82%)",
+    "primary": "#000001",
+    "secondary": "#000c8a",
+    "tertiary": "#e1392d"
+  },
+  "RUS": {
+    "background": "linear-gradient(211.34deg, #ffffff 0 66%, #0039a6 66% 80%, #d52b1e 80%)",
+    "primary": "#ffffff",
+    "secondary": "#0039a6",
+    "tertiary": "#d52b1e"
+  },
+  "RWA": {
+    "background": "linear-gradient(212.07deg, #20603d 0 67%, #fad201 67% 82%, #00a1de 82%)",
+    "primary": "#20603d",
+    "secondary": "#fad201",
+    "tertiary": "#00a1de"
+  },
+  "SAM": {
+    "background": "linear-gradient(212.80deg, #ce1126 0 68%, #002b7f 68% 80%, #ffffff 80%)",
+    "primary": "#ce1126",
+    "secondary": "#002b7f",
+    "tertiary": "#ffffff"
+  },
+  "SCO": {
+    "background": "linear-gradient(215.72deg, #0065bd 0 65%, #f4f0df 65% 77%, #0065bd 77%)",
+    "primary": "#0065bd",
+    "secondary": "#f4f0df",
+    "tertiary": "#0065bd"
+  },
+  "SDN": {
+    "background": "linear-gradient(227.40deg, #000001 0 67%, #ffffff 67% 79%, #009a00 79%)",
+    "primary": "#000001",
+    "secondary": "#ffffff",
+    "tertiary": "#009a00"
+  },
+  "SEN": {
+    "background": "linear-gradient(216.45deg, #bc0000 0 66%, #0b7226 66% 79%, #ffff00 79%)",
+    "primary": "#bc0000",
+    "secondary": "#0b7226",
+    "tertiary": "#ffff00"
+  },
+  "SEY": {
+    "background": "linear-gradient(217.91deg, #ffffff 0 68%, #d92223 68% 83%, #fcd955 83%)",
+    "primary": "#ffffff",
+    "secondary": "#d92223",
+    "tertiary": "#fcd955"
+  },
+  "SGP": {
+    "background": "linear-gradient(219.37deg, #ffffff 0 63%, #df0000 63% 76%, #ffffff 76%)",
+    "primary": "#ffffff",
+    "secondary": "#df0000",
+    "tertiary": "#ffffff"
+  },
+  "SKN": {
+    "background": "linear-gradient(225.21deg, #ffe900 0 64%, #35a100 64% 77%, #c70000 77%)",
+    "primary": "#ffe900",
+    "secondary": "#35a100",
+    "tertiary": "#c70000"
+  },
+  "SLE": {
+    "background": "linear-gradient(218.64deg, #0000cd 0 62%, #ffffff 62% 74%, #00cd00 74%)",
+    "primary": "#0000cd",
+    "secondary": "#ffffff",
+    "tertiary": "#00cd00"
+  },
+  "SLV": {
+    "background": "linear-gradient(151.48deg, #0f47af 0 68%, #ffffff 68% 80%, #e60000 80%)",
+    "primary": "#0f47af",
+    "secondary": "#ffffff",
+    "tertiary": "#e60000"
+  },
+  "SMR": {
+    "background": "linear-gradient(213.53deg, #19b6ef 0 62%, #ffffff 62% 75%, #ffdd00 75%)",
+    "primary": "#19b6ef",
+    "secondary": "#ffffff",
+    "tertiary": "#ffdd00"
+  },
+  "SOL": {
+    "background": "linear-gradient(221.56deg, #0000d6 0 66%, #006000 66% 78%, #ffcc00 78%)",
+    "primary": "#0000d6",
+    "secondary": "#006000",
+    "tertiary": "#ffcc00"
+  },
+  "SOM": {
+    "background": "linear-gradient(222.29deg, #40a6ff 0 67%, #ffffff 67% 80%, #40a6ff 80%)",
+    "primary": "#40a6ff",
+    "secondary": "#ffffff",
+    "tertiary": "#40a6ff"
+  },
+  "SRB": {
+    "background": "linear-gradient(217.18deg, #ffffff 0 67%, #0c4076 67% 81%, #c6363c 81%)",
+    "primary": "#ffffff",
+    "secondary": "#0c4076",
+    "tertiary": "#c6363c"
+  },
+  "SRI": {
+    "background": "linear-gradient(224.48deg, #ffb700 0 63%, #ff5b00 63% 75%, #005641 75%)",
+    "primary": "#ffb700",
+    "secondary": "#ff5b00",
+    "tertiary": "#005641"
+  },
+  "SSD": {
+    "background": "linear-gradient(223.75deg, #078930 0 62%, #ffffff 62% 77%, #000001 77%)",
+    "primary": "#078930",
+    "secondary": "#ffffff",
+    "tertiary": "#000001"
+  },
+  "STP": {
+    "background": "linear-gradient(214.26deg, #12ad2b 0 63%, #ffce00 63% 77%, #d21034 77%)",
+    "primary": "#12ad2b",
+    "secondary": "#ffce00",
+    "tertiary": "#d21034"
+  },
+  "SUI": {
+    "background": "linear-gradient(229.59deg, #ffffff 0 63%, #071712 63% 78%, #ffffff 78%)",
+    "primary": "#ffffff",
+    "secondary": "#071712",
+    "tertiary": "#ffffff"
+  },
+  "SUR": {
+    "background": "linear-gradient(228.13deg, #377e3f 0 68%, #ffffff 68% 81%, #b40a2d 81%)",
+    "primary": "#377e3f",
+    "secondary": "#ffffff",
+    "tertiary": "#b40a2d"
+  },
+  "SVK": {
+    "background": "linear-gradient(220.10deg, #ee1c25 0 64%, #0b4ea2 64% 78%, #ffffff 78%)",
+    "primary": "#ee1c25",
+    "secondary": "#0b4ea2",
+    "tertiary": "#ffffff"
+  },
+  "SVN": {
+    "background": "linear-gradient(220.83deg, #ffffff 0 65%, #d50000 65% 80%, #0000bf 80%)",
+    "primary": "#ffffff",
+    "secondary": "#d50000",
+    "tertiary": "#0000bf"
+  },
+  "SWE": {
+    "background": "linear-gradient(228.86deg, #005293 0 62%, #fecb00 62% 76%, #005293 76%)",
+    "primary": "#005293",
+    "secondary": "#fecb00",
+    "tertiary": "#005293"
+  },
+  "SWZ": {
+    "background": "linear-gradient(154.40deg, #3e5eb9 0 65%, #ffd900 65% 77%, #b10c0c 77%)",
+    "primary": "#3e5eb9",
+    "secondary": "#ffd900",
+    "tertiary": "#b10c0c"
+  },
+  "SYR": {
+    "background": "linear-gradient(230.32deg, #ffffff 0 64%, #007a3d 64% 76%, #ce1126 76%)",
+    "primary": "#ffffff",
+    "secondary": "#007a3d",
+    "tertiary": "#ce1126"
+  },
+  "TAH": {
+    "background": "linear-gradient(231.05deg, #ffffff 0 65%, #083d9c 65% 78%, #ef7d08 78%)",
+    "primary": "#ffffff",
+    "secondary": "#083d9c",
+    "tertiary": "#ef7d08"
+  },
+  "TAN": {
+    "background": "linear-gradient(232.51deg, #0099ff 0 67%, #009900 67% 82%, #000001 82%)",
+    "primary": "#0099ff",
+    "secondary": "#009900",
+    "tertiary": "#000001"
+  },
+  "TCA": {
+    "background": "linear-gradient(239.81deg, #002868 0 63%, #fcd116 63% 76%, #fcad56 76%)",
+    "primary": "#002868",
+    "secondary": "#fcd116",
+    "tertiary": "#fcad56"
+  },
+  "TGA": {
+    "background": "linear-gradient(236.16deg, #c10000 0 65%, #ffffff 65% 77%, #c10000 77%)",
+    "primary": "#c10000",
+    "secondary": "#ffffff",
+    "tertiary": "#c10000"
+  },
+  "THA": {
+    "background": "linear-gradient(233.24deg, #f4f5f8 0 68%, #2d2a4a 68% 80%, #a51931 80%)",
+    "primary": "#f4f5f8",
+    "secondary": "#2d2a4a",
+    "tertiary": "#a51931"
+  },
+  "TJK": {
+    "background": "linear-gradient(231.78deg, #006600 0 66%, #ffffff 66% 80%, #cc0000 80%)",
+    "primary": "#006600",
+    "secondary": "#ffffff",
+    "tertiary": "#cc0000"
+  },
+  "TKM": {
+    "background": "linear-gradient(239.08deg, #00843d 0 62%, #ffffff 62% 74%, #d22630 74%)",
+    "primary": "#00843d",
+    "secondary": "#ffffff",
+    "tertiary": "#d22630"
+  },
+  "TLS": {
+    "background": "linear-gradient(234.70deg, #cb000f 0 63%, #f8c00c 63% 77%, #000001 77%)",
+    "primary": "#cb000f",
+    "secondary": "#f8c00c",
+    "tertiary": "#000001"
+  },
+  "TOG": {
+    "background": "linear-gradient(235.43deg, #ffe300 0 64%, #118600 64% 79%, #d80000 79%)",
+    "primary": "#ffe300",
+    "secondary": "#118600",
+    "tertiary": "#d80000"
+  },
+  "TPE": {
+    "background": "linear-gradient(137.61deg, #000095 0 63%, #ffffff 63% 76%, #000095 76%)",
+    "primary": "#000095",
+    "secondary": "#ffffff",
+    "tertiary": "#000095"
+  },
+  "TRI": {
+    "background": "linear-gradient(236.89deg, #ffffff 0 66%, #e00000 66% 79%, #000001 79%)",
+    "primary": "#ffffff",
+    "secondary": "#e00000",
+    "tertiary": "#000001"
+  },
+  "TUN": {
+    "background": "linear-gradient(237.62deg, #e70013 0 67%, #ffffff 67% 81%, #e70013 81%)",
+    "primary": "#e70013",
+    "secondary": "#ffffff",
+    "tertiary": "#e70013"
+  },
+  "TUR": {
+    "background": "linear-gradient(238.35deg, #e30a17 0 68%, #ffffff 68% 83%, #e30a17 83%)",
+    "primary": "#e30a17",
+    "secondary": "#ffffff",
+    "tertiary": "#e30a17"
+  },
+  "UAE": {
+    "background": "linear-gradient(242deg, #00732f 0 66%, #ffffff 66% 78%, #000001 78%)",
+    "primary": "#00732f",
+    "secondary": "#ffffff",
+    "tertiary": "#000001"
+  },
+  "UGA": {
+    "background": "linear-gradient(240.54deg, #ffe700 0 64%, #000001 64% 78%, #de3908 78%)",
+    "primary": "#ffe700",
+    "secondary": "#000001",
+    "tertiary": "#de3908"
+  },
+  "UKR": {
+    "background": "linear-gradient(241.27deg, #0057b8 0 65%, #f4f0df 65% 80%, #0057b8 80%)",
+    "primary": "#0057b8",
+    "secondary": "#f4f0df",
+    "tertiary": "#0057b8"
+  },
+  "URU": {
+    "background": "linear-gradient(242.73deg, #ffffff 0 67%, #0038a8 67% 80%, #fcd116 80%)",
+    "primary": "#ffffff",
+    "secondary": "#0038a8",
+    "tertiary": "#fcd116"
+  },
+  "USA": {
+    "background": "linear-gradient(98.19deg, #bd3d44 0 65%, #192f5d 65% 80%, #ffffff 80%)",
+    "primary": "#bd3d44",
+    "secondary": "#192f5d",
+    "tertiary": "#ffffff"
+  },
+  "UZB": {
+    "background": "linear-gradient(244.19deg, #1eb53a 0 62%, #0099b5 62% 77%, #ce1126 77%)",
+    "primary": "#1eb53a",
+    "secondary": "#0099b5",
+    "tertiary": "#ce1126"
+  },
+  "VAN": {
+    "background": "linear-gradient(244.92deg, #009543 0 63%, #d21034 63% 75%, #fdce12 75%)",
+    "primary": "#009543",
+    "secondary": "#d21034",
+    "tertiary": "#fdce12"
+  },
+  "VEN": {
+    "background": "linear-gradient(245.65deg, #cf142b 0 64%, #ffffff 64% 77%, #00247d 77%)",
+    "primary": "#cf142b",
+    "secondary": "#ffffff",
+    "tertiary": "#00247d"
+  },
+  "VGB": {
+    "background": "linear-gradient(127.39deg, #000066 0 63%, #ffffff 63% 78%, #012169 78%)",
+    "primary": "#000066",
+    "secondary": "#ffffff",
+    "tertiary": "#012169"
+  },
+  "VIE": {
+    "background": "linear-gradient(246.38deg, #da251d 0 65%, #ffff00 65% 79%, #da251d 79%)",
+    "primary": "#da251d",
+    "secondary": "#ffff00",
+    "tertiary": "#da251d"
+  },
+  "VIN": {
+    "background": "linear-gradient(226.67deg, #f4f100 0 66%, #199a00 66% 81%, #0058aa 81%)",
+    "primary": "#f4f100",
+    "secondary": "#199a00",
+    "tertiary": "#0058aa"
+  },
+  "VIR": {
+    "background": "linear-gradient(243.46deg, #ffffff 0 68%, #369443 68% 82%, #f4c53d 82%)",
+    "primary": "#ffffff",
+    "secondary": "#369443",
+    "tertiary": "#f4c53d"
+  },
+  "WAL": {
+    "background": "linear-gradient(247.11deg, #00ab39 0 66%, #ffffff 66% 81%, #d21034 81%)",
+    "primary": "#00ab39",
+    "secondary": "#ffffff",
+    "tertiary": "#d21034"
+  },
+  "YEM": {
+    "background": "linear-gradient(247.84deg, #000001 0 67%, #ffffff 67% 79%, #f10600 79%)",
+    "primary": "#000001",
+    "secondary": "#ffffff",
+    "tertiary": "#f10600"
+  },
+  "ZAM": {
+    "background": "linear-gradient(248.57deg, #198a00 0 68%, #ef7d00 68% 81%, #000001 81%)",
+    "primary": "#198a00",
+    "secondary": "#ef7d00",
+    "tertiary": "#000001"
+  },
+  "ZIM": {
+    "background": "linear-gradient(249.30deg, #0000ff 0 62%, #006400 62% 76%, #ffd200 76%)",
+    "primary": "#0000ff",
+    "secondary": "#006400",
+    "tertiary": "#ffd200"
+  }
+}

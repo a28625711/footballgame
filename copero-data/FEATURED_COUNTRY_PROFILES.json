@@ -1,0 +1,257 @@
+[
+  {
+    "clubs": [
+      "Tigre",
+      "Argentinos Juniors",
+      "San Lorenzo",
+      "Boca Juniors",
+      "River Plate"
+    ],
+    "code": "AR",
+    "flag": "🇦🇷",
+    "kit": "repeating-linear-gradient(90deg, #f7f4e7 0 18%, #74b5df 18% 35%, #f7f4e7 35% 52%)",
+    "name": "Argentina",
+    "nationalStrength": 90,
+    "region": "South America"
+  },
+  {
+    "clubs": [
+      "Bahia",
+      "Santos",
+      "Corinthians",
+      "Palmeiras",
+      "Flamengo"
+    ],
+    "code": "BR",
+    "flag": "🇧🇷",
+    "kit": "linear-gradient(135deg, transparent 0 34%, #1f7a4b 35% 45%, transparent 46%), #f3d43b",
+    "name": "Brazil",
+    "nationalStrength": 91,
+    "region": "South America"
+  },
+  {
+    "clubs": [
+      "Pumas UNAM",
+      "Cruz Azul",
+      "Guadalajara",
+      "Tigres UANL",
+      "Club América"
+    ],
+    "code": "MX",
+    "flag": "🇲🇽",
+    "kit": "linear-gradient(90deg, #176b45 0 30%, #f4f0df 30% 70%, #c83b32 70%)",
+    "name": "Mexico",
+    "nationalStrength": 78,
+    "region": "North America"
+  },
+  {
+    "clubs": [
+      "Austin FC",
+      "Atlanta United",
+      "Seattle Sounders FC",
+      "LA Galaxy",
+      "Inter Miami CF"
+    ],
+    "code": "US",
+    "flag": "🇺🇸",
+    "kit": "repeating-linear-gradient(0deg, #f4f0df 0 12px, #c8323a 12px 24px)",
+    "name": "United States",
+    "nationalStrength": 79,
+    "region": "North America"
+  },
+  {
+    "clubs": [
+      "Deportivo Cali",
+      "Junior FC",
+      "América de Cali",
+      "Millonarios",
+      "Atlético Nacional"
+    ],
+    "code": "CO",
+    "flag": "🇨🇴",
+    "kit": "linear-gradient(0deg, #c8323a 0 18%, #173b68 18% 36%, #f2cf38 36%)",
+    "name": "Colombia",
+    "nationalStrength": 80,
+    "region": "South America"
+  },
+  {
+    "clubs": [
+      "Chelsea",
+      "Manchester United",
+      "Arsenal",
+      "Liverpool",
+      "Manchester City"
+    ],
+    "code": "GB",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "kit": "linear-gradient(90deg, transparent 0 42%, #c9363d 42% 58%, transparent 58%), linear-gradient(0deg, transparent 0 44%, #c9363d 44% 58%, transparent 58%), #f4f0df",
+    "name": "England",
+    "nationalStrength": 88,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "Sevilla FC",
+      "Athletic Club",
+      "Atlético de Madrid",
+      "FC Barcelona",
+      "Real Madrid"
+    ],
+    "code": "ES",
+    "flag": "🇪🇸",
+    "kit": "linear-gradient(90deg, #9f1f2f 0 16%, #d53b35 16% 84%, #9f1f2f 84%)",
+    "name": "Spain",
+    "nationalStrength": 90,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "Lille OSC",
+      "Olympique Lyonnais",
+      "AS Monaco",
+      "Olympique de Marseille",
+      "Paris Saint-Germain"
+    ],
+    "code": "FR",
+    "flag": "🇫🇷",
+    "kit": "linear-gradient(90deg, #173b68 0 34%, #f4f0df 34% 66%, #d63b3f 66%)",
+    "name": "France",
+    "nationalStrength": 92,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "Eintracht Frankfurt",
+      "RB Leipzig",
+      "Bayer 04 Leverkusen",
+      "Borussia Dortmund",
+      "FC Bayern München"
+    ],
+    "code": "DE",
+    "flag": "🇩🇪",
+    "kit": "linear-gradient(145deg, transparent 0 62%, #e0b93a 63% 70%, #b53232 70% 77%, #151918 77%), #f4f0df",
+    "name": "Germany",
+    "nationalStrength": 90,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "AS Roma",
+      "SSC Napoli",
+      "Juventus",
+      "AC Milan",
+      "Inter"
+    ],
+    "code": "IT",
+    "flag": "🇮🇹",
+    "kit": "linear-gradient(90deg, #166cba 0 82%, #f4f0df 82% 88%, #c9363d 88%)",
+    "name": "Italy",
+    "nationalStrength": 89,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "Vitória SC",
+      "SC Braga",
+      "Sporting CP",
+      "FC Porto",
+      "SL Benfica"
+    ],
+    "code": "PT",
+    "flag": "🇵🇹",
+    "kit": "linear-gradient(90deg, #1e754f 0 38%, #b52637 38%)",
+    "name": "Portugal",
+    "nationalStrength": 86,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "Wisła Kraków",
+      "Raków Częstochowa",
+      "Jagiellonia Białystok",
+      "Lech Poznań",
+      "Legia Warszawa"
+    ],
+    "code": "PL",
+    "flag": "🇵🇱",
+    "kit": "linear-gradient(180deg, #f4f0df 0 72%, #d4213d 72%)",
+    "name": "Poland",
+    "nationalStrength": 78,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "FC Utrecht",
+      "AZ",
+      "Feyenoord",
+      "PSV",
+      "Ajax"
+    ],
+    "code": "NL",
+    "flag": "🇳🇱",
+    "kit": "linear-gradient(135deg, #f16d2f 0 76%, #173b68 76%)",
+    "name": "Netherlands",
+    "nationalStrength": 86,
+    "region": "Europe"
+  },
+  {
+    "clubs": [
+      "FC Tokyo",
+      "Kawasaki Frontale",
+      "Yokohama F. Marinos",
+      "Urawa Red Diamonds",
+      "Vissel Kobe"
+    ],
+    "code": "JP",
+    "flag": "🇯🇵",
+    "kit": "linear-gradient(135deg, #174a91 0 72%, #d23b43 72% 78%, #f4f0df 78%)",
+    "name": "Japan",
+    "nationalStrength": 77,
+    "region": "Asia"
+  },
+  {
+    "clubs": [
+      "Suwon Samsung Bluewings",
+      "FC Seoul",
+      "Pohang Steelers",
+      "Jeonbuk Hyundai Motors",
+      "Ulsan HD"
+    ],
+    "code": "KR",
+    "flag": "🇰🇷",
+    "kit": "linear-gradient(145deg, #e94b58 0 78%, #173b68 78% 84%, #f4f0df 84%)",
+    "name": "South Korea",
+    "nationalStrength": 76,
+    "region": "Asia"
+  },
+  {
+    "clubs": [
+      "FUS Rabat",
+      "RS Berkane",
+      "AS FAR",
+      "Raja Club Athletic",
+      "Wydad Athletic Club"
+    ],
+    "code": "MA",
+    "flag": "🇲🇦",
+    "kit": "linear-gradient(135deg, transparent 0 46%, #176b45 46% 54%, transparent 54%), #b92f3b",
+    "name": "Morocco",
+    "nationalStrength": 80,
+    "region": "Africa"
+  },
+  {
+    "clubs": [
+      "Kano Pillars",
+      "Shooting Stars",
+      "Rivers United",
+      "Remo Stars",
+      "Enyimba"
+    ],
+    "code": "NG",
+    "flag": "🇳🇬",
+    "kit": "repeating-linear-gradient(90deg, #1e754f 0 24%, #f4f0df 24% 48%)",
+    "name": "Nigeria",
+    "nationalStrength": 79,
+    "region": "Africa"
+  }
+]

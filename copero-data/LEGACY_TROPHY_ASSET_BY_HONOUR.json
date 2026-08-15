@@ -1,0 +1,12 @@
+{
+  "Club world champion": {
+    "contrast": "light_plate",
+    "honour": "Club world champion",
+    "src": "/assets/trophies/world-club-championship.png"
+  },
+  "World champion": {
+    "contrast": "none",
+    "honour": "World champion",
+    "src": "/assets/trophies/world-championship.png"
+  }
+}

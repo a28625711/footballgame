@@ -1,0 +1,672 @@
+[
+  {
+    "body": "Your coach offers a private development plan. It could sharpen your game—or empty the tank before the weekend.",
+    "choices": [
+      {
+        "detail": "Trade freshness for growth",
+        "effects": {
+          "fame": -1,
+          "fitness": -4,
+          "potential": 2
+        },
+        "id": "stay-late",
+        "label": "Stay for one more hour",
+        "outcome": {
+          "variants": [
+            {
+              "immediateOverallDelta": 3,
+              "key": "positive",
+              "weight": 70
+            },
+            {
+              "immediateOverallDelta": -2,
+              "key": "negative",
+              "weight": 30
+            }
+          ]
+        }
+      },
+      {
+        "detail": "The season is the real test",
+        "effects": {
+          "fitness": 5,
+          "form": 1,
+          "loyalty": 1
+        },
+        "id": "protect-body",
+        "label": "Protect the body"
+      }
+    ],
+    "eyebrow": "Training ground",
+    "id": "extra-session",
+    "maxAge": 28,
+    "minAge": 19,
+    "title": "Everyone has left. The floodlights are still on."
+  },
+  {
+    "body": "The club signed another player for your position. Fight for the shirt or take a fresh offer.",
+    "choices": [
+      {
+        "detail": "50% starter · 50% rotation role",
+        "effects": {
+          "fitness": -2,
+          "form": 1,
+          "loyalty": 2
+        },
+        "id": "compete",
+        "label": "Compete",
+        "outcome": {
+          "variants": [
+            {
+              "key": "positive",
+              "roleOverride": "key-player",
+              "weight": 50
+            },
+            {
+              "key": "negative",
+              "roleOverride": "rotation",
+              "weight": 50
+            }
+          ]
+        }
+      },
+      {
+        "detail": "A fresh shirt and a clearer route to minutes",
+        "effects": {
+          "fame": 1,
+          "form": 2,
+          "loyalty": -2
+        },
+        "id": "exit-club",
+        "label": "Take the new offer",
+        "offerExit": true
+      }
+    ],
+    "eyebrow": "Manager’s office",
+    "id": "squad-competition",
+    "maxAge": 34,
+    "minAge": 22,
+    "title": "Competition for your place"
+  },
+  {
+    "body": "Recovery will leave you short of rhythm during this part of the career.",
+    "choices": [
+      {
+        "detail": "Lose 2 OVR · lower the recurrence risk",
+        "effects": {
+          "fitness": 10,
+          "risk": -2
+        },
+        "id": "start-recovery",
+        "label": "Complete the rehabilitation",
+        "outcome": {
+          "immediateOverallDelta": -3,
+          "roleOverride": "prospect"
+        }
+      },
+      {
+        "detail": "Keep your rhythm · risk another setback",
+        "effects": {
+          "fame": 1,
+          "fitness": -8,
+          "form": 2,
+          "risk": 3
+        },
+        "id": "rush-return",
+        "label": "Rush the return",
+        "outcome": {
+          "variants": [
+            {
+              "key": "available",
+              "statsMultiplier": 1,
+              "weight": 65
+            },
+            {
+              "absenceSeasons": 1,
+              "immediateOverallDelta": -2,
+              "key": "setback",
+              "weight": 35
+            }
+          ]
+        }
+      }
+    ],
+    "eyebrow": "Medical room",
+    "id": "hamstring-strain",
+    "maxAge": 37,
+    "minAge": 28,
+    "title": "Hamstring strain"
+  },
+  {
+    "body": "The scan is clear, but the joint is unstable. Rest it properly or tape it and keep your place.",
+    "choices": [
+      {
+        "detail": "Lose rhythm · return with less risk",
+        "effects": {
+          "fitness": 8,
+          "form": -2,
+          "loyalty": 1,
+          "risk": -1
+        },
+        "id": "rest-ankle",
+        "label": "Rest until it is stable",
+        "outcome": {
+          "immediateOverallDelta": -1,
+          "roleOverride": "prospect"
+        }
+      },
+      {
+        "detail": "Protect your place · carry the risk",
+        "effects": {
+          "fame": 1,
+          "fitness": -5,
+          "form": 2,
+          "risk": 2
+        },
+        "id": "play-taped",
+        "label": "Play with it taped",
+        "outcome": {
+          "variants": [
+            {
+              "key": "available",
+              "statsMultiplier": 1,
+              "weight": 70
+            },
+            {
+              "absenceSeasons": 1,
+              "immediateOverallDelta": -2,
+              "key": "setback",
+              "weight": 30
+            }
+          ]
+        }
+      }
+    ],
+    "eyebrow": "Treatment room",
+    "id": "ankle-sprain",
+    "maxAge": 31,
+    "minAge": 19,
+    "title": "A bad landing twists your ankle"
+  },
+  {
+    "body": "Nothing has torn, but the load is building. Reset now or manage the pain through the run-in.",
+    "choices": [
+      {
+        "detail": "Lose sharpness · protect the final years",
+        "effects": {
+          "fitness": 12,
+          "form": -2,
+          "risk": -3
+        },
+        "id": "full-reset",
+        "label": "Take the long reset",
+        "outcome": {
+          "deferredOverallDelta": 2,
+          "immediateOverallDelta": -2
+        }
+      },
+      {
+        "detail": "Stay available · keep the warning alive",
+        "effects": {
+          "fitness": -4,
+          "form": 2,
+          "loyalty": 1,
+          "risk": 2
+        },
+        "id": "manage-load",
+        "label": "Manage the load",
+        "outcome": {
+          "variants": [
+            {
+              "key": "available",
+              "statsMultiplier": 1,
+              "weight": 65
+            },
+            {
+              "absenceSeasons": 1,
+              "immediateOverallDelta": -3,
+              "key": "setback",
+              "weight": 35
+            }
+          ]
+        }
+      }
+    ],
+    "eyebrow": "Medical review",
+    "id": "knee-warning",
+    "maxAge": 36,
+    "minAge": 25,
+    "title": "Your knee is sending a warning"
+  },
+  {
+    "body": "The flight is brutal and your manager wants you rested. The national shirt has never felt heavier.",
+    "choices": [
+      {
+        "detail": "Country before comfort",
+        "effects": {
+          "fame": 2,
+          "fitness": -5,
+          "nationalBoost": 3
+        },
+        "id": "report-duty",
+        "label": "Report for duty",
+        "outcome": {
+          "nationalTournamentParticipation": "force"
+        }
+      },
+      {
+        "detail": "Protect the week that pays you",
+        "effects": {
+          "fame": -2,
+          "fitness": 4,
+          "form": 3
+        },
+        "id": "stay-club",
+        "label": "Stay with the club",
+        "outcome": {
+          "nationalTournamentParticipation": "skip"
+        }
+      }
+    ],
+    "eyebrow": "International week",
+    "id": "national-call",
+    "maxAge": 34,
+    "minAge": 20,
+    "title": "Your country calls before the biggest club match"
+  },
+  {
+    "body": "The club asks you to mentor its brightest teenager. You can share the stage or guard every remaining minute.",
+    "choices": [
+      {
+        "detail": "Legacy beyond the numbers",
+        "effects": {
+          "fame": 2,
+          "fitness": 2,
+          "loyalty": 4
+        },
+        "id": "mentor-kid",
+        "label": "Teach everything",
+        "outcome": {
+          "roleShift": -1,
+          "trophyMultipliers": {
+            "clubWorldCup": 2,
+            "continentalPrimary": 2,
+            "continentalSecondary": 2,
+            "domesticCup": 2,
+            "league": 2
+          }
+        }
+      },
+      {
+        "detail": "One last ruthless peak",
+        "effects": {
+          "form": 3,
+          "loyalty": -2,
+          "risk": 1
+        },
+        "id": "fight-minutes",
+        "label": "Make them earn it",
+        "outcome": {
+          "variants": [
+            {
+              "key": "positive",
+              "permanentOverallDelta": 2,
+              "weight": 50
+            },
+            {
+              "key": "negative",
+              "permanentOverallDelta": -2,
+              "weight": 50
+            }
+          ]
+        }
+      }
+    ],
+    "eyebrow": "Final chapters",
+    "id": "mentor",
+    "maxAge": 37,
+    "minAge": 32,
+    "title": "The next generation takes your locker"
+  },
+  {
+    "body": "Learning it could open a new route into the team, but the change may disrupt the game that got you here.",
+    "choices": [
+      {
+        "detail": "More pathways · short-term discomfort",
+        "effects": {
+          "fitness": -1,
+          "form": -1,
+          "potential": 2
+        },
+        "id": "learn-role",
+        "label": "Learn the new role",
+        "outcome": {
+          "deferredOverallDelta": 2,
+          "immediateOverallDelta": -2,
+          "roleOverride": "key-player"
+        }
+      },
+      {
+        "detail": "Protect your rhythm · narrow the route",
+        "effects": {
+          "form": 2,
+          "loyalty": -1
+        },
+        "id": "keep-role",
+        "label": "Keep your game"
+      }
+    ],
+    "eyebrow": "Tactics room",
+    "id": "tactical-role",
+    "maxAge": 29,
+    "minAge": 20,
+    "title": "The manager sees you in a different role"
+  },
+  {
+    "body": "Your club has found a one-season loan where regular minutes are available. Leave to grow, or stay and fight for this shirt.",
+    "choices": [
+      {
+        "detail": "One season of minutes · then return",
+        "effects": {
+          "form": 2,
+          "loyalty": 1,
+          "potential": 2
+        },
+        "id": "accept-loan",
+        "label": "Take the loan",
+        "loanOffer": true
+      },
+      {
+        "detail": "Protect your place · accept the competition",
+        "effects": {
+          "fitness": -1,
+          "form": 1,
+          "loyalty": 2
+        },
+        "id": "stay-and-fight",
+        "label": "Stay and fight"
+      }
+    ],
+    "eyebrow": "Development plan",
+    "id": "loan-path",
+    "maxAge": 24,
+    "minAge": 18,
+    "title": "One season away could change your place"
+  },
+  {
+    "body": "Results are collapsing and the squad is divided. Step forward as a leader or keep your energy for the pitch.",
+    "choices": [
+      {
+        "detail": "Earn trust · carry the pressure",
+        "effects": {
+          "fame": 1,
+          "fitness": -4,
+          "loyalty": 3,
+          "risk": 1
+        },
+        "id": "lead-room",
+        "label": "Lead the dressing room",
+        "outcome": {
+          "trophyMultipliers": {
+            "clubWorldCup": 0.1,
+            "continentalPrimary": 0.1,
+            "continentalSecondary": 0.1,
+            "domesticCup": 0.1,
+            "league": 0.1
+          }
+        }
+      },
+      {
+        "detail": "Stay fresh · lose influence",
+        "effects": {
+          "fitness": 3,
+          "form": 1,
+          "loyalty": -2
+        },
+        "id": "focus-pitch",
+        "label": "Focus on football"
+      }
+    ],
+    "eyebrow": "Dressing room",
+    "id": "club-crisis",
+    "maxAge": 35,
+    "minAge": 23,
+    "title": "The club is sliding into a crisis"
+  },
+  {
+    "body": "A bad run has turned the atmosphere. Face the crowd yourself or step away until your football can answer.",
+    "choices": [
+      {
+        "detail": "Own the moment · risk the backlash",
+        "effects": {
+          "fame": 2,
+          "fitness": -2,
+          "form": 1,
+          "risk": 1
+        },
+        "id": "face-fans",
+        "label": "Face the supporters",
+        "outcome": {
+          "deferredOverallDelta": 2,
+          "immediateOverallDelta": -2
+        }
+      },
+      {
+        "detail": "Recover focus · surrender the story",
+        "effects": {
+          "fame": -1,
+          "fitness": 3,
+          "form": 1
+        },
+        "id": "stay-quiet",
+        "label": "Stay quiet"
+      }
+    ],
+    "eyebrow": "Outside the stadium",
+    "id": "fan-pressure",
+    "maxAge": 34,
+    "minAge": 21,
+    "title": "Supporters are waiting for answers"
+  },
+  {
+    "body": "The honour brings a voice in the club—and responsibility for every difficult night.",
+    "choices": [
+      {
+        "detail": "Lead the club · absorb the weight",
+        "effects": {
+          "fame": 2,
+          "fitness": -3,
+          "loyalty": 4
+        },
+        "id": "take-armband",
+        "label": "Wear the armband",
+        "outcome": {
+          "roleOverride": "key-player",
+          "statsMultiplier": 1.12
+        }
+      },
+      {
+        "detail": "Protect your game · disappoint the room",
+        "effects": {
+          "fitness": 3,
+          "form": 2,
+          "loyalty": -1
+        },
+        "id": "stay-free",
+        "label": "Stay free"
+      }
+    ],
+    "eyebrow": "Before kick-off",
+    "id": "captaincy",
+    "maxAge": 34,
+    "minAge": 26,
+    "title": "The captain's armband is waiting"
+  },
+  {
+    "body": "You can bring everything you learned back to where the dream began, or keep chasing the biggest stage abroad.",
+    "choices": [
+      {
+        "detail": "A familiar shirt and one last mission",
+        "effects": {
+          "fame": 1,
+          "form": 1,
+          "loyalty": 4
+        },
+        "homeOffer": true,
+        "id": "return-home",
+        "label": "Return home"
+      },
+      {
+        "detail": "Keep the level high · leave home waiting",
+        "effects": {
+          "fame": 2,
+          "loyalty": -2
+        },
+        "id": "stay-abroad",
+        "label": "Stay abroad",
+        "outcome": {
+          "deferredOverallDelta": 5,
+          "immediateOverallDelta": -5
+        }
+      }
+    ],
+    "eyebrow": "A call from home",
+    "id": "return-home",
+    "maxAge": 38,
+    "minAge": 32,
+    "title": "A club from home wants your final years"
+  },
+  {
+    "body": "The change could stay with you for the rest of your career, for better or worse.",
+    "choices": [
+      {
+        "detail": "A permanent OVR outcome",
+        "id": "change-technique",
+        "label": "Commit to the rebuild",
+        "outcome": {
+          "variants": [
+            {
+              "key": "positive",
+              "permanentOverallDelta": 2,
+              "weight": 50
+            },
+            {
+              "key": "negative",
+              "permanentOverallDelta": -2,
+              "weight": 50
+            }
+          ]
+        }
+      },
+      {
+        "detail": "No OVR change",
+        "effects": {
+          "loyalty": 1
+        },
+        "id": "keep-technique",
+        "label": "Keep your technique"
+      }
+    ],
+    "eyebrow": "Training plan",
+    "id": "personal-coach",
+    "maxAge": 31,
+    "minAge": 19,
+    "title": "A specialist wants to rebuild your technique"
+  },
+  {
+    "body": "The performance gain is real, but so is the chance of a long suspension.",
+    "choices": [
+      {
+        "detail": "75% +5 OVR · 25% suspension",
+        "id": "take-shortcut",
+        "label": "Take the risk",
+        "outcome": {
+          "variants": [
+            {
+              "immediateOverallDelta": 5,
+              "key": "positive",
+              "weight": 75
+            },
+            {
+              "key": "suspended",
+              "suspended": true,
+              "weight": 25
+            }
+          ]
+        }
+      },
+      {
+        "detail": "No OVR change",
+        "effects": {
+          "loyalty": 2
+        },
+        "id": "reject-shortcut",
+        "label": "Walk away"
+      }
+    ],
+    "eyebrow": "Compliance meeting",
+    "id": "integrity-review",
+    "maxAge": 33,
+    "minAge": 21,
+    "title": "A shortcut could put your season at risk"
+  },
+  {
+    "body": "Defend your people and lose your place, or protect the club and carry the strain.",
+    "choices": [
+      {
+        "detail": "Your role drops for this block",
+        "id": "defend-people",
+        "label": "Defend your people",
+        "outcome": {
+          "roleShift": -1
+        }
+      },
+      {
+        "detail": "Lose 2 OVR now · recover it after the block",
+        "id": "protect-club",
+        "label": "Protect the club",
+        "outcome": {
+          "deferredOverallDelta": 2,
+          "immediateOverallDelta": -2
+        }
+      }
+    ],
+    "eyebrow": "Public pressure",
+    "id": "public-dispute",
+    "maxAge": 35,
+    "minAge": 22,
+    "title": "A public dispute reaches the dressing room"
+  },
+  {
+    "body": "One campaign gets a stronger push while the other becomes harder to win.",
+    "choices": [
+      {
+        "detail": "League ×2 · continental ×0.5",
+        "id": "prioritize-league",
+        "label": "Prioritize the league",
+        "outcome": {
+          "trophyMultipliers": {
+            "continentalPrimary": 0.5,
+            "league": 2
+          }
+        }
+      },
+      {
+        "detail": "Continental ×2 · league ×0.5",
+        "id": "prioritize-continent",
+        "label": "Prioritize the continental cup",
+        "outcome": {
+          "trophyMultipliers": {
+            "continentalPrimary": 2,
+            "league": 0.5
+          }
+        }
+      }
+    ],
+    "eyebrow": "Season target",
+    "id": "club-priority",
+    "maxAge": 34,
+    "minAge": 24,
+    "title": "The club asks where to spend its best energy"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "assistRate": 0.24,
+    "code": "LW",
+    "goalRate": 0.34,
+    "label": "Left wing",
+    "line": "ATT"
+  },
+  {
+    "assistRate": 0.12,
+    "code": "ST",
+    "goalRate": 0.58,
+    "label": "Striker",
+    "line": "ATT"
+  },
+  {
+    "assistRate": 0.24,
+    "code": "RW",
+    "goalRate": 0.34,
+    "label": "Right wing",
+    "line": "ATT"
+  },
+  {
+    "assistRate": 0.36,
+    "code": "CAM",
+    "goalRate": 0.23,
+    "label": "Attacking mid",
+    "line": "MID"
+  },
+  {
+    "assistRate": 0.3,
+    "code": "CM",
+    "goalRate": 0.12,
+    "label": "Central mid",
+    "line": "MID"
+  },
+  {
+    "assistRate": 0.18,
+    "code": "CDM",
+    "goalRate": 0.06,
+    "label": "Defensive mid",
+    "line": "MID"
+  },
+  {
+    "assistRate": 0.16,
+    "code": "LB",
+    "goalRate": 0.04,
+    "label": "Left back",
+    "line": "DEF"
+  },
+  {
+    "assistRate": 0.06,
+    "code": "CB",
+    "goalRate": 0.04,
+    "label": "Centre back",
+    "line": "DEF"
+  },
+  {
+    "assistRate": 0.16,
+    "code": "RB",
+    "goalRate": 0.04,
+    "label": "Right back",
+    "line": "DEF"
+  },
+  {
+    "assistRate": 0.01,
+    "code": "GK",
+    "goalRate": 0.002,
+    "label": "Goalkeeper",
+    "line": "GK"
+  }
+]

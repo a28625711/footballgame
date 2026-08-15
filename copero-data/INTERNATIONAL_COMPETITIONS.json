@@ -1,0 +1,94 @@
+{
+  "continental.afc.club.primary": {
+    "id": "continental.afc.club.primary",
+    "name": "AFC Champions League Elite"
+  },
+  "continental.afc.club.secondary": {
+    "id": "continental.afc.club.secondary",
+    "name": "AFC Champions League Two"
+  },
+  "continental.afc.national.primary": {
+    "id": "continental.afc.national.primary",
+    "name": "AFC Asian Cup"
+  },
+  "continental.caf.club.primary": {
+    "id": "continental.caf.club.primary",
+    "name": "CAF Champions League"
+  },
+  "continental.caf.club.secondary": {
+    "id": "continental.caf.club.secondary",
+    "name": "CAF Confederation Cup"
+  },
+  "continental.caf.national.primary": {
+    "id": "continental.caf.national.primary",
+    "name": "Africa Cup of Nations"
+  },
+  "continental.concacaf.club.primary": {
+    "id": "continental.concacaf.club.primary",
+    "name": "Concacaf Champions Cup"
+  },
+  "continental.concacaf.club.secondary": {
+    "id": "continental.concacaf.club.secondary",
+    "name": "North American League Cup"
+  },
+  "continental.concacaf.national.primary": {
+    "id": "continental.concacaf.national.primary",
+    "name": "Concacaf Gold Cup"
+  },
+  "continental.conmebol.club.primary": {
+    "id": "continental.conmebol.club.primary",
+    "name": "CONMEBOL Libertadores"
+  },
+  "continental.conmebol.club.secondary": {
+    "id": "continental.conmebol.club.secondary",
+    "name": "CONMEBOL Sudamericana"
+  },
+  "continental.conmebol.national.primary": {
+    "id": "continental.conmebol.national.primary",
+    "name": "CONMEBOL Copa América"
+  },
+  "continental.ofc.club.primary": {
+    "id": "continental.ofc.club.primary",
+    "name": "OFC Men's Champions League"
+  },
+  "continental.ofc.club.secondary": {
+    "id": "continental.ofc.club.secondary",
+    "name": "Oceanian League Cup"
+  },
+  "continental.ofc.national.primary": {
+    "id": "continental.ofc.national.primary",
+    "name": "OFC Men's Nations Cup"
+  },
+  "continental.uefa.club.primary": {
+    "id": "continental.uefa.club.primary",
+    "name": "UEFA Champions League"
+  },
+  "continental.uefa.club.secondary": {
+    "id": "continental.uefa.club.secondary",
+    "name": "UEFA Europa League"
+  },
+  "continental.uefa.national.primary": {
+    "id": "continental.uefa.national.primary",
+    "name": "UEFA European Championship"
+  },
+  "individual.golden-boot": {
+    "id": "individual.golden-boot",
+    "name": "Golden boot"
+  },
+  "individual.world-goalkeeper": {
+    "id": "individual.world-goalkeeper",
+    "name": "World goalkeeper of the year"
+  },
+  "individual.world-player": {
+    "id": "individual.world-player",
+    "name": "World player of the year"
+  },
+  "world.club": {
+    "id": "world.club",
+    "name": "World Club Championship"
+  },
+  "world.national": {
+    "id": "world.national",
+    "name": "World Championship"
+  }
+}

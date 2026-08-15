@@ -1,0 +1,206 @@
+{
+  "continental.afc.national.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/afc-asian-cup.png"
+  },
+  "continental.caf.club.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/caf-champions-league.png"
+  },
+  "continental.caf.club.secondary": {
+    "contrast": "light_plate",
+    "honour": "Continental secondary champion",
+    "src": "/assets/trophies/caf-confederation-cup.png"
+  },
+  "continental.caf.national.primary": {
+    "contrast": "none",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/africa-cup-of-nations.png"
+  },
+  "continental.concacaf.club.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/concacaf-champions-cup.png"
+  },
+  "continental.concacaf.national.primary": {
+    "contrast": "none",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/concacaf-gold-cup.png"
+  },
+  "continental.conmebol.club.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/conmebol-libertadores.png"
+  },
+  "continental.conmebol.club.secondary": {
+    "contrast": "light_plate",
+    "honour": "Continental secondary champion",
+    "src": "/assets/trophies/conmebol-sudamericana.png"
+  },
+  "continental.conmebol.national.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/conmebol-copa-america.png"
+  },
+  "continental.ofc.national.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/ofc-mens-nations-cup.png"
+  },
+  "continental.uefa.club.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental champion",
+    "src": "/assets/trophies/uefa-champions-league.png"
+  },
+  "continental.uefa.club.secondary": {
+    "contrast": "light_plate",
+    "honour": "Continental secondary champion",
+    "src": "/assets/trophies/uefa-europa-league.png"
+  },
+  "continental.uefa.national.primary": {
+    "contrast": "light_plate",
+    "honour": "Continental national champion",
+    "src": "/assets/trophies/uefa-european-championship.png"
+  },
+  "domestic.arg.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/arg-copa-argentina.png"
+  },
+  "domestic.bra.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/bra-copa-do-brasil.png"
+  },
+  "domestic.chi.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/chi-copa-chile.png"
+  },
+  "domestic.chi.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/liga-de-primera.png"
+  },
+  "domestic.col.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/col-copa-colombia.png"
+  },
+  "domestic.ecu.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/ecu-copa-ecuador.png"
+  },
+  "domestic.eng.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/eng-fa-cup.png"
+  },
+  "domestic.eng.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/premier-league.png"
+  },
+  "domestic.esp.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/esp-copa-del-rey.png"
+  },
+  "domestic.esp.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/laliga.png"
+  },
+  "domestic.fra.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/fra-coupe-de-france.png"
+  },
+  "domestic.fra.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/ligue-1.png"
+  },
+  "domestic.ger.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/ger-dfb-pokal.png"
+  },
+  "domestic.ger.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/bundesliga.png"
+  },
+  "domestic.ita.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/serie-a.png"
+  },
+  "domestic.jpn.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/copa-del-emperador.png"
+  },
+  "domestic.mex.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/liga-mx.png"
+  },
+  "domestic.ned.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/ned-knvb-cup.png"
+  },
+  "domestic.ned.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/eredivisie.png"
+  },
+  "domestic.por.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/por-taca-de-portugal.png"
+  },
+  "domestic.por.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/por-primeira-liga.png"
+  },
+  "domestic.rus.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/rus-copa-rusia.png"
+  },
+  "domestic.rus.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/liga-premier-de-rusia.png"
+  },
+  "domestic.sco.cup.primary": {
+    "contrast": "light_plate",
+    "honour": "Domestic cup",
+    "src": "/assets/trophies/domestic/sco-scottish-cup.png"
+  },
+  "domestic.usa.league.top": {
+    "contrast": "light_plate",
+    "honour": "League champion",
+    "src": "/assets/trophies/domestic/usa-mls.png"
+  },
+  "individual.golden-boot": {
+    "contrast": "none",
+    "src": "/assets/trophies/golden-boot.png"
+  },
+  "world.club": {
+    "contrast": "light_plate",
+    "honour": "Club world champion",
+    "src": "/assets/trophies/world-club-championship.png"
+  },
+  "world.national": {
+    "contrast": "none",
+    "honour": "World champion",
+    "src": "/assets/trophies/world-championship.png"
+  }
+}

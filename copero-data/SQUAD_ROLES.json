@@ -1,0 +1,34 @@
+[
+  {
+    "appearanceShare": 0.3,
+    "key": "prospect",
+    "minuteMax": 56,
+    "minuteMin": 28,
+    "parityKey": "substitute",
+    "projectedMinutes": 680
+  },
+  {
+    "appearanceShare": 0.54,
+    "key": "rotation",
+    "minuteMax": 66,
+    "minuteMin": 42,
+    "parityKey": "low-rotation",
+    "projectedMinutes": 1420
+  },
+  {
+    "appearanceShare": 0.76,
+    "key": "starter",
+    "minuteMax": 78,
+    "minuteMin": 58,
+    "parityKey": "high-rotation",
+    "projectedMinutes": 2240
+  },
+  {
+    "appearanceShare": 0.94,
+    "key": "key-player",
+    "minuteMax": 90,
+    "minuteMin": 74,
+    "parityKey": "starter",
+    "projectedMinutes": 3120
+  }
+]

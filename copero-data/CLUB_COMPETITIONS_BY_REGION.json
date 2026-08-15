@@ -1,0 +1,26 @@
+{
+  "Africa": {
+    "continentalPrimary": "CAF Champions League",
+    "continentalSecondary": "CAF Confederation Cup"
+  },
+  "Asia": {
+    "continentalPrimary": "AFC Champions League Elite",
+    "continentalSecondary": "AFC Champions League Two"
+  },
+  "Europe": {
+    "continentalPrimary": "UEFA Champions League",
+    "continentalSecondary": "UEFA Europa League"
+  },
+  "North America": {
+    "continentalPrimary": "Concacaf Champions Cup",
+    "continentalSecondary": "North American League Cup"
+  },
+  "Oceania": {
+    "continentalPrimary": "OFC Men's Champions League",
+    "continentalSecondary": "Oceanian League Cup"
+  },
+  "South America": {
+    "continentalPrimary": "CONMEBOL Libertadores",
+    "continentalSecondary": "CONMEBOL Sudamericana"
+  }
+}

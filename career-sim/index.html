@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>足一把-生涯模拟器 - 中国球员生涯</title>
+<meta name="description" content="从足校到退役，把一个中国球员的一生走一遍。选择、代价，和一份没人替你写的履历。">
+<meta name="theme-color" content="#0e100f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+<link rel="stylesheet" href="style.css?v=48">
+</head>
+<body>
+
+<header class="topbar">
+  <button class="brand" id="brand-home">
+    <span class="brand-mark">⚽</span>足一把-生涯模拟器
+  </button>
+  <!-- 姊妹站入口。照姊妹站 D:\guess 的 .brand-links 做的：两个都是实心色块 + 呼吸圆点，
+       分量相同（那边试过把其中一个降成描边款，被否掉了，这里别再改成一主一次）。
+       窄屏这一组会整体折到第二行，见 style.css 顶栏那一节。 -->
+  <div class="brand-links">
+    <a class="brand-link" href="https://zuyiba.pages.dev/" target="_blank" rel="noopener">
+      <span class="bl-dot" aria-hidden="true"></span>
+      <span class="bl-txt">猜球员链接</span>
+    </a>
+    <a class="brand-link" href="https://playerclubs.pages.dev/" target="_blank" rel="noopener">
+      <span class="bl-dot" aria-hidden="true"></span>
+      <span class="bl-txt">看转会历史猜球员链接</span>
+    </a>
+  </div>
+  <button id="btn-help" class="corner-btn">玩法</button>
+</header>
+
+<main id="app">
+
+  <!-- ========== 首页 ========== -->
+  <!-- 两栏是给宽屏用的：左边「这是什么」，右边「怎么开始」。
+       DOM 的先后顺序是照**手机**排的 —— 窄屏下两栏塌成一列，
+       读下来正好是 标题 → 球场 → 说明 → 家底 → 模式 → 种子 → 开始，
+       跟改之前一模一样，只多了「家底」那一排。
+       所以左右栏的内容不能按「视觉/功能」随便分，得按这个顺序分。 -->
+  <section id="view-intro" class="view intro">
+    <div class="intro-grid">
+      <div class="intro-lead">
+        <!-- 站名单独一行，压在「生涯模拟器」上面。顶栏那行字在 PC 上偏小、
+             又贴在最上边，进来第一眼落的其实是这块 hero —— 品牌得在这儿再说一次 -->
+        <p class="hero-brand">足一把</p>
+        <p class="eyebrow">生涯模拟器</p>
+        <h1 class="hero-title">从足校到退役<br>把一辈子走一遍</h1>
+        <div class="hero-art" id="hero-art"></div>
+      </div>
+
+      <div class="intro-start">
+        <p class="hero-sub">
+          选出身，做选择，承担后果。能力、关系、清白、名气四条线一起往前走，
+          最后给你一份没人替你写的履历。
+        </p>
+
+        <!-- 这几个数由 game.js 现填（事件、结局、球队的条数都在变，
+             写死在这儿迟早对不上）。首页原来一个数都没有，
+             玩家在点「开始」之前不知道这里头有多少东西。 -->
+        <ul class="intro-facts" id="intro-facts"></ul>
+
+        <div class="segmented" id="mode-seg">
+          <button class="seg" data-mode="long">硬核</button>
+          <button class="seg selected" data-mode="normal">普通</button>
+          <button class="seg" data-mode="express">快进</button>
+        </div>
+        <p class="seg-note" id="seg-note">每两个赛季一次决策，节奏适中</p>
+
+        <!-- 种子。留空就随机；填上和别人一样的，走出来的是同一段人生。
+             任何字符串都行 —— sim.js 里 rngState 是 hashStr(String(seed)) 现算的。 -->
+        <div class="seed-box">
+          <label for="in-seed">种子</label>
+          <input id="in-seed" type="text" inputmode="text" maxlength="32"
+                 placeholder="留空随机" autocomplete="off" spellcheck="false">
+        </div>
+
+        <div class="btn-stack">
+          <button id="btn-start" class="btn btn-primary">开始生涯</button>
+          <!-- 一段生涯都还没走完的时候，game.js 会把它藏起来 -->
+          <button id="btn-archive" class="btn hidden">生涯历史档案</button>
+          <!-- 图鉴同样等有了第一段生涯再出现：一开局就摊开五十九条结局，
+               等于把这游戏的谜底先讲了一遍 -->
+          <button id="btn-codex" class="btn hidden">结局图鉴</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 身份（三步共用一个容器）========== -->
+  <section id="view-identity" class="view hidden">
+    <div class="step-head">
+      <div class="step-title" id="step-title"></div>
+      <div class="progress"><div class="progress-fill" id="step-progress"></div></div>
+      <div class="step-sub" id="step-sub"></div>
+    </div>
+    <div id="step-body"></div>
+  </section>
+
+  <!-- ========== 生涯（两栏结构整个由 JS 渲染）========== -->
+  <section id="view-career" class="view hidden">
+    <div id="career-root"></div>
+  </section>
+
+  <!-- ========== 结算 ========== -->
+  <section id="view-summary" class="view hidden">
+    <div id="summary-area"></div>
+  </section>
+
+  <!-- ========== 生涯历史档案（退役过的每一段，只存在本机）========== -->
+  <section id="view-archive" class="view hidden">
+    <div id="archive-area"></div>
+  </section>
+
+  <!-- ========== 结局图鉴（四十九条结局，见过的才亮着）========== -->
+  <section id="view-codex" class="view hidden">
+    <div id="codex-area"></div>
+  </section>
+
+</main>
+
+<!-- 底部固定操作栏，只有身份流程用 -->
+<div class="actionbar hidden" id="actionbar">
+  <button class="btn btn-back" id="btn-back">返回</button>
+  <button class="btn btn-primary" id="btn-next">继续</button>
+</div>
+
+<!-- ========== 玩法弹窗 ========== -->
+<div id="help-modal" class="overlay hidden">
+  <div class="modal">
+    <button class="modal-close" data-close="help-modal">✕</button>
+    <h2>玩法说明</h2>
+    <p class="news-link"><button id="btn-open-news" class="mini-btn">看看最近更新了什么</button></p>
+    <p>你是一个 16 岁的球员，一路踢到退役。每隔一到三个赛季做一次选择，中间的比赛自动模拟。</p>
+
+    <h3>四条线</h3>
+    <ul>
+      <li><strong>能力</strong>　决定数据、荣誉、谁会来买你。二十六七岁见顶，之后一路往下。</li>
+      <li><strong>关系</strong>　影响国字号征召、队内首发、哨子松紧。高不一定是好事。</li>
+      <li><strong>清白</strong>　平时看不见，反腐、查税、抽检的时候一次性结账。会随时间自然往下掉。</li>
+      <li><strong>名气</strong>　影响舆论事件和场外收入。骂你的人也算名气。</li>
+    </ul>
+
+    <h3>几条规矩</h3>
+    <ul>
+      <li>连续几期出场太少，俱乐部就不续约了；没人报价就只能退役。</li>
+      <li>出国踢球以后，国内那套事件不会再找你，换成另一套麻烦。</li>
+      <li>结局称号由整段生涯算出来，不是随机的。</li>
+      <li>同一个种子会走出同样的一生，想复盘就把种子记下来。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 更新公告 ==========
+     版本号在 game.js 顶上的 NEWS_VER。改了这里的内容就把那个数也改掉，
+     不然回访的老玩家不会再弹一次。 -->
+<div id="news-modal" class="overlay hidden">
+  <div class="modal">
+    <button class="modal-close" data-close="news-modal">✕</button>
+    <h2>更新公告</h2>
+    <p class="news-date">2026 年 8 月 14 日</p>
+
+    <!-- 原来这儿置顶的是交流群群号，换成刷新提示：改了 css/js，
+         浏览器拿着旧缓存的话新东西一样都不会出现。 -->
+    <p class="news-refresh">更新了，记得刷新页面</p>
+
+    <!-- 一条一句话，最要紧的排最前面。写长了没人看完，
+         这一栏的用处是「让老玩家一眼知道值不值得再开一局」。 -->
+    <ul class="news-list">
+      <li>国家队有进球助攻了</li>
+      <li>新增 14 件国家队的事</li>
+      <li>能谈恋爱、结婚、生孩子了</li>
+      <li>结算页加了能力值曲线</li>
+      <li>绝对核心不会再被顶替</li>
+      <li>足校国少只在梯队时出现</li>
+      <li>新增三条结局</li>
+      <li>界面重新收拾了一遍</li>
+      <li>emoji 补齐了</li>
+      <li>页脚感谢充电支持</li>
+    </ul>
+
+    <p class="news-sister">足一把其他站</p>
+    <ul class="news-list">
+      <li>看转会历史猜球员：<a href="https://playerclubs.pages.dev/" target="_blank" rel="noopener">playerclubs.pages.dev</a></li>
+      <li>猜球员：<a href="https://zuyiba.pages.dev/" target="_blank" rel="noopener">zuyiba.pages.dev</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 分享弹窗 ========== -->
+<div id="share-modal" class="overlay hidden">
+  <div class="modal share-modal">
+    <button class="modal-close" data-close="share-modal">✕</button>
+    <!-- 从历史档案翻出来的卡，这一行会换成「第 N 世 · 生涯结束」 -->
+    <p class="share-eyebrow" id="share-eyebrow">生涯结束</p>
+    <h2 class="share-title">你的生涯总结卡</h2>
+
+    <!-- 从历史档案翻出来的卡才有这一块：接着那一世继续投胎。放在最上面 ——
+         这是「从这一世继续」的动作，跟下面那排「把这一世发出去」分开。
+         内容由 game.js 的 renderCardNextLife 现填，刚退役的那张卡是空的（hidden）。 -->
+    <div id="share-nextlife" class="share-nextlife hidden"></div>
+
+    <!-- 卡片整个画在 canvas 上：屏幕上看到的和存下来的是同一张图。
+         微信内置浏览器里 canvas 长按不出菜单、navigator.share / ClipboardItem 也都没有，
+         所以那边把画好的 canvas 转成同尺寸的 <img> 顶上去 —— 长按 img 才会弹出微信原生的
+         「发送给朋友 / 保存图片」，发出去也才是图片消息而不是 .png 文件。 -->
+    <div class="share-card-wrap">
+      <canvas id="share-canvas"></canvas>
+      <img id="share-img" class="hidden" alt="生涯总结卡">
+    </div>
+    <p id="share-tip" class="share-tip hidden">长按上面这张图 → 发送给朋友 / 保存图片</p>
+
+    <label class="share-toggle">
+      <span>显示姓名</span>
+      <input type="checkbox" id="share-name" checked>
+      <i></i>
+    </label>
+
+    <!-- 这一世够到过不止一条结局时才出现：卡上印哪一条由玩家自己挑。
+         默认是主结局，也就是结算页说出口的那一条。内容由 game.js 现填。 -->
+    <div id="share-ending-pick" class="share-ending-pick hidden"></div>
+
+    <div class="share-actions">
+      <button class="share-btn" data-share="share" title="分享">
+        <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4M8.6 13.4l6.8 4"/></svg>
+      </button>
+      <button class="share-btn" data-share="copy" title="复制图片">
+        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="12" rx="2"/>
+          <path d="M15 5H6a2 2 0 0 0-2 2v9"/></svg>
+      </button>
+      <button class="share-btn" data-share="save" title="保存图片">
+        <svg viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4"/><path d="M5 19h14"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>数值虚构，如有雷同纯属巧合</p>
+  <!-- 署名排版照姊妹站 D:\guessplayer 的 #credit：署名一行、网址单独一行，
+       字距撑开，网址用 border-bottom 当下划线（离字远一点，小字不糊）。 -->
+  <p class="footer-by">
+    <span class="afd-row">
+      <a class="afd-url" href="https://afdian.com/a/ahazei" target="_blank" rel="noopener noreferrer">afdian.com/a/ahazei</a>
+      <a class="brand-link afd-pill" href="https://afdian.com/a/ahazei" target="_blank" rel="noopener noreferrer">
+        <span class="bl-dot" aria-hidden="true"></span>爱发电支持我
+      </a>
+    </span>
+    by bilibili:神来我也日<br>
+    <a href="https://space.bilibili.com/50911720" target="_blank" rel="noopener noreferrer">space.bilibili.com/50911720</a>
+  </p>
+  <!-- 支持过这个站的人，坐在 B 站链接下面。名单由 game.js 从 supporters.js 现填 ——
+       只有昵称，留言和金额都不上页面。名单是空的（文件没加载）就整行收起来。 -->
+  <p class="thanks hidden" id="thanks">感谢支持：<span id="thanks-row"></span></p>
+</footer>
+
+<script src="deobf/data.deob.js"></script>
+<script src="deobf/events.deob.js"></script>
+<!-- 支持者名单。由 tools/import-supporters.js 从爱发电导出的 CSV 生成，
+     里面只有昵称和留言 —— 金额、订单号、地址电话一概不进这个文件 -->
+<script src="deobf/supporters.deob.js"></script>
+<!-- 海外俱乐部的真实队徽映射；缺哪支就回退到 game.js 里按队色现画的那版 -->
+<script src="deobf/crests.deob.js"></script>
+<!-- 分享卡右下角那张二维码自己算，不请求外部服务：跨域图片会污染 canvas -->
+<script src="deobf/qr.deob.js"></script>
+<!-- 引擎（纯逻辑，不认识 DOM）。必须排在 game.js 前面：game.js 一加载就从 window.SIM 取名字 -->
+<script src="deobf/sim.deob.js"></script>
+<script src="deobf/game.deob.js"></script>
+</body>
+</html>

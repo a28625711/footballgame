@@ -1,0 +1,4509 @@
+[
+  {
+    "name": "Tigre",
+    "level": 1,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Argentinos Juniors",
+    "level": 2,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "San Lorenzo",
+    "level": 3,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Boca Juniors",
+    "level": 4,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "River Plate",
+    "level": 5,
+    "country": "Argentina",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Bahia",
+    "level": 1,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Santos",
+    "level": 2,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Corinthians",
+    "level": 3,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Palmeiras",
+    "level": 4,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Flamengo",
+    "level": 5,
+    "country": "Brazil",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Pumas UNAM",
+    "level": 1,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Cruz Azul",
+    "level": 2,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Guadalajara",
+    "level": 3,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Tigres UANL",
+    "level": 4,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Club América",
+    "level": 5,
+    "country": "Mexico",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Austin FC",
+    "level": 1,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Atlanta United",
+    "level": 2,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Seattle Sounders FC",
+    "level": 3,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "LA Galaxy",
+    "level": 4,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Inter Miami CF",
+    "level": 5,
+    "country": "United States",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Deportivo Cali",
+    "level": 1,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Junior FC",
+    "level": 2,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "América de Cali",
+    "level": 3,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Millonarios",
+    "level": 4,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Atlético Nacional",
+    "level": 5,
+    "country": "Colombia",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Chelsea",
+    "level": 1,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Manchester United",
+    "level": 2,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Arsenal",
+    "level": 3,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Liverpool",
+    "level": 4,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Manchester City",
+    "level": 5,
+    "country": "England",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Sevilla FC",
+    "level": 1,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Athletic Club",
+    "level": 2,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Atlético de Madrid",
+    "level": 3,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Barcelona",
+    "level": 4,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Real Madrid",
+    "level": 5,
+    "country": "Spain",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Lille OSC",
+    "level": 1,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Olympique Lyonnais",
+    "level": 2,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AS Monaco",
+    "level": 3,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Olympique de Marseille",
+    "level": 4,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Paris Saint-Germain",
+    "level": 5,
+    "country": "France",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Eintracht Frankfurt",
+    "level": 1,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "RB Leipzig",
+    "level": 2,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Bayer 04 Leverkusen",
+    "level": 3,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Borussia Dortmund",
+    "level": 4,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Bayern München",
+    "level": 5,
+    "country": "Germany",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AS Roma",
+    "level": 1,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "SSC Napoli",
+    "level": 2,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Juventus",
+    "level": 3,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AC Milan",
+    "level": 4,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Inter",
+    "level": 5,
+    "country": "Italy",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Vitória SC",
+    "level": 1,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "SC Braga",
+    "level": 2,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Sporting CP",
+    "level": 3,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Porto",
+    "level": 4,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "SL Benfica",
+    "level": 5,
+    "country": "Portugal",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Wisła Kraków",
+    "level": 1,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Raków Częstochowa",
+    "level": 2,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Jagiellonia Białystok",
+    "level": 3,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Lech Poznań",
+    "level": 4,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Legia Warszawa",
+    "level": 5,
+    "country": "Poland",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Utrecht",
+    "level": 1,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AZ",
+    "level": 2,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Feyenoord",
+    "level": 3,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "PSV",
+    "level": 4,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Ajax",
+    "level": 5,
+    "country": "Netherlands",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Tokyo",
+    "level": 1,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Kawasaki Frontale",
+    "level": 2,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Yokohama F. Marinos",
+    "level": 3,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Urawa Red Diamonds",
+    "level": 4,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Vissel Kobe",
+    "level": 5,
+    "country": "Japan",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Suwon Samsung Bluewings",
+    "level": 1,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FC Seoul",
+    "level": 2,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Pohang Steelers",
+    "level": 3,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Jeonbuk Hyundai Motors",
+    "level": 4,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Ulsan HD",
+    "level": 5,
+    "country": "South Korea",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "FUS Rabat",
+    "level": 1,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "RS Berkane",
+    "level": 2,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "AS FAR",
+    "level": 3,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Raja Club Athletic",
+    "level": 4,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Wydad Athletic Club",
+    "level": 5,
+    "country": "Morocco",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Kano Pillars",
+    "level": 1,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Shooting Stars",
+    "level": 2,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Rivers United",
+    "level": 3,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Remo Stars",
+    "level": 4,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "name": "Enyimba",
+    "level": 5,
+    "country": "Nigeria",
+    "real": true,
+    "crest": "original"
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Congo DR",
+    "crest": "original",
+    "level": 2,
+    "name": "AS Vita Club",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 2,
+    "name": "Al Ahly",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 5,
+    "name": "Raja Casablanca",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 4,
+    "name": "Highlands Park",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Tunisia",
+    "crest": "original",
+    "level": 5,
+    "name": "Espérance Sportive de Tunis",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 2,
+    "name": "Al Mokawloon Al Arab",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 1,
+    "name": "Wydad Casablanca",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 2,
+    "name": "Kaizer Chiefs",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Tunisia",
+    "crest": "original",
+    "level": 1,
+    "name": "JS Kairouanaise",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 3,
+    "name": "El Dakhleya",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 5,
+    "name": "CAY Berrechid",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 5,
+    "name": "Orlando Pirates",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Tunisia",
+    "crest": "original",
+    "level": 5,
+    "name": "US Monastir",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 4,
+    "name": "El Entag El Harby",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 2,
+    "name": "JS Soualem",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 3,
+    "name": "Bidwest Wits",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Tunisia",
+    "crest": "original",
+    "level": 2,
+    "name": "Olympique de Béja",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 4,
+    "name": "ENPPI SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 5,
+    "name": "RCA Zemamra",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 4,
+    "name": "Moroka Swallows",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Tunisia",
+    "crest": "original",
+    "level": 3,
+    "name": "US Ben Guerdane",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 1,
+    "name": "Ittihad El Shorta",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 4,
+    "name": "SCC Mohammédia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 2,
+    "name": "Cape Town City",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 3,
+    "name": "Tala'ea El Gaish",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 3,
+    "name": "US Touarga",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 3,
+    "name": "Cape Town Spurs",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 1,
+    "name": "Wadi Degla",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 1,
+    "name": "MC Oujda",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 1,
+    "name": "SuperSport United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 5,
+    "name": "Pyramids FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 1,
+    "name": "IR Tanger",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 4,
+    "name": "Mamelodi Sundowns",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 2,
+    "name": "Modern Sport FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 2,
+    "name": "MA Tétouan",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 2,
+    "name": "Baroka",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 3,
+    "name": "National Bank SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 3,
+    "name": "MAS Fès",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 2,
+    "name": "Polokwane City",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 5,
+    "name": "ZED FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 3,
+    "name": "OC Safi",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 4,
+    "name": "Black Leopards",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 4,
+    "name": "Zamalek",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Morocco",
+    "crest": "original",
+    "level": 2,
+    "name": "HUS Agadir",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 5,
+    "name": "Bloemfontein Celtic",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 1,
+    "name": "Ceramica Cleopatra",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 4,
+    "name": "Chippa United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 5,
+    "name": "Al Ittihad Al Sakandary",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 3,
+    "name": "Maritzburg United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 5,
+    "name": "Haras El Hodood",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 2,
+    "name": "Stellenbosch United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 2,
+    "name": "Smouha SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 5,
+    "name": "AmaZulu Durban",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 3,
+    "name": "Pharco FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 1,
+    "name": "Golden Arrows",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 3,
+    "name": "Ismaily",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 1,
+    "name": "Royal AM",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 2,
+    "name": "El Gouna",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Africa",
+    "crest": "original",
+    "level": 1,
+    "name": "Richards Bay FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Egypt",
+    "crest": "original",
+    "level": 3,
+    "name": "Ghazl El Mahalla",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 2,
+    "name": "Sydney FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 1,
+    "name": "Beijing Sinobo Guoan",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "India",
+    "crest": "original",
+    "level": 5,
+    "name": "Northeast Utd",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "IR Iran",
+    "crest": "original",
+    "level": 1,
+    "name": "Pars Jonoubi Jam",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 2,
+    "name": "Tokyo Verdy",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Jordan",
+    "crest": "original",
+    "level": 5,
+    "name": "Al Wehdat",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Lebanon",
+    "crest": "original",
+    "level": 3,
+    "name": "Al Ahed",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Qatar",
+    "crest": "original",
+    "level": 1,
+    "name": "Al-Sadd SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 4,
+    "name": "Al-Hilal",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Singapore",
+    "crest": "original",
+    "level": 4,
+    "name": "Balestier Khalsa",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 2,
+    "name": "Busan I'Park",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Thailand",
+    "crest": "original",
+    "level": 5,
+    "name": "Buriram United FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United Arab Emirates",
+    "crest": "original",
+    "level": 5,
+    "name": "Hatta Club",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 5,
+    "name": "Western Sydney Wanderers",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 3,
+    "name": "Beijing Renhe",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "India",
+    "crest": "original",
+    "level": 1,
+    "name": "Jamshedpur",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "IR Iran",
+    "crest": "original",
+    "level": 2,
+    "name": "Peykan",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 1,
+    "name": "Machida Zelvia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Qatar",
+    "crest": "original",
+    "level": 2,
+    "name": "Al Shahaniya",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 3,
+    "name": "Al-Nassr",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Singapore",
+    "crest": "original",
+    "level": 5,
+    "name": "Albirex Niigata FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 3,
+    "name": "Chunnam Dragons",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Thailand",
+    "crest": "original",
+    "level": 5,
+    "name": "FC PTT Rayong",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United Arab Emirates",
+    "crest": "original",
+    "level": 1,
+    "name": "Baniyas Club",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 4,
+    "name": "Central Coast Mariners",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 4,
+    "name": "Shanghai Port FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "IR Iran",
+    "crest": "original",
+    "level": 5,
+    "name": "Persepolis FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 2,
+    "name": "Omiya Ardija",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Qatar",
+    "crest": "original",
+    "level": 1,
+    "name": "Al Khoor",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 3,
+    "name": "Al-Riyadh",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Singapore",
+    "crest": "original",
+    "level": 4,
+    "name": "Houang United FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 2,
+    "name": "Daegu FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United Arab Emirates",
+    "crest": "original",
+    "level": 3,
+    "name": "Al Ain FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 4,
+    "name": "Newcastle United Jets",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 1,
+    "name": "Shanghai Greenland Shenhua",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 5,
+    "name": "Cerezo Osaka",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Qatar",
+    "crest": "original",
+    "level": 4,
+    "name": "Al Gharafa SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 5,
+    "name": "Al-Shabab",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Singapore",
+    "crest": "original",
+    "level": 1,
+    "name": "Tampines Rovers FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 4,
+    "name": "Daejeon Citizen",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 1,
+    "name": "Melbourne City FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 2,
+    "name": "Shanghai Shenxin",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 4,
+    "name": "Gamba Osaka",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Qatar",
+    "crest": "original",
+    "level": 5,
+    "name": "Al Ahli Doha SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 2,
+    "name": "Damac",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Singapore",
+    "crest": "original",
+    "level": 4,
+    "name": "Tanjong Pagar Utd",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 5,
+    "name": "Gangwon FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 5,
+    "name": "Melbourne Victory",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 2,
+    "name": "Guangzhou FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 2,
+    "name": "Yokohama FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Qatar",
+    "crest": "original",
+    "level": 4,
+    "name": "Al-Duhail SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 3,
+    "name": "Al-Khaleej",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 4,
+    "name": "Gyeongnam FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 3,
+    "name": "Western United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 4,
+    "name": "Guangzhou City FC (2011-2023)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 5,
+    "name": "Nagoya Grampus",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Qatar",
+    "crest": "original",
+    "level": 3,
+    "name": "Muaither SC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 1,
+    "name": "Al-Okhdood",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 4,
+    "name": "Incheon United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 2,
+    "name": "Brisbane Roar",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 4,
+    "name": "Chongqing Dangdai Lifan",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 2,
+    "name": "Júbilo Iwata",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 3,
+    "name": "Al-Wehda",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 4,
+    "name": "Jeju United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 1,
+    "name": "Adelaide United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 2,
+    "name": "Changchun Yatai",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 3,
+    "name": "Shimizu S-Pulse",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 3,
+    "name": "Al-Ahli",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 4,
+    "name": "Jeonbuk Motors",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Australia",
+    "crest": "original",
+    "level": 2,
+    "name": "Perth Glory",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 1,
+    "name": "Dalian Pro (2009-2024)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 2,
+    "name": "Honda FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Saudi Arabia",
+    "crest": "original",
+    "level": 1,
+    "name": "Al-Ittihad",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "South Korea",
+    "crest": "original",
+    "level": 5,
+    "name": "Seongnam Ilhwa Chunma",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "China PR",
+    "crest": "original",
+    "level": 1,
+    "name": "Guizhou Hengfeng",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Japan",
+    "crest": "original",
+    "level": 3,
+    "name": "Kashiwa Reysol",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Albania",
+    "crest": "original",
+    "level": 5,
+    "name": "KF Tirana",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Andorra",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Lusitans",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Armenia",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Yerevan",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Austria",
+    "crest": "original",
+    "level": 4,
+    "name": "SK Rapid Wien",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Azerbaijan",
+    "crest": "original",
+    "level": 2,
+    "name": "Bakı FK",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belarus",
+    "crest": "original",
+    "level": 3,
+    "name": "FC BATE Borisov",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belgium",
+    "crest": "original",
+    "level": 5,
+    "name": "RSC Anderlecht",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bosnia and Herzegovina",
+    "crest": "original",
+    "level": 5,
+    "name": "FK Sarajevo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bulgaria",
+    "crest": "original",
+    "level": 2,
+    "name": "PFC CSKA Sofia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Croatia",
+    "crest": "original",
+    "level": 4,
+    "name": "GNK Dinamo Zagreb",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Cyprus",
+    "crest": "original",
+    "level": 3,
+    "name": "AC Omonia Nicosia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Czechia",
+    "crest": "original",
+    "level": 5,
+    "name": "AC Sparta Praha",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Denmark",
+    "crest": "original",
+    "level": 3,
+    "name": "FC København",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "England",
+    "crest": "original",
+    "level": 2,
+    "name": "Tottenham Hotspur FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Estonia",
+    "crest": "original",
+    "level": 4,
+    "name": "FC Levadia Tallinn",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Faroe Islands",
+    "crest": "original",
+    "level": 1,
+    "name": "HB Tórshavn",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Finland",
+    "crest": "original",
+    "level": 1,
+    "name": "HJK Helsinki",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "France",
+    "crest": "original",
+    "level": 2,
+    "name": "Paris FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Georgia",
+    "crest": "original",
+    "level": 2,
+    "name": "FC Dinamo Tbilisi",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Germany",
+    "crest": "original",
+    "level": 1,
+    "name": "ii) Bayern München II",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Gibraltar",
+    "crest": "original",
+    "level": 1,
+    "name": "Lincoln FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Greece",
+    "crest": "original",
+    "level": 4,
+    "name": "AEK Athens FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Hungary",
+    "crest": "original",
+    "level": 5,
+    "name": "Ferencvárosi TC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Iceland",
+    "crest": "original",
+    "level": 2,
+    "name": "KR Reykjavík",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Israel",
+    "crest": "original",
+    "level": 2,
+    "name": "Hapoel Tel-Aviv FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Italy",
+    "crest": "original",
+    "level": 5,
+    "name": "SS Lazio",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kazakhstan",
+    "crest": "original",
+    "level": 3,
+    "name": "FC Astana",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kosovo",
+    "crest": "original",
+    "level": 1,
+    "name": "KF Drita",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Latvia",
+    "crest": "original",
+    "level": 2,
+    "name": "FK RFS",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Liechtenstein",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Vaduz",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Lithuania",
+    "crest": "original",
+    "level": 5,
+    "name": "FK Riteriai",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Luxembourg",
+    "crest": "original",
+    "level": 1,
+    "name": "Racing FC Union Lëtzebuerg",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Malta",
+    "crest": "original",
+    "level": 4,
+    "name": "Valletta FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Moldova",
+    "crest": "original",
+    "level": 3,
+    "name": "FC Sheriff Tiraspol",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Montenegro",
+    "crest": "original",
+    "level": 5,
+    "name": "FK Budućnost Podgorica",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Netherlands",
+    "crest": "original",
+    "level": 1,
+    "name": "Ajax Amsterdam",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "North Macedonia",
+    "crest": "original",
+    "level": 1,
+    "name": "FK Metalurg Skopje",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Northern Ireland",
+    "crest": "original",
+    "level": 1,
+    "name": "Derry City FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Norway",
+    "crest": "original",
+    "level": 1,
+    "name": "Vålerenga Fotball",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Poland",
+    "crest": "original",
+    "level": 1,
+    "name": "KSP Polonia Warszawa",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Portugal",
+    "crest": "original",
+    "level": 2,
+    "name": "ii) SL Benfica B",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Republic of Ireland",
+    "crest": "original",
+    "level": 5,
+    "name": "Shamrock Rovers FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Romania",
+    "crest": "original",
+    "level": 4,
+    "name": "Steaua București",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Russia",
+    "crest": "original",
+    "level": 1,
+    "name": "Lokomotiv Moskva",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "San Marino",
+    "crest": "original",
+    "level": 5,
+    "name": "SP Tre Fiori",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Scotland",
+    "crest": "original",
+    "level": 1,
+    "name": "Celtic FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Serbia",
+    "crest": "original",
+    "level": 2,
+    "name": "Red Star Belgrade",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Slovakia",
+    "crest": "original",
+    "level": 2,
+    "name": "ŠK Slovan Bratislava",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Slovenia",
+    "crest": "original",
+    "level": 1,
+    "name": "NK Olimpija Ljubljana",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Spain",
+    "crest": "original",
+    "level": 5,
+    "name": "Atlético Madrid",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Sweden",
+    "crest": "original",
+    "level": 5,
+    "name": "AIK",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Switzerland",
+    "crest": "original",
+    "level": 2,
+    "name": "Grasshoppers Zürich",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Türkiye",
+    "crest": "original",
+    "level": 1,
+    "name": "Fenerbahçe İstanbul",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ukraine",
+    "crest": "original",
+    "level": 2,
+    "name": "FC Dynamo Kyiv",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Wales",
+    "crest": "original",
+    "level": 4,
+    "name": "The New Saints FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Albania",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Dinamo City",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Andorra",
+    "crest": "original",
+    "level": 3,
+    "name": "Penya Encarnada",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Armenia",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Ararat Yerevan",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Austria",
+    "crest": "original",
+    "level": 4,
+    "name": "ii) SK Rapid Wien II",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Azerbaijan",
+    "crest": "original",
+    "level": 4,
+    "name": "İnter Bakı PİK",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belarus",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Gomel",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belgium",
+    "crest": "original",
+    "level": 1,
+    "name": "RWD Molenbeek",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bosnia and Herzegovina",
+    "crest": "original",
+    "level": 4,
+    "name": "FK Slavija Sarajevo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bulgaria",
+    "crest": "original",
+    "level": 4,
+    "name": "PFC Levski Sofia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Croatia",
+    "crest": "original",
+    "level": 3,
+    "name": "NK Zagreb",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Cyprus",
+    "crest": "original",
+    "level": 5,
+    "name": "PΑC Omonia 29M",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Czechia",
+    "crest": "original",
+    "level": 3,
+    "name": "ii) AC Sparta Praha B",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Denmark",
+    "crest": "original",
+    "level": 1,
+    "name": "B 1903 København (1903-1992)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "England",
+    "crest": "original",
+    "level": 4,
+    "name": "West Ham United FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Estonia",
+    "crest": "original",
+    "level": 2,
+    "name": "FC Flora Tallinn",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Faroe Islands",
+    "crest": "original",
+    "level": 4,
+    "name": "B36 Tórshavn",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Finland",
+    "crest": "original",
+    "level": 2,
+    "name": "Klubi 04",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "France",
+    "crest": "original",
+    "level": 1,
+    "name": "Red Star FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Georgia",
+    "crest": "original",
+    "level": 2,
+    "name": "FC Locomotive Tbilisi",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Germany",
+    "crest": "original",
+    "level": 4,
+    "name": "TSV 1860 München",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Gibraltar",
+    "crest": "original",
+    "level": 1,
+    "name": "Manchester 62 FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Greece",
+    "crest": "original",
+    "level": 3,
+    "name": "Panathinaikos FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Hungary",
+    "crest": "original",
+    "level": 5,
+    "name": "Budapest Honvéd FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Iceland",
+    "crest": "original",
+    "level": 3,
+    "name": "Fram Reykjavík",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Israel",
+    "crest": "original",
+    "level": 3,
+    "name": "Maccabi Tel-Aviv FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Italy",
+    "crest": "original",
+    "level": 4,
+    "name": "FC Internazionale Milano",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kazakhstan",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Astana-1964",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kosovo",
+    "crest": "original",
+    "level": 3,
+    "name": "FC Prishtina",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Latvia",
+    "crest": "original",
+    "level": 1,
+    "name": "Rīga FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Liechtenstein",
+    "crest": "original",
+    "level": 1,
+    "name": "FC USV Eschen/Mauren",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Lithuania",
+    "crest": "original",
+    "level": 1,
+    "name": "FK TransINVEST",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Luxembourg",
+    "crest": "original",
+    "level": 3,
+    "name": "FC Aris Bonnevoie (-2001)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Malta",
+    "crest": "original",
+    "level": 3,
+    "name": "Sliema Wanderers FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Moldova",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Dinamo-Auto Tiraspol",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Montenegro",
+    "crest": "original",
+    "level": 3,
+    "name": "FK Podgorica",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Netherlands",
+    "crest": "original",
+    "level": 3,
+    "name": "ii) Jong Ajax",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "North Macedonia",
+    "crest": "original",
+    "level": 5,
+    "name": "FK Makedonija Skopje",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Northern Ireland",
+    "crest": "original",
+    "level": 4,
+    "name": "Institute FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Norway",
+    "crest": "original",
+    "level": 5,
+    "name": "KFUM-Kameratene Oslo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Poland",
+    "crest": "original",
+    "level": 1,
+    "name": "Gwardia Warszawa",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Portugal",
+    "crest": "original",
+    "level": 1,
+    "name": "Os Belenenses",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Republic of Ireland",
+    "crest": "original",
+    "level": 2,
+    "name": "Bohemian FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Romania",
+    "crest": "original",
+    "level": 2,
+    "name": "Dinamo București",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Russia",
+    "crest": "original",
+    "level": 2,
+    "name": "PFC CSKA Moskva",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "San Marino",
+    "crest": "original",
+    "level": 1,
+    "name": "SP Tre Penne",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Scotland",
+    "crest": "original",
+    "level": 2,
+    "name": "Rangers FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Serbia",
+    "crest": "original",
+    "level": 5,
+    "name": "FK Partizan Belgrade",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Slovakia",
+    "crest": "original",
+    "level": 3,
+    "name": "FK Inter Bratislava",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Slovenia",
+    "crest": "original",
+    "level": 5,
+    "name": "NK IB Ljubljana",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Spain",
+    "crest": "original",
+    "level": 2,
+    "name": "ii) Atlético Madrid B",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Sweden",
+    "crest": "original",
+    "level": 1,
+    "name": "IF Brommapojkarna",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Switzerland",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Zürich",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Türkiye",
+    "crest": "original",
+    "level": 4,
+    "name": "Galatasaray İstanbul",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ukraine",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Arsenal Kyiv",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Wales",
+    "crest": "original",
+    "level": 5,
+    "name": "Bangor City FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Albania",
+    "crest": "original",
+    "level": 3,
+    "name": "FK Partizani Tirana",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Andorra",
+    "crest": "original",
+    "level": 2,
+    "name": "CF Esperança d'Andorra",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Armenia",
+    "crest": "original",
+    "level": 5,
+    "name": "Ararat-Armenia FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Austria",
+    "crest": "original",
+    "level": 3,
+    "name": "FK Austria Wien",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Azerbaijan",
+    "crest": "original",
+    "level": 3,
+    "name": "FK Shafa Baku (1997-2005)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belarus",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Dinamo Minsk",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belgium",
+    "crest": "original",
+    "level": 2,
+    "name": "Saint-Gilloise",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bosnia and Herzegovina",
+    "crest": "original",
+    "level": 2,
+    "name": "FK Olimpic Sarajevo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bulgaria",
+    "crest": "original",
+    "level": 1,
+    "name": "PFC Slavia Sofia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Croatia",
+    "crest": "original",
+    "level": 5,
+    "name": "NK Lokomotiva Zagreb",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Cyprus",
+    "crest": "original",
+    "level": 5,
+    "name": "APOEL Nicosia FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Czechia",
+    "crest": "original",
+    "level": 4,
+    "name": "FK Dukla Praha",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Denmark",
+    "crest": "original",
+    "level": 1,
+    "name": "KB København (1876-1992)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "England",
+    "crest": "original",
+    "level": 5,
+    "name": "Fulham FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Estonia",
+    "crest": "original",
+    "level": 4,
+    "name": "FC TVMK Tallinn",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Faroe Islands",
+    "crest": "original",
+    "level": 2,
+    "name": "EB/Streymur",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Finland",
+    "crest": "original",
+    "level": 1,
+    "name": "HIFK Helsinki",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "France",
+    "crest": "original",
+    "level": 3,
+    "name": "Racing Club de France",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Georgia",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Iberia 1999 Tbilisi",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Germany",
+    "crest": "original",
+    "level": 5,
+    "name": "Türkgücü München",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Gibraltar",
+    "crest": "original",
+    "level": 2,
+    "name": "Lynx FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Greece",
+    "crest": "original",
+    "level": 3,
+    "name": "Apollon Smyrnis FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Hungary",
+    "crest": "original",
+    "level": 5,
+    "name": "Vasas FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Iceland",
+    "crest": "original",
+    "level": 3,
+    "name": "Fylkir Reykjavik",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Israel",
+    "crest": "original",
+    "level": 1,
+    "name": "Bnei Yehuda Tel-Aviv FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Italy",
+    "crest": "original",
+    "level": 3,
+    "name": "Atalanta Bergamo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kazakhstan",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Aktobe",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kosovo",
+    "crest": "original",
+    "level": 3,
+    "name": "Flamurtari Prishtina",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Latvia",
+    "crest": "original",
+    "level": 5,
+    "name": "FS METTA",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Lithuania",
+    "crest": "original",
+    "level": 3,
+    "name": "VMFD Žalgiris",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Luxembourg",
+    "crest": "original",
+    "level": 2,
+    "name": "FC Avenir Beggen",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Malta",
+    "crest": "original",
+    "level": 5,
+    "name": "Birkirkara FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Moldova",
+    "crest": "original",
+    "level": 4,
+    "name": "CS Tiligul-Tiras Tiraspol (1938-2009)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Montenegro",
+    "crest": "original",
+    "level": 1,
+    "name": "FK Mogren (1920-2016)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Netherlands",
+    "crest": "original",
+    "level": 5,
+    "name": "DWS Amsterdam",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "North Macedonia",
+    "crest": "original",
+    "level": 2,
+    "name": "FK Vardar",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Northern Ireland",
+    "crest": "original",
+    "level": 4,
+    "name": "Linfield FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Norway",
+    "crest": "original",
+    "level": 2,
+    "name": "Skeid Fotball",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Poland",
+    "crest": "original",
+    "level": 2,
+    "name": "Górnik Zabrze",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Portugal",
+    "crest": "original",
+    "level": 4,
+    "name": "Casa Pia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Republic of Ireland",
+    "crest": "original",
+    "level": 2,
+    "name": "St Patrick's Athletic FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Romania",
+    "crest": "original",
+    "level": 3,
+    "name": "Rapid București",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Russia",
+    "crest": "original",
+    "level": 2,
+    "name": "Dynamo Moskva",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "San Marino",
+    "crest": "original",
+    "level": 1,
+    "name": "AC Juvenes-Dogana",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Scotland",
+    "crest": "original",
+    "level": 2,
+    "name": "Partick Thistle",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Serbia",
+    "crest": "original",
+    "level": 4,
+    "name": "OFK Beograd",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Slovakia",
+    "crest": "original",
+    "level": 1,
+    "name": "FC Petržalka",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Slovenia",
+    "crest": "original",
+    "level": 5,
+    "name": "NK Bravo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Spain",
+    "crest": "original",
+    "level": 4,
+    "name": "ii) Real Madrid B",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Sweden",
+    "crest": "original",
+    "level": 4,
+    "name": "Djurgårdens IF",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Switzerland",
+    "crest": "original",
+    "level": 5,
+    "name": "ii) FC Zürich II",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Türkiye",
+    "crest": "original",
+    "level": 3,
+    "name": "Beşiktaş İstanbul",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ukraine",
+    "crest": "original",
+    "level": 4,
+    "name": "FC Obolon Kyiv",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Wales",
+    "crest": "original",
+    "level": 4,
+    "name": "Llanelli AFC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Albania",
+    "crest": "original",
+    "level": 5,
+    "name": "KS Skënderbeu",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Andorra",
+    "crest": "original",
+    "level": 4,
+    "name": "UE Sant Julià",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Armenia",
+    "crest": "original",
+    "level": 4,
+    "name": "FC BKMA Yerevan",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Austria",
+    "crest": "original",
+    "level": 5,
+    "name": "ii) Young Violets Austria Wien",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Azerbaijan",
+    "crest": "original",
+    "level": 4,
+    "name": "Neftçi PFK",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belarus",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Dinamo-93 Minsk (1992-1998)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Belgium",
+    "crest": "original",
+    "level": 4,
+    "name": "Royal Antwerp FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bosnia and Herzegovina",
+    "crest": "original",
+    "level": 4,
+    "name": "FK Željezničar",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bulgaria",
+    "crest": "original",
+    "level": 4,
+    "name": "PFC Lokomotiv Sofia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Croatia",
+    "crest": "original",
+    "level": 4,
+    "name": "NK Trešnjevka Zagreb",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Cyprus",
+    "crest": "original",
+    "level": 1,
+    "name": "Olympiakos Nicosia FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Czechia",
+    "crest": "original",
+    "level": 3,
+    "name": "SK Slavia Praha",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Denmark",
+    "crest": "original",
+    "level": 1,
+    "name": "B93 København",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "England",
+    "crest": "original",
+    "level": 1,
+    "name": "Charlton Athletic FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Estonia",
+    "crest": "original",
+    "level": 1,
+    "name": "FCI Tallinn",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Faroe Islands",
+    "crest": "original",
+    "level": 1,
+    "name": "NSÍ Runavík",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Finland",
+    "crest": "original",
+    "level": 5,
+    "name": "HPS Helsinki",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "France",
+    "crest": "original",
+    "level": 3,
+    "name": "FC Versailles",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Georgia",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Ameri Tbilisi (2002-2009)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Germany",
+    "crest": "original",
+    "level": 2,
+    "name": "ii) 1. FC Nürnberg II",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Gibraltar",
+    "crest": "original",
+    "level": 4,
+    "name": "College Europa FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Greece",
+    "crest": "original",
+    "level": 4,
+    "name": "Atromitos FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Hungary",
+    "crest": "original",
+    "level": 2,
+    "name": "MTK Budapest",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Iceland",
+    "crest": "original",
+    "level": 4,
+    "name": "Valur Reykjavík",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Israel",
+    "crest": "original",
+    "level": 1,
+    "name": "Beitar Tel Aviv Bat Yam FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Italy",
+    "crest": "original",
+    "level": 3,
+    "name": "US Cremonese",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kazakhstan",
+    "crest": "original",
+    "level": 3,
+    "name": "FC Shakhter Karagandy",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Kosovo",
+    "crest": "original",
+    "level": 4,
+    "name": "KF Trepça'89",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Latvia",
+    "crest": "original",
+    "level": 4,
+    "name": "FK LU/Daugava (1979-2000)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Lithuania",
+    "crest": "original",
+    "level": 4,
+    "name": "FK Kauno Žalgiris",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Luxembourg",
+    "crest": "original",
+    "level": 5,
+    "name": "Spora Luxemburg (1923-2005)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Malta",
+    "crest": "original",
+    "level": 3,
+    "name": "Floriana FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Moldova",
+    "crest": "original",
+    "level": 5,
+    "name": "FC Dacia Chișinău",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Montenegro",
+    "crest": "original",
+    "level": 2,
+    "name": "FK Zeta",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Netherlands",
+    "crest": "original",
+    "level": 3,
+    "name": "Amsterdamsche FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "North Macedonia",
+    "crest": "original",
+    "level": 1,
+    "name": "FK Cementarnica 55",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Anguilla",
+    "crest": "original",
+    "level": 3,
+    "name": "ALHCS Spartan FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Canada",
+    "crest": "original",
+    "level": 1,
+    "name": "CF Montréal",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Costa Rica",
+    "crest": "original",
+    "level": 1,
+    "name": "Sporting San José",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "El Salvador",
+    "crest": "original",
+    "level": 1,
+    "name": "I. Metapán",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guatemala",
+    "crest": "original",
+    "level": 4,
+    "name": "CSD Municipal",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guyana",
+    "crest": "original",
+    "level": 4,
+    "name": "Alpha United FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Haiti",
+    "crest": "original",
+    "level": 1,
+    "name": "Tempête FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Honduras",
+    "crest": "original",
+    "level": 3,
+    "name": "CD Olimpia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Jamaica",
+    "crest": "original",
+    "level": 5,
+    "name": "Arnett Gardens",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Mexico",
+    "crest": "original",
+    "level": 2,
+    "name": "Deportivo Toluca FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Nicaragua",
+    "crest": "original",
+    "level": 1,
+    "name": "Real Estelí",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Panama",
+    "crest": "original",
+    "level": 1,
+    "name": "Chorrillo FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Puerto Rico",
+    "crest": "original",
+    "level": 5,
+    "name": "Puerto Rico Islanders",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Suriname",
+    "crest": "original",
+    "level": 5,
+    "name": "SV Robinhood",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Trinidad and Tobago",
+    "crest": "original",
+    "level": 3,
+    "name": "Caledonia AIA",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United States",
+    "crest": "original",
+    "level": 2,
+    "name": "ii) Atlanta United 2",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Anguilla",
+    "crest": "original",
+    "level": 5,
+    "name": "Diamond FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Canada",
+    "crest": "original",
+    "level": 5,
+    "name": "Toronto FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Costa Rica",
+    "crest": "original",
+    "level": 4,
+    "name": "Puntarenas FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "El Salvador",
+    "crest": "original",
+    "level": 1,
+    "name": "Club Deportivo Águila",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guatemala",
+    "crest": "original",
+    "level": 1,
+    "name": "Comunicaciones FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Haiti",
+    "crest": "original",
+    "level": 4,
+    "name": "Valencia FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Honduras",
+    "crest": "original",
+    "level": 4,
+    "name": "FC Motagua",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Jamaica",
+    "crest": "original",
+    "level": 2,
+    "name": "Cavalier",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Mexico",
+    "crest": "original",
+    "level": 2,
+    "name": "Potros UAEM",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Panama",
+    "crest": "original",
+    "level": 3,
+    "name": "Tauro FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Trinidad and Tobago",
+    "crest": "original",
+    "level": 3,
+    "name": "W Connection",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United States",
+    "crest": "original",
+    "level": 5,
+    "name": "South Georgia Tormenta FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Anguilla",
+    "crest": "original",
+    "level": 4,
+    "name": "Docks United FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Canada",
+    "crest": "original",
+    "level": 3,
+    "name": "York9 FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Costa Rica",
+    "crest": "original",
+    "level": 4,
+    "name": "LD Alajuelense",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "El Salvador",
+    "crest": "original",
+    "level": 4,
+    "name": "Club Deportivo FAS",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guatemala",
+    "crest": "original",
+    "level": 3,
+    "name": "Deportivo Mixco",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Honduras",
+    "crest": "original",
+    "level": 2,
+    "name": "CD Marathón",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Jamaica",
+    "crest": "original",
+    "level": 3,
+    "name": "Harbour View",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Mexico",
+    "crest": "original",
+    "level": 2,
+    "name": "CD Guadalajara Chivas",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Panama",
+    "crest": "original",
+    "level": 3,
+    "name": "Club Deportivo Árabe Unido",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United States",
+    "crest": "original",
+    "level": 1,
+    "name": "ii) South Georgia Tormenta 2",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Anguilla",
+    "crest": "original",
+    "level": 4,
+    "name": "Enforcers FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Canada",
+    "crest": "original",
+    "level": 3,
+    "name": "Forge FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Costa Rica",
+    "crest": "original",
+    "level": 5,
+    "name": "Carmelita",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "El Salvador",
+    "crest": "original",
+    "level": 3,
+    "name": "Alianza FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guatemala",
+    "crest": "original",
+    "level": 1,
+    "name": "Club Xelajú MC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Honduras",
+    "crest": "original",
+    "level": 3,
+    "name": "Real CD España",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Jamaica",
+    "crest": "original",
+    "level": 5,
+    "name": "Molynes United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Mexico",
+    "crest": "original",
+    "level": 3,
+    "name": "CD Tapatío",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Panama",
+    "crest": "original",
+    "level": 4,
+    "name": "San Francisco FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United States",
+    "crest": "original",
+    "level": 2,
+    "name": "Birmingham Legion FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Anguilla",
+    "crest": "original",
+    "level": 5,
+    "name": "Kicks United FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Canada",
+    "crest": "original",
+    "level": 3,
+    "name": "HFX Wanderers",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Costa Rica",
+    "crest": "original",
+    "level": 4,
+    "name": "CS Cartaginés",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "El Salvador",
+    "crest": "original",
+    "level": 5,
+    "name": "Luis Ángel Firpo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guatemala",
+    "crest": "original",
+    "level": 2,
+    "name": "Heredia Jaguares de Peten",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Honduras",
+    "crest": "original",
+    "level": 4,
+    "name": "CD Victoria",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Jamaica",
+    "crest": "original",
+    "level": 5,
+    "name": "Tivoli Gardens",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Mexico",
+    "crest": "original",
+    "level": 4,
+    "name": "Club Atlas",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Panama",
+    "crest": "original",
+    "level": 5,
+    "name": "CA Independiente de La Chorrera",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United States",
+    "crest": "original",
+    "level": 3,
+    "name": "Little Rock Rangers",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Anguilla",
+    "crest": "original",
+    "level": 3,
+    "name": "Roaring Lions FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Canada",
+    "crest": "original",
+    "level": 5,
+    "name": "Valour FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Costa Rica",
+    "crest": "original",
+    "level": 2,
+    "name": "Municipal Grecia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guatemala",
+    "crest": "original",
+    "level": 5,
+    "name": "Antigua GFC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Jamaica",
+    "crest": "original",
+    "level": 4,
+    "name": "Waterhouse",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Mexico",
+    "crest": "original",
+    "level": 1,
+    "name": "Leones Negros U. de G.",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Panama",
+    "crest": "original",
+    "level": 4,
+    "name": "Sporting San Miguelito",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "United States",
+    "crest": "original",
+    "level": 3,
+    "name": "Charleston Battery",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Anguilla",
+    "crest": "original",
+    "level": 2,
+    "name": "Salsa Ballers FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Canada",
+    "crest": "original",
+    "level": 3,
+    "name": "Cavalry FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Costa Rica",
+    "crest": "original",
+    "level": 2,
+    "name": "Guadalupe FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Guatemala",
+    "crest": "original",
+    "level": 1,
+    "name": "Cobán Imperial",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 5,
+    "name": "Auckland City FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 2,
+    "name": "Waitakere United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 1,
+    "name": "Eastern Suburbs",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 2,
+    "name": "Hawke's Bay United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 2,
+    "name": "Team Wellington",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 5,
+    "name": "Wellington Phoenix",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 4,
+    "name": "ii) Wellington Phoenix Reserves",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 4,
+    "name": "Hamilton Wanderers",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 2,
+    "name": "WaiBOP United (-2016)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 2,
+    "name": "YoungHeart Manawatu",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 3,
+    "name": "Canterbury United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 4,
+    "name": "Southern United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "New Zealand",
+    "crest": "original",
+    "level": 5,
+    "name": "Tasman United",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Argentina",
+    "crest": "original",
+    "level": 4,
+    "name": "All Boys",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bolivia",
+    "crest": "original",
+    "level": 2,
+    "name": "Club Bolívar",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Brazil",
+    "crest": "original",
+    "level": 1,
+    "name": "Corinthians SP",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Chile",
+    "crest": "original",
+    "level": 1,
+    "name": "Universidad de Chile",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Colombia",
+    "crest": "original",
+    "level": 3,
+    "name": "Millonarios Bogotá",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ecuador",
+    "crest": "original",
+    "level": 5,
+    "name": "Deportivo Quito",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Paraguay",
+    "crest": "original",
+    "level": 3,
+    "name": "Libertad Ascunción",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Peru",
+    "crest": "original",
+    "level": 1,
+    "name": "Alianza Lima",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Uruguay",
+    "crest": "original",
+    "level": 3,
+    "name": "Liverpool Montevideo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Venezuela",
+    "crest": "original",
+    "level": 4,
+    "name": "Caracas FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Argentina",
+    "crest": "original",
+    "level": 1,
+    "name": "Vélez Sarsfield",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bolivia",
+    "crest": "original",
+    "level": 3,
+    "name": "The Strongest",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Brazil",
+    "crest": "original",
+    "level": 1,
+    "name": "São Paulo FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Chile",
+    "crest": "original",
+    "level": 1,
+    "name": "Universidad Católica",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Colombia",
+    "crest": "original",
+    "level": 4,
+    "name": "Independiente Santa Fe",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ecuador",
+    "crest": "original",
+    "level": 2,
+    "name": "El Nacional",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Paraguay",
+    "crest": "original",
+    "level": 1,
+    "name": "Club Olimpia",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Peru",
+    "crest": "original",
+    "level": 3,
+    "name": "Sporting Cristal",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Uruguay",
+    "crest": "original",
+    "level": 3,
+    "name": "Nacional de Montevideo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Venezuela",
+    "crest": "original",
+    "level": 4,
+    "name": "Deportivo La Guaira",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Argentina",
+    "crest": "original",
+    "level": 4,
+    "name": "Huracán",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bolivia",
+    "crest": "original",
+    "level": 4,
+    "name": "Club Always Ready",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Brazil",
+    "crest": "original",
+    "level": 4,
+    "name": "Palmeiras SP",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Chile",
+    "crest": "original",
+    "level": 5,
+    "name": "Unión Española",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Colombia",
+    "crest": "original",
+    "level": 5,
+    "name": "La Equidad",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ecuador",
+    "crest": "original",
+    "level": 5,
+    "name": "LDU Quito",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Paraguay",
+    "crest": "original",
+    "level": 5,
+    "name": "Club Nacional",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Peru",
+    "crest": "original",
+    "level": 5,
+    "name": "Deportivo Municipal",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Uruguay",
+    "crest": "original",
+    "level": 3,
+    "name": "Defensor Sporting",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Venezuela",
+    "crest": "original",
+    "level": 2,
+    "name": "Deportivo Petare",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Argentina",
+    "crest": "original",
+    "level": 5,
+    "name": "Nueva Chicago",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bolivia",
+    "crest": "original",
+    "level": 3,
+    "name": "La Paz FC (1989-2013)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Brazil",
+    "crest": "original",
+    "level": 3,
+    "name": "Santos SP",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Chile",
+    "crest": "original",
+    "level": 5,
+    "name": "Audax Italiano",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Colombia",
+    "crest": "original",
+    "level": 3,
+    "name": "Fortaleza FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ecuador",
+    "crest": "original",
+    "level": 2,
+    "name": "CD Universidad Católica del Ecuador",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Paraguay",
+    "crest": "original",
+    "level": 4,
+    "name": "Cerro Porteño",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Peru",
+    "crest": "original",
+    "level": 4,
+    "name": "Club Deportivo Universidad de San Martín de Porres",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Uruguay",
+    "crest": "original",
+    "level": 3,
+    "name": "CA Peñarol",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Venezuela",
+    "crest": "original",
+    "level": 4,
+    "name": "Estudiantes de Caracas",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Argentina",
+    "crest": "original",
+    "level": 3,
+    "name": "Atlanta",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bolivia",
+    "crest": "original",
+    "level": 3,
+    "name": "Club Deportivo Oriente Petrolero",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Brazil",
+    "crest": "original",
+    "level": 1,
+    "name": "Ponte Preta",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Chile",
+    "crest": "original",
+    "level": 3,
+    "name": "Colo-Colo",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Colombia",
+    "crest": "original",
+    "level": 3,
+    "name": "Bogotá FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ecuador",
+    "crest": "original",
+    "level": 4,
+    "name": "América de Quito",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Paraguay",
+    "crest": "original",
+    "level": 1,
+    "name": "Club Guaraní",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Peru",
+    "crest": "original",
+    "level": 3,
+    "name": "Club Universitario de Deportes",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Uruguay",
+    "crest": "original",
+    "level": 2,
+    "name": "CA Cerro",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Venezuela",
+    "crest": "original",
+    "level": 1,
+    "name": "Metropolitanos FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Argentina",
+    "crest": "original",
+    "level": 5,
+    "name": "Barracas Central",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bolivia",
+    "crest": "original",
+    "level": 2,
+    "name": "Club Blooming",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Brazil",
+    "crest": "original",
+    "level": 3,
+    "name": "CA Bragantino (1928-2019)",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Chile",
+    "crest": "original",
+    "level": 3,
+    "name": "CD Palestino",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Colombia",
+    "crest": "original",
+    "level": 2,
+    "name": "Tigres FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ecuador",
+    "crest": "original",
+    "level": 5,
+    "name": "SD Aucas",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Paraguay",
+    "crest": "original",
+    "level": 1,
+    "name": "Club River Plate",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Peru",
+    "crest": "original",
+    "level": 4,
+    "name": "Deportivo Coopsol",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Uruguay",
+    "crest": "original",
+    "level": 3,
+    "name": "Danubio FC",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Venezuela",
+    "crest": "original",
+    "level": 4,
+    "name": "Atlético Venezuela",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Argentina",
+    "crest": "original",
+    "level": 4,
+    "name": "Defensores de Belgranes",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Bolivia",
+    "crest": "original",
+    "level": 2,
+    "name": "Real Santa Cruz",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Brazil",
+    "crest": "original",
+    "level": 1,
+    "name": "RB Bragantino",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Chile",
+    "crest": "original",
+    "level": 1,
+    "name": "CD Magallanes",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Colombia",
+    "crest": "original",
+    "level": 5,
+    "name": "Real Cundinamarca",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Ecuador",
+    "crest": "original",
+    "level": 4,
+    "name": "Cumbayá",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Paraguay",
+    "crest": "original",
+    "level": 2,
+    "name": "Tacuary",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Peru",
+    "crest": "original",
+    "level": 2,
+    "name": "Juan Aurich",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Uruguay",
+    "crest": "original",
+    "level": 3,
+    "name": "El Tanque Sisley",
+    "real": true
+  },
+  {
+    "catalog": "cc0-openfootball",
+    "country": "Venezuela",
+    "crest": "original",
+    "level": 3,
+    "name": "Deportivo Táchira",
+    "real": true
+  }
+]
