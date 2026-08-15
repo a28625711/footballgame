@@ -6,6 +6,7 @@ __pycache__/
 
 # 备份文件
 *.bak
+*.pre-*
 
 # 快照目录
 career-sim-snapshot*/
