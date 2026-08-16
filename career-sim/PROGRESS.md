@@ -283,3 +283,25 @@ python -m http.server 8000
 或直接双击 `index.html`（`file://` 协议下 localStorage/fetch 可能受限，建议用 HTTP server）。
 
 游戏进度存 `localStorage`（前缀 `gyrs_`），种子机制本地化，与原站功能一致。
+
+## 七、打包分享方式
+
+### 单文件 HTML（推荐，PC/手机通用）
+```bash
+cd D:\football\career-sim
+python build-single.py
+# 生成 career-sim-single.html（约 17.7MB）
+# 所有 JS/CSS/队徽/奖杯/字体内联成 base64，双击即玩
+```
+- 单个文件直接分享（微信/网盘/邮件）
+- 手机浏览器打开即可玩，无需服务器
+- 内联了 210 个队徽 + 21 个奖杯 + emoji 字体，完全离线
+
+### PWA（手机"添加到主屏幕"）
+- `manifest.json` + `sw.js` + `assets/icons/` 已就绪
+- 部署到 HTTPS 服务器后，手机浏览器可添加到主屏幕，离线可玩
+- 本地测试：`python -m http.server 8000`
+
+### 注意
+- `aux.png`（欧塞尔队徽）是 Windows 保留名，git 无法跟踪，已加入 `.gitignore`（单文件打包时正常内联）
+- 打包脚本 `build-single.py` 可随时重跑，修改游戏后重新生成即可
