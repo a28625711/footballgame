@@ -1,6 +1,0 @@
-total_src=146 total_done=146
-missing=0 empty=0 extra=0 dup_in_src=0
-missing_ids=
-empty_ids=
-extra_ids=
-forbidden_hits=0
