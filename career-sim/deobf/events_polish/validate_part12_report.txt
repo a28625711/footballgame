@@ -1,0 +1,10 @@
+A_JSON_OK: D:\football\career-sim\deobf\events_polish\part_12_done.json
+B_COUNT_SRC=144
+B_COUNT_DONE=144
+B_MISSING=NONE
+B_EMPTY=NONE
+B_EXTRA=NONE
+C_CHECKED=138
+C_HIT_COUNT=0
+C_HIT_IDS=NONE
+C_HIT_DETAIL=

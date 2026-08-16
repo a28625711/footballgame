@@ -1,0 +1,22 @@
+{
+  "name": "足一把-生涯模拟器",
+  "short_name": "足一把",
+  "description": "从足校到退役，把一个中国球员的一生走一遍。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e100f",
+  "theme_color": "#0e100f",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

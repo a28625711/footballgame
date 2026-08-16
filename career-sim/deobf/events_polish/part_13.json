@@ -1,0 +1,915 @@
+[
+ {
+  "id": "S1756",
+  "event_id": "love_longdistance",
+  "event_title": "时差",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "你这边是训练完的下午，她那边是凌晨三点。这个月你们的通话记录一共是四次，最长的一次十一分钟。",
+  "occ": [
+   "love_longdistance.desc"
+  ]
+ },
+ {
+  "id": "S1757",
+  "event_id": "love_longdistance",
+  "event_title": "时差",
+  "scope": "abroad",
+  "field": "title",
+  "original": "时差",
+  "occ": [
+   "love_longdistance.title"
+  ]
+ },
+ {
+  "id": "S1758",
+  "event_id": "love_longdistance",
+  "event_title": "时差",
+  "scope": "abroad",
+  "field": "label",
+  "original": "让她过来",
+  "occ": [
+   "love_longdistance.label.0"
+  ]
+ },
+ {
+  "id": "S1759",
+  "event_id": "love_longdistance",
+  "event_title": "时差",
+  "scope": "abroad",
+  "field": "text",
+  "original": "她辞了那边的工作。头半年她在这座城市一个熟人都没有，天天等你训练完回家。",
+  "occ": [
+   "love_longdistance.text.0.0"
+  ]
+ },
+ {
+  "id": "S1760",
+  "event_id": "love_longdistance",
+  "event_title": "时差",
+  "scope": "abroad",
+  "field": "label",
+  "original": "先这样，等赛季结束",
+  "occ": [
+   "love_longdistance.label.1"
+  ]
+ },
+ {
+  "id": "S1761",
+  "event_id": "love_longdistance",
+  "event_title": "时差",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你们撑过了那个赛季。她后来说，那半年她把你所有比赛的重播都看了。",
+  "occ": [
+   "love_longdistance.text.1.0"
+  ]
+ },
+ {
+  "id": "S1762",
+  "event_id": "love_longdistance",
+  "event_title": "时差",
+  "scope": "abroad",
+  "field": "text",
+  "original": "最后一次通话她说「我不是不理解，我就是累了」。挂断以后你在阳台上站到天亮。",
+  "occ": [
+   "love_longdistance.text.1.1"
+  ]
+ },
+ {
+  "id": "S1763",
+  "event_id": "love_propose",
+  "event_title": "戒指",
+  "scope": "generic",
+  "field": "desc",
+  "original": "在一起几年了，家里两边都在问。冬歇期只有十九天，办婚礼的话，蜜月得砍掉。",
+  "occ": [
+   "love_propose.desc"
+  ]
+ },
+ {
+  "id": "S1764",
+  "event_id": "love_propose",
+  "event_title": "戒指",
+  "scope": "generic",
+  "field": "title",
+  "original": "戒指",
+  "occ": [
+   "love_propose.title"
+  ]
+ },
+ {
+  "id": "S1765",
+  "event_id": "love_propose",
+  "event_title": "戒指",
+  "scope": "generic",
+  "field": "label",
+  "original": "求婚，冬歇期办",
+  "occ": [
+   "love_propose.label.0"
+  ]
+ },
+ {
+  "id": "S1766",
+  "event_id": "love_propose",
+  "event_title": "戒指",
+  "scope": "generic",
+  "field": "text",
+  "original": "婚礼在老家办的，来了三十几桌。队友来了七个，教练发了条语音，说别耽误一月八号的集训。",
+  "occ": [
+   "love_propose.text.0.0"
+  ]
+ },
+ {
+  "id": "S1767",
+  "event_id": "love_propose",
+  "event_title": "戒指",
+  "scope": "generic",
+  "field": "label",
+  "original": "等退役再说",
+  "occ": [
+   "love_propose.label.1"
+  ]
+ },
+ {
+  "id": "S1768",
+  "event_id": "love_propose",
+  "event_title": "戒指",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说等踢完这个合同。她说好。这句「等踢完这个合同」你后来又说了两次。",
+  "occ": [
+   "love_propose.text.1.0"
+  ]
+ },
+ {
+  "id": "S1769",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "desc",
+  "original": "预产期在赛季中段，正好撞上客场三连战。俱乐部说可以特批你回去。",
+  "occ": [
+   "love_kid_first.desc"
+  ]
+ },
+ {
+  "id": "S1770",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "title",
+  "original": "第一个孩子",
+  "occ": [
+   "love_kid_first.title"
+  ]
+ },
+ {
+  "id": "S1771",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "label",
+  "original": "赶回去",
+  "occ": [
+   "love_kid_first.label.0"
+  ]
+ },
+ {
+  "id": "S1772",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "text",
+  "original": "你落地的时候孩子已经出生四十分钟了。护士把他递过来的时候你手一直在抖，没敢用力。",
+  "occ": [
+   "love_kid_first.text.0.0"
+  ]
+ },
+ {
+  "id": "S1773",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "label",
+  "original": "打完再回",
+  "occ": [
+   "love_kid_first.label.1"
+  ]
+ },
+ {
+  "id": "S1774",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "text",
+  "original": "那场你打满全场，还助攻了一个。视频通话里她没生气，只是很累。这件事她后来提过一次，就一次。",
+  "occ": [
+   "love_kid_first.text.1.0"
+  ]
+ },
+ {
+  "id": "S1775",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "label",
+  "original": "这两年先不要",
+  "occ": [
+   "love_kid_first.label.2"
+  ]
+ },
+ {
+  "id": "S1776",
+  "event_id": "love_kid_first",
+  "event_title": "第一个孩子",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说等这份合同踢完。她把体检报告收进了抽屉，那个抽屉后来一直没再打开过。",
+  "occ": [
+   "love_kid_first.text.2.0"
+  ]
+ },
+ {
+  "id": "S1777",
+  "event_id": "love_kid_night",
+  "event_title": "夜里三点",
+  "scope": "generic",
+  "field": "desc",
+  "original": "孩子六个月，一晚上醒三次。第二天有比赛，队医说你的深睡时长掉到了两个多小时。",
+  "occ": [
+   "love_kid_night.desc"
+  ]
+ },
+ {
+  "id": "S1778",
+  "event_id": "love_kid_night",
+  "event_title": "夜里三点",
+  "scope": "generic",
+  "field": "title",
+  "original": "夜里三点",
+  "occ": [
+   "love_kid_night.title"
+  ]
+ },
+ {
+  "id": "S1779",
+  "event_id": "love_kid_night",
+  "event_title": "夜里三点",
+  "scope": "generic",
+  "field": "label",
+  "original": "请个月嫂",
+  "occ": [
+   "love_kid_night.label.0"
+  ]
+ },
+ {
+  "id": "S1780",
+  "event_id": "love_kid_night",
+  "event_title": "夜里三点",
+  "scope": "generic",
+  "field": "text",
+  "original": "那半年你每天睡满八小时。有人说你花钱买觉，你说这是这辈子最值的一笔。",
+  "occ": [
+   "love_kid_night.text.0.0"
+  ]
+ },
+ {
+  "id": "S1781",
+  "event_id": "love_kid_night",
+  "event_title": "夜里三点",
+  "scope": "generic",
+  "field": "text",
+  "original": "有一场你在替补席上睡着了，被队友拍醒。那个赛季是你出场以来数据最差的一年。",
+  "occ": [
+   "love_kid_night.text.1.0"
+  ]
+ },
+ {
+  "id": "S1782",
+  "event_id": "love_kid_second",
+  "event_title": "老二",
+  "scope": "generic",
+  "field": "desc",
+  "original": "老大四岁了，家里问要不要再要一个。你的合同还有两年，下一站在哪儿谁也不知道。",
+  "occ": [
+   "love_kid_second.desc"
+  ]
+ },
+ {
+  "id": "S1783",
+  "event_id": "love_kid_second",
+  "event_title": "老二",
+  "scope": "generic",
+  "field": "title",
+  "original": "老二",
+  "occ": [
+   "love_kid_second.title"
+  ]
+ },
+ {
+  "id": "S1784",
+  "event_id": "love_kid_second",
+  "event_title": "老二",
+  "scope": "generic",
+  "field": "label",
+  "original": "要",
+  "occ": [
+   "love_kid_second.label.0"
+  ]
+ },
+ {
+  "id": "S1785",
+  "event_id": "love_kid_second",
+  "event_title": "老二",
+  "scope": "generic",
+  "field": "text",
+  "original": "老二出生那天你在客场。回来的时候老大趴在婴儿床边上不肯走，说这是他的。",
+  "occ": [
+   "love_kid_second.text.0.0"
+  ]
+ },
+ {
+  "id": "S1786",
+  "event_id": "love_kid_second",
+  "event_title": "老二",
+  "scope": "generic",
+  "field": "label",
+  "original": "等安顿下来再说",
+  "occ": [
+   "love_kid_second.label.1"
+  ]
+ },
+ {
+  "id": "S1787",
+  "event_id": "love_kid_second",
+  "event_title": "老二",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说等合同定下来。那份合同签完，你们已经搬了两次家。",
+  "occ": [
+   "love_kid_second.text.1.0"
+  ]
+ },
+ {
+  "id": "S1788",
+  "event_id": "love_kid_watch",
+  "event_title": "看台上的那两个",
+  "scope": "generic",
+  "field": "desc",
+  "original": "孩子第一次来现场看你踢球。开场十分钟他就睡着了，醒来问的是「什么时候能吃薯条」。",
+  "occ": [
+   "love_kid_watch.desc"
+  ]
+ },
+ {
+  "id": "S1789",
+  "event_id": "love_kid_watch",
+  "event_title": "看台上的那两个",
+  "scope": "generic",
+  "field": "title",
+  "original": "看台上的那两个",
+  "occ": [
+   "love_kid_watch.title"
+  ]
+ },
+ {
+  "id": "S1790",
+  "event_id": "love_kid_watch",
+  "event_title": "看台上的那两个",
+  "scope": "generic",
+  "field": "label",
+  "original": "赛后带他上草皮",
+  "occ": [
+   "love_kid_watch.label.0"
+  ]
+ },
+ {
+  "id": "S1791",
+  "event_id": "love_kid_watch",
+  "event_title": "看台上的那两个",
+  "scope": "generic",
+  "field": "text",
+  "original": "他在中圈跑了两圈就摔了一跤，爬起来接着跑。那张照片是你手机的锁屏，一直没换过。",
+  "occ": [
+   "love_kid_watch.text.0.0"
+  ]
+ },
+ {
+  "id": "S1792",
+  "event_id": "love_kid_watch",
+  "event_title": "看台上的那两个",
+  "scope": "generic",
+  "field": "label",
+  "original": "让他先回家睡",
+  "occ": [
+   "love_kid_watch.label.1"
+  ]
+ },
+ {
+  "id": "S1793",
+  "event_id": "love_kid_watch",
+  "event_title": "看台上的那两个",
+  "scope": "generic",
+  "field": "text",
+  "original": "他在车上睡着了，手里还攥着那张票。那张票后来夹在你家的相册里。",
+  "occ": [
+   "love_kid_watch.text.1.0"
+  ]
+ },
+ {
+  "id": "S1794",
+  "event_id": "love_kid_ball",
+  "event_title": "他也想踢球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "孩子说想进梯队。你比谁都清楚那条路有多少人走不到头 —— 你自己就是从那儿爬上来的。",
+  "occ": [
+   "love_kid_ball.desc"
+  ]
+ },
+ {
+  "id": "S1795",
+  "event_id": "love_kid_ball",
+  "event_title": "他也想踢球",
+  "scope": "generic",
+  "field": "title",
+  "original": "他也想踢球",
+  "occ": [
+   "love_kid_ball.title"
+  ]
+ },
+ {
+  "id": "S1796",
+  "event_id": "love_kid_ball",
+  "event_title": "他也想踢球",
+  "scope": "generic",
+  "field": "label",
+  "original": "送他去",
+  "occ": [
+   "love_kid_ball.label.0"
+  ]
+ },
+ {
+  "id": "S1797",
+  "event_id": "love_kid_ball",
+  "event_title": "他也想踢球",
+  "scope": "generic",
+  "field": "text",
+  "original": "报名表你自己填的，教练那一栏写了你的名字。他在队里第一次被换下的时候哭了，你在车里等他，没下车。",
+  "occ": [
+   "love_kid_ball.text.0.0"
+  ]
+ },
+ {
+  "id": "S1798",
+  "event_id": "love_kid_ball",
+  "event_title": "他也想踢球",
+  "scope": "generic",
+  "field": "label",
+  "original": "让他先把书念完",
+  "occ": [
+   "love_kid_ball.label.1"
+  ]
+ },
+ {
+  "id": "S1799",
+  "event_id": "love_kid_ball",
+  "event_title": "他也想踢球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你跟他说，先把书念完，喜欢的话什么时候都来得及。这话是当年有人跟你说的，你没听。",
+  "occ": [
+   "love_kid_ball.text.1.0"
+  ]
+ },
+ {
+  "id": "S1800",
+  "event_id": "love_inlaw",
+  "event_title": "岳父的意思",
+  "scope": "generic",
+  "field": "desc",
+  "original": "过年回去吃饭，岳父绕了三圈才说到正题：老家的房子该换了，弟弟结婚也差一笔。",
+  "occ": [
+   "love_inlaw.desc"
+  ]
+ },
+ {
+  "id": "S1801",
+  "event_id": "love_inlaw",
+  "event_title": "岳父的意思",
+  "scope": "generic",
+  "field": "title",
+  "original": "岳父的意思",
+  "occ": [
+   "love_inlaw.title"
+  ]
+ },
+ {
+  "id": "S1802",
+  "event_id": "love_inlaw",
+  "event_title": "岳父的意思",
+  "scope": "generic",
+  "field": "label",
+  "original": "掏",
+  "occ": [
+   "love_inlaw.label.0"
+  ]
+ },
+ {
+  "id": "S1803",
+  "event_id": "love_inlaw",
+  "event_title": "岳父的意思",
+  "scope": "generic",
+  "field": "text",
+  "original": "钱转过去的当天他发了条朋友圈，配图是新房的钥匙。你老婆一句话没说，晚上多给你盛了碗汤。",
+  "occ": [
+   "love_inlaw.text.0.0"
+  ]
+ },
+ {
+  "id": "S1804",
+  "event_id": "love_inlaw",
+  "event_title": "岳父的意思",
+  "scope": "generic",
+  "field": "label",
+  "original": "说清楚",
+  "occ": [
+   "love_inlaw.label.1"
+  ]
+ },
+ {
+  "id": "S1805",
+  "event_id": "love_inlaw",
+  "event_title": "岳父的意思",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把这些年的账摆出来说了一遍。那顿饭后来没人再说话，电视一直开着。",
+  "occ": [
+   "love_inlaw.text.1.0"
+  ]
+ },
+ {
+  "id": "S1806",
+  "event_id": "love_paparazzi",
+  "event_title": "代拍",
+  "scope": "generic",
+  "field": "desc",
+  "original": "有人蹲在你家小区门口拍了三天。照片发出来的时候，配的文字跟照片上的事没有一点关系。",
+  "occ": [
+   "love_paparazzi.desc"
+  ]
+ },
+ {
+  "id": "S1807",
+  "event_id": "love_paparazzi",
+  "event_title": "代拍",
+  "scope": "generic",
+  "field": "title",
+  "original": "代拍",
+  "occ": [
+   "love_paparazzi.title"
+  ]
+ },
+ {
+  "id": "S1808",
+  "event_id": "love_paparazzi",
+  "event_title": "代拍",
+  "scope": "generic",
+  "field": "label",
+  "original": "发律师函",
+  "occ": [
+   "love_paparazzi.label.0"
+  ]
+ },
+ {
+  "id": "S1809",
+  "event_id": "love_paparazzi",
+  "event_title": "代拍",
+  "scope": "generic",
+  "field": "text",
+  "original": "对方删了帖，也道了歉。三个月后另一个号又发了同样的图，你才知道这事没有尽头。",
+  "occ": [
+   "love_paparazzi.text.0.0"
+  ]
+ },
+ {
+  "id": "S1810",
+  "event_id": "love_paparazzi",
+  "event_title": "代拍",
+  "scope": "generic",
+  "field": "label",
+  "original": "带她换个地方住",
+  "occ": [
+   "love_paparazzi.label.1"
+  ]
+ },
+ {
+  "id": "S1811",
+  "event_id": "love_paparazzi",
+  "event_title": "代拍",
+  "scope": "generic",
+  "field": "text",
+  "original": "新家在城郊，通勤多了四十分钟。她说这四十分钟换来的是能自己下楼扔垃圾。",
+  "occ": [
+   "love_paparazzi.text.1.0"
+  ]
+ },
+ {
+  "id": "S1812",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "desc",
+  "original": "你这边谈着新合同，她那边刚升了职。两座城市之间隔着两千公里，或者一个海。",
+  "occ": [
+   "love_move.desc"
+  ]
+ },
+ {
+  "id": "S1813",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "title",
+  "original": "她的工作",
+  "occ": [
+   "love_move.title"
+  ]
+ },
+ {
+  "id": "S1814",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "label",
+  "original": "让她跟着走",
+  "occ": [
+   "love_move.label.0"
+  ]
+ },
+ {
+  "id": "S1815",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "text",
+  "original": "她辞了职，跟你搬了过来。第二年她在这边重新开始，从助理做起。这件事你们没再聊过。",
+  "occ": [
+   "love_move.text.0.0"
+  ]
+ },
+ {
+  "id": "S1816",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "label",
+  "original": "你留下",
+  "occ": [
+   "love_move.label.1"
+  ]
+ },
+ {
+  "id": "S1817",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "text",
+  "original": "你续了一份不算好的合同，条件是别走。那年你的出场时间少了一半，但每天都能回家吃饭。",
+  "occ": [
+   "love_move.text.1.0"
+  ]
+ },
+ {
+  "id": "S1818",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "label",
+  "original": "各走各的",
+  "occ": [
+   "love_move.label.2"
+  ]
+ },
+ {
+  "id": "S1819",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "text",
+  "original": "你们靠航班表过了两年。她说这样也挺好，两个人都没停下。",
+  "occ": [
+   "love_move.text.2.0"
+  ]
+ },
+ {
+  "id": "S1820",
+  "event_id": "love_move",
+  "event_title": "她的工作",
+  "scope": "generic",
+  "field": "text",
+  "original": "分开是她先提的，说得很平静。东西是分两次搬走的，第二次你没在家。",
+  "occ": [
+   "love_move.text.2.1"
+  ]
+ },
+ {
+  "id": "S1821",
+  "event_id": "love_anniv",
+  "event_title": "纪念日那天有客场",
+  "scope": "generic",
+  "field": "desc",
+  "original": "结婚纪念日撞上客场。上一次撞上是三年前，那次你也没在。",
+  "occ": [
+   "love_anniv.desc"
+  ]
+ },
+ {
+  "id": "S1822",
+  "event_id": "love_anniv",
+  "event_title": "纪念日那天有客场",
+  "scope": "generic",
+  "field": "title",
+  "original": "纪念日那天有客场",
+  "occ": [
+   "love_anniv.title"
+  ]
+ },
+ {
+  "id": "S1823",
+  "event_id": "love_anniv",
+  "event_title": "纪念日那天有客场",
+  "scope": "generic",
+  "field": "label",
+  "original": "让队医报个小伤",
+  "occ": [
+   "love_anniv.label.0"
+  ]
+ },
+ {
+  "id": "S1824",
+  "event_id": "love_anniv",
+  "event_title": "纪念日那天有客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在家做了顿饭，做糊了。她说这是这些年最好的一个纪念日。",
+  "occ": [
+   "love_anniv.text.0.0"
+  ]
+ },
+ {
+  "id": "S1825",
+  "event_id": "love_anniv",
+  "event_title": "纪念日那天有客场",
+  "scope": "generic",
+  "field": "label",
+  "original": "照常走",
+  "occ": [
+   "love_anniv.label.1"
+  ]
+ },
+ {
+  "id": "S1826",
+  "event_id": "love_anniv",
+  "event_title": "纪念日那天有客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在酒店给她订了花，卡片是队里的翻译帮你写的。她收到的时候正在加班。",
+  "occ": [
+   "love_anniv.text.1.0"
+  ]
+ },
+ {
+  "id": "S1827",
+  "event_id": "love_split",
+  "event_title": "说不下去了",
+  "scope": "generic",
+  "field": "desc",
+  "original": "这半年你们几乎没吵过架，因为已经没什么可说的了。她把话摊开的那天，你正准备去队里报到。",
+  "occ": [
+   "love_split.desc"
+  ]
+ },
+ {
+  "id": "S1828",
+  "event_id": "love_split",
+  "event_title": "说不下去了",
+  "scope": "generic",
+  "field": "title",
+  "original": "说不下去了",
+  "occ": [
+   "love_split.title"
+  ]
+ },
+ {
+  "id": "S1829",
+  "event_id": "love_split",
+  "event_title": "说不下去了",
+  "scope": "generic",
+  "field": "label",
+  "original": "试着修一修",
+  "occ": [
+   "love_split.label.0"
+  ]
+ },
+ {
+  "id": "S1830",
+  "event_id": "love_split",
+  "event_title": "说不下去了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你们去做了几次咨询，也一起出去待了两周。回来以后她说，那两周是这几年最像样的日子。",
+  "occ": [
+   "love_split.text.0.0"
+  ]
+ },
+ {
+  "id": "S1831",
+  "event_id": "love_split",
+  "event_title": "说不下去了",
+  "scope": "generic",
+  "field": "text",
+  "original": "拖了一年半，最后还是签了字。财产分割那天你迟到了，因为队里加练。",
+  "occ": [
+   "love_split.text.0.1"
+  ]
+ },
+ {
+  "id": "S1832",
+  "event_id": "love_split",
+  "event_title": "说不下去了",
+  "scope": "generic",
+  "field": "label",
+  "original": "好好散",
+  "occ": [
+   "love_split.label.1"
+  ]
+ },
+ {
+  "id": "S1833",
+  "event_id": "love_split",
+  "event_title": "说不下去了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你们一起吃了顿饭才去办的手续。她说以后你比赛她还是会看，你说好。",
+  "occ": [
+   "love_split.text.1.0"
+  ]
+ },
+ {
+  "id": "S1834",
+  "event_id": "love_backhome",
+  "event_title": "退役以后干什么",
+  "scope": "generic",
+  "field": "desc",
+  "original": "她第一次认真问你退役以后想干什么。你发现自己从十二岁起就没想过这个问题。",
+  "occ": [
+   "love_backhome.desc"
+  ]
+ },
+ {
+  "id": "S1835",
+  "event_id": "love_backhome",
+  "event_title": "退役以后干什么",
+  "scope": "generic",
+  "field": "label",
+  "original": "去考教练证",
+  "occ": [
+   "love_backhome.label.0"
+  ]
+ },
+ {
+  "id": "S1836",
+  "event_id": "love_backhome",
+  "event_title": "退役以后干什么",
+  "scope": "generic",
+  "field": "text",
+  "original": "你利用赛季间隙上了课。考试那天你紧张得像回到了十六岁那年的选拔赛。",
+  "occ": [
+   "love_backhome.text.0.0"
+  ]
+ },
+ {
+  "id": "S1837",
+  "event_id": "love_backhome",
+  "event_title": "退役以后干什么",
+  "scope": "generic",
+  "field": "label",
+  "original": "先把这个赛季踢完",
+  "occ": [
+   "love_backhome.label.1"
+  ]
+ },
+ {
+  "id": "S1838",
+  "event_id": "love_backhome",
+  "event_title": "退役以后干什么",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说等踢不动了自然就知道了。她没再问。这个问题后来是你自己在某个夜里想起来的。",
+  "occ": [
+   "love_backhome.text.1.0"
+  ]
+ }
+]

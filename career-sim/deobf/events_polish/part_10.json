@@ -1,0 +1,1631 @@
+[
+ {
+  "id": "S1317",
+  "event_id": "cn_team_doctor",
+  "event_title": "队医",
+  "scope": "china",
+  "field": "desc",
+  "original": "队医是老板亲戚，处理伤病只有两招：冰敷和「再练练」。",
+  "occ": [
+   "cn_team_doctor.desc"
+  ]
+ },
+ {
+  "id": "S1318",
+  "event_id": "cn_team_doctor",
+  "event_title": "队医",
+  "scope": "china",
+  "field": "title",
+  "original": "队医",
+  "occ": [
+   "cn_team_doctor.title"
+  ]
+ },
+ {
+  "id": "S1319",
+  "event_id": "cn_team_doctor",
+  "event_title": "队医",
+  "scope": "china",
+  "field": "label",
+  "original": "自费找外面的",
+  "occ": [
+   "cn_team_doctor.label.0"
+  ]
+ },
+ {
+  "id": "S1320",
+  "event_id": "cn_team_doctor",
+  "event_title": "队医",
+  "scope": "china",
+  "field": "text",
+  "original": "你自己联系了运动医学中心。队里说这是不信任队医，你说你信任自己的腿。",
+  "occ": [
+   "cn_team_doctor.text.0.0"
+  ]
+ },
+ {
+  "id": "S1321",
+  "event_id": "cn_team_doctor",
+  "event_title": "队医",
+  "scope": "china",
+  "field": "text",
+  "original": "那点伤后来自己好了。你至今不知道当时到底是什么伤。",
+  "occ": [
+   "cn_team_doctor.text.1.0"
+  ]
+ },
+ {
+  "id": "S1322",
+  "event_id": "cn_team_doctor",
+  "event_title": "队医",
+  "scope": "china",
+  "field": "text",
+  "original": "小伤拖成了慢性劳损。三年后拍片子，医生问你当年怎么处理的。",
+  "occ": [
+   "cn_team_doctor.text.1.1"
+  ]
+ },
+ {
+  "id": "S1323",
+  "event_id": "cn_foreign_coach",
+  "event_title": "外教来了",
+  "scope": "china",
+  "field": "desc",
+  "original": "俱乐部请了个欧洲教练，第一堂课就让全队做他们十四岁孩子的传接练习。",
+  "occ": [
+   "cn_foreign_coach.desc"
+  ]
+ },
+ {
+  "id": "S1324",
+  "event_id": "cn_foreign_coach",
+  "event_title": "外教来了",
+  "scope": "china",
+  "field": "label",
+  "original": "认真练基本功",
+  "occ": [
+   "cn_foreign_coach.label.0"
+  ]
+ },
+ {
+  "id": "S1325",
+  "event_id": "cn_foreign_coach",
+  "event_title": "外教来了",
+  "scope": "china",
+  "field": "text",
+  "original": "三个月后队里的失误率掉了一半。你才知道自己有些习惯错了十年。",
+  "occ": [
+   "cn_foreign_coach.text.0.0"
+  ]
+ },
+ {
+  "id": "S1326",
+  "event_id": "cn_foreign_coach",
+  "event_title": "外教来了",
+  "scope": "china",
+  "field": "text",
+  "original": "他干了半个赛季就被换掉了，新帅把那套全推翻。你两边都没落着。",
+  "occ": [
+   "cn_foreign_coach.text.0.1"
+  ]
+ },
+ {
+  "id": "S1327",
+  "event_id": "cn_foreign_coach",
+  "event_title": "外教来了",
+  "scope": "china",
+  "field": "label",
+  "original": "跟着老队员抵触",
+  "occ": [
+   "cn_foreign_coach.label.1"
+  ]
+ },
+ {
+  "id": "S1328",
+  "event_id": "cn_foreign_coach",
+  "event_title": "外教来了",
+  "scope": "china",
+  "field": "text",
+  "original": "更衣室里没人配合他。他走的那天只跟翻译握了手。",
+  "occ": [
+   "cn_foreign_coach.text.1.0"
+  ]
+ },
+ {
+  "id": "S1329",
+  "event_id": "cn_salary_cap",
+  "event_title": "限薪令",
+  "scope": "china",
+  "field": "desc",
+  "original": "足协发文，顶薪砍到原来的三分之一，已经签的合同「参照执行」。俱乐部把你叫去重签。",
+  "occ": [
+   "cn_salary_cap.desc"
+  ]
+ },
+ {
+  "id": "S1330",
+  "event_id": "cn_salary_cap",
+  "event_title": "限薪令",
+  "scope": "china",
+  "field": "label",
+  "original": "签了",
+  "occ": [
+   "cn_salary_cap.label.0"
+  ]
+ },
+ {
+  "id": "S1331",
+  "event_id": "cn_salary_cap",
+  "event_title": "限薪令",
+  "scope": "china",
+  "field": "text",
+  "original": "你没提条件。后来闹到仲裁的那几个，最后拿到的也不比你多。",
+  "occ": [
+   "cn_salary_cap.text.0.0"
+  ]
+ },
+ {
+  "id": "S1332",
+  "event_id": "cn_salary_cap",
+  "event_title": "限薪令",
+  "scope": "china",
+  "field": "label",
+  "original": "让经纪人想办法",
+  "occ": [
+   "cn_salary_cap.label.1"
+  ]
+ },
+ {
+  "id": "S1333",
+  "event_id": "cn_salary_cap",
+  "event_title": "限薪令",
+  "scope": "china",
+  "field": "text",
+  "original": "差额走了另一家公司的「形象代言」。合同一式两份，一份能给人看。",
+  "occ": [
+   "cn_salary_cap.text.1.0"
+  ]
+ },
+ {
+  "id": "S1334",
+  "event_id": "cn_salary_cap",
+  "event_title": "限薪令",
+  "scope": "china",
+  "field": "text",
+  "original": "谈崩了。你在替补席上坐了半个赛季，谁也没再提那份合同。",
+  "occ": [
+   "cn_salary_cap.text.1.1"
+  ]
+ },
+ {
+  "id": "S1335",
+  "event_id": "cn_quanyun",
+  "event_title": "全运会的名额",
+  "scope": "china",
+  "field": "desc",
+  "original": "省里点名要你回去打全运会。那几场跟联赛撞期，俱乐部的脸色很难看。",
+  "occ": [
+   "cn_quanyun.desc"
+  ]
+ },
+ {
+  "id": "S1336",
+  "event_id": "cn_quanyun",
+  "event_title": "全运会的名额",
+  "scope": "china",
+  "field": "title",
+  "original": "全运会的名额",
+  "occ": [
+   "cn_quanyun.title"
+  ]
+ },
+ {
+  "id": "S1337",
+  "event_id": "cn_quanyun",
+  "event_title": "全运会的名额",
+  "scope": "china",
+  "field": "label",
+  "original": "回去打",
+  "occ": [
+   "cn_quanyun.label.0"
+  ]
+ },
+ {
+  "id": "S1338",
+  "event_id": "cn_quanyun",
+  "event_title": "全运会的名额",
+  "scope": "china",
+  "field": "text",
+  "original": "你带队拿了牌。省里记住了你，俱乐部也没把话说死。",
+  "occ": [
+   "cn_quanyun.text.0.0"
+  ]
+ },
+ {
+  "id": "S1339",
+  "event_id": "cn_quanyun",
+  "event_title": "全运会的名额",
+  "scope": "china",
+  "field": "text",
+  "original": "回来的时候位置被顶了。省里那边倒是一直念你的好。",
+  "occ": [
+   "cn_quanyun.text.0.1"
+  ]
+ },
+ {
+  "id": "S1340",
+  "event_id": "cn_quanyun",
+  "event_title": "全运会的名额",
+  "scope": "china",
+  "field": "text",
+  "original": "你说合同在这儿。那几年凡是要省里点头的名单，都没有你。",
+  "occ": [
+   "cn_quanyun.text.1.0"
+  ]
+ },
+ {
+  "id": "S1341",
+  "event_id": "cn_winter_camp",
+  "event_title": "冬训",
+  "scope": "china",
+  "field": "desc",
+  "original": "昆明海埂，海拔一千九，一天两练三个月。队医说这儿练完，回平原能多跑十公里。",
+  "occ": [
+   "cn_winter_camp.desc"
+  ]
+ },
+ {
+  "id": "S1342",
+  "event_id": "cn_winter_camp",
+  "event_title": "冬训",
+  "scope": "china",
+  "field": "label",
+  "original": "顶着练",
+  "occ": [
+   "cn_winter_camp.label.0"
+  ]
+ },
+ {
+  "id": "S1343",
+  "event_id": "cn_winter_camp",
+  "event_title": "冬训",
+  "scope": "china",
+  "field": "text",
+  "original": "开赛前三轮你的跑动数据全队第一。解说说你像换了个人。",
+  "occ": [
+   "cn_winter_camp.text.0.0"
+  ]
+ },
+ {
+  "id": "S1344",
+  "event_id": "cn_winter_camp",
+  "event_title": "冬训",
+  "scope": "china",
+  "field": "text",
+  "original": "第七周膝盖开始积液。剩下的冬训你在健身房看着别人跑。",
+  "occ": [
+   "cn_winter_camp.text.0.1"
+  ]
+ },
+ {
+  "id": "S1345",
+  "event_id": "cn_winter_camp",
+  "event_title": "冬训",
+  "scope": "china",
+  "field": "label",
+  "original": "按自己的节奏来",
+  "occ": [
+   "cn_winter_camp.label.1"
+  ]
+ },
+ {
+  "id": "S1346",
+  "event_id": "cn_winter_camp",
+  "event_title": "冬训",
+  "scope": "china",
+  "field": "text",
+  "original": "你给教练组看了一份自己的计划。他们批了，但那年的「刻苦」名单上没有你。",
+  "occ": [
+   "cn_winter_camp.text.1.0"
+  ]
+ },
+ {
+  "id": "S1347",
+  "event_id": "cn_acl_away",
+  "event_title": "亚冠西亚客场",
+  "scope": "china",
+  "field": "desc",
+  "original": "飞十一个小时去打客场，落地就训练，第三天还有联赛。领队问你上不上。",
+  "occ": [
+   "cn_acl_away.desc"
+  ]
+ },
+ {
+  "id": "S1348",
+  "event_id": "cn_acl_away",
+  "event_title": "亚冠西亚客场",
+  "scope": "china",
+  "field": "title",
+  "original": "亚冠西亚客场",
+  "occ": [
+   "cn_acl_away.title"
+  ]
+ },
+ {
+  "id": "S1349",
+  "event_id": "cn_acl_away",
+  "event_title": "亚冠西亚客场",
+  "scope": "china",
+  "field": "label",
+  "original": "全程跟队",
+  "occ": [
+   "cn_acl_away.label.0"
+  ]
+ },
+ {
+  "id": "S1350",
+  "event_id": "cn_acl_away",
+  "event_title": "亚冠西亚客场",
+  "scope": "china",
+  "field": "text",
+  "original": "你在四万人的客场打满全场。回来那趟航班上全队没人说话。",
+  "occ": [
+   "cn_acl_away.text.0.0"
+  ]
+ },
+ {
+  "id": "S1351",
+  "event_id": "cn_acl_away",
+  "event_title": "亚冠西亚客场",
+  "scope": "china",
+  "field": "text",
+  "original": "两周三场，第三场下半场你腿抽筋下场。教练记住的是你上了。",
+  "occ": [
+   "cn_acl_away.text.0.1"
+  ]
+ },
+ {
+  "id": "S1352",
+  "event_id": "cn_acl_away",
+  "event_title": "亚冠西亚客场",
+  "scope": "china",
+  "field": "label",
+  "original": "留下备战联赛",
+  "occ": [
+   "cn_acl_away.label.1"
+  ]
+ },
+ {
+  "id": "S1353",
+  "event_id": "cn_acl_away",
+  "event_title": "亚冠西亚客场",
+  "scope": "china",
+  "field": "text",
+  "original": "那场客场输了三个。有人在赛后发布会上说「有些人心不在亚冠」。",
+  "occ": [
+   "cn_acl_away.text.1.0"
+  ]
+ },
+ {
+  "id": "S1354",
+  "event_id": "cn_amateur_cup",
+  "event_title": "足协杯打业余队",
+  "scope": "china",
+  "field": "desc",
+  "original": "足协杯首轮的对手是支业余队，场地是县城的土场，看台坐了两千人，全是来看你的。",
+  "occ": [
+   "cn_amateur_cup.desc"
+  ]
+ },
+ {
+  "id": "S1355",
+  "event_id": "cn_amateur_cup",
+  "event_title": "足协杯打业余队",
+  "scope": "china",
+  "field": "title",
+  "original": "足协杯打业余队",
+  "occ": [
+   "cn_amateur_cup.title"
+  ]
+ },
+ {
+  "id": "S1356",
+  "event_id": "cn_amateur_cup",
+  "event_title": "足协杯打业余队",
+  "scope": "china",
+  "field": "label",
+  "original": "认真踢",
+  "occ": [
+   "cn_amateur_cup.label.0"
+  ]
+ },
+ {
+  "id": "S1357",
+  "event_id": "cn_amateur_cup",
+  "event_title": "足协杯打业余队",
+  "scope": "china",
+  "field": "text",
+  "original": "赢了四个。散场后你在场边签了四十分钟名，有个孩子把作业本递了过来。",
+  "occ": [
+   "cn_amateur_cup.text.0.0"
+  ]
+ },
+ {
+  "id": "S1358",
+  "event_id": "cn_amateur_cup",
+  "event_title": "足协杯打业余队",
+  "scope": "china",
+  "field": "text",
+  "original": "第 26 分钟你踩进一个坑，脚踝当场肿了。对面那孩子吓得一直道歉。",
+  "occ": [
+   "cn_amateur_cup.text.0.1"
+  ]
+ },
+ {
+  "id": "S1359",
+  "event_id": "cn_amateur_cup",
+  "event_title": "足协杯打业余队",
+  "scope": "china",
+  "field": "text",
+  "original": "你踢了半场就被换下。第二天当地论坛的标题是",
+  "occ": [
+   "cn_amateur_cup.text.1.0"
+  ]
+ },
+ {
+  "id": "S1360",
+  "event_id": "cn_bus_seized",
+  "event_title": "大巴被查封了",
+  "scope": "china",
+  "field": "desc",
+  "original": "欠薪半年，法院把俱乐部大巴贴了封条。下一场客场，全队自己想办法过去。",
+  "occ": [
+   "cn_bus_seized.desc"
+  ]
+ },
+ {
+  "id": "S1361",
+  "event_id": "cn_bus_seized",
+  "event_title": "大巴被查封了",
+  "scope": "china",
+  "field": "title",
+  "original": "大巴被查封了",
+  "occ": [
+   "cn_bus_seized.title"
+  ]
+ },
+ {
+  "id": "S1362",
+  "event_id": "cn_bus_seized",
+  "event_title": "大巴被查封了",
+  "scope": "china",
+  "field": "label",
+  "original": "带头出面讨薪",
+  "occ": [
+   "cn_bus_seized.label.0"
+  ]
+ },
+ {
+  "id": "S1363",
+  "event_id": "cn_bus_seized",
+  "event_title": "大巴被查封了",
+  "scope": "china",
+  "field": "text",
+  "original": "你带着队友在训练基地门口站了一上午。工资补了六成，你的名字进了另一份名单。",
+  "occ": [
+   "cn_bus_seized.text.0.0"
+  ]
+ },
+ {
+  "id": "S1364",
+  "event_id": "cn_bus_seized",
+  "event_title": "大巴被查封了",
+  "scope": "china",
+  "field": "label",
+  "original": "自己垫钱先把球打完",
+  "occ": [
+   "cn_bus_seized.label.1"
+  ]
+ },
+ {
+  "id": "S1365",
+  "event_id": "cn_bus_seized",
+  "event_title": "大巴被查封了",
+  "scope": "china",
+  "field": "text",
+  "original": "你订了两辆中巴。那笔钱后来也没人提要还，队友倒是记了很多年。",
+  "occ": [
+   "cn_bus_seized.text.1.0"
+  ]
+ },
+ {
+  "id": "S1366",
+  "event_id": "cn_reg_deadline",
+  "event_title": "注册截止前四小时",
+  "scope": "china",
+  "field": "desc",
+  "original": "转会窗最后一天，你的注册材料还差俱乐部一个章。办公室的人说领导在外地。",
+  "occ": [
+   "cn_reg_deadline.desc"
+  ]
+ },
+ {
+  "id": "S1367",
+  "event_id": "cn_reg_deadline",
+  "event_title": "注册截止前四小时",
+  "scope": "china",
+  "field": "title",
+  "original": "注册截止前四小时",
+  "occ": [
+   "cn_reg_deadline.title"
+  ]
+ },
+ {
+  "id": "S1368",
+  "event_id": "cn_reg_deadline",
+  "event_title": "注册截止前四小时",
+  "scope": "china",
+  "field": "label",
+  "original": "自己开车去找人签",
+  "occ": [
+   "cn_reg_deadline.label.0"
+  ]
+ },
+ {
+  "id": "S1369",
+  "event_id": "cn_reg_deadline",
+  "event_title": "注册截止前四小时",
+  "scope": "china",
+  "field": "text",
+  "original": "你在高速上跑了三百公里，在一个饭局门口等到十一点半。章盖上了，赶上了。",
+  "occ": [
+   "cn_reg_deadline.text.0.0"
+  ]
+ },
+ {
+  "id": "S1370",
+  "event_id": "cn_reg_deadline",
+  "event_title": "注册截止前四小时",
+  "scope": "china",
+  "field": "label",
+  "original": "等他们办",
+  "occ": [
+   "cn_reg_deadline.label.1"
+  ]
+ },
+ {
+  "id": "S1371",
+  "event_id": "cn_reg_deadline",
+  "event_title": "注册截止前四小时",
+  "scope": "china",
+  "field": "text",
+  "original": "系统关闭前二十分钟提交成功。中间发生了什么没人跟你说过。",
+  "occ": [
+   "cn_reg_deadline.text.1.0"
+  ]
+ },
+ {
+  "id": "S1372",
+  "event_id": "cn_reg_deadline",
+  "event_title": "注册截止前四小时",
+  "scope": "china",
+  "field": "text",
+  "original": "材料卡在系统里。上半个赛季你只能跟着训练，一场正式比赛都没得踢。",
+  "occ": [
+   "cn_reg_deadline.text.1.1"
+  ]
+ },
+ {
+  "id": "S1373",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "desc",
+  "original": "地方领导带队来调研，赛前要合影，赛后要座谈。队里放了话：这场球性质不一样。",
+  "occ": [
+   "cn_leader_visit.desc"
+  ]
+ },
+ {
+  "id": "S1374",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "label",
+  "original": "打起十二分精神",
+  "occ": [
+   "cn_leader_visit.label.0"
+  ]
+ },
+ {
+  "id": "S1375",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "你零封了对手，还",
+  "occ": [
+   "cn_leader_visit.text.0.1"
+  ]
+ },
+ {
+  "id": "S1376",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "扑了一个点球。",
+  "occ": [
+   "cn_leader_visit.text.0.2"
+  ]
+ },
+ {
+  "id": "S1377",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "你打进一个。",
+  "occ": [
+   "cn_leader_visit.text.0.4"
+  ]
+ },
+ {
+  "id": "S1378",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "你太想表现，几次",
+  "occ": [
+   "cn_leader_visit.text.0.6"
+  ]
+ },
+ {
+  "id": "S1379",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "没必要的出击差点",
+  "occ": [
+   "cn_leader_visit.text.0.7"
+  ]
+ },
+ {
+  "id": "S1380",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "送礼。座谈会上没",
+  "occ": [
+   "cn_leader_visit.text.0.8"
+  ]
+ },
+ {
+  "id": "S1381",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "人提你。",
+  "occ": [
+   "cn_leader_visit.text.0.9"
+  ]
+ },
+ {
+  "id": "S1382",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "你太想表现，全场",
+  "occ": [
+   "cn_leader_visit.text.0.11"
+  ]
+ },
+ {
+  "id": "S1383",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "丢了十一次球权。",
+  "occ": [
+   "cn_leader_visit.text.0.12"
+  ]
+ },
+ {
+  "id": "S1384",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "座谈会上没人提你",
+  "occ": [
+   "cn_leader_visit.text.0.13"
+  ]
+ },
+ {
+  "id": "S1385",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "label",
+  "original": "当普通一场踢",
+  "occ": [
+   "cn_leader_visit.label.1"
+  ]
+ },
+ {
+  "id": "S1386",
+  "event_id": "cn_leader_visit",
+  "event_title": "领导来看球",
+  "scope": "china",
+  "field": "text",
+  "original": "你赛前照常热身，赛后照常拉伸。合影的时候你站在最后一排的边上。",
+  "occ": [
+   "cn_leader_visit.text.1.0"
+  ]
+ },
+ {
+  "id": "S1387",
+  "event_id": "cn_media_line",
+  "event_title": "统一口径",
+  "scope": "china",
+  "field": "desc",
+  "original": "媒体开放日前，俱乐部发来一张纸，上面写着「可以说的三句话」和「不能提的四件事」。",
+  "occ": [
+   "cn_media_line.desc"
+  ]
+ },
+ {
+  "id": "S1388",
+  "event_id": "cn_media_line",
+  "event_title": "统一口径",
+  "scope": "china",
+  "field": "title",
+  "original": "统一口径",
+  "occ": [
+   "cn_media_line.title"
+  ]
+ },
+ {
+  "id": "S1389",
+  "event_id": "cn_media_line",
+  "event_title": "统一口径",
+  "scope": "china",
+  "field": "label",
+  "original": "照着念",
+  "occ": [
+   "cn_media_line.label.0"
+  ]
+ },
+ {
+  "id": "S1390",
+  "event_id": "cn_media_line",
+  "event_title": "统一口径",
+  "scope": "china",
+  "field": "text",
+  "original": "你一字不差地念完了。那段采访被做成了鬼畜，播放量比你",
+  "occ": [
+   "cn_media_line.text.0.0"
+  ]
+ },
+ {
+  "id": "S1391",
+  "event_id": "cn_media_line",
+  "event_title": "统一口径",
+  "scope": "china",
+  "field": "label",
+  "original": "说了一句实话",
+  "occ": [
+   "cn_media_line.label.1"
+  ]
+ },
+ {
+  "id": "S1392",
+  "event_id": "cn_media_line",
+  "event_title": "统一口径",
+  "scope": "china",
+  "field": "text",
+  "original": "你说「欠薪的事大家心里都有数」。第二天球队公告说你「言论不代表俱乐部」。",
+  "occ": [
+   "cn_media_line.text.1.0"
+  ]
+ },
+ {
+  "id": "S1393",
+  "event_id": "cn_banner",
+  "event_title": "看台上的横幅",
+  "scope": "china",
+  "field": "desc",
+  "original": "南看台拉了一条三十米的横幅，写着「还我球队」。安保去收，球迷不让。",
+  "occ": [
+   "cn_banner.desc"
+  ]
+ },
+ {
+  "id": "S1394",
+  "event_id": "cn_banner",
+  "event_title": "看台上的横幅",
+  "scope": "china",
+  "field": "title",
+  "original": "看台上的横幅",
+  "occ": [
+   "cn_banner.title"
+  ]
+ },
+ {
+  "id": "S1395",
+  "event_id": "cn_banner",
+  "event_title": "看台上的横幅",
+  "scope": "china",
+  "field": "label",
+  "original": "赛后走过去鞠躬",
+  "occ": [
+   "cn_banner.label.0"
+  ]
+ },
+ {
+  "id": "S1396",
+  "event_id": "cn_banner",
+  "event_title": "看台上的横幅",
+  "scope": "china",
+  "field": "text",
+  "original": "你一个人走到南看台前，鞠了很久的躬。那张照片现在还挂在球迷会的墙上。",
+  "occ": [
+   "cn_banner.text.0.0"
+  ]
+ },
+ {
+  "id": "S1397",
+  "event_id": "cn_banner",
+  "event_title": "看台上的横幅",
+  "scope": "china",
+  "field": "label",
+  "original": "跟着大部队回更衣室",
+  "occ": [
+   "cn_banner.label.1"
+  ]
+ },
+ {
+  "id": "S1398",
+  "event_id": "cn_banner",
+  "event_title": "看台上的横幅",
+  "scope": "china",
+  "field": "text",
+  "original": "你走进球员通道的时候回头看了一眼。横幅还在，人少了一半。",
+  "occ": [
+   "cn_banner.text.1.0"
+  ]
+ },
+ {
+  "id": "S1399",
+  "event_id": "abr_boxing_day",
+  "event_title": "节礼日",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "十天四场，圣诞夜坐大巴，二十六号打客场。队里的英格兰人管这叫一年里最好的日子。",
+  "occ": [
+   "abr_boxing_day.desc"
+  ]
+ },
+ {
+  "id": "S1400",
+  "event_id": "abr_boxing_day",
+  "event_title": "节礼日",
+  "scope": "abroad",
+  "field": "title",
+  "original": "节礼日",
+  "occ": [
+   "abr_boxing_day.title"
+  ]
+ },
+ {
+  "id": "S1401",
+  "event_id": "abr_boxing_day",
+  "event_title": "节礼日",
+  "scope": "abroad",
+  "field": "label",
+  "original": "全踢",
+  "occ": [
+   "abr_boxing_day.label.0"
+  ]
+ },
+ {
+  "id": "S1402",
+  "event_id": "abr_boxing_day",
+  "event_title": "节礼日",
+  "scope": "abroad",
+  "field": "text",
+  "original": "四场全首发，进了两个。当地报纸说这个中国人「有一副英式的肺」。",
+  "occ": [
+   "abr_boxing_day.text.0.0"
+  ]
+ },
+ {
+  "id": "S1403",
+  "event_id": "abr_boxing_day",
+  "event_title": "节礼日",
+  "scope": "abroad",
+  "field": "text",
+  "original": "第三场下半场你的大腿后侧拉响了。整个一月你都在恢复。",
+  "occ": [
+   "abr_boxing_day.text.0.1"
+  ]
+ },
+ {
+  "id": "S1404",
+  "event_id": "abr_boxing_day",
+  "event_title": "节礼日",
+  "scope": "abroad",
+  "field": "label",
+  "original": "跟教练说要轮休",
+  "occ": [
+   "abr_boxing_day.label.1"
+  ]
+ },
+ {
+  "id": "S1405",
+  "event_id": "abr_boxing_day",
+  "event_title": "节礼日",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他答应了，只是从那以后「关键场次」这个词里不太包括你。",
+  "occ": [
+   "abr_boxing_day.text.1.0"
+  ]
+ },
+ {
+  "id": "S1406",
+  "event_id": "abr_translator",
+  "event_title": "翻译不干了",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "俱乐部精简开支，你那位翻译的合同没续。战术会上教练讲了二十分钟，你听懂了六成。",
+  "occ": [
+   "abr_translator.desc"
+  ]
+ },
+ {
+  "id": "S1407",
+  "event_id": "abr_translator",
+  "event_title": "翻译不干了",
+  "scope": "abroad",
+  "field": "title",
+  "original": "翻译不干了",
+  "occ": [
+   "abr_translator.title"
+  ]
+ },
+ {
+  "id": "S1408",
+  "event_id": "abr_translator",
+  "event_title": "翻译不干了",
+  "scope": "abroad",
+  "field": "label",
+  "original": "自己啃语言",
+  "occ": [
+   "abr_translator.label.0"
+  ]
+ },
+ {
+  "id": "S1409",
+  "event_id": "abr_translator",
+  "event_title": "翻译不干了",
+  "scope": "abroad",
+  "field": "text",
+  "original": "三个月后你在更衣室第一次讲了个荤段子，全队都笑了。那天你才算真的来了。",
+  "occ": [
+   "abr_translator.text.0.0"
+  ]
+ },
+ {
+  "id": "S1410",
+  "event_id": "abr_translator",
+  "event_title": "翻译不干了",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你背了半年单词，战术板上的东西还是得靠猜。教练开始把你的名字念得快一点。",
+  "occ": [
+   "abr_translator.text.0.1"
+  ]
+ },
+ {
+  "id": "S1411",
+  "event_id": "abr_translator",
+  "event_title": "翻译不干了",
+  "scope": "abroad",
+  "field": "label",
+  "original": "自费请一个",
+  "occ": [
+   "abr_translator.label.1"
+  ]
+ },
+ {
+  "id": "S1412",
+  "event_id": "abr_translator",
+  "event_title": "翻译不干了",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你按月付钱请了个留学生。他后来成了你在那座城市最好的朋友。",
+  "occ": [
+   "abr_translator.text.1.0"
+  ]
+ },
+ {
+  "id": "S1413",
+  "event_id": "abr_market",
+  "event_title": "亚洲行",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "季前赛安排了亚洲行，商务部门直说了：这一趟的海报中间得是你。",
+  "occ": [
+   "abr_market.desc"
+  ]
+ },
+ {
+  "id": "S1414",
+  "event_id": "abr_market",
+  "event_title": "亚洲行",
+  "scope": "abroad",
+  "field": "title",
+  "original": "亚洲行",
+  "occ": [
+   "abr_market.title"
+  ]
+ },
+ {
+  "id": "S1415",
+  "event_id": "abr_market",
+  "event_title": "亚洲行",
+  "scope": "abroad",
+  "field": "label",
+  "original": "全程配合",
+  "occ": [
+   "abr_market.label.0"
+  ]
+ },
+ {
+  "id": "S1416",
+  "event_id": "abr_market",
+  "event_title": "亚洲行",
+  "scope": "abroad",
+  "field": "text",
+  "original": "十天六个城市，三支广告。回来第一堂训练课，体脂比走的时候高了两个点。",
+  "occ": [
+   "abr_market.text.0.0"
+  ]
+ },
+ {
+  "id": "S1417",
+  "event_id": "abr_market",
+  "event_title": "亚洲行",
+  "scope": "abroad",
+  "field": "label",
+  "original": "只去三天",
+  "occ": [
+   "abr_market.label.1"
+  ]
+ },
+ {
+  "id": "S1418",
+  "event_id": "abr_market",
+  "event_title": "亚洲行",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你打完两场友谊赛就飞回基地。开赛后你的状态是全队最好的那一档。",
+  "occ": [
+   "abr_market.text.1.0"
+  ]
+ },
+ {
+  "id": "S1419",
+  "event_id": "abr_market",
+  "event_title": "亚洲行",
+  "scope": "abroad",
+  "field": "text",
+  "original": "赞助商在合同里加了条款。转年续约，商务那一栏给你打了低分。",
+  "occ": [
+   "abr_market.text.1.1"
+  ]
+ },
+ {
+  "id": "S1420",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "客场角旗区附近有几个人，每次你拿球都学着叫。第四官员装作没听见。",
+  "occ": [
+   "abr_boo.desc"
+  ]
+ },
+ {
+  "id": "S1421",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "title",
+  "original": "看台上的那几个人",
+  "occ": [
+   "abr_boo.title"
+  ]
+ },
+ {
+  "id": "S1422",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "label",
+  "original": "当场指给主裁",
+  "occ": [
+   "abr_boo.label.0"
+  ]
+ },
+ {
+  "id": "S1423",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "比赛停了六分钟，广播念了三遍警告。有人说你玻璃心，也有人在球场外等着跟你握手。",
+  "occ": [
+   "abr_boo.text.0.0"
+  ]
+ },
+ {
+  "id": "S1424",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "label",
+  "original": "用球回应",
+  "occ": [
+   "abr_boo.label.1"
+  ]
+ },
+ {
+  "id": "S1425",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你在那个角旗区前",
+  "occ": [
+   "abr_boo.text.1.1",
+   "abr_boo.text.1.7"
+  ]
+ },
+ {
+  "id": "S1426",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "面把一个必进球托",
+  "occ": [
+   "abr_boo.text.1.2"
+  ]
+ },
+ {
+  "id": "S1427",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "出了横梁，起身冲",
+  "occ": [
+   "abr_boo.text.1.3"
+  ]
+ },
+ {
+  "id": "S1428",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "那几个位置张开了",
+  "occ": [
+   "abr_boo.text.1.4"
+  ]
+ },
+ {
+  "id": "S1429",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "双臂。",
+  "occ": [
+   "abr_boo.text.1.5"
+  ]
+ },
+ {
+  "id": "S1430",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "面助攻了一个球，",
+  "occ": [
+   "abr_boo.text.1.8"
+  ]
+ },
+ {
+  "id": "S1431",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "转身冲那几个位置",
+  "occ": [
+   "abr_boo.text.1.9"
+  ]
+ },
+ {
+  "id": "S1432",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "张开了双臂。",
+  "occ": [
+   "abr_boo.text.1.10"
+  ]
+ },
+ {
+  "id": "S1433",
+  "event_id": "abr_boo",
+  "event_title": "看台上的那几个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "那场你踢得很急，什么也没做成。回酒店你把手机关了一整晚。",
+  "occ": [
+   "abr_boo.text.1.11"
+  ]
+ },
+ {
+  "id": "S1434",
+  "event_id": "abr_winter_break",
+  "event_title": "冬歇期",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "十二月底到一月中停摆两周，正好赶上春节。机票来回三十几个小时。",
+  "occ": [
+   "abr_winter_break.desc"
+  ]
+ },
+ {
+  "id": "S1435",
+  "event_id": "abr_winter_break",
+  "event_title": "冬歇期",
+  "scope": "abroad",
+  "field": "title",
+  "original": "冬歇期",
+  "occ": [
+   "abr_winter_break.title"
+  ]
+ },
+ {
+  "id": "S1436",
+  "event_id": "abr_winter_break",
+  "event_title": "冬歇期",
+  "scope": "abroad",
+  "field": "label",
+  "original": "回家过年",
+  "occ": [
+   "abr_winter_break.label.0"
+  ]
+ },
+ {
+  "id": "S1437",
+  "event_id": "abr_winter_break",
+  "event_title": "冬歇期",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你在家待了九天，吃胖了三斤。你妈把你穿过的每件球衣都熨过一遍。",
+  "occ": [
+   "abr_winter_break.text.0.0"
+  ]
+ },
+ {
+  "id": "S1438",
+  "event_id": "abr_winter_break",
+  "event_title": "冬歇期",
+  "scope": "abroad",
+  "field": "label",
+  "original": "留下来加练",
+  "occ": [
+   "abr_winter_break.label.1"
+  ]
+ },
+ {
+  "id": "S1439",
+  "event_id": "abr_winter_break",
+  "event_title": "冬歇期",
+  "scope": "abroad",
+  "field": "text",
+  "original": "除夕那天基地只有你和两个门将。你们仨点了外卖，看着手机里的春晚。",
+  "occ": [
+   "abr_winter_break.text.1.0"
+  ]
+ },
+ {
+  "id": "S1440",
+  "event_id": "abr_paperwork",
+  "event_title": "驾照和银行卡",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "你在这儿住了半年，驾照还没办下来，银行卡被冻结过两次。俱乐部说人手不够。",
+  "occ": [
+   "abr_paperwork.desc"
+  ]
+ },
+ {
+  "id": "S1441",
+  "event_id": "abr_paperwork",
+  "event_title": "驾照和银行卡",
+  "scope": "abroad",
+  "field": "title",
+  "original": "驾照和银行卡",
+  "occ": [
+   "abr_paperwork.title"
+  ]
+ },
+ {
+  "id": "S1442",
+  "event_id": "abr_paperwork",
+  "event_title": "驾照和银行卡",
+  "scope": "abroad",
+  "field": "label",
+  "original": "自己一趟趟跑",
+  "occ": [
+   "abr_paperwork.label.0"
+  ]
+ },
+ {
+  "id": "S1443",
+  "event_id": "abr_paperwork",
+  "event_title": "驾照和银行卡",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你学会了预约、排队和据理力争。半年后新来的巴西小孩什么都问你。",
+  "occ": [
+   "abr_paperwork.text.0.0"
+  ]
+ },
+ {
+  "id": "S1444",
+  "event_id": "abr_paperwork",
+  "event_title": "驾照和银行卡",
+  "scope": "abroad",
+  "field": "label",
+  "original": "花钱请人代办",
+  "occ": [
+   "abr_paperwork.label.1"
+  ]
+ },
+ {
+  "id": "S1445",
+  "event_id": "abr_paperwork",
+  "event_title": "驾照和银行卡",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两周全办妥了。省下来的时间你全花在了训练场上。",
+  "occ": [
+   "abr_paperwork.text.1.0"
+  ]
+ },
+ {
+  "id": "S1446",
+  "event_id": "abr_clique",
+  "event_title": "更衣室的桌子",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "餐厅里南美帮一桌、法语区一桌、本地人一桌。你端着盘子站在中间。",
+  "occ": [
+   "abr_clique.desc"
+  ]
+ },
+ {
+  "id": "S1447",
+  "event_id": "abr_clique",
+  "event_title": "更衣室的桌子",
+  "scope": "abroad",
+  "field": "title",
+  "original": "更衣室的桌子",
+  "occ": [
+   "abr_clique.title"
+  ]
+ },
+ {
+  "id": "S1448",
+  "event_id": "abr_clique",
+  "event_title": "更衣室的桌子",
+  "scope": "abroad",
+  "field": "label",
+  "original": "硬凑过去",
+  "occ": [
+   "abr_clique.label.0"
+  ]
+ },
+ {
+  "id": "S1449",
+  "event_id": "abr_clique",
+  "event_title": "更衣室的桌子",
+  "scope": "abroad",
+  "field": "text",
+  "original": "三个月后他们开始用你的中文名叫你，虽然发音很奇怪。",
+  "occ": [
+   "abr_clique.text.0.0"
+  ]
+ },
+ {
+  "id": "S1450",
+  "event_id": "abr_clique",
+  "event_title": "更衣室的桌子",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你听了两个月听不懂的笑话，最后还是端着盘子回了自己那桌。",
+  "occ": [
+   "abr_clique.text.0.1"
+  ]
+ },
+ {
+  "id": "S1451",
+  "event_id": "abr_clique",
+  "event_title": "更衣室的桌子",
+  "scope": "abroad",
+  "field": "label",
+  "original": "自己一桌，专心吃",
+  "occ": [
+   "abr_clique.label.1"
+  ]
+ },
+ {
+  "id": "S1452",
+  "event_id": "abr_clique",
+  "event_title": "更衣室的桌子",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你吃饭比谁都快，然后去健身房。他们管你叫「机器」，语气里有敬意也有距离。",
+  "occ": [
+   "abr_clique.text.1.0"
+  ]
+ },
+ {
+  "id": "S1453",
+  "event_id": "abr_thursday",
+  "event_title": "周四踢欧战",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "周四客场打完欧战，凌晨三点落地，周日中午还有联赛。教练问你能不能连着上。",
+  "occ": [
+   "abr_thursday.desc"
+  ]
+ },
+ {
+  "id": "S1454",
+  "event_id": "abr_thursday",
+  "event_title": "周四踢欧战",
+  "scope": "abroad",
+  "field": "title",
+  "original": "周四踢欧战",
+  "occ": [
+   "abr_thursday.title"
+  ]
+ },
+ {
+  "id": "S1455",
+  "event_id": "abr_thursday",
+  "event_title": "周四踢欧战",
+  "scope": "abroad",
+  "field": "label",
+  "original": "两场都上",
+  "occ": [
+   "abr_thursday.label.0"
+  ]
+ },
+ {
+  "id": "S1456",
+  "event_id": "abr_thursday",
+  "event_title": "周四踢欧战",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两场你跑了二十三公里。队长在混合区说了句「这家伙不是人」。",
+  "occ": [
+   "abr_thursday.text.0.0"
+  ]
+ },
+ {
+  "id": "S1457",
+  "event_id": "abr_thursday",
+  "event_title": "周四踢欧战",
+  "scope": "abroad",
+  "field": "text",
+  "original": "周日下半场你完全跑不动了。数据网站给了你全场最低分。",
+  "occ": [
+   "abr_thursday.text.0.1"
+  ]
+ },
+ {
+  "id": "S1458",
+  "event_id": "abr_thursday",
+  "event_title": "周四踢欧战",
+  "scope": "abroad",
+  "field": "label",
+  "original": "只打联赛",
+  "occ": [
+   "abr_thursday.label.1"
+  ]
+ },
+ {
+  "id": "S1459",
+  "event_id": "abr_thursday",
+  "event_title": "周四踢欧战",
+  "scope": "abroad",
+  "field": "text",
+  "original": "欧战那晚你在替补席上坐了九十分钟。周日你是全场最佳。",
+  "occ": [
+   "abr_thursday.text.1.0"
+  ]
+ },
+ {
+  "id": "S1460",
+  "event_id": "abr_nickname",
+  "event_title": "当地媒体给的外号",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "本地小报给你起了个外号，直译过来是「长城」。第二天全城都这么叫你。",
+  "occ": [
+   "abr_nickname.desc"
+  ]
+ },
+ {
+  "id": "S1461",
+  "event_id": "abr_nickname",
+  "event_title": "当地媒体给的外号",
+  "scope": "abroad",
+  "field": "title",
+  "original": "当地媒体给的外号",
+  "occ": [
+   "abr_nickname.title"
+  ]
+ },
+ {
+  "id": "S1462",
+  "event_id": "abr_nickname",
+  "event_title": "当地媒体给的外号",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你在采访里说挺好，长城是我们那儿的东西。球衣定制区那个名字卖得比你的号码还好。",
+  "occ": [
+   "abr_nickname.text.0.0"
+  ]
+ },
+ {
+  "id": "S1463",
+  "event_id": "abr_nickname",
+  "event_title": "当地媒体给的外号",
+  "scope": "abroad",
+  "field": "label",
+  "original": "公开纠正",
+  "occ": [
+   "abr_nickname.label.1"
+  ]
+ },
+ {
+  "id": "S1464",
+  "event_id": "abr_nickname",
+  "event_title": "当地媒体给的外号",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你说我有名字。那家小报第二天改了口，别的媒体跟着改了。",
+  "occ": [
+   "abr_nickname.text.1.0"
+  ]
+ }
+]

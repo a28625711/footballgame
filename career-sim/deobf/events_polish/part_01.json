@@ -1,0 +1,1645 @@
+[
+ {
+  "id": "S0001",
+  "event_id": "extra_training",
+  "event_title": "加练",
+  "scope": "generic",
+  "field": "desc",
+  "original": "队里加了一期封闭集训，教练问你要不要跟着上强度。",
+  "occ": [
+   "extra_training.desc"
+  ]
+ },
+ {
+  "id": "S0002",
+  "event_id": "extra_training",
+  "event_title": "加练",
+  "scope": "generic",
+  "field": "title",
+  "original": "加练",
+  "occ": [
+   "extra_training.title",
+   "def_aerial.label.0"
+  ]
+ },
+ {
+  "id": "S0003",
+  "event_id": "extra_training",
+  "event_title": "加练",
+  "scope": "generic",
+  "field": "label",
+  "original": "上",
+  "occ": [
+   "extra_training.label.0"
+  ]
+ },
+ {
+  "id": "S0004",
+  "event_id": "extra_training",
+  "event_title": "加练",
+  "scope": "generic",
+  "field": "text",
+  "original": "一整期练下来，体脂降了，触球也稳了。教练开始在战术板上写你的名字。",
+  "occ": [
+   "extra_training.text.0.0"
+  ]
+ },
+ {
+  "id": "S0005",
+  "event_id": "extra_training",
+  "event_title": "加练",
+  "scope": "generic",
+  "field": "text",
+  "original": "第三周就练伤了。躺了两个月，回来时位置已经是别人的。",
+  "occ": [
+   "extra_training.text.0.1"
+  ]
+ },
+ {
+  "id": "S0006",
+  "event_id": "extra_training",
+  "event_title": "加练",
+  "scope": "generic",
+  "field": "label",
+  "original": "按计划来",
+  "occ": [
+   "extra_training.label.1"
+  ]
+ },
+ {
+  "id": "S0007",
+  "event_id": "extra_training",
+  "event_title": "加练",
+  "scope": "generic",
+  "field": "text",
+  "original": "你按原计划走完了这一期。没有惊喜，也没有意外。",
+  "occ": [
+   "extra_training.text.1.0"
+  ]
+ },
+ {
+  "id": "S0008",
+  "event_id": "nutritionist",
+  "event_title": "营养师",
+  "scope": "generic",
+  "field": "desc",
+  "original": "队医给你排了一套很难吃的食谱，说能延长你三年职业生涯。",
+  "occ": [
+   "nutritionist.desc"
+  ]
+ },
+ {
+  "id": "S0009",
+  "event_id": "nutritionist",
+  "event_title": "营养师",
+  "scope": "generic",
+  "field": "title",
+  "original": "营养师",
+  "occ": [
+   "nutritionist.title"
+  ]
+ },
+ {
+  "id": "S0010",
+  "event_id": "nutritionist",
+  "event_title": "营养师",
+  "scope": "generic",
+  "field": "label",
+  "original": "照着吃",
+  "occ": [
+   "nutritionist.label.0"
+  ]
+ },
+ {
+  "id": "S0011",
+  "event_id": "nutritionist",
+  "event_title": "营养师",
+  "scope": "generic",
+  "field": "text",
+  "original": "半年后体能数据全线上涨。你也终于知道水煮西兰花有几种做法。",
+  "occ": [
+   "nutritionist.text.0.0"
+  ]
+ },
+ {
+  "id": "S0012",
+  "event_id": "nutritionist",
+  "event_title": "营养师",
+  "scope": "generic",
+  "field": "text",
+  "original": "掉了六公斤，也掉了对抗能力。教练让你先把肉吃回来。",
+  "occ": [
+   "nutritionist.text.0.1"
+  ]
+ },
+ {
+  "id": "S0013",
+  "event_id": "nutritionist",
+  "event_title": "营养师",
+  "scope": "generic",
+  "field": "label",
+  "original": "该吃吃",
+  "occ": [
+   "nutritionist.label.1"
+  ]
+ },
+ {
+  "id": "S0014",
+  "event_id": "nutritionist",
+  "event_title": "营养师",
+  "scope": "generic",
+  "field": "text",
+  "original": "你继续吃你的。队医摇摇头，把食谱给了别人。",
+  "occ": [
+   "nutritionist.text.1.0"
+  ]
+ },
+ {
+  "id": "S0015",
+  "event_id": "supplement",
+  "event_title": "来路不明的补剂",
+  "scope": "generic",
+  "field": "desc",
+  "original": "有人塞给你两瓶没有中文标签的胶囊，说「队里好几个都在吃，查不出来的」。",
+  "occ": [
+   "supplement.desc"
+  ]
+ },
+ {
+  "id": "S0016",
+  "event_id": "supplement",
+  "event_title": "来路不明的补剂",
+  "scope": "generic",
+  "field": "title",
+  "original": "来路不明的补剂",
+  "occ": [
+   "supplement.title"
+  ]
+ },
+ {
+  "id": "S0017",
+  "event_id": "supplement",
+  "event_title": "来路不明的补剂",
+  "scope": "generic",
+  "field": "label",
+  "original": "吃",
+  "occ": [
+   "supplement.label.0"
+  ]
+ },
+ {
+  "id": "S0018",
+  "event_id": "supplement",
+  "event_title": "来路不明的补剂",
+  "scope": "generic",
+  "field": "text",
+  "original": "体能确实上了一个台阶。你没再问那两瓶东西是什么。",
+  "occ": [
+   "supplement.text.0.0"
+  ]
+ },
+ {
+  "id": "S0019",
+  "event_id": "supplement",
+  "event_title": "来路不明的补剂",
+  "scope": "generic",
+  "field": "text",
+  "original": "赛后抽检呈阳性。禁赛通告贴出来那天，你才知道「查不出来」是句安慰话。",
+  "occ": [
+   "supplement.text.0.1"
+  ]
+ },
+ {
+  "id": "S0020",
+  "event_id": "supplement",
+  "event_title": "来路不明的补剂",
+  "scope": "generic",
+  "field": "label",
+  "original": "扔了",
+  "occ": [
+   "supplement.label.1"
+  ]
+ },
+ {
+  "id": "S0021",
+  "event_id": "supplement",
+  "event_title": "来路不明的补剂",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把胶囊冲进了马桶。塞给你的人后来再没找过你。",
+  "occ": [
+   "supplement.text.1.0"
+  ]
+ },
+ {
+  "id": "S0022",
+  "event_id": "load",
+  "event_title": "赛季负荷",
+  "scope": "generic",
+  "field": "desc",
+  "original": "赛程密到一周三赛，队医建议你轮休，主教练希望你场场首发。",
+  "occ": [
+   "load.desc"
+  ]
+ },
+ {
+  "id": "S0023",
+  "event_id": "load",
+  "event_title": "赛季负荷",
+  "scope": "generic",
+  "field": "title",
+  "original": "赛季负荷",
+  "occ": [
+   "load.title"
+  ]
+ },
+ {
+  "id": "S0024",
+  "event_id": "load",
+  "event_title": "赛季负荷",
+  "scope": "generic",
+  "field": "label",
+  "original": "场场都上",
+  "occ": [
+   "load.label.0"
+  ]
+ },
+ {
+  "id": "S0025",
+  "event_id": "load",
+  "event_title": "赛季负荷",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把这一期全踢满了。更衣室里没人再质疑谁是主力。",
+  "occ": [
+   "load.text.0.0"
+  ]
+ },
+ {
+  "id": "S0026",
+  "event_id": "load",
+  "event_title": "赛季负荷",
+  "scope": "generic",
+  "field": "text",
+  "original": "第 31 轮，你在无对抗的情况下倒了下去。医生说是积劳。",
+  "occ": [
+   "load.text.0.1"
+  ]
+ },
+ {
+  "id": "S0027",
+  "event_id": "load",
+  "event_title": "赛季负荷",
+  "scope": "generic",
+  "field": "label",
+  "original": "听队医的",
+  "occ": [
+   "load.label.1"
+  ]
+ },
+ {
+  "id": "S0028",
+  "event_id": "load",
+  "event_title": "赛季负荷",
+  "scope": "generic",
+  "field": "text",
+  "original": "你少打了一半比赛，身体是保住了，位置没保住。",
+  "occ": [
+   "load.text.1.0"
+  ]
+ },
+ {
+  "id": "S0029",
+  "event_id": "position_change",
+  "event_title": "位置改造",
+  "scope": "generic",
+  "field": "desc",
+  "original": "主教练找你谈话，希望你改踢另一个位置，「那里更需要你」。",
+  "occ": [
+   "position_change.desc"
+  ]
+ },
+ {
+  "id": "S0030",
+  "event_id": "position_change",
+  "event_title": "位置改造",
+  "scope": "generic",
+  "field": "title",
+  "original": "位置改造",
+  "occ": [
+   "position_change.title"
+  ]
+ },
+ {
+  "id": "S0031",
+  "event_id": "position_change",
+  "event_title": "位置改造",
+  "scope": "generic",
+  "field": "label",
+  "original": "改",
+  "occ": [
+   "position_change.label.0",
+   "cn_age.label.0",
+   "mid_deep.label.0"
+  ]
+ },
+ {
+  "id": "S0032",
+  "event_id": "position_change",
+  "event_title": "位置改造",
+  "scope": "generic",
+  "field": "text",
+  "original": "新位置踢得别扭，但你确实每场都在场上。习惯以后你反而觉得更适合自己。",
+  "occ": [
+   "position_change.text.0.0"
+  ]
+ },
+ {
+  "id": "S0033",
+  "event_id": "position_change",
+  "event_title": "位置改造",
+  "scope": "generic",
+  "field": "label",
+  "original": "不改",
+  "occ": [
+   "position_change.label.1",
+   "cn_age.label.1",
+   "mid_deep.label.1"
+  ]
+ },
+ {
+  "id": "S0034",
+  "event_id": "position_change",
+  "event_title": "位置改造",
+  "scope": "generic",
+  "field": "text",
+  "original": "你坚持了自己的位置。教练也坚持了他的用人。",
+  "occ": [
+   "position_change.text.1.0"
+  ]
+ },
+ {
+  "id": "S0035",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "desc",
+  "original": "{club}花大钱买了一个和你同位置的球员，介绍会上说他是「体系升级的关键一环」。",
+  "occ": [
+   "competition.desc"
+  ]
+ },
+ {
+  "id": "S0036",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "title",
+  "original": "有人来抢位置",
+  "occ": [
+   "competition.title"
+  ]
+ },
+ {
+  "id": "S0037",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "label",
+  "original": "跟他争",
+  "occ": [
+   "competition.label.0"
+  ]
+ },
+ {
+  "id": "S0038",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "gk",
+  "occ": [
+   "competition.text.0.0",
+   "kid_height.text.0.0",
+   "kid_match.text.0.0",
+   "kid_match.text.0.14",
+   "kid_abr_ageup.text.0.0",
+   "aca_demote.text.0.0",
+   "cn_leader_visit.text.0.0",
+   "cn_leader_visit.text.0.5",
+   "abr_boo.text.1.0",
+   "abr_homecoming.text.0.0",
+   "star_ucl.text.0.0",
+   "star_saudi.text.1.0",
+   "nat_qualifier.text.0.0",
+   "nat_westasia.text.0.0",
+   "nat_derby.text.0.0"
+  ]
+ },
+ {
+  "id": "S0039",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "posGroup",
+  "occ": [
+   "competition.text.0.1",
+   "competition.text.0.5"
+  ]
+ },
+ {
+  "id": "S0040",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "热身赛你零封了两",
+  "occ": [
+   "competition.text.0.2"
+  ]
+ },
+ {
+  "id": "S0041",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "场，他漏了三个",
+  "occ": [
+   "competition.text.0.3"
+  ]
+ },
+ {
+  "id": "S0042",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "def",
+  "occ": [
+   "competition.text.0.4",
+   "aca_demote.text.0.7",
+   "star_ucl.text.0.5",
+   "star_saudi.text.1.5",
+   "nat_qualifier.text.0.6",
+   "nat_derby.text.0.5"
+  ]
+ },
+ {
+  "id": "S0043",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "热身赛你那一侧一",
+  "occ": [
+   "competition.text.0.6"
+  ]
+ },
+ {
+  "id": "S0044",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "次没被打穿",
+  "occ": [
+   "competition.text.0.7"
+  ]
+ },
+ {
+  "id": "S0045",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "热身赛你进了两个",
+  "occ": [
+   "competition.text.0.8"
+  ]
+ },
+ {
+  "id": "S0046",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "，他一个没进",
+  "occ": [
+   "competition.text.0.9"
+  ]
+ },
+ {
+  "id": "S0047",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "人家转会费是你的十倍，教练当然要用他。你开始熟悉替补席的座位。",
+  "occ": [
+   "competition.text.0.10"
+  ]
+ },
+ {
+  "id": "S0048",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "label",
+  "original": "找机会走人",
+  "occ": [
+   "competition.label.1"
+  ]
+ },
+ {
+  "id": "S0049",
+  "event_id": "competition",
+  "event_title": "有人来抢位置",
+  "scope": "generic",
+  "field": "text",
+  "original": "你让经纪人放了话出去：想踢球，哪里都行，就是不留下。",
+  "occ": [
+   "competition.text.1.0"
+  ]
+ },
+ {
+  "id": "S0050",
+  "event_id": "competition_star",
+  "event_title": "队里给你买了个替身",
+  "scope": "generic",
+  "field": "desc",
+  "original": "{club}签下一个和你同位置的年轻人。发布会上教练说得很明白：「买他是为了让核心少踢十场，不是为了取代谁。」",
+  "occ": [
+   "competition_star.desc"
+  ]
+ },
+ {
+  "id": "S0051",
+  "event_id": "competition_star",
+  "event_title": "队里给你买了个替身",
+  "scope": "generic",
+  "field": "title",
+  "original": "队里给你买了个替身",
+  "occ": [
+   "competition_star.title"
+  ]
+ },
+ {
+  "id": "S0052",
+  "event_id": "competition_star",
+  "event_title": "队里给你买了个替身",
+  "scope": "generic",
+  "field": "label",
+  "original": "让出杯赛和垃圾时间",
+  "occ": [
+   "competition_star.label.0"
+  ]
+ },
+ {
+  "id": "S0053",
+  "event_id": "competition_star",
+  "event_title": "队里给你买了个替身",
+  "scope": "generic",
+  "field": "text",
+  "original": "整个赛季你少打了九场球，全是早已定输赢的那种。三月份那波密集赛程，你是队里唯一没拉伤的主力。",
+  "occ": [
+   "competition_star.text.0.0"
+  ]
+ },
+ {
+  "id": "S0054",
+  "event_id": "competition_star",
+  "event_title": "队里给你买了个替身",
+  "scope": "generic",
+  "field": "label",
+  "original": "一场都不让",
+  "occ": [
+   "competition_star.label.1"
+  ]
+ },
+ {
+  "id": "S0055",
+  "event_id": "competition_star",
+  "event_title": "队里给你买了个替身",
+  "scope": "generic",
+  "field": "text",
+  "original": "你打满了那个赛季的每一分钟。那年他一共上场四百分钟，赛季末转会走了。",
+  "occ": [
+   "competition_star.text.1.0"
+  ]
+ },
+ {
+  "id": "S0056",
+  "event_id": "competition_star",
+  "event_title": "队里给你买了个替身",
+  "scope": "generic",
+  "field": "text",
+  "original": "四月份你的大腿后侧终于响了一声。躺着看完了最后八轮，那八轮全是他打的。",
+  "occ": [
+   "competition_star.text.1.1"
+  ]
+ },
+ {
+  "id": "S0057",
+  "event_id": "prospect",
+  "event_title": "小孩上来了",
+  "scope": "generic",
+  "field": "desc",
+  "original": "青训提上来一个 18 岁的孩子，跟你同一个位置，训练里已经压得你抬不起头。记者已经在写他的稿子了。",
+  "occ": [
+   "prospect.desc"
+  ]
+ },
+ {
+  "id": "S0058",
+  "event_id": "prospect",
+  "event_title": "小孩上来了",
+  "scope": "generic",
+  "field": "title",
+  "original": "小孩上来了",
+  "occ": [
+   "prospect.title"
+  ]
+ },
+ {
+  "id": "S0059",
+  "event_id": "prospect",
+  "event_title": "小孩上来了",
+  "scope": "generic",
+  "field": "label",
+  "original": "带他",
+  "occ": [
+   "prospect.label.0"
+  ]
+ },
+ {
+  "id": "S0060",
+  "event_id": "prospect",
+  "event_title": "小孩上来了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把自己知道的都教给了他。赛季末他拿了最佳新人，感谢名单里第一个是你。",
+  "occ": [
+   "prospect.text.0.0"
+  ]
+ },
+ {
+  "id": "S0061",
+  "event_id": "prospect",
+  "event_title": "小孩上来了",
+  "scope": "generic",
+  "field": "label",
+  "original": "压着他",
+  "occ": [
+   "prospect.label.1"
+  ]
+ },
+ {
+  "id": "S0062",
+  "event_id": "prospect",
+  "event_title": "小孩上来了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你用状态说话，把他按回了替补席。教练说老将还是靠得住。",
+  "occ": [
+   "prospect.text.1.0"
+  ]
+ },
+ {
+  "id": "S0063",
+  "event_id": "prospect",
+  "event_title": "小孩上来了",
+  "scope": "generic",
+  "field": "text",
+  "original": "队内传出你排挤新人的说法。教练两个都不用了，先用第三个。",
+  "occ": [
+   "prospect.text.1.1"
+  ]
+ },
+ {
+  "id": "S0064",
+  "event_id": "captain",
+  "event_title": "队长袖标",
+  "scope": "generic",
+  "field": "desc",
+  "original": "老队长走了，教练在几个人之间犹豫，问了你一句愿不愿意。",
+  "occ": [
+   "captain.desc"
+  ]
+ },
+ {
+  "id": "S0065",
+  "event_id": "captain",
+  "event_title": "队长袖标",
+  "scope": "generic",
+  "field": "title",
+  "original": "队长袖标",
+  "occ": [
+   "captain.title"
+  ]
+ },
+ {
+  "id": "S0066",
+  "event_id": "captain",
+  "event_title": "队长袖标",
+  "scope": "generic",
+  "field": "label",
+  "original": "接",
+  "occ": [
+   "captain.label.0",
+   "cn_fixed.label.0"
+  ]
+ },
+ {
+  "id": "S0067",
+  "event_id": "captain",
+  "event_title": "队长袖标",
+  "scope": "generic",
+  "field": "text",
+  "original": "袖标戴上了。你开始学着在输球以后第一个走向球迷看台。",
+  "occ": [
+   "captain.text.0.0"
+  ]
+ },
+ {
+  "id": "S0068",
+  "event_id": "captain",
+  "event_title": "队长袖标",
+  "scope": "generic",
+  "field": "text",
+  "original": "带队成绩不好，所有炮火都对着袖标来。你才知道这东西有多沉。",
+  "occ": [
+   "captain.text.0.1"
+  ]
+ },
+ {
+  "id": "S0069",
+  "event_id": "captain",
+  "event_title": "队长袖标",
+  "scope": "generic",
+  "field": "label",
+  "original": "让给别人",
+  "occ": [
+   "captain.label.1",
+   "gk_shootout_pen.label.1"
+  ]
+ },
+ {
+  "id": "S0070",
+  "event_id": "captain",
+  "event_title": "队长袖标",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说自己还是专心踢球比较好。教练点点头，没再提。",
+  "occ": [
+   "captain.text.1.0"
+  ]
+ },
+ {
+  "id": "S0071",
+  "event_id": "coach_change",
+  "event_title": "换帅",
+  "scope": "generic",
+  "field": "desc",
+  "original": "{club}中途换了主教练。新教练的第一堂课就把所有人的位置重新洗了一遍。",
+  "occ": [
+   "coach_change.desc"
+  ]
+ },
+ {
+  "id": "S0072",
+  "event_id": "coach_change",
+  "event_title": "换帅",
+  "scope": "generic",
+  "field": "title",
+  "original": "换帅",
+  "occ": [
+   "coach_change.title"
+  ]
+ },
+ {
+  "id": "S0073",
+  "event_id": "coach_change",
+  "event_title": "换帅",
+  "scope": "generic",
+  "field": "label",
+  "original": "适应他的体系",
+  "occ": [
+   "coach_change.label.0"
+  ]
+ },
+ {
+  "id": "S0074",
+  "event_id": "coach_change",
+  "event_title": "换帅",
+  "scope": "generic",
+  "field": "text",
+  "original": "新体系反而更适合你。新帅在发布会上点名表扬了你的跑动。",
+  "occ": [
+   "coach_change.text.0.0"
+  ]
+ },
+ {
+  "id": "S0075",
+  "event_id": "coach_change",
+  "event_title": "换帅",
+  "scope": "generic",
+  "field": "text",
+  "original": "你不在他的计划里。他甚至叫不全你的名字。",
+  "occ": [
+   "coach_change.text.0.1"
+  ]
+ },
+ {
+  "id": "S0076",
+  "event_id": "rival_offer",
+  "event_title": "死敌的报价",
+  "scope": "generic",
+  "field": "desc",
+  "original": "{rival}想签你。他们能给的钱和荣誉都更多，代价是你要穿上这座城市里最不该穿的那件球衣。",
+  "occ": [
+   "rival_offer.desc"
+  ]
+ },
+ {
+  "id": "S0077",
+  "event_id": "rival_offer",
+  "event_title": "死敌的报价",
+  "scope": "generic",
+  "field": "title",
+  "original": "死敌的报价",
+  "occ": [
+   "rival_offer.title"
+  ]
+ },
+ {
+  "id": "S0078",
+  "event_id": "rival_offer",
+  "event_title": "死敌的报价",
+  "scope": "generic",
+  "field": "label",
+  "original": "去",
+  "occ": [
+   "rival_offer.label.0",
+   "cn_zuxiao.label.0",
+   "cn_jixun.label.0",
+   "cn_zhoubao.label.0",
+   "street_ball.label.0",
+   "summer_camp.label.0",
+   "kid_abr_ageup.label.0",
+   "youth_loan_lower.label.0",
+   "loan_out.label.0"
+  ]
+ },
+ {
+  "id": "S0079",
+  "event_id": "rival_offer",
+  "event_title": "死敌的报价",
+  "scope": "generic",
+  "field": "text",
+  "original": "你走了。老东家的球迷在你家楼下拉了横幅，横幅上没有一个脏字，但每个字都很脏。",
+  "occ": [
+   "rival_offer.text.0.0"
+  ]
+ },
+ {
+  "id": "S0080",
+  "event_id": "rival_offer",
+  "event_title": "死敌的报价",
+  "scope": "generic",
+  "field": "label",
+  "original": "留下",
+  "occ": [
+   "rival_offer.label.1",
+   "kid_poach.label.1",
+   "kid_abr_callhome.label.0"
+  ]
+ },
+ {
+  "id": "S0081",
+  "event_id": "rival_offer",
+  "event_title": "死敌的报价",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在采访里说了句「我不会走」。这句话后来被印在了看台的横幅上。",
+  "occ": [
+   "rival_offer.text.1.0"
+  ]
+ },
+ {
+  "id": "S0082",
+  "event_id": "crisis",
+  "event_title": "球队掉队了",
+  "scope": "generic",
+  "field": "desc",
+  "original": "{club}半个赛季只赢了两场，保级区就在脚下。有别的队来问你的情况。",
+  "occ": [
+   "crisis.desc"
+  ]
+ },
+ {
+  "id": "S0083",
+  "event_id": "crisis",
+  "event_title": "球队掉队了",
+  "scope": "generic",
+  "field": "title",
+  "original": "球队掉队了",
+  "occ": [
+   "crisis.title"
+  ]
+ },
+ {
+  "id": "S0084",
+  "event_id": "crisis",
+  "event_title": "球队掉队了",
+  "scope": "generic",
+  "field": "label",
+  "original": "留下来打保级",
+  "occ": [
+   "crisis.label.0"
+  ]
+ },
+ {
+  "id": "S0085",
+  "event_id": "crisis",
+  "event_title": "球队掉队了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你留下来了，还在最后一轮进了保级的关键球。这个赛季你什么也没拿到，除了球迷的记性。",
+  "occ": [
+   "crisis.text.0.0"
+  ]
+ },
+ {
+  "id": "S0086",
+  "event_id": "crisis",
+  "event_title": "球队掉队了",
+  "scope": "generic",
+  "field": "label",
+  "original": "走",
+  "occ": [
+   "crisis.label.1",
+   "kid_poach.label.0"
+  ]
+ },
+ {
+  "id": "S0087",
+  "event_id": "crisis",
+  "event_title": "球队掉队了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在球队最难的时候提交了转会申请。这件事会被记很久。",
+  "occ": [
+   "crisis.text.1.0"
+  ]
+ },
+ {
+  "id": "S0088",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "desc",
+  "original": "{club}三连败，榜首已经看不见了。主帅下课的消息一天一个版本，更衣室分成了两派。",
+  "occ": [
+   "crisis_big.desc"
+  ]
+ },
+ {
+  "id": "S0089",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "title",
+  "original": "掉出争冠圈",
+  "occ": [
+   "crisis_big.title"
+  ]
+ },
+ {
+  "id": "S0090",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "label",
+  "original": "站出来扛",
+  "occ": [
+   "crisis_big.label.0"
+  ]
+ },
+ {
+  "id": "S0091",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在发布会上把话说死了：成绩是全队的事。那半个赛季你场场首发，球队最后没能追上，但没有人再提更衣室。",
+  "occ": [
+   "crisis_big.text.0.0"
+  ]
+ },
+ {
+  "id": "S0092",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "label",
+  "original": "别掺和",
+  "occ": [
+   "crisis_big.label.1"
+  ]
+ },
+ {
+  "id": "S0093",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "text",
+  "original": "你什么都没说。主帅走的那天你在训练场，隔着玻璃看他把东西搬上车。",
+  "occ": [
+   "crisis_big.text.1.0"
+  ]
+ },
+ {
+  "id": "S0094",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "label",
+  "original": "让经纪人放风",
+  "occ": [
+   "crisis_big.label.2"
+  ]
+ },
+ {
+  "id": "S0095",
+  "event_id": "crisis_big",
+  "event_title": "掉出争冠圈",
+  "scope": "generic",
+  "field": "text",
+  "original": "「这样的球队配不上他」——这句话见报的第二天，看台上就有人打出了你的名字，是骂的。",
+  "occ": [
+   "crisis_big.text.2.0"
+  ]
+ },
+ {
+  "id": "S0096",
+  "event_id": "renew",
+  "event_title": "续约谈判",
+  "scope": "generic",
+  "field": "desc",
+  "original": "合同还剩一年。俱乐部给的报价比你预期低了一截，经纪人说可以再耗一耗。",
+  "occ": [
+   "renew.desc"
+  ]
+ },
+ {
+  "id": "S0097",
+  "event_id": "renew",
+  "event_title": "续约谈判",
+  "scope": "generic",
+  "field": "title",
+  "original": "续约谈判",
+  "occ": [
+   "renew.title"
+  ]
+ },
+ {
+  "id": "S0098",
+  "event_id": "renew",
+  "event_title": "续约谈判",
+  "scope": "generic",
+  "field": "label",
+  "original": "签",
+  "occ": [
+   "renew.label.0",
+   "sponsor.label.0",
+   "cn_jinyuan.label.0",
+   "cn_yinyang.label.0",
+   "youth_first_contract.label.0",
+   "youth_agent.label.0",
+   "vet_last_contract.label.0"
+  ]
+ },
+ {
+  "id": "S0099",
+  "event_id": "renew",
+  "event_title": "续约谈判",
+  "scope": "generic",
+  "field": "text",
+  "original": "你签了。数字不好看，但你不用再想住哪儿、孩子上哪个学校。",
+  "occ": [
+   "renew.text.0.0"
+  ]
+ },
+ {
+  "id": "S0100",
+  "event_id": "renew",
+  "event_title": "续约谈判",
+  "scope": "generic",
+  "field": "label",
+  "original": "耗到自由身",
+  "occ": [
+   "renew.label.1"
+  ]
+ },
+ {
+  "id": "S0101",
+  "event_id": "renew",
+  "event_title": "续约谈判",
+  "scope": "generic",
+  "field": "text",
+  "original": "自由身让你拿到了一份翻倍的合同。经纪人这次赌对了。",
+  "occ": [
+   "renew.text.1.0"
+  ]
+ },
+ {
+  "id": "S0102",
+  "event_id": "renew",
+  "event_title": "续约谈判",
+  "scope": "generic",
+  "field": "text",
+  "original": "耗到最后没人接盘。俱乐部把你挂在替补席上，等你自己降价。",
+  "occ": [
+   "renew.text.1.1"
+  ]
+ },
+ {
+  "id": "S0103",
+  "event_id": "return_home",
+  "event_title": "家里来电话",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "父母年纪大了，一直问你什么时候回来踢。国内的报价也一直没断过。",
+  "occ": [
+   "return_home.desc"
+  ]
+ },
+ {
+  "id": "S0104",
+  "event_id": "return_home",
+  "event_title": "家里来电话",
+  "scope": "abroad",
+  "field": "title",
+  "original": "家里来电话",
+  "occ": [
+   "return_home.title"
+  ]
+ },
+ {
+  "id": "S0105",
+  "event_id": "return_home",
+  "event_title": "家里来电话",
+  "scope": "abroad",
+  "field": "label",
+  "original": "回国",
+  "occ": [
+   "return_home.label.0"
+  ]
+ },
+ {
+  "id": "S0106",
+  "event_id": "return_home",
+  "event_title": "家里来电话",
+  "scope": "abroad",
+  "field": "text",
+  "original": "回国的第一场比赛，全场都在喊你的名字。你已经很久没有这种感觉了。",
+  "occ": [
+   "return_home.text.0.0"
+  ]
+ },
+ {
+  "id": "S0107",
+  "event_id": "return_home",
+  "event_title": "家里来电话",
+  "scope": "abroad",
+  "field": "label",
+  "original": "再撑几年",
+  "occ": [
+   "return_home.label.1"
+  ]
+ },
+ {
+  "id": "S0108",
+  "event_id": "return_home",
+  "event_title": "家里来电话",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你留下了。那年春节你又没回去，视频通话里母亲把手机举得很近。",
+  "occ": [
+   "return_home.text.1.0"
+  ]
+ },
+ {
+  "id": "S0109",
+  "event_id": "penalty",
+  "event_title": "决定比赛的点球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "杯赛决赛，补时最后一分钟，主裁判指向点球点。你走过去把球摆好了。",
+  "occ": [
+   "penalty.desc"
+  ]
+ },
+ {
+  "id": "S0110",
+  "event_id": "penalty",
+  "event_title": "决定比赛的点球",
+  "scope": "generic",
+  "field": "title",
+  "original": "决定比赛的点球",
+  "occ": [
+   "penalty.title"
+  ]
+ },
+ {
+  "id": "S0111",
+  "event_id": "penalty",
+  "event_title": "决定比赛的点球",
+  "scope": "generic",
+  "field": "label",
+  "original": "打左下角",
+  "occ": [
+   "penalty.label.0"
+  ]
+ },
+ {
+  "id": "S0112",
+  "event_id": "penalty",
+  "event_title": "决定比赛的点球",
+  "scope": "generic",
+  "field": "label",
+  "original": "打右上角",
+  "occ": [
+   "penalty.label.1"
+  ]
+ },
+ {
+  "id": "S0113",
+  "event_id": "penalty",
+  "event_title": "决定比赛的点球",
+  "scope": "generic",
+  "field": "label",
+  "original": "勺子",
+  "occ": [
+   "penalty.label.2"
+  ]
+ },
+ {
+  "id": "S0114",
+  "event_id": "penalty",
+  "event_title": "决定比赛的点球",
+  "scope": "generic",
+  "field": "text",
+  "original": "球轻飘飘地落进网窝，门将还趴在地上。这个画面你会被人放一辈子。",
+  "occ": [
+   "penalty.text.2.0"
+  ]
+ },
+ {
+  "id": "S0115",
+  "event_id": "penalty",
+  "event_title": "决定比赛的点球",
+  "scope": "generic",
+  "field": "text",
+  "original": "门将没动。球稳稳地落在他手里。你连头都不敢抬。",
+  "occ": [
+   "penalty.text.2.1"
+  ]
+ },
+ {
+  "id": "S0116",
+  "event_id": "red_card",
+  "event_title": "争议红牌",
+  "scope": "generic",
+  "field": "desc",
+  "original": "你在中圈铲倒了对方核心，主裁掏出红牌。慢镜头看，那是个五五开的球。",
+  "occ": [
+   "red_card.desc"
+  ]
+ },
+ {
+  "id": "S0117",
+  "event_id": "red_card",
+  "event_title": "争议红牌",
+  "scope": "generic",
+  "field": "title",
+  "original": "争议红牌",
+  "occ": [
+   "red_card.title"
+  ]
+ },
+ {
+  "id": "S0118",
+  "event_id": "red_card",
+  "event_title": "争议红牌",
+  "scope": "generic",
+  "field": "label",
+  "original": "认了",
+  "occ": [
+   "red_card.label.0",
+   "cn_transfer_block.label.1",
+   "gk_line.label.1"
+  ]
+ },
+ {
+  "id": "S0119",
+  "event_id": "red_card",
+  "event_title": "争议红牌",
+  "scope": "generic",
+  "field": "text",
+  "original": "你没上诉。停赛那两场你都在看台上，散场了才走。",
+  "occ": [
+   "red_card.text.0.0"
+  ]
+ },
+ {
+  "id": "S0120",
+  "event_id": "red_card",
+  "event_title": "争议红牌",
+  "scope": "generic",
+  "field": "label",
+  "original": "赛后开炮",
+  "occ": [
+   "red_card.label.1"
+  ]
+ },
+ {
+  "id": "S0121",
+  "event_id": "red_card",
+  "event_title": "争议红牌",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在混合区说了句「这哨子该查查」。热搜第一挂了两天，追加停赛两场。",
+  "occ": [
+   "red_card.text.1.0"
+  ]
+ },
+ {
+  "id": "S0122",
+  "event_id": "statement",
+  "event_title": "话说重了",
+  "scope": "generic",
+  "field": "desc",
+  "original": "输球以后你在采访里说了句「有些人根本不想赢」。第二天全网都在猜你说的是谁。",
+  "occ": [
+   "statement.desc"
+  ]
+ },
+ {
+  "id": "S0123",
+  "event_id": "statement",
+  "event_title": "话说重了",
+  "scope": "generic",
+  "field": "title",
+  "original": "话说重了",
+  "occ": [
+   "statement.title"
+  ]
+ },
+ {
+  "id": "S0124",
+  "event_id": "statement",
+  "event_title": "话说重了",
+  "scope": "generic",
+  "field": "label",
+  "original": "道歉",
+  "occ": [
+   "statement.label.0"
+  ]
+ },
+ {
+  "id": "S0125",
+  "event_id": "statement",
+  "event_title": "话说重了",
+  "scope": "generic",
+  "field": "text",
+  "original": "俱乐部替你写了一份声明，你照着念完了。念的时候没有抬头。",
+  "occ": [
+   "statement.text.0.0"
+  ]
+ },
+ {
+  "id": "S0126",
+  "event_id": "statement",
+  "event_title": "话说重了",
+  "scope": "generic",
+  "field": "label",
+  "original": "不撤回",
+  "occ": [
+   "statement.label.1"
+  ]
+ },
+ {
+  "id": "S0127",
+  "event_id": "statement",
+  "event_title": "话说重了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你一个字都没收回。球迷觉得你敢说真话，更衣室觉得你不好相处。两边都对。",
+  "occ": [
+   "statement.text.1.0"
+  ]
+ },
+ {
+  "id": "S0128",
+  "event_id": "sponsor",
+  "event_title": "代言找上门",
+  "scope": "generic",
+  "field": "desc",
+  "original": "一个运动品牌想签你，合同金额比你半年工资还高，条件是要配合拍一支很尬的广告。",
+  "occ": [
+   "sponsor.desc"
+  ]
+ },
+ {
+  "id": "S0129",
+  "event_id": "sponsor",
+  "event_title": "代言找上门",
+  "scope": "generic",
+  "field": "title",
+  "original": "代言找上门",
+  "occ": [
+   "sponsor.title"
+  ]
+ },
+ {
+  "id": "S0130",
+  "event_id": "sponsor",
+  "event_title": "代言找上门",
+  "scope": "generic",
+  "field": "text",
+  "original": "广告播出后你在超市被认出来了三次。队友把那句台词学了一整个赛季。",
+  "occ": [
+   "sponsor.text.0.0"
+  ]
+ },
+ {
+  "id": "S0131",
+  "event_id": "sponsor",
+  "event_title": "代言找上门",
+  "scope": "generic",
+  "field": "label",
+  "original": "拒了",
+  "occ": [
+   "sponsor.label.1",
+   "cn_liveshow.label.1"
+  ]
+ },
+ {
+  "id": "S0132",
+  "event_id": "sponsor",
+  "event_title": "代言找上门",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说想把时间留给训练。品牌方找了另一个人，那支广告后来还挺火。",
+  "occ": [
+   "sponsor.text.1.0"
+  ]
+ },
+ {
+  "id": "S0133",
+  "event_id": "nightlife",
+  "event_title": "夜里被拍到了",
+  "scope": "generic",
+  "field": "desc",
+  "original": "赛季中你在酒吧的照片被人挂到了网上，配文写着「{club} 的人凌晨三点仍在」。",
+  "occ": [
+   "nightlife.desc"
+  ]
+ },
+ {
+  "id": "S0134",
+  "event_id": "nightlife",
+  "event_title": "夜里被拍到了",
+  "scope": "generic",
+  "field": "title",
+  "original": "夜里被拍到了",
+  "occ": [
+   "nightlife.title"
+  ]
+ },
+ {
+  "id": "S0135",
+  "event_id": "nightlife",
+  "event_title": "夜里被拍到了",
+  "scope": "generic",
+  "field": "label",
+  "original": "承认，接受罚款",
+  "occ": [
+   "nightlife.label.0"
+  ]
+ },
+ {
+  "id": "S0136",
+  "event_id": "nightlife",
+  "event_title": "夜里被拍到了",
+  "scope": "generic",
+  "field": "text",
+  "original": "俱乐部内部罚款通报贴在更衣室门口。你每天进出都要看一眼。",
+  "occ": [
+   "nightlife.text.0.0"
+  ]
+ },
+ {
+  "id": "S0137",
+  "event_id": "nightlife",
+  "event_title": "夜里被拍到了",
+  "scope": "generic",
+  "field": "label",
+  "original": "说是旧照",
+  "occ": [
+   "nightlife.label.1"
+  ]
+ },
+ {
+  "id": "S0138",
+  "event_id": "nightlife",
+  "event_title": "夜里被拍到了",
+  "scope": "generic",
+  "field": "text",
+  "original": "这事三天就过去了。网上永远有新的人可以骂。",
+  "occ": [
+   "nightlife.text.1.0"
+  ]
+ },
+ {
+  "id": "S0139",
+  "event_id": "nightlife",
+  "event_title": "夜里被拍到了",
+  "scope": "generic",
+  "field": "text",
+  "original": "有人放出了带日期的原图。你不但没洗白，还多了个「不诚实」的标签。",
+  "occ": [
+   "nightlife.text.1.1"
+  ]
+ },
+ {
+  "id": "S0140",
+  "event_id": "nt_conflict",
+  "event_title": "俱乐部不放人",
+  "scope": "generic",
+  "field": "desc",
+  "original": "国家队要集训，俱乐部拿伤病报告拦着不放人。两边都给你打了电话。",
+  "occ": [
+   "nt_conflict.desc"
+  ]
+ },
+ {
+  "id": "S0141",
+  "event_id": "nt_conflict",
+  "event_title": "俱乐部不放人",
+  "scope": "generic",
+  "field": "title",
+  "original": "俱乐部不放人",
+  "occ": [
+   "nt_conflict.title"
+  ]
+ },
+ {
+  "id": "S0142",
+  "event_id": "nt_conflict",
+  "event_title": "俱乐部不放人",
+  "scope": "generic",
+  "field": "label",
+  "original": "去国家队",
+  "occ": [
+   "nt_conflict.label.0"
+  ]
+ },
+ {
+  "id": "S0143",
+  "event_id": "nt_conflict",
+  "event_title": "俱乐部不放人",
+  "scope": "generic",
+  "field": "text",
+  "original": "你自己买机票飞了过去。俱乐部把你从下一场的大名单里划掉了。",
+  "occ": [
+   "nt_conflict.text.0.0"
+  ]
+ },
+ {
+  "id": "S0144",
+  "event_id": "nt_conflict",
+  "event_title": "俱乐部不放人",
+  "scope": "generic",
+  "field": "label",
+  "original": "留在俱乐部",
+  "occ": [
+   "nt_conflict.label.1",
+   "cn_quanyun.label.1"
+  ]
+ },
+ {
+  "id": "S0145",
+  "event_id": "nt_conflict",
+  "event_title": "俱乐部不放人",
+  "scope": "generic",
+  "field": "text",
+  "original": "你留下了。名单公布那天，有人在评论区说你「心里没有国家」。",
+  "occ": [
+   "nt_conflict.text.1.0"
+  ]
+ }
+]

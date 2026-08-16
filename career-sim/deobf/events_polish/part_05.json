@@ -1,0 +1,1587 @@
+[
+ {
+  "id": "S0590",
+  "event_id": "gk_line",
+  "event_title": "门线上的那半个球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "关键战最后时刻你把球从门线上捞了出来，边裁举旗说进了。中国联赛没有门线技术。",
+  "occ": [
+   "gk_line.desc"
+  ]
+ },
+ {
+  "id": "S0591",
+  "event_id": "gk_line",
+  "event_title": "门线上的那半个球",
+  "scope": "generic",
+  "field": "title",
+  "original": "门线上的那半个球",
+  "occ": [
+   "gk_line.title"
+  ]
+ },
+ {
+  "id": "S0592",
+  "event_id": "gk_line",
+  "event_title": "门线上的那半个球",
+  "scope": "generic",
+  "field": "label",
+  "original": "冲上去理论",
+  "occ": [
+   "gk_line.label.0"
+  ]
+ },
+ {
+  "id": "S0593",
+  "event_id": "gk_line",
+  "event_title": "门线上的那半个球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你追着边裁跑了三十米。红牌，停两场。球迷把你那张咆哮的照片做成了头像。",
+  "occ": [
+   "gk_line.text.0.0"
+  ]
+ },
+ {
+  "id": "S0594",
+  "event_id": "gk_line",
+  "event_title": "门线上的那半个球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你什么都没说。那个球后来在慢镜头里被证明没进，没有人为此道歉。",
+  "occ": [
+   "gk_line.text.1.0"
+  ]
+ },
+ {
+  "id": "S0595",
+  "event_id": "gk_coach_gone",
+  "event_title": "门将教练走了",
+  "scope": "generic",
+  "field": "desc",
+  "original": "带了你六年的门将教练跟着主帅一起下课。新来的那个只练体能。",
+  "occ": [
+   "gk_coach_gone.desc"
+  ]
+ },
+ {
+  "id": "S0596",
+  "event_id": "gk_coach_gone",
+  "event_title": "门将教练走了",
+  "scope": "generic",
+  "field": "title",
+  "original": "门将教练走了",
+  "occ": [
+   "gk_coach_gone.title"
+  ]
+ },
+ {
+  "id": "S0597",
+  "event_id": "gk_coach_gone",
+  "event_title": "门将教练走了",
+  "scope": "generic",
+  "field": "label",
+  "original": "自费请他继续带",
+  "occ": [
+   "gk_coach_gone.label.0"
+  ]
+ },
+ {
+  "id": "S0598",
+  "event_id": "gk_coach_gone",
+  "event_title": "门将教练走了",
+  "scope": "generic",
+  "field": "text",
+  "original": "每周两次，在城郊一块租来的场地。他不收全款，说算他一半。",
+  "occ": [
+   "gk_coach_gone.text.0.0"
+  ]
+ },
+ {
+  "id": "S0599",
+  "event_id": "gk_coach_gone",
+  "event_title": "门将教练走了",
+  "scope": "generic",
+  "field": "label",
+  "original": "跟着新教练",
+  "occ": [
+   "gk_coach_gone.label.1"
+  ]
+ },
+ {
+  "id": "S0600",
+  "event_id": "gk_coach_gone",
+  "event_title": "门将教练走了",
+  "scope": "generic",
+  "field": "text",
+  "original": "新方法你居然也适应了。身体确实比以前壮。",
+  "occ": [
+   "gk_coach_gone.text.1.0"
+  ]
+ },
+ {
+  "id": "S0601",
+  "event_id": "gk_coach_gone",
+  "event_title": "门将教练走了",
+  "scope": "generic",
+  "field": "text",
+  "original": "一整年没人给你喂过高球。半年后你连扑球的落点都判断不准了。",
+  "occ": [
+   "gk_coach_gone.text.1.1"
+  ]
+ },
+ {
+  "id": "S0602",
+  "event_id": "gk_shootout_pen",
+  "event_title": "门将罚点球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "点球大战踢到第十一轮，轮到门将了。全场都在等你走上去。",
+  "occ": [
+   "gk_shootout_pen.desc"
+  ]
+ },
+ {
+  "id": "S0603",
+  "event_id": "gk_shootout_pen",
+  "event_title": "门将罚点球",
+  "scope": "generic",
+  "field": "title",
+  "original": "门将罚点球",
+  "occ": [
+   "gk_shootout_pen.title"
+  ]
+ },
+ {
+  "id": "S0604",
+  "event_id": "gk_shootout_pen",
+  "event_title": "门将罚点球",
+  "scope": "generic",
+  "field": "label",
+  "original": "自己罚",
+  "occ": [
+   "gk_shootout_pen.label.0"
+  ]
+ },
+ {
+  "id": "S0605",
+  "event_id": "gk_shootout_pen",
+  "event_title": "门将罚点球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你打了个正中，对方门将扑向了角落。这画面上了当年所有的年度盘点。",
+  "occ": [
+   "gk_shootout_pen.text.0.0"
+  ]
+ },
+ {
+  "id": "S0606",
+  "event_id": "gk_shootout_pen",
+  "event_title": "门将罚点球",
+  "scope": "generic",
+  "field": "text",
+  "original": "球被扑住了。你走回去的那三十米，转播镜头一秒没离开。",
+  "occ": [
+   "gk_shootout_pen.text.0.1"
+  ]
+ },
+ {
+  "id": "S0607",
+  "event_id": "gk_shootout_pen",
+  "event_title": "门将罚点球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你摆摆手，让门将教练去跟主帅说。第十一个人是队里的后腰。",
+  "occ": [
+   "gk_shootout_pen.text.1.0"
+  ]
+ },
+ {
+  "id": "S0608",
+  "event_id": "gk_old_keeper",
+  "event_title": "三十六岁的门将",
+  "scope": "generic",
+  "field": "desc",
+  "original": "门将比别的位置能踢得久，这话你听了十年。今年你第一次觉得球飞得比以前快。",
+  "occ": [
+   "gk_old_keeper.desc"
+  ]
+ },
+ {
+  "id": "S0609",
+  "event_id": "gk_old_keeper",
+  "event_title": "三十六岁的门将",
+  "scope": "generic",
+  "field": "title",
+  "original": "三十六岁的门将",
+  "occ": [
+   "gk_old_keeper.title"
+  ]
+ },
+ {
+  "id": "S0610",
+  "event_id": "gk_old_keeper",
+  "event_title": "三十六岁的门将",
+  "scope": "generic",
+  "field": "label",
+  "original": "再练两年",
+  "occ": [
+   "gk_old_keeper.label.0"
+  ]
+ },
+ {
+  "id": "S0611",
+  "event_id": "gk_old_keeper",
+  "event_title": "三十六岁的门将",
+  "scope": "generic",
+  "field": "text",
+  "original": "反应速度练不回来了，但你把站位算得更准。有些球你根本不需要扑。",
+  "occ": [
+   "gk_old_keeper.text.0.0"
+  ]
+ },
+ {
+  "id": "S0612",
+  "event_id": "gk_old_keeper",
+  "event_title": "三十六岁的门将",
+  "scope": "generic",
+  "field": "label",
+  "original": "带年轻的那个",
+  "occ": [
+   "gk_old_keeper.label.1"
+  ]
+ },
+ {
+  "id": "S0613",
+  "event_id": "gk_old_keeper",
+  "event_title": "三十六岁的门将",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把二十年攒下的东西全给了他。他首发那天，你在替补席上比谁都紧张。",
+  "occ": [
+   "gk_old_keeper.text.1.0"
+  ]
+ },
+ {
+  "id": "S0614",
+  "event_id": "gk_corner_up",
+  "event_title": "最后一分钟的角球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "补时第三分钟，落后一个球，最后一个角球。队友把球摆好之前回头朝你这边招了招手，全场三万人跟着一起喊。",
+  "occ": [
+   "gk_corner_up.desc"
+  ]
+ },
+ {
+  "id": "S0615",
+  "event_id": "gk_corner_up",
+  "event_title": "最后一分钟的角球",
+  "scope": "generic",
+  "field": "title",
+  "original": "最后一分钟的角球",
+  "occ": [
+   "gk_corner_up.title"
+  ]
+ },
+ {
+  "id": "S0616",
+  "event_id": "gk_corner_up",
+  "event_title": "最后一分钟的角球",
+  "scope": "generic",
+  "field": "label",
+  "original": "冲上去",
+  "occ": [
+   "gk_corner_up.label.0"
+  ]
+ },
+ {
+  "id": "S0617",
+  "event_id": "gk_corner_up",
+  "event_title": "最后一分钟的角球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你顶进去了。你是那种一辈子进一个球的人，而这个球在此后每一年的这一天都会被人重新发一遍。",
+  "occ": [
+   "gk_corner_up.text.0.0"
+  ]
+ },
+ {
+  "id": "S0618",
+  "event_id": "gk_corner_up",
+  "event_title": "最后一分钟的角球",
+  "scope": "generic",
+  "field": "text",
+  "original": "球被第一点解围，对方一脚长传打向你身后那个空门。你转身跑了四十米，跑到一半就停了。",
+  "occ": [
+   "gk_corner_up.text.0.1"
+  ]
+ },
+ {
+  "id": "S0619",
+  "event_id": "gk_corner_up",
+  "event_title": "最后一分钟的角球",
+  "scope": "generic",
+  "field": "label",
+  "original": "留在自己半场",
+  "occ": [
+   "gk_corner_up.label.1"
+  ]
+ },
+ {
+  "id": "S0620",
+  "event_id": "gk_corner_up",
+  "event_title": "最后一分钟的角球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你站在中线上看完了那个角球。终场哨响，全队都在禁区里，只有你一个人在那边，也只有你一个人不用解释什么。",
+  "occ": [
+   "gk_corner_up.text.1.0"
+  ]
+ },
+ {
+  "id": "S0621",
+  "event_id": "gk_last_man",
+  "event_title": "最后一个人",
+  "scope": "generic",
+  "field": "desc",
+  "original": "直塞打穿了整条防线，你已经冲出了禁区，球比你想的快半步。你还有零点几秒决定用身上的哪个部位。",
+  "occ": [
+   "gk_last_man.desc"
+  ]
+ },
+ {
+  "id": "S0622",
+  "event_id": "gk_last_man",
+  "event_title": "最后一个人",
+  "scope": "generic",
+  "field": "title",
+  "original": "最后一个人",
+  "occ": [
+   "gk_last_man.title"
+  ]
+ },
+ {
+  "id": "S0623",
+  "event_id": "gk_last_man",
+  "event_title": "最后一个人",
+  "scope": "generic",
+  "field": "label",
+  "original": "用手把球摁下来",
+  "occ": [
+   "gk_last_man.label.0"
+  ]
+ },
+ {
+  "id": "S0624",
+  "event_id": "gk_last_man",
+  "event_title": "最后一个人",
+  "scope": "generic",
+  "field": "text",
+  "original": "红牌。换人名额已经用完，队里那个后腰戴上了你的手套，站了最后二十分钟。那场 0-0，你在通道口听完了全场。",
+  "occ": [
+   "gk_last_man.text.0.0"
+  ]
+ },
+ {
+  "id": "S0625",
+  "event_id": "gk_last_man",
+  "event_title": "最后一个人",
+  "scope": "generic",
+  "field": "label",
+  "original": "收手，赌他打不进",
+  "occ": [
+   "gk_last_man.label.1"
+  ]
+ },
+ {
+  "id": "S0626",
+  "event_id": "gk_last_man",
+  "event_title": "最后一个人",
+  "scope": "generic",
+  "field": "text",
+  "original": "他挑了，球擦着横梁飞出底线。你躺在地上笑出了声，队友一个个过来揉你的头。",
+  "occ": [
+   "gk_last_man.text.1.0"
+  ]
+ },
+ {
+  "id": "S0627",
+  "event_id": "gk_last_man",
+  "event_title": "最后一个人",
+  "scope": "generic",
+  "field": "text",
+  "original": "他从你收回去的那只手边上推进了空门。回放里所有人都在问同一句：为什么不犯规。",
+  "occ": [
+   "gk_last_man.text.1.1"
+  ]
+ },
+ {
+  "id": "S0628",
+  "event_id": "gk_clean_run",
+  "event_title": "不失球的分钟数",
+  "scope": "generic",
+  "field": "desc",
+  "original": "你已经七百多分钟没丢球了，队史纪录是九百零三。下一轮对手是倒数第一，教练问你要不要趁这场歇一歇。",
+  "occ": [
+   "gk_clean_run.desc"
+  ]
+ },
+ {
+  "id": "S0629",
+  "event_id": "gk_clean_run",
+  "event_title": "不失球的分钟数",
+  "scope": "generic",
+  "field": "title",
+  "original": "不失球的分钟数",
+  "occ": [
+   "gk_clean_run.title"
+  ]
+ },
+ {
+  "id": "S0630",
+  "event_id": "gk_clean_run",
+  "event_title": "不失球的分钟数",
+  "scope": "generic",
+  "field": "label",
+  "original": "追这个纪录",
+  "occ": [
+   "gk_clean_run.label.0"
+  ]
+ },
+ {
+  "id": "S0631",
+  "event_id": "gk_clean_run",
+  "event_title": "不失球的分钟数",
+  "scope": "generic",
+  "field": "text",
+  "original": "第九百零四分钟，你把一记软绵绵的传中抱进怀里，整个看台站了起来。那个数字后来跟你的名字一起刷在了球场内墙上。",
+  "occ": [
+   "gk_clean_run.text.0.0"
+  ]
+ },
+ {
+  "id": "S0632",
+  "event_id": "gk_clean_run",
+  "event_title": "不失球的分钟数",
+  "scope": "generic",
+  "field": "text",
+  "original": "第八百一十分钟，一次折射。你趴在地上没有起来。广播念了比分，没有念那个数字。",
+  "occ": [
+   "gk_clean_run.text.0.1"
+  ]
+ },
+ {
+  "id": "S0633",
+  "event_id": "gk_clean_run",
+  "event_title": "不失球的分钟数",
+  "scope": "generic",
+  "field": "label",
+  "original": "听教练的",
+  "occ": [
+   "gk_clean_run.label.1"
+  ]
+ },
+ {
+  "id": "S0634",
+  "event_id": "gk_clean_run",
+  "event_title": "不失球的分钟数",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在替补席上看完了那场，二号门将也零封了。纪录停在七百多分钟，之后没有人再提，包括你自己。",
+  "occ": [
+   "gk_clean_run.text.1.0"
+  ]
+ },
+ {
+  "id": "S0635",
+  "event_id": "gk_captain",
+  "event_title": "戴袖标的门将",
+  "scope": "generic",
+  "field": "desc",
+  "original": "老队长转会走了，教练把袖标递到你面前。更衣室里有人小声说了一句，门将离得太远，喊不到人。",
+  "occ": [
+   "gk_captain.desc"
+  ]
+ },
+ {
+  "id": "S0636",
+  "event_id": "gk_captain",
+  "event_title": "戴袖标的门将",
+  "scope": "generic",
+  "field": "title",
+  "original": "戴袖标的门将",
+  "occ": [
+   "gk_captain.title"
+  ]
+ },
+ {
+  "id": "S0637",
+  "event_id": "gk_captain",
+  "event_title": "戴袖标的门将",
+  "scope": "generic",
+  "field": "label",
+  "original": "戴上",
+  "occ": [
+   "gk_captain.label.0",
+   "nat_captain.label.0"
+  ]
+ },
+ {
+  "id": "S0638",
+  "event_id": "gk_captain",
+  "event_title": "戴袖标的门将",
+  "scope": "generic",
+  "field": "text",
+  "original": "你成了俱乐部历史上第二个戴袖标的门将。那个赛季每一场输球的发布会都是你去开的，能力一分没涨，但更衣室从此是你的。",
+  "occ": [
+   "gk_captain.text.0.0"
+  ]
+ },
+ {
+  "id": "S0639",
+  "event_id": "gk_captain",
+  "event_title": "戴袖标的门将",
+  "scope": "generic",
+  "field": "label",
+  "original": "让给后腰",
+  "occ": [
+   "gk_captain.label.1"
+  ]
+ },
+ {
+  "id": "S0640",
+  "event_id": "gk_captain",
+  "event_title": "戴袖标的门将",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说自己在门里喊比在场上说管用。那一年你少开了二十场发布会，多练了二十堂课。",
+  "occ": [
+   "gk_captain.text.1.0"
+  ]
+ },
+ {
+  "id": "S0641",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "desc",
+  "original": "你把那个点球扑出去了，全场在喊你的名字。VAR 看了两分钟：你出线早了半只脚，重罚。",
+  "occ": [
+   "gk_var_retake.desc"
+  ]
+ },
+ {
+  "id": "S0642",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "title",
+  "original": "VAR 说重罚",
+  "occ": [
+   "gk_var_retake.title"
+  ]
+ },
+ {
+  "id": "S0643",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "label",
+  "original": "还扑同一边",
+  "occ": [
+   "gk_var_retake.label.0"
+  ]
+ },
+ {
+  "id": "S0644",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "text",
+  "original": "同一个方向，同一个人，你又把它扑了出来。这一次没有 VAR 可以看了。解说喊到破了音。",
+  "occ": [
+   "gk_var_retake.text.0.0"
+  ]
+ },
+ {
+  "id": "S0645",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "text",
+  "original": "他改了边，球从你身后滚进去。你跪在草皮上很久，起来的时候手套上全是白线的灰。",
+  "occ": [
+   "gk_var_retake.text.0.1"
+  ]
+ },
+ {
+  "id": "S0646",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "label",
+  "original": "先跟主裁磨两分钟",
+  "occ": [
+   "gk_var_retake.label.1"
+  ]
+ },
+ {
+  "id": "S0647",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "text",
+  "original": "你拉着主裁说了两分钟，又去把点球点的草皮踩了一遍。他罚飞了。有人说你无耻，你说这是我的工作。",
+  "occ": [
+   "gk_var_retake.text.1.0"
+  ]
+ },
+ {
+  "id": "S0648",
+  "event_id": "gk_var_retake",
+  "event_title": "VAR 说重罚",
+  "scope": "generic",
+  "field": "text",
+  "original": "黄牌。他等你归位以后不慌不忙地打进死角。第二天专栏的标题是「小动作没能救他」。",
+  "occ": [
+   "gk_var_retake.text.1.1"
+  ]
+ },
+ {
+  "id": "S0649",
+  "event_id": "gk_charge",
+  "event_title": "他撞的是人不是球",
+  "scope": "china",
+  "field": "desc",
+  "original": "角球，对方那个高中锋助跑起来直接撞进你怀里。你倒在门线上，主裁指了指中圈——进球有效。",
+  "occ": [
+   "gk_charge.desc"
+  ]
+ },
+ {
+  "id": "S0650",
+  "event_id": "gk_charge",
+  "event_title": "他撞的是人不是球",
+  "scope": "china",
+  "field": "title",
+  "original": "他撞的是人不是球",
+  "occ": [
+   "gk_charge.title"
+  ]
+ },
+ {
+  "id": "S0651",
+  "event_id": "gk_charge",
+  "event_title": "他撞的是人不是球",
+  "scope": "china",
+  "field": "label",
+  "original": "爬起来接着踢",
+  "occ": [
+   "gk_charge.label.0"
+  ]
+ },
+ {
+  "id": "S0652",
+  "event_id": "gk_charge",
+  "event_title": "他撞的是人不是球",
+  "scope": "china",
+  "field": "text",
+  "original": "你什么也没说。那个赛季这样的球你被撞了九次，判给你的有一次。从那以后你的落点判断比谁都早半步——你得先算好人往哪儿来。",
+  "occ": [
+   "gk_charge.text.0.0"
+  ]
+ },
+ {
+  "id": "S0653",
+  "event_id": "gk_charge",
+  "event_title": "他撞的是人不是球",
+  "scope": "china",
+  "field": "label",
+  "original": "追着主裁问到底",
+  "occ": [
+   "gk_charge.label.1"
+  ]
+ },
+ {
+  "id": "S0654",
+  "event_id": "gk_charge",
+  "event_title": "他撞的是人不是球",
+  "scope": "china",
+  "field": "text",
+  "original": "黄牌，你没停下。红牌。赛后你把倒地那张照片发了出去，一个字没配，转发过了十万。",
+  "occ": [
+   "gk_charge.text.1.0"
+  ]
+ },
+ {
+  "id": "S0655",
+  "event_id": "gk_nt_number1",
+  "event_title": "国门",
+  "scope": "generic",
+  "field": "desc",
+  "original": "国家队的三个门将里，你不是最年轻的那个，也不是身价最高的那个。世预赛前一周，主教练把你们三个叫到一起，说这个位置我只信一个人。",
+  "occ": [
+   "gk_nt_number1.desc"
+  ]
+ },
+ {
+  "id": "S0656",
+  "event_id": "gk_nt_number1",
+  "event_title": "国门",
+  "scope": "generic",
+  "field": "title",
+  "original": "国门",
+  "occ": [
+   "gk_nt_number1.title"
+  ]
+ },
+ {
+  "id": "S0657",
+  "event_id": "gk_nt_number1",
+  "event_title": "国门",
+  "scope": "generic",
+  "field": "label",
+  "original": "去找他谈",
+  "occ": [
+   "gk_nt_number1.label.0"
+  ]
+ },
+ {
+  "id": "S0658",
+  "event_id": "gk_nt_number1",
+  "event_title": "国门",
+  "scope": "generic",
+  "field": "text",
+  "original": "三场你都首发。第三场那次扑救被剪进了片头，用了整整一个周期。",
+  "occ": [
+   "gk_nt_number1.text.0.0"
+  ]
+ },
+ {
+  "id": "S0659",
+  "event_id": "gk_nt_number1",
+  "event_title": "国门",
+  "scope": "generic",
+  "field": "text",
+  "original": "名单上你排第二。三场你坐满了九十分钟，赛后跟着大家一起去谢场，手套一次都没戴上。",
+  "occ": [
+   "gk_nt_number1.text.0.1"
+  ]
+ },
+ {
+  "id": "S0660",
+  "event_id": "gk_nt_number1",
+  "event_title": "国门",
+  "scope": "generic",
+  "field": "label",
+  "original": "把话咽回去",
+  "occ": [
+   "gk_nt_number1.label.1"
+  ]
+ },
+ {
+  "id": "S0661",
+  "event_id": "gk_nt_number1",
+  "event_title": "国门",
+  "scope": "generic",
+  "field": "text",
+  "original": "你每天比另外两个早到一小时。轮换那场你上了，然后一直没再下来——只是等到那时候，已经过去了两年。",
+  "occ": [
+   "gk_nt_number1.text.1.0"
+  ]
+ },
+ {
+  "id": "S0662",
+  "event_id": "gk_fingers",
+  "event_title": "手指",
+  "scope": "generic",
+  "field": "desc",
+  "original": "训练里一个球打在指尖上，你听见了一声响。片子出来是两根手指的韧带，医生给了两条路。",
+  "occ": [
+   "gk_fingers.desc"
+  ]
+ },
+ {
+  "id": "S0663",
+  "event_id": "gk_fingers",
+  "event_title": "手指",
+  "scope": "generic",
+  "field": "title",
+  "original": "手指",
+  "occ": [
+   "gk_fingers.title"
+  ]
+ },
+ {
+  "id": "S0664",
+  "event_id": "gk_fingers",
+  "event_title": "手指",
+  "scope": "generic",
+  "field": "label",
+  "original": "做手术，歇三个月",
+  "occ": [
+   "gk_fingers.label.0"
+  ]
+ },
+ {
+  "id": "S0665",
+  "event_id": "gk_fingers",
+  "event_title": "手指",
+  "scope": "generic",
+  "field": "text",
+  "original": "三个月你只能用左手吃饭。回来第一堂课的第一个动作，你空手接了一个高球，接住了。",
+  "occ": [
+   "gk_fingers.text.0.0"
+  ]
+ },
+ {
+  "id": "S0666",
+  "event_id": "gk_fingers",
+  "event_title": "手指",
+  "scope": "generic",
+  "field": "label",
+  "original": "用胶布绑起来接着踢",
+  "occ": [
+   "gk_fingers.label.1"
+  ]
+ },
+ {
+  "id": "S0667",
+  "event_id": "gk_fingers",
+  "event_title": "手指",
+  "scope": "generic",
+  "field": "text",
+  "original": "整个赛季你都把那两根手指绑在一起。队医每场赛前缠一次，缠到后来他不用问你哪两根。",
+  "occ": [
+   "gk_fingers.text.1.0"
+  ]
+ },
+ {
+  "id": "S0668",
+  "event_id": "gk_fingers",
+  "event_title": "手指",
+  "scope": "generic",
+  "field": "text",
+  "original": "那两根手指后来再没完全伸直过。阴天下雨的时候你自己知道，别人看不出来。",
+  "occ": [
+   "gk_fingers.text.1.1"
+  ]
+ },
+ {
+  "id": "S0669",
+  "event_id": "def_offside",
+  "event_title": "造越位",
+  "scope": "generic",
+  "field": "desc",
+  "original": "教练要打高位防线，整条线的默契得靠一遍遍练，练错一次就是单刀。",
+  "occ": [
+   "def_offside.desc"
+  ]
+ },
+ {
+  "id": "S0670",
+  "event_id": "def_offside",
+  "event_title": "造越位",
+  "scope": "generic",
+  "field": "title",
+  "original": "造越位",
+  "occ": [
+   "def_offside.title"
+  ]
+ },
+ {
+  "id": "S0671",
+  "event_id": "def_offside",
+  "event_title": "造越位",
+  "scope": "generic",
+  "field": "label",
+  "original": "带头练",
+  "occ": [
+   "def_offside.label.0"
+  ]
+ },
+ {
+  "id": "S0672",
+  "event_id": "def_offside",
+  "event_title": "造越位",
+  "scope": "generic",
+  "field": "text",
+  "original": "一个赛季造越位四十多次。对方前锋赛后说跟你们踢球像在猜谜。",
+  "occ": [
+   "def_offside.text.0.0"
+  ]
+ },
+ {
+  "id": "S0673",
+  "event_id": "def_offside",
+  "event_title": "造越位",
+  "scope": "generic",
+  "field": "text",
+  "original": "有一场你慢了半步，全队被单刀了三次。赛后视频会上，暂停键停在你身上。",
+  "occ": [
+   "def_offside.text.0.1"
+  ]
+ },
+ {
+  "id": "S0674",
+  "event_id": "def_offside",
+  "event_title": "造越位",
+  "scope": "generic",
+  "field": "label",
+  "original": "各防各的",
+  "occ": [
+   "def_offside.label.1"
+  ]
+ },
+ {
+  "id": "S0675",
+  "event_id": "def_offside",
+  "event_title": "造越位",
+  "scope": "generic",
+  "field": "text",
+  "original": "你按老办法回追。防线没被打穿，也没人说这条线好。",
+  "occ": [
+   "def_offside.text.1.0"
+  ]
+ },
+ {
+  "id": "S0676",
+  "event_id": "def_aerial",
+  "event_title": "头球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "对手下半场全打高球，专冲你这边。加练头球争顶要拿脖子和脑袋换。",
+  "occ": [
+   "def_aerial.desc"
+  ]
+ },
+ {
+  "id": "S0677",
+  "event_id": "def_aerial",
+  "event_title": "头球",
+  "scope": "generic",
+  "field": "title",
+  "original": "头球",
+  "occ": [
+   "def_aerial.title"
+  ]
+ },
+ {
+  "id": "S0678",
+  "event_id": "def_aerial",
+  "event_title": "头球",
+  "scope": "generic",
+  "field": "text",
+  "original": "定位球防守你包办了大半个禁区。角球进攻时你也开始往前插了。",
+  "occ": [
+   "def_aerial.text.0.0"
+  ]
+ },
+ {
+  "id": "S0679",
+  "event_id": "def_aerial",
+  "event_title": "头球",
+  "scope": "generic",
+  "field": "text",
+  "original": "一次争顶后你在场上站了十秒才想起来自己在哪。队医不让你再上。",
+  "occ": [
+   "def_aerial.text.0.1"
+  ]
+ },
+ {
+  "id": "S0680",
+  "event_id": "def_aerial",
+  "event_title": "头球",
+  "scope": "generic",
+  "field": "label",
+  "original": "让门将出来摘",
+  "occ": [
+   "def_aerial.label.1"
+  ]
+ },
+ {
+  "id": "S0681",
+  "event_id": "def_aerial",
+  "event_title": "头球",
+  "scope": "generic",
+  "field": "text",
+  "original": "门将替你摘了一年高球。他后来在采访里说，中卫要是能顶，他能少跑一半。",
+  "occ": [
+   "def_aerial.text.1.0"
+  ]
+ },
+ {
+  "id": "S0682",
+  "event_id": "def_build",
+  "event_title": "后场出球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "新体系要求中卫从禁区里带球出来。对方前锋就在你三米外等着。",
+  "occ": [
+   "def_build.desc"
+  ]
+ },
+ {
+  "id": "S0683",
+  "event_id": "def_build",
+  "event_title": "后场出球",
+  "scope": "generic",
+  "field": "title",
+  "original": "后场出球",
+  "occ": [
+   "def_build.title"
+  ]
+ },
+ {
+  "id": "S0684",
+  "event_id": "def_build",
+  "event_title": "后场出球",
+  "scope": "generic",
+  "field": "label",
+  "original": "按体系来",
+  "occ": [
+   "def_build.label.0"
+  ]
+ },
+ {
+  "id": "S0685",
+  "event_id": "def_build",
+  "event_title": "后场出球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你成了球队第一出球点。有解说说你踢得像个后腰。",
+  "occ": [
+   "def_build.text.0.0"
+  ]
+ },
+ {
+  "id": "S0686",
+  "event_id": "def_build",
+  "event_title": "后场出球",
+  "scope": "generic",
+  "field": "text",
+  "original": "禁区里被断了两次。那两个球都直接变成了失球。",
+  "occ": [
+   "def_build.text.0.1"
+  ]
+ },
+ {
+  "id": "S0687",
+  "event_id": "def_build",
+  "event_title": "后场出球",
+  "scope": "generic",
+  "field": "label",
+  "original": "大脚解围",
+  "occ": [
+   "def_build.label.1"
+  ]
+ },
+ {
+  "id": "S0688",
+  "event_id": "def_build",
+  "event_title": "后场出球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把球全往看台上招呼。安全，但战术板上的箭头到你这儿就断了。",
+  "occ": [
+   "def_build.text.1.0"
+  ]
+ },
+ {
+  "id": "S0689",
+  "event_id": "def_tactical_foul",
+  "event_title": "战术犯规",
+  "scope": "generic",
+  "field": "desc",
+  "original": "对方反击起势，你身前是一片空地。教练在场边做了个「拉住他」的手势。",
+  "occ": [
+   "def_tactical_foul.desc"
+  ]
+ },
+ {
+  "id": "S0690",
+  "event_id": "def_tactical_foul",
+  "event_title": "战术犯规",
+  "scope": "generic",
+  "field": "title",
+  "original": "战术犯规",
+  "occ": [
+   "def_tactical_foul.title"
+  ]
+ },
+ {
+  "id": "S0691",
+  "event_id": "def_tactical_foul",
+  "event_title": "战术犯规",
+  "scope": "generic",
+  "field": "label",
+  "original": "拉住",
+  "occ": [
+   "def_tactical_foul.label.0"
+  ]
+ },
+ {
+  "id": "S0692",
+  "event_id": "def_tactical_foul",
+  "event_title": "战术犯规",
+  "scope": "generic",
+  "field": "text",
+  "original": "你伸手一拽，黄牌。累积停两场，但那次反击死在了中圈。教练拍了拍你的后脑勺。",
+  "occ": [
+   "def_tactical_foul.text.0.0"
+  ]
+ },
+ {
+  "id": "S0693",
+  "event_id": "def_tactical_foul",
+  "event_title": "战术犯规",
+  "scope": "generic",
+  "field": "label",
+  "original": "回追",
+  "occ": [
+   "def_tactical_foul.label.1"
+  ]
+ },
+ {
+  "id": "S0694",
+  "event_id": "def_tactical_foul",
+  "event_title": "战术犯规",
+  "scope": "generic",
+  "field": "text",
+  "original": "你从三十米外追上去，在禁区前沿把球捅了出去。这镜头被放了一晚上。",
+  "occ": [
+   "def_tactical_foul.text.1.0"
+  ]
+ },
+ {
+  "id": "S0695",
+  "event_id": "def_tactical_foul",
+  "event_title": "战术犯规",
+  "scope": "generic",
+  "field": "text",
+  "original": "你差半步。那球进了，赛后所有人都在说那个手势。",
+  "occ": [
+   "def_tactical_foul.text.1.1"
+  ]
+ },
+ {
+  "id": "S0696",
+  "event_id": "def_pace",
+  "event_title": "追不上了",
+  "scope": "generic",
+  "field": "desc",
+  "original": "上一场对方边锋从你身边过去的时候，你第一次觉得那是另一种速度。",
+  "occ": [
+   "def_pace.desc"
+  ]
+ },
+ {
+  "id": "S0697",
+  "event_id": "def_pace",
+  "event_title": "追不上了",
+  "scope": "generic",
+  "field": "title",
+  "original": "追不上了",
+  "occ": [
+   "def_pace.title"
+  ]
+ },
+ {
+  "id": "S0698",
+  "event_id": "def_pace",
+  "event_title": "追不上了",
+  "scope": "generic",
+  "field": "label",
+  "original": "改踢拖后中卫",
+  "occ": [
+   "def_pace.label.0"
+  ]
+ },
+ {
+  "id": "S0699",
+  "event_id": "def_pace",
+  "event_title": "追不上了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把位置往回撤了五米，用预判补速度。那个赛季你的抢断反而是生涯最高。",
+  "occ": [
+   "def_pace.text.0.0"
+  ]
+ },
+ {
+  "id": "S0700",
+  "event_id": "def_pace",
+  "event_title": "追不上了",
+  "scope": "generic",
+  "field": "label",
+  "original": "硬扛速度",
+  "occ": [
+   "def_pace.label.1"
+  ]
+ },
+ {
+  "id": "S0701",
+  "event_id": "def_pace",
+  "event_title": "追不上了",
+  "scope": "generic",
+  "field": "text",
+  "original": "你靠着经验和小动作又扛了两个赛季。裁判没抓到过你几次。",
+  "occ": [
+   "def_pace.text.1.0"
+  ]
+ },
+ {
+  "id": "S0702",
+  "event_id": "def_pace",
+  "event_title": "追不上了",
+  "scope": "generic",
+  "field": "text",
+  "original": "对手开始专门打你这一边。有一场你一个人被过了七次。",
+  "occ": [
+   "def_pace.text.1.1"
+  ]
+ },
+ {
+  "id": "S0703",
+  "event_id": "def_marshal",
+  "event_title": "后防线的嘴",
+  "scope": "generic",
+  "field": "desc",
+  "original": "这条防线上没人说话。教练问你愿不愿意当那个一直喊的人。",
+  "occ": [
+   "def_marshal.desc"
+  ]
+ },
+ {
+  "id": "S0704",
+  "event_id": "def_marshal",
+  "event_title": "后防线的嘴",
+  "scope": "generic",
+  "field": "title",
+  "original": "后防线的嘴",
+  "occ": [
+   "def_marshal.title"
+  ]
+ },
+ {
+  "id": "S0705",
+  "event_id": "def_marshal",
+  "event_title": "后防线的嘴",
+  "scope": "generic",
+  "field": "label",
+  "original": "喊起来",
+  "occ": [
+   "def_marshal.label.0"
+  ]
+ },
+ {
+  "id": "S0706",
+  "event_id": "def_marshal",
+  "event_title": "后防线的嘴",
+  "scope": "generic",
+  "field": "text",
+  "original": "你从开场喊到终场，嗓子哑了半个赛季。有两个人因为被你喊，再没跟你一起吃过饭。",
+  "occ": [
+   "def_marshal.text.0.0"
+  ]
+ },
+ {
+  "id": "S0707",
+  "event_id": "def_marshal",
+  "event_title": "后防线的嘴",
+  "scope": "generic",
+  "field": "label",
+  "original": "各扫门前雪",
+  "occ": [
+   "def_marshal.label.1"
+  ]
+ },
+ {
+  "id": "S0708",
+  "event_id": "def_marshal",
+  "event_title": "后防线的嘴",
+  "scope": "generic",
+  "field": "text",
+  "original": "防线还是各踢各的。丢球以后大家互相看，谁也不说话。",
+  "occ": [
+   "def_marshal.text.1.0"
+  ]
+ },
+ {
+  "id": "S0709",
+  "event_id": "def_own_box",
+  "event_title": "禁区里那只手",
+  "scope": "generic",
+  "field": "desc",
+  "original": "角球混战里球打在你手臂上，主裁没看见，VAR 在这个联赛还时灵时不灵。",
+  "occ": [
+   "def_own_box.desc"
+  ]
+ },
+ {
+  "id": "S0710",
+  "event_id": "def_own_box",
+  "event_title": "禁区里那只手",
+  "scope": "generic",
+  "field": "title",
+  "original": "禁区里那只手",
+  "occ": [
+   "def_own_box.title"
+  ]
+ },
+ {
+  "id": "S0711",
+  "event_id": "def_own_box",
+  "event_title": "禁区里那只手",
+  "scope": "generic",
+  "field": "text",
+  "original": "主裁摆手示意继续。你回防的时候没敢回头看大屏幕。",
+  "occ": [
+   "def_own_box.text.0.0"
+  ]
+ },
+ {
+  "id": "S0712",
+  "event_id": "def_own_box",
+  "event_title": "禁区里那只手",
+  "scope": "generic",
+  "field": "text",
+  "original": "VAR 叫停了比赛。点球，还有一张黄牌。你成了那晚的输球理由。",
+  "occ": [
+   "def_own_box.text.0.1"
+  ]
+ },
+ {
+  "id": "S0713",
+  "event_id": "def_own_box",
+  "event_title": "禁区里那只手",
+  "scope": "generic",
+  "field": "label",
+  "original": "自己举手承认",
+  "occ": [
+   "def_own_box.label.1"
+  ]
+ },
+ {
+  "id": "S0714",
+  "event_id": "def_own_box",
+  "event_title": "禁区里那只手",
+  "scope": "generic",
+  "field": "text",
+  "original": "你举了手。对方球员愣了一下。你们队后来输了那场，球迷群里全是你的名字。",
+  "occ": [
+   "def_own_box.text.1.0"
+  ]
+ },
+ {
+  "id": "S0715",
+  "event_id": "def_fullback_push",
+  "event_title": "边后卫要不要压上",
+  "scope": "generic",
+  "field": "desc",
+  "original": "现在的边后卫得跑满全场。教练说你压上去，身后那块地他来想办法。",
+  "occ": [
+   "def_fullback_push.desc"
+  ]
+ },
+ {
+  "id": "S0716",
+  "event_id": "def_fullback_push",
+  "event_title": "边后卫要不要压上",
+  "scope": "generic",
+  "field": "title",
+  "original": "边后卫要不要压上",
+  "occ": [
+   "def_fullback_push.title"
+  ]
+ },
+ {
+  "id": "S0717",
+  "event_id": "def_fullback_push",
+  "event_title": "边后卫要不要压上",
+  "scope": "generic",
+  "field": "label",
+  "original": "压上去",
+  "occ": [
+   "def_fullback_push.label.0"
+  ]
+ },
+ {
+  "id": "S0718",
+  "event_id": "def_fullback_push",
+  "event_title": "边后卫要不要压上",
+  "scope": "generic",
+  "field": "text",
+  "original": "你一个赛季送出了九次助攻。有人开始拿你和那些欧洲边卫比。",
+  "occ": [
+   "def_fullback_push.text.0.0"
+  ]
+ },
+ {
+  "id": "S0719",
+  "event_id": "def_fullback_push",
+  "event_title": "边后卫要不要压上",
+  "scope": "generic",
+  "field": "text",
+  "original": "你身后那块地被打了一整年。教练最后把你换到了另一侧。",
+  "occ": [
+   "def_fullback_push.text.0.1"
+  ]
+ },
+ {
+  "id": "S0720",
+  "event_id": "def_fullback_push",
+  "event_title": "边后卫要不要压上",
+  "scope": "generic",
+  "field": "label",
+  "original": "守好本职",
+  "occ": [
+   "def_fullback_push.label.1"
+  ]
+ },
+ {
+  "id": "S0721",
+  "event_id": "def_fullback_push",
+  "event_title": "边后卫要不要压上",
+  "scope": "generic",
+  "field": "text",
+  "original": "你老老实实待在自己那条线上。数据不好看，丢球也确实少。",
+  "occ": [
+   "def_fullback_push.text.1.0"
+  ]
+ },
+ {
+  "id": "S0722",
+  "event_id": "mid_engine",
+  "event_title": "跑动数据",
+  "scope": "generic",
+  "field": "desc",
+  "original": "体能教练把全队的跑动图贴在了墙上。你那条线在中游偏下。",
+  "occ": [
+   "mid_engine.desc"
+  ]
+ },
+ {
+  "id": "S0723",
+  "event_id": "mid_engine",
+  "event_title": "跑动数据",
+  "scope": "generic",
+  "field": "title",
+  "original": "跑动数据",
+  "occ": [
+   "mid_engine.title"
+  ]
+ },
+ {
+  "id": "S0724",
+  "event_id": "mid_engine",
+  "event_title": "跑动数据",
+  "scope": "generic",
+  "field": "label",
+  "original": "跑到第一",
+  "occ": [
+   "mid_engine.label.0"
+  ]
+ },
+ {
+  "id": "S0725",
+  "event_id": "mid_engine",
+  "event_title": "跑动数据",
+  "scope": "generic",
+  "field": "text",
+  "original": "你连续十场跑满十二公里。教练说这支队有你在，中场就不会断。",
+  "occ": [
+   "mid_engine.text.0.0"
+  ]
+ },
+ {
+  "id": "S0726",
+  "event_id": "mid_engine",
+  "event_title": "跑动数据",
+  "scope": "generic",
+  "field": "text",
+  "original": "第二十七轮你在无对抗的情况下拉伤了大腿。那张图后来撤了。",
+  "occ": [
+   "mid_engine.text.0.1"
+  ]
+ },
+ {
+  "id": "S0727",
+  "event_id": "mid_engine",
+  "event_title": "跑动数据",
+  "scope": "generic",
+  "field": "label",
+  "original": "省着点跑",
+  "occ": [
+   "mid_engine.label.1"
+  ]
+ },
+ {
+  "id": "S0728",
+  "event_id": "mid_engine",
+  "event_title": "跑动数据",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把力气留给了带球那几下。跑动数据难看，但你那几脚传球很关键。",
+  "occ": [
+   "mid_engine.text.1.0"
+  ]
+ },
+ {
+  "id": "S0729",
+  "event_id": "mid_deep",
+  "event_title": "往后撤一条线",
+  "scope": "generic",
+  "field": "desc",
+  "original": "队里前腰位置人满为患，教练问你愿不愿意改踢后腰。",
+  "occ": [
+   "mid_deep.desc"
+  ]
+ },
+ {
+  "id": "S0730",
+  "event_id": "mid_deep",
+  "event_title": "往后撤一条线",
+  "scope": "generic",
+  "field": "title",
+  "original": "往后撤一条线",
+  "occ": [
+   "mid_deep.title"
+  ]
+ },
+ {
+  "id": "S0731",
+  "event_id": "mid_deep",
+  "event_title": "往后撤一条线",
+  "scope": "generic",
+  "field": "text",
+  "original": "你从进球的人变成了让别人进球的人。数据难看了，出场时间翻倍。",
+  "occ": [
+   "mid_deep.text.0.0"
+  ]
+ },
+ {
+  "id": "S0732",
+  "event_id": "mid_deep",
+  "event_title": "往后撤一条线",
+  "scope": "generic",
+  "field": "text",
+  "original": "你用两个赛季证明了那个位置该是你的。",
+  "occ": [
+   "mid_deep.text.1.0"
+  ]
+ },
+ {
+  "id": "S0733",
+  "event_id": "mid_deep",
+  "event_title": "往后撤一条线",
+  "scope": "generic",
+  "field": "text",
+  "original": "教练用了那个花大钱买来的前腰。你在替补席上看了一年。",
+  "occ": [
+   "mid_deep.text.1.1"
+  ]
+ }
+]

@@ -3,6 +3,10 @@
 > 站点：https://career-sim.pages.dev/（纯前端静态站，Cloudflare Pages 托管）
 > 记录日期：2026-08-15
 
+## 改动总览
+
+本次会话对游戏的全部修改（引擎改动 / 效果键总表 / 14 个新增事件 / 队长机制 / 属性加成明细 / 备份）统一整理在 **[改动总览.md](./改动总览.md)**，此处 `〇.x` 各节为分阶段过程记录。
+
 ## 〇、最新进度：阶段 A+B 已完成 ✅
 
 **全部 7 个混淆 JS 文件已解码**，产出物在 `D:\football\career-sim\deobf\`。
@@ -32,6 +36,117 @@
 **验证结果**：解码后残留混淆调用为 0（除标准 `Array(0x..)` 构造和普通函数传 `0x` 参数外），字符串表零解码错误，代码逻辑完全可读（如 `window["SIM"]`、`localStorage["getItem"]`、`Math["imul"]` 等）。
 
 解码脚本：`D:\football\career-sim\deobf.py`（可重跑）。
+
+## 〇.1、事件文案润色 + 概率属性化（已完成 ✅）
+
+**（一）全部 1838 条事件文案逐条润色**
+- 提取 `desc/title/label/text`（含 `h(p,{..})` 位置文案与三元 text）共 1838 条，13 个并行子代理逐条改写，审查后**963 处已注入** `events.deob.js`（`S####` 溯源，通用/海外/中国三档文风），越狱词、体测、聚餐等专项已修。
+- 产出：`events_polish/part_XX_done.json`、`说明和要求.md`、`合并注入.py`。
+
+**（二）事件概率属性化（本次）**
+- 背景：大量选项结果概率是**纯固定**（52 处 50/50 等，共 132 处），不随 ovr/天赋/关系/清白/名气变化。
+- 引擎本就支持属性化概率：选项 `'p':function(p){return f(BASE,[[p[属性],锚点,系数]],下限,上限)}` + `apply(p,q,s)` 用 `d(q,s)` + `hint:function(p,q){return g(q,'A','B');}` 动态显示百分比（点球/德比等 28 个选项原有此模式）。
+- 改动：
+  - `sim.deob.js` `aA()` 玩家视图**新增 `'talent':a2["talent"]`**（事件侧此前读不到天赋值）。
+  - `events.deob.js` **132 处固定 roll 全部转属性化**（自动生成 + 注入）：
+    - talent 23 处（加练/练脚/头球/造越位/门将脚下活等训练成长类，锚点 1.0 系数 0.4）
+    - ovr 45 处（身体/对抗/位置争夺/场上表现类，锚点 60 系数 0.008）
+    - guanxi 28 处（家里/教练/更衣室/经纪人关系类，锚点 45 系数 0.008）
+    - clean 13 处（纪律/丑闻/假摔/球迷类，锚点 70 系数 0.008）
+    - fame 10 处（媒体/粉丝/大场面类，锚点 25 系数 0.01）
+  - 115 处 "NN% A / NN% B" 静态 hint 转 `g()` 动态显示；17 处自由文本 hint 保留静态（其中 boot_deal 补转动态）。
+- 校验：265 事件、结构平衡 0/0/0、剩余固定 roll 0、`s` 类 158 处、hint 函数 144 个、所有选项 `apply(p,q,s)`。
+- 设计表：`probability_workload.md`；备份：`events.deob.js.bak2`、`sim.deob.js.bak`。
+- 未做（可选）：事件挑选 `weight` 按属性浮动、软化 `when` 硬门槛（改的是触发频率而非结果概率）。
+
+## 〇.2、青训事件扩充 + 天赋效果接入引擎（已完成 ✅）
+
+**（一）引擎支持天赋成长**
+- `sim.deob.js` `aA()` 已暴露 `talent`；`aF()`（事件结算）**新增 `'talent'` 效果键**：`a2["talent"]=ac(a2["talent"]+bx["talent"],0.5,1.8)` + `bz('天赋',...)` 显示（上限 1.8，避免收缩 legend 加成；运行值 0.7~1.48 不受影响）。
+- `bu()`（作弊自动挑选评分）补 `by+=0x5*(bx["talent"]||0x0)`。
+
+**（二）新增 8 个青训事件**（`stage:"youth"`，共 273 事件 / 40 青训）
+- 天赋向（成功概率随 `p["talent"]` 浮动，0.02 级微增）：`youth_night` 熄灯后的球场、`youth_watch` 高手的慢动作（+能力）、`youth_ballfeel` 睡前颠球、`youth_rainshoot` 雨后的球场、`youth_selfdrill` 一个人练到天黑。
+- 能力向（talent 驱动概率，成功能力+2）：`youth_skills` 基本功补课、`youth_turnaround` 转身那一课。
+- 剧情向（无概率，清白/关系权衡）：`youth_vice` 熄灯以后的烟火。
+- 均为 2~3 选项、`repeat:0x2`、weight 0x2e~0x38，无固定 roll（全部 `d(q,s)`）。
+
+**（三）修复「16岁后每年固定出现加入球队」**
+- 根因：`bj()` 青训阶段只要 `bi()`（age≥16 且 ovr≥42）就每年强制 `phase="career"` + `bm()`（加入球队报价），若选「留在青训」次年又触发 → 青训事件永不出现。
+- 修复：选择「留在青训」时设 `a2["flags"]["_gradCd"]=2`（青训延续 2 年），`bj()` 内 cooldown 期间逐年递减、照常出青训事件，期满才再次报价毕业；21 岁兜底（青训淘汰）不变。
+- 备份：`events.deob.js.bak3`（首批 4 事件前）、`events.deob.js.bak4`（本次 4 事件前）、`sim.deob.js.bak`。
+
+## 〇.3、队长机制改造（已完成 ✅）
+
+**（一）俱乐部 & 国家队队长：强制触发 + 按俱乐部 REP 定能力门槛 + 每俱乐部一次 + 队长标志位**
+- 俱乐部 `captain`（及门将 `gk_captain`）：`when` 增加 `p["ovr"]>=0x32+0x4*(p["clubRep"]||0x0)`（顶级 rep3→62、最低 rep0→50）+ `(p["capDone"]||[])["indexOf"](p["teamId"])<0x0`（每俱乐部最多一次）。
+- 国家队 `nat_captain`：保留 `caps>=25 && ovr>=72`，`when` 追加 `!p["_ntCaptain"]`。
+- **触发几率显著提高**：`sim.deob.js` `bk()` 每赛季在校验点直接把这些事件推入 `forceQ`（跳过随机池权重与 eventChance 门）：
+  - 俱乐部队长：有队 + 该队未接任过 + `seasonsAtClub>=2` + `roleRank>=3`（主力/核心）+ 达标 ovr + `aB(age)==="prime"`（21~32 岁）→ 推 `captain`/`gk_captain`（按位置）。
+  - 国家队队长：`caps>=25 && ovr>=72` 且未触发过 → 推 `nat_captain`。
+  - 即条件满足当季即触发（除非当季先被团队 offer 拦截，顺延下季）。
+- **队长标志位**：`a2["flags"]["_captain"]`（=当前队长俱乐部 id，`isCaptain` 即 `_captain===teamId`）、`a2["flags"]["_ntCaptain"]`；`a2["capDone"]` 数组记录已接任过队长的俱乐部。`aA()` 视图新增 `teamId`/`isCaptain`/`capDone`（flags 本就自动并入视图）。
+- `aF()` 新增效果键：`captain`（置队长+记入 capDone）、`capDecline`（只记 capDone，拒绝后同俱乐部不再重复追问）、`ntCaptain`（置国家队队长标志）。
+- 数值：rep 取值 0~3；roleRank：bench0/sub1/rot2/starter3/star4，门槛 3=主力/核心。
+- 备份：`events.deob.js.bak5`、`sim.deob.js.bak2`。
+
+**（二）队长就任后的专属事件池（6 个，概率触发）**
+- 俱乐部队长（`when: p["_captain"]===p["teamId"]`）：
+  - `cap_room` 更衣室的那一拳 🥊 — 调解主力冲突（关系浮动概率）：成功 关系+14/名气+6，失败 关系-8/能力-1；或交教练（清白+4/关系-3）。
+  - `cap_money` 袖标下的邀约 💼 — 不走俱乐部账的广告：接下（钱+200/清白-10/名气-4）；上报（清白+8/钱-30/名气+4）。
+  - `cap_pressure` 连败之后 🎤 — 发布会（名气浮动概率）：成功 名气+12/清白+4/关系+6，失败 名气-6/能力-1；或推教练（关系-4/清白-4）。
+- 国家队队长（`when: p["_ntCaptain"]`）：
+  - `ntcap_row` 替补席的冷眼 😤 — 安抚老将（关系概率）：成功 关系+12/名气+6，失败 关系-8/名气-4；或直说（清白+6/关系-4）。
+  - `ntcap_young` 新人的首发 🌱 — 替新人背书（天赋概率）：成功 能力+2/名气+8/关系+6，失败 能力-1/名气-4；或求稳（关系+4）。
+  - `ntcap_press` 赢球之后的漩涡 📷 — 替队友圆话（名气概率）：成功 名气+12/清白+4/关系+6，失败 名气-6/清白-4；或只回一句（清白+4/关系-3）。
+- 全部进入随机事件池（`ad()<eventChance` + 权重抽取），weight 0x38~0x3c，repeat 0x1~0x2，正负影响明确、无固定 roll。
+- 备份：`events.deob.js.bak6`。
+
+## 〇.4、球队扩充：五大联赛补齐 + 其他联赛名队（已完成 ✅）
+
+**（一）背景**
+- 原 16 联赛共 119 队，多数联赛球队数远少于现实：epl 16/20、liga 12/20、bund 11/18、seri 11/20、l1 9/18、ere 5/18、pri 5/18、jup 4/16、seg 5/22、b2 5/18、ch 7/24、jl 4/20、kl 2/12、spl 4/18、mls 3/30（csl 16/16 已满）。
+- 方案：**五大联赛补齐到现实数量；其他联赛只补有名且能找到队徽的球队，找不到就跳过**（详见 `TEAM_REALIZATION.md` 一.5 节明细）。
+
+**（二）改动**
+- `data.deob.js` `'TEAMS':[...]` 尾部插入 **91 队**（119→210）：id/中文名/league/rep/color。rep 按实力 0~2（保级~中游），color 供俱乐部卡片与程序化兜底徽章使用。
+- `crests.deob.js` `window["CREST_URLS"]` 追加 91 条（119→210），指向 `assets/crests/{id}.png`。
+- `assets/crests/` 新增 **91 个真实队徽 PNG**（44+91=135 PNG + 75 SVG = 210），全部来自 TheSportsDB API（`searchteams.php` 按英文名匹配 + `strBadge` 下载）。
+- 逐队修正：alv/mnz/her/ver/rei 首轮匹配到女队/篮球/冰球队徽 → 改查 Deportivo Alaves/FSV Mainz 05/Hertha BSC/Hellas Verona/Stade de Reims；shw 重下；set/usg/fth/orl 换查询词；nac 用 Nacional Madeira；**ryd 利雅得青年 TheSportsDB 无数据 → 跳过**。
+- 赛季/升降级机制与联赛队数无关（无积分榜；升降级看球队 rep≤1；`leagueOf` 默认读 `team.league`），扩队零副作用。
+
+**（三）结果**
+| 联赛 | 新增 | 现/现实 | | 联赛 | 新增 | 现/现实 |
+|------|:---:|:---:|---|---|------|:---:|:---:|
+| 英超 | +4 | 20/20 | | 西乙 | +4 | 9/22 |
+| 西甲 | +8 | 20/20 | | 德乙 | +3 | 8/18 |
+| 德甲 | +7 | 18/18 | | 英冠 | +10 | 17/24 |
+| 意甲 | +9 | 20/20 | | 日职 | +8 | 12/20 |
+| 法甲 | +9 | 18/18 | | K联赛 | +5 | 7/12 |
+| 荷甲 | +4 | 9/18 | | 沙特联 | +2 | 6/18 |
+| 葡超 | +4 | 9/18 | | 美职联 | +10 | 13/30 |
+| 比甲 | +4 | 8/16 | | 中超 | 0 | 16/16 |
+
+- 验证：两文件括号平衡 0/0/0、210 队 id 无重复、CREST_URLS 与球队 1:1、队徽文件全部存在。
+- 备份：`data.deob.js.bak_teams`、`crests.deob.js.bak_teams`。
+- 未做（可选）：小联赛继续追平现实数量（需更多队徽）、中甲真实化（16 队，TheSportsDB 仅 10 队）。
+
+## 〇.5、开档随机化 + 中国球星彩蛋（已完成 ✅）
+
+**（一）开档身份随机化（game.deob.js）**
+- 新增 `bU1()`：开局随机身份——低概率（~5%）直接随机到 5 位中国球星（姓名+号码+位置固定），否则姓、名分开随机匹配（20×20）+ 随机号码 1~99 + 随机位置（`a0["POSITIONS"]`）+ 随机惯用脚。
+- 新增 `bU2()`：legendId → 中文名（徽章显示）。`bU()` 支持从 `localStorage "ident"` 恢复 name/number/foot/**pos/legendId**；无存档走 `bU1()` 随机。
+- `bS()` 身份存档补写 `pos/legendId`；身份步骤新增「换个随机」按钮（`[data-reroll]`）+ 抽中球星时绿色徽章提示；步骤副标题更新。
+- 中国球星表（sim.deob.js `newState` 在原隐藏传奇链之前插入 `bC["legendId"]` 分支，优先生效不冲突）：
+  | legendId | 姓名 | 号码 | 位置 | ovr/talent/事件率 |
+  |----------|------|:---:|:---:|------|
+  | haodong | 郝海东 | 9 | ST | +3 / +0.05 / ×1.4 |
+  | fanzy | 范志毅 | 5 | CB | +3 / +0.05 / ×1.4 |
+  | sunjh | 孙继海 | 12 | RB | +2 / +0.05 / ×1.4 |
+  | zhengz | 郑智 | 10 | CM | +2 / +0.06 / ×1.4 |
+  | wulei | 武磊 | 7 | ST | +2 / +0.06 / ×1.4 |
+- 验证：`jsvalidate.py`（JS 词法校验器）对原始/修改后文件均通过；`bU1()` 模拟 2 万次传奇总概率 ~4.7%、位置/号码合法。
+- 备份：`game.deob.js.bak_rnd`、`sim.deob.js.bak3`。
 
 ## 一、当前进度总结
 

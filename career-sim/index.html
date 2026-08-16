@@ -6,6 +6,11 @@
 <title>足一把-生涯模拟器 - 中国球员生涯</title>
 <meta name="description" content="从足校到退役，把一个中国球员的一生走一遍。选择、代价，和一份没人替你写的履历。">
 <meta name="theme-color" content="#0e100f">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
 <link rel="stylesheet" href="style.css?v=48">
 </head>
@@ -268,5 +273,14 @@
 <!-- 引擎（纯逻辑，不认识 DOM）。必须排在 game.js 前面：game.js 一加载就从 window.SIM 取名字 -->
 <script src="deobf/sim.deob.js"></script>
 <script src="deobf/game.deob.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function (err) {
+      console.warn('SW 注册失败:', err);
+    });
+  });
+}
+</script>
 </body>
 </html>

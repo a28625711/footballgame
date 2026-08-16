@@ -1,0 +1,1580 @@
+[
+ {
+  "id": "S1027",
+  "event_id": "youth_loan_lower",
+  "event_title": "借去中乙",
+  "scope": "china",
+  "field": "desc",
+  "original": "俱乐部想把你租到中乙踢一年。那边条件很差，但能踢满整个赛季。",
+  "occ": [
+   "youth_loan_lower.desc"
+  ]
+ },
+ {
+  "id": "S1028",
+  "event_id": "youth_loan_lower",
+  "event_title": "借去中乙",
+  "scope": "china",
+  "field": "title",
+  "original": "借去中乙",
+  "occ": [
+   "youth_loan_lower.title"
+  ]
+ },
+ {
+  "id": "S1029",
+  "event_id": "youth_loan_lower",
+  "event_title": "借去中乙",
+  "scope": "china",
+  "field": "text",
+  "original": "客场坐十小时大巴，球场看台是水泥台阶。你踢了二十八场，成人比赛的节奏你懂了。",
+  "occ": [
+   "youth_loan_lower.text.0.0"
+  ]
+ },
+ {
+  "id": "S1030",
+  "event_id": "youth_loan_lower",
+  "event_title": "借去中乙",
+  "scope": "china",
+  "field": "label",
+  "original": "留在梯队",
+  "occ": [
+   "youth_loan_lower.label.1"
+  ]
+ },
+ {
+  "id": "S1031",
+  "event_id": "youth_loan_lower",
+  "event_title": "借去中乙",
+  "scope": "china",
+  "field": "text",
+  "original": "你在预备队联赛打满了一整年，年底被提上了一线队。",
+  "occ": [
+   "youth_loan_lower.text.1.0"
+  ]
+ },
+ {
+  "id": "S1032",
+  "event_id": "youth_loan_lower",
+  "event_title": "借去中乙",
+  "scope": "china",
+  "field": "text",
+  "original": "预备队一年打不了十场。你二十岁那年还没踢过一场正式比赛。",
+  "occ": [
+   "youth_loan_lower.text.1.1"
+  ]
+ },
+ {
+  "id": "S1033",
+  "event_id": "youth_trial_abroad",
+  "event_title": "海外试训",
+  "scope": "china",
+  "field": "desc",
+  "original": "有个机会去欧洲一家中游俱乐部试训两周，来回机票和食宿自理。",
+  "occ": [
+   "youth_trial_abroad.desc"
+  ]
+ },
+ {
+  "id": "S1034",
+  "event_id": "youth_trial_abroad",
+  "event_title": "海外试训",
+  "scope": "china",
+  "field": "title",
+  "original": "海外试训",
+  "occ": [
+   "youth_trial_abroad.title"
+  ]
+ },
+ {
+  "id": "S1035",
+  "event_id": "youth_trial_abroad",
+  "event_title": "海外试训",
+  "scope": "china",
+  "field": "label",
+  "original": "砸锅卖铁去",
+  "occ": [
+   "youth_trial_abroad.label.0"
+  ]
+ },
+ {
+  "id": "S1036",
+  "event_id": "youth_trial_abroad",
+  "event_title": "海外试训",
+  "scope": "china",
+  "field": "text",
+  "original": "两周下来一份合同没拿到，但你第一次知道同龄人能跑成什么样。回来以后你练得像换了个人。",
+  "occ": [
+   "youth_trial_abroad.text.0.0"
+  ]
+ },
+ {
+  "id": "S1037",
+  "event_id": "youth_trial_abroad",
+  "event_title": "海外试训",
+  "scope": "china",
+  "field": "text",
+  "original": "两周里你只参加了三次分组对抗，剩下时间在健身房。回程飞机上你一直没说话。",
+  "occ": [
+   "youth_trial_abroad.text.0.1"
+  ]
+ },
+ {
+  "id": "S1038",
+  "event_id": "youth_trial_abroad",
+  "event_title": "海外试训",
+  "scope": "china",
+  "field": "text",
+  "original": "家里凑不出这笔钱。那趟去的另一个孩子后来去了荷兰。",
+  "occ": [
+   "youth_trial_abroad.text.1.0"
+  ]
+ },
+ {
+  "id": "S1039",
+  "event_id": "youth_height",
+  "event_title": "身高不够",
+  "scope": "generic",
+  "field": "desc",
+  "original": "选材表上你被划了一道：身高预测不达标。有人建议打生长激素。",
+  "occ": [
+   "youth_height.desc"
+  ]
+ },
+ {
+  "id": "S1040",
+  "event_id": "youth_height",
+  "event_title": "身高不够",
+  "scope": "generic",
+  "field": "title",
+  "original": "身高不够",
+  "occ": [
+   "youth_height.title"
+  ]
+ },
+ {
+  "id": "S1041",
+  "event_id": "youth_height",
+  "event_title": "身高不够",
+  "scope": "generic",
+  "field": "label",
+  "original": "打",
+  "occ": [
+   "youth_height.label.0"
+  ]
+ },
+ {
+  "id": "S1042",
+  "event_id": "youth_height",
+  "event_title": "身高不够",
+  "scope": "generic",
+  "field": "text",
+  "original": "两年后你长到了一米八三。那两年的针你记得每一次的疼。",
+  "occ": [
+   "youth_height.text.0.0"
+  ]
+ },
+ {
+  "id": "S1043",
+  "event_id": "youth_height",
+  "event_title": "身高不够",
+  "scope": "generic",
+  "field": "text",
+  "original": "个子没怎么长，体检倒是查出了别的问题。那盒药你后来自己扔了。",
+  "occ": [
+   "youth_height.text.0.1"
+  ]
+ },
+ {
+  "id": "S1044",
+  "event_id": "youth_height",
+  "event_title": "身高不够",
+  "scope": "generic",
+  "field": "label",
+  "original": "不打",
+  "occ": [
+   "youth_height.label.1"
+  ]
+ },
+ {
+  "id": "S1045",
+  "event_id": "youth_height",
+  "event_title": "身高不够",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把重心、启动和脑子练到了极致。教练说你是队里最不像小个子的小个子。",
+  "occ": [
+   "youth_height.text.1.0"
+  ]
+ },
+ {
+  "id": "S1046",
+  "event_id": "aca_reserve",
+  "event_title": "预备队联赛",
+  "scope": "generic",
+  "field": "desc",
+  "original": "预备队的比赛安排在周二下午，看台上坐着二十来个人，一半是球探，另一半是队友的家里人。你踢得很好，但没有集锦。",
+  "occ": [
+   "aca_reserve.desc"
+  ]
+ },
+ {
+  "id": "S1047",
+  "event_id": "aca_reserve",
+  "event_title": "预备队联赛",
+  "scope": "generic",
+  "field": "title",
+  "original": "预备队联赛",
+  "occ": [
+   "aca_reserve.title"
+  ]
+ },
+ {
+  "id": "S1048",
+  "event_id": "aca_reserve",
+  "event_title": "预备队联赛",
+  "scope": "generic",
+  "field": "label",
+  "original": "每场都当正赛踢",
+  "occ": [
+   "aca_reserve.label.0"
+  ]
+ },
+ {
+  "id": "S1049",
+  "event_id": "aca_reserve",
+  "event_title": "预备队联赛",
+  "scope": "generic",
+  "field": "text",
+  "original": "整个赛季你一场没缺，",
+  "occ": [
+   "aca_reserve.text.0.0"
+  ]
+ },
+ {
+  "id": "S1050",
+  "event_id": "aca_reserve",
+  "event_title": "预备队联赛",
+  "scope": "generic",
+  "field": "label",
+  "original": "把力气留给训练课",
+  "occ": [
+   "aca_reserve.label.1"
+  ]
+ },
+ {
+  "id": "S1051",
+  "event_id": "aca_reserve",
+  "event_title": "预备队联赛",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在合练那天拼得最凶。一线队助教在场边多站了十分钟，回头问了句你多大。",
+  "occ": [
+   "aca_reserve.text.1.0"
+  ]
+ },
+ {
+  "id": "S1052",
+  "event_id": "aca_signed",
+  "event_title": "同批人签走了一个",
+  "scope": "generic",
+  "field": "desc",
+  "original": "跟你同一年进来的那个孩子今天签了职业合同，更衣室里在起哄。你比他早两年进队。",
+  "occ": [
+   "aca_signed.desc"
+  ]
+ },
+ {
+  "id": "S1053",
+  "event_id": "aca_signed",
+  "event_title": "同批人签走了一个",
+  "scope": "generic",
+  "field": "title",
+  "original": "同批人签走了一个",
+  "occ": [
+   "aca_signed.title"
+  ]
+ },
+ {
+  "id": "S1054",
+  "event_id": "aca_signed",
+  "event_title": "同批人签走了一个",
+  "scope": "generic",
+  "field": "label",
+  "original": "去恭喜他",
+  "occ": [
+   "aca_signed.label.0"
+  ]
+ },
+ {
+  "id": "S1055",
+  "event_id": "aca_signed",
+  "event_title": "同批人签走了一个",
+  "scope": "generic",
+  "field": "text",
+  "original": "你是第一个上去抱他的。晚上你一个人在健身房待到很晚，没跟任何人说话。",
+  "occ": [
+   "aca_signed.text.0.0"
+  ]
+ },
+ {
+  "id": "S1056",
+  "event_id": "aca_signed",
+  "event_title": "同批人签走了一个",
+  "scope": "generic",
+  "field": "label",
+  "original": "去找教练问自己",
+  "occ": [
+   "aca_signed.label.1"
+  ]
+ },
+ {
+  "id": "S1057",
+  "event_id": "aca_signed",
+  "event_title": "同批人签走了一个",
+  "scope": "generic",
+  "field": "text",
+  "original": "他给你看了评估表：三项高于他，两项低于他，低的那两项写着「可练」。「所以你还在这儿。」",
+  "occ": [
+   "aca_signed.text.1.0"
+  ]
+ },
+ {
+  "id": "S1058",
+  "event_id": "aca_signed",
+  "event_title": "同批人签走了一个",
+  "scope": "generic",
+  "field": "text",
+  "original": "他说这种事不是你该问的。那之后半年，合练名单上没有你。",
+  "occ": [
+   "aca_signed.text.1.1"
+  ]
+ },
+ {
+  "id": "S1059",
+  "event_id": "aca_newcoach",
+  "event_title": "教练组换了一茬",
+  "scope": "generic",
+  "field": "desc",
+  "original": "带了你三年的青训教练走了。新来的第一堂课把所有人打散重新分组，他不知道你是谁。",
+  "occ": [
+   "aca_newcoach.desc"
+  ]
+ },
+ {
+  "id": "S1060",
+  "event_id": "aca_newcoach",
+  "event_title": "教练组换了一茬",
+  "scope": "generic",
+  "field": "title",
+  "original": "教练组换了一茬",
+  "occ": [
+   "aca_newcoach.title"
+  ]
+ },
+ {
+  "id": "S1061",
+  "event_id": "aca_newcoach",
+  "event_title": "教练组换了一茬",
+  "scope": "generic",
+  "field": "label",
+  "original": "从头证明一次",
+  "occ": [
+   "aca_newcoach.label.0"
+  ]
+ },
+ {
+  "id": "S1062",
+  "event_id": "aca_newcoach",
+  "event_title": "教练组换了一茬",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把三年前做过的事又做了一遍。两个月后他在训练课上第一次叫出了你的名字，念错了姓。",
+  "occ": [
+   "aca_newcoach.text.0.0"
+  ]
+ },
+ {
+  "id": "S1063",
+  "event_id": "aca_newcoach",
+  "event_title": "教练组换了一茬",
+  "scope": "generic",
+  "field": "label",
+  "original": "托老教练打个招呼",
+  "occ": [
+   "aca_newcoach.label.1"
+  ]
+ },
+ {
+  "id": "S1064",
+  "event_id": "aca_newcoach",
+  "event_title": "教练组换了一茬",
+  "scope": "generic",
+  "field": "text",
+  "original": "老教练真的打了电话。新教练客气地把你放进了第一组，然后整整一个赛季没再多看你一眼。",
+  "occ": [
+   "aca_newcoach.text.1.0"
+  ]
+ },
+ {
+  "id": "S1065",
+  "event_id": "aca_gym",
+  "event_title": "力量房的那两年",
+  "scope": "generic",
+  "field": "desc",
+  "original": "体测报告出来：技术合格，对抗不合格。体能教练给你排了两年的增重计划，「练完你才踢得了成年队的比赛」。",
+  "occ": [
+   "aca_gym.desc"
+  ]
+ },
+ {
+  "id": "S1066",
+  "event_id": "aca_gym",
+  "event_title": "力量房的那两年",
+  "scope": "generic",
+  "field": "title",
+  "original": "力量房的那两年",
+  "occ": [
+   "aca_gym.title"
+  ]
+ },
+ {
+  "id": "S1067",
+  "event_id": "aca_gym",
+  "event_title": "力量房的那两年",
+  "scope": "generic",
+  "field": "label",
+  "original": "照着练两年",
+  "occ": [
+   "aca_gym.label.0"
+  ]
+ },
+ {
+  "id": "S1068",
+  "event_id": "aca_gym",
+  "event_title": "力量房的那两年",
+  "scope": "generic",
+  "field": "text",
+  "original": "两年后你重了九公斤，短距离反而更快了。第一次跟成年队合练，你没有被撞开。",
+  "occ": [
+   "aca_gym.text.0.0"
+  ]
+ },
+ {
+  "id": "S1069",
+  "event_id": "aca_gym",
+  "event_title": "力量房的那两年",
+  "scope": "generic",
+  "field": "text",
+  "original": "重了七公斤，转身慢了半拍。你花了半年才把那半拍找回来。",
+  "occ": [
+   "aca_gym.text.0.1"
+  ]
+ },
+ {
+  "id": "S1070",
+  "event_id": "aca_gym",
+  "event_title": "力量房的那两年",
+  "scope": "generic",
+  "field": "label",
+  "original": "先保住灵活",
+  "occ": [
+   "aca_gym.label.1"
+  ]
+ },
+ {
+  "id": "S1071",
+  "event_id": "aca_gym",
+  "event_title": "力量房的那两年",
+  "scope": "generic",
+  "field": "text",
+  "original": "你按自己的节奏来。技术教练支持你，体能教练在报告上又写了一次「对抗不合格」。",
+  "occ": [
+   "aca_gym.text.1.0"
+  ]
+ },
+ {
+  "id": "S1072",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "desc",
+  "original": "U21 名单贴出来没有你，你被放回了低一个年龄段。同组的孩子比你小两岁，对你客气得像对一个客人。",
+  "occ": [
+   "aca_demote.desc"
+  ]
+ },
+ {
+  "id": "S1073",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "title",
+  "original": "被放回低一档",
+  "occ": [
+   "aca_demote.title"
+  ]
+ },
+ {
+  "id": "S1074",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "label",
+  "original": "在那儿当最好的那个",
+  "occ": [
+   "aca_demote.label.0"
+  ]
+ },
+ {
+  "id": "S1075",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "半个赛季你只丢了",
+  "occ": [
+   "aca_demote.text.0.1"
+  ]
+ },
+ {
+  "id": "S1076",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "三个球。所有人都",
+  "occ": [
+   "aca_demote.text.0.2"
+  ]
+ },
+ {
+  "id": "S1077",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "说这不算数，但把",
+  "occ": [
+   "aca_demote.text.0.3",
+   "aca_demote.text.0.18"
+  ]
+ },
+ {
+  "id": "S1078",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "你叫回 U21",
+  "occ": [
+   "aca_demote.text.0.4",
+   "aca_demote.text.0.19"
+  ]
+ },
+ {
+  "id": "S1079",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "的那份名单上写的",
+  "occ": [
+   "aca_demote.text.0.5",
+   "aca_demote.text.0.20"
+  ]
+ },
+ {
+  "id": "S1080",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "就是这个三。",
+  "occ": [
+   "aca_demote.text.0.6"
+  ]
+ },
+ {
+  "id": "S1081",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "半个赛季那条防线",
+  "occ": [
+   "aca_demote.text.0.8"
+  ]
+ },
+ {
+  "id": "S1082",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "只丢了三个球。所",
+  "occ": [
+   "aca_demote.text.0.9"
+  ]
+ },
+ {
+  "id": "S1083",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "有人都说这不算数",
+  "occ": [
+   "aca_demote.text.0.10"
+  ]
+ },
+ {
+  "id": "S1084",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "，但把你叫回 U",
+  "occ": [
+   "aca_demote.text.0.11"
+  ]
+ },
+ {
+  "id": "S1085",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "21 的那份名单",
+  "occ": [
+   "aca_demote.text.0.12"
+  ]
+ },
+ {
+  "id": "S1086",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "上写的就是这个三",
+  "occ": [
+   "aca_demote.text.0.13"
+  ]
+ },
+ {
+  "id": "S1087",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "半个赛季你进了十",
+  "occ": [
+   "aca_demote.text.0.16"
+  ]
+ },
+ {
+  "id": "S1088",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "九个球。所有人都",
+  "occ": [
+   "aca_demote.text.0.17"
+  ]
+ },
+ {
+  "id": "S1089",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "就是这十九个。",
+  "occ": [
+   "aca_demote.text.0.21"
+  ]
+ },
+ {
+  "id": "S1090",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "label",
+  "original": "申请跟一线队练",
+  "occ": [
+   "aca_demote.label.1"
+  ]
+ },
+ {
+  "id": "S1091",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "他们让你去当了三周陪练。三周里你没碰到几个球，但你知道了那个速度是什么样。",
+  "occ": [
+   "aca_demote.text.1.0"
+  ]
+ },
+ {
+  "id": "S1092",
+  "event_id": "aca_demote",
+  "event_title": "被放回低一档",
+  "scope": "generic",
+  "field": "text",
+  "original": "回复是「先把该踢的踢好」。那句话贴在你脑子里贴了两年。",
+  "occ": [
+   "aca_demote.text.1.1"
+  ]
+ },
+ {
+  "id": "S1093",
+  "event_id": "aca_bench_firstteam",
+  "event_title": "一线队的替补名单",
+  "scope": "generic",
+  "field": "desc",
+  "original": "杯赛轮换，一线队缺人，你被列进了替补名单。整场坐到第 91 分钟，热身衣脱了又穿上三次。",
+  "occ": [
+   "aca_bench_firstteam.desc"
+  ]
+ },
+ {
+  "id": "S1094",
+  "event_id": "aca_bench_firstteam",
+  "event_title": "一线队的替补名单",
+  "scope": "generic",
+  "field": "title",
+  "original": "一线队的替补名单",
+  "occ": [
+   "aca_bench_firstteam.title"
+  ]
+ },
+ {
+  "id": "S1095",
+  "event_id": "aca_bench_firstteam",
+  "event_title": "一线队的替补名单",
+  "scope": "generic",
+  "field": "label",
+  "original": "赛后去找主帅要一句话",
+  "occ": [
+   "aca_bench_firstteam.label.0"
+  ]
+ },
+ {
+  "id": "S1096",
+  "event_id": "aca_bench_firstteam",
+  "event_title": "一线队的替补名单",
+  "scope": "generic",
+  "field": "text",
+  "original": "他说了句「下次」。那两个字你回味了整个夏天，第二年真的兑现了。",
+  "occ": [
+   "aca_bench_firstteam.text.0.0"
+  ]
+ },
+ {
+  "id": "S1097",
+  "event_id": "aca_bench_firstteam",
+  "event_title": "一线队的替补名单",
+  "scope": "generic",
+  "field": "text",
+  "original": "他正被记者围着，从你身边走过去的时候点了下头。你不确定那是不是在看你。",
+  "occ": [
+   "aca_bench_firstteam.text.0.1"
+  ]
+ },
+ {
+  "id": "S1098",
+  "event_id": "aca_bench_firstteam",
+  "event_title": "一线队的替补名单",
+  "scope": "generic",
+  "field": "label",
+  "original": "什么也不说，回去练",
+  "occ": [
+   "aca_bench_firstteam.label.1"
+  ]
+ },
+ {
+  "id": "S1099",
+  "event_id": "aca_bench_firstteam",
+  "event_title": "一线队的替补名单",
+  "scope": "generic",
+  "field": "text",
+  "original": "第二天你比谁都早到基地。这件事没有任何人看见，但那一年你的体测数据是全梯队第一。",
+  "occ": [
+   "aca_bench_firstteam.text.1.0"
+  ]
+ },
+ {
+  "id": "S1100",
+  "event_id": "aca_family_call",
+  "event_title": "家里问什么时候签",
+  "scope": "generic",
+  "field": "desc",
+  "original": "又一年过去了，家里在电话里没直说，只是问「今年有消息吗」。你说快了。挂了以后你在楼道里站了很久。",
+  "occ": [
+   "aca_family_call.desc"
+  ]
+ },
+ {
+  "id": "S1101",
+  "event_id": "aca_family_call",
+  "event_title": "家里问什么时候签",
+  "scope": "generic",
+  "field": "title",
+  "original": "家里问什么时候签",
+  "occ": [
+   "aca_family_call.title"
+  ]
+ },
+ {
+  "id": "S1102",
+  "event_id": "aca_family_call",
+  "event_title": "家里问什么时候签",
+  "scope": "generic",
+  "field": "label",
+  "original": "再给自己一年",
+  "occ": [
+   "aca_family_call.label.0"
+  ]
+ },
+ {
+  "id": "S1103",
+  "event_id": "aca_family_call",
+  "event_title": "家里问什么时候签",
+  "scope": "generic",
+  "field": "text",
+  "original": "你没说自己已经是队里年纪最大的那一档。第二年你把每一堂课都当成最后一堂。",
+  "occ": [
+   "aca_family_call.text.0.0"
+  ]
+ },
+ {
+  "id": "S1104",
+  "event_id": "aca_family_call",
+  "event_title": "家里问什么时候签",
+  "scope": "generic",
+  "field": "label",
+  "original": "开始联系别的出路",
+  "occ": [
+   "aca_family_call.label.1"
+  ]
+ },
+ {
+  "id": "S1105",
+  "event_id": "aca_family_call",
+  "event_title": "家里问什么时候签",
+  "scope": "generic",
+  "field": "text",
+  "original": "你让人帮着问了几家低级别的队。消息还没回来，那几个礼拜你训练时总在走神。",
+  "occ": [
+   "aca_family_call.text.1.0"
+  ]
+ },
+ {
+  "id": "S1106",
+  "event_id": "aca_abr_alone",
+  "event_title": "宿舍楼空了",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "赛季间歇，本地的孩子都回家了。整栋青训公寓只剩你和一个尼日利亚人，食堂只开一个窗口。",
+  "occ": [
+   "aca_abr_alone.desc"
+  ]
+ },
+ {
+  "id": "S1107",
+  "event_id": "aca_abr_alone",
+  "event_title": "宿舍楼空了",
+  "scope": "abroad",
+  "field": "title",
+  "original": "宿舍楼空了",
+  "occ": [
+   "aca_abr_alone.title"
+  ]
+ },
+ {
+  "id": "S1108",
+  "event_id": "aca_abr_alone",
+  "event_title": "宿舍楼空了",
+  "scope": "abroad",
+  "field": "label",
+  "original": "两个人一起加练",
+  "occ": [
+   "aca_abr_alone.label.0"
+  ]
+ },
+ {
+  "id": "S1109",
+  "event_id": "aca_abr_alone",
+  "event_title": "宿舍楼空了",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你们把训练场的灯自己打开，练到管理员来赶人。很多年后他在另一个联赛踢球，还是会给你发消息。",
+  "occ": [
+   "aca_abr_alone.text.0.0"
+  ]
+ },
+ {
+  "id": "S1110",
+  "event_id": "aca_abr_alone",
+  "event_title": "宿舍楼空了",
+  "scope": "abroad",
+  "field": "label",
+  "original": "把这几天用来休息",
+  "occ": [
+   "aca_abr_alone.label.1"
+  ]
+ },
+ {
+  "id": "S1111",
+  "event_id": "aca_abr_alone",
+  "event_title": "宿舍楼空了",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你睡了三天，然后一个人坐火车去了一趟海边。回来那天你觉得还能再熬一年。",
+  "occ": [
+   "aca_abr_alone.text.1.0"
+  ]
+ },
+ {
+  "id": "S1112",
+  "event_id": "aca_abr_visa",
+  "event_title": "满十八岁那道关",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "满十八岁那年要重新办工作许可，条件之一是国家队出场纪录 —— 而你一场都没有。俱乐部的法务说，只能走特殊人才那条路，材料很厚。",
+  "occ": [
+   "aca_abr_visa.desc"
+  ]
+ },
+ {
+  "id": "S1113",
+  "event_id": "aca_abr_visa",
+  "event_title": "满十八岁那道关",
+  "scope": "abroad",
+  "field": "title",
+  "original": "满十八岁那道关",
+  "occ": [
+   "aca_abr_visa.title"
+  ]
+ },
+ {
+  "id": "S1114",
+  "event_id": "aca_abr_visa",
+  "event_title": "满十八岁那道关",
+  "scope": "abroad",
+  "field": "label",
+  "original": "俱乐部替你申请",
+  "occ": [
+   "aca_abr_visa.label.0"
+  ]
+ },
+ {
+  "id": "S1115",
+  "event_id": "aca_abr_visa",
+  "event_title": "满十八岁那道关",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他们真的替你办了，条件是把合同年限又签长了两年。你签的时候没有律师在场。",
+  "occ": [
+   "aca_abr_visa.text.0.0"
+  ]
+ },
+ {
+  "id": "S1116",
+  "event_id": "aca_abr_visa",
+  "event_title": "满十八岁那道关",
+  "scope": "abroad",
+  "field": "label",
+  "original": "先去邻国那支合作球会",
+  "occ": [
+   "aca_abr_visa.label.1"
+  ]
+ },
+ {
+  "id": "S1117",
+  "event_id": "aca_abr_visa",
+  "event_title": "满十八岁那道关",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你去了隔壁国家的二级联赛，那边不卡这条。一年后你从那儿回来，身份问题解决了，年纪也大了一岁。",
+  "occ": [
+   "aca_abr_visa.text.1.0"
+  ]
+ },
+ {
+  "id": "S1118",
+  "event_id": "aca_cn_stuck",
+  "event_title": "梯队里的老队员",
+  "scope": "china",
+  "field": "desc",
+  "original": "梯队里比你小三岁的孩子已经被叫去跟一线队合练了，而你还在这儿。队里管你叫「老人」，那不是好话。",
+  "occ": [
+   "aca_cn_stuck.desc"
+  ]
+ },
+ {
+  "id": "S1119",
+  "event_id": "aca_cn_stuck",
+  "event_title": "梯队里的老队员",
+  "scope": "china",
+  "field": "title",
+  "original": "梯队里的老队员",
+  "occ": [
+   "aca_cn_stuck.title"
+  ]
+ },
+ {
+  "id": "S1120",
+  "event_id": "aca_cn_stuck",
+  "event_title": "梯队里的老队员",
+  "scope": "china",
+  "field": "label",
+  "original": "找人问问能不能走",
+  "occ": [
+   "aca_cn_stuck.label.0"
+  ]
+ },
+ {
+  "id": "S1121",
+  "event_id": "aca_cn_stuck",
+  "event_title": "梯队里的老队员",
+  "scope": "china",
+  "field": "text",
+  "original": "托的人说会留意。半年里来了两次消息，一次是中乙，一次是没了下文。",
+  "occ": [
+   "aca_cn_stuck.text.0.0"
+  ]
+ },
+ {
+  "id": "S1122",
+  "event_id": "aca_cn_stuck",
+  "event_title": "梯队里的老队员",
+  "scope": "china",
+  "field": "label",
+  "original": "闷头再练一年",
+  "occ": [
+   "aca_cn_stuck.label.1"
+  ]
+ },
+ {
+  "id": "S1123",
+  "event_id": "aca_cn_stuck",
+  "event_title": "梯队里的老队员",
+  "scope": "china",
+  "field": "text",
+  "original": "你把那句「老人」当成了每天早上起床的理由。那一年你的数据是梯队里最好的，名单上还是没有你。",
+  "occ": [
+   "aca_cn_stuck.text.1.0"
+  ]
+ },
+ {
+  "id": "S1124",
+  "event_id": "aca_cn_school",
+  "event_title": "回去读书还来得及",
+  "scope": "china",
+  "field": "desc",
+  "original": "同批被刷掉的几个都回学校了，其中一个考上了体育院校。家里把那条消息转给你，后面跟了一句「你自己想想」。",
+  "occ": [
+   "aca_cn_school.desc"
+  ]
+ },
+ {
+  "id": "S1125",
+  "event_id": "aca_cn_school",
+  "event_title": "回去读书还来得及",
+  "scope": "china",
+  "field": "title",
+  "original": "回去读书还来得及",
+  "occ": [
+   "aca_cn_school.title"
+  ]
+ },
+ {
+  "id": "S1126",
+  "event_id": "aca_cn_school",
+  "event_title": "回去读书还来得及",
+  "scope": "china",
+  "field": "label",
+  "original": "白天练，晚上补课",
+  "occ": [
+   "aca_cn_school.label.0"
+  ]
+ },
+ {
+  "id": "S1127",
+  "event_id": "aca_cn_school",
+  "event_title": "回去读书还来得及",
+  "scope": "china",
+  "field": "text",
+  "original": "你两头都占着，两头都不够好。但很多年以后你庆幸自己留了那条路。",
+  "occ": [
+   "aca_cn_school.text.0.0"
+  ]
+ },
+ {
+  "id": "S1128",
+  "event_id": "aca_cn_school",
+  "event_title": "回去读书还来得及",
+  "scope": "china",
+  "field": "label",
+  "original": "只走这一条路",
+  "occ": [
+   "aca_cn_school.label.1"
+  ]
+ },
+ {
+  "id": "S1129",
+  "event_id": "aca_cn_school",
+  "event_title": "回去读书还来得及",
+  "scope": "china",
+  "field": "text",
+  "original": "你把课本收进箱子，塞到床底下。那之后训练场上再没人比你早到过。",
+  "occ": [
+   "aca_cn_school.text.1.0"
+  ]
+ },
+ {
+  "id": "S1130",
+  "event_id": "cn_youth_fix",
+  "event_title": "青年赛的默契球",
+  "scope": "china",
+  "field": "desc",
+  "original": "最后一轮，两队都清楚踢平就一起出线。赛前领队把两边队长叫到了一起。",
+  "occ": [
+   "cn_youth_fix.desc"
+  ]
+ },
+ {
+  "id": "S1131",
+  "event_id": "cn_youth_fix",
+  "event_title": "青年赛的默契球",
+  "scope": "china",
+  "field": "title",
+  "original": "青年赛的默契球",
+  "occ": [
+   "cn_youth_fix.title"
+  ]
+ },
+ {
+  "id": "S1132",
+  "event_id": "cn_youth_fix",
+  "event_title": "青年赛的默契球",
+  "scope": "china",
+  "field": "text",
+  "original": "全场没有一次射门。看台上有个家长站起来骂了一句，被保安请了出去。",
+  "occ": [
+   "cn_youth_fix.text.0.0"
+  ]
+ },
+ {
+  "id": "S1133",
+  "event_id": "cn_youth_fix",
+  "event_title": "青年赛的默契球",
+  "scope": "china",
+  "field": "label",
+  "original": "自己踢自己的",
+  "occ": [
+   "cn_youth_fix.label.1"
+  ]
+ },
+ {
+  "id": "S1134",
+  "event_id": "cn_youth_fix",
+  "event_title": "青年赛的默契球",
+  "scope": "china",
+  "field": "text",
+  "original": "你在第 80 分钟当着两边所有人的面拼了一次全力。那场之后有支职业队的球探记下了你的名字。",
+  "occ": [
+   "cn_youth_fix.text.1.0"
+  ]
+ },
+ {
+  "id": "S1135",
+  "event_id": "cn_youth_fix",
+  "event_title": "青年赛的默契球",
+  "scope": "china",
+  "field": "text",
+  "original": "球没进，队伍出局了。回程车上没人跟你坐一排。",
+  "occ": [
+   "cn_youth_fix.text.1.1"
+  ]
+ },
+ {
+  "id": "S1136",
+  "event_id": "cn_hukou",
+  "event_title": "户口",
+  "scope": "china",
+  "field": "desc",
+  "original": "外省来的孩子在这边没法参加注册赛。有人说可以「办一下」。",
+  "occ": [
+   "cn_hukou.desc"
+  ]
+ },
+ {
+  "id": "S1137",
+  "event_id": "cn_hukou",
+  "event_title": "户口",
+  "scope": "china",
+  "field": "title",
+  "original": "户口",
+  "occ": [
+   "cn_hukou.title"
+  ]
+ },
+ {
+  "id": "S1138",
+  "event_id": "cn_hukou",
+  "event_title": "户口",
+  "scope": "china",
+  "field": "label",
+  "original": "办",
+  "occ": [
+   "cn_hukou.label.0",
+   "vet_testimonial.label.0"
+  ]
+ },
+ {
+  "id": "S1139",
+  "event_id": "cn_hukou",
+  "event_title": "户口",
+  "scope": "china",
+  "field": "text",
+  "original": "手续走了半年，材料上的出生地不是你出生的地方。你终于能上场了。",
+  "occ": [
+   "cn_hukou.text.0.0"
+  ]
+ },
+ {
+  "id": "S1140",
+  "event_id": "cn_hukou",
+  "event_title": "户口",
+  "scope": "china",
+  "field": "label",
+  "original": "等政策",
+  "occ": [
+   "cn_hukou.label.1"
+  ]
+ },
+ {
+  "id": "S1141",
+  "event_id": "cn_hukou",
+  "event_title": "户口",
+  "scope": "china",
+  "field": "text",
+  "original": "第二年注册办法改了，你赶上了末班车。",
+  "occ": [
+   "cn_hukou.text.1.0"
+  ]
+ },
+ {
+  "id": "S1142",
+  "event_id": "cn_hukou",
+  "event_title": "户口",
+  "scope": "china",
+  "field": "text",
+  "original": "你在场边看了两年球。等能报名的时候，同届的都上一线队了。",
+  "occ": [
+   "cn_hukou.text.1.1"
+  ]
+ },
+ {
+  "id": "S1143",
+  "event_id": "buyout_clause",
+  "event_title": "解约金条款",
+  "scope": "generic",
+  "field": "desc",
+  "original": "续约文本里有一条解约金。经纪人说数字写低点，将来好走。",
+  "occ": [
+   "buyout_clause.desc"
+  ]
+ },
+ {
+  "id": "S1144",
+  "event_id": "buyout_clause",
+  "event_title": "解约金条款",
+  "scope": "generic",
+  "field": "title",
+  "original": "解约金条款",
+  "occ": [
+   "buyout_clause.title"
+  ]
+ },
+ {
+  "id": "S1145",
+  "event_id": "buyout_clause",
+  "event_title": "解约金条款",
+  "scope": "generic",
+  "field": "label",
+  "original": "写低",
+  "occ": [
+   "buyout_clause.label.0"
+  ]
+ },
+ {
+  "id": "S1146",
+  "event_id": "buyout_clause",
+  "event_title": "解约金条款",
+  "scope": "generic",
+  "field": "text",
+  "original": "俱乐部答应了，代价是工资打了折。两年后有人真的按那个数字把你买走了。",
+  "occ": [
+   "buyout_clause.text.0.0"
+  ]
+ },
+ {
+  "id": "S1147",
+  "event_id": "buyout_clause",
+  "event_title": "解约金条款",
+  "scope": "generic",
+  "field": "label",
+  "original": "要高工资",
+  "occ": [
+   "buyout_clause.label.1"
+  ]
+ },
+ {
+  "id": "S1148",
+  "event_id": "buyout_clause",
+  "event_title": "解约金条款",
+  "scope": "generic",
+  "field": "text",
+  "original": "你拿到了队里第二高的工资，踏踏实实踢了三年。",
+  "occ": [
+   "buyout_clause.text.1.0"
+  ]
+ },
+ {
+  "id": "S1149",
+  "event_id": "buyout_clause",
+  "event_title": "解约金条款",
+  "scope": "generic",
+  "field": "text",
+  "original": "工资是高，可那个天价解约金让所有问价的球队都掉头走了。",
+  "occ": [
+   "buyout_clause.text.1.1"
+  ]
+ },
+ {
+  "id": "S1150",
+  "event_id": "media_training",
+  "event_title": "媒体培训",
+  "scope": "generic",
+  "field": "desc",
+  "original": "俱乐部请人来教球员怎么面对镜头：少说、说套话、别接情绪。",
+  "occ": [
+   "media_training.desc"
+  ]
+ },
+ {
+  "id": "S1151",
+  "event_id": "media_training",
+  "event_title": "媒体培训",
+  "scope": "generic",
+  "field": "title",
+  "original": "媒体培训",
+  "occ": [
+   "media_training.title"
+  ]
+ },
+ {
+  "id": "S1152",
+  "event_id": "media_training",
+  "event_title": "媒体培训",
+  "scope": "generic",
+  "field": "label",
+  "original": "认真学",
+  "occ": [
+   "media_training.label.0",
+   "light_cook.label.0"
+  ]
+ },
+ {
+  "id": "S1153",
+  "event_id": "media_training",
+  "event_title": "媒体培训",
+  "scope": "generic",
+  "field": "text",
+  "original": "从此你的采访没有一句能上标题。俱乐部很满意，记者见你就绕道。",
+  "occ": [
+   "media_training.text.0.0"
+  ]
+ },
+ {
+  "id": "S1154",
+  "event_id": "media_training",
+  "event_title": "媒体培训",
+  "scope": "generic",
+  "field": "label",
+  "original": "有话直说",
+  "occ": [
+   "media_training.label.1"
+  ]
+ },
+ {
+  "id": "S1155",
+  "event_id": "media_training",
+  "event_title": "媒体培训",
+  "scope": "generic",
+  "field": "text",
+  "original": "你那句「我们踢得不配拿工资」上了热搜第七。球迷说这队总算有个说人话的。",
+  "occ": [
+   "media_training.text.1.0"
+  ]
+ },
+ {
+  "id": "S1156",
+  "event_id": "media_training",
+  "event_title": "媒体培训",
+  "scope": "generic",
+  "field": "text",
+  "original": "俱乐部内部通报批评，罚款三十万。领队说你不懂事。",
+  "occ": [
+   "media_training.text.1.1"
+  ]
+ },
+ {
+  "id": "S1157",
+  "event_id": "boot_deal",
+  "event_title": "球鞋合同",
+  "scope": "generic",
+  "field": "desc",
+  "original": "两家品牌来谈：一家给的钱多但鞋不合脚，一家钱少但按你的脚定制。",
+  "occ": [
+   "boot_deal.desc"
+  ]
+ },
+ {
+  "id": "S1158",
+  "event_id": "boot_deal",
+  "event_title": "球鞋合同",
+  "scope": "generic",
+  "field": "title",
+  "original": "球鞋合同",
+  "occ": [
+   "boot_deal.title"
+  ]
+ },
+ {
+  "id": "S1159",
+  "event_id": "boot_deal",
+  "event_title": "球鞋合同",
+  "scope": "generic",
+  "field": "label",
+  "original": "要钱",
+  "occ": [
+   "boot_deal.label.0"
+  ]
+ },
+ {
+  "id": "S1160",
+  "event_id": "boot_deal",
+  "event_title": "球鞋合同",
+  "scope": "generic",
+  "field": "text",
+  "original": "你穿着不太跟脚的鞋踢了三年，钱进了账。",
+  "occ": [
+   "boot_deal.text.0.0"
+  ]
+ },
+ {
+  "id": "S1161",
+  "event_id": "boot_deal",
+  "event_title": "球鞋合同",
+  "scope": "generic",
+  "field": "text",
+  "original": "跖骨疲劳性骨折。医生第一句话是问你鞋码。",
+  "occ": [
+   "boot_deal.text.0.1"
+  ]
+ },
+ {
+  "id": "S1162",
+  "event_id": "boot_deal",
+  "event_title": "球鞋合同",
+  "scope": "generic",
+  "field": "label",
+  "original": "要定制",
+  "occ": [
+   "boot_deal.label.1"
+  ]
+ },
+ {
+  "id": "S1163",
+  "event_id": "boot_deal",
+  "event_title": "球鞋合同",
+  "scope": "generic",
+  "field": "text",
+  "original": "他们给你做了六双楦头不同的鞋。你那两年一次脚伤都没有。",
+  "occ": [
+   "boot_deal.text.1.0"
+  ]
+ },
+ {
+  "id": "S1164",
+  "event_id": "play_injured",
+  "event_title": "带伤上阵",
+  "scope": "generic",
+  "field": "desc",
+  "original": "关键战前一天，队医说打一针能上，但赛季可能就交代了。",
+  "occ": [
+   "play_injured.desc"
+  ]
+ },
+ {
+  "id": "S1165",
+  "event_id": "play_injured",
+  "event_title": "带伤上阵",
+  "scope": "generic",
+  "field": "title",
+  "original": "带伤上阵",
+  "occ": [
+   "play_injured.title"
+  ]
+ },
+ {
+  "id": "S1166",
+  "event_id": "play_injured",
+  "event_title": "带伤上阵",
+  "scope": "generic",
+  "field": "text",
+  "original": "你踢满九十分钟，赛后被人架着走出更衣室。那场球赢了。",
+  "occ": [
+   "play_injured.text.0.0"
+  ]
+ },
+ {
+  "id": "S1167",
+  "event_id": "play_injured",
+  "event_title": "带伤上阵",
+  "scope": "generic",
+  "field": "text",
+  "original": "第 26 分钟你自己倒下了。半月板，赛季结束。",
+  "occ": [
+   "play_injured.text.0.1"
+  ]
+ },
+ {
+  "id": "S1168",
+  "event_id": "play_injured",
+  "event_title": "带伤上阵",
+  "scope": "generic",
+  "field": "label",
+  "original": "不上",
+  "occ": [
+   "play_injured.label.1"
+  ]
+ },
+ {
+  "id": "S1169",
+  "event_id": "play_injured",
+  "event_title": "带伤上阵",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在看台上看完了那场球。队里输了，有人在群里说了句「有些人爱惜羽毛」。",
+  "occ": [
+   "play_injured.text.1.0"
+  ]
+ }
+]

@@ -1,0 +1,1590 @@
+[
+ {
+  "id": "S1612",
+  "event_id": "nat_firstcall",
+  "event_title": "国家队的电话",
+  "scope": "generic",
+  "field": "desc",
+  "original": "训练完手机上有个未接来电，区号是北京。回过去那边说：下周一到香河报到，行李按十天准备。",
+  "occ": [
+   "nat_firstcall.desc"
+  ]
+ },
+ {
+  "id": "S1613",
+  "event_id": "nat_firstcall",
+  "event_title": "国家队的电话",
+  "scope": "generic",
+  "field": "title",
+  "original": "国家队的电话",
+  "occ": [
+   "nat_firstcall.title"
+  ]
+ },
+ {
+  "id": "S1614",
+  "event_id": "nat_firstcall",
+  "event_title": "国家队的电话",
+  "scope": "generic",
+  "field": "label",
+  "original": "先给家里打电话",
+  "occ": [
+   "nat_firstcall.label.0"
+  ]
+ },
+ {
+  "id": "S1615",
+  "event_id": "nat_firstcall",
+  "event_title": "国家队的电话",
+  "scope": "generic",
+  "field": "text",
+  "original": "你妈在那头没说话，过了好一会儿才问「衣服够不够穿」。你爸在旁边一直咳嗽。",
+  "occ": [
+   "nat_firstcall.text.0.0"
+  ]
+ },
+ {
+  "id": "S1616",
+  "event_id": "nat_firstcall",
+  "event_title": "国家队的电话",
+  "scope": "generic",
+  "field": "label",
+  "original": "谁也没说，先去训练场加练",
+  "occ": [
+   "nat_firstcall.label.1"
+  ]
+ },
+ {
+  "id": "S1617",
+  "event_id": "nat_firstcall",
+  "event_title": "国家队的电话",
+  "scope": "generic",
+  "field": "text",
+  "original": "你怕这事是假的，也怕说出去以后去不成。名单公布那天，你正在做第四组折返跑。",
+  "occ": [
+   "nat_firstcall.text.1.0"
+  ]
+ },
+ {
+  "id": "S1618",
+  "event_id": "nat_firstgoal",
+  "event_title": "第一个国家队进球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "球进的那一下你其实没看清。等你反应过来，队友已经从半场那头跑过来了。",
+  "occ": [
+   "nat_firstgoal.desc"
+  ]
+ },
+ {
+  "id": "S1619",
+  "event_id": "nat_firstgoal",
+  "event_title": "第一个国家队进球",
+  "scope": "generic",
+  "field": "title",
+  "original": "第一个国家队进球",
+  "occ": [
+   "nat_firstgoal.title"
+  ]
+ },
+ {
+  "id": "S1620",
+  "event_id": "nat_firstgoal",
+  "event_title": "第一个国家队进球",
+  "scope": "generic",
+  "field": "label",
+  "original": "跑向看台，对着那面旗",
+  "occ": [
+   "nat_firstgoal.label.0"
+  ]
+ },
+ {
+  "id": "S1621",
+  "event_id": "nat_firstgoal",
+  "event_title": "第一个国家队进球",
+  "scope": "generic",
+  "field": "text",
+  "original": "那张照片后来印在很多地方。你自己留的那张是手机拍的，看台上一个举着旗的人，脸都糊了。",
+  "occ": [
+   "nat_firstgoal.text.0.0"
+  ]
+ },
+ {
+  "id": "S1622",
+  "event_id": "nat_firstgoal",
+  "event_title": "第一个国家队进球",
+  "scope": "generic",
+  "field": "label",
+  "original": "捡球回中圈，比赛还没完",
+  "occ": [
+   "nat_firstgoal.label.1"
+  ]
+ },
+ {
+  "id": "S1623",
+  "event_id": "nat_firstgoal",
+  "event_title": "第一个国家队进球",
+  "scope": "generic",
+  "field": "text",
+  "original": "解说说了一句「他没庆祝」。那场最后 1 比 1，你在中圈站着等开球，一直没坐下。",
+  "occ": [
+   "nat_firstgoal.text.1.0"
+  ]
+ },
+ {
+  "id": "S1624",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "desc",
+  "original": "最后一轮，赢了还有一线机会，输了就是又一个四年。客场，八万人的球场里有两千个中国球迷。",
+  "occ": [
+   "nat_qualifier.desc"
+  ]
+ },
+ {
+  "id": "S1625",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "title",
+  "original": "世预赛最后一轮",
+  "occ": [
+   "nat_qualifier.title"
+  ]
+ },
+ {
+  "id": "S1626",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "label",
+  "original": "全场压上去踢",
+  "occ": [
+   "nat_qualifier.label.0"
+  ]
+ },
+ {
+  "id": "S1627",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在最后十分钟扑",
+  "occ": [
+   "nat_qualifier.text.0.1"
+  ]
+ },
+ {
+  "id": "S1628",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "出了一记必进球。",
+  "occ": [
+   "nat_qualifier.text.0.2"
+  ]
+ },
+ {
+  "id": "S1629",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "终场哨响时看台上",
+  "occ": [
+   "nat_qualifier.text.0.3",
+   "nat_qualifier.text.0.16"
+  ]
+ },
+ {
+  "id": "S1630",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "那两千人喊的是你",
+  "occ": [
+   "nat_qualifier.text.0.4",
+   "nat_qualifier.text.0.17"
+  ]
+ },
+ {
+  "id": "S1631",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "的名字。",
+  "occ": [
+   "nat_qualifier.text.0.5",
+   "nat_qualifier.text.0.18"
+  ]
+ },
+ {
+  "id": "S1632",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在最后十分钟把",
+  "occ": [
+   "nat_qualifier.text.0.7"
+  ]
+ },
+ {
+  "id": "S1633",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "对方前锋的那脚射",
+  "occ": [
+   "nat_qualifier.text.0.8"
+  ]
+ },
+ {
+  "id": "S1634",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "门挡了出去。终场",
+  "occ": [
+   "nat_qualifier.text.0.9"
+  ]
+ },
+ {
+  "id": "S1635",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "哨响时看台上那两",
+  "occ": [
+   "nat_qualifier.text.0.10"
+  ]
+ },
+ {
+  "id": "S1636",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "千人喊的是你的名",
+  "occ": [
+   "nat_qualifier.text.0.11"
+  ]
+ },
+ {
+  "id": "S1637",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "字。",
+  "occ": [
+   "nat_qualifier.text.0.12"
+  ]
+ },
+ {
+  "id": "S1638",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在第 88 分",
+  "occ": [
+   "nat_qualifier.text.0.14"
+  ]
+ },
+ {
+  "id": "S1639",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "钟把球捅了进去。",
+  "occ": [
+   "nat_qualifier.text.0.15"
+  ]
+ },
+ {
+  "id": "S1640",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "0 比 2。回程飞机上没人说话。落地以后有人在通道口喊了句「谢谢你们」，也有人喊了别的。",
+  "occ": [
+   "nat_qualifier.text.0.19"
+  ]
+ },
+ {
+  "id": "S1641",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "label",
+  "original": "先守住，别输太难看",
+  "occ": [
+   "nat_qualifier.label.1"
+  ]
+ },
+ {
+  "id": "S1642",
+  "event_id": "nat_qualifier",
+  "event_title": "世预赛最后一轮",
+  "scope": "generic",
+  "field": "text",
+  "original": "0 比 0。教练组说这是「务实的一分」。回国以后没有人再提这场球。",
+  "occ": [
+   "nat_qualifier.text.1.0"
+  ]
+ },
+ {
+  "id": "S1643",
+  "event_id": "nat_anthem",
+  "event_title": "国歌",
+  "scope": "generic",
+  "field": "desc",
+  "original": "大赛正赛第一场，站在中圈线上唱国歌。左边那个队友唱到一半哭了，右边那个一个字没张嘴。",
+  "occ": [
+   "nat_anthem.desc"
+  ]
+ },
+ {
+  "id": "S1644",
+  "event_id": "nat_anthem",
+  "event_title": "国歌",
+  "scope": "generic",
+  "field": "title",
+  "original": "国歌",
+  "occ": [
+   "nat_anthem.title"
+  ]
+ },
+ {
+  "id": "S1645",
+  "event_id": "nat_anthem",
+  "event_title": "国歌",
+  "scope": "generic",
+  "field": "label",
+  "original": "跟着唱完",
+  "occ": [
+   "nat_anthem.label.0"
+  ]
+ },
+ {
+  "id": "S1646",
+  "event_id": "nat_anthem",
+  "event_title": "国歌",
+  "scope": "generic",
+  "field": "text",
+  "original": "转播镜头正好扫到你。那个画面第二天被做成了很多张图，配的字你后来都看过。",
+  "occ": [
+   "nat_anthem.text.0.0"
+  ]
+ },
+ {
+  "id": "S1647",
+  "event_id": "nat_anthem",
+  "event_title": "国歌",
+  "scope": "generic",
+  "field": "label",
+  "original": "只想着待会儿的第一脚球",
+  "occ": [
+   "nat_anthem.label.1"
+  ]
+ },
+ {
+  "id": "S1648",
+  "event_id": "nat_anthem",
+  "event_title": "国歌",
+  "scope": "generic",
+  "field": "text",
+  "original": "你满脑子都是对面那个左后卫的转身速度。开场第七分钟你就从那一侧过掉了他。",
+  "occ": [
+   "nat_anthem.text.1.0"
+  ]
+ },
+ {
+  "id": "S1649",
+  "event_id": "nat_newcoach",
+  "event_title": "新国家队主帅",
+  "scope": "generic",
+  "field": "desc",
+  "original": "又换帅了，这次来的是个外教。他带的第一期名单里没有你，助理教练私下说「他喜欢跑得多的」。",
+  "occ": [
+   "nat_newcoach.desc"
+  ]
+ },
+ {
+  "id": "S1650",
+  "event_id": "nat_newcoach",
+  "event_title": "新国家队主帅",
+  "scope": "generic",
+  "field": "title",
+  "original": "新国家队主帅",
+  "occ": [
+   "nat_newcoach.title"
+  ]
+ },
+ {
+  "id": "S1651",
+  "event_id": "nat_newcoach",
+  "event_title": "新国家队主帅",
+  "scope": "generic",
+  "field": "label",
+  "original": "按他的要求改",
+  "occ": [
+   "nat_newcoach.label.0"
+  ]
+ },
+ {
+  "id": "S1652",
+  "event_id": "nat_newcoach",
+  "event_title": "新国家队主帅",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把冬训的量加了三成，跑动数据发给了助教。第三期名单上你的名字排在最后一个，但它在。",
+  "occ": [
+   "nat_newcoach.text.0.0"
+  ]
+ },
+ {
+  "id": "S1653",
+  "event_id": "nat_newcoach",
+  "event_title": "新国家队主帅",
+  "scope": "generic",
+  "field": "label",
+  "original": "不改，等他下课",
+  "occ": [
+   "nat_newcoach.label.1"
+  ]
+ },
+ {
+  "id": "S1654",
+  "event_id": "nat_newcoach",
+  "event_title": "新国家队主帅",
+  "scope": "generic",
+  "field": "text",
+  "original": "他两年后就走了，走的时候战绩是 3 胜 9 负。下一任第一期就把你叫了回去。",
+  "occ": [
+   "nat_newcoach.text.1.0"
+  ]
+ },
+ {
+  "id": "S1655",
+  "event_id": "nat_newcoach",
+  "event_title": "新国家队主帅",
+  "scope": "generic",
+  "field": "text",
+  "original": "他待了四年。这四年里你一场国家队比赛都没打，等他走的时候，你已经过了三十。",
+  "occ": [
+   "nat_newcoach.text.1.1"
+  ]
+ },
+ {
+  "id": "S1656",
+  "event_id": "nat_captain",
+  "event_title": "国家队队长",
+  "scope": "generic",
+  "field": "desc",
+  "original": "老队长退了。教练组在赛前把袖标放在你的柜子上，没说话，也没问你愿不愿意。",
+  "occ": [
+   "nat_captain.desc"
+  ]
+ },
+ {
+  "id": "S1657",
+  "event_id": "nat_captain",
+  "event_title": "国家队队长",
+  "scope": "generic",
+  "field": "title",
+  "original": "国家队队长",
+  "occ": [
+   "nat_captain.title"
+  ]
+ },
+ {
+  "id": "S1658",
+  "event_id": "nat_captain",
+  "event_title": "国家队队长",
+  "scope": "generic",
+  "field": "text",
+  "original": "从那以后每场输球的混合采访区都是你去站着。有一次你站了二十六分钟，回到更衣室饭已经凉了。",
+  "occ": [
+   "nat_captain.text.0.0"
+  ]
+ },
+ {
+  "id": "S1659",
+  "event_id": "nat_captain",
+  "event_title": "国家队队长",
+  "scope": "generic",
+  "field": "label",
+  "original": "说给更合适的人",
+  "occ": [
+   "nat_captain.label.1"
+  ]
+ },
+ {
+  "id": "S1660",
+  "event_id": "nat_captain",
+  "event_title": "国家队队长",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说队里有人比你更会说话。那人戴了两年，你替他挡了两年的酒。",
+  "occ": [
+   "nat_captain.text.1.0"
+  ]
+ },
+ {
+  "id": "S1661",
+  "event_id": "nat_naturalized",
+  "event_title": "更衣室里的两种话",
+  "scope": "generic",
+  "field": "desc",
+  "original": "国家队来了三个归化球员，战术会得配两个翻译。主教练布置定位球，讲一句停一句。",
+  "occ": [
+   "nat_naturalized.desc"
+  ]
+ },
+ {
+  "id": "S1662",
+  "event_id": "nat_naturalized",
+  "event_title": "更衣室里的两种话",
+  "scope": "generic",
+  "field": "title",
+  "original": "更衣室里的两种话",
+  "occ": [
+   "nat_naturalized.title"
+  ]
+ },
+ {
+  "id": "S1663",
+  "event_id": "nat_naturalized",
+  "event_title": "更衣室里的两种话",
+  "scope": "generic",
+  "field": "label",
+  "original": "主动去跟他们练配合",
+  "occ": [
+   "nat_naturalized.label.0"
+  ]
+ },
+ {
+  "id": "S1664",
+  "event_id": "nat_naturalized",
+  "event_title": "更衣室里的两种话",
+  "scope": "generic",
+  "field": "text",
+  "original": "你每天训练后多留半小时跟他们跑那几条线路。三个月后那套战术是全队唯一练熟的东西。",
+  "occ": [
+   "nat_naturalized.text.0.0"
+  ]
+ },
+ {
+  "id": "S1665",
+  "event_id": "nat_naturalized",
+  "event_title": "更衣室里的两种话",
+  "scope": "generic",
+  "field": "label",
+  "original": "各踢各的",
+  "occ": [
+   "nat_naturalized.label.1"
+  ]
+ },
+ {
+  "id": "S1666",
+  "event_id": "nat_naturalized",
+  "event_title": "更衣室里的两种话",
+  "scope": "generic",
+  "field": "text",
+  "original": "场上传球总是慢半拍。赛后有媒体统计，那场比赛全队的传球成功率是小组最低。",
+  "occ": [
+   "nat_naturalized.text.1.0"
+  ]
+ },
+ {
+  "id": "S1667",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "desc",
+  "original": "客场打西亚，开球时间当地凌晨零点，场边有人整场用激光笔照你们。第 70 分钟主队球迷开始扔东西。",
+  "occ": [
+   "nat_westasia.desc"
+  ]
+ },
+ {
+  "id": "S1668",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "title",
+  "original": "西亚客场",
+  "occ": [
+   "nat_westasia.title"
+  ]
+ },
+ {
+  "id": "S1669",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "label",
+  "original": "踢完它",
+  "occ": [
+   "nat_westasia.label.0"
+  ]
+ },
+ {
+  "id": "S1670",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "你被激光笔照了整",
+  "occ": [
+   "nat_westasia.text.0.1",
+   "nat_westasia.text.0.7"
+  ]
+ },
+ {
+  "id": "S1671",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "整四十分钟，还是",
+  "occ": [
+   "nat_westasia.text.0.2"
+  ]
+ },
+ {
+  "id": "S1672",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "把那记远射按在了",
+  "occ": [
+   "nat_westasia.text.0.3"
+  ]
+ },
+ {
+  "id": "S1673",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "地上。赛后你眼睛",
+  "occ": [
+   "nat_westasia.text.0.4"
+  ]
+ },
+ {
+  "id": "S1674",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "红得睁不开。",
+  "occ": [
+   "nat_westasia.text.0.5"
+  ]
+ },
+ {
+  "id": "S1675",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "整四十分钟。终场",
+  "occ": [
+   "nat_westasia.text.0.8"
+  ]
+ },
+ {
+  "id": "S1676",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "哨响你第一个走向",
+  "occ": [
+   "nat_westasia.text.0.9"
+  ]
+ },
+ {
+  "id": "S1677",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "客场看台，鞠了个",
+  "occ": [
+   "nat_westasia.text.0.10"
+  ]
+ },
+ {
+  "id": "S1678",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "躬。",
+  "occ": [
+   "nat_westasia.text.0.11"
+  ]
+ },
+ {
+  "id": "S1679",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "label",
+  "original": "带头去找裁判",
+  "occ": [
+   "nat_westasia.label.1"
+  ]
+ },
+ {
+  "id": "S1680",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "裁判把比赛中断了八分钟。那八分钟你们全队站在中圈里，谁也没坐下。",
+  "occ": [
+   "nat_westasia.text.1.0"
+  ]
+ },
+ {
+  "id": "S1681",
+  "event_id": "nat_westasia",
+  "event_title": "西亚客场",
+  "scope": "generic",
+  "field": "text",
+  "original": "裁判给了你一张黄牌，理由是「异议」。你下一场停赛。",
+  "occ": [
+   "nat_westasia.text.1.1"
+  ]
+ },
+ {
+  "id": "S1682",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "desc",
+  "original": "对日本还是对韩国，这些年已经没什么区别了：赛前所有人都在说「至少别输太多」。",
+  "occ": [
+   "nat_derby.desc"
+  ]
+ },
+ {
+  "id": "S1683",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "title",
+  "original": "那场球",
+  "occ": [
+   "nat_derby.title"
+  ]
+ },
+ {
+  "id": "S1684",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "label",
+  "original": "把这场当决赛踢",
+  "occ": [
+   "nat_derby.label.0"
+  ]
+ },
+ {
+  "id": "S1685",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你扑掉了那记点球",
+  "occ": [
+   "nat_derby.text.0.1"
+  ]
+ },
+ {
+  "id": "S1686",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "。那一晚全国的社",
+  "occ": [
+   "nat_derby.text.0.2"
+  ]
+ },
+ {
+  "id": "S1687",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "交平台都在放同一",
+  "occ": [
+   "nat_derby.text.0.3"
+  ]
+ },
+ {
+  "id": "S1688",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "段十秒的视频。",
+  "occ": [
+   "nat_derby.text.0.4"
+  ]
+ },
+ {
+  "id": "S1689",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在最后一分钟把",
+  "occ": [
+   "nat_derby.text.0.6"
+  ]
+ },
+ {
+  "id": "S1690",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "对方那记必进的射",
+  "occ": [
+   "nat_derby.text.0.7"
+  ]
+ },
+ {
+  "id": "S1691",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "门封了下来。那一",
+  "occ": [
+   "nat_derby.text.0.8"
+  ]
+ },
+ {
+  "id": "S1692",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "晚全国的社交平台",
+  "occ": [
+   "nat_derby.text.0.9"
+  ]
+ },
+ {
+  "id": "S1693",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "都在放同一段十秒",
+  "occ": [
+   "nat_derby.text.0.10"
+  ]
+ },
+ {
+  "id": "S1694",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "的视频。",
+  "occ": [
+   "nat_derby.text.0.11"
+  ]
+ },
+ {
+  "id": "S1695",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你打进了那个球。",
+  "occ": [
+   "nat_derby.text.0.13"
+  ]
+ },
+ {
+  "id": "S1696",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "那一晚全国的社交",
+  "occ": [
+   "nat_derby.text.0.14"
+  ]
+ },
+ {
+  "id": "S1697",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "平台都在放同一段",
+  "occ": [
+   "nat_derby.text.0.15"
+  ]
+ },
+ {
+  "id": "S1698",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "十秒的视频。",
+  "occ": [
+   "nat_derby.text.0.16"
+  ]
+ },
+ {
+  "id": "S1699",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "0 比 3。你跑了 11.8 公里，是全队最多的。这个数据第二天没有人提。",
+  "occ": [
+   "nat_derby.text.0.17"
+  ]
+ },
+ {
+  "id": "S1700",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "label",
+  "original": "保存体力，还有联赛",
+  "occ": [
+   "nat_derby.label.1"
+  ]
+ },
+ {
+  "id": "S1701",
+  "event_id": "nat_derby",
+  "event_title": "那场球",
+  "scope": "generic",
+  "field": "text",
+  "original": "你踢了六十分钟就被换下。回到俱乐部你连着三场首发，没人再问你国家队的事。",
+  "occ": [
+   "nat_derby.text.1.0"
+  ]
+ },
+ {
+  "id": "S1702",
+  "event_id": "nat_hurt",
+  "event_title": "带着伤去报到",
+  "scope": "generic",
+  "field": "desc",
+  "original": "脚踝还肿着，队医说再养两周就好。国家队那边说这一期是大赛前最后一次集训。",
+  "occ": [
+   "nat_hurt.desc"
+  ]
+ },
+ {
+  "id": "S1703",
+  "event_id": "nat_hurt",
+  "event_title": "带着伤去报到",
+  "scope": "generic",
+  "field": "title",
+  "original": "带着伤去报到",
+  "occ": [
+   "nat_hurt.title"
+  ]
+ },
+ {
+  "id": "S1704",
+  "event_id": "nat_hurt",
+  "event_title": "带着伤去报到",
+  "scope": "generic",
+  "field": "label",
+  "original": "打封闭去",
+  "occ": [
+   "nat_hurt.label.0"
+  ]
+ },
+ {
+  "id": "S1705",
+  "event_id": "nat_hurt",
+  "event_title": "带着伤去报到",
+  "scope": "generic",
+  "field": "text",
+  "original": "你打了三针，两场都是全场。回俱乐部那天走路还有点跛，但大赛名单上有你。",
+  "occ": [
+   "nat_hurt.text.0.0"
+  ]
+ },
+ {
+  "id": "S1706",
+  "event_id": "nat_hurt",
+  "event_title": "带着伤去报到",
+  "scope": "generic",
+  "field": "text",
+  "original": "第二场三十分钟你就下来了。那个脚踝后来疼了整整一年，阴天尤其厉害。",
+  "occ": [
+   "nat_hurt.text.0.1"
+  ]
+ },
+ {
+  "id": "S1707",
+  "event_id": "nat_hurt",
+  "event_title": "带着伤去报到",
+  "scope": "generic",
+  "field": "label",
+  "original": "跟国家队请假",
+  "occ": [
+   "nat_hurt.label.1"
+  ]
+ },
+ {
+  "id": "S1708",
+  "event_id": "nat_hurt",
+  "event_title": "带着伤去报到",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在俱乐部养了两周。大赛名单公布那天，你在电视上一个个看过去，没有你。",
+  "occ": [
+   "nat_hurt.text.1.0"
+  ]
+ },
+ {
+  "id": "S1709",
+  "event_id": "nat_camp",
+  "event_title": "长期集训",
+  "scope": "china",
+  "field": "desc",
+  "original": "足协决定大赛前封闭集训四个月，联赛为此让路。俱乐部的教练在电话里问你「你是我的球员还是他们的」。",
+  "occ": [
+   "nat_camp.desc"
+  ]
+ },
+ {
+  "id": "S1710",
+  "event_id": "nat_camp",
+  "event_title": "长期集训",
+  "scope": "china",
+  "field": "title",
+  "original": "长期集训",
+  "occ": [
+   "nat_camp.title"
+  ]
+ },
+ {
+  "id": "S1711",
+  "event_id": "nat_camp",
+  "event_title": "长期集训",
+  "scope": "china",
+  "field": "label",
+  "original": "去集训",
+  "occ": [
+   "nat_camp.label.0"
+  ]
+ },
+ {
+  "id": "S1712",
+  "event_id": "nat_camp",
+  "event_title": "长期集训",
+  "scope": "china",
+  "field": "text",
+  "original": "四个月里你打了十四场热身赛，对手大多没听说过。回俱乐部那天，你的号码已经给了别人。",
+  "occ": [
+   "nat_camp.text.0.0"
+  ]
+ },
+ {
+  "id": "S1713",
+  "event_id": "nat_camp",
+  "event_title": "长期集训",
+  "scope": "china",
+  "field": "label",
+  "original": "找理由留在俱乐部",
+  "occ": [
+   "nat_camp.label.1"
+  ]
+ },
+ {
+  "id": "S1714",
+  "event_id": "nat_camp",
+  "event_title": "长期集训",
+  "scope": "china",
+  "field": "text",
+  "original": "你交了份体检报告。那一年的国家队名单上再没出现过你的名字，直到换帅。",
+  "occ": [
+   "nat_camp.text.1.0"
+  ]
+ },
+ {
+  "id": "S1715",
+  "event_id": "nat_bus",
+  "event_title": "机场那道通道",
+  "scope": "generic",
+  "field": "desc",
+  "original": "又输了一场不该输的球。凌晨落地，出口那条通道两边站满了人，有举横幅的，也有只是站着看的。",
+  "occ": [
+   "nat_bus.desc"
+  ]
+ },
+ {
+  "id": "S1716",
+  "event_id": "nat_bus",
+  "event_title": "机场那道通道",
+  "scope": "generic",
+  "field": "title",
+  "original": "机场那道通道",
+  "occ": [
+   "nat_bus.title"
+  ]
+ },
+ {
+  "id": "S1717",
+  "event_id": "nat_bus",
+  "event_title": "机场那道通道",
+  "scope": "generic",
+  "field": "label",
+  "original": "摘掉耳机走过去",
+  "occ": [
+   "nat_bus.label.0"
+  ]
+ },
+ {
+  "id": "S1718",
+  "event_id": "nat_bus",
+  "event_title": "机场那道通道",
+  "scope": "generic",
+  "field": "text",
+  "original": "你走得很慢，一直没低头。有个小孩隔着栏杆递了张纸给你，上面是他画的球场。",
+  "occ": [
+   "nat_bus.text.0.0"
+  ]
+ },
+ {
+  "id": "S1719",
+  "event_id": "nat_bus",
+  "event_title": "机场那道通道",
+  "scope": "generic",
+  "field": "text",
+  "original": "有人喊了一句很难听的话。你停下来看了他两秒，那两秒的视频后来传了三百万次。",
+  "occ": [
+   "nat_bus.text.0.1"
+  ]
+ },
+ {
+  "id": "S1720",
+  "event_id": "nat_bus",
+  "event_title": "机场那道通道",
+  "scope": "generic",
+  "field": "label",
+  "original": "跟着大巴从侧门走",
+  "occ": [
+   "nat_bus.label.1"
+  ]
+ },
+ {
+  "id": "S1721",
+  "event_id": "nat_bus",
+  "event_title": "机场那道通道",
+  "scope": "generic",
+  "field": "text",
+  "original": "俱乐部的车在侧门等着。你在车上睡了四十分钟，是那半个月睡得最沉的一觉。",
+  "occ": [
+   "nat_bus.text.1.0"
+  ]
+ },
+ {
+  "id": "S1722",
+  "event_id": "nat_kid",
+  "event_title": "看台上那件球衣",
+  "scope": "generic",
+  "field": "desc",
+  "original": "热身的时候你看见看台第一排有个孩子，穿的是国家队球衣，背后印着你的号码和名字。",
+  "occ": [
+   "nat_kid.desc"
+  ]
+ },
+ {
+  "id": "S1723",
+  "event_id": "nat_kid",
+  "event_title": "看台上那件球衣",
+  "scope": "generic",
+  "field": "title",
+  "original": "看台上那件球衣",
+  "occ": [
+   "nat_kid.title"
+  ]
+ },
+ {
+  "id": "S1724",
+  "event_id": "nat_kid",
+  "event_title": "看台上那件球衣",
+  "scope": "generic",
+  "field": "label",
+  "original": "赛后把球衣给他",
+  "occ": [
+   "nat_kid.label.0"
+  ]
+ },
+ {
+  "id": "S1725",
+  "event_id": "nat_kid",
+  "event_title": "看台上那件球衣",
+  "scope": "generic",
+  "field": "text",
+  "original": "他哭了。他爸妈在旁边一个劲儿说谢谢。那件球衣是那个赛季你唯一没留下来的一件。",
+  "occ": [
+   "nat_kid.text.0.0"
+  ]
+ },
+ {
+  "id": "S1726",
+  "event_id": "nat_kid",
+  "event_title": "看台上那件球衣",
+  "scope": "generic",
+  "field": "label",
+  "original": "记住这件事",
+  "occ": [
+   "nat_kid.label.1"
+  ]
+ },
+ {
+  "id": "S1727",
+  "event_id": "nat_kid",
+  "event_title": "看台上那件球衣",
+  "scope": "generic",
+  "field": "text",
+  "original": "从那以后你在国家队的每一场都跑到抽筋。你没跟任何人说过为什么。",
+  "occ": [
+   "nat_kid.text.1.0"
+  ]
+ },
+ {
+  "id": "S1728",
+  "event_id": "nat_quit",
+  "event_title": "退出国家队",
+  "scope": "generic",
+  "field": "desc",
+  "original": "新一期名单里还有你，可你知道自己已经跟不上那个节奏了。年轻人在训练里从你身边过去，一次比一次快。",
+  "occ": [
+   "nat_quit.desc"
+  ]
+ },
+ {
+  "id": "S1729",
+  "event_id": "nat_quit",
+  "event_title": "退出国家队",
+  "scope": "generic",
+  "field": "title",
+  "original": "退出国家队",
+  "occ": [
+   "nat_quit.title"
+  ]
+ },
+ {
+  "id": "S1730",
+  "event_id": "nat_quit",
+  "event_title": "退出国家队",
+  "scope": "generic",
+  "field": "label",
+  "original": "打完这一届再说",
+  "occ": [
+   "nat_quit.label.0"
+  ]
+ },
+ {
+  "id": "S1731",
+  "event_id": "nat_quit",
+  "event_title": "退出国家队",
+  "scope": "generic",
+  "field": "text",
+  "original": "你又打了一年。最后一场是客场输球，你踢满九十分钟，赛后在场地中间站了很久。",
+  "occ": [
+   "nat_quit.text.0.0"
+  ]
+ },
+ {
+  "id": "S1732",
+  "event_id": "nat_quit",
+  "event_title": "退出国家队",
+  "scope": "generic",
+  "field": "label",
+  "original": "发一条声明",
+  "occ": [
+   "nat_quit.label.1"
+  ]
+ },
+ {
+  "id": "S1733",
+  "event_id": "nat_quit",
+  "event_title": "退出国家队",
+  "scope": "generic",
+  "field": "text",
+  "original": "你写了三百来字，最后一句是「这件球衣我穿了很多年，现在该给别人穿了」。那条微博下面有十万条评论。",
+  "occ": [
+   "nat_quit.text.1.0"
+  ]
+ },
+ {
+  "id": "S1734",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "desc",
+  "original": "训练完手机上有三条消息，来自三个不同的人。你在更衣室门口站着看了很久，没有一条是关于球的。",
+  "occ": [
+   "love_first.desc"
+  ]
+ },
+ {
+  "id": "S1735",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "title",
+  "original": "有人在等你",
+  "occ": [
+   "love_first.title"
+  ]
+ },
+ {
+  "id": "S1736",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "label",
+  "original": "老家那个从小一起踢球的",
+  "occ": [
+   "love_first.label.0"
+  ]
+ },
+ {
+  "id": "S1737",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "text",
+  "original": "你们从八岁认识，那时候她比你还敢往人堆里冲。她说这些年一直在看你的比赛，一场都没落。",
+  "occ": [
+   "love_first.text.0.0"
+  ]
+ },
+ {
+  "id": "S1738",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "label",
+  "original": "队里的康复师",
+  "occ": [
+   "love_first.label.1"
+  ]
+ },
+ {
+  "id": "S1739",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "text",
+  "original": "她给你处理了两年的脚踝，知道你每一处旧伤。第一次约出去吃饭，她说的第一句是「今天别喝冰的」。",
+  "occ": [
+   "love_first.text.1.0"
+  ]
+ },
+ {
+  "id": "S1740",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "label",
+  "original": "评论区里那个总在的人",
+  "occ": [
+   "love_first.label.2"
+  ]
+ },
+ {
+  "id": "S1741",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "text",
+  "original": "她做美食账号，粉丝比你多。见面那天她把手机反扣在桌上，说今天不拍。",
+  "occ": [
+   "love_first.text.2.0"
+  ]
+ },
+ {
+  "id": "S1742",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "label",
+  "original": "现在只想踢球",
+  "occ": [
+   "love_first.label.3"
+  ]
+ },
+ {
+  "id": "S1743",
+  "event_id": "love_first",
+  "event_title": "有人在等你",
+  "scope": "generic",
+  "field": "text",
+  "original": "你三条都没回。那年冬训你是全队跑得最多的，教练在总结会上点了你的名。",
+  "occ": [
+   "love_first.text.3.0"
+  ]
+ },
+ {
+  "id": "S1744",
+  "event_id": "love_late",
+  "event_title": "三十岁那年",
+  "scope": "generic",
+  "field": "desc",
+  "original": "又一年冬歇期，家里安排了个饭局。对方是牙医，坐下来第一句问的是「你们踢球的膝盖是不是都不太好」。",
+  "occ": [
+   "love_late.desc"
+  ]
+ },
+ {
+  "id": "S1745",
+  "event_id": "love_late",
+  "event_title": "三十岁那年",
+  "scope": "generic",
+  "field": "title",
+  "original": "三十岁那年",
+  "occ": [
+   "love_late.title"
+  ]
+ },
+ {
+  "id": "S1746",
+  "event_id": "love_late",
+  "event_title": "三十岁那年",
+  "scope": "generic",
+  "field": "label",
+  "original": "试试看",
+  "occ": [
+   "love_late.label.0"
+  ]
+ },
+ {
+  "id": "S1747",
+  "event_id": "love_late",
+  "event_title": "三十岁那年",
+  "scope": "generic",
+  "field": "text",
+  "original": "第二次见面她把你的旧片子看了一遍，说这个不归她管，但她认识人。你笑了很久。",
+  "occ": [
+   "love_late.text.0.0"
+  ]
+ },
+ {
+  "id": "S1748",
+  "event_id": "love_late",
+  "event_title": "三十岁那年",
+  "scope": "generic",
+  "field": "label",
+  "original": "还是算了",
+  "occ": [
+   "love_late.label.1"
+  ]
+ },
+ {
+  "id": "S1749",
+  "event_id": "love_late",
+  "event_title": "三十岁那年",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说自己这几年跑来跑去，耽误人家。回去的路上下了雪，你一个人走了两站地。",
+  "occ": [
+   "love_late.text.1.0"
+  ]
+ },
+ {
+  "id": "S1750",
+  "event_id": "love_online",
+  "event_title": "直播间",
+  "scope": "generic",
+  "field": "desc",
+  "original": "一个百万粉的主播在直播里说你是她的偶像。第二天她的助理加上了你的经纪人。",
+  "occ": [
+   "love_online.desc"
+  ]
+ },
+ {
+  "id": "S1751",
+  "event_id": "love_online",
+  "event_title": "直播间",
+  "scope": "generic",
+  "field": "title",
+  "original": "直播间",
+  "occ": [
+   "love_online.title"
+  ]
+ },
+ {
+  "id": "S1752",
+  "event_id": "love_online",
+  "event_title": "直播间",
+  "scope": "generic",
+  "field": "label",
+  "original": "见一面",
+  "occ": [
+   "love_online.label.0"
+  ]
+ },
+ {
+  "id": "S1753",
+  "event_id": "love_online",
+  "event_title": "直播间",
+  "scope": "generic",
+  "field": "text",
+  "original": "你们的合照第二天上了热搜第七。评论里一半在祝福，一半在算她的粉丝值多少钱。",
+  "occ": [
+   "love_online.text.0.0"
+  ]
+ },
+ {
+  "id": "S1754",
+  "event_id": "love_online",
+  "event_title": "直播间",
+  "scope": "generic",
+  "field": "label",
+  "original": "让经纪人回绝",
+  "occ": [
+   "love_online.label.1"
+  ]
+ },
+ {
+  "id": "S1755",
+  "event_id": "love_online",
+  "event_title": "直播间",
+  "scope": "generic",
+  "field": "text",
+  "original": "经纪人说这种流量不要白不要。你说你要的不是这种。",
+  "occ": [
+   "love_online.text.1.0"
+  ]
+ }
+]

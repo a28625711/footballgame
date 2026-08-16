@@ -1,0 +1,1620 @@
+[
+ {
+  "id": "S1465",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "休赛期路过老东家，梯队教练问你能不能给孩子们上一堂课。基地还是当年那个样子。",
+  "occ": [
+   "abr_homecoming.desc"
+  ]
+ },
+ {
+  "id": "S1466",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "title",
+  "original": "回母队看看",
+  "occ": [
+   "abr_homecoming.title"
+  ]
+ },
+ {
+  "id": "S1467",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "label",
+  "original": "去上一堂",
+  "occ": [
+   "abr_homecoming.label.0"
+  ]
+ },
+ {
+  "id": "S1468",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你把队里六个守门",
+  "occ": [
+   "abr_homecoming.text.0.1"
+  ]
+ },
+ {
+  "id": "S1469",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "text",
+  "original": "的孩子单拎出来练",
+  "occ": [
+   "abr_homecoming.text.0.2"
+  ]
+ },
+ {
+  "id": "S1470",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "text",
+  "original": "了一下午倒地。",
+  "occ": [
+   "abr_homecoming.text.0.3"
+  ]
+ },
+ {
+  "id": "S1471",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你带着四十个孩子",
+  "occ": [
+   "abr_homecoming.text.0.5"
+  ]
+ },
+ {
+  "id": "S1472",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "text",
+  "original": "练了一下午传接。",
+  "occ": [
+   "abr_homecoming.text.0.6"
+  ]
+ },
+ {
+  "id": "S1473",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "label",
+  "original": "捐一批装备就走",
+  "occ": [
+   "abr_homecoming.label.1"
+  ]
+ },
+ {
+  "id": "S1474",
+  "event_id": "abr_homecoming",
+  "event_title": "回母队看看",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两百双球鞋和十个球门。你没让他们挂横幅，也没让拍照。",
+  "occ": [
+   "abr_homecoming.text.1.0"
+  ]
+ },
+ {
+  "id": "S1475",
+  "event_id": "star_marker",
+  "event_title": "对位",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "赛前会上，教练把战术板转向你：整场跟着 7 号，他去哪儿你去哪儿。那个 7 号是梅西。",
+  "occ": [
+   "star_marker.desc"
+  ]
+ },
+ {
+  "id": "S1476",
+  "event_id": "star_marker",
+  "event_title": "对位",
+  "scope": "abroad",
+  "field": "title",
+  "original": "对位",
+  "occ": [
+   "star_marker.title"
+  ]
+ },
+ {
+  "id": "S1477",
+  "event_id": "star_marker",
+  "event_title": "对位",
+  "scope": "abroad",
+  "field": "label",
+  "original": "贴死他",
+  "occ": [
+   "star_marker.label.0"
+  ]
+ },
+ {
+  "id": "S1478",
+  "event_id": "star_marker",
+  "event_title": "对位",
+  "scope": "abroad",
+  "field": "text",
+  "original": "九十分钟，他碰到球四十七次，没有一次是在你身后。终场哨响他拍了拍你的后脑勺，那个动作被拍了下来，现在还挂在你老家客厅的墙上。",
+  "occ": [
+   "star_marker.text.0.0"
+  ]
+ },
+ {
+  "id": "S1479",
+  "event_id": "star_marker",
+  "event_title": "对位",
+  "scope": "abroad",
+  "field": "text",
+  "original": "第 63 分钟他往回收了一步，你跟了出去，然后就没有然后了。那段视频的标题是「他把一个中国后卫钉在了原地」，播放量两千万。",
+  "occ": [
+   "star_marker.text.0.1"
+  ]
+ },
+ {
+  "id": "S1480",
+  "event_id": "star_marker",
+  "event_title": "对位",
+  "scope": "abroad",
+  "field": "label",
+  "original": "退半步，别单防",
+  "occ": [
+   "star_marker.label.1"
+  ]
+ },
+ {
+  "id": "S1481",
+  "event_id": "star_marker",
+  "event_title": "对位",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你始终跟他保持两米，把他往边路赶。他这场进了一个，是从另一侧打进的。教练赛后说，你至少没让他在中路拿球转身。",
+  "occ": [
+   "star_marker.text.1.0"
+  ]
+ },
+ {
+  "id": "S1482",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "第 88 分钟，主裁指了点球点。C 罗把球摆好，退到罚球弧外，深吸了一口气。",
+  "occ": [
+   "star_pen_save.desc"
+  ]
+ },
+ {
+  "id": "S1483",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "title",
+  "original": "点球点上的那个人",
+  "occ": [
+   "star_pen_save.title"
+  ]
+ },
+ {
+  "id": "S1484",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "label",
+  "original": "赌一边",
+  "occ": [
+   "star_pen_save.label.0"
+  ]
+ },
+ {
+  "id": "S1485",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你倒向左侧，指尖把球拨出了立柱。整个客场看台安静了两秒，然后炸了。赛后他走过来，把球衣递给你。",
+  "occ": [
+   "star_pen_save.text.0.0"
+  ]
+ },
+ {
+  "id": "S1486",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他把球打进了死角，你的方向是对的，够不着。他没有庆祝，只是抬手指了指你，意思是「你动得不算晚」。",
+  "occ": [
+   "star_pen_save.text.0.1"
+  ]
+ },
+ {
+  "id": "S1487",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "label",
+  "original": "站着不动，等他先动脚",
+  "occ": [
+   "star_pen_save.label.1"
+  ]
+ },
+ {
+  "id": "S1488",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你站在门线中间一动没动，球正对你的胸口飞来。你抱住了它。解说员反复说了三遍「他根本没有动」。",
+  "occ": [
+   "star_pen_save.text.1.0"
+  ]
+ },
+ {
+  "id": "S1489",
+  "event_id": "star_pen_save",
+  "event_title": "点球点上的那个人",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他把球打进了你身后的网窝，你连方向都没来得及选。更衣室里门将教练什么也没说，只把录像回放了七遍。",
+  "occ": [
+   "star_pen_save.text.1.1"
+  ]
+ },
+ {
+  "id": "S1490",
+  "event_id": "star_midfield",
+  "event_title": "中圈那一圈",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "对面中场是莫德里奇。上半场他在你面前转了三次身，三次你都扑空了。",
+  "occ": [
+   "star_midfield.desc"
+  ]
+ },
+ {
+  "id": "S1491",
+  "event_id": "star_midfield",
+  "event_title": "中圈那一圈",
+  "scope": "abroad",
+  "field": "title",
+  "original": "中圈那一圈",
+  "occ": [
+   "star_midfield.title"
+  ]
+ },
+ {
+  "id": "S1492",
+  "event_id": "star_midfield",
+  "event_title": "中圈那一圈",
+  "scope": "abroad",
+  "field": "label",
+  "original": "下半场提前一步上抢",
+  "occ": [
+   "star_midfield.label.0"
+  ]
+ },
+ {
+  "id": "S1493",
+  "event_id": "star_midfield",
+  "event_title": "中圈那一圈",
+  "scope": "abroad",
+  "field": "text",
+  "original": "第 58 分钟你在他接球前半秒把球捅走，直接打成了反击。赛后他找到你，用英语说了一句「你下半场变了」。",
+  "occ": [
+   "star_midfield.text.0.0"
+  ]
+ },
+ {
+  "id": "S1494",
+  "event_id": "star_midfield",
+  "event_title": "中圈那一圈",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你扑上去，他一个外脚背把球拨到了另一侧，你在他身后犯规。黄牌。教练在场边摊手的样子被拍成了表情包。",
+  "occ": [
+   "star_midfield.text.0.1"
+  ]
+ },
+ {
+  "id": "S1495",
+  "event_id": "star_midfield",
+  "event_title": "中圈那一圈",
+  "scope": "abroad",
+  "field": "label",
+  "original": "退回去守阵型",
+  "occ": [
+   "star_midfield.label.1"
+  ]
+ },
+ {
+  "id": "S1496",
+  "event_id": "star_midfield",
+  "event_title": "中圈那一圈",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你不再单独去追他，只守住身前那块。他这场送出两次助攻，都不是从你这边过去的。赛后没有人提到你，这也是一种赞美。",
+  "occ": [
+   "star_midfield.text.1.0"
+  ]
+ },
+ {
+  "id": "S1497",
+  "event_id": "star_striker",
+  "event_title": "另一头那个九号",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "赛前热身，你在球场这一头做拉伸，哈兰德在那一头。所有摄像机都对着那一头。",
+  "occ": [
+   "star_striker.desc"
+  ]
+ },
+ {
+  "id": "S1498",
+  "event_id": "star_striker",
+  "event_title": "另一头那个九号",
+  "scope": "abroad",
+  "field": "title",
+  "original": "另一头那个九号",
+  "occ": [
+   "star_striker.title"
+  ]
+ },
+ {
+  "id": "S1499",
+  "event_id": "star_striker",
+  "event_title": "另一头那个九号",
+  "scope": "abroad",
+  "field": "label",
+  "original": "今晚就跟他比进球",
+  "occ": [
+   "star_striker.label.0"
+  ]
+ },
+ {
+  "id": "S1500",
+  "event_id": "star_striker",
+  "event_title": "另一头那个九号",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你打进两个，他一个。第二天所有标题里都有你的名字，而那些标题在你名字后面加了个括号：「（对手：哈兰德）」。",
+  "occ": [
+   "star_striker.text.0.0"
+  ]
+ },
+ {
+  "id": "S1501",
+  "event_id": "star_striker",
+  "event_title": "另一头那个九号",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他进了两个，你一脚射正都没有。赛后混合区他被围了三十分钟，你从他身后走过去，没有人回头。",
+  "occ": [
+   "star_striker.text.0.1"
+  ]
+ },
+ {
+  "id": "S1502",
+  "event_id": "star_striker",
+  "event_title": "另一头那个九号",
+  "scope": "abroad",
+  "field": "label",
+  "original": "老老实实做自己的球",
+  "occ": [
+   "star_striker.label.1"
+  ]
+ },
+ {
+  "id": "S1503",
+  "event_id": "star_striker",
+  "event_title": "另一头那个九号",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你回撤了很多，跑了十一公里，助攻一个。他进了三个。队长赛后说，今天全队只有你一个人在踢球。",
+  "occ": [
+   "star_striker.text.1.0"
+  ]
+ },
+ {
+  "id": "S1504",
+  "event_id": "star_teammate",
+  "event_title": "更衣室里那个位置",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "球队官宣了一笔全欧洲都在谈的引援。介绍会那天，更衣室重新排了位置，你的柜子旁边空了出来，管理员说那是留给他的。",
+  "occ": [
+   "star_teammate.desc"
+  ]
+ },
+ {
+  "id": "S1505",
+  "event_id": "star_teammate",
+  "event_title": "更衣室里那个位置",
+  "scope": "abroad",
+  "field": "title",
+  "original": "更衣室里那个位置",
+  "occ": [
+   "star_teammate.title"
+  ]
+ },
+ {
+  "id": "S1506",
+  "event_id": "star_teammate",
+  "event_title": "更衣室里那个位置",
+  "scope": "abroad",
+  "field": "label",
+  "original": "每天早到一小时，跟着他练",
+  "occ": [
+   "star_teammate.label.0"
+  ]
+ },
+ {
+  "id": "S1507",
+  "event_id": "star_teammate",
+  "event_title": "更衣室里那个位置",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他六点半到基地，你六点二十到。三个月里他只跟你说过两句完整的话，但你把他每一次触球前的那半步都看会了。",
+  "occ": [
+   "star_teammate.text.0.0"
+  ]
+ },
+ {
+  "id": "S1508",
+  "event_id": "star_teammate",
+  "event_title": "更衣室里那个位置",
+  "scope": "abroad",
+  "field": "label",
+  "original": "把位置和球权都让出去",
+  "occ": [
+   "star_teammate.label.1"
+  ]
+ },
+ {
+  "id": "S1509",
+  "event_id": "star_teammate",
+  "event_title": "更衣室里那个位置",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你主动改踢了另一边，把最好的那块地方留给他。那个赛季你少进了六个球，球队多拿了一座奖杯。",
+  "occ": [
+   "star_teammate.text.1.0"
+  ]
+ },
+ {
+  "id": "S1510",
+  "event_id": "star_shirt",
+  "event_title": "赛后换球衣",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "终场哨响，你走向中圈想跟他换球衣。走到一半你发现，另外三个队友比你先到。",
+  "occ": [
+   "star_shirt.desc"
+  ]
+ },
+ {
+  "id": "S1511",
+  "event_id": "star_shirt",
+  "event_title": "赛后换球衣",
+  "scope": "abroad",
+  "field": "title",
+  "original": "赛后换球衣",
+  "occ": [
+   "star_shirt.title"
+  ]
+ },
+ {
+  "id": "S1512",
+  "event_id": "star_shirt",
+  "event_title": "赛后换球衣",
+  "scope": "abroad",
+  "field": "label",
+  "original": "还是走过去",
+  "occ": [
+   "star_shirt.label.0"
+  ]
+ },
+ {
+  "id": "S1513",
+  "event_id": "star_shirt",
+  "event_title": "赛后换球衣",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他一眼认出了你，先把球衣递了过来，说了句「中国来的那个」。那张照片在国内上了热搜第一，配文是「他知道你」。",
+  "occ": [
+   "star_shirt.text.0.0"
+  ]
+ },
+ {
+  "id": "S1514",
+  "event_id": "star_shirt",
+  "event_title": "赛后换球衣",
+  "scope": "abroad",
+  "field": "label",
+  "original": "转身回更衣室",
+  "occ": [
+   "star_shirt.label.1"
+  ]
+ },
+ {
+  "id": "S1515",
+  "event_id": "star_shirt",
+  "event_title": "赛后换球衣",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你没有去。更衣室里你把自己那件球衣塞进包里，想着下次见面时，该是他先来找你换。",
+  "occ": [
+   "star_shirt.text.1.0"
+  ]
+ },
+ {
+  "id": "S1516",
+  "event_id": "star_press",
+  "event_title": "记者的那个问题",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "赛后发布会，一个本地记者举手：「你觉得自己有一天能踢到梅西那个级别吗？」整个房间都在等你回答。",
+  "occ": [
+   "star_press.desc"
+  ]
+ },
+ {
+  "id": "S1517",
+  "event_id": "star_press",
+  "event_title": "记者的那个问题",
+  "scope": "abroad",
+  "field": "title",
+  "original": "记者的那个问题",
+  "occ": [
+   "star_press.title"
+  ]
+ },
+ {
+  "id": "S1518",
+  "event_id": "star_press",
+  "event_title": "记者的那个问题",
+  "scope": "abroad",
+  "field": "label",
+  "original": "「我会努力」",
+  "occ": [
+   "star_press.label.0"
+  ]
+ },
+ {
+  "id": "S1519",
+  "event_id": "star_press",
+  "event_title": "记者的那个问题",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你说了一句标准答案。第二天那段视频没有人转发。",
+  "occ": [
+   "star_press.text.0.0"
+  ]
+ },
+ {
+  "id": "S1520",
+  "event_id": "star_press",
+  "event_title": "记者的那个问题",
+  "scope": "abroad",
+  "field": "label",
+  "original": "「我为什么不能」",
+  "occ": [
+   "star_press.label.1"
+  ]
+ },
+ {
+  "id": "S1521",
+  "event_id": "star_press",
+  "event_title": "记者的那个问题",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你说完全场安静了两秒，然后有人鼓掌。那句话被印在了当地报纸的头版。从那以后你每场都得踢得像说过那句话的人。",
+  "occ": [
+   "star_press.text.1.0"
+  ]
+ },
+ {
+  "id": "S1522",
+  "event_id": "star_press",
+  "event_title": "记者的那个问题",
+  "scope": "abroad",
+  "field": "text",
+  "original": "那句话被剪成十五秒传遍了全世界，配的都是他的过人集锦。你花了两个赛季才让人们不再提起它。",
+  "occ": [
+   "star_press.text.1.1"
+  ]
+ },
+ {
+  "id": "S1523",
+  "event_id": "star_training",
+  "event_title": "训练课上的一对一",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "小场对抗，分组分完你发现自己那一边站着莱万多夫斯基。教练吹哨前说，今天这块场地上没有队友。",
+  "occ": [
+   "star_training.desc"
+  ]
+ },
+ {
+  "id": "S1524",
+  "event_id": "star_training",
+  "event_title": "训练课上的一对一",
+  "scope": "abroad",
+  "field": "title",
+  "original": "训练课上的一对一",
+  "occ": [
+   "star_training.title"
+  ]
+ },
+ {
+  "id": "S1525",
+  "event_id": "star_training",
+  "event_title": "训练课上的一对一",
+  "scope": "abroad",
+  "field": "label",
+  "original": "往死里拼",
+  "occ": [
+   "star_training.label.0"
+  ]
+ },
+ {
+  "id": "S1526",
+  "event_id": "star_training",
+  "event_title": "训练课上的一对一",
+  "scope": "abroad",
+  "field": "text",
+  "original": "四十分钟你一次没让他舒服地转身。收操时他把手搭在你肩上，跟教练说了句什么。下一场你首发。",
+  "occ": [
+   "star_training.text.0.0"
+  ]
+ },
+ {
+  "id": "S1527",
+  "event_id": "star_training",
+  "event_title": "训练课上的一对一",
+  "scope": "abroad",
+  "field": "text",
+  "original": "最后一次拼抢你落地的姿势不对，脚踝当场肿了起来。队医说三周，实际上是七周。",
+  "occ": [
+   "star_training.text.0.1"
+  ]
+ },
+ {
+  "id": "S1528",
+  "event_id": "star_training",
+  "event_title": "训练课上的一对一",
+  "scope": "abroad",
+  "field": "label",
+  "original": "按训练量来",
+  "occ": [
+   "star_training.label.1"
+  ]
+ },
+ {
+  "id": "S1529",
+  "event_id": "star_training",
+  "event_title": "训练课上的一对一",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你完成了教练要求的所有跑动，没有一次多余的拼抢。收操时他从你身边走过，没有停下来。",
+  "occ": [
+   "star_training.text.1.0"
+  ]
+ },
+ {
+  "id": "S1530",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "抽签结果出来，八分之一决赛的对手是他所在的球队。国内的转播时间是凌晨四点，而所有人都说会熬夜看。",
+  "occ": [
+   "star_ucl.desc"
+  ]
+ },
+ {
+  "id": "S1531",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "title",
+  "original": "欧冠淘汰赛的那两回合",
+  "occ": [
+   "star_ucl.title"
+  ]
+ },
+ {
+  "id": "S1532",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "label",
+  "original": "把这两场当成自己的决赛",
+  "occ": [
+   "star_ucl.label.0"
+  ]
+ },
+ {
+  "id": "S1533",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两回合你扑了九次",
+  "occ": [
+   "star_ucl.text.0.1"
+  ]
+ },
+ {
+  "id": "S1534",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "，次回合终场前那",
+  "occ": [
+   "star_ucl.text.0.2",
+   "star_ucl.text.0.7"
+  ]
+ },
+ {
+  "id": "S1535",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "个单刀你用腿封住",
+  "occ": [
+   "star_ucl.text.0.3"
+  ]
+ },
+ {
+  "id": "S1536",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "了，保住了平局。",
+  "occ": [
+   "star_ucl.text.0.4"
+  ]
+ },
+ {
+  "id": "S1537",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两回合他一次没进",
+  "occ": [
+   "star_ucl.text.0.6"
+  ]
+ },
+ {
+  "id": "S1538",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "次回追解围保住了",
+  "occ": [
+   "star_ucl.text.0.8"
+  ]
+ },
+ {
+  "id": "S1539",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "平局。",
+  "occ": [
+   "star_ucl.text.0.9"
+  ]
+ },
+ {
+  "id": "S1540",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两回合你一球一助",
+  "occ": [
+   "star_ucl.text.0.11"
+  ]
+ },
+ {
+  "id": "S1541",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "攻，次回合终场前",
+  "occ": [
+   "star_ucl.text.0.12"
+  ]
+ },
+ {
+  "id": "S1542",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "那次回追解围保住",
+  "occ": [
+   "star_ucl.text.0.13"
+  ]
+ },
+ {
+  "id": "S1543",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "了平局。",
+  "occ": [
+   "star_ucl.text.0.14"
+  ]
+ },
+ {
+  "id": "S1544",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两回合总比分 1-6，他一个人参与了四个球。",
+  "occ": [
+   "star_ucl.text.0.15"
+  ]
+ },
+ {
+  "id": "S1545",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "label",
+  "original": "照平时那样踢",
+  "occ": [
+   "star_ucl.label.1"
+  ]
+ },
+ {
+  "id": "S1546",
+  "event_id": "star_ucl",
+  "event_title": "欧冠淘汰赛的那两回合",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你把自己那块守住了，球队总比分输了一个球。回到更衣室没有人指责谁，教练说下一次我们还会来。",
+  "occ": [
+   "star_ucl.text.1.0"
+  ]
+ },
+ {
+  "id": "S1547",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "你转会到这里的第一周就发现，这个联赛里到处是你小时候在电视上看的人。下一轮的对手阵中，有三个金球奖得主，年纪都比你大。",
+  "occ": [
+   "star_saudi.desc"
+  ]
+ },
+ {
+  "id": "S1548",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "title",
+  "original": "沙漠里的那些名字",
+  "occ": [
+   "star_saudi.title"
+  ]
+ },
+ {
+  "id": "S1549",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "label",
+  "original": "把他们当偶像",
+  "occ": [
+   "star_saudi.label.0"
+  ]
+ },
+ {
+  "id": "S1550",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "赛后你跟每一个人都合了影，发在国内的社交平台上。有人骂你没出息，更多人说这就是他们想过的人生。",
+  "occ": [
+   "star_saudi.text.0.0"
+  ]
+ },
+ {
+  "id": "S1551",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "label",
+  "original": "把他们当对手",
+  "occ": [
+   "star_saudi.label.1"
+  ]
+ },
+ {
+  "id": "S1552",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你把他那记必进的",
+  "occ": [
+   "star_saudi.text.1.1"
+  ]
+ },
+ {
+  "id": "S1553",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "任意球托了出去，",
+  "occ": [
+   "star_saudi.text.1.2"
+  ]
+ },
+ {
+  "id": "S1554",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "没有喊，只是把球",
+  "occ": [
+   "star_saudi.text.1.3"
+  ]
+ },
+ {
+  "id": "S1555",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "门框拍了一下。",
+  "occ": [
+   "star_saudi.text.1.4"
+  ]
+ },
+ {
+  "id": "S1556",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你贴了他整场，他",
+  "occ": [
+   "star_saudi.text.1.6"
+  ]
+ },
+ {
+  "id": "S1557",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "一次也没射正，赛",
+  "occ": [
+   "star_saudi.text.1.7"
+  ]
+ },
+ {
+  "id": "S1558",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "后你把球衣换给了",
+  "occ": [
+   "star_saudi.text.1.8"
+  ]
+ },
+ {
+  "id": "S1559",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "他。",
+  "occ": [
+   "star_saudi.text.1.9"
+  ]
+ },
+ {
+  "id": "S1560",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你在他们面前打进",
+  "occ": [
+   "star_saudi.text.1.11"
+  ]
+ },
+ {
+  "id": "S1561",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "了制胜球，没有庆",
+  "occ": [
+   "star_saudi.text.1.12"
+  ]
+ },
+ {
+  "id": "S1562",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "祝，只是走回中圈",
+  "occ": [
+   "star_saudi.text.1.13"
+  ]
+ },
+ {
+  "id": "S1563",
+  "event_id": "star_saudi",
+  "event_title": "沙漠里的那些名字",
+  "scope": "abroad",
+  "field": "text",
+  "original": "三十九岁的他跑不动了，但每次拿球都知道该往哪儿传。",
+  "occ": [
+   "star_saudi.text.1.15"
+  ]
+ },
+ {
+  "id": "S1564",
+  "event_id": "light_fifa",
+  "event_title": "游戏里的自己",
+  "scope": "generic",
+  "field": "desc",
+  "original": "那款足球游戏出了新版本，你的数值被砍了三点。评论区有人说「这已经是抬举他了」。",
+  "occ": [
+   "light_fifa.desc"
+  ]
+ },
+ {
+  "id": "S1565",
+  "event_id": "light_fifa",
+  "event_title": "游戏里的自己",
+  "scope": "generic",
+  "field": "title",
+  "original": "游戏里的自己",
+  "occ": [
+   "light_fifa.title"
+  ]
+ },
+ {
+  "id": "S1566",
+  "event_id": "light_fifa",
+  "event_title": "游戏里的自己",
+  "scope": "generic",
+  "field": "label",
+  "original": "发条动态自嘲",
+  "occ": [
+   "light_fifa.label.0"
+  ]
+ },
+ {
+  "id": "S1567",
+  "event_id": "light_fifa",
+  "event_title": "游戏里的自己",
+  "scope": "generic",
+  "field": "text",
+  "original": "你截图配了一句",
+  "occ": [
+   "light_fifa.text.0.0"
+  ]
+ },
+ {
+  "id": "S1568",
+  "event_id": "light_fifa",
+  "event_title": "游戏里的自己",
+  "scope": "generic",
+  "field": "text",
+  "original": "有人把你的动态解读成「输不起」。你隔了两小时删掉，删之前它已经被搬到了另外三个平台。",
+  "occ": [
+   "light_fifa.text.0.1"
+  ]
+ },
+ {
+  "id": "S1569",
+  "event_id": "light_fifa",
+  "event_title": "游戏里的自己",
+  "scope": "generic",
+  "field": "label",
+  "original": "私下截了张图",
+  "occ": [
+   "light_fifa.label.1"
+  ]
+ },
+ {
+  "id": "S1570",
+  "event_id": "light_fifa",
+  "event_title": "游戏里的自己",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把那页数值截下来存进相册，谁也没发。那个文件夹里已经有好几张了。",
+  "occ": [
+   "light_fifa.text.1.0"
+  ]
+ },
+ {
+  "id": "S1571",
+  "event_id": "light_number",
+  "event_title": "十号球衣",
+  "scope": "generic",
+  "field": "desc",
+  "original": "队里那个穿十号的老队员走了。号码空出来第二天，装备经理来问你要不要换。",
+  "occ": [
+   "light_number.desc"
+  ]
+ },
+ {
+  "id": "S1572",
+  "event_id": "light_number",
+  "event_title": "十号球衣",
+  "scope": "generic",
+  "field": "title",
+  "original": "十号球衣",
+  "occ": [
+   "light_number.title"
+  ]
+ },
+ {
+  "id": "S1573",
+  "event_id": "light_number",
+  "event_title": "十号球衣",
+  "scope": "generic",
+  "field": "text",
+  "original": "你换了。第一场穿十号的比赛你踢得格外紧，赛后有个小球迷举着写你名字的十号找你签名。",
+  "occ": [
+   "light_number.text.0.0"
+  ]
+ },
+ {
+  "id": "S1574",
+  "event_id": "light_number",
+  "event_title": "十号球衣",
+  "scope": "generic",
+  "field": "label",
+  "original": "留着原来的号",
+  "occ": [
+   "light_number.label.1"
+  ]
+ },
+ {
+  "id": "S1575",
+  "event_id": "light_number",
+  "event_title": "十号球衣",
+  "scope": "generic",
+  "field": "text",
+  "original": "你说习惯了。更衣室里没人再提这事，但那天之后大家看你的眼神里多了点别的。",
+  "occ": [
+   "light_number.text.1.0"
+  ]
+ },
+ {
+  "id": "S1576",
+  "event_id": "light_hotpot",
+  "event_title": "队内火锅局",
+  "scope": "generic",
+  "field": "desc",
+  "original": "队友在群里组火锅，说好了 AA。下周一有体测。",
+  "occ": [
+   "light_hotpot.desc"
+  ]
+ },
+ {
+  "id": "S1577",
+  "event_id": "light_hotpot",
+  "event_title": "队内火锅局",
+  "scope": "generic",
+  "field": "title",
+  "original": "队内火锅局",
+  "occ": [
+   "light_hotpot.title"
+  ]
+ },
+ {
+  "id": "S1578",
+  "event_id": "light_hotpot",
+  "event_title": "队内火锅局",
+  "scope": "generic",
+  "field": "label",
+  "original": "去，而且吃到位",
+  "occ": [
+   "light_hotpot.label.0"
+  ]
+ },
+ {
+  "id": "S1579",
+  "event_id": "light_hotpot",
+  "event_title": "队内火锅局",
+  "scope": "generic",
+  "field": "text",
+  "original": "那顿吃到十一点半。体测那天你在最后一组，教练看了你一眼，什么也没说。",
+  "occ": [
+   "light_hotpot.text.0.0"
+  ]
+ },
+ {
+  "id": "S1580",
+  "event_id": "light_hotpot",
+  "event_title": "队内火锅局",
+  "scope": "generic",
+  "field": "label",
+  "original": "去，只涮青菜",
+  "occ": [
+   "light_hotpot.label.1"
+  ]
+ },
+ {
+  "id": "S1581",
+  "event_id": "light_hotpot",
+  "event_title": "队内火锅局",
+  "scope": "generic",
+  "field": "text",
+  "original": "你端着一盘娃娃菜坐了两个小时。队友笑了你一路，但这事后来被写进了队内的段子库。",
+  "occ": [
+   "light_hotpot.text.1.0"
+  ]
+ },
+ {
+  "id": "S1582",
+  "event_id": "light_hotpot",
+  "event_title": "队内火锅局",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在宿舍点了份鸡胸肉。群里那晚有两百多条消息，你一条都没回。",
+  "occ": [
+   "light_hotpot.text.2.0"
+  ]
+ },
+ {
+  "id": "S1583",
+  "event_id": "light_dog",
+  "event_title": "捡了只狗",
+  "scope": "generic",
+  "field": "desc",
+  "original": "训练基地门口趴了只狗，跟了你三天。门卫说没人认领。",
+  "occ": [
+   "light_dog.desc"
+  ]
+ },
+ {
+  "id": "S1584",
+  "event_id": "light_dog",
+  "event_title": "捡了只狗",
+  "scope": "generic",
+  "field": "title",
+  "original": "捡了只狗",
+  "occ": [
+   "light_dog.title"
+  ]
+ },
+ {
+  "id": "S1585",
+  "event_id": "light_dog",
+  "event_title": "捡了只狗",
+  "scope": "generic",
+  "field": "label",
+  "original": "带回去养",
+  "occ": [
+   "light_dog.label.0"
+  ]
+ },
+ {
+  "id": "S1586",
+  "event_id": "light_dog",
+  "event_title": "捡了只狗",
+  "scope": "generic",
+  "field": "text",
+  "original": "你给它取名叫「越位」。此后三年，无论那天输赢，回家推开门都是同一张脸在等你。",
+  "occ": [
+   "light_dog.text.0.0"
+  ]
+ },
+ {
+  "id": "S1587",
+  "event_id": "light_dog",
+  "event_title": "捡了只狗",
+  "scope": "generic",
+  "field": "label",
+  "original": "托人找领养",
+  "occ": [
+   "light_dog.label.1"
+  ]
+ },
+ {
+  "id": "S1588",
+  "event_id": "light_dog",
+  "event_title": "捡了只狗",
+  "scope": "generic",
+  "field": "text",
+  "original": "队医的表妹领走了它。你偶尔会在朋友圈里刷到它，长胖了不少。",
+  "occ": [
+   "light_dog.text.1.0"
+  ]
+ },
+ {
+  "id": "S1589",
+  "event_id": "light_wedding",
+  "event_title": "队友结婚",
+  "scope": "generic",
+  "field": "desc",
+  "original": "同屋那位要结婚了。队里传的份子钱数目一个比一个离谱。",
+  "occ": [
+   "light_wedding.desc"
+  ]
+ },
+ {
+  "id": "S1590",
+  "event_id": "light_wedding",
+  "event_title": "队友结婚",
+  "scope": "generic",
+  "field": "title",
+  "original": "队友结婚",
+  "occ": [
+   "light_wedding.title"
+  ]
+ },
+ {
+  "id": "S1591",
+  "event_id": "light_wedding",
+  "event_title": "队友结婚",
+  "scope": "generic",
+  "field": "label",
+  "original": "随个大的",
+  "occ": [
+   "light_wedding.label.0"
+  ]
+ },
+ {
+  "id": "S1592",
+  "event_id": "light_wedding",
+  "event_title": "队友结婚",
+  "scope": "generic",
+  "field": "text",
+  "original": "你随了全队第二多的。他后来在球队最难的那年替你说过一次话，你到现在都不知道。",
+  "occ": [
+   "light_wedding.text.0.0"
+  ]
+ },
+ {
+  "id": "S1593",
+  "event_id": "light_wedding",
+  "event_title": "队友结婚",
+  "scope": "generic",
+  "field": "label",
+  "original": "按行情来",
+  "occ": [
+   "light_wedding.label.1"
+  ]
+ },
+ {
+  "id": "S1594",
+  "event_id": "light_wedding",
+  "event_title": "队友结婚",
+  "scope": "generic",
+  "field": "text",
+  "original": "你随了个不出挑的数，人到得比谁都早，帮着搬了一下午椅子。",
+  "occ": [
+   "light_wedding.text.1.0"
+  ]
+ },
+ {
+  "id": "S1595",
+  "event_id": "light_nickname",
+  "event_title": "外号",
+  "scope": "generic",
+  "field": "desc",
+  "original": "看台上那帮人给你起了个外号，不算难听，但也绝对不好听。横幅已经做出来了。",
+  "occ": [
+   "light_nickname.desc"
+  ]
+ },
+ {
+  "id": "S1596",
+  "event_id": "light_nickname",
+  "event_title": "外号",
+  "scope": "generic",
+  "field": "title",
+  "original": "外号",
+  "occ": [
+   "light_nickname.title"
+  ]
+ },
+ {
+  "id": "S1597",
+  "event_id": "light_nickname",
+  "event_title": "外号",
+  "scope": "generic",
+  "field": "label",
+  "original": "认下来",
+  "occ": [
+   "light_nickname.label.0"
+  ]
+ },
+ {
+  "id": "S1598",
+  "event_id": "light_nickname",
+  "event_title": "外号",
+  "scope": "generic",
+  "field": "text",
+  "original": "你在采访里主动用了那个外号。第二周球场上出现了两百件印着它的自制 T 恤。",
+  "occ": [
+   "light_nickname.text.0.0"
+  ]
+ },
+ {
+  "id": "S1599",
+  "event_id": "light_nickname",
+  "event_title": "外号",
+  "scope": "generic",
+  "field": "label",
+  "original": "装作没看见",
+  "occ": [
+   "light_nickname.label.1"
+  ]
+ },
+ {
+  "id": "S1600",
+  "event_id": "light_nickname",
+  "event_title": "外号",
+  "scope": "generic",
+  "field": "text",
+  "original": "你一次都没提过它。它还是跟了你一辈子，退役新闻的标题里也是它。",
+  "occ": [
+   "light_nickname.text.1.0"
+  ]
+ },
+ {
+  "id": "S1601",
+  "event_id": "light_cook",
+  "event_title": "自己做饭",
+  "scope": "abroad",
+  "field": "desc",
+  "original": "外面的中餐馆吃了三个月，你决定自己做。第一次买菜在超市站了四十分钟，因为不认识那些标签。",
+  "occ": [
+   "light_cook.desc"
+  ]
+ },
+ {
+  "id": "S1602",
+  "event_id": "light_cook",
+  "event_title": "自己做饭",
+  "scope": "abroad",
+  "field": "title",
+  "original": "自己做饭",
+  "occ": [
+   "light_cook.title"
+  ]
+ },
+ {
+  "id": "S1603",
+  "event_id": "light_cook",
+  "event_title": "自己做饭",
+  "scope": "abroad",
+  "field": "text",
+  "original": "两个月后你能给三个队友做一锅像样的番茄牛腩。营养师看了配料表，只提了一句少放盐。",
+  "occ": [
+   "light_cook.text.0.0"
+  ]
+ },
+ {
+  "id": "S1604",
+  "event_id": "light_cook",
+  "event_title": "自己做饭",
+  "scope": "abroad",
+  "field": "label",
+  "original": "叫外卖凑合",
+  "occ": [
+   "light_cook.label.1"
+  ]
+ },
+ {
+  "id": "S1605",
+  "event_id": "light_cook",
+  "event_title": "自己做饭",
+  "scope": "abroad",
+  "field": "text",
+  "original": "你把那家亚洲超市的电话存进了收藏夹。手机相册里还留着当初那张写满拼音的采购清单。",
+  "occ": [
+   "light_cook.text.1.0"
+  ]
+ },
+ {
+  "id": "S1606",
+  "event_id": "light_wifi",
+  "event_title": "更衣室密码",
+  "scope": "generic",
+  "field": "desc",
+  "original": "更衣室的 WiFi 改了密码，新密码是队长的生日。队长说以后谁想改，先拿一场最佳。",
+  "occ": [
+   "light_wifi.desc"
+  ]
+ },
+ {
+  "id": "S1607",
+  "event_id": "light_wifi",
+  "event_title": "更衣室密码",
+  "scope": "generic",
+  "field": "title",
+  "original": "更衣室密码",
+  "occ": [
+   "light_wifi.title"
+  ]
+ },
+ {
+  "id": "S1608",
+  "event_id": "light_wifi",
+  "event_title": "更衣室密码",
+  "scope": "generic",
+  "field": "text",
+  "original": "两周后你拿了最佳。密码改成了你的生日，一直用到你离队那天都没人换。",
+  "occ": [
+   "light_wifi.text.0.0"
+  ]
+ },
+ {
+  "id": "S1609",
+  "event_id": "light_wifi",
+  "event_title": "更衣室密码",
+  "scope": "generic",
+  "field": "text",
+  "original": "那个月你一场最佳都没拿到。这事被念叨了整整一个赛季。",
+  "occ": [
+   "light_wifi.text.0.1"
+  ]
+ },
+ {
+  "id": "S1610",
+  "event_id": "light_wifi",
+  "event_title": "更衣室密码",
+  "scope": "generic",
+  "field": "label",
+  "original": "记下来就行",
+  "occ": [
+   "light_wifi.label.1"
+  ]
+ },
+ {
+  "id": "S1611",
+  "event_id": "light_wifi",
+  "event_title": "更衣室密码",
+  "scope": "generic",
+  "field": "text",
+  "original": "你把它存进备忘录，命名「别问」。三年后换队，你还能背出来。",
+  "occ": [
+   "light_wifi.text.1.0"
+  ]
+ }
+]

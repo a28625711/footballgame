@@ -377,6 +377,11 @@ body.no-actionbar { padding-bottom: 2rem; }
   background: hsl(var(--accent) / .1);
 }
 
+/* 桌面端不滚动：16 个联赛标签直接换行排开，避免「横滚条隐藏导致看不到后面的联赛」 */
+@media (min-width: 720px) {
+  .lg-tabs { flex-wrap: wrap; overflow-x: visible; }
+}
+
 .dream-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(6.6rem, 1fr));
   gap: .4rem; margin-top: .2rem;
