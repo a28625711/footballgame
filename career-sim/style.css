@@ -241,6 +241,8 @@ body.no-actionbar { padding-bottom: 2rem; }
 }
 .seg:hover { color: hsl(var(--text)); }
 .seg.selected { background: hsl(var(--accent)); color: hsl(var(--accent-on)); }
+button[data-reroll] { background: hsl(var(--accent) / .12); color: hsl(var(--text)); }
+button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
 .seg-note { margin-top: .7rem; font-size: .8rem; color: hsl(var(--faint)); min-height: 1.2em; }
 
 /* ================= 按钮 ================= */
