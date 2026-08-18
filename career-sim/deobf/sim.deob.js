@@ -723,7 +723,7 @@ bH<aY["length"];
 bH++)aY[bH]["key"]===bG&&(bJ=aY[bH]);
 if(!bJ)return!0x1;
 bv(bG);
-var bK=ac((a2["ovr"]-0x46)/0x1e,-0.5,0x1),bL=ac(bI['p']-0.095+bJ['dp']+bK*(bJ["risk"]?0.14:0.07),0.04,0.93),bM=ad()<bL;
+var bK=Math["max"](0x0,(a2["ovr"]-0x46))/0x23,bL=ac(bI['p']-0.095+bJ['dp']+bK*(bJ["risk"]?0.09:0.045),0.04,0.93),bM=ad()<bL;
 a2["cheat"]&&(bM=!0x0);
 var bN=bI["half"][0x0],bO=bI["half"][0x1],bP=[],bQ='';
 bM?bN<=bO?(bN=bO+0x1,bQ="落后到反超"):bN+=ad()<0.45?0x1:0x0:bN>=bO?(bO=bN+0x1,bQ="被反超"):bO+=ad()<0.4?0x1:0x0;
