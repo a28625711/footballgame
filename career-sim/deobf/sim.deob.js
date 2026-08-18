@@ -242,14 +242,14 @@ if(a2["bigQ"]&&a2["bigQ"]["length"])return!0x1;
 var bA=ar(),bB=as();
 return a2["bigQ"]=[{'kind':bx,'p':by,'recIdx':a2["seasons"]["length"],'age':a2["age"],'comp':bz&&bz["comp"]||'','team':bA?bA["name"]:'','opp':aU(bx,bA,bB),'teamId':bA?bA['id']:null}],
 !0x0;
-}function aW(){var d8=cn,bx=a2["bigQ"][0x0],by=ad()<0.42?ad()<0.78?0x1:0x2:0x0,bz=ad()<0.44?ad()<0.8?0x1:0x2:0x0;
+}function aW(){var d8=cn,bx=a2["bigQ"][0x0],bk2=ac((a2["ovr"]-0x46)/0x1e,-0.5,0x1),by,by2,bz,bz2;by2=ad();by=by2<0.38-0.25*bk2?0x0:by2<0.73?0x1:by2<0.93-0.15*bk2?0x2:0x3;bz2=ad();bz=bz2<0.5+0.2*bk2?0x0:bz2<0.85?0x1:0x2;
 bx["half"]=[by,bz],a2["pending"]={'type':"bigmatch",'kind':bx["kind"],'comp':bx["comp"],'icon':aR[bx["kind"]]["icon"],'side':aR[bx["kind"]]["side"]||bx["team"],
 'opp':bx["opp"],'half':[by,bz],'log':aX(bx,by,bz)};
-}function aX(bx,by,bz){var d9=cn,bA=aR[bx["kind"]]["side"]||bx["team"],bB=[];
+}function aX(bx,by,bz){var d9=cn,bA=aR[bx["kind"]]["side"]||bx["team"],bB=[],bC=ae(0x0,0x4),bD=ae(0x0,0x2);
 return 0x0===by&&0x0===bz?bB["push"]("上半场谁都没打开"+"局面。你们在中场"+"来回磨了四十五分"+'钟。'):by>bz?(bB["push"]('第\x20'+ae(0x9,0x29)+" 分钟，"+bA+("先进了一个。看台"+"整个站了起来。")),
 by>0x1&&bB["push"]("半场结束前又来一"+"个。你们把优势拉"+"到了两球。"),bz&&bB["push"]("对方在补时扳回一"+"个。中场哨响时那"+"边的替补席在喊。")):by<bz?(bB["push"]('第\x20'+ae(0x6,0x26)+(" 分钟丢球。皮球"+"进网的那一下，场"+"里安静得能听见对"+"方球迷。")),
 bz>0x1&&bB["push"]("下半场开始前又被"+"打进一个。你们落"+"后两球。"),by&&bB["push"]("你们在半场前扳回"+"一个，比分咬住了"+'。')):bB["push"]("上半场互交白卷式"+"的两球。谁也没能"+"把比分甩开。"),
-bB["push"]("中场休息。更衣室"+"里教练在白板上画"+"了一通，最后转过"+"头看着你。"),bB;
+bB["push"](0x0===bD?"中场休息。更衣室"+"里教练在白板上画"+"了一通，最后转过"+"头看着你。":0x1===bD?"中场休息。主队球迷"+"的歌声盖过了客队，"+"教练在战术板上写了"+"又擦。":"中场休息。裁判因为"+"几次争议判罚被围住"+"，保安把两边隔开。"),by>0x2&&bB["push"]("上半场你们就进了三"+"个，看台已经有人提"+"前庆祝了。"),bz>0x1&&bB["push"]("对方两球在手，气势"+"正盛。你们的防线感"+"觉快撑不住了。"),bB;
 }var aY=[{'key':"hold",'label':"稳住阵型",'hint':"小幅提高赢面，个"+"人数据平淡",'dp':0.06,'glory':0.12,'mood':0x4},{'key':"push",'label':"压上去搏",
 'hint':"赢面涨得最多，也"+"最可能被反击打穿",'dp':0.13,'glory':0.5,'mood':0x0,'risk':!0x0},{'key':"run",'label':"把球做出来",'hint':"居中，队友更愿意"+'找你',
 'dp':0.09,'glory':0.28,'mood':0x8}];
