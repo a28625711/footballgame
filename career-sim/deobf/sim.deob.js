@@ -675,17 +675,25 @@ else if(bC["name"]==="范志毅"&&bC["number"]===5)cK={'id':"fanzy",'o':3,'t':0.
 else if(bC["name"]==="孙继海"&&bC["number"]===12)cK={'id':"sunjh",'o':2,'t':0.05,'i':1};
 else if(bC["name"]==="郑智"&&bC["number"]===10)cK={'id':"zhengz",'o':2,'t':0.06,'i':1};
 else if(bC["name"]==="武磊"&&bC["number"]===7)cK={'id':"wulei",'o':2,'t':0.06,'i':1};
-else if(bC["number"]===10&&bC["pos"]==="ST")cK={'id':"pele",'o':3,'t':0,'i':-1};
-else if(bC["number"]===10&&bC["pos"]==="CAM")cK={'id':"maradona",'o':0,'t':0.12,'i':1};
-else if(bC["number"]===10&&bC["pos"]==="RW")cK={'id':"messi",'o':4,'t':0,'i':-1};
-else if(bC["number"]===7&&bC["pos"]==="LW")cK={'id':"cristiano",'o':4,'t':0,'i':-1};
-else if(bC["number"]===14&&bC["pos"]==="CAM")cK={'id':"cruyff",'o':0,'t':0.12,'i':1};
-else if(bC["number"]===5&&bC["pos"]==="CB")cK={'id':"beckenbauer",'o':3,'t':0,'i':-1};
-else if(bC["number"]===9&&bC["pos"]==="ST")cK={'id':"ronaldo",'o':4,'t':0.08,'i':2};
-else if(bC["number"]===21&&bC["pos"]==="CAM")cK={'id':"zidane",'o':2,'t':0.08,'i':0};
-else if(bC["number"]===1&&bC["pos"]==="GK")cK={'id':"yashin",'o':3,'t':0,'i':-1};
-else if(bC["number"]===3&&bC["pos"]==="LB")cK={'id':"maldini",'o':3,'t':0,'i':-1};
-else if(bC["number"]===2&&bC["pos"]==="RB")cK={'id':"cafu",'o':2,'t':0.06,'i':0};
+else if(bC["number"]===10&&bC["pos"]==="ST")cK={'id':"pele",'o':4,'t':0.05,'i':-1};
+else if(bC["number"]===10&&bC["pos"]==="CAM")cK={'id':"maradona",'o':2,'t':0.14,'i':1};
+else if(bC["number"]===10&&bC["pos"]==="RW")cK={'id':"messi",'o':5,'t':0.05,'i':-1};
+else if(bC["number"]===7&&bC["pos"]==="LW")cK={'id':"cristiano",'o':5,'t':0.05,'i':-1};
+else if(bC["number"]===14&&bC["pos"]==="CAM")cK={'id':"cruyff",'o':2,'t':0.14,'i':1};
+else if(bC["number"]===5&&bC["pos"]==="CB")cK={'id':"beckenbauer",'o':4,'t':0.05,'i':-1};
+else if(bC["number"]===9&&bC["pos"]==="ST")cK={'id':"ronaldo",'o':5,'t':0.1,'i':2};
+else if(bC["number"]===21&&bC["pos"]==="CAM")cK={'id':"zidane",'o':3,'t':0.08,'i':0};
+else if(bC["number"]===1&&bC["pos"]==="GK")cK={'id':"yashin",'o':4,'t':0.05,'i':-1};
+else if(bC["number"]===3&&bC["pos"]==="LB")cK={'id':"maldini",'o':4,'t':0.05,'i':-1};
+else if(bC["number"]===2&&bC["pos"]==="RB")cK={'id':"cafu",'o':3,'t':0.06,'i':0};
+else if(bC["number"]===7&&bC["pos"]==="ST")cK={'id':"mbappe",'o':2,'t':0.02,'i':1};
+else if(bC["number"]===10&&bC["pos"]==="CM")cK={'id':"modric",'o':2,'t':0.03,'i':0};
+else if(bC["number"]===11&&bC["pos"]==="ST")cK={'id':"kane",'o':2,'t':0.02,'i':0};
+else if(bC["number"]===11&&bC["pos"]==="RW")cK={'id':"salah",'o':1,'t':0.01,'i':0};
+else if(bC["number"]===22&&bC["pos"]==="CAM")cK={'id':"bellingham",'o':1,'t':0.03,'i':1};
+else if(bC["number"]===16&&bC["pos"]==="CDM")cK={'id':"rodri",'o':1,'t':0.02,'i':0};
+else if(bC["number"]===4&&bC["pos"]==="CB")cK={'id':"vandijk",'o':1,'t':0,'i':-1};
+else if(bC["number"]===17&&bC["pos"]==="CM")cK={'id':"debruyne",'o':1,'t':0.01,'i':0};
 return{'ver':0x6,'seed':bD,'rngState':ai(String(bD)),'mode':bB,'phase':"youth",'step':0x0,'name':bC["name"],'number':bC["number"],
 'foot':bC["foot"],'pos':bC["pos"],'originId':bF['id'],'cheat':aw(bC),'legend':cK,'dreamId':bC["dreamId"]||null,'gen':bG?bG["gen"]:0x1,
 'legacy':bG,'age':0xc,'ovr':ac(0x18+0.5*bF["ovr"]+(bG?0.5*bG["ovr"]:0x0),0x12,0x24)+(cK?cK['o']:0x0),'maxOvr':0x0,'talent':0x1,
