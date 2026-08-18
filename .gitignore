@@ -22,3 +22,6 @@ open-source/
 
 # 临时脚本
 /temp/
+
+# 单行原版备份（拆分版替代后保留的原始单行文件）
+career-sim/deobf/单行原版备份/
