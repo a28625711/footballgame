@@ -1948,3 +1948,28 @@ img.crest.plate {
   .intro-start .hero-sub { max-width: 26rem; }
   .segmented, .seed-box, .btn-stack { margin-left: 0; margin-right: 0; }
 }
+
+/* ===== 年表选项卡（timeline tabs）===== */
+.tl-tabs {
+  display: flex; gap: .3rem;
+  padding: .3rem .3rem 0;
+  border-bottom: 1px solid hsl(var(--border));
+  margin-bottom: .35rem;
+}
+.tl-tab {
+  flex: 1;
+  padding: .45rem .4rem;
+  font-size: .7rem; font-weight: 700;
+  color: hsl(var(--muted));
+  background: none; border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tl-tab.on {
+  color: hsl(var(--accent));
+  border-bottom-color: hsl(var(--accent));
+}
+.tl-panel.hidden { display: none; }
+.tl-panel .tl-scroll { max-height: min(30vh, 18rem); overflow-y: auto; }
+.mini-badge.star { color: hsl(var(--gold)); }

@@ -112,8 +112,6 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - [x] 新增国外青训事件（stage:youth + when 含 p.youthAbroad）
 
 ## 比赛事件（bigmatch）系统
-
-- `aW()` 生成半场比分（受 ovr 影响，0-3 球）
 - `aX()` 生成半场文案（含进球方式/激烈度随机）
 - `aY` 战术选择：hold/push/run 3 种
 - `choose` bigmatch 分支处理下半场+点球+胜负
@@ -202,3 +200,36 @@ ca = 0.5/梯队数 × (1 + max(0, ovr-80)×0.06)   // ovr<80 不降低，只提�
 - ovr 基准 60、guanxi 基准 45、fame 基准 25、clean 基准 70、talent 基准 1
 
 修复记录：新增事件初期基准值误用 1（如 `[guanxi,1,0.08]`），导致属性差异被 clamp 抹平，已改为惯例基准值。现在全部 10 个国外青训事件的成功概率都随属性变化（已验证）。
+
+## 年表（timeline）三选项卡改造（2026-08-18）
+
+位置：`game.deob.js` 的 `b9()` 函数（从 `function b9(` 到 `function ba(`）。
+
+### 结构
+- 顶部 `.tl-tabs`：3 个按钮 `data-tab="club|nat|award"`（俱乐部/国家队/奖项）
+- 3 个 `.tl-panel`（`data-panel` 对应），默认仅 club 可见，其余加 `hidden` class
+- `agg` 聚合：按 teamId 分组赛季（`a8[mode].seasons` 个赛季合并为一行），收集 trophies/notes/nats/moves + caps/natGoals 等
+- 青训阶段：`au.youthLog` 渲染在**俱乐部面板**开头（年龄/青训队/ovr/被刷下来标记）
+- 面板切换：`app` click handler（事件委托）`closest("[data-tab]")` → 高亮按钮 + toggle 面板 `hidden`
+- CSS：`style.css` 末尾 `.tl-tabs/.tl-tab/.tl-panel.hidden/.tl-cols/.tl-club/.mini-badge.nat` 等
+
+### 问题点（本次发现并修复）
+1. **俱乐部面板混入国家队奖杯**：sim.js `b0()` 把国家队冠军写进赛季 `trophies`（`bx["trophies"].push(by+'冠军')`，by 为"世界杯"/"亚洲杯"）。导致俱乐部选项卡也显示"世界杯冠军/亚洲杯冠军"。
+   - 修复：俱乐部面板 `c2["trophies"]["filter"]` 排除 `"世界杯冠军"` 和 `"亚洲杯冠军"`（精确匹配，避免误伤"世俱杯冠军"）
+   - 注意过滤必须精确匹配（"世俱杯冠军"含"世界杯"子串，不能用 indexOf）
+2. **国家队面板缺冠军徽章**：国家队冠军成绩走赛季 trophies，不走 `c8["nat"]`（nat 只记非冠军成绩如"打进世界杯"），导致国家队面板没有冠军记录。
+   - 修复：`agg` 聚合时把赛季 trophies 里的 `"世界杯冠军"/"亚洲杯冠军"` 也 `push` 进 `c4["nats"]`
+3. **国家队面板空**：原渲染条件 `if(c2["caps"]||(c2["nats"]||[])["length"])` 在无国家队数据的档会把**所有行跳过** → 面板只有表头完全空白（用户反馈"完全为空"）。
+   - 修复：去掉 if 条件，**无条件渲染所有 agg 行**，无数据的行显示"未入选"
+   - 注：caps/natGoals/nat 只在被征召的年份有值，聚合 `c8.caps||0x0` 累加；此修改同时暴露一个语法坑——删 if 开括号时必须同步删闭合 `}`，否则 forEach 提前闭合（V8 报 Unknown JavaScript error）
+4. **奖项面板缺个人奖项**：原奖项面板只显示团队奖杯（赛季 trophies 聚合），不含金球奖/金靴等个人荣誉（`au.awards`）。
+   - 修复：奖项面板合并收集 `agg` 的 trophies（cls:"trophy"）+ `au.awards`（cls:"award"）；个人奖项用 `.mini-badge.star`（`hsl(var(--gold))` 金色）区分
+
+### 当前三面板语义
+- 俱乐部：俱乐部奖杯 + 转会 + 青训阶段（国家队奖杯已过滤）
+- 国家队：caps/进球/助攻 + 国家队成绩徽章（含冠军）；无数据的行也渲染（显示"未入选"）
+- 奖项：全部奖杯（俱乐部 + 国家队混合）+ **个人奖项**（金球奖/金靴等，`au.awards`，`.mini-badge.star` 金色高亮）
+
+### 验证方式
+- `py tools/xxx` 完整 DOM mock 加载 7 文件 + `__SIMTEST` 模拟到 summary + 捕获 `summary-area` innerHTML，检查三面板内容（cheat 档必出世界杯/亚洲杯冠军）
+
