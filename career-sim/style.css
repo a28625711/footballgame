@@ -1973,3 +1973,5 @@ img.crest.plate {
 .tl-panel.hidden { display: none; }
 .tl-panel .tl-scroll { max-height: min(30vh, 18rem); overflow-y: auto; }
 .mini-badge.star { color: hsl(var(--gold)); }
+.tl-cols.award { grid-template-columns: 2.4rem minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); }
+.tl-cols.award .tl-badges { margin-left: 0; }

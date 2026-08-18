@@ -228,7 +228,13 @@ ca = 0.5/梯队数 × (1 + max(0, ovr-80)×0.06)   // ovr<80 不降低，只提�
 ### 当前三面板语义
 - 俱乐部：俱乐部奖杯 + 转会 + 青训阶段（国家队奖杯已过滤）
 - 国家队：caps/进球/助攻 + 国家队成绩徽章（含冠军）；无数据的行也渲染（显示"未入选"）
-- 奖项：全部奖杯（俱乐部 + 国家队混合）+ **个人奖项**（金球奖/金靴等，`au.awards`，`.mini-badge.star` 金色高亮）
+- 奖项：**按年四列**（年龄 | 俱乐部奖项 | 国家队奖项 | 个人奖项），遍历 `au.seasons` 每年一行；俱乐部/国家队奖杯从赛季 trophies 分类（世界杯/亚洲杯冠军归国家队），个人奖项从 `au.awards` 按 age 匹配；`.tl-cols.award` 4 列 grid，个人奖项 `.mini-badge.star` 金色
+
+### 结构约定（重要）
+- **三个面板完全自包含**：每个 Body 以 `<div class="tl-panel"...>` 开头、`</div></div>` 结尾（闭 tl-scroll + tl-panel）
+- 组装：`return '<div class="timeline">'+bY+clubBody+natBody+awardBody+'</div>';`（只包 timeline，不再闭 panel）
+- 国家队表头含助攻列：`<span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span>`
+- 奖项行自定义 HTML（不用 b8，b8 固定 6 列）：`<div class="tl-row done tl-cols award">` + age-chip + 3×tl-badges
 
 ### 验证方式
 - `py tools/xxx` 完整 DOM mock 加载 7 文件 + `__SIMTEST` 模拟到 summary + 捕获 `summary-area` innerHTML，检查三面板内容（cheat 档必出世界杯/亚洲杯冠军）
