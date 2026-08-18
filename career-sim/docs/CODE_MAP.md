@@ -143,3 +143,14 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 | abr_rival | 本地球员的敌意 | ovr+3 fame+1 / -2 |
 
 注意：游戏已有 10 个成年阶段（prime/vet）的 `abr_*` 出国事件（boxing_day/翻译/冬歇期等），本次新增的是**青训阶段**专属，id 用 abr_ 前缀但 stage 不同，不冲突。
+
+### 增强（2026-08-15 二次更新）
+
+国外青训事件共 **10 个**，加成以 ovr 为主 + 部分事件含 fame/guanxi：
+- abr_lang：成功 ovr+2 **guanxi+2**（语言通了关系好）
+- abr_mentor：成功 ovr+4 talent+0.015 **fame+1**
+- abr_style：成功 ovr+3 **guanxi+1**（融入体系）
+- abr_homesick：ovr+fame（已有）
+- abr_rival：ovr+fame（已有）
+- **abr_reputation 表现被注意到**（新增）：成功 ovr+2 **fame+6**（需 ovr>55）
+- **abr_teammate 交到第一个朋友**（新增）：成功 **guanxi+4** ovr+1
