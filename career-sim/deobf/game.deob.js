@@ -1106,7 +1106,10 @@ var c7=aw("btn-code"+'x');
 c7&&c7["addEvent"+"Listener"]("click",bq);
 }());
 var bW=aI();
-bW&&bW["seasons"]&&bW["seasons"]["length"]?(au=bW,a6["attach"](au),bO()):bM("view-int"+'ro'),ay("pid",null)||ay("save",null)||ay("mode",
+bW&&bW["seasons"]&&bW["seasons"]["length"]?(au=bW,au["eventLog"]||(au["eventLog"]=[]),(au["seasons"]||[])["forEach"](function(c2){
+if((c2["trophies"]||[])["length"]&&!au["eventLog"]["some"](function(c5){return c5["age"]===c2["age"]&&/冠军/["test"](c5["title"]);}))(c2["trophies"]||[])["forEach"](function(c5){/冠军/["test"](c5)&&au["eventLog"]["push"]({'age':c2["age"],'title':c5,"text":'夺冠'});});
+if(c2["note"]&&!au["eventLog"]["some"](function(c5){return c5["age"]===c2["age"]&&"伤病"===c5["title"];}))au["eventLog"]["push"]({'age':c2["age"],'title':"伤病","text":c2["note"]});
+}),a6["attach"](au),bO()):bM("view-int"+'ro'),ay("pid",null)||ay("save",null)||ay("mode",
 null)?ay("news_ver",'')!==a4&&(aw("news-mod"+'al')["classLis"+'t']["remove"]("hidden"),az("news_ver",a4)):az("news_ver",a4);
 }),window["__SIMTES"+'T']={'origins':a9,'modes':a8,'start':function(bW,bX,bY){var gS=d3;
 return b2=null,(au=a6["newState"](bW,bX,bY))["maxOvr"]=au["ovr"],as(),au;
