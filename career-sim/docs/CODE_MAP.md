@@ -89,7 +89,8 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 
 - 出国青训标记：`a2["flags"]["youthAbroad"]`（events 的 when 里用 `p.youthAbroad` 可判断）
 - 事件上下文（aA）：`p.inAcademy`、`p.inChina`、`p.youthAbroad`（flags 自动复制）
-- 青训事件过滤（aE）：`stage==="youth"` 才在青训触发；`cn` 标记控制国内外
+- 青训事件过滤（aE）：`aB(age)` 阶段判定 `age≤15→kid / 16-20→youth / 33+→vet / 其他→prime`；青训营内按 `inAcademy` 匹配 `stage`，出国后（inChina=false）排除 `cn` 事件，`when` 里 `p.youthAbroad` 控制海外专属
+- **海外青训事件阶段修正（2026-08-19）**：`abr_*`（语言关/技术流/体能营/外教/想家/新战术/饮食/敌意等 8 个）原标 `stage:"youth"`，但青训出国发生在 12-15 岁（`aB` 返回 kid）→ aE 的 kid 分支只选 `stage:"kid"` → 永不触发。已改为 `stage:"kid"`（`when` 仍要求 `inAcademy&&youthAbroad`）
 - 青训成长（bj）：`ovr += 区间×(1+talent)/2×联赛系数×衰减`
 
 ## 事件结构（events.deob.js）
