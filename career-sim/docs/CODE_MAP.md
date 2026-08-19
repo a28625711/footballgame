@@ -132,6 +132,12 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - `choose` bigmatch 分支处理下半场+点球+胜负
 - `aU()` 生成对手
 
+### 生涯事件记录（eventLog，2026-08-19 新增）
+- `a2["eventLog"]`：`{age, title, text}` 数组，newState 初始化 `[]`
+- 记录点 1（随机事件）：`choose` 的 `"random"===bA["type"]` 分支，在 `bw(bB["res"])` 前，用 `a1.filter(id===eventId)[0].title` 反查事件标题 + `bB.res.text` 结果文本
+- 记录点 2（关键战）：`choose` bigmatch 分支结算处（`a2["pending"]["result"]=` 后），title 用 `bI["comp"]`（如"世界杯"/"欧冠"），text 用 `(bM?'冠军':'失利')+'：'+bY`（bY 含比分）
+- 渲染：`game.deob.js b9()` 个人面板消费 `au.eventLog`（按年龄分组，和赛季 note/ovrEnd 并排）
+
 ### 半场比分（aW，2026-08-15 增强）
 ```js
 k = clamp((ovr-70)/30, -0.5, 1)
@@ -221,8 +227,8 @@ ca = 0.5/梯队数 × (1 + max(0, ovr-80)×0.06)   // ovr<80 不降低，只提�
 位置：`game.deob.js` 的 `b9()` 函数（从 `function b9(` 到 `function ba(`）。
 
 ### 结构
-- 顶部 `.tl-tabs`：3 个按钮 `data-tab="club|nat|award"`（俱乐部/国家队/奖项）
-- 3 个 `.tl-panel`（`data-panel` 对应），默认仅 club 可见，其余加 `hidden` class
+- 顶部 `.tl-tabs`：4 个按钮 `data-tab="club|nat|award|pers"`（俱乐部/国家队/奖项/个人）
+- 4 个 `.tl-panel`（`data-panel` 对应），默认仅 club 可见，其余加 `hidden` class
 - `agg` 聚合：按 teamId 分组赛季（`a8[mode].seasons` 个赛季合并为一行），收集 trophies/notes/nats/moves + caps/natGoals 等
 - 青训阶段：`au.youthLog` 渲染在**俱乐部面板**开头（年龄/青训队/ovr/被刷下来标记）
 - 面板切换：`app` click handler（事件委托）`closest("[data-tab]")` → 高亮按钮 + toggle 面板 `hidden`
@@ -240,16 +246,17 @@ ca = 0.5/梯队数 × (1 + max(0, ovr-80)×0.06)   // ovr<80 不降低，只提�
 4. **奖项面板缺个人奖项**：原奖项面板只显示团队奖杯（赛季 trophies 聚合），不含金球奖/金靴等个人荣誉（`au.awards`）。
    - 修复：奖项面板合并收集 `agg` 的 trophies（cls:"trophy"）+ `au.awards`（cls:"award"）；个人奖项用 `.mini-badge.star`（`hsl(var(--gold))` 金色）区分
 
-### 当前三面板语义
+### 当前四面板语义
 - 俱乐部：俱乐部奖杯 + 转会 + 青训阶段（国家队奖杯已过滤）
 - 国家队：caps/进球/助攻 + 国家队成绩徽章（含冠军）；无数据的行也渲染（显示"未入选"）
 - 奖项：**按年四列**（年龄 | 俱乐部奖项 | 国家队奖项 | 个人奖项），遍历 `au.seasons` 每年一行；俱乐部/国家队奖杯从赛季 trophies 分类（世界杯/亚洲杯冠军归国家队），个人奖项从 `au.awards` 按 age 匹配；`.tl-cols.award` 4 列 grid，个人奖项 `.mini-badge.star` 金色
+- 个人（新增第 4 个 tab）：**按年四列**（年龄 | 事件 | 伤病 | 能力），事件来自 `au.eventLog`（随机事件+关键战），伤病来自赛季 `note`，能力列显示 `ovrEnd`；事件徽章 `.mini-badge.evt` 紫色（`hsl(265 32% 64%)`），title 悬浮显示事件结果文本
 
 ### 结构约定（重要）
-- **三个面板完全自包含**：每个 Body 以 `<div class="tl-panel"...>` 开头、`</div></div>` 结尾（闭 tl-scroll + tl-panel）
-- 组装：`return '<div class="timeline">'+bY+clubBody+natBody+awardBody+'</div>';`（只包 timeline，不再闭 panel）
+- **四个面板完全自包含**：每个 Body 以 `<div class="tl-panel"...>` 开头、`</div></div>` 结尾（闭 tl-scroll + tl-panel）
+- 组装：`return '<div class="timeline">'+bY+clubBody+natBody+awardBody+persBody+'</div>';`（只包 timeline，不再闭 panel）
 - 国家队表头含助攻列：`<span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span>`
-- 奖项行自定义 HTML（不用 b8，b8 固定 6 列）：`<div class="tl-row done tl-cols award">` + age-chip + 3×tl-badges
+- 奖项/个人行自定义 HTML（不用 b8，b8 固定 6 列）：`<div class="tl-row done tl-cols award">` + age-chip + 3×tl-badges
 
 ### 验证方式
 - `py tools/xxx` 完整 DOM mock 加载 7 文件 + `__SIMTEST` 模拟到 summary + 捕获 `summary-area` innerHTML，检查三面板内容（cheat 档必出世界杯/亚洲杯冠军）

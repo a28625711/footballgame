@@ -684,6 +684,8 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
 .mini-badge.nat { color: hsl(var(--info)); }
 /* 升上一级：跟奖杯不是一回事（没人发杯子），但确实是这一年最大的事，用绿的 */
 .mini-badge.up { color: hsl(var(--accent)); }
+/* 生涯事件：随机事件/关键战的经历，用中性紫区分于荣誉 */
+.mini-badge.evt { color: hsl(265 32% 64%); }
 
 /* 结算页国家队卡：每项大赛一行「赛事 — 最好成绩 — 那年多大」 */
 .nat-best { margin-top: .55rem; display: grid; gap: .28rem; }

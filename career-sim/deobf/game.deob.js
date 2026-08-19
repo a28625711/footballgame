@@ -56,7 +56,7 @@ var c0=0x0;
 for(var c1 in bX)Object["prototyp"+'e']["hasOwnPr"+"operty"]["call"](bX,c1)&&c0++;
 return{'lives':bZ,'best':bY,'endings':c0,'total':a0["ENDINGS"]["length"]};
 }function aI(){var dj=d3,bW=ay("save",null);
-return bW&&bW["ver"]===a7?(bW["natRuns"]||(bW["natRuns"]=[]),null==bW["banGames"]&&(bW["banGames"]=0x0),bW["choices"]||(bW["choices"]=[],bW["rid"]=null),
+return bW&&bW["ver"]===a7?(bW["natRuns"]||(bW["natRuns"]=[]),null==bW["banGames"]&&(bW["banGames"]=0x0),bW["choices"]||(bW["choices"]=[],bW["rid"]=null),null==bW["wageMul"+'t']&&(bW["wageMul"+'t']=0x1),
 void 0x0===bW["rid"]&&(bW["rid"]=null),bW):null;
 }function aJ(){var dk=d3;
 try{localStorage["removeIt"+'em'](a2+"save");
@@ -173,7 +173,7 @@ c5=c8,(++c6>=c2||c9===au["seasons"]["length"]-0x1)&&c7();
 }),c3;
 }());
 /* 选项卡头 */
-bY+='<div class="tl-tabs"><button class="tl-tab on" data-tab="club">俱乐部</button><button class="tl-tab" data-tab="nat">国家队</button><button class="tl-tab" data-tab="award">奖项</button></div>';
+bY+='<div class="tl-tabs"><button class="tl-tab on" data-tab="club">俱乐部</button><button class="tl-tab" data-tab="nat">国家队</button><button class="tl-tab" data-tab="award">奖项</button><button class="tl-tab" data-tab="pers">个人</button></div>';
 /* 俱乐部面板：俱乐部奖杯+转会，不含国家队 */
 var clubBody='<div class="tl-panel" data-panel="club"><div class="tl-head tl-cols"><span>年龄</span><span>俱乐部</span><span class="r">能力</span><span class="r">'+b4["apps"]+'</span><span class="r">'+('gk'===bX?b4['cs']:b4["goals"])+'</span><span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span></div><div class="tl-scroll">';
 (au["youthLog"]||[])["forEach"](function(c2){var dK=dJ,c3=ag(c2["teamId"]);
@@ -202,14 +202,13 @@ clubBody+='</div></div>';
 /* 国家队面板：国家队数据+成绩 */
 var natBody='<div class="tl-panel hidden" data-panel="nat"><div class="tl-head tl-cols"><span>年龄</span><span>国家队</span><span class="r">能力</span><span class="r">'+b4["apps"]+'</span><span class="r">'+('gk'===bX?b4['cs']:b4["goals"])+'</span><span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span></div><div class="tl-scroll">';
 var natRows=0x0;
-agg["forEach"](function(c2){var dO=dJ,c3='';
+agg["forEach"](function(c2){var dO=dJ;
 if(c2["caps"]||(c2["nats"]||[])["length"]){natRows++;
-c3=c2["caps"]?('国家队 '+c2["caps"]+' 场'+(('gk'===bX&&c2["natCs"])?(' · '+c2["natCs"]+" 零封"):((c2["natGoals"]?(' · '+c2["natGoals"]+' 球'):'')+(c2["natAssis"+'ts']?(' · '+c2["natAssis"+'ts']+' 助'):'')))):'';
-var c3a=(c3?'<span class="mini-badge nat">'+ax(c3)+'</span>':'')+((c2["nats"]||[])["map"](function(c5){var dQ=dO;
+var c3a=((c2["nats"]||[])["map"](function(c5){var dQ=dO;
 return '<span class="mini-badge nat">'+ax(c5)+'</span>';
 }))["join"]('');
 natBody+=b8("done",'<span class="age-chip"'+(c2["color"]?' style="background:'+c2["color"]+(';color:#fff"'):'')+'>'+c2["age"]+'</span>',
-'<span class="tl-club">'+(c3a?'<span class="tl-badges">'+c3a+'</span>':'<span class="tl-club-name">未入选</span>')+'</span>',
+'<span class="tl-club">'+(c3a?'<span class="tl-badges">'+c3a+'</span>':(c2["caps"]?'':'<span class="tl-club-name">未入选</span>'))+'</span>',
 '<span class="r"><span class="ovr-pill '+b5(c2["ovr"])+'">'+c2["ovr"]+'</span></span>',c2["caps"],'gk'===bX?c2["natCs"]:c2["natGoals"],
 'gk'===bX?c2["natCs"]:c2["natAssists"]);
 }
@@ -238,8 +237,27 @@ awardBody+='<div class="tl-row done tl-cols award"><span class="age-chip"'+(c2["
 });
 if(!awardAny)awardBody+='<div class="tl-row done tl-cols award"><span class="age-chip"></span><span class="tl-club-name" style="grid-column:2/5">整个生涯没有拿到任何奖杯</span></div>';
 awardBody+='</div></div>';
+/* 个人面板：事件+伤病+能力 */
+var persBody='<div class="tl-panel hidden" data-panel="pers"><div class="tl-head tl-cols award"><span>年龄</span><span>事件</span><span>伤病</span><span>能力</span></div><div class="tl-scroll">';
+var persEv=(au["eventLog"]||[]);
+var persSeasons=(au["seasons"]||[]).map(function(c2){var dV2=dJ;return{'age':c2["age"],'note':c2["note"]||(c2["injur"]?'伤病':''),'ovr':c2["ovrEnd"]||c2["ovr"]};});
+var persAny=persEv["length"]||persSeasons["length"];
+if(persEv["length"]||persSeasons["length"]){var persByAge={};
+persSeasons["forEach"](function(c2){persByAge[c2["age"]]=c2;});
+var persAges=[];
+persEv["forEach"](function(c2){persAges["indexOf"](c2["age"])<0x0&&persAges["push"](c2["age"]);});
+persSeasons["forEach"](function(c2){persAges["indexOf"](c2["age"])<0x0&&persAges["push"](c2["age"]);});
+persAges["sort"](function(c2,c3){return c2-c3;});
+persAges["forEach"](function(c2){var dW2=dJ,c3=persByAge[c2]||null,c4=persEv["filter"](function(c5){var dX2=dJ;return c5["age"]===c2;});
+persBody+='<div class="tl-row done tl-cols award"><span class="age-chip">'+c2+'</span>'
++'<span class="tl-badges">'+(c4["map"](function(c5){return '<span class="mini-badge evt" title="'+ax((c5["text"]||'')["replace"](/"/g,"&quot;"))+'">'+ax(c5["title"]||'事件')+'</span>';}))["join"]('')+'</span>'
++'<span class="tl-badges">'+(c3&&c3["note"]?'<span class="mini-badge bad">'+ax(c3["note"])+'</span>':'')+'</span>'
++'<span class="r"><span class="ovr-pill '+b5(c3?c3["ovr"]:0)+'">'+(c3?c3["ovr"]:'—')+'</span></span></div>';
+});}
+if(!persAny)persBody+='<div class="tl-row done tl-cols award"><span class="age-chip"></span><span class="tl-club-name" style="grid-column:2/5">还没有任何记录</span></div>';
+persBody+='</div></div>';
 /* 组装：各面板自包含，组装只包 timeline */
-return '<div class="timeline">'+bY+clubBody+natBody+awardBody+'</div>';
+return '<div class="timeline">'+bY+clubBody+natBody+awardBody+persBody+'</div>';
 }function ba(bW,bX,bY,bZ){var dT=d3;
 return "<button "+"class=\"o"+"pt\" data"+"-opt=\""+bW+("\"><span "+"class=\"o"+"pt-label"+'\x22>')+ax(bX)+"</span>"+(bZ?aT(bZ):'')+(bY?"<span cl"+"ass=\"opt"+"-hint\">"+ax(bY)+"</span>":'')+("</button"+'>');
 }function bb(bW,bX){var dU=d3;
@@ -249,7 +267,7 @@ function be(){var dV=d3;
 return "function"==typeof matchMedia&&matchMedia("(prefers"+"-reduced"+"-motion:"+" reduce)")["matches"];
 }var bf=!0x1;
 function bg(bW,bX,bY,bZ,c0){var dW=d3,c1=a6["leagueOf"+"Team"](bX),c2=["保级队","中下游",'中游','争冠','豪门',"顶级豪门"][bX["rep"]],c3=c0?a6["offerBri"+'ef'](bX['id']):null;
-return "<button "+"class=\"o"+'pt'+(au["dreamId"]===bX['id']?" dream":'')+("\" data-o"+"pt=\"")+bW+'\x22>'+(bZ?"<span cl"+"ass=\"opt"+"-lead\">"+ax(bZ)+"</span>":'')+(au["dreamId"]===bX['id']?"<span cl"+"ass=\"opt"+"-dream\">"+"心仪</span"+'>':'')+("<span cl"+"ass=\"opt"+"-label\">")+ax(bY)+"</span>"+aT(bX)+("<span cl"+"ass=\"opt"+"-hint\">")+ax(c1["name"]+" · "+c2)+"</span>"+(c3?"<span cl"+"ass=\"opt"+"-offer\">"+"<b>"+ax(al(c3["wage"]))+("</b>/赛季<"+"span cla"+"ss=\"opt-"+"role rol"+'e-')+c3["role"]+'\x22>'+ax(c3["roleName"])+("</span><"+"/span>"):'')+("</button"+'>');
+return "<button "+"class=\"o"+'pt'+(au["dreamId"]===bX['id']?" dream":'')+("\" data-o"+"pt=\"")+bW+'\x22>'+(bZ?"<span cl"+"ass=\"opt"+"-lead\">"+ax(bZ)+"</span>":'')+(au["dreamId"]===bX['id']?"<span cl"+"ass=\"opt"+"-dream\">"+"心仪</span"+'>':'')+("<span cl"+"ass=\"opt"+"-label\">")+ax(bY)+"</span>"+aT(bX)+("<span cl"+"ass=\"opt"+"-hint\">")+ax(c1["name"]+" · "+c2)+"</span>"+(c3?"<span cl"+"ass=\"opt"+"-offer\">"+"<b>"+ax(al(c3["wage"]))+("</b>/赛季"+c3["years"]+('年<span class="opt-role role-'))+c3["role"]+'\x22>'+ax(c3["roleName"])+("</span><"+"/span>"):'')+("</button"+'>');
 }var bh=[[/欧冠/,"ucl"],[/欧联/,"uel"],[/亚冠/,"challeng"+'e'],[/世界杯冠军/,'wc'],[/打进世界杯/,"wcgold"],[/亚洲杯/,"asiancup"],[/亚洲足球先生/,"afcpoy"],
 [/中超冠军/,"csl"],[/足协杯/,"cn-facup"],[/世俱杯/,"cwc"],[/金球/,"ballon"],[/金靴/,"boot"],[/金手套/,"glove"],[/最佳球员/,"best"],[/国王杯/,"kingcup"],
 [/德国杯/,"dfb"],[/足总杯/,"facup"],[/意大利杯|法国杯|荷兰杯|葡萄牙杯|比利时杯|天皇杯|韩国杯|公开杯/,"pedestal"],[/冠军$/,"league"]];
@@ -562,7 +580,7 @@ bM("view-car"+"eer"),aw("career-r"+"oot")["innerHTM"+'L']="<div cla"+"ss=\"care"
 if(c0+="<div cla"+"ss=\"stat"+"-row\">"+('gk'===bZ?[[b4["apps"]+'出场',au["totals"]["apps"]],[b4['cs']+'零封',au["totals"]['cs']],[b4['ga']+'失球',au["totals"]['ga']]]:[[b4["apps"]+'出场',au["totals"]["apps"]],[b4["goals"]+'进球',au["totals"]["goals"]],[b4["ast"]+'助攻',au["totals"]["assists"]]])["map"](function(c4){var eX=eW;
 return "<div cla"+"ss=\"stat"+"-cell\"><"+"div clas"+"s=\"stat-"+"l\">"+c4[0x0]+("</div><d"+"iv class"+"=\"stat-v"+'\x22>')+c4[0x1]+("</div></"+"div>");
 })["join"]('')+("</div></"+"div>"),bX){var c1=a0["ROLES"][au["role"]];
-c0+="<div cla"+"ss=\"stat"+"us-row\">"+"<div cla"+"ss=\"st-c"+"ell\"><sp"+"an class"+"=\"st-l\">"+"队内地位</sp"+"an><span"+" class=\""+"st-v rol"+'e-'+au["role"]+("\" title="+"\"这一档一个赛季"+"大约 ")+c1["apps"][0x0]+'-'+c1["apps"][0x1]+" 场\">"+ax(c1["name"])+("</span><"+"/div><di"+"v class="+"\"st-cell"+"\"><span "+"class=\"s"+"t-l\">合同<"+"/span><s"+"pan clas"+"s=\"st-v\""+'>')+(au["contract"+"Left"]>0x0?"还剩 "+au["contract"+"Left"]+'\x20期':"本期到期")+("</span><"+"/div></d"+"iv>");
+c0+="<div cla"+"ss=\"stat"+"us-row\">"+"<div cla"+"ss=\"st-c"+"ell\"><sp"+"an class"+"=\"st-l\">"+"队内地位</sp"+"an><span"+" class=\""+"st-v rol"+'e-'+au["role"]+("\" title="+"\"这一档一个赛季"+"大约 ")+c1["apps"][0x0]+'-'+c1["apps"][0x1]+" 场\">"+ax(c1["name"])+("</span><"+"/div><di"+"v class="+"\"st-cell"+"\"><span "+"class=\"s"+"t-l\">合同<"+"/span><s"+"pan clas"+"s=\"st-v\""+'>')+(au["contract"+"Left"]>0x0?"还剩 "+au["contract"+"Left"]+'\x20年':"本期到期")+("</span><"+"/div></d"+"iv>");
 }c0+="<div cla"+"ss=\"mete"+"rs\"><div"+" class=\""+"bars\">"+b6('关系',au["guanxi"],"hsl(var("+"--info))")+b6('清白',au["clean"],
 "hsl(var("+"--accent"+'))')+b6('名气',au["fame"],"hsl(var("+"--warnin"+"g))")+("</div><d"+"iv class"+"=\"money-"+"row\"><sp"+"an>")+(au["money"]<0x0?"家里的欠债":"个人财富")+("</span><"+'b')+(au["money"]<0x0?" class=\""+"neg\"":'')+'>'+al(au["money"])+("</b></di"+"v></div>");
 var c2=a6["STAFF"]["filter"](function(c4){var eY=eW;
@@ -638,7 +656,7 @@ return bg("loan"+cf,ag(ce),ag(ce)["name"],'租借',!0x0);
 })));
 var c9=[];
 if(bZ["canStay"]){var ca=a6["offerBri"+'ef'](ai()['id']);
-c9["push"](ba("stay","留在 "+ai()["name"],"续约，一切照旧 "+'·\x20'+al(ca["wage"])+"/赛季 · "+ca["roleName"],ai()));
+c9["push"](ba("stay","留在 "+ai()["name"],"续约，一切照旧 "+'·\x20'+al(ca["wage"])+"/赛季 · "+ca["years"]+'\x20年 · '+ca["roleName"],ai()));
 }return bZ["canRetir"+'e']&&c9["push"](ba("retire",'挂靴',"就到这里")),bZ["offers"]["length"]||bZ["canStay"]||(c8+="<div cla"+"ss=\"empt"+"y\">没有任何报"+"价。</div>",
 c9["length"]||c9["push"](ba("retire",'挂靴',"只剩这一个选项"))),c8+bb(c9,"opts-alt")+"</div>";
 }if("bigmatch"===bZ["type"]){var cb="<div cla"+"ss=\"even"+"t bigmat"+'ch'+(bZ["result"]?bZ["result"]["won"]?" won":" lost":'')+'\x22>'+b1(bZ["icon"]||'🏆',
