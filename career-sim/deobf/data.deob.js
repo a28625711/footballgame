@@ -44,10 +44,10 @@ return c["youthCut"]>=0xd;
 return c["youthCut"]<=0xc;
 }},{'id':"banned",'tier':0x1,'title':"足坛蛀虫",'desc':"反赌扫黑没漏掉你"+"。名字被从纪录里"+"抹掉，只留在通报"+'里。','hint':"被反赌扫黑查到，"+"终身禁足",'test':function(c){var o=h;
 return c["banned"];
-}},{'id':"goat",'tier':0x2,'title':"GOAT",'desc':"世界杯、金球、欧"+"冠，一样不缺。以"+"后每次有人排历史"+"最佳，名单第一行"+"都得先写你，再从"+"第二行开始吵。",'hint':"世界杯、金球、欧"+"冠，三样齐全",
+}},{'id':"goat",'tier':0x2,'title':"GOAT",'desc':"世界杯、金球、欧"+"冠，一样不缺。以"+"后每次有人排历史"+"最佳，名单第一行"+"都得先写你，再从"+"第二行开始吵。",'hint':"世界杯、金球、欧"+"冠，三样齐全",'bonus':{'talent':0.06},
 'test':function(c){var p=h;
 return c["wcRank"]>=0x6&&c["award"](a["ballon"])>=0x1&&c["uclTroph"+"ies"]>=0x1;
-}},{'id':"wcchamp",'tier':0x2,'title':"大力神杯",'desc':"中国队捧起了那座"+"杯。这一天之前，"+"没有人敢把这句话"+"写进任何一篇稿子"+'。','hint':"随中国队拿下世界"+'杯',
+}},{'id':"wcchamp",'tier':0x2,'title':"大力神杯",'desc':"中国队捧起了那座"+"杯。这一天之前，"+"没有人敢把这句话"+"写进任何一篇稿子"+'。','hint':"随中国队拿下世界"+'杯','bonus':{'ovr':0x2},
 'test':function(c){var q=h;
 return c["wcRank"]>=0x6;
 }},{'id':"wcfinal",'tier':0x2,'title':"决赛英雄",'desc':"世界杯决赛。你踢"+"满了全场，最后跪"+"在草皮上很久没起"+"来。那场球全国都"+"没睡。",'hint':"打进世界杯决赛",'test':function(c){var r=h;
@@ -80,7 +80,7 @@ return c["maxOvr"]>=0x58&&c["bigTroph"+"ies"]>=0x3&&c["top5Seas"+"ons"]>=0x5;
 }},{'id':"cr7",'tier':0x2,'title':"中国C罗",'desc':"别人三十五岁开始"+"告别，你三十五岁"+"开始加练。最后那"+"几年没人再拿天赋"+"说你，只说自律。",'pos':{'gk':{'title':"中国范德萨"},
 'def':{'title':"中国佩佩"},'mid':{'title':"中国莫德里奇"}},'hint':"能力到过 90、"+"生涯出场 100"+"0 以上、40 "+"岁之后才退役",'bonus':{'talent':0.03,'ovr':0x1},'test':function(c){var C=h;
 return c["maxOvr"]>=0x5a&&c["apps"]>=0x3e8&&c["age"]>=0x28;
-}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'bonus':{'talent':0.05},'test':function(c){var D=h;
+}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'bonus':{'talent':0.03},'test':function(c){var D=h;
 return c["award"](a["ballon"])>=0x1;
 }},{'id':"asiaking",'tier':0x3,'title':"亚洲一哥",'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中场都在研究"+"你怎么转身。",'pos':{'gk':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的前锋赛前都在"+"看你的扑点录像。"},
 'def':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中锋都记得被"+"你贴了九十分钟是"+"什么滋味。"},'att':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的后卫都在研究"+"你怎么启动。"}},
@@ -179,6 +179,12 @@ return "无人问津"===c["reason"];
 }},{'id':"quit",'tier':0x5,'title':"英年退役",'desc':"三十岁不到就挂靴"+"。后来在朋友圈卖"+"球鞋，简介写着「"+"前职业球员」。",'hint':"30 岁之前主动"+'挂靴','test':function(c){var ae=h;
 return c["age"]<=0x1e;
 }},{'id':"plain",'tier':0x7,'title':"职业球员",'desc':"没什么可写进纪录"+"的，也没什么可查"+"的。踢完了整整一"+"段职业生涯，这本"+"身就不容易。",'hint':"以上都没轮到你",'test':function(){return!0x0;
+}},{'id':"double20",'tier':0x3,'title':"双二十先生",'desc':"进球上双、助攻也上双"+"，那一年你一个人扛起"+"了半支队的进攻。",'hint':"单赛季进球和助攻都"+"到 20",'bonus':{'growth':1.06},'test':function(c){var a10=h;
+return c["seasonDo"+"uble20"];
+}},{'id':"veteran",'tier':0x4,'title':"老而弥坚",'desc':"三十五岁，别人收着踢"+"，你还在冲。教练说年"+"轻人该向你学习。",'hint':"35 岁之后单赛季仍"+"打进 20 球",'bonus':{'decay':0.5},'test':function(c){var a11=h;
+return c["lateGoals"];
+}},{'id':"hundredc"+'aps','tier':0x4,'title':"百场国脚",'desc':"国家队球衣穿了上百次"+"，缝缝补补还挂着。名单"+"来来回回，你一直在。",'hint':"国家队出场 100 次"+"以上",'bonus':{'ovr':0x1},'test':function(c){var a12=h;
+return c["caps"]>=0x64;
 }}];
 window["DATA"]={'endingView':function(c,d){var af=h,f=c&&c["pos"]&&c["pos"][d];
 return{'id':c['id'],'tier':c["tier"],'title':f&&f["title"]||c["title"],'desc':f&&f["desc"]||c["desc"]};

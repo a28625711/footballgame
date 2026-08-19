@@ -339,7 +339,7 @@ cf&&cd["indexOf"](cf)<0x0&&cd["push"](cf);
 }}return cd;
 }(c6),ca=0x2===c7&&bZ[c6['id']]||c6["title"],cb=c9["filter"](function(cc){return cc!==ca;
 });
-return "<div cla"+"ss=\"code"+"x-item"+(0x2===c7?" got":0x1===c7?" touch":'')+("\"><div c"+"lass=\"co"+"dex-titl"+"e\">")+(c8?ax(ca):"？？？")+(bY[c6['id']]>0x1?"<span cl"+"ass=\"cod"+"ex-x\">×"+bY[c6['id']]+"</span>":'')+(0x1===c7?"<span cl"+"ass=\"cod"+"ex-touch"+"\">够到过</s"+"pan>":'')+"</div>"+(c8&&cb["length"]?"<div cla"+"ss=\"code"+"x-alias\""+">按位置也叫："+ax(cb["join"]('、'))+"</div>":'')+("<div cla"+"ss=\"code"+"x-desc\">")+ax(c8?c6["desc"]:c6["hint"]||'')+"</div>"+(c8&&c6["hint"]?"<div cla"+"ss=\"code"+"x-hint\">"+ax(c6["hint"])+"</div>":'')+"</div>";
+return "<div cla"+"ss=\"code"+"x-item"+(0x2===c7?" got":0x1===c7?" touch":'')+("\"><div c"+"lass=\"co"+"dex-titl"+"e\">")+(c8?ax(ca):"？？？")+(bY[c6['id']]>0x1?"<span cl"+"ass=\"cod"+"ex-x\">×"+bY[c6['id']]+"</span>":'')+(0x1===c7?"<span cl"+"ass=\"cod"+"ex-touch"+"\">够到过</s"+"pan>":'')+"</div>"+(c8&&cb["length"]?"<div cla"+"ss=\"code"+"x-alias\""+">按位置也叫："+ax(cb["join"]('、'))+"</div>":'')+("<div cla"+"ss=\"code"+"x-desc\">")+ax(c8?c6["desc"]:c6["hint"]||'')+"</div>"+(c8&&c6["hint"]?"<div cla"+"ss=\"code"+"x-hint\">"+ax(c6["hint"])+"</div>":'')+(c8&&c6["bonus"]?"<div style=\"margin-top:.4rem;padding:.35rem .5rem;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.35);border-radius:.35rem;font-size:.72rem;color:#d4af37\">加成："+cBch(c6)+"</div>":'')+"</div>";
 })["join"]('')+"</div>";
 }),c2+="<div cla"+"ss=\"btn-"+"stack\"><"+"button c"+"lass=\"bt"+"n btn-pr"+"imary\" d"+"ata-act="+"\"codex-b"+"ack\">回首页"+"</button"+"></div>",
 aw("codex-ar"+'ea')["innerHTM"+'L']=c2;
@@ -930,6 +930,11 @@ if(bY["indexOf"](ck)<0x0)bY["push"](ck);
 for(ch in cf["bonus"])Object["prototype"]["hasOwnProperty"]["call"](cf["bonus"],ch)&&(null==bX[ch]||cf["bonus"][ch]>bX[ch])&&(bX[ch]=cf["bonus"][ch]);}
 });});
 return{'bonus':bX,'list':bY,'count':bY["length"]};
+}function cBch(cf){var dl=d3,cg=[];
+for(var ch in cf["bonus"])Object["prototype"]["hasOwnProperty"]["call"](cf["bonus"],ch)&&cg["push"](function(ch){var dm=dl,v=cf["bonus"][ch];
+return"injury"===ch?"受伤概率-"+Math["round"]((0x1-v)*0x64)+('%'):"ovr"===ch?"初始能力+"+v:"talent"===ch?"天赋+"+v["toFixed"](0x2):"growth"===ch?"成长速度+"+Math["round"]((v-0x1)*0x64)+('%'):"money"===ch?"开局家底+"+v+'万':"natCall"===ch?"国家队入选+"+Math["round"]((v-0x1)*0x64)+('%'):"decay"===ch?"30岁后能力回落减半":'';
+}(ch));
+return cg["join"]("、");
 }function bS(bW){var gk=d3;
 b2=null;
 var bX,bY=ay("mode","normal"),bZ=av;

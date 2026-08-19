@@ -275,7 +275,7 @@ delete a2["staff"][bC['id']],bB["push"](bC["name"]),bA-=a7(bC);
 }var bE=aG(a2["age"]),bF=bE[0x0]+ad()*(bE[0x1]-bE[0x0]),bG=a2["talent"];
 if(by&&(bG*=0x1+0.05*(by["rep"]-0x2)),a2["stagnate"]&&(bG*=0.55),a6("chef")&&(bG*=1.08),a0["ROLES"][a2["role"]]["rank"]<=0x1&&(bG*=a2["age"]<=0x17&&bx&&bx["rep"]>=0x4?0.85:0.5),
 a2["achBonus"]&&a2["achBonus"]["growth"]&&(bG*=a2["achBonus"]["growth"]),
-bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)),bF<0x0&&(bG=a6("fitness")?0.8:0x1),a2["ovr"]=ac(a2["ovr"]+bF*bG,0x14,0x63),
+bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)),bF<0x0&&(a2["achBonus"]&&a2["achBonus"]["decay"]&&(bF*=a2["achBonus"]["decay"]),bG=a6("fitness")?0.8:0x1),a2["ovr"]=ac(a2["ovr"]+bF*bG,0x14,0x63),
 a2["cheat"]){var bH=ac(0x2a+bp(a2["originId"])["ovr"]+(a2["legacy"]?a2["legacy"]["ovr"]:0x0),0x1e,0x3c),bI=bH+(0x63-bH)*ac((a2["age"]-0x10)/0xa,0x0,0x1);
 a2["ovr"]=ac(Math["max"](a2["ovr"],bI),0x14,0x63);
 }if(a2["banLeft"]>0x0)bz["note"]='禁赛',a2["banLeft"]--;
@@ -634,7 +634,14 @@ return{'gen':a2["gen"]||0x1,'age':a2["age"],'ovr':Math["round"](a2["ovr"]),'maxO
 'married':!(!a2["life"]||!a2["life"]["married"]),'kids':a2["life"]&&a2["life"]["kids"]["length"]||0x0,'splits':a2["life"]&&a2["life"]["splits"]||0x0,
 'abroad':a2["seasonsA"+"broad"],'reason':a2["endReaso"+'n']||'','youthTeamId':a2["youthTea"+"mId"]||'','youthAbroad':!(!a2["flags"]||!a2["flags"]["youthAbr"+"oad"]),
 'youthCut':a2["youthCut"]||0x0,'appsPerSeason':a2["seasons"]["length"]?a2["totals"]["apps"]/a2["seasons"]["length"]:0x0,'ga':a2["totals"]['ga'],
-'homeName':bI?bI["name"]:'','homeSeasons':bI?bI["seasons"]:0x0,'homeApps':bI?bI["apps"]:0x0,'homeTrophies':bK,'flags':a2["flags"]||{}};
+'homeName':bI?bI["name"]:'','homeSeasons':bI?bI["seasons"]:0x0,'homeApps':bI?bI["apps"]:0x0,'homeTrophies':bK,'flags':a2["flags"]||{},
+'seasonDouble20':(function(c2){var eZ=e8;
+for(var c3=0x0;c3<a2["seasons"]["length"];c3++)if(a2["seasons"][c3]["goals"]>=0x14&&a2["seasons"][c3]["assists"]>=0x14)return!0x0;
+return!0x1;
+}()),'lateGoals':(function(c2){var f0=e8;
+for(var c3=0x0;c3<a2["seasons"]["length"];c3++)if(a2["seasons"][c3]["age"]>=0x23&&a2["seasons"][c3]["goals"]>=0x14)return!0x0;
+return!0x1;
+}())};
 }function br(bx){var ef=cn;
 a2["phase"]="summary",a2["endReaso"+'n']=bx;
 var by=bq(),bz="青训淘汰"===by["reason"];

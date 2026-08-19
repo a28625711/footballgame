@@ -281,7 +281,7 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 |---|---|---|
 | ironman | 铁人 | `injury:0.85`（受伤概率×0.85） |
 | capped | 国脚 | `natCall:1.2`（国家队入选×1.2） |
-| ballon | 金球先生 | `talent:0.05` |
+| ballon | 金球先生 | `talent:0.03` |
 | legend | 中国梅西 | `talent:0.04` |
 | cr7 | 中国C罗 | `talent:0.03, ovr:1` |
 | bigears | 大耳朵杯 | `growth:1.06` |
@@ -290,15 +290,24 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 | money | 亿元先生 | `money:50`（开局家底+50万） |
 | rich | 财富自由 | `money:80` |
 | grind | 中甲传奇 | `talent:0.03` |
+| goat | 上帝之子 | `talent:0.06` |
+| wcchamp | 大力神杯 | `ovr:2` |
+| double20 | 双二十先生 | `growth:1.06` |
+| veteran | 老而弥坚 | `decay:0.5`（30岁后能力回落减半） |
+| hundredcaps | 百场国脚 | `ovr:1` |
 
 ### 生效点（sim.deob.js）
 - newState 第5参数 `bAch`：`ovr`(初始+)/`talent`(天赋+)/`money`(家底+) 在创建对象时应用；`achBonus` 存入 au
 - 受伤概率：line 297 后 `bT *= achBonus.injury`
 - 成长：line 276 `bG *= achBonus.growth`
 - 国家队入选：line 327 `c0 *= achBonus.natCall`
+- 能力衰减：line 277 当 `bF<0`（30岁后）时 `bF *= achBonus.decay`
+- `bq()`（buildProfile）额外扫描 seasons 生成 `seasonDouble20`（单季 20+20）/`lateGoals`（35岁后单季20球），供 double20/veteran 判定
 
 ### UI（game.deob.js）
 - `cAch()`：遍历 archive 合并 bonus + 生成去重效果列表（同类取 max）
+- `cBch()`：把 ENDINGS.bonus 翻译成中文描述（含 decay 分支）
 - b0() 位置步骤（`aX===0x1`）末尾渲染勾选框 `#ach-boost` + 已解锁效果
 - bS() 开始生涯时 `newState(..., cAch().bonus if checked)`
+- bq() 结局图鉴（view-codex）：已见条目若有 bonus，底部显示金色「加成：...」块
 
