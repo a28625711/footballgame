@@ -137,6 +137,8 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - 记录点 1（随机事件）：`choose` 的 `"random"===bA["type"]` 分支，在 `bw(bB["res"])` 前，用 `a1.filter(id===eventId)[0].title` 反查事件标题 + `bB.res.text` 结果文本
 - 记录点 2（关键战）：`choose` bigmatch 分支结算处（`a2["pending"]["result"]=` 后），title 用 `bI["comp"]`（如"世界杯"/"欧冠"），text 用 `(bM?'冠军':'失利')+'：'+bY`（bY 含比分）
 - 渲染：`game.deob.js b9()` 个人面板消费 `au.eventLog`（按年龄分组，和赛季 note/ovrEnd 并排）
+- 个人面板 `persSeasons`：由 `au.seasons`（职业赛季）**合并 `au.youthLog`**（青训，含 `cut` 标记），青训年被淘汰显示"青训淘汰"，能力列显示青训 ovr
+- 国家队面板 natBody：第 2 列固定显示"中国队"文字 + 成绩徽章（世界杯冠军/亚洲杯冠军等），有出场无徽章的赛季也显示"中国队"
 
 ### 半场比分（aW，2026-08-15 增强）
 ```js

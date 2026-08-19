@@ -208,7 +208,7 @@ var c3a=((c2["nats"]||[])["map"](function(c5){var dQ=dO;
 return '<span class="mini-badge nat">'+ax(c5)+'</span>';
 }))["join"]('');
 natBody+=b8("done",'<span class="age-chip"'+(c2["color"]?' style="background:'+c2["color"]+(';color:#fff"'):'')+'>'+c2["age"]+'</span>',
-'<span class="tl-club">'+(c3a?'<span class="tl-badges">'+c3a+'</span>':(c2["caps"]?'':'<span class="tl-club-name">未入选</span>'))+'</span>',
+'<span class="tl-club"><span class="tl-club-name">中国队</span>'+(c3a?'<span class="tl-badges">'+c3a+'</span>':'')+'</span>',
 '<span class="r"><span class="ovr-pill '+b5(c2["ovr"])+'">'+c2["ovr"]+'</span></span>',c2["caps"],'gk'===bX?c2["natCs"]:c2["natGoals"],
 'gk'===bX?c2["natCs"]:c2["natAssists"]);
 }
@@ -241,6 +241,7 @@ awardBody+='</div></div>';
 var persBody='<div class="tl-panel hidden" data-panel="pers"><div class="tl-head tl-cols award"><span>年龄</span><span>事件</span><span>伤病</span><span>能力</span></div><div class="tl-scroll">';
 var persEv=(au["eventLog"]||[]);
 var persSeasons=(au["seasons"]||[]).map(function(c2){var dV2=dJ;return{'age':c2["age"],'note':c2["note"]||(c2["injur"]?'伤病':''),'ovr':c2["ovrEnd"]||c2["ovr"]};});
+(au["youthLog"]||[])["forEach"](function(c2){var dY2=dJ;persSeasons["push"]({'age':c2["age"],'note':c2["cut"]?'青训淘汰':'', 'ovr':c2["ovr"]});});
 var persAny=persEv["length"]||persSeasons["length"];
 if(persEv["length"]||persSeasons["length"]){var persByAge={};
 persSeasons["forEach"](function(c2){persByAge[c2["age"]]=c2;});
