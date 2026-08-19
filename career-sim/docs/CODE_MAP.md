@@ -268,3 +268,37 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 ### 验证方式
 - `py tools/xxx` 完整 DOM mock 加载 7 文件 + `__SIMTEST` 模拟到 summary + 捕获 `summary-area` innerHTML，检查三面板内容（cheat 档必出世界杯/亚洲杯冠军）
 
+## 成就加成（2026-08-19 新增）
+
+### 概念
+- 结局图鉴（`a0.ENDINGS`，data.deob.js）即"成就"。部分高难度结局带 `bonus` 字段。
+- 跨局已达成结局 = `localStorage.archive`（aG()）各局 `bp()` 的 endings 并集。
+- 开局向导「位置」步骤底部勾选「启用成就加成」，勾选后 newState 传入合并 bonus（第 5 参数）。
+- 同类加成**取最大值**（不叠加），不同类并存。
+
+### 加成表（ENDINGS.bonus）
+| id | 成就 | bonus |
+|---|---|---|
+| ironman | 铁人 | `injury:0.85`（受伤概率×0.85） |
+| capped | 国脚 | `natCall:1.2`（国家队入选×1.2） |
+| ballon | 金球先生 | `talent:0.05` |
+| legend | 中国梅西 | `talent:0.04` |
+| cr7 | 中国C罗 | `talent:0.03, ovr:1` |
+| bigears | 大耳朵杯 | `growth:1.06` |
+| boots | 金靴 | `ovr:2` |
+| sniper | 进球机器 | `ovr:1, growth:1.03` |
+| money | 亿元先生 | `money:50`（开局家底+50万） |
+| rich | 财富自由 | `money:80` |
+| grind | 中甲传奇 | `talent:0.03` |
+
+### 生效点（sim.deob.js）
+- newState 第5参数 `bAch`：`ovr`(初始+)/`talent`(天赋+)/`money`(家底+) 在创建对象时应用；`achBonus` 存入 au
+- 受伤概率：line 297 后 `bT *= achBonus.injury`
+- 成长：line 276 `bG *= achBonus.growth`
+- 国家队入选：line 327 `c0 *= achBonus.natCall`
+
+### UI（game.deob.js）
+- `cAch()`：遍历 archive 合并 bonus + 生成去重效果列表（同类取 max）
+- b0() 位置步骤（`aX===0x1`）末尾渲染勾选框 `#ach-boost` + 已解锁效果
+- bS() 开始生涯时 `newState(..., cAch().bonus if checked)`
+

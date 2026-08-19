@@ -75,12 +75,12 @@ return(c["flags"]["fixed"]||c["flags"]["gambled"])&&c["clean"]<0x2d;
 }},{'id':"agefraud",'tier':0x4,'title':"大三岁",'desc':"户口本上的那个年"+"份陪了你一辈子。"+"退役那年真实年龄"+"的你，其实还能再"+"踢两年。",'hint':"改过年龄",'test':function(c){var A=h;
 return c["flags"]["ageFraud"];
 }},{'id':"legend",'tier':0x2,'title':"中国梅西",'desc':"以后每个踢球的小"+"孩都会被拿来跟你"+"比，然后被说「你"+"不是他」。",'pos':{'gk':{'title':"中国布冯"},'def':{'title':"中国马尔蒂尼"}},
-'hint':"能力到过 88、"+"三座大赛级奖杯、"+"五大联赛五个赛季",'test':function(c){var B=h;
+'hint':"能力到过 88、"+"三座大赛级奖杯、"+"五大联赛五个赛季",'bonus':{'talent':0.04},'test':function(c){var B=h;
 return c["maxOvr"]>=0x58&&c["bigTroph"+"ies"]>=0x3&&c["top5Seas"+"ons"]>=0x5;
 }},{'id':"cr7",'tier':0x2,'title':"中国C罗",'desc':"别人三十五岁开始"+"告别，你三十五岁"+"开始加练。最后那"+"几年没人再拿天赋"+"说你，只说自律。",'pos':{'gk':{'title':"中国范德萨"},
-'def':{'title':"中国佩佩"},'mid':{'title':"中国莫德里奇"}},'hint':"能力到过 90、"+"生涯出场 100"+"0 以上、40 "+"岁之后才退役",'test':function(c){var C=h;
+'def':{'title':"中国佩佩"},'mid':{'title':"中国莫德里奇"}},'hint':"能力到过 90、"+"生涯出场 100"+"0 以上、40 "+"岁之后才退役",'bonus':{'talent':0.03,'ovr':0x1},'test':function(c){var C=h;
 return c["maxOvr"]>=0x5a&&c["apps"]>=0x3e8&&c["age"]>=0x28;
-}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'test':function(c){var D=h;
+}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'bonus':{'talent':0.05},'test':function(c){var D=h;
 return c["award"](a["ballon"])>=0x1;
 }},{'id':"asiaking",'tier':0x3,'title':"亚洲一哥",'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中场都在研究"+"你怎么转身。",'pos':{'gk':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的前锋赛前都在"+"看你的扑点录像。"},
 'def':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中锋都记得被"+"你贴了九十分钟是"+"什么滋味。"},'att':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的后卫都在研究"+"你怎么启动。"}},
@@ -89,10 +89,10 @@ return c["award"](a["afcpoy"])>=0x2;
 }},{'id':"asiabest",'tier':0x3,'title':"亚洲最佳",'desc':"亚洲足球先生拿过"+"一次。那一年你觉"+"得自己还能更好，"+"后来才知道那就是"+"顶点。",'hint':"拿过一次亚洲足球"+'先生',
 'test':function(c){var F=h;
 return c["award"](a["afcpoy"])>=0x1;
-}},{'id':"bigears",'tier':0x3,'title':"大耳朵杯",'desc':"欧冠决赛的那张全"+"队合影里有你。照"+"片挂在老家的墙上"+"，比任何一份合同"+"都久。",'hint':"拿过欧冠，且在五"+"大联赛待过两个赛"+'季',
+}},{'id':"bigears",'tier':0x3,'title':"大耳朵杯",'desc':"欧冠决赛的那张全"+"队合影里有你。照"+"片挂在老家的墙上"+"，比任何一份合同"+"都久。",'hint':"拿过欧冠，且在五"+"大联赛待过两个赛"+'季','bonus':{'growth':1.06},
 'test':function(c){var G=h;
 return c["uclTroph"+"ies"]>=0x1&&c["top5Seas"+"ons"]>=0x2;
-}},{'id':"boots",'tier':0x4,'title':'金靴','desc':"一整个赛季你是射"+"手榜第一。有人说"+"是运气好，你把那"+"年的每个球都记着"+'。','hint':"拿过金靴（欧洲或"+"中超）",'test':function(c){var H=h;
+}},{'id':"boots",'tier':0x4,'title':'金靴','desc':"一整个赛季你是射"+"手榜第一。有人说"+"是运气好，你把那"+"年的每个球都记着"+'。','hint':"拿过金靴（欧洲或"+"中超）",'bonus':{'ovr':0x2},'test':function(c){var H=h;
 return c["award"](a["boot"])+c["award"](a["cslboot"])>=0x1;
 }},{'id':"uncrowne"+'d','tier':0x3,'title':"无冕之王",'desc':"能力从来不是问题"+"，柜子里就是一座"+"奖杯都没有。有些"+"人一辈子没赶上一"+"支好队。",'hint':"能力到过 82，"+"却一座奖杯都没有",
 'test':function(c){var I=h;
@@ -101,7 +101,7 @@ return c["maxOvr"]>=0x52&&0x0===c["trophies"];
 return'gk'===c["posGroup"]&&c["caps"]>=0x1e;
 }},{'id':"shutout",'tier':0x3,'title':"叹息之墙",'desc':"三百多场零封。进"+"球集锦里从来没有"+"你，失球集锦里也"+"没有。",'hint':"门将，生涯 30"+"1 场零封",'test':function(c){var K=h;
 return'gk'===c["posGroup"]&&c['cs']>=0x12d;
-}},{'id':"sniper",'tier':0x3,'title':"进球机器",'desc':"五百多个进球。你"+"记不清大部分，但"+"每一个都有人记得"+"清清楚楚。",'hint':"非门将，生涯 5"+"24 球",'test':function(c){var L=h;
+}},{'id':"sniper",'tier':0x3,'title':"进球机器",'desc':"五百多个进球。你"+"记不清大部分，但"+"每一个都有人记得"+"清清楚楚。",'hint':"非门将，生涯 5"+"24 球",'bonus':{'ovr':0x1,'growth':1.03},'test':function(c){var L=h;
 return'gk'!==c["posGroup"]&&c["goals"]>=0x20c;
 }},{'id':"poacher",'tier':0x3,'title':"禁区之王",'desc':"四百多个球，没几"+"个是远射。你比谁"+"都清楚球会掉在哪"+'儿。','hint':"前锋，生涯 46"+"7 球",'test':function(c){var M=h;
 return "att"===c["posGroup"]&&c["goals"]>=0x1d3;
@@ -124,7 +124,7 @@ return c["maxOvr"]>=0x4e&&c["ovr"]<=c["maxOvr"]-0xe&&c["trophies"]<=0x3;
 }},{'id':"cutshort",'tier':0x5,'title':"天妒英才",'desc':"状态最好的年纪挂"+"了靴。所有人都说"+"可惜，只有你自己"+"知道身上哪儿疼。",'hint':"能力到过 78，"+"29 岁之前挂靴",
 'test':function(c){var T=h;
 return c["maxOvr"]>=0x4e&&c["age"]<=0x1d;
-}},{'id':"money",'tier':0x4,'title':"亿元先生",'desc':"顶薪那几年，你的"+"合同金额比你任何"+"一项数据都出名。"+"加起来过了亿，人"+"们记住的也只有这"+"个数。",'hint':"生涯收入过亿，且"+"几乎没在五大联赛"+'踢过',
+}},{'id':"money",'tier':0x4,'title':"亿元先生",'desc':"顶薪那几年，你的"+"合同金额比你任何"+"一项数据都出名。"+"加起来过了亿，人"+"们记住的也只有这"+"个数。",'hint':"生涯收入过亿，且"+"几乎没在五大联赛"+'踢过','bonus':{'money':0x32},
 'test':function(c){var U=h;
 return c["careerEa"+"rnings"]>=0x2710&&c["top5Seas"+"ons"]<=0x1;
 }},{'id':"iron",'tier':0x4,'title':"国足大腿",'desc':"赢球时没人念你的"+"名字，输球时全是"+"。你还是每次都去"+'。','hint':"国家队出场 30"+" 次以上",'test':function(c){var V=h;
@@ -137,10 +137,10 @@ return c["money"]<0x0;
 }},{'id':"bench",'tier':0x4,'title':"饮水机管理员",'desc':"十几年职业合同，"+"一个赛季踢不满十"+"六场。你把每次热"+"身都当成比赛来跑"+'。','hint':"踢满 10 个赛"+"季，场均出场不到"+" 16 场",
 'test':function(c){var Y=h;
 return c["seasons"]>=0xa&&c["appsPerS"+"eason"]<0x10;
-}},{'id':"rich",'tier':0x5,'title':"财富自由",'desc':"退役时账上的数字"+"比大多数同龄人一"+"辈子挣的都多，履"+"历上没有别的。有"+"人问你值不值，你"+"没答。",'hint':"退役时身家 50"+"00 万以上，奖"+"杯不超过两座",
+}},{'id':"rich",'tier':0x5,'title':"财富自由",'desc':"退役时账上的数字"+"比大多数同龄人一"+"辈子挣的都多，履"+"历上没有别的。有"+"人问你值不值，你"+"没答。",'hint':"退役时身家 50"+"00 万以上，奖"+"杯不超过两座",'bonus':{'money':0x50},
 'test':function(c){var Z=h;
 return c["money"]>=0x1388&&c["trophies"]<=0x2;
-}},{'id':"ironman",'tier':0x6,'title':'铁人','desc':"八百多场比赛，队"+"医的档案里几乎没"+"有你。教练换了六"+"个，首发名单上你"+"一直在。",'hint':"生涯 780 场"+"、17 个赛季",
+}},{'id':"ironman",'tier':0x6,'title':'铁人','desc':"八百多场比赛，队"+"医的档案里几乎没"+"有你。教练换了六"+"个，首发名单上你"+"一直在。",'hint':"生涯 780 场"+"、17 个赛季",'bonus':{'injury':0.85},
 'test':function(c){var a0=h;
 return c["apps"]>=0x30c&&c["seasons"]>=0x11;
 }},{'id':"journey",'tier':0x6,'title':"足坛浪子",'desc':"六家俱乐部，六座"+"城市，每次搬家都"+"以为是最后一次。",'hint':"效力过五家以上俱"+'乐部','test':function(c){var a1=h;
@@ -151,7 +151,7 @@ return c["married"]&&c["kids"]>=0x1&&0x0===c["splits"];
 }},{'id':"onetown",'tier':0x6,'title':"一人一城",'desc':"从青训到退役只穿"+"过一件球衣。看台"+"上有人从小学看你"+"看到当爹。",'hint':"最多两家俱乐部，"+"踢满 12 个赛"+'季',
 'test':function(c){var a3=h;
 return c["clubs"]<=0x2&&c["seasons"]>=0xc;
-}},{'id':"grind",'tier':0x6,'title':"中甲传奇",'desc':"在低级别联赛里踢"+"了一辈子，工资条"+"上的数字有一半从"+"没到账。",'hint':"在低级别联赛踢满"+" 8 个赛季",'test':function(c){var a4=h;
+}},{'id':"grind",'tier':0x6,'title':"中甲传奇",'desc':"在低级别联赛里踢"+"了一辈子，工资条"+"上的数字有一半从"+"没到账。",'hint':"在低级别联赛踢满"+" 8 个赛季",'bonus':{'talent':0.03},'test':function(c){var a4=h;
 return c["lowSeaso"+'ns']>=0x8;
 }},{'id':"coach",'tier':0x5,'title':'少帅','desc':"球衣换成了西装，"+"站的地方只往前挪"+"了五米。你说这五"+"米比想象中远得多"+'。','hint':"事件里考下了教练"+'证','test':function(c){var a5=h;
 return c["flags"]["coachCer"+'t'];
@@ -171,7 +171,7 @@ return c["flags"]["bianzhi"];
 }},{'id':"clean",'tier':0x5,'title':'清流','desc':"十几年里递到手上"+"的东西你一样没接"+"。没人给你发过奖"+"，队里人都知道你"+"是谁。",'hint':"清白 70 以上"+"，踢满 14 个"+'赛季',
 'test':function(c){var ab=h;
 return c["clean"]>=0x46&&c["seasons"]>=0xe;
-}},{'id':"capped",'tier':0x7,'title':'国脚','desc':"披过国家队的球衣"+"，没赢下什么，也"+"没输掉自己。名单"+"上有过你，这件事"+"不会被改掉。",'hint':"国家队出场 5 "+"次以上",
+}},{'id':"capped",'tier':0x7,'title':'国脚','desc':"披过国家队的球衣"+"，没赢下什么，也"+"没输掉自己。名单"+"上有过你，这件事"+"不会被改掉。",'hint':"国家队出场 5 "+"次以上",'bonus':{'natCall':1.2},
 'test':function(c){var ac=h;
 return c["caps"]>=0x5;
 }},{'id':"noone",'tier':0x5,'title':"无人问津",'desc':"没有告别赛，没有"+"公告。你自己收拾"+"了柜子，把球鞋留"+"给了队里的小孩。",'hint':"以「无人问津」的"+"方式退役",'test':function(c){var ad=h;
