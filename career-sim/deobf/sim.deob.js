@@ -311,7 +311,7 @@ if(ctr>cmr)cmr=ctr;
 }}for(dcx=0;
 dcx<a0["TEAMS"]["length"];
 dcx++){if(a0["TEAMS"][dcx]["league"]===by['id']&&a0["TEAMS"][dcx]["rep"]===cmr)ctn++;
-}ca=("league"===c9?0.5:0.35)/ctn;
+}ca=("league"===c9?(0.5+0.04*(ctn-1)):0.35)/ctn;
 ca*=1+Math["max"](0,a2["ovr"]-0x50)*0.06;
 if("cup"===c9&&!by["cont"])ca*=0.2;
 }if(("cont"!==c9||by["cont"])&&("cont"===c9&&(ca*='亚冠'===by["cont"]?2.5:'欧联'===by["cont"]?1.4:0.7),a2["cheat"]&&(ca="cont"!==c9||(function(){var df=de;
