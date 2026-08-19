@@ -651,17 +651,18 @@ bA++)a1[bA]['id']===by["eventId"]&&(bz=a1[bA]);
 if(!bz)return null;
 var bB=bz["options"][Number(bx)];
 if(!bB)return!0x1;
-if(bv(bx),a2["cheat"])return function(bD){var ei=eh;
+var bR4=function(bG2){var ei2=eh;a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bG2&&bG2["title"]||"事件",'text':bG2&&bG2["text"]||''});};
+if(bv(bx),a2["cheat"]){var bF4=function(bD){var ei=eh;
 for(var bE=a2["rngState"],bF=null,bG=bE,bH=-0x1/0x0,bI=0x0;
 bI<0x2;
 bI++){a2["rngState"]=bE,window["EV_ROLL"]&&(window["EV_ROLL"]["reset"](),window["EV_ROLL"]["force"](0x0===bI));
 var bJ=aA(),bK=bD["apply"](bJ,ad,bt(bD,bJ)),bL=bu(bK);
 bL>bH&&(bH=bL,bG=a2["rngState"],bF={'res':bK,'opt':bD,'roll':window["EV_ROLL"]?window["EV_ROLL"]["last"]():null});
 }return window["EV_ROLL"]&&window["EV_ROLL"]["force"](null),a2["rngState"]=bG,bF;
-}(bB);
+}(bB);bR4({'title':bz["title"],'text':bF4["res"]["text"]});return bF4;}
 window["EV_ROLL"]&&window["EV_ROLL"]["reset"]();
-var bC=aA();
-return{'res':bB["apply"](bC,ad,bt(bB,bC)),'opt':bB,'roll':window["EV_ROLL"]?window["EV_ROLL"]["last"]():null};
+var bC=aA(),bD4={'res':bB["apply"](bC,ad,bt(bB,bC)),'opt':bB,'roll':window["EV_ROLL"]?window["EV_ROLL"]["last"]():null};
+bR4({'title':bz["title"],'text':bD4["res"]["text"]});return bD4;
 }function bt(bx,by){var ej=cn;
 return bx&&"function"==typeof bx['p']?bx['p'](by):null;
 }function bu(bx){var ek=cn;
@@ -717,7 +718,7 @@ return{'ver':0x6,'seed':bD,'rngState':ai(String(bD)),'mode':bB,'phase':"youth",'
 if(!bA)return!0x1;
 if("random"===bA["type"]){var bB=bs(bx);
 if(null===bB)return bk(),!0x0;
-if(bB&&bB["res"]){var bC4=a1["filter"](function(bD4){var eo4=eo;return bD4['id']===bA["eventId"];})[0x0],bE4=bB["res"]["text"]||'';a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bC4&&bC4["title"]||"事件",'text':bE4});}
+
 return!!bB&&(bw(bB["res"]),!0x0);
 }if("youth_pa"+'th'===bA["type"]){var bC=bA["offers"][Number(bx)];
 return!!bC&&(bv(bx),a2["youthTea"+"mId"]=bC,aq(aj(bC))['cn']||(a2["money"]-=a0["YOUTH_AB"+"ROAD_FEE"],a2["flags"]["youthAbr"+"oad"]=!0x0),

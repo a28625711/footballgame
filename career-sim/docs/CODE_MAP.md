@@ -136,6 +136,7 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 ### 生涯事件记录（eventLog，2026-08-19 新增）
 - `a2["eventLog"]`：`{age, title, text}` 数组，newState 初始化 `[]`
 - 记录点 1（随机事件）：`choose` 的 `"random"===bA["type"]` 分支，在 `bw(bB["res"])` 前，用 `a1.filter(id===eventId)[0].title` 反查事件标题 + `bB.res.text` 结果文本
+- **记录点 1 修正（2026-08-19）**：真实游玩时 UI 层 `bQ()` 对 random 事件走 `resolveEvent`（=bs），**不经过 `choose`** → 事件从没记录。已把 push 逻辑移入 `bs()`（resolveEvent 与 choose 共用，避免 UI 路径漏记），choose 分支删除重复 push。现在 UI 触发/脚本 choose 都记录且不重复
 - 记录点 2（关键战）：`choose` bigmatch 分支结算处（`a2["pending"]["result"]=` 后），title 用 `bI["comp"]`（如"世界杯"/"欧冠"），text 用 `(bM?'冠军':'失利')+'：'+bY`（bY 含比分）
 - 渲染：`game.deob.js b9()` 个人面板消费 `au.eventLog`（按年龄分组，和赛季 note/ovrEnd 并排）
 - 个人面板 `persSeasons`：由 `au.seasons`（职业赛季）**合并 `au.youthLog`**（青训，含 `cut` 标记），青训年被淘汰显示"青训淘汰"，能力列显示青训 ovr
