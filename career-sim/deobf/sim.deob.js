@@ -163,7 +163,7 @@ else{var bB=Math["min"](bx["ovr"],Math["max"](0x0,a2["maxOvr"]-a2["ovr"]));
 bA=bB+(bx["ovr"]-bB)*ac((0x64-a2["ovr"])/0x28,0.25,0x1);
 }a2["ovr"]=ac(a2["ovr"]+bA,0xc,0x63),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz('能力',Math["round"](0xa*bA)/0xa);
 }bx["talent"]&&(a2["talent"]=ac(a2["talent"]+bx["talent"],0.5,1.8),bz('天赋',Math["round"](0x64*bx["talent"])/0x64));
-bx["health"]&&(a2["healthBonus"]=ac((a2["healthBonus"]||0x1)*bx["health"],0.4,0x1),bz('伤病',-Math["round"](0x64*(0x1-bx["health"]))+'%'));
+bx["health"]&&(a2["healthBonus"]=ac((a2["healthBonus"]||0x1)*bx["health"],0.4,0x1),0x1!==bx["health"]&&bz('伤病',(bx["health"]<0x1?'-':'+')+Math["round"](0x64*Math["abs"](0x1-bx["health"]))+'%',bx["health"]>=0x1));
 if(bx["guanxi"]&&(a2["guanxi"]=ac(a2["guanxi"]+bx["guanxi"],0x0,0x64),bz('关系',bx["guanxi"])),bx["clean"]&&(a2["clean"]=ac(a2["clean"]+bx["clean"],0x0,0x64),bz('清白',bx["clean"])),
 bx["fame"]){var bC=bx["fame"]<0x0&&a6('pr')?Math["round"](0.5*bx["fame"]):bx["fame"];
 a2["fame"]=ac(a2["fame"]+bC,0x0,0x64),bz('名气',bC);
@@ -332,12 +332,12 @@ bz["trophies"]["push"](cb),a2["trophies"]["push"]({'name':cb,'age':a2["age"],'te
 if(!a2["banned"]&&a2["age"]>=0x12&&bx&&by){var bY=ac((a2["ovr"]-bW)/0xc,0x0,0x1),bZ=a0["ROLES"][a2["role"]]["rank"],c0=ac(bY*(bZ>=0x3?0x1:bZ>=0x2?0.6:0.2)*(by["rep"]>=0x4?1.15:by['cn']?0x1:by["rep"]>=0x2?0.8:0.35)*(a2["age"]>=0x1e?0.8:0x1)*(a2["achBonus"]&&a2["achBonus"]["natCall"]||0x1),0x0,0.9);
 bX=a2["cheat"]||ad()<c0;
 }if(bX){var c1=ae(0x2,0x5),c2=aL(),c3=a2["seasons"]["length"]%0x4;
-if(0x1!==c3&&0x3!==c3||(c1+=0x2),a2["caps"]+=c1,bz["caps"]=c1,a2["flags"]["_natCall"+'ed']||(a2["flags"]["_natCall"+'ed']=!0x0,b1(["nat_firs"+"tcall","nat_firs"+"tcall2","nat_firs"+"tcall3"][Math["floor"](ad()*0x3)])),
+if(0x1!==c3&&0x3!==c3||(c1+=0x2),a2["caps"]+=c1,bz["caps"]=c1,a2["flags"]["_natCall"+'ed']||(a2["flags"]["_natCall"+'ed']=!0x0,b1(["nat_firs"+"tcall","nat_firs"+"tcall2","nat_firs"+"tcall3"][Math["floor"](ad()*0x3)]),a2["usedEven"+'ts']["nat_firs"+"tcall"]=(a2["usedEven"+'ts']["nat_firs"+"tcall"]||0x0)+0x1,a2["usedEven"+'ts']["nat_firs"+"tcall2"]=(a2["usedEven"+'ts']["nat_firs"+"tcall2"]||0x0)+0x1,a2["usedEven"+'ts']["nat_firs"+"tcall3"]=(a2["usedEven"+'ts']["nat_firs"+"tcall3"]||0x0)+0x1),
 function(c9,ca){var dg=dd;
 if(ca&&a2["natStats"]){var cb=al(a2["pos"])["group"],cc=ac((a2["ovr"]-0x2a)/0x30,0.05,1.4);
 if(a2["cheat"]&&(cc*=1.25),'gk'!==cb){var cd=aK(),ce=0x1+Math["max"](0x0,a2["ovr"]-0x50)/0x28,cf=0x1+Math["max"](0x0,a2["ovr"]-0x50)/0x16,
 cg=ac((a2["ovr"]-0x4b)/0x14,0x0,0x1),ch=ck(ca*cd["goal"]*(0.5+0.55*cg)*cc*cf*(0.6+0.8*ad())),ci=ck(ca*cd["ast"]*(0.45+0.45*cg)*cc*(0x1+ce)/0x2*(0.6+0.8*ad()));
-ch&&(a2["natStats"]["goals"]||b1(["nat_firs"+"tgoal","nat_firs"+"tgoal2","nat_firs"+"tgoal3"][Math["floor"](ad()*0x3)]),c9["natGoals"]=ch,a2["natStats"]["goals"]+=ch),ci&&(c9["natAssis"+'ts']=ci,
+ch&&(a2["natStats"]["goals"]||(b1(["nat_firs"+"tgoal","nat_firs"+"tgoal2","nat_firs"+"tgoal3"][Math["floor"](ad()*0x3)]),a2["usedEven"+'ts']["nat_firs"+"tgoal"]=(a2["usedEven"+'ts']["nat_firs"+"tgoal"]||0x0)+0x1,a2["usedEven"+'ts']["nat_firs"+"tgoal2"]=(a2["usedEven"+'ts']["nat_firs"+"tgoal2"]||0x0)+0x1,a2["usedEven"+'ts']["nat_firs"+"tgoal3"]=(a2["usedEven"+'ts']["nat_firs"+"tgoal3"]||0x0)+0x1),c9["natGoals"]=ch,a2["natStats"]["goals"]+=ch),ci&&(c9["natAssis"+'ts']=ci,
 a2["natStats"]["assists"]+=ci);
 }else{var cj=Math["min"](ca,Math["max"](0x0,ck(ca*(0.15+0.26*cc)*(0.7+0.6*ad()))));
 cj&&(c9["natCs"]=cj,a2["natStats"]['cs']+=cj);
