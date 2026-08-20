@@ -429,11 +429,10 @@ return 0x30+7.5*bx["rep"];
 return Math["max"](0x0,0x3-by["rep"])*bb(a2["age"])*0.12;
 }(bx);
 }function be(bx){var dx=cn;
-if(a2["age"]>=0x24)return a2["ovr"]>0x58?ae(0x1,0x2):0x1;
 if(a2["age"]>=0x21){var by=bx||ar(),bz=aI(by),bA=bz?a0["ROLES"][bz]["rank"]:0x0,bB=by?by["rep"]:0x1;
-if(bA>=0x4)return bB>=0x4?ae(0x1,0x2):ae(0x2,0x3);
-if(bA>=0x3)return bB>=0x4?0x1:ae(0x1,0x2);
-return 0x1;
+if(bA>=0x4)return ae(0x1,0x2)+(bB<=0x3?0x1:0x0);
+if(bA>=0x3)return (bB>=0x4?0x1:ae(0x1,0x2))+(a2["ovr"]>=0x4b?0x1:0x0);
+return a2["ovr"]>=0x4b?ae(0x1,0x2):0x1;
 }
 return a2["age"]>=0x1d?ae(0x1,0x3):ae(0x2,0x5);
 }function bf(bx,by){var dy=cn;
@@ -538,7 +537,11 @@ if(bC["length"]&&ad()<0.55)return a2["flags"]["_staffCd"]=0x1,void(a2["pending"]
 }(a2["teamId"]&&(a2["capDone"]||[]).indexOf(a2["teamId"])<0x0&&a2["seasonsA"+"tClub"]>=0x2&&a0["ROLES"][a2["role"]]["rank"]>=0x4&&a2["ovr"]>=0x32+0x4*((ar()||{})["rep"]||0x0)&&"prime"===aB(a2["age"]))&&(a2["forceQ"]||(a2["forceQ"]=[]),
 "gk"===al(a2["pos"])["group"]?a2["forceQ"].indexOf("gk_captain")<0x0&&a2["forceQ"].push("gk_captain"):a2["forceQ"].indexOf("captain")<0x0&&a2["forceQ"].push("captain")),
 a2["caps"]>=0x19&&a2["ovr"]>=0x48&&!a2["usedEven"+"ts"]["nat_captain"]&&!a2["flags"]["_ntCaptain"]&&(a2["forceQ"]||(a2["forceQ"]=[]),
-a2["forceQ"].indexOf("nat_captain")<0x0&&a2["forceQ"].push("nat_captain"));
+a2["forceQ"].indexOf("nat_captain")<0x0&&a2["forceQ"].push("nat_captain")),a2["age"]>=0x22&&a2["age"]<=0x24&&!a2["usedEven"+"ts"]["vet_wall"]&&(a2["forceQ"]||(a2["forceQ"]=[]),
+a2["forceQ"].indexOf("vet_wall")<0x0&&a2["forceQ"].push("vet_wall")),a2["seasonsAtClub"]>=0x5&&a2["seasonsAtClub"]<0x8&&!a2["usedEven"+"ts"]["club_5y"+"rs"]&&(a2["forceQ"]||(a2["forceQ"]=[]),
+a2["forceQ"].indexOf("club_5y"+"rs")<0x0&&a2["forceQ"].push("club_5y"+"rs")),a2["seasonsAtClub"]>=0x8&&a2["seasonsAtClub"]<0xa&&!a2["usedEven"+"ts"]["club_8y"+"rs"]&&(a2["forceQ"]||(a2["forceQ"]=[]),
+a2["forceQ"].indexOf("club_8y"+"rs")<0x0&&a2["forceQ"].push("club_8y"+"rs")),a2["seasonsAtClub"]>=0xa&&!a2["usedEven"+"ts"]["club_10"+"yrs"]&&(a2["forceQ"]||(a2["forceQ"]=[]),
+a2["forceQ"].indexOf("club_10"+"yrs")<0x0&&a2["forceQ"].push("club_10"+"yrs"));
 if(a2["flags"]["_staffCd"]>0x0&&a2["flags"]["_staffCd"]--,a2["forceQ"]&&a2["forceQ"]["length"]){var bD=a2["forceQ"]["shift"]();
 var bO2=function(bF){var dS=dK;
 for(var bG=0x0;
