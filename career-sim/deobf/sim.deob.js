@@ -540,13 +540,16 @@ if(bC["length"]&&ad()<0.55)return a2["flags"]["_staffCd"]=0x1,void(a2["pending"]
 a2["caps"]>=0x19&&a2["ovr"]>=0x48&&!a2["usedEven"+"ts"]["nat_captain"]&&!a2["flags"]["_ntCaptain"]&&(a2["forceQ"]||(a2["forceQ"]=[]),
 a2["forceQ"].indexOf("nat_captain")<0x0&&a2["forceQ"].push("nat_captain"));
 if(a2["flags"]["_staffCd"]>0x0&&a2["flags"]["_staffCd"]--,a2["forceQ"]&&a2["forceQ"]["length"]){var bD=a2["forceQ"]["shift"]();
-if(function(bF){var dS=dK;
+var bO2=function(bF){var dS=dK;
 for(var bG=0x0;
 bG<a1["length"];
 bG++)if(a1[bG]['id']===bF)return a1[bG];
 return null;
-}(bD))return a2["usedEven"+'ts'][bD]=(a2["usedEven"+'ts'][bD]||0x0)+0x1,a2["flags"]["_evCount"]=(a2["flags"]["_evCount"]||0x0)+0x1,
+}(bD);
+if(bO2){if(bO2["pool"]){var bP2={};for(var bQ2 in bO2)bP2[bQ2]=bO2[bQ2];var bR2=bO2["pool"]["slice"]()["sort"](function(){return Math["random"]()-0.5});bP2["options"]=bR2["slice"](0x0,(bO2["rndPick"]||0x3))["concat"](bO2["single"]?[bO2["single"]]:[]);for(var bS2=0x0;bS2<a1["length"];bS2++)a1[bS2]===bO2&&(a1[bS2]=bP2);}
+return a2["usedEven"+'ts'][bD]=(a2["usedEven"+'ts'][bD]||0x0)+0x1,a2["flags"]["_evCount"]=(a2["flags"]["_evCount"]||0x0)+0x1,
 void(a2["pending"]={'type':"random",'eventId':bD});
+}
 }if(ad()<a3[a2["mode"]]["eventCha"+"nce"]){var bE=aE();
 if(bE)return a2["usedEven"+'ts'][bE['id']]=(a2["usedEven"+'ts'][bE['id']]||0x0)+0x1,a2["flags"]["_evCount"]=(a2["flags"]["_evCount"]||0x0)+0x1,
 bE['cn']&&(a2["flags"]["_cnCount"]=(a2["flags"]["_cnCount"]||0x0)+0x1),void(a2["pending"]={'type':"random",'eventId':bE['id']});
@@ -771,7 +774,7 @@ return!!bD&&(bv(bx),b8(bD,!0x0),a2["pending"]=null,bk(),!0x0);
 if("stay"===bx)return bv(bx),function(){var dT2=eo,bU2=a2["_offerTerms"]&&a2["_offerTerms"][ar()['id']];
 a2["contract"+"Left"]=bU2?bU2["years"]:be(),a2["wageMul"+'t']=bU2?bU2["mult"]:0x1;
 }(),a2["pending"]=null,bk(),!0x0;
-if(0x0===bx["indexOf"]("loan")){var bE=bA["loans"]&&bA["loans"][Number(bx["slice"](0x4))];
+if(0x0===String(bx)["indexOf"]("loan")){var bE=bA["loans"]&&bA["loans"][Number(String(bx)["slice"](0x4))];
 return!!bE&&(bv(bx),by=bE,bz=a2["teamId"],b8(by,!0x0),a2["loanFrom"]=bz,a2["contract"+"Left"]=0x1,a2["pending"]=null,bk(),
 !0x0);
 }var bF=bA["offers"][Number(bx)];
