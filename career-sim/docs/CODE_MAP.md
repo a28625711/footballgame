@@ -189,7 +189,8 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
   - 青训成长衰减上限 65→70（`ac((0x46-ovr)/0x1c,...)`，实测毕业峰值约 67-74）；成就加成默认勾选；`cAch()` 效果翻译补 `decay` 分支（老而弥坚可显示）
   - **评奖资格**（所有个人奖项，cheat/非cheat 统一）：用当季角色快照 `bz.role`（不随后季 `aH()` 更新）+ 出场过半 `bz.apps≥19`
 - **2026-08-20 知名球员对决（events.deob.js star_ 系列）**：难度统一 ovr95 绝对核心 ≈65%（哈兰德斜率 0.012→0.018）；后场 3（`star_marker` 梅西/`star_def_side` 维尼修斯/`star_pen_save` C罗点球[门将]）、中场 3（`star_midfield` 莫德里奇/`star_mid_rodri` 罗德里/`star_mid_kevin` 德布劳内）、前场 3（`star_striker` 哈兰德/`star_att_kylian` 姆巴佩/`star_att_kane` 凯恩）；均 `weight 0x96`、`!inChina && leagueRep>=4` + 位置限定
-- **2026-08-20 随机池事件机制（sim.deob aE）**：事件带 `pool` 时浅拷贝事件对象、随机抽 `rndPick` 个 + `single` 固定项生成 options（渲染/选先后一致、原事件无污染）；`love_first`（有人在等你）用此机制——7 个候选人随机出 3 + 保持单身
+- **2026-08-20 随机池事件机制（sim.deob aE）**：事件带 `pool` 时浅拷贝事件对象、随机抽 `rndPick` 个 + `single` 固定项生成 options（渲染/选先后一致、原事件无污染）；`love_first`（有人在等你）用此机制——7 个候选人随机出 3 + 保持单身；候选带隐藏加成：`talent`（青梅+0.02/球迷+0.01）、新增 `health` 字段→`a2.healthBonus`（伤病概率 `bT` 乘，康复师 0.85/粉丝 0.95/妹妹 0.9）、`ovr`（记者/搭子+1）
+- **2026-08-20 老将合约年限（sim.deob be(bx)）**：33+ 不再一律 1 年——按球队预期角色 `aI(by)` rank + 球队 rep：核心 rank4 → 豪门 1-2y/普通 2-3y；首发 rank3 → 豪门 1y/普通 1-2y；其余 1y；36+ 仅 ovr>88 给 1-2y 否则 1y；`bO()` 传目标球队 `be(bG)`
 
 ## 事件数组位置（events.deob.js）
 
