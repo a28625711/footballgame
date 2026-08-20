@@ -2958,6 +2958,17 @@ return d(q,s)?{'ovr':0x3,'fame':0x16,'roleDelta':0x1,'text':"九十分钟，他�
 'fame':0x6,'text':"第 63 分钟，他往回收了一步，你跟了出去，然后就没有然后了。那段视频标题写着「他把一个中国后卫钉在了原地」，播放量两千万。"};
 }},{'label':"退半步，别单防",'hint':"不丢人，也没人记"+'得你','apply':function(){var jP=C;
 return{'fame':0x2,'guanxi':0x4,'text':"你始终和他保持两米，把他往边路赶。他这场进了一个，但那一球从另一侧打进。赛后教练说：你至少没让他在中路拿球转身。"};
+}}]},{'id':"star_def"+"_side",'title':"他这一侧",'icon':'🎯','weight':0x96,'when':function(p){var zzA=C;
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"def"===p["posGroup"];
+},'desc':"赛前会，教练把鼠标点在你这一侧的边路：今晚对面那个 7 号归你。他上半场连续两次从这一侧起速，看台都在等第三次。",'options':[{'label':"贴死他,不放一步",'p':function(p){var zzB=C;
+return f(0.42,[[p["ovr"],0x4c,0.011],[p["roleRank"],0x3,0.03]],0.12,0.78);
+},'hint':function(p,q){var zzC=C;
+return g(q,"他一晚没从你这边过","他连过你两次,还进了一个");
+},'apply':function(p,q,s){var zzD=C;
+return d(q,s)?{'ovr':0x3,'fame':0x16,'roleDelta':0x1,'text':"他这一侧七次尝试，两次成功，都被你堵在底线附近。赛后他把球衣扔给你，一句话没说。你把它叠好，打算过年带回去给侄子。"}:{'ovr':-0x1,
+'fame':0x6,'text':"他第三次内切时你已经知道追不上，可还是伸了脚。球进了死角。中场休息时你听见他在通道里跟队友复述那一下是怎么过的你。"};
+}},{'label':"让队友协防,不硬扛",'hint':"保全自己,也保全全队",'apply':function(){var zzE=C;
+return{'guanxi':0x8,'fame':0x2,'text':"你每次给他留出外侧，逼他往内线走，那儿站着你的后腰。他这晚一次漂亮突破都没有，数据上什么也看不出来——但教练知道，队里也都知道。"};
 }}]},{'id':"star_pen"+"_save",'title':"点球点上的那个人",'icon':'🧤','weight':0x96,'when':function(p){var jQ=C;
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&'gk'===p["posGroup"];
 },'desc':"第 88 分钟，主裁指了指点球点。C 罗把球摆好，退到罚球弧外，深吸了一口气。",'options':[{'label':"赌一边",'p':function(p){var jR=C;
@@ -2985,10 +2996,32 @@ return d(q,s)?{'ovr':0x3,'fame':0x12,'roleDelta':0x1,'text':"第 58 分钟，你
 'fame':0x4,'text':"你扑上去，他一个外脚背把球拨到另一侧，你在他身后犯规。黄牌。场边教练摊手的样子，被人拍成了表情包。"};
 }},{'label':"退回去守阵型",'hint':"稳，但这场没你什"+'么事','apply':function(){var k1=C;
 return{'ovr':0x1,'text':"你不再单独追他，只守住身前那一块。他这场送出两次助攻，都不是从你这边过去的。赛后没人提起你——这也是一种赞美。"};
+}}]},{'id':"star_mid"+"_rodri",'title':"绞肉机",'icon':'🔄','weight':0x96,'when':function(p){var zzF=C;
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"mid"===p["posGroup"];
+},'desc':"对面后腰是罗德里。上半场，他十二次把球从你脚下拿走，你一次都没能碰到他伸出来的那只脚。",'options':[{'label':"主动撞他的持球节奏",'p':function(p){var zzG=C;
+return f(0.45,[[p["ovr"],0x4c,0.01]],0.15,0.8);
+},'hint':function(p,q){var zzH=C;
+return g(q,"把节奏搅乱了","被他遛了九十分钟");
+},'apply':function(p,q,s){var zzI=C;
+return d(q,s)?{'ovr':0x3,'fame':0x12,'roleDelta':0x1,'text':"下半场他从你这里丢了三脚球，脸上惯常的平静第一次有了波动。赛后他在通道里等你握手，说了句「你踢得越来越像样子了」。"}:{'ovr':-0x1,
+'fame':0x4,'text':"他像一块会算步数的铁板，你每次上抢都扑空。终场哨响时你发现，自己这晚一次干净的铲断都没有。"};
+}},{'label':"不跟他正面,站住位置",'hint':"稳,把活儿让给队友",'apply':function(){var zzJ=C;
+return{'ovr':0x1,'text':"你退到两名中卫身前，他出球七十九次，没有一次穿过你这一层。赛后你的传球成功率是百分之九十八——没人注意，但你知道那很重要。"};
+}}]},{'id':"star_mid"+"_kevin",'title':"那脚直塞",'icon':'🎯','weight':0x96,'when':function(p){var zzK=C;
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"mid"===p["posGroup"];
+},'desc':"对面中场是德布劳内。录像里他每脚直塞都贴着草皮穿过两名中卫，教练在战术板上圈了三次：别给他起脚的空间。",'options':[{'label':"赌他直塞的线路",'p':function(p){var zzL=C;
+return f(0.45,[[p["ovr"],0x4c,0.01],[p["age"],0x1b,-0.008]],0.15,0.8);
+},'hint':function(p,q){var zzM=C;
+return g(q,"猜对了那条线","球从你腿间穿过");
+},'apply':function(p,q,s){var zzN=C;
+return d(q,s)?{'ovr':0x3,'fame':0x12,'roleDelta':0x1,'text':"你提前两步卡住那条线路，球刚到就被你捅给边路。他朝你点了点头。赛后他的数据里多了一次失误——那一次，是你。"}:{'ovr':-0x1,
+'fame':0x4,'text':"他观察到你的站位，反手把球推给套边的边后卫，你的重心已经扔了出去。解说笑出声：「他骗了全世界，包括那个中国人。」"};
+}},{'label':"切断他接球的线路",'hint':"脏活,没人看得见",'apply':function(){var zzO=C;
+return{'guanxi':0xa,'ovr':0x1,'text':"你整场贴着他最习惯的接球位，他被迫回撤拿球十七次。赛后教练只跟你说了一句话：今天他踢得不舒服，是你的功劳。"};
 }}]},{'id':"star_str"+"iker",'title':"另一头那个九号",'icon':'⚡','weight':0x96,'when':function(p){var k2=C;
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
 },'desc':"赛前热身，你在球场这头拉伸，哈兰德在另一头。所有的摄像机，都对着那一头。",'options':[{'label':"今晚就跟他比进球",'p':function(p){var k3=C;
-return f(0.3,[[p["ovr"],0x4e,0.012],[p["roleRank"],0x3,0.04]],0.08,0.7);
+return f(0.3,[[p["ovr"],0x4e,0.018],[p["roleRank"],0x3,0.04]],0.08,0.7);
 },'hint':function(p,q){var k4=C;
 return g(q,"你进得比他多","他梅开二度，你零"+'射正');
 },'apply':function(p,q,s){var k5=C;
@@ -2996,6 +3029,28 @@ return d(q,s)?{'ovr':0x4,'fame':0x1e,'roleDelta':0x1,'text':"你打进两个，�
 'roleDelta':-0x1,'fame':0x6,'text':"他进了两个，你一脚射正都没有。混合区里他被围了三十分钟，你从他身后走过，没有人回头。"};
 }},{'label':"老老实实做自己的"+'球','hint':"不冒进，队友也认",'apply':function(){var k6=C;
 return{'ovr':0x1,'guanxi':0x8,'text':"你回撤了很多，跑了十一公里，送出一个助攻。他进了三个。队长赛后说：今天全队只有你一个人在踢球。"};
+}}]},{'id':"star_att"+"_kylian",'title':"他起步的那一下",'icon':'⚡','weight':0x96,'when':function(p){var zzP=C;
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
+},'desc':"对面是姆巴佩。他热身时随便一趟，三十米只用了四秒出头。你偷偷试了一次自己的起跑，然后决定今晚不跟他拼任何直线。",'options':[{'label':"跟他拼第一步",'p':function(p){var zzQ=C;
+return f(0.3,[[p["ovr"],0x4e,0.018],[p["roleRank"],0x3,0.04]],0.08,0.7);
+},'hint':function(p,q){var zzR=C;
+return g(q,"前三十米压住他","他超你两个身位");
+},'apply':function(p,q,s){var zzS=C;
+return d(q,s)?{'ovr':0x4,'fame':0x1e,'roleDelta':0x1,'text':"前三十米你始终压着他半肩，他回头看了你一眼。赛后他在走廊里问你跑的什么路线——你说是高中田径队练的。"}:{'ovr':-0x2,
+'roleDelta':-0x1,'fame':0x6,'text':"他一步就把你过了，你伸手去拉，没拉住。看台上响起一片起哄声，有人在喊你的号码，问你是不是卧底。"};
+}},{'label':"放他走,守住第二落点",'hint':"不丢人,也护得住",'apply':function(){var zzT=C;
+return{'fame':0x2,'guanxi':0x6,'text':"你只贴他两步，第三步就回中路。他这场冲刺九次，只有一次真正形成射门，被门将没收。赛后报纸说你的防守叫「聪明的放弃」。"};
+}}]},{'id':"star_att"+"_kane",'title':"他背身那一块",'icon':'🛡️','weight':0x96,'when':function(p){var zzU=C;
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
+},'desc':"对面中锋是凯恩。他背身拿球的那一下，你想起教练说的那句话：跟他对位的中卫，没有一个能完整踢满九十分钟的。",'options':[{'label':"从身后绞住他",'p':function(p){var zzV=C;
+return f(0.3,[[p["ovr"],0x4e,0.018],[p["roleRank"],0x3,0.04]],0.08,0.7);
+},'hint':function(p,q){var zzW=C;
+return g(q,"他一脚出球都没做成","他转身把你扛开");
+},'apply':function(p,q,s){var zzX=C;
+return d(q,s)?{'ovr':0x4,'fame':0x1e,'roleDelta':0x1,'text':"你从身后卡住他接球的左脚，他整场只有两次舒服转身。赛后他拍拍你的肩膀：「你比上一场那个后卫硬。」你不知道他记得你。"}:{'ovr':-0x2,
+'roleDelta':-0x1,'fame':0x6,'text':"他把胸口停的球顺势一挑，从你头顶转了过去，你拉倒了他，吃到一张黄牌。他躺在地上朝你笑了笑，像什么都没发生。"};
+}},{'label':"绕前,不让他起脚",'hint':"稳,把球放给对方",'apply':function(){var zzY=C;
+return{'clean':0x4,'ovr':0x1,'text':"你整场站在他身前，他拿到球的次数不多，但每次回做都让队友进了球。赛后没人夸你，因为比分不好看。你记得自己没有一次被他扛开。"};
 }}]},{'id':"star_tea"+"mmate",'title':"更衣室里那个位置",'icon':'👕','weight':0x96,'when':function(p){var k7=C;
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&p["clubRep"]>=0x4;
 },'desc':"球队官宣了一笔全欧洲都在谈的引援。介绍会那天，更衣室重新排了位置。你柜子旁边空着，管理员说那是留给他的。",'options':[{'label':"每天早到一小时，"+"跟着他练",'hint':"能力+4，钱-2"+'0',

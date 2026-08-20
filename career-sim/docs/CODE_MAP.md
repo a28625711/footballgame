@@ -188,6 +188,7 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
   - 队长事件限定绝对核心（rank≥4）；金球资格 `(联赛rep≥4 或 本季欧冠冠军)`（cheat/非cheat 统一）→ 中超不可评金球、法甲/荷甲拿欧冠可评
   - 青训成长衰减上限 65→99（`ac((0x63-ovr)/0x1c,...)`）；成就加成默认勾选；`cAch()` 效果翻译补 `decay` 分支（老而弥坚可显示）
   - **评奖资格**（所有个人奖项，cheat/非cheat 统一）：用当季角色快照 `bz.role`（不随后季 `aH()` 更新）+ 出场过半 `bz.apps≥19`
+- **2026-08-20 知名球员对决（events.deob.js star_ 系列）**：难度统一 ovr95 绝对核心 ≈65%（哈兰德斜率 0.012→0.018）；后场 3（`star_marker` 梅西/`star_def_side` 维尼修斯/`star_pen_save` C罗点球[门将]）、中场 3（`star_midfield` 莫德里奇/`star_mid_rodri` 罗德里/`star_mid_kevin` 德布劳内）、前场 3（`star_striker` 哈兰德/`star_att_kylian` 姆巴佩/`star_att_kane` 凯恩）；均 `weight 0x96`、`!inChina && leagueRep>=4` + 位置限定
 
 ## 事件数组位置（events.deob.js）
 
