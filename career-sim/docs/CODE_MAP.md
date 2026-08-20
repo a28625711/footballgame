@@ -191,6 +191,8 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 - **2026-08-20 知名球员对决（events.deob.js star_ 系列）**：难度统一 ovr95 绝对核心 ≈65%（哈兰德斜率 0.012→0.018）；后场 3（`star_marker` 梅西/`star_def_side` 维尼修斯/`star_pen_save` C罗点球[门将]）、中场 3（`star_midfield` 莫德里奇/`star_mid_rodri` 罗德里/`star_mid_kevin` 德布劳内）、前场 3（`star_striker` 哈兰德/`star_att_kylian` 姆巴佩/`star_att_kane` 凯恩）；均 `weight 0x96`、`!inChina && leagueRep>=4` + 位置限定
 - **2026-08-20 随机池事件机制（sim.deob aE）**：事件带 `pool` 时浅拷贝事件对象、随机抽 `rndPick` 个 + `single` 固定项生成 options（渲染/选先后一致、原事件无污染）；`love_first`（有人在等你）用此机制——7 个候选人随机出 3 + 保持单身；候选带隐藏加成：`talent`（青梅+0.02/球迷+0.01）、新增 `health` 字段→`a2.healthBonus`（伤病概率 `bT` 乘，康复师 0.85/粉丝 0.95/妹妹 0.9）、`ovr`（记者/搭子+1）
 - **2026-08-20 老将合约年限（sim.deob be(bx)）**：33+ 不再一律 1 年——按球队预期角色 `aI(by)` rank + 球队 rep：核心 rank4 → 豪门 1-2y/普通 2-3y；首发 rank3 → 豪门 1y/普通 1-2y；其余 1y；36+ 仅 ovr>88 给 1-2y 否则 1y；`bO()` 传目标球队 `be(bG)`
+- **2026-08-20 国家队首秀/首球变体**：sim.deob line 335（`_natCalled` 首次征召）/line 340（`natStats.goals` 首球）改 `b1([...][Math.floor(ad()*3)])` 随机 3 选 1——`nat_firstcall/2/3`、`nat_firstgoal/2/3`（events.deob.js，变量 kwA-kwL）
+- **2026-08-20 pool 事件 forceQ 崩溃修复**：`love_first` 由 forceQ 强制触发（line 528 `b1("love_first")`），**不走 `aE()` 池化分支**，`bs()` 从原始 `window.EVENTS` 查到的 love_first 无 `options` → 选择崩。修复：`bs()`（line 692）对 `options` 缺失且带 `pool` 的事件即时生成池化 options 并写回 `a1`
 
 ## 事件数组位置（events.deob.js）
 
