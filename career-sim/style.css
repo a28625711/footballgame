@@ -585,6 +585,7 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
 .st-v.role-rot     { color: hsl(var(--info)); }
 .st-v.role-sub     { color: hsl(var(--muted)); }
 .st-v.role-bench   { color: hsl(var(--failure)); }
+.st-v.neg { color: hsl(var(--failure)); }
 
 .money-row {
   display: flex; align-items: baseline; justify-content: space-between;

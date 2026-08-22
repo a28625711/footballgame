@@ -579,7 +579,7 @@ return "<div cla"+"ss=\"stat"+"-cell\"><"+"div clas"+"s=\"stat-"+"l\">"+c4[0x0]+
 })["join"]('')+("</div></"+"div>"),bX){var c1=a0["ROLES"][au["role"]];
 c0+="<div cla"+"ss=\"stat"+"us-row\">"+"<div cla"+"ss=\"st-c"+"ell\"><sp"+"an class"+"=\"st-l\">"+"队内地位</sp"+"an><span"+" class=\""+"st-v rol"+'e-'+au["role"]+("\" title="+"\"这一档一个赛季"+"大约 ")+c1["apps"][0x0]+'-'+c1["apps"][0x1]+" 场\">"+ax(c1["name"])+("</span><"+"/div><di"+"v class="+"\"st-cell"+"\"><span "+"class=\"s"+"t-l\">合同<"+"/span><s"+"pan clas"+"s=\"st-v\""+'>')+(au["contract"+"Left"]>0x0?"还剩 "+au["contract"+"Left"]+'\x20年':"本期到期")+("</span><"+"/div></d"+"iv>");
 }c0+="<div cla"+"ss=\"mete"+"rs\"><div"+" class=\""+"bars\">"+b6('关系',au["guanxi"],"hsl(var("+"--info))")+b6('清白',au["clean"],
-"hsl(var("+"--accent"+'))')+b6('名气',au["fame"],"hsl(var("+"--warnin"+"g))")+("</div><d"+"iv class"+"=\"money-"+"row\"><sp"+"an>")+(au["money"]<0x0?"家里的欠债":"个人财富")+("</span><"+'b')+(au["money"]<0x0?" class=\""+"neg\"":'')+'>'+al(au["money"])+("</b></di"+"v></div>");c0+='<div class="money-row"><span>'+(au["teamId"]&&au["contractLeft"]>0x0?"当前薪资 "+al(au["seasonWage"])+" / 赛季":'')+'</span></div>';
+"hsl(var("+"--accent"+'))')+b6('名气',au["fame"],"hsl(var("+"--warnin"+"g))")+("</div></"+"div>");c0+='<div class="status-row"><div class="st-cell"><span class="st-l">'+(au["money"]<0x0?"家里的欠债":"个人财富")+'</span><span class="st-v'+(au["money"]<0x0?" neg":"")+'">'+al(au["money"])+'</span></div><div class="st-cell"><span class="st-l">当前薪资</span><span class="st-v">'+(au["teamId"]&&au["contractLeft"]>0x0?al(au["seasonWage"])+" / 赛季":"无合同")+'</span></div></div>';
 var c2=a6["STAFF"]["filter"](function(c4){
 return au["staff"]&&au["staff"][c4['id']];
 });
