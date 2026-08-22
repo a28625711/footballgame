@@ -198,6 +198,12 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 
 ## 事件数组位置（events.deob.js）
 
+### ⚠️ 模块化架构（2026-08-22 起）
+- **编辑入口**：`career-sim/src/events/*.ev.js`（16 个主题模块：vet/club/star/league/cn/kid/youth/abr/nat/gk/love/att/mid/def/aca/misc + helpers.js 公共函数 d/f/g/h、EV_ROLL、k、m）+ `MANIFEST.json`（拼接顺序）。
+- 每个事件带 `// ---- idx:N | id | 标题 ----` 头注释，idx 为**原始全局顺序**，build 时按它排序还原数组序（权重抽取依赖遍历顺序，不可乱）。
+- **改完必须重建**：`py tools/build_events.py` → 生成 `deobf/events.deob.js`（生成物，勿手改）；`py tools/split_events.py` 可从 deobf 反向重切（会覆盖手改，慎用）。
+- 全部 deobf 文件已剥离混淆字符串表/自旋转解码器（stub 化），总字符 596k→412k；无损验证：种子化 Math.random 下 16 个确定性生涯与 HEAD 逐字节一致。
+
 - 事件数组：`var j=[` 起始于 182707
 - 数组结束：351582（`]`）
 - 赋值：`window["EVENTS"]=j;` 在 351897

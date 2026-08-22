@@ -1,196 +1,171 @@
-function _dat_0a(){var ag=['5yc844cn44cc','5lIa55U05zYO44cc','5P2L77Ym5l2G5RkH5PYj44cc5y2b5lIj','5OU/6l+h5lIa5QYH5lQA5RsY6lAZ55cd','yxr0','56YS5lIa5BM05BcX5RkH55wz5lIl44cc','5zcm5RkH57UT77Ym562+6k+b5lMF5yIW','5yMn55Qe77Ym5ywO5lIT5zU95OM+5lIn','5lQg5P+C5A2q77Ym5OQk55cd6z6l55wz','yxnPywjLC3q','5lUa5lMi5RUl5zgZ44cc','6zIF6yEm5RkH5PYj56YS5lQm5lIQ5lQ6','55Qh5A626lsD6jkc5PAV','5zgk5yIR77Ym5l2G5lIj5y2b5lQu5Bkb','i0uWm0eZrq','zMfTzq','5zU95A626zIF55Qe5Bce5OMl5QAC56YS','yMf5','5lQA5RsY5P2V5yAZ6lwB6l6t5lQg44cc','5OUC5lUb5QcH5zUT','5BEU5lIa5lIQ55cd','6jcO5OUj5OIi6jcO','44cbmtCG5lIQ6lwB5A2J','5RkH5PYj5lQ65PwI5OQk6l+z5y+L6k+D','5y+n6lwm5OMR6BUr5RkH5RYp5O6j5l2G','CMnZ','5ywT5A625l+X5lMq6yoO77Ym5ywT5BQN','55Qe77Ym5lMF5RkH5lUa5lMi5y+V5P+L','57Ut5lQg5AMA44cb5PYj5A2P5A2q77Ym','iZbdnerbmG','5BId6i6X6Ag/','44cc5Bcp57Ue6lwB5lIj5zY65BcX5zUE','B25Z','56Uz55Qe5zYW5PA55y+Q5B6a5yMn5OYQ','6zw/5lIQ5A2q6ykJ5lIK5BM0','iZaWnJHboa','CM1H','77Ym5RkH6lwI5lIl5lUa5lMi77Ym5lMF','5ywO5yYx546W5lUJ','ywnHzgvTEq','zMLV','y29Hy2G','5AsF5lIk5OIq5BM06zIF','6igu6lwB5lIn6lAf6l+h5lIK5lIQ6lwB','5lIT5zY677Ym55sF5RAVidi4','5zcm5Bgk55Qe5lQ65PEP5BcX5B2t5lIk','6k+05l2G77Ym5y+Q6k+06iEQ5B6l44cc','5OUj546B6kw/5lQA','6lwB56Uz5l2p','iZaWnde3ma','CMjS','5RsY55Qe5zco5y2R6yo95zYO56cu56M2','5B2P5lQr6AUy5y6F','5lIT5zU95BId5yAV','5lIa5lIQ6lwB5A2J6lII5lIn5RUH5y2b','yMLNzwfYCW','BgL2','6joj5z+o6iQz6joj','54M56yEm6lsH5Bc85lQA','6ycb5yE65zU96lII77Ym5RkH6io955wz','CNnV','6lwR572x57QZ','5RIf5RIf5QwA5QwA44cc','5RoI5Bcu5zU+','5y2x5A6j5PMU6Ag/','6lwB5A2J77Ym5RkH5zYO5lQu5AsN6igu','5Ps56l+h5BM06B6e','57Q/5Asw77Ym5zAk55Qe5PIV5yIR5lQ6','5BE05AgE572x6ykJ','5y2H5Bcu5PAV6Bkb5y6e','AhvL','C2nM','5P+p5P6x6igu5zci','zgvW','B25LDg93BG','DML0','BgvL','iZfbnKzcna','A2fY','5lQ65RkH5zcS5OEc77Ym5l2g5OMa5PYj','5zUB55M+5AsA5lIQ55cd77Ym5RkH5yEG','BM9Y','CM90','5B2t44cc5y+Q5PIV6ykJ5lQB6igu6lwB','ywnT','5zU96lAZ5AsN6iw/','Cg9Hy2HLCG','5y2x57kK576k5z+o','5yIR5lQ65lIa5lIQ5Asp5AsP56QC6lw3','55cd5zY644cc','6igm5lIA55cd5zgy','i0zgq0qWma','5RkH552H44cc','77Ym5Q+u5lU75l2v5lIa5lU95zci5zcm','6z2044cb5PYa5zco6l+y5zYO5lIk5zY6','5PEG5lQ66zEU5RsL','ywjYB2fK','5lIw55wm5P2V44cb6yEr55cd44cb5QYN','5zYO6i2j55QU5lIk5B6i5lMf5RkH6lw3','5y2H5PAV6jkc5lQA','z29Uzq','56Uz5l2p77Ym5zUE5P2L5lQg44cc6l+z','zwfZB24','5l2B572x5lYM6jcO','ywHS','Dxj3','yM9VDa','6yca5B255PE26lQR5A62iduW','5lQ65PU/5l2G5OMt54k55Aw95lQg44cc','44cn6l+z5lIK5lIQ5A2x44cc','5lQ66lsI5lIK56M6','z3jPBMq','5A2P5A2q5zco5P2L5lIk5lQg5zU95A62','iZi0muyYma','55sF5RAV5Ps25ywL6l+h5lQ/77Ym5lIu','Dg9WnvnLyxm','5lQA5RsY6lAZ55cd5ywi55sF','55Yl5yIW5B2t54I544cc','i0u0memYna','5lUL5lIk6yo95RkH6l2U5yIW5l2G','ChnN','y24TEgLHBMC','5zYO5zU95Q2m5lMl5zco6l+B55Qe44cc','5zUE5zU96ykJ5AsP5RkH5lQ65O6L5PY6','5lIT5zU95Qkf6kw/','77Ym5zUG5lI65PEP5yEG5BM05BcX5PYj','5lIQ6lwB5A2J77Ym6io95yQB5yIW6l+h','Cg9Z','Ahn2','yNzI','5ywR55M+5AsA5zY65Q+u6lwB77Ym6zIF','BMzV','6Akb5Aww56s85lIk5l2G55sO5lIT5PAh','5BYa5AEl5yQG57Ud44cc5PYa5zco6ykJ','yNjH','C3vI','5RUH5lQg5ywO5zY677Ym5PYa5zco6lEQ','yxbWCW','5zco5Q+p5QYH5PYj5lQ65O6s5y6g5y+Y','B2fK','54Q25Ocb5PYa5Aw955Qe5BM057QQ5OYc','iZaWndi4qW','BM9VBMu','6igu6lwB5yAG5yAB','iZfeota1mW','6kkR5y+n6lwm5OMR6BUr5P+L5yIW77Ym','mJqG55cd','5RsL6zEO5Rw35RkZ','5lIT6lAf77Yj','5PYj5l2G44cc5Pwz57Ud5O2I5lQg5ywT','44cc5zcn5y2v6ls05yE65P2L6ykJ5AsP','5y+Z5zco5y2R','6zI/6ls+5ywl5PAV','5zci5zcm6yEr6AkD5Q+u5l2G5lU75l2v','y3v0x2fICM8','5lIT5zY65AsN5BIi','55Qe5lQ66kkR5lI+6lw35P2L77Ym5l2G','6zEO5Bcg77Ym5zU95A626zIF5yE65zY6','5zU95A626zIF5yE65zY6iduG','6yca5B255PE25Q+u5BEf5BoW5O6j5lQg','DMzI','yMLHBNPOAq','6i6X6jcO5Qkf','6yo95RIf5QwA55cd5lYA5O6j5zYO5zoQ','iZzdqujera','yMHH','5y+V5OoC77Ym5y+Q5PYj5l2G6iEQ5BEX','562u5BQu6yca5B255zco55wz6zIF5B2t','mtuG5Bkb5lMl5zco6kkR5yI3','5z+o5BIc77Ym5Q+p5QYH5PcS5A626yo9','5y2b5A2x6z+N5BIM5PAT6koc','5RIf55M9idCWios7PEs4IG','5BM055Qe5Q+p5lIQ55cd6yo96k6W552a','5zU95A626zIF55Qe6zU25Bcb57QQ5B2v','iZbbmKq2qG','i0rdmduYra','6yEr5OMl5Awx','57gZ5ywW5yAf5RsB','5OQ55O6j77Ym5y+Q55wz5zYO6ycA5OQL','5PIV6l+q5Rcu5Aw977Ym5l2G5OQk6ykJ','msdLNlRPM7BLSie','mZaG5Bkb5lMl5yMn5lI75yQO','idmWioASOEs7PEs4IG','5yIg5PwJ5zYO5y2b5yEG5BM06yEm77Ym','5AE/5yQ/5PYj54k55yk744cc','i0uYmZGZoa','5lIw55wm5P2V5yID5l2t6AQm','5zYJ5l+D5yIP','5yYx55Ag5yAW5z+o','i0vgmdeWnW','mti0CuzrBhbb','BgLNyq','6lwJ5RgF5ywR5lIa','odGWofDdrePYuG','5Pwz57Ud5BIT5PYa6l655lIk','5lUL5lI65PIV5PYa5zco5lIa5QYH44cc','i0uZmdyXmW','i0u1mZiZmW','6ykJ5yEG5zY655cd5l2G5B+d6yEm5PYj','yM9VDhm','6iYS6iYS5lIk5y675lQg77Ym5l2G6l+y','5lIa55U05RkH6io96l2S5Q2J','BMf0r29HBhm','6zIF5y+l5O2I5lQg5yEG6iYS44cc5zUB','5lIn5lYA6kkR5Ps55O6j44cc','6zIF5y+Q5BEU5lIa5Q2L','y2XLyw4','5Pwz57Ud44cb5BYa6lw35lQg6AwT6AAg','5y2b5BM05zU95A626zIF5Q2J6ycj6zEO','5BEL5l2n6z2G56Qx77Ym6io955Yl6kEb','ANvW','5y+55OgV5lMl5Akz','55cd6kgJ5O2I5OIq5lQg6kw/6kof77Ym','56Uz5yIW5PYa5zco55Qe5lQ6','5lIw5l+X5P2V','5QYH5RkH57Y65BIT6l+h77Ym6l+z5zYO','yw5K','i0q0mZCZrq','5QIQ5RUO5Rc05OMl','AwfT','5ywT5BQN5Aww5P2V77Ym5l2g5lQu5AsN','y2WX','BMf0q3m','5AsN6igu6lwB5B6f6l+h5lIK5lIQ6lwB','5l2G5Oco5lMi6l2S6lQR44cc','DgLLCG','6yo96k+05l2G5PIV5PYQ5P2L44cc5zco','5PYF5lQg44cc','iZaWqtK0rG','iZjfodzdmq','5RoI5Bcu5zU+6B6z56M0','6iwW5Qso6zE055Uy56Qb5yE6','i0y3qJvdra','D2nJAgfTCa','iZG3rdHgnW','77Ym5RIf55M96lEm56c0idq1','6jgH6jce54Mz5P2V','5y2b5lQm5Bkb6ykJ5BM05BcX5lIn6lII','5RsY55Qe5yMn6zsl6lwB5yMn6yo95zYO','5lIw55wm5P2V5yAG5yAB','i0zgrty2nW','5yIh5Bcu6kw/','mtaYnJmWr3nuBxjo','5l2G77Ym6k+T5Rcu5yop5zYO6k+05lIa','6io95yQB5lUo5P2L5lIn5PIV6zEU6Aky','5yQP5Ps75QAC5lIk5l2G55Qe5zcn5A2x','5PYj6zUg6zsM77Ym5RkH5PYj54oT5PcC','5Q616igm5lIA55sF5RAV77Ym6l+z5PYS','5PwW44cc5zcn5y2v5ywS5BId6ykJ5AsP','yMvUy2G','C3rHDhvL','yxrO','ChjP','i0u2mdaXmG','5lQl5lU26yEm5OQk5lMM5B+15A6m5lQg','6yca5B255OMl57UT5yQE5B6x5B6i6Ag6','y3j5','C2DL','y24TExvL','55Qh5A6256s+5lYA','55oM5Bcu5zoi5OUj','i0zcmdKWqG','5BId6Bkb5PEL','5lII77Ym5ywO5zU96yo96k6W5B6x44cc','5lIT6lAf5PYa5l2Z55cd5zgy','6io95yQB5yIW6l+hidG444cb','CgXHAw4','77Ym6zIF6yEm5lQ66yo955+L6ygt5l2G','5Bcg44cc5lIT5zU96zIF6l6t55Qe5Q+p','C2v2','6jsA5BgX546W5lUJ','5l2G6l+y5zYO6lII44cc562j5l2G55YF','5lMm5B6x5yUs5PsV','5AsP5AAs6iUX5OMn','y24TAhvHAq','qupNSBpLHBa','5lIQ5PIV6l+C5Bce44cc5l2G5Q+u6lcb','Bw9UzxK','5P2L5lQg77Ym5l2g6ykJ5lIj5zY65PIV','iZG5mtC5qq','Chn2','5zco5y2R77Ym55sF5RAVidGZ','mtyZnJa0mJHrEgPcAw8','AM91CM5LEq','6iEQ5BEX5lIn5zYO5lIk6z2I44cc','yNjL','6zEO5yw05Qc85OUj5B635BE06lwR','m1ritKL4Cq','AgLS','y24TAhu','6icm5lIu5lUo5As05yIW5Bc+5PIV5zcm','C3bVmG','5zU95A626zIF5OMt6l+B5lQg5ywR5BY6','i0remdC0mq','iZaWouzfoa','i0rbmJKXqW','55cd5PIV6lII5A6m5lQg77Ym6zkX5RkH','y24TEMHVBMC','C2vN','C3LZDgvT','6jMq6i+C546l','5OUj6B2q5AwL','Ew91DgHdDxq','Ag9TzvrYB3a','5lQA5RsY6lAZ55cd5ywi55sF5OU/5lQg','5yE65y676lII6l+h5lIK5BM077Ym5RkH','D2nOzxjV','5A6j5B636i6X6lwR54M5','5Q+p5lIa5lIQ6yo95PYj5lQ66k6W5B6x','iZaWntDcoa','55Qe5zcn5A2x44cc','Ew91DgHJB2e','5PYj5l2G5lIn55sO5lUo5As05A2M6lw3','yMv0','y3nSyM9VDa','iZDbmJyZqq','5P+V5ywl5Q+u','yxnPyvjHBMS','A2f3','i0yXoeuWma','DgL0Bgu','i0mWmZKYqG','5lQg5lIa6l6i5A2q77Ym5BEL6lwe5P2H','5lQA5RsY5P2V5O2N5lQg5P2V44cc5zUE','zxjL','5PAV5OMy5ywl5z+o','yMfY','C2nVDxq','6z2E6zEO5Bcg77Ym55sF5RAVidu','6k6W5lIn5RIf5AsN6yoO5yIg77Ym5l2g','57UD5A+55Qc45B+d','5lQS5z+o6joD55U+','5RkH562u44cc','77Ym5y+Q5PYj5A+55PA55yMn6zsl6k6W','y3v0x2rLyNq','5O6jiokaLokaLcdNPRVMIjdLUBq','5AsA54M56z2s6k6T6jcL','i0zgrdeWma','refuqq','5OMn6ykJ5lIa5OYc','Bgv2','AgLLCW','6lID5ywZ6iQc5OMT5lYK','D2nMAw5HBa','Bw9U','5yE65y676lII6l+h5lIa5yIW5zUB5lIQ','5zYO5lQu5AsN6igu6lwB6lII5RUH5ywT','5y2b5yEG5BM06igm5lIA5zci5zcm77Ym','iZaZndy5na','yxnPywn1Ca','6BUe6yEr5lIa5lUJ','5z+d5zUG6zYn5RIP','DMfS','iZbdnenbmW','BgzJ','5lQl5lU26yEm5OU/5yIW5lQg57Yw5yI2','5RsY6zMf5yAG5yAB','5lIT5zU96iYd5B636jcO','5lYK5lUY5Rc4','55cd5zY65Asw6ykJ5Bck6zoC5yop5PIV','iZfenZfcoa','5REU5lIk5RED5Rc0','5OQR6l+h5zU95A626zIF55Qe55cd6kgJ','6kw/5Rgj5AEg6igu','D2jH','5y2H54g16Ag/','C3rV','5ywR55M+5AsA5zY65zco5y2R44cc5RkH','5zcm5Qc355Qe5lIC6kw/44cc5y2b5ywR','5BYx6lww5AcH','56YS5lIa5OM55OUB5RUH55Qe5PE25ycz','i0yYnJuYmG','5RsY55Qe5lIT5zY66yo95zYO56cu56M2','y24TAMLHBMC','5B6x6lwW5lIn5yQO77Ym5B6i5AsA5lQ6','5Aww5P2V6yo95RkH5PYj44cc5PYj5lQB','54Mh5OYc5zYO6icb5A6255Qe5Akz5lIk','y2fWCgvK','q0rn','Cg9Zr3jVDxa','5zcj6l6+6igu5zci','5RgF5z+o6zw/5RgF','BwfYCMLLza','6zIF77Ym5zcn5y2v6yEm5RkH5PYj5l2G','iZaWoda1nW','6AMS56UE6z2s6k6T6jcL','y24TExvU','5lQg5lUo5RkH5yIW6l+h55Qe5zYW5PA5','5lUw5lUS566H5l2G5y+R5Pwz57Ud','6z+P5zU95P2V','iZaWotu0qW','BwfY','6zEO5Bcg77Ym55sF5RAVidmW','mZmG5Bkb5lUL5zco6yca5B25','iZaWnueYqG','5lIn5PIV5lUw44cn44cc','5l2G5Oco5lMi5zcV5yQO44cc','6lAZ5z2B5RwQ5A2q','zML4zwq','y2HL','5lIa5Pw05lIQ6lwB5A2J5l2G5PIV5Bce','i0zgrJiWma','5BY66ykJ5zY65yQG5PE26kkR57UD5P2a','z29HDa','5l2n572U6l+y5PIV6iEQ5BEX55Qe44cc','y2fYzwvYrwe','5zco5lIa57Ue44cc','y2vS','BMf0C2nVCMu','6lAZ5Oc75P2V','44cc5B6i5AsA5BM05lUL5zco77Ym5lQ6','6Ag26jAQ6ykJ5yEG5BM077Ym5l2G55Qe','5lUS6k+06lw35lIT5zU96lAZ55cd77Ym','6ikP5ywZ6iQc6isX5l2n','5lIT5zU96i6R5B636yEm5Awh','6ykJ5lIn5yUs5PAV','6zIF5y+Y56YS5lIa6zEO56wE','5PAV5zU+5yQG54M5','iowTQEwTKos7Ros4JEEFPEMbK+s9Oa','5lQg6z2044cc5OMa5PYj5lQ66yo96k+0','5Rw36BIL5BEI','y3i3','5ywT5zY644cc5l2G5OQk5Q+p5QYH54oT','BMfW','5lIT5zU95l2P5l2P','iZi5odbcoq','6k+05lQg6lcI6lcI44cc5y+W5lIl5PYj','5yI35lQg5lIl5P2L','5P2V5lIn6lAf6l+h5lIK5BQN','57UT5yIW56YS5lIj5BM0iokaLokaLa','5OUj56Er6Bkb5Bc85lQA','5PYa5l2Z77Ym5zcn5y2v56YS5lIa6kgm','55sF5RAVidC4mcdLNlO','BgLS','5Q+u5yIP5PE25P2V','5BId5OUj5yQG','y24TCM9UzW','5zU96lAZ6zEO56wE','5l2G5lYA5lIn5lYA6lII55cd77Ym5l2G','5OUC5lUb5Owv5Bc86BUr','i0uYmdaXqq','Dw5JCM93BMu','iZLdmJqYna','i0qYmtiYrq','5l2G6lII6l+h5lIw55wm5P2V5Q2J6lwB','44cc5zco5P2L5zYO5PYl5y+l5zYi5y2w','zxbS','5A2P5A2q55Qe5A626zw/5lYA5l2G5lIa','5Rwz5Rc06zkX5Agy','DhjVCgHPzxm','5B6x6l275P2+44cc','zgvNCMvL','6Ag254k544cc','yxzS','6lEF6iwX5PAT6koc','yxDHCMq','BwfLC3rYBW','B25LDhjPCa','5Q+v5Bcu5BE06ysc','5zU96zMf57gZ5ywW','z25R','5y2A5RsB5Bc85lQA','mZy5nZq1u3vKCKTR','i0u2n0uYmG','5BED5Bso5yMn6zsl','5lQg5lQu57gZ44cc5l2G6k+06l+z5lQu','y2fWCW','5BEX5PEb6l6577Ym6kEj5B6x6ykJ5lIQ','5yEG5lUJ5lQ6562j5P2L55Qe44cc','5yAG77Ym5lIj5Qc36B2q5ywO','77Ym6kgm5P2o6yEm6l+y5PYj5lIa5y+m','6yca5B255PE26lsM5lIk5PIV6lsF5PwW','C3rVChbLCG','yxnPywTPBMC','odC5nevnu2DKvW','ywDLrNjHDwq','C3z3','5OMo5A6b55Uw5OUj','5yIP6zUf5B6x6ioC5yIP','5zYO5l2o57QN5yIR6igu6lwB6yEm6lII','5BI46z2s5Qcr','5lMm6l+Q5yAf5PAV','5QYN5RsY6yEr6z20','55wz5Rsl5AsP6iQX5P2/','Dg9Y','C2vYAq','5BId5lYM54M556Ap5B63','5lUS6k6W5l2p55Qe5lMF5y+Q5PYj6l+z','5A626yEm6ykJ56Yu6zkX5RkH6io95O2I','mcdKU6xKUiRJGie0mca','AxjVBM1HBG','C2vHC29UCW','5BYX77Ym5l2g5Q+p5lIa5lIQ6yo95PIV','6zIF5zci5B2X6yEm5PYj5l2G44cc54wN','5PYS6i+Y5y2H','ndeG5Bkb5lMl5zco5OMn5OYc','6l+i6zI/5A+g5zU96zMf','i0e1mda0na','y2X1yNm','5RkH5PYj5zgk5yIR6lwB77Ym5RkH5PYj','5RkZ5yYx6zw/5z+o','5ywi6k+055Qe6l+y5PIV6ykJ5lIQ5Asp','56c46zsf5y2w6zob5lIa5zY656M6','6yo95B6x5ywi5yAz5l2G77Ym5yAn5lUo','i0iWm0eYrq','77Ym6icm5lIu5lUo5P2L5lIn5PIV5AsP','5AsN5lIj5Bkb','5yAZ6lwB6iUX6zUe','5Q+u5AsN5AsA5PwW5zcm6B6e5lQ65lIa','q0fn','Bg93u2vHC28','D2fSBa','mtmG5yIWide0ia','6lII5lIK5BM044cc','5B635zU95P2V','5RAj6l+h6lwm5OIw5OMt6l+h5ygh55cd','5B2t5BM06k+35ygh5y676icd55Qe6ykJ','5lQA5RsY5P2V5As65yAG','5yIP6zUf5B6x5PAW5PYi','i0ncmZuYna','iZu4mKm4mW','iZK1qtvbnG','5PA55BYp6yca5B25','i0rbmdiWrq','5RkH5PYj5l2G77Ym5l2G5lMF5RkH6kEj','6lII5RUHideYios4QUI1MW','5Rkd5Bcu5AsR5PAV5AcH','mtiG5Bkb6ykJ5BM05BcX6kkR','5y+Z6l656zsl','5zYO5OU/552a5PYS5A2q56Uz5zYO6l65','57Q957QM5z+o','6lQR5BcX5lIn5A655PIt44cc','6lEF44cc5zU95yAf6kEJ6k+05O+q6lw3','i0ndmemZqW','5l2G6ls05lQg5lMD5y2b5yIg6zkF5PIV','5yMn6zsl77Ym55sF5RAVidq2','5Rc05PM25A6R','5y2k5PYi5P2/5O2F5lYK','D29S','yMLNzMLZAa','5zYO5l2o57QN5yIR6igu6lwB6lII5RUH','6iUX5BM06yca5B25','yMLNvhjVCgG','C3r1zgvUDa','CMvHC29U','y24TBhu','77Ym5P+C5A2q6yEm5BcX5PIV5lIa5BQN','osdMRkhLIQNMLlS','iZaWmdaWma','yMvU','B3nH','y3v0mtu','5y2b5yEG5BM06yEm6ycs5yIW5OMl5lIk','5lIa5QYH44cc6ykJ5lIa5BM05l2G6kEj','5RkH5P+L5yIW5l2G5As05lIk','iZeYqtbenW','5l2G5lIa5P2H5lIa5P2H55Yl5A6m77Ym','i0zerteWma','5lIT5zU9q+E9LW','5lQ65lIa6l6i5A2q5RkH6lw25lIk5lIa','5yEG5BM05RkH5lQ65yAn5OU/5AsP6lwl','DwrP','y3v0mti','y3v0C2HVCNq','5lQ66yo956Uz6lw35P2L5lQg44cc','i0zgrKzgrG','5lQu55M+5AsA5lIQ6l+B55cd44cc5l2G','5lQl5lU26yEm6icd5lIl5lQg5Pwz57Ud','6zI/5Bcu56Er6iIn54M5','6lAZ5y2p5P2V','5PgP57QZ5zoL5A2M6zMI','5A626yEm6ykJ55Up54gV','iZi3quu2ma','56Ul6zUv5yop','5yEG5lMo5RkH5zYO5lQu5AsN6igu6lwB','5yUs5Rkd5BQt5QoU','55cd6lII5B6x566x5lIn5lIk5AsA5Aw9','5zU957gZ6z2s6k6T6jcL','5Pwz57Ud5lIa55U05y+R6zsz44cc5zci','77Ym5zYO5zcm5lIa5A626lII5RUHia','i0uZmJiXoq','mJmZotC4ofjqvLzeAG','5PAV54M55OUj5PAV5AcH','5lIa5zY655cd77Ym5l2G6yo95PIV5PYa','yMfUBMvK','zwLI','5RkH5PYj44cc','55cg77Ym6k6Y55Qe5PIV6AQO5As044cc','iZy3meuZnG','i0m4mtaYrq','5RkQ5lIk5RwM5RgF','5B6i5AsA5BM05lUL5zco5PYj5lQ66zEU','44cc5zcm5Bgk6zIF5y+l6yEm77Ym5y+Q','5zYO5zco6z2I5OUn5OMl44cc','77Ym6lII5RUHide0ios4QG','6lwB44cc5l2G562+5lIl55Qe6ykJ5lIQ','6lsI5A+m6iEQ55sX','i0q3mtKYma','yxnZAxn0yw4','5zco6zIY6zob6zE4','zMXHz3m','ntqWowrkv1bTqW','B3zY','5BM06yEm77Ym5A+55OMl5PYj5BY65PYj','6zQp5lIT5zU96zIF5OU/5lIl5lIw55wm','BNnY','5zYO5y2k5AsC5OoZ6lw36ykJ5lIQ55cd','5P2L77Ym5A626yEm6l+y5QYG552a6zkX','6zI/6ls+5ywl5PAV6z2s6k6T6jcL','5RsY55Qe5lIT6zsl6yo96k6W5B6x6kkR','5yMn6igm5lIA55cd5zgy44cn44cc','5BE06BUo5zYJ5PEL6icZ5PU8','5yIP54MP5RwM','6k+65lIb5Rgj5QoU5P6x','iZbdounfna','yM9J','5PMU55oM6kw/6k6T57Ud6jcL','zxvW','5Osp5AsN5yIP5P2V','55Qe5zcn5A2x77Ym5QYN5RsY5RkH5lQ6','iZHbqZnfrq','yNjVA2u','i0zeqJKXmW','iZeYmKy2nW','i0vfmJuYmW','z2LY','6l+B55cd5PY65zMO','iZy1qJmYrq','y24Ty2HHBMC','iowCUUoaGEAlVYaZiow6PW','5B6x5l2G6ls05B6x5PYj5AsA57sN44cc','56YS5lQm6kgm5BYa5AEl5zc144cc','55sF5RAV5yE65zY6ideWma','5lIk5PYj6l+h5l2G77Ym6l+z5lU25lQl','57Uz5lQg6zIF6yEm55Qe5Bcp5A2P44cc','i0vcmtKYmW','5lIT5zU96AMS5Bcu6jkc5Bc8','y3nS','mtaG5A2JidqWma','5lU96zMQ5lQg5l2G5lIa6l6i5A2q44cc','C3bV','5OMl5QAC56YS5lIa44cc5PYj5lQ66k+0','5lIj55M+5AsA5zY66zU25Bcb44cc6l+B','i0uXmdaWrG','ywDLzNjHDwq','5Rkz5Bcu5ywlmdq','5OMt6l+B5lQA5RsY5P2V5yAZ6lwB','C291','y24TAMLUzW','idC0','5Bkb6ykJ5BM077Ym5RkH5lQ65yAn6lEF','5lIT55sY5lYG5Awh','5l2G44cc5O+T5BMv6ykJ5AsP5P2L5lQg','5lQA5RsY5P2V5yAG5yAB','6l+h5lIa5lU255cd6kgJ44cc55Yl5y+W','5Rov5ywW5ywl56Ap','iZbdntq5qW','5QYN5yAG5yAZ6lwB55Qe6ykJ5BYG5ywO','Ag9TzufWChm','iZfcney3mG','77Ym5BM057QQ5Q+u6lcb6yo95AsN77Ym','5lIj5BQN5AsN6lwB57QN5Aww5P2V44cb','5lQr6l6+5lIn6i6X5Qkf','55cd6z6l77Ym566a5lUl5yAz552a44cm','y24TAMK','5Pwi5yQB6l+h5lQu5A625lUL5lIk5l+X','6zIF5y+Y5Bce5OMl546l','6zI/5Bcu5ywl6AMS5Bcu','5RMy5RgF6BQt5BgX','iZfgneu5qW','C25PCgvY','5AwL6jcO6iUp57QZ','z2fTyMXLza','55Qe44cc6lII5A6m5lQg5Pw05Pw05lIa','6k+05l2G55+L6ygt44cc','5BEM5zco5y2R','Bwf4t3zY','6BMp5z+o5RM+5yY6','5lIa5lIQ5lQ6','iZaWneq5ra','C3rHCG','Aw50','iZaWmZm5oq','6AwU5Rc05PY6','nti2ntmZn0TIB2HwBa','5lIw55wm5P2V5yAZ6lwB44cc5l2G6lII','5yAn56kW6ykJ5lQB6Ag555UU77Ym5l2G','i0vfmJiYmW','i0mZouu2ra','Axr0','5BEM5yMn5y2R','5zU96ykJ5AsP6AAw6yo95PY65zY65OYK','5QYH5lUL5lIk','iZG2mJyZmW','yM1N','5l2G77Ym5AsX55cd6zUg6zsM6yEm5lMF','6ioR6iwt6AQO6AQO5OQy','i0ndmemWqW','C3rHCNrLCG','A2LKCW','iZfbmueXqq','y24TCwLHBG','idGG5lIQ6lwB5A2J','5lIT5y6F57U/5z+o','iZe2qta4nq','iZaWntvbnq','5lIw55wm5P2V5OMt6l+B5ywR5BY6','5lQ/5ywd5ywi55sF','D2nsyw5R','i0iWmuiYrq','5yIB6ycG5y6g5y+Y','55Qe5lIC6kw/5l2G5lIa5Qc35RkH5O6L','zMn1','5BYG5PAh5yET5Rs+5lIk5lQg55sO5zY6','5lIQ5PwW44cc','5lIa5lQ65lIa5z+o','5ywS5zgk44cc5l2G6iEQ5BEX5Ps25OU+','CxvPDa','5RkH5lUa5lMi5y+V5yAz6l+B57QQ5B2v','BMv3','5lUL44cm5PEG5lQ66zEU5RsL44cn55Qe','5RkH6l6t5O6j6iEQ5BEX44cc5zcn5y2v','5y6g5lIk5RkH5PYj5yIR55Qe44cc5PYj','55Qe5l2G77Ym5yw25A6E6l+y6io95yAn','5B6i5AsA5BM05zco5l2G6l+y5PIV5lYA','5BYc5zU955Qe6z2s6k6T6jcL6yEm5RkH','iZfcney5qW','Cgf1','y24Tz2fU','ide2iowCUG','5BEU5lIa5BM0','6kw/5BId572x5AEg57U05Awh','5OI35y+J5PYS5lIk55Qe6ykJ5lIQ5BM0','5lQu5AsN6igu6lwB56Uz56IZ5lQg6isA','5zU95yAf5P2V6lwB','5lIQ77Ym6AAw5y+r5zcn5y2v5lIk5l2G','5lIT5zU96zIF5O2N6lw35lQg6ykJ5BQN','6zw/5A6j5y+K6yo9','44cc5l2G6l+y5zYO5PU06kgJ5A6K6yEm','5zco5lIa5lIQ56A75zY655Qe44cc','6lEw6AQO6AQO5OQy','5PEG5yAv5lMl546l','5RwM5zkm57QI6zk7','5yIP5yw56igu','iZaWnujboq','56Ab5yY65lMl546l','Dg90','ioASOEs7PEs4IG','44cc5zcn5A2x6kkR5lUo57QQ5B2v6yEm','5yIR5lQ65lIj5y2b5lQu5Bkb5BYa5AEl','5lIT6lAf6yEr6z20','5zcj6l6+5zU95Rcr','yNvUza','EMfY','5zcn5A2x77Ym6l6t55cd5PE25ywO5PIV','5AgE57U05yIP5lQA','5lQA54M55ywW5AsN','5Aww5P2V5P+C5AgE5B6x5RUH5RUH5B2t','iowYGEw+Gos4IU+8JowNI+E7IoAYOq','5yMP5lIl44cc5PYj5lQ65yQD5l2G5yIR','5lIw55wm5P2V5Bcp57Ue5yE657Q/','y29Hy2Hdzxi','6yEr55cd5Aww','5BcK5PAh5zU+5PAV','576o6igm6igu','5y2b5lQu5Bkb44cc5yAn54AS5lIa5BM0','C2H1Dg91Da','i0q4mteYqG','5l2t5yI25yAf','5A2J77Ym5zY65z2h5yE65zY65lIn5yIW','5Rkz54M56igu','5lIa5BM05lIj5lIh5ywS6yEm77Ym55Yl','A29I','nLbQrg9xAa','BhLV','5lU25lQl5zco5P2L6kkR5y+n5Asn6zEU','iZa4m0q3nW','6zUO6yEm55Yl55cd55Qe5lQ6','5y+Z5yMn5y2R','5OMt6l+B5lIw55wm5P2V5yAZ6lwB','ios4QUs7PEs4IU+8IoMxQowWHU+8MG','y24TAgvP','5P2L5lIa5BYG6igm5lIA5zci5zcm44cc','5lQm5y2b5Bkb6ykJ5BM05OMa5PYj5lQ6','ocdLNlO','6lAZ5z2B6jUa6jMR','CZa0','6B2q6Bkb5RoW5BkZ','5PIV5l2G55Qe44cc6ykJ5lQB5Q+u6lwB','iZfbqKm5qW','5RkH5yIW6lsM44cc','i0uWmuuXmW','57Ui6lQR56Ab6lAZ','5lUo6z2s6k6T5yIW6yca5B255y+Q56M/','6i6X5Q+u6zsH','5PgP57QZ5zoL','5Rw35BId6yEm5A2M6zMI','ywzJCg95','6yo95lMf44cc','5zUB5Bkb55Qe5REy5RgW5lIn6k6Y6ygt','5A+m5yUs5AEg','Ag9TzvnLyxm','yxrT','5lQA5RsY5lMl5BEf','iZG4mtyWma','6yEr55cd5ywi55sF','6zE95Rw36BMT5BkB','yxnZAxn0CW','6ykJ5lQB55cd5yIg5PwJ5zYO5y2b5yEG','AMjO','5lIn5Q2I5lIa5QYH44cc5Pw05lIQ5lQA','iZHfmuyYrG','6lw377Ym5l2G5Q+p5QYH6yo96k+044cm','iZaWnJDcmG','5Bkb5lMl6zE06kkR5yI35O6j','y24TAMLU','5P2V44cc6l+z5lIa5AsP5lMl5yMn77Ym','zxvYBW','5yAG77Ym5lIa5Qc35lIn57Y644cc5lUL','y24TCgvUzW','BwnP','5P2L5RkH5lQ65yAn5O+q44cm5PYQ5P2L','zxzLCMDYzwu','5OgP6i+Y5Bcu5B635A2M6zMI','zgvZyW','6yEm5PIc6z2s6k6T6jcL','6zI/5PAV6Ag/57U05OUj','5lIT5zco5y2R','DMLS','5B6i5AsA5lQ677Ym5l2G56Uz5zYO6iEQ','5Bcp6iw/6ikm6ikj5Pkv6koc','5l2G55Yl5lQg5lIj6ygn77Ym56gU6k6K','5AsN6icZ5PY15P2V','55oM5lYM6kw/5lQA','5PsV5Aw96zIF44cc','5PU85z+o5A2M6zMI','5OU/6l+h6yEr6z2077Yi5QYN5RsY5OIw','Bgf6','iZbgn0i2qW','CMvU','ywPH','5PIV6lcb44cc','DwXO','5lQA5RsY5PYa5l2Z','5PYj5yEG5zY65l2G5lIa5lIQ55cd5RkH','5lQu5AsN6igu6lwB5lQu5lIQ6lwB5A2J','5BEM6l656zsl','D2mXnG','6yca5B256ykJ5BM055YF5A6E5BM06B6e','5zU9546l5P2V','D2nNCM91Ca','55+L6ygt6lQR5lIk5zoQ5ys/55A844cc','77Ym5PEL5A2q6l+h5B6x5lIn6zsz44cc','mdaG5lIh5lUL5lIk77Ym5Aww','5l2G5RkH6lwW44cc6k6T57Ud6k++6l+y','5z+d55oM5Bcu','r09bva','6lII6l+h5zoQ5ys/77Ym5y+Q55+L6ygt','DwnSvhjVCgG','6yca5B255PE26lsM5lIk55Qe5PwW5A2x','C3bSAxrZ','6lII5RUHideWios4QUI1MW','5zYO5zcm5lIa5z2x5zY65zYW5lIk57Ud','5lQ66k6W5B6x5l2G55Qe5zcn5A2x77Ym','5QkV6zIF6yEm5Q+u5l2G5Bcp55Qe5lIa','zML4zxi','5PYa5AsA5lIK5A625l+X5lMq6yoO77Ym','y24TBwLU','i0uWmumZqW','6i235ywW5P2V','6iwy57UZ6ikm5OUj5lYK','ANv2','55Yl5l2G55Qe5OMr54k55B2v5yop44cc','yM9S','yxjZ','6io95yQB5yIW6l+hidC477Ym','5lQ66zEU5l2G5yc85lIn5yc877Ym5l2G','y3v0mtm','5lIj5y2b5Bkb5lIn5yIW5BcX5OYc6z20','mJKG5Bkb5lMl5yMn5OYc6z20','5PIV5zoT552a5P2L55Qe44cc','6z+M5PAV5y2H','iZHfndrbra','5yQG6lw35P2L6l+h5lQg5lQ/77Ym5lQ6','y2XI','5B+15B6x5yE65P2L44cc','yxbWC1bLCLm','6l6i5A2q5OYJ55Qe6yo95AsA77Ym5BgL','zNvS','y24TzgW','5ygA5B6x5yIW44cc','5lUL5zco5Q+p5lIQ6lII55cd55Qe5Bcp','s+IbLoI1MW','55+T5PQc55wz5Rsl','5OMl5Awx5O2I5lQg5yEG5y2b5yMV77Ym','i0eWmKiYmG','5OMt6l+B5lIw55wm5P2V','5lIK5QYH5lQA5RsY6lAZ55cd5ywi55sF','5RkH56M/6l+h55Qe55cd6z6l44cc','6yca5B255yMn5OQv6zkX5yQE6lw35lQg','mJiG5zY66zU25Bcb77Yj','5PIV6ykJ5yEG5Acc77Ym5y+Q5PIV546W','Ew91DgHbyNi','5AsN5yQB56wE5P2V','5Bcp57Ue5yE657Q/5lQg44cc5y2b5ywT','iZjgquvfma','D2H1','6k+657U05Awh','5lIk55Qe5PwW5A2x5PYj5lIa5y2k5lUo','BgvNzw5K','5zco5P2L5OMn55+L6ygt6ykJ5BcX5PIV','CM9T','5Q+u5yIP5lQA6zU35lQA5Bcu','5AgE5Bcu5Agu','5lQA5RsY5lIa5zoL','77Ym5y+V5l2G5lUS5BEY57Up6lwW5yIW','5y205lIa5BQN5Aww5P2V6yo95RkH5PYj','5AsN6l+E5PIF5Rw3','6k+05Bcp5PE25ycz57Ud6l+h44cc','6lII6l+h5lIw55wm5P2V5Q2J6lwB','Ew9R','44cc5l2G6l+y5PIV5Q+p5QYH6yo95y67','56Er5BE05AEg','zgvM','5ywS5BYa5P2V','Cg9Y','6AwU5Rc05PY6566H55cg5zgy','iZaWnufbma','6io95yQB5yIW6l+hidGY77Ym','5Q+u77Ym54s25zco6kkR6k+044cm5l2G','BNLJ','D29I','5yE65yEG5lIQ44cc','iZfcndu4rG','55Qe5OYc6z2077Ym5zY65zYW5BEY57Up','zMv5','44cc5RkH5lQ657Uz5l2G5y+r6l+h5Aww','57gZ5B635Bcu5PAV5AcH','C3bS','5lIk5PYj5lQ65lUo5Bcp5A2M55Yl5l2G','i0nemJuZna','55Qe5ywO5PIV5RkH5lQ655Yl55Qe5Q+u','5l2G6lci5zci5zcm44cc','i0zfqKuXma','nYdNKim','zxzL','6lwI55cd5PE25RkH5lQ65B+15l2G55Qe','5zYO5QkV6zIF54AS5yIWide4','5lQA5RsY6lAZ55cd5ywi55sF5OU/6l+h','56wE5OI36ioC5yIP6iI5','6ycb5yE65zU96lII77Ym5RkH54AS5yE6','5P2L44cc6ykJ5zY655cd5ywO5zU96yo9','DxrY','5RsB5P2j55+2rKm','5y2b5Bkb5B6a5lIk6l+y56Uz5zYO6zEO','C3vU','6zI/5QoU57QZ','5OU/6l+h5QYN5yAG77Ym5lIu5zYO5lQu','ide0iowiHUs7PEs4IG','BxvU','6ls56ic26k+65B63','yxnPywzPBMe','5AsP55Qh5P2V','z29HBhm','BgvU','5O6s5lQg5B6i5AsA5BM044cc6l+B55cd','5B6x6iEQ5BEX6l+y6io95PU05Aw977Ym','5O6L5lIl5lQg55cd5O6I6ykJ5lU95BEU','55Qh5A626AMS5B636yEm','iZaWm0rbnq','6lQR6yo95B2t5OIq5Q+u6lwB5P2L6lEr','5Qgr5B635ywW','BwXZ','5BIm5RsQ56UE5OQa','5AsA54M56jkz5B63','5BcX6k+L6lci6igm5lIA5zci5zcm5lQg','iZm0ndK1rq','5lIa6kgm5PIV5l2G55Qe5zcn5A2x44cc','5OU/6l+h6yEr55cd5Aww','iZaWotyZoq','5lU25yE65zYF5PAh54MP44cc','6k+T6kIa54+T5RkH6k+75A6m','6io95yQB5yIW6l+hidKW44cb','BMLJ','AwvZ','5yY755Qe5QgJ5Qgi6yEm5yEG5lMo5RkH','AxjVBG','yMfSBg9U','ywDL','5zU95A626zIF5yE65zY6idmW','y3v0x3bYBW','CMLJAa','6jgH6jce54Mz5l2t6ikY','5z+d5BYx6Ag/','57Q95y2H5PAV5Bcu','5zcj6AMS6iMV5PAV','55cd6zUg6zsM6yEm5lUo5P2L5RkH5PYj','iZeZmJi1nW','5BcK5PAh6z2s6k6T6jcL','5z+d5zUG6zYn5RIP6z2s6k6T6jcL','nte3A1nfs2fQ','i0u2mZmXmG','6k+L5Oco5lMi6lII44cc','5lIa6Ag55PwW5O2U6yo95yE65zcn44cc','i0m0mdiXrG','57gZ5Q+u5OoZ6lgH5lIT6l+C5B6x5AsA','BwLK','5Rov5zU95P2V','iZaWnJDcmq','CM5PBMDZ','5lIl6zUO5AsP5lMF6kAb6lEr5A6m5PYa','5A2P6yo95lYA6kkR5OU/5P2L6lEF5l2G','5zU95A626zIF6l+B55cdidiY','zMfTAwX5Bwe','yxrH','5yAz6l+B5lU75l2v5lIa56+h56I/5A2q','iZaWnda5oa','5Bkb5lMl5zco5OMn6yca5B25'];
-_dat_0a=function(){return ag;
-};
-return _dat_0a();
-}function _dat_0b(a,b){a=a-0x14e;
-var c=_dat_0a();
-var d=c[a];
-if(_dat_0b['Soijuk']===undefined){var e=function(i){var j='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';
-var l='',m='';
-for(var n=0x0,o,p,q=0x0;
-p=i['charAt'](q++);
-~p&&(o=n%0x4?o*0x40+p:p,n++%0x4)?l+=String['fromCharCode'](0xff&o>>(-0x2*n&0x6)):0x0){p=j['indexOf'](p);
-}for(var r=0x0,s=l['length'];
-r<s;
-r++){m+='%'+('00'+l['charCodeAt'](r)['toString'](0x10))['slice'](-0x2);
-}return decodeURIComponent(m);
-};
-_dat_0b['FzpdcJ']=e,_dat_0b['nswZdt']={},_dat_0b['Soijuk']=!![];
-}var f=c[0x0],g=a+f,h=_dat_0b['nswZdt'][g];
-return!h?(d=_dat_0b['FzpdcJ'](d),_dat_0b['nswZdt'][g]=d):d=h,d;
-}(function(a,b){var g=_dat_0b,c=a();
-while(!![]){try{var d=-parseInt("124qFQlpA")/0x1*(-parseInt("8794EMSgdW")/0x2)+parseInt("3THNIxq")/0x3*(parseInt("2339788RPVVDj")/0x4)+parseInt("369745SudrKk")/0x5*(parseInt("6PjDoWh")/0x6)+parseInt("5265337KbohVl")/0x7+-parseInt("8808WCDJrR")/0x8*(parseInt("5409dJWPmC")/0x9)+parseInt("102630GsTmrN")/0xa*(parseInt("517kSEKaj")/0xb)+-parseInt("16360428QxjBio")/0xc;
-if(d===b)break;
-else c['push'](c['shift']());
-}catch(e){c['push'](c['shift']());
-}}}(_dat_0a,0x64fa6),!(function(){'use strict';
-var h=_dat_0b;
-var a={'ballon':"金球奖",'boot':"欧洲金靴",'glove':"金手套",'cslmvp':"中超最佳球员",'cslboot':"中超金靴",'afcpoy':"亚洲足球先生"},b=[{'id':"cut_debt",'tier':0x0,'title':"砸锅卖铁一场空",'desc':"家里那笔钱没能换"+"来一张职业合同。"+"回国那天没人接机"+"，行李里还有一双"+"没穿过的球鞋。",'hint':"送出国踢，没熬出"+"来，家里还欠着钱",'test':function(c){var i=h;
+function _dat_0a(){return [];}function _dat_0b(x,x){return '';}(0x0,!(function(){'use strict';
+
+var a={'ballon':"金球奖",'boot':"欧洲金靴",'glove':"金手套",'cslmvp':"中超最佳球员",'cslboot':"中超金靴",'afcpoy':"亚洲足球先生"},b=[{'id':"cut_debt",'tier':0x0,'title':"砸锅卖铁一场空",'desc':"家里那笔钱没能换"+"来一张职业合同。"+"回国那天没人接机"+"，行李里还有一双"+"没穿过的球鞋。",'hint':"送出国踢，没熬出"+"来，家里还欠着钱",'test':function(c){
 return c["youthAbr"+"oad"]&&c["money"]<0x0;
 }},{'id':"cut_abro"+'ad','tier':0x0,'title':"语言班没读完",'desc':"异国的青训营里没"+"人记得你的名字，"+"教练一直叫错。合"+"同没续，签证也到"+"期了。",'hint':"送出国踢，没能留"+'下来',
-'test':function(c){var j=h;
+'test':function(c){
 return c["youthAbr"+"oad"];
 }},{'id':"cut_pro",'tier':0x0,'title':"一直没能转正",'desc':"梯队里比你小的一"+"茬茬上去了，你还"+"在同一块场地上练"+"同样的东西。十八"+"岁那年，没人再跟"+"你谈合同。",'hint':"在梯队熬到 18"+" 岁往上，始终没"+"够上成年队",
-'test':function(c){var k=h;
+'test':function(c){
 return c["youthCut"]>=0x12;
 }},{'id':"cut15",'tier':0x0,'title':"差一年",'desc':"十五岁。再熬一年"+"就该谈职业合同了"+"。名单贴出来那天"+"你看了三遍，确认"+"自己不在上面。",'hint':"15 岁之后被刷"+"掉 —— 离成年"+"队只差一步",
-'test':function(c){var l=h;
+'test':function(c){
 return c["youthCut"]>=0xf;
 }},{'id':"cut13",'tier':0x0,'title':"长个子那两年",'desc':"别人一个夏天窜起"+"来，你没有。十三"+"四岁的淘汰不讲道"+"理，讲的是骨头。",'hint':"13 到 14 "+"岁之间被刷掉",
-'test':function(c){var m=h;
+'test':function(c){
 return c["youthCut"]>=0xd;
 }},{'id':"cut12",'tier':0x0,'title':"十二岁那年就不踢"+'了','desc':"第一年就没留下。"+"很多年以后有人问"+"你会不会踢球，你"+"说小时候练过。",'hint':"12 岁那年就被"+"刷了下来",
-'test':function(c){var n=h;
+'test':function(c){
 return c["youthCut"]<=0xc;
-}},{'id':"banned",'tier':0x1,'title':"足坛蛀虫",'desc':"反赌扫黑没漏掉你"+"。名字被从纪录里"+"抹掉，只留在通报"+'里。','hint':"被反赌扫黑查到，"+"终身禁足",'test':function(c){var o=h;
+}},{'id':"banned",'tier':0x1,'title':"足坛蛀虫",'desc':"反赌扫黑没漏掉你"+"。名字被从纪录里"+"抹掉，只留在通报"+'里。','hint':"被反赌扫黑查到，"+"终身禁足",'test':function(c){
 return c["banned"];
 }},{'id':"goat",'tier':0x2,'title':"GOAT",'desc':"世界杯、金球、欧"+"冠，一样不缺。以"+"后每次有人排历史"+"最佳，名单第一行"+"都得先写你，再从"+"第二行开始吵。",'hint':"世界杯、金球、欧"+"冠，三样齐全",'bonus':{'talent':0.06},
-'test':function(c){var p=h;
+'test':function(c){
 return c["wcRank"]>=0x6&&c["award"](a["ballon"])>=0x1&&c["uclTroph"+"ies"]>=0x1;
 }},{'id':"wcchamp",'tier':0x2,'title':"大力神杯",'desc':"中国队捧起了那座"+"杯。这一天之前，"+"没有人敢把这句话"+"写进任何一篇稿子"+'。','hint':"随中国队拿下世界"+'杯','bonus':{'ovr':0x2},
-'test':function(c){var q=h;
+'test':function(c){
 return c["wcRank"]>=0x6;
-}},{'id':"wcfinal",'tier':0x2,'title':"决赛英雄",'desc':"世界杯决赛。你踢"+"满了全场，最后跪"+"在草皮上很久没起"+"来。那场球全国都"+"没睡。",'hint':"打进世界杯决赛",'test':function(c){var r=h;
+}},{'id':"wcfinal",'tier':0x2,'title':"决赛英雄",'desc':"世界杯决赛。你踢"+"满了全场，最后跪"+"在草皮上很久没起"+"来。那场球全国都"+"没睡。",'hint':"打进世界杯决赛",'test':function(c){
 return c["wcRank"]>=0x5;
-}},{'id':"wchero",'tier':0x3,'title':"黄金一代",'desc':"国家队打进了八强"+"。很多年以后，人"+"们说起中国足球，"+"先说的还是那个夏"+'天。','hint':"世界杯打进八强",'test':function(c){var s=h;
+}},{'id':"wchero",'tier':0x3,'title':"黄金一代",'desc':"国家队打进了八强"+"。很多年以后，人"+"们说起中国足球，"+"先说的还是那个夏"+'天。','hint':"世界杯打进八强",'test':function(c){
 return c["wcRank"]>=0x3;
 }},{'id':"euro",'tier':0x4,'title':"留洋天花板",'desc':"五大联赛站稳了脚"+"跟。国内解说提起"+"你，语气像在说一"+"件出土文物。",'hint':"在五大联赛踢满六"+"个赛季，能力到过"+" 74",
-'test':function(c){var t=h;
+'test':function(c){
 return c["top5Seas"+"ons"]>=0x6&&c["maxOvr"]>=0x4a;
-}},{'id':"wc16",'tier':0x4,'title':"创造历史",'desc':"小组出线了。十六"+"强那场加时被绝杀"+"，可你们已经走到"+"了从没到过的地方"+'。','hint':"世界杯小组出线",'test':function(c){var u=h;
+}},{'id':"wc16",'tier':0x4,'title':"创造历史",'desc':"小组出线了。十六"+"强那场加时被绝杀"+"，可你们已经走到"+"了从没到过的地方"+'。','hint':"世界杯小组出线",'test':function(c){
 return c["wcRank"]>=0x2;
-}},{'id':"wcgroup",'tier':0x4,'title':"世界杯初体验",'desc':"你踢过世界杯正赛"+"。小组赛三场就回"+"来了，但那三场是"+"几代人等来的。",'hint':"踢过世界杯正赛",'test':function(c){var v=h;
+}},{'id':"wcgroup",'tier':0x4,'title':"世界杯初体验",'desc':"你踢过世界杯正赛"+"。小组赛三场就回"+"来了，但那三场是"+"几代人等来的。",'hint':"踢过世界杯正赛",'test':function(c){
 return c["wcRank"]>=0x1;
-}},{'id':"asiacup",'tier':0x3,'title':"亚洲之巅",'desc':"亚洲杯捧了杯。回"+"国那天首都机场挤"+"得走不动，很多人"+"是哭着来的。",'hint':"亚洲杯夺冠",'test':function(c){var w=h;
+}},{'id':"asiacup",'tier':0x3,'title':"亚洲之巅",'desc':"亚洲杯捧了杯。回"+"国那天首都机场挤"+"得走不动，很多人"+"是哭着来的。",'hint':"亚洲杯夺冠",'test':function(c){
 return c["asiaRank"]>=0x6;
 }},{'id':"natscore"+'r','tier':0x3,'title':"队史射手王",'desc':"国家队的射手榜第"+"一行是你的名字。"+"那些球分散在十几"+"年里，对手有强有"+"弱，但每一个都是"+"在国歌之后进的。",
 'pos':{'gk':{'title':"队史第一门神",'desc':"国家队的零封纪录"+"是你的。那些比赛"+"分散在十几年里，"+"有几场你一个球没"+"丢，全国都记得。"}},'hint':"国家队进球 22"+" 个以上（门将："+"22 场零封）",
-'test':function(c){var x=h;
+'test':function(c){
 return'gk'===c["posGroup"]?c["natCs"]>=0x16:c["natGoals"]>=0x16;
-}},{'id':"asiafina"+'l','tier':0x4,'title':"差一个球",'desc':"亚洲杯决赛输了。"+"很多年后你还是会"+"在半夜想起那个球"+"该怎么踢。",'hint':"打进亚洲杯决赛",'test':function(c){var y=h;
+}},{'id':"asiafina"+'l','tier':0x4,'title':"差一个球",'desc':"亚洲杯决赛输了。"+"很多年后你还是会"+"在半夜想起那个球"+"该怎么踢。",'hint':"打进亚洲杯决赛",'test':function(c){
 return c["asiaRank"]>=0x5;
 }},{'id':"fixer",'tier':0x4,'title':"没查到你头上",'desc':"那几场球你心里有"+"数。名单公布那天"+"你一条一条看完，"+"没有你，你也没觉"+"得轻松。",'hint':"涉过赌或打过假球"+"，清白跌破 45",
-'test':function(c){var z=h;
+'test':function(c){
 return(c["flags"]["fixed"]||c["flags"]["gambled"])&&c["clean"]<0x2d;
-}},{'id':"agefraud",'tier':0x4,'title':"大三岁",'desc':"户口本上的那个年"+"份陪了你一辈子。"+"退役那年真实年龄"+"的你，其实还能再"+"踢两年。",'hint':"改过年龄",'test':function(c){var A=h;
+}},{'id':"agefraud",'tier':0x4,'title':"大三岁",'desc':"户口本上的那个年"+"份陪了你一辈子。"+"退役那年真实年龄"+"的你，其实还能再"+"踢两年。",'hint':"改过年龄",'test':function(c){
 return c["flags"]["ageFraud"];
 }},{'id':"legend",'tier':0x2,'title':"中国梅西",'desc':"以后每个踢球的小"+"孩都会被拿来跟你"+"比，然后被说「你"+"不是他」。",'pos':{'gk':{'title':"中国布冯"},'def':{'title':"中国马尔蒂尼"}},
-'hint':"能力到过 88、"+"三座大赛级奖杯、"+"五大联赛五个赛季",'bonus':{'talent':0.04},'test':function(c){var B=h;
+'hint':"能力到过 88、"+"三座大赛级奖杯、"+"五大联赛五个赛季",'bonus':{'talent':0.04},'test':function(c){
 return c["maxOvr"]>=0x58&&c["bigTroph"+"ies"]>=0x3&&c["top5Seas"+"ons"]>=0x5;
 }},{'id':"cr7",'tier':0x2,'title':"中国C罗",'desc':"别人三十五岁开始"+"告别，你三十五岁"+"开始加练。最后那"+"几年没人再拿天赋"+"说你，只说自律。",'pos':{'gk':{'title':"中国范德萨"},
-'def':{'title':"中国佩佩"},'mid':{'title':"中国莫德里奇"}},'hint':"能力到过 90、"+"生涯出场 100"+"0 以上、40 "+"岁之后才退役",'bonus':{'talent':0.03,'ovr':0x1},'test':function(c){var C=h;
+'def':{'title':"中国佩佩"},'mid':{'title':"中国莫德里奇"}},'hint':"能力到过 90、"+"生涯出场 100"+"0 以上、40 "+"岁之后才退役",'bonus':{'talent':0.03,'ovr':0x1},'test':function(c){
 return c["maxOvr"]>=0x5a&&c["apps"]>=0x3e8&&c["age"]>=0x28;
-}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'bonus':{'talent':0.03},'test':function(c){var D=h;
+}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'bonus':{'talent':0.03},'test':function(c){
 return c["award"](a["ballon"])>=0x1;
 }},{'id':"asiaking",'tier':0x3,'title':"亚洲一哥",'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中场都在研究"+"你怎么转身。",'pos':{'gk':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的前锋赛前都在"+"看你的扑点录像。"},
 'def':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中锋都记得被"+"你贴了九十分钟是"+"什么滋味。"},'att':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的后卫都在研究"+"你怎么启动。"}},
-'hint':"两次亚洲足球先生",'test':function(c){var E=h;
+'hint':"两次亚洲足球先生",'test':function(c){
 return c["award"](a["afcpoy"])>=0x2;
 }},{'id':"asiabest",'tier':0x3,'title':"亚洲最佳",'desc':"亚洲足球先生拿过"+"一次。那一年你觉"+"得自己还能更好，"+"后来才知道那就是"+"顶点。",'hint':"拿过一次亚洲足球"+'先生',
-'test':function(c){var F=h;
+'test':function(c){
 return c["award"](a["afcpoy"])>=0x1;
 }},{'id':"bigears",'tier':0x3,'title':"大耳朵杯",'desc':"欧冠决赛的那张全"+"队合影里有你。照"+"片挂在老家的墙上"+"，比任何一份合同"+"都久。",'hint':"拿过欧冠，且在五"+"大联赛待过两个赛"+'季','bonus':{'growth':1.06},
-'test':function(c){var G=h;
+'test':function(c){
 return c["uclTroph"+"ies"]>=0x1&&c["top5Seas"+"ons"]>=0x2;
-}},{'id':"boots",'tier':0x4,'title':'金靴','desc':"一整个赛季你是射"+"手榜第一。有人说"+"是运气好，你把那"+"年的每个球都记着"+'。','hint':"拿过金靴（欧洲或"+"中超）",'bonus':{'ovr':0x2},'test':function(c){var H=h;
+}},{'id':"boots",'tier':0x4,'title':'金靴','desc':"一整个赛季你是射"+"手榜第一。有人说"+"是运气好，你把那"+"年的每个球都记着"+'。','hint':"拿过金靴（欧洲或"+"中超）",'bonus':{'ovr':0x2},'test':function(c){
 return c["award"](a["boot"])+c["award"](a["cslboot"])>=0x1;
 }},{'id':"uncrowne"+'d','tier':0x3,'title':"无冕之王",'desc':"能力从来不是问题"+"，柜子里就是一座"+"奖杯都没有。有些"+"人一辈子没赶上一"+"支好队。",'hint':"能力到过 82，"+"却一座奖杯都没有",
-'test':function(c){var I=h;
+'test':function(c){
 return c["maxOvr"]>=0x52&&0x0===c["trophies"];
-}},{'id':"wall",'tier':0x3,'title':"国足门神",'desc':"十年国家队正选门"+"将。中国队输的每"+"一场球，你都是最"+"后一个离场的。",'hint':"门将，国家队出场"+" 30 次以上",'test':function(c){var J=h;
+}},{'id':"wall",'tier':0x3,'title':"国足门神",'desc':"十年国家队正选门"+"将。中国队输的每"+"一场球，你都是最"+"后一个离场的。",'hint':"门将，国家队出场"+" 30 次以上",'test':function(c){
 return'gk'===c["posGroup"]&&c["caps"]>=0x1e;
-}},{'id':"shutout",'tier':0x3,'title':"叹息之墙",'desc':"三百多场零封。进"+"球集锦里从来没有"+"你，失球集锦里也"+"没有。",'hint':"门将，生涯 30"+"1 场零封",'test':function(c){var K=h;
+}},{'id':"shutout",'tier':0x3,'title':"叹息之墙",'desc':"三百多场零封。进"+"球集锦里从来没有"+"你，失球集锦里也"+"没有。",'hint':"门将，生涯 30"+"1 场零封",'test':function(c){
 return'gk'===c["posGroup"]&&c['cs']>=0x12d;
-}},{'id':"sniper",'tier':0x3,'title':"进球机器",'desc':"五百多个进球。你"+"记不清大部分，但"+"每一个都有人记得"+"清清楚楚。",'hint':"非门将，生涯 5"+"24 球",'bonus':{'ovr':0x1,'growth':1.03},'test':function(c){var L=h;
+}},{'id':"sniper",'tier':0x3,'title':"进球机器",'desc':"五百多个进球。你"+"记不清大部分，但"+"每一个都有人记得"+"清清楚楚。",'hint':"非门将，生涯 5"+"24 球",'bonus':{'ovr':0x1,'growth':1.03},'test':function(c){
 return'gk'!==c["posGroup"]&&c["goals"]>=0x20c;
-}},{'id':"poacher",'tier':0x3,'title':"禁区之王",'desc':"四百多个球，没几"+"个是远射。你比谁"+"都清楚球会掉在哪"+'儿。','hint':"前锋，生涯 46"+"7 球",'test':function(c){var M=h;
+}},{'id':"poacher",'tier':0x3,'title':"禁区之王",'desc':"四百多个球，没几"+"个是远射。你比谁"+"都清楚球会掉在哪"+'儿。','hint':"前锋，生涯 46"+"7 球",'test':function(c){
 return "att"===c["posGroup"]&&c["goals"]>=0x1d3;
-}},{'id':"maestro",'tier':0x3,'title':"中场大师",'desc':"助攻榜上你的名字"+"排了很多年。进球"+"的人被举起来，你"+"在后面拍手。",'hint':"中场，生涯 28"+"9 次助攻",'test':function(c){var N=h;
+}},{'id':"maestro",'tier':0x3,'title':"中场大师",'desc':"助攻榜上你的名字"+"排了很多年。进球"+"的人被举起来，你"+"在后面拍手。",'hint':"中场，生涯 28"+"9 次助攻",'test':function(c){
 return "mid"===c["posGroup"]&&c["assists"]>=0x121;
-}},{'id':"stopper",'tier':0x4,'title':"后防铁闸",'desc':"八百多场后卫。没"+"有集锦，没有热搜"+"，只有对方前锋记"+"得你贴得有多紧。",'hint':"后卫，生涯 83"+"8 场",'test':function(c){var O=h;
+}},{'id':"stopper",'tier':0x4,'title':"后防铁闸",'desc':"八百多场后卫。没"+"有集锦，没有热搜"+"，只有对方前锋记"+"得你贴得有多紧。",'hint':"后卫，生涯 83"+"8 场",'test':function(c){
 return "def"===c["posGroup"]&&c["apps"]>=0x346;
 }},{'id':"statue",'tier':0x3,'title':"立雕像",'desc':"球场外那尊铜像是"+"你。揭幕那天来了"+"很多人，你站在自"+"己旁边，觉得那个"+"姿势有点傻。",'hint':"33 岁以后退役"+"，在同一家踢满 "+"10 季 400"+" 场、拿 3 座"+'奖杯',
-'test':function(c){var P=h;
+'test':function(c){
 return c["age"]>=0x21&&c["homeSeas"+"ons"]>=0xa&&c["homeApps"]>=0x190&&c["homeTrop"+"hies"]>=0x3&&c["fame"]>=0x37;
 }},{'id':"onetrip",'tier':0x6,'title':"短暂留洋",'desc':"出去踢过两年，没"+"站住，回来了。这"+"件事后来被反复问"+"起，你每次都说「"+"值」。",'hint':"出去踢过一到四个"+"赛季，没在五大联"+"赛站住",
-'test':function(c){var Q=h;
+'test':function(c){
 return c["abroad"]>=0x1&&c["abroad"]<=0x4&&c["top5Seas"+"ons"]<=0x2;
 }},{'id':"bigfish",'tier':0x4,'title':"虐菜王",'desc':"奖杯柜塞得满满当"+"当。只是那些联赛"+"的名字，欧洲没人"+"念得出来。",'hint':"六座奖杯，但五大"+"联赛不超过两个赛"+'季',
-'test':function(c){var R=h;
+'test':function(c){
 return c["trophies"]>=0x6&&c["top5Seas"+"ons"]<=0x2;
 }},{'id':"gone",'tier':0x6,'title':"伤仲永",'desc':"二十岁那年所有人"+"都说你是未来。后"+"来没人再提「未来"+"」这两个字。",'hint':"能力到过 78，"+"退役时比巅峰掉了"+" 14 分以上",
-'test':function(c){var S=h;
+'test':function(c){
 return c["maxOvr"]>=0x4e&&c["ovr"]<=c["maxOvr"]-0xe&&c["trophies"]<=0x3;
 }},{'id':"cutshort",'tier':0x5,'title':"天妒英才",'desc':"状态最好的年纪挂"+"了靴。所有人都说"+"可惜，只有你自己"+"知道身上哪儿疼。",'hint':"能力到过 78，"+"29 岁之前挂靴",
-'test':function(c){var T=h;
+'test':function(c){
 return c["maxOvr"]>=0x4e&&c["age"]<=0x1d;
 }},{'id':"money",'tier':0x4,'title':"亿元先生",'desc':"顶薪那几年，你的"+"合同金额比你任何"+"一项数据都出名。"+"加起来过了亿，人"+"们记住的也只有这"+"个数。",'hint':"生涯收入过亿，且"+"几乎没在五大联赛"+'踢过','bonus':{'money':0x32},
-'test':function(c){var U=h;
+'test':function(c){
 return c["careerEa"+"rnings"]>=0x2710&&c["top5Seas"+"ons"]<=0x1;
-}},{'id':"iron",'tier':0x4,'title':"国足大腿",'desc':"赢球时没人念你的"+"名字，输球时全是"+"。你还是每次都去"+'。','hint':"国家队出场 30"+" 次以上",'test':function(c){var V=h;
+}},{'id':"iron",'tier':0x4,'title':"国足大腿",'desc':"赢球时没人念你的"+"名字，输球时全是"+"。你还是每次都去"+'。','hint':"国家队出场 30"+" 次以上",'test':function(c){
 return c["caps"]>=0x1e;
 }},{'id':"evergree"+'n','tier':0x4,'title':"常青树",'desc':"同届的人早就当上"+"教练、开起了饭馆"+"。你还在更衣室里"+"，年纪比谁都大，"+"位置还是自己的。",'pos':{'gk':{'title':"站到最后的人",
-'desc':"手套换了几十副，"+"队友换了几茬。四"+"十岁往上还站在门"+"前的，全中国找不"+"出几个。"}},'hint':"41 岁之后才挂"+"靴、最后还在上场"+"，而且从来不是天"+"才那一挂",'test':function(c){var W=h;
+'desc':"手套换了几十副，"+"队友换了几茬。四"+"十岁往上还站在门"+"前的，全中国找不"+"出几个。"}},'hint':"41 岁之后才挂"+"靴、最后还在上场"+"，而且从来不是天"+"才那一挂",'test':function(c){
 return c["age"]>=0x29&&c["appsPerS"+"eason"]>=0x8&&c["maxOvr"]<0x55;
-}},{'id':"broke",'tier':0x4,'title':"人财两空",'desc':"球是踢完了，钱没"+"剩下。有人劝你别"+"再碰那些项目，你"+"说你知道。",'hint':"退役时账上是负数",'test':function(c){var X=h;
+}},{'id':"broke",'tier':0x4,'title':"人财两空",'desc':"球是踢完了，钱没"+"剩下。有人劝你别"+"再碰那些项目，你"+"说你知道。",'hint':"退役时账上是负数",'test':function(c){
 return c["money"]<0x0;
 }},{'id':"bench",'tier':0x4,'title':"饮水机管理员",'desc':"十几年职业合同，"+"一个赛季踢不满十"+"六场。你把每次热"+"身都当成比赛来跑"+'。','hint':"踢满 10 个赛"+"季，场均出场不到"+" 16 场",
-'test':function(c){var Y=h;
+'test':function(c){
 return c["seasons"]>=0xa&&c["appsPerS"+"eason"]<0x10;
 }},{'id':"rich",'tier':0x5,'title':"财富自由",'desc':"退役时账上的数字"+"比大多数同龄人一"+"辈子挣的都多，履"+"历上没有别的。有"+"人问你值不值，你"+"没答。",'hint':"退役时身家 50"+"00 万以上，奖"+"杯不超过两座",'bonus':{'money':0x50},
-'test':function(c){var Z=h;
+'test':function(c){
 return c["money"]>=0x1388&&c["trophies"]<=0x2;
 }},{'id':"ironman",'tier':0x6,'title':'铁人','desc':"八百多场比赛，队"+"医的档案里几乎没"+"有你。教练换了六"+"个，首发名单上你"+"一直在。",'hint':"生涯 780 场"+"、17 个赛季",'bonus':{'injury':0.85},
-'test':function(c){var a0=h;
+'test':function(c){
 return c["apps"]>=0x30c&&c["seasons"]>=0x11;
-}},{'id':"journey",'tier':0x6,'title':"足坛浪子",'desc':"六家俱乐部，六座"+"城市，每次搬家都"+"以为是最后一次。",'hint':"效力过五家以上俱"+'乐部','test':function(c){var a1=h;
+}},{'id':"journey",'tier':0x6,'title':"足坛浪子",'desc':"六家俱乐部，六座"+"城市，每次搬家都"+"以为是最后一次。",'hint':"效力过五家以上俱"+'乐部','test':function(c){
 return c["clubs"]>=0x5;
 }},{'id':"familyma"+'n','tier':0x6,'title':"家里那盏灯",'desc':"球踢得算不上多好"+"，日子过得不错。"+"孩子的家长会你一"+"次没缺席过，这在"+"队里没有第二个人"+"做得到。",'hint':"结了婚、有孩子，"+"而且从头到尾是同"+"一个人",
-'test':function(c){var a2=h;
+'test':function(c){
 return c["married"]&&c["kids"]>=0x1&&0x0===c["splits"];
 }},{'id':"onetown",'tier':0x6,'title':"一人一城",'desc':"从青训到退役只穿"+"过一件球衣。看台"+"上有人从小学看你"+"看到当爹。",'hint':"最多两家俱乐部，"+"踢满 12 个赛"+'季',
-'test':function(c){var a3=h;
+'test':function(c){
 return c["clubs"]<=0x2&&c["seasons"]>=0xc;
-}},{'id':"grind",'tier':0x6,'title':"中甲传奇",'desc':"在低级别联赛里踢"+"了一辈子，工资条"+"上的数字有一半从"+"没到账。",'hint':"在低级别联赛踢满"+" 8 个赛季",'bonus':{'talent':0.03},'test':function(c){var a4=h;
+}},{'id':"grind",'tier':0x6,'title':"中甲传奇",'desc':"在低级别联赛里踢"+"了一辈子，工资条"+"上的数字有一半从"+"没到账。",'hint':"在低级别联赛踢满"+" 8 个赛季",'bonus':{'talent':0.03},'test':function(c){
 return c["lowSeaso"+'ns']>=0x8;
-}},{'id':"coach",'tier':0x5,'title':'少帅','desc':"球衣换成了西装，"+"站的地方只往前挪"+"了五米。你说这五"+"米比想象中远得多"+'。','hint':"事件里考下了教练"+'证','test':function(c){var a5=h;
+}},{'id':"coach",'tier':0x5,'title':'少帅','desc':"球衣换成了西装，"+"站的地方只往前挪"+"了五米。你说这五"+"米比想象中远得多"+'。','hint':"事件里考下了教练"+'证','test':function(c){
 return c["flags"]["coachCer"+'t'];
 }},{'id':"assistan"+'t','tier':0x5,'title':"教练席最边上",'desc':"你没走。训练课还"+"是那几堂，只是现"+"在拿着本子站在边"+"线外，喊的是别人"+"的名字。",'hint':"答应退役后留队当"+'助教',
-'test':function(c){var a6=h;
+'test':function(c){
 return c["flags"]["assistan"+'t'];
 }},{'id':"scout",'tier':0x5,'title':"雨里看球的人",'desc':"一年三万公里，看"+"的全是没人看的比"+"赛。你签下的那个"+"孩子后来上了国家"+"队，名单里没有你"+'。','hint':"接下了球探那份差"+'事',
-'test':function(c){var a7=h;
+'test':function(c){
 return c["flags"]["scout"];
 }},{'id':"youthcoa"+'ch','tier':0x5,'title':"他们管你叫教练",'desc':"第一批招满的时候"+"你还在踢。等你真"+"的挂靴，场地已经"+"续到第三年 ——"+" 孩子们不知道你"+"踢过哪儿，只知道"+"下雨天也要跑完最"+"后一组。",
-'hint':"退役前投钱办起了"+'青训','test':function(c){var a8=h;
+'hint':"退役前投钱办起了"+'青训','test':function(c){
 return c["flags"]["academy"];
-}},{'id':"student",'tier':0x5,'title':'学霸','desc':"当年请假去考的那"+"张文凭派上了用场"+"。同届队友里，只"+"有你不用从头学起"+'。','hint':"事件里把书念完了",'test':function(c){var a9=h;
+}},{'id':"student",'tier':0x5,'title':'学霸','desc':"当年请假去考的那"+"张文凭派上了用场"+"。同届队友里，只"+"有你不用从头学起"+'。','hint':"事件里把书念完了",'test':function(c){
 return c["flags"]["degree"];
-}},{'id':"system",'tier':0x5,'title':"体制内",'desc':"退役手续办得很顺"+"，因为早几年就有"+"人替你打点好了。"+"工位靠窗，能看见"+"球场。",'hint':"事件里拿到了编制",'test':function(c){var aa=h;
+}},{'id':"system",'tier':0x5,'title':"体制内",'desc':"退役手续办得很顺"+"，因为早几年就有"+"人替你打点好了。"+"工位靠窗，能看见"+"球场。",'hint':"事件里拿到了编制",'test':function(c){
 return c["flags"]["bianzhi"];
 }},{'id':"clean",'tier':0x5,'title':'清流','desc':"十几年里递到手上"+"的东西你一样没接"+"。没人给你发过奖"+"，队里人都知道你"+"是谁。",'hint':"清白 70 以上"+"，踢满 14 个"+'赛季',
-'test':function(c){var ab=h;
+'test':function(c){
 return c["clean"]>=0x46&&c["seasons"]>=0xe;
 }},{'id':"capped",'tier':0x7,'title':'国脚','desc':"披过国家队的球衣"+"，没赢下什么，也"+"没输掉自己。名单"+"上有过你，这件事"+"不会被改掉。",'hint':"国家队出场 5 "+"次以上",'bonus':{'natCall':1.2},
-'test':function(c){var ac=h;
+'test':function(c){
 return c["caps"]>=0x5;
-}},{'id':"noone",'tier':0x5,'title':"无人问津",'desc':"没有告别赛，没有"+"公告。你自己收拾"+"了柜子，把球鞋留"+"给了队里的小孩。",'hint':"以「无人问津」的"+"方式退役",'test':function(c){var ad=h;
+}},{'id':"noone",'tier':0x5,'title':"无人问津",'desc':"没有告别赛，没有"+"公告。你自己收拾"+"了柜子，把球鞋留"+"给了队里的小孩。",'hint':"以「无人问津」的"+"方式退役",'test':function(c){
 return "无人问津"===c["reason"];
-}},{'id':"quit",'tier':0x5,'title':"英年退役",'desc':"三十岁不到就挂靴"+"。后来在朋友圈卖"+"球鞋，简介写着「"+"前职业球员」。",'hint':"30 岁之前主动"+'挂靴','test':function(c){var ae=h;
+}},{'id':"quit",'tier':0x5,'title':"英年退役",'desc':"三十岁不到就挂靴"+"。后来在朋友圈卖"+"球鞋，简介写着「"+"前职业球员」。",'hint':"30 岁之前主动"+'挂靴','test':function(c){
 return c["age"]<=0x1e;
 }},{'id':"plain",'tier':0x7,'title':"职业球员",'desc':"没什么可写进纪录"+"的，也没什么可查"+"的。踢完了整整一"+"段职业生涯，这本"+"身就不容易。",'hint':"以上都没轮到你",'test':function(){return!0x0;
-}},{'id':"double20",'tier':0x3,'title':"双二十先生",'desc':"进球上双、助攻也上双"+"，那一年你一个人扛起"+"了半支队的进攻。",'hint':"单赛季进球和助攻都"+"到 20",'bonus':{'growth':1.06},'test':function(c){var a10=h;
+}},{'id':"double20",'tier':0x3,'title':"双二十先生",'desc':"进球上双、助攻也上双"+"，那一年你一个人扛起"+"了半支队的进攻。",'hint':"单赛季进球和助攻都"+"到 20",'bonus':{'growth':1.06},'test':function(c){
 return c["seasonDo"+"uble20"];
-}},{'id':"veteran",'tier':0x4,'title':"老而弥坚",'desc':"三十五岁，别人收着踢"+"，你还在冲。教练说年"+"轻人该向你学习。",'hint':"35 岁之后单赛季仍"+"打进 20 球",'bonus':{'decay':0.5},'test':function(c){var a11=h;
+}},{'id':"veteran",'tier':0x4,'title':"老而弥坚",'desc':"三十五岁，别人收着踢"+"，你还在冲。教练说年"+"轻人该向你学习。",'hint':"35 岁之后单赛季仍"+"打进 20 球",'bonus':{'decay':0.5},'test':function(c){
 return c["lateGoals"];
-}},{'id':"hundredc"+'aps','tier':0x4,'title':"百场国脚",'desc':"国家队球衣穿了上百次"+"，缝缝补补还挂着。名单"+"来来回回，你一直在。",'hint':"国家队出场 100 次"+"以上",'bonus':{'ovr':0x1},'test':function(c){var a12=h;
+}},{'id':"hundredc"+'aps','tier':0x4,'title':"百场国脚",'desc':"国家队球衣穿了上百次"+"，缝缝补补还挂着。名单"+"来来回回，你一直在。",'hint':"国家队出场 100 次"+"以上",'bonus':{'ovr':0x1},'test':function(c){
 return c["caps"]>=0x64;
-}},{'id':"poymas"+"ter",'tier':0x3,'title':"联赛先生",'desc':"最佳球员的奖杯在柜"+"子里摆了三座，凑近"+"看才发现，每个联赛"+"都认你。",'hint':"拿过 3 次联赛最"+"佳球员",'test':function(c){var a13=h;
+}},{'id':"poymas"+"ter",'tier':0x3,'title':"联赛先生",'desc':"最佳球员的奖杯在柜"+"子里摆了三座，凑近"+"看才发现，每个联赛"+"都认你。",'hint':"拿过 3 次联赛最"+"佳球员",'test':function(c){
 return c["poyCount"]>=0x3;
-}},{'id':"topmas"+"ter",'tier':0x3,'title':"金靴收藏家",'desc':"三个联赛的金靴摆一"+"排，一双脚穿不过来。"+"射手榜榜首，你上去"+"过很多次。",'hint':"拿过 3 次联赛金靴",'test':function(c){var a14=h;
+}},{'id':"topmas"+"ter",'tier':0x3,'title':"金靴收藏家",'desc':"三个联赛的金靴摆一"+"排，一双脚穿不过来。"+"射手榜榜首，你上去"+"过很多次。",'hint':"拿过 3 次联赛金靴",'test':function(c){
 return c["topCount"]>=0x3;
 }}];
-window["DATA"]={'endingView':function(c,d){var af=h,f=c&&c["pos"]&&c["pos"][d];
+window["DATA"]={'endingView':function(c,d){var f=c&&c["pos"]&&c["pos"][d];
 return{'id':c['id'],'tier':c["tier"],'title':f&&f["title"]||c["title"],'desc':f&&f["desc"]||c["desc"]};
 },'POSITIONS':[{'id':'GK','name':'门将','group':'gk'},{'id':'CB','name':"中后卫",'group':"def"},{'id':'LB','name':"左后卫",'group':"def"},
 {'id':'RB','name':"右后卫",'group':"def"},{'id':"CDM",'name':'后腰','group':"mid"},{'id':'CM','name':'中场','group':"mid"},{'id':"CAM",
