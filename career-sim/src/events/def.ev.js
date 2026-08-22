@@ -2,7 +2,7 @@
 
 var EVT_def=[
 
-// ---- idx:103 | def_offs | 造越位 ----
+// ---- idx:101 | def_offs | 造越位 ----
 {
   'id': "def_offs"+"ide",
   'title': "造越位",
@@ -33,7 +33,7 @@ return{'text':"你按老办法回追。防线没被打穿，可也没人说这�
   ]
 },
 
-// ---- idx:104 | def_aeri | ? ----
+// ---- idx:102 | def_aeri | ? ----
 {
   'id': "def_aeri"+'al',
   'title': '头球',
@@ -64,7 +64,7 @@ return{'roleDelta':-0x1,'text':"门将替你摘了一年高球。后来他在采
   ]
 },
 
-// ---- idx:105 | def_buil | 后场出球 ----
+// ---- idx:103 | def_buil | 后场出球 ----
 {
   'id': "def_buil"+'d',
   'title': "后场出球",
@@ -95,7 +95,7 @@ return{'roleDelta':-0x1,'text':"你把球全往看台上招呼。安全，可战
   ]
 },
 
-// ---- idx:106 | def_tact | 战术犯规 ----
+// ---- idx:104 | def_tact | 战术犯规 ----
 {
   'id': "def_tact"+"ical_fou"+'l',
   'title': "战术犯规",
@@ -126,7 +126,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x8,'text':"你从三十米外追上去，在禁
   ]
 },
 
-// ---- idx:107 | def_pace | 追不上了 ----
+// ---- idx:105 | def_pace | 追不上了 ----
 {
   'id': "def_pace",
   'title': "追不上了",
@@ -158,7 +158,7 @@ return d(q,s)?{'fame':0x8,'ovr':0x1,'text':"你靠着经验和小动作，又扛
   ]
 },
 
-// ---- idx:108 | def_mars | 后防线的嘴 ----
+// ---- idx:106 | def_mars | 后防线的嘴 ----
 {
   'id': "def_mars"+"hal",
   'title': "后防线的嘴",
@@ -186,7 +186,7 @@ return{'text':"防线还是各踢各的。丢球之后，大家互相看一眼�
   ]
 },
 
-// ---- idx:109 | def_own_ | 禁区里那只手 ----
+// ---- idx:107 | def_own_ | 禁区里那只手 ----
 {
   'id': "def_own_"+"box",
   'title': "禁区里那只手",
@@ -217,7 +217,7 @@ return{'clean':0x8,'fame':-0x8,'guanxi':-0x6,'text':"你举了手。对方球员
   ]
 },
 
-// ---- idx:110 | def_full | 边后卫要不要压上 ----
+// ---- idx:108 | def_full | 边后卫要不要压上 ----
 {
   'id': "def_full"+"back_pus"+'h',
   'title': "边后卫要不要压上",

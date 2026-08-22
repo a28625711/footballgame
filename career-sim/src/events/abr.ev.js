@@ -2,7 +2,7 @@
 
 var EVT_abr=[
 
-// ---- idx:207 | abr_boxi | 节礼日 ----
+// ---- idx:205 | abr_boxi | 节礼日 ----
 {
   'id': "abr_boxi"+"ng_day",
   'title': "节礼日",
@@ -36,7 +36,7 @@ return{'ovr':0x1,'roleDelta':-0x1,'guanxi':-0x6,'text':"他答应了。只是从
   ]
 },
 
-// ---- idx:208 | abr_tran | 翻译不干了 ----
+// ---- idx:206 | abr_tran | 翻译不干了 ----
 {
   'id': "abr_tran"+"slator",
   'title': "翻译不干了",
@@ -67,7 +67,7 @@ return{'money':-0x6e,'ovr':0x1,'text':"你按月付钱，请了个留学生。�
   ]
 },
 
-// ---- idx:209 | abr_mark | 亚洲行 ----
+// ---- idx:207 | abr_mark | 亚洲行 ----
 {
   'id': "abr_mark"+'et',
   'title': "亚洲行",
@@ -99,7 +99,7 @@ return d(q,s)?{'ovr':0x2,'money':0x3c,'text':"打完两场友谊赛，你就飞�
   ]
 },
 
-// ---- idx:210 | abr_boo | 看台上的那几个人 ----
+// ---- idx:208 | abr_boo | 看台上的那几个人 ----
 {
   'id': "abr_boo",
   'title': "看台上的那几个人",
@@ -131,7 +131,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x10,'text':h(p,{'gk':"你在那个角旗区前"
   ]
 },
 
-// ---- idx:211 | abr_wint | 冬歇期 ----
+// ---- idx:209 | abr_wint | 冬歇期 ----
 {
   'id': "abr_wint"+"er_break",
   'title': "冬歇期",
@@ -159,7 +159,7 @@ return{'ovr':0x3,'fame':0x4,'text':"大年夜的基地，只剩你和两个门�
   ]
 },
 
-// ---- idx:212 | abr_pape | 驾照和银行卡 ----
+// ---- idx:210 | abr_pape | 驾照和银行卡 ----
 {
   'id': "abr_pape"+"rwork",
   'title': "驾照和银行卡",
@@ -187,7 +187,7 @@ return{'money':-0x46,'ovr':0x1,'text':"两周，全办妥了。省下来的时�
   ]
 },
 
-// ---- idx:213 | abr_cliq | 更衣室的桌子 ----
+// ---- idx:211 | abr_cliq | 更衣室的桌子 ----
 {
   'id': "abr_cliq"+'ue',
   'title': "更衣室的桌子",
@@ -218,7 +218,7 @@ return{'ovr':0x2,'guanxi':-0x6,'text':"你吃饭比谁都快，吃完就去健�
   ]
 },
 
-// ---- idx:214 | abr_thur | 周四踢欧战 ----
+// ---- idx:212 | abr_thur | 周四踢欧战 ----
 {
   'id': "abr_thur"+"sday",
   'title': "周四踢欧战",
@@ -249,7 +249,7 @@ return{'ovr':0x1,'mult':{'cont':0.8},'text':"欧战那晚，你在替补席坐�
   ]
 },
 
-// ---- idx:215 | abr_nick | 当地媒体给的外号 ----
+// ---- idx:213 | abr_nick | 当地媒体给的外号 ----
 {
   'id': "abr_nick"+"name",
   'title': "当地媒体给的外号",
@@ -277,7 +277,7 @@ return{'fame':-0x4,'clean':0x6,'guanxi':0x6,'text':"你说，我有名字。那�
   ]
 },
 
-// ---- idx:216 | abr_home | 回母队看看 ----
+// ---- idx:214 | abr_home | 回母队看看 ----
 {
   'id': "abr_home"+"coming",
   'title': "回母队看看",
@@ -305,7 +305,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:288 | abr_lang | 语言关 ----
+// ---- idx:286 | abr_lang | 语言关 ----
 {
   'id': "abr_lang",
   'title': "语言关",
@@ -330,7 +330,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:289 | abr_tech | 技术流训练 ----
+// ---- idx:287 | abr_tech | 技术流训练 ----
 {
   'id': "abr_tech",
   'title': "技术流训练",
@@ -355,7 +355,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:290 | abr_physical | 异国体能营 ----
+// ---- idx:288 | abr_physical | 异国体能营 ----
 {
   'id': "abr_physical",
   'title': "异国体能营",
@@ -380,7 +380,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:291 | abr_mentor | 外教的单独指点 ----
+// ---- idx:289 | abr_mentor | 外教的单独指点 ----
 {
   'id': "abr_mentor",
   'title': "外教的单独指点",
@@ -405,7 +405,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:292 | abr_homesick | 想家 ----
+// ---- idx:290 | abr_homesick | 想家 ----
 {
   'id': "abr_homesick",
   'title': "想家",
@@ -430,7 +430,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:293 | abr_style | 新战术体系 ----
+// ---- idx:291 | abr_style | 新战术体系 ----
 {
   'id': "abr_style",
   'title': "新战术体系",
@@ -455,7 +455,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:294 | abr_food | 饮食差异 ----
+// ---- idx:292 | abr_food | 饮食差异 ----
 {
   'id': "abr_food",
   'title': "饮食差异",
@@ -480,7 +480,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:295 | abr_rival | 本地球员的敌意 ----
+// ---- idx:293 | abr_rival | 本地球员的敌意 ----
 {
   'id': "abr_rival",
   'title': "本地球员的敌意",
@@ -505,7 +505,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:296 | abr_reputation | 表现被注意到 ----
+// ---- idx:294 | abr_reputation | 表现被注意到 ----
 {
   'id': "abr_reputation",
   'title': "表现被注意到",
@@ -530,7 +530,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 },
 
-// ---- idx:297 | abr_teammate | 交到第一个朋友 ----
+// ---- idx:295 | abr_teammate | 交到第一个朋友 ----
 {
   'id': "abr_teammate",
   'title': "交到第一个朋友",

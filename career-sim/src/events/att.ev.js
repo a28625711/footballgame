@@ -2,7 +2,7 @@
 
 var EVT_att=[
 
-// ---- idx:119 | att_offb | 无球跑动 ----
+// ---- idx:117 | att_offb | 无球跑动 ----
 {
   'id': "att_offb"+"all",
   'title': "无球跑动",
@@ -33,7 +33,7 @@ return d(q,s)?{'fame':0x5,'text':"你还是那种拿球才踢的前锋。在国�
   ]
 },
 
-// ---- idx:120 | att_drou | 十场不进球 ----
+// ---- idx:118 | att_drou | 十场不进球 ----
 {
   'id': "att_drou"+"ght",
   'title': "十场不进球",
@@ -64,7 +64,7 @@ return{'ovr':0x2,'fame':-0x6,'text':"你开始回撤接球，把球做给别人�
   ]
 },
 
-// ---- idx:121 | att_dive | 禁区里那一下 ----
+// ---- idx:119 | att_dive | 禁区里那一下 ----
 {
   'id': "att_dive",
   'title': "禁区里那一下",
@@ -96,7 +96,7 @@ return{'clean':0x6,'fame':0x4,'text':"你踉跄两步，没倒，球也没了。
   ]
 },
 
-// ---- idx:122 | att_pena | 点球归谁 ----
+// ---- idx:120 | att_pena | 点球归谁 ----
 {
   'id': "att_pena"+"lty_take"+'r',
   'title': "点球归谁",
@@ -127,7 +127,7 @@ return{'guanxi':0xa,'text':"你说谁罚都行，进了就好。更衣室里，�
   ]
 },
 
-// ---- idx:123 | att_numb | 九号球衣 ----
+// ---- idx:121 | att_numb | 九号球衣 ----
 {
   'id': "att_numb"+"er9",
   'title': "九号球衣",
@@ -158,7 +158,7 @@ return{'text':"你说号码不重要。那件九号，在队里空了三年，�
   ]
 },
 
-// ---- idx:124 | att_drop | 回撤拿球 ----
+// ---- idx:122 | att_drop | 回撤拿球 ----
 {
   'id': "att_drop"+"deep",
   'title': "回撤拿球",
@@ -189,7 +189,7 @@ return d(q,s)?{'fame':0xa,'ovr':0x1,'text':"你一场只碰九次球，进了两
   ]
 },
 
-// ---- idx:125 | att_head | 站桩中锋 ----
+// ---- idx:123 | att_head | 站桩中锋 ----
 {
   'id': "att_head"+"er_targe"+'t',
   'title': "站桩中锋",
@@ -220,7 +220,7 @@ return d(q,s)?{'fame':0xe,'ovr':0x2,'text':"你进了十五个。教练承认，
   ]
 },
 
-// ---- idx:126 | att_big_ | 大场面 ----
+// ---- idx:124 | att_big_ | 大场面 ----
 {
   'id': "att_big_"+"game",
   'title': "大场面",

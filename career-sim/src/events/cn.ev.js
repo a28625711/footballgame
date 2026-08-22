@@ -2,7 +2,7 @@
 
 var EVT_cn=[
 
-// ---- idx:26 | cn_zuxia | 足校的学费 ----
+// ---- idx:25 | cn_zuxia | 足校的学费 ----
 {
   'id': "cn_zuxia"+'o',
   'title': "足校的学费",
@@ -32,7 +32,7 @@ return{'ovr':0x1,'text':"你留在了市队。教练很负责，场地是水泥�
   ]
 },
 
-// ---- idx:27 | cn_age | 年龄这事 ----
+// ---- idx:26 | cn_age | 年龄这事 ----
 {
   'id': "cn_age",
   'title': "年龄这事",
@@ -62,7 +62,7 @@ return{'clean':0xa,'guanxi':-0x8,'text':"你按真实年龄踢。同组对手个
   ]
 },
 
-// ---- idx:28 | cn_bone | 骨龄检测 ----
+// ---- idx:27 | cn_bone | 骨龄检测 ----
 {
   'id': "cn_bone",
   'title': "骨龄检测",
@@ -95,7 +95,7 @@ return{'money':-0xc,'clean':-0xf,'guanxi':0x8,'text':"报告顺利通过。那�
   ]
 },
 
-// ---- idx:29 | cn_hongb | 教练的暗示 ----
+// ---- idx:28 | cn_hongb | 教练的暗示 ----
 {
   'id': "cn_hongb"+'ao',
   'title': "教练的暗示",
@@ -126,7 +126,7 @@ return{'roleDelta':-0x2,'clean':0x8,'text':"你装作没听懂。之后半年，
   ]
 },
 
-// ---- idx:30 | cn_guosh | 国少的名额 ----
+// ---- idx:29 | cn_guosh | 国少的名额 ----
 {
   'id': "cn_guosh"+'ao',
   'title': "国少的名额",
@@ -158,7 +158,7 @@ return d(q,Math["min"](0.7,(p["ovr"]-0x32)/0x28))?{'caps':0x3,'clean':0x5,'fame'
   ]
 },
 
-// ---- idx:31 | cn_liuya | 留洋的岔路 ----
+// ---- idx:30 | cn_liuya | 留洋的岔路 ----
 {
   'id': "cn_liuya"+'ng',
   'title': "留洋的岔路",
@@ -187,7 +187,7 @@ return{'money':0x384,'ovr':-0x1,'roleDelta':0x1,'stagnate':!0x0,'text':"你签�
   ]
 },
 
-// ---- idx:32 | cn_jinyu | 天价续约 ----
+// ---- idx:31 | cn_jinyu | 天价续约 ----
 {
   'id': "cn_jinyu"+'an',
   'title': "天价续约",
@@ -216,7 +216,7 @@ return{'roleDelta':-0x1,'fame':0x8,'text':"你拒绝了。老板笑着说「年�
   ]
 },
 
-// ---- idx:33 | cn_arrea | 工资停了 ----
+// ---- idx:32 | cn_arrea | 工资停了 ----
 {
   'id': "cn_arrea"+'rs',
   'title': "工资停了",
@@ -250,7 +250,7 @@ return{'money':-0xb4,'text':"你忍了一年。后来俱乐部换了投资人，
   ]
 },
 
-// ---- idx:34 | cn_disso | 俱乐部要没了 ----
+// ---- idx:33 | cn_disso | 俱乐部要没了 ----
 {
   'id': "cn_disso"+"lve",
   'title': "俱乐部要没了",
@@ -279,7 +279,7 @@ return{'leave':!0x0,'money':0x96,'ovr':-0x3,'fame':0xa,'text':"你们在体育�
   ]
 },
 
-// ---- idx:35 | cn_neutr | ? ----
+// ---- idx:34 | cn_neutr | ? ----
 {
   'id': "cn_neutr"+'al',
   'title': '改名',
@@ -301,7 +301,7 @@ return{'money':-0x3c,'mult':{'league':0.6,'cup':0.6},'text':"改完名之后，�
   ]
 },
 
-// ---- idx:36 | cn_fixed | 有人来找你聊天 ----
+// ---- idx:35 | cn_fixed | 有人来找你聊天 ----
 {
   'id': "cn_fixed",
   'title': "有人来找你聊天",
@@ -338,7 +338,7 @@ return{'clean':0x1e,'guanxi':-0x1e,'roleDelta':-0x2,'fame':0x14,'text':"你把�
   ]
 },
 
-// ---- idx:37 | cn_gambl | 赌一把 ----
+// ---- idx:36 | cn_gambl | 赌一把 ----
 {
   'id': "cn_gambl"+'e',
   'title': "赌一把",
@@ -369,7 +369,7 @@ return{'clean':0xa,'text':"你退了群。三年后，那个群里的人上了�
   ]
 },
 
-// ---- idx:38 | cn_antic | ? ----
+// ---- idx:37 | cn_antic | ? ----
 {
   'id': "cn_antic"+"orruptio"+'n',
   'title': '风暴',
@@ -402,7 +402,7 @@ return{'guanxi':-0x23,'clean':0x5,'fame':-0x5,'text':"你连夜删光了所有�
   ]
 },
 
-// ---- idx:39 | cn_yinya | 两份合同 ----
+// ---- idx:38 | cn_yinya | 两份合同 ----
 {
   'id': "cn_yinya"+'ng',
   'title': "两份合同",
@@ -431,7 +431,7 @@ return{'money':-0xb4,'clean':0xc,'text':"财务看了你一眼，说了句「你
   ]
 },
 
-// ---- idx:40 | cn_tax | ? ----
+// ---- idx:39 | cn_tax | ? ----
 {
   'id': "cn_tax",
   'title': '查税',
@@ -463,7 +463,7 @@ return d(q,s)?{'text':"材料递上去之后没了下文。悬了一年的心，
   ]
 },
 
-// ---- idx:41 | cn_titi | ? ----
+// ---- idx:40 | cn_titi | ? ----
 {
   'id': "cn_titi",
   'title': '体测',
@@ -496,7 +496,7 @@ return d(q,s)?{'text':"压线过了。你在终点线躺了五分钟，队医过
   ]
 },
 
-// ---- idx:42 | cn_u23 | U23 政策 ----
+// ---- idx:41 | cn_u23 | U23 政策 ----
 {
   'id': "cn_u23",
   'title': "U23 政策",
@@ -529,7 +529,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x3,'text':"你跟教练摊牌了。"+"他�
   ]
 },
 
-// ---- idx:43 | cn_jixun | 抽调进集训队 ----
+// ---- idx:42 | cn_jixun | 抽调进集训队 ----
 {
   'id': "cn_jixun",
   'title': "抽调进集训队",
@@ -558,7 +558,7 @@ return{'guanxi':-0x14,'roleDelta':0x1,'text':"队医给你开了一张诊断。�
   ]
 },
 
-// ---- idx:44 | cn_leade | 领导来看球 ----
+// ---- idx:43 | cn_leade | 领导来看球 ----
 {
   'id': "cn_leade"+'r',
   'title': "领导来看球",
@@ -592,7 +592,7 @@ return{'text':"你按平时的踢法，走完了 90 分钟。赛后的总结会�
   ]
 },
 
-// ---- idx:45 | cn_weibo | 上了热搜 ----
+// ---- idx:44 | cn_weibo | 上了热搜 ----
 {
   'id': "cn_weibo",
   'title': "上了热搜",
@@ -625,7 +625,7 @@ return{'fame':-0x6,'ovr':0x1,'text':"你把 App 卸了，第二天照常出现�
   ]
 },
 
-// ---- idx:46 | cn_natur | ? ----
+// ---- idx:45 | cn_natur | ? ----
 {
   'id': "cn_natur"+"alize",
   'title': '归化',
@@ -654,7 +654,7 @@ return{'leave':!0x0,'fame':-0x5,'text':"你递了转会申请。走的那天，�
   ]
 },
 
-// ---- idx:47 | cn_lives | 直播带货 ----
+// ---- idx:46 | cn_lives | 直播带货 ----
 {
   'id': "cn_lives"+"how",
   'title': "直播带货",
@@ -683,7 +683,7 @@ return{'ovr':0x2,'text':"你说，自己还是球员。MCN 转身签了另一个
   ]
 },
 
-// ---- idx:48 | cn_zhoub | 队内酒局 ----
+// ---- idx:47 | cn_zhoub | 队内酒局 ----
 {
   'id': "cn_zhoub"+'ao',
   'title': "队内酒局",
@@ -713,7 +713,7 @@ return{'ovr':0x2,'roleDelta':-0x1,'text':"你回房间睡了。之"+"后半年�
   ]
 },
 
-// ---- idx:49 | cn_trans | 转会卡在手里 ----
+// ---- idx:48 | cn_trans | 转会卡在手里 ----
 {
   'id': "cn_trans"+"fer_bloc"+'k',
   'title': "转会卡在手里",
@@ -745,7 +745,7 @@ return{'ovr':-0x1,'text':"报价过期了。俱乐部通稿里写着「球员本
   ]
 },
 
-// ---- idx:50 | cn_schoo | ? ----
+// ---- idx:49 | cn_schoo | ? ----
 {
   'id': "cn_schoo"+"l_pick",
   'title': '选择',
@@ -775,7 +775,7 @@ return{'ovr':-0x3,'clean':0x8,'degree':!0x0,'text':"你考上了，读的是体�
   ]
 },
 
-// ---- idx:51 | cn_ref | ? ----
+// ---- idx:50 | cn_ref | ? ----
 {
   'id': "cn_ref",
   'title': '哨子',
@@ -804,7 +804,7 @@ return{'fame':0x19,'guanxi':-0x12,'mult':{'league':0.7},'text':"你跑过去告�
   ]
 },
 
-// ---- idx:52 | cn_farew | 退役之后 ----
+// ---- idx:51 | cn_farew | 退役之后 ----
 {
   'id': "cn_farew"+"ell",
   'title': "退役之后",
@@ -834,7 +834,7 @@ return d(q,s)?{'money':0xb4,'academy':!0x0,'text':"第一批学员招满了。�
   ]
 },
 
-// ---- idx:62 | cn_donxu | ? ----
+// ---- idx:61 | cn_donxu | ? ----
 {
   'id': "cn_donxu"+'n',
   'title': '冬训',
@@ -864,7 +864,7 @@ return{'ovr':0x1,'guanxi':-0x8,'roleDelta':-0x1,'text':"你按自己的节奏练
   ]
 },
 
-// ---- idx:63 | cn_xianx | 限薪令 ----
+// ---- idx:62 | cn_xianx | 限薪令 ----
 {
   'id': "cn_xianx"+'in',
   'title': "限薪令",
@@ -898,7 +898,7 @@ return d(q,s)?{'money':0x64,'fame':0xc,'guanxi':-0xf,'text':"仲裁支持了你�
   ]
 },
 
-// ---- idx:64 | cn_waiyu | 外援政策 ----
+// ---- idx:63 | cn_waiyu | 外援政策 ----
 {
   'id': "cn_waiyu"+'an',
   'title': "外援政策",
@@ -931,7 +931,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x2,'fame':0x8,'text':"热身赛，你把�
   ]
 },
 
-// ---- idx:65 | cn_yidi | 球队搬走了 ----
+// ---- idx:64 | cn_yidi | 球队搬走了 ----
 {
   'id': "cn_yidi",
   'title': "球队搬走了",
@@ -960,7 +960,7 @@ return{'leave':!0x0,'fame':0xa,'text':"你说，这座城市养了你八年。�
   ]
 },
 
-// ---- idx:66 | cn_qingx | 青训补偿 ----
+// ---- idx:65 | cn_qingx | 青训补偿 ----
 {
   'id': "cn_qingx"+'un',
   'title': "青训补偿",
@@ -992,7 +992,7 @@ return d(q,s)?{'fame':0x8,'clean':0x5,'text':"仲裁认定协议无效"+"。你�
   ]
 },
 
-// ---- idx:67 | cn_yueta | 被约谈 ----
+// ---- idx:66 | cn_yueta | 被约谈 ----
 {
   'id': "cn_yueta"+'n',
   'title': "被约谈",
@@ -1022,7 +1022,7 @@ return{'banGames':0x5,'money':-0x50,'fame':0x14,'guanxi':-0x14,'text':"停赛五
   ]
 },
 
-// ---- idx:68 | cn_saihu | 赛会制 ----
+// ---- idx:67 | cn_saihu | 赛会制 ----
 {
   'id': "cn_saihu"+'i',
   'title': "赛会制",
@@ -1051,7 +1051,7 @@ return{'guanxi':-0xc,'roleDelta':-0x1,'text':"申请没批。领队说：「大�
   ]
 },
 
-// ---- idx:69 | cn_zhuan | 退役以后干什么 ----
+// ---- idx:68 | cn_zhuan | 退役以后干什么 ----
 {
   'id': "cn_zhuan"+'ye',
   'title': "退役以后干什么",
@@ -1078,7 +1078,7 @@ return{'ovr':0x2,'text':"你说还能再踢几年。讲师笑了笑，说你这�
   ]
 },
 
-// ---- idx:85 | cn_bianz | 体育局的编制 ----
+// ---- idx:83 | cn_bianz | 体育局的编制 ----
 {
   'id': "cn_bianz"+'hi',
   'title': "体育局的编制",
@@ -1105,7 +1105,7 @@ return{'ovr':0x3,'guanxi':-0x6,'text':"你说，想去踢真正的比赛。那�
   ]
 },
 
-// ---- idx:86 | cn_shiye | 欠薪冲超 ----
+// ---- idx:84 | cn_shiye | 欠薪冲超 ----
 {
   'id': "cn_shiye",
   'title': "欠薪冲超",
@@ -1138,7 +1138,7 @@ return{'ovr':0x1,'guanxi':-0xa,'roleDelta':-0x1,'text':"你去劳动仲裁递了
   ]
 },
 
-// ---- idx:167 | cn_youth | 青年赛的默契球 ----
+// ---- idx:165 | cn_youth | 青年赛的默契球 ----
 {
   'id': "cn_youth"+"_fix",
   'title': "青年赛的默契球",
@@ -1172,7 +1172,7 @@ return d(q,s)?{'clean':0x8,'ovr':0x3,'fame':0x8,'text':"第 80 分钟，你当�
   ]
 },
 
-// ---- idx:168 | cn_hukou | ? ----
+// ---- idx:166 | cn_hukou | ? ----
 {
   'id': "cn_hukou",
   'title': '户口',
@@ -1205,7 +1205,7 @@ return d(q,s)?{'ovr':0x1,'clean':0x4,'text':"第二年，注册办法改了。�
   ]
 },
 
-// ---- idx:192 | cn_new_s | 新球场 ----
+// ---- idx:190 | cn_new_s | 新球场 ----
 {
   'id': "cn_new_s"+"tadium",
   'title': "新球场",
@@ -1231,7 +1231,7 @@ return{'guanxi':0xc,'money':0x28,'fame':-0x6,'text':"你站在新球场中央拍
   ]
 },
 
-// ---- idx:193 | cn_fan_c | 球迷冲突 ----
+// ---- idx:191 | cn_fan_c | 球迷冲突 ----
 {
   'id': "cn_fan_c"+"lash",
   'title': "球迷冲突",
@@ -1261,7 +1261,7 @@ return{'text':"你在车里坐了四十分钟。第二天，没人再提这事�
   ]
 },
 
-// ---- idx:194 | cn_agent | 经纪人的抽成 ----
+// ---- idx:192 | cn_agent | 经纪人的抽成 ----
 {
   'id': "cn_agent"+"_cut",
   'title': "经纪人的抽成",
@@ -1292,7 +1292,7 @@ return{'money':-0x50,'guanxi':0xa,'text':"你什么都没说。他后来又替�
   ]
 },
 
-// ---- idx:195 | cn_team_ | ? ----
+// ---- idx:193 | cn_team_ | ? ----
 {
   'id': "cn_team_"+"doctor",
   'title': '队医',
@@ -1321,7 +1321,7 @@ return d(q,s)?{'text':"那点伤，后来自己好了。你至今不知道，它
   ]
 },
 
-// ---- idx:196 | cn_forei | 外教来了 ----
+// ---- idx:194 | cn_forei | 外教来了 ----
 {
   'id': "cn_forei"+"gn_coach",
   'title': "外教来了",
@@ -1350,7 +1350,7 @@ return{'guanxi':0xc,'ovr':-0x2,'text':"更衣室里没人听他的。他走那�
   ]
 },
 
-// ---- idx:197 | cn_salar | 限薪令 ----
+// ---- idx:195 | cn_salar | 限薪令 ----
 {
   'id': "cn_salar"+"y_cap",
   'title': "限薪令",
@@ -1384,7 +1384,7 @@ return d(q,s)?{'money':0xb4,'clean':-0xe,'yinyang':!0x0,'text':"差额，走了�
   ]
 },
 
-// ---- idx:198 | cn_quany | 全运会的名额 ----
+// ---- idx:196 | cn_quany | 全运会的名额 ----
 {
   'id': "cn_quany"+'un',
   'title': "全运会的名额",
@@ -1416,7 +1416,7 @@ return{'guanxi':-0x12,'roleDelta':0x1,'ovr':0x1,'text':"你说合同在这儿。
   ]
 },
 
-// ---- idx:199 | cn_winte | ? ----
+// ---- idx:197 | cn_winte | ? ----
 {
   'id': "cn_winte"+"r_camp",
   'title': '冬训',
@@ -1448,7 +1448,7 @@ return{'ovr':0x1,'guanxi':-0x8,'text':"你递给教练组一份自己的计划�
   ]
 },
 
-// ---- idx:200 | cn_acl_a | 亚冠西亚客场 ----
+// ---- idx:198 | cn_acl_a | 亚冠西亚客场 ----
 {
   'id': "cn_acl_a"+"way",
   'title': "亚冠西亚客场",
@@ -1481,7 +1481,7 @@ return{'ovr':0x2,'guanxi':-0x8,'text':"那场客场丢了三个。赛后发布�
   ]
 },
 
-// ---- idx:201 | cn_amate | 足协杯打业余队 ----
+// ---- idx:199 | cn_amate | 足协杯打业余队 ----
 {
   'id': "cn_amate"+"ur_cup",
   'title': "足协杯打业余队",
@@ -1514,7 +1514,7 @@ return{'fame':-0x8,'text':"你踢了半场就被换"+"下。第二天当地论"+
   ]
 },
 
-// ---- idx:202 | cn_bus_s | 大巴被查封了 ----
+// ---- idx:200 | cn_bus_s | 大巴被查封了 ----
 {
   'id': "cn_bus_s"+"eized",
   'title': "大巴被查封了",
@@ -1543,7 +1543,7 @@ return{'money':-0x5a,'guanxi':0x12,'text':"你订了两辆中巴。那笔钱后�
   ]
 },
 
-// ---- idx:203 | cn_reg_d | 注册截止前四小时 ----
+// ---- idx:201 | cn_reg_d | 注册截止前四小时 ----
 {
   'id': "cn_reg_d"+"eadline",
   'title': "注册截止前四小时",
@@ -1572,7 +1572,7 @@ return d(q,s)?{'text':"系统关闭前二十分钟，材料提交成功。中间
   ]
 },
 
-// ---- idx:204 | cn_leade | 领导来看球 ----
+// ---- idx:202 | cn_leade | 领导来看球 ----
 {
   'id': "cn_leade"+"r_visit",
   'title': "领导来看球",
@@ -1602,7 +1602,7 @@ return{'ovr':0x1,'text':"你照常热身，照常拉伸。合影时，你站在�
   ]
 },
 
-// ---- idx:205 | cn_media | 统一口径 ----
+// ---- idx:203 | cn_media | 统一口径 ----
 {
   'id': "cn_media"+"_line",
   'title': "统一口径",
@@ -1631,7 +1631,7 @@ return{'fame':0x14,'guanxi':-0x10,'clean':0x6,'text':"你说：「欠薪的事�
   ]
 },
 
-// ---- idx:206 | cn_banne | 看台上的横幅 ----
+// ---- idx:204 | cn_banne | 看台上的横幅 ----
 {
   'id': "cn_banne"+'r',
   'title': "看台上的横幅",

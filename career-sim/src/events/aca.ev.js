@@ -2,7 +2,7 @@
 
 var EVT_aca=[
 
-// ---- idx:156 | aca_rese | 预备队联赛 ----
+// ---- idx:154 | aca_rese | 预备队联赛 ----
 {
   'id': "aca_rese"+"rve",
   'title': "预备队联赛",
@@ -32,7 +32,7 @@ return{'ovr':0x1,'guanxi':0x8,'text':"合练那天你拼得最凶。一线队助
   ]
 },
 
-// ---- idx:157 | aca_sign | 同批人签走了一个 ----
+// ---- idx:155 | aca_sign | 同批人签走了一个 ----
 {
   'id': "aca_sign"+'ed',
   'title': "同批人签走了一个",
@@ -65,7 +65,7 @@ return d(q,s)?{'ovr':0x2,'guanxi':0x6,'text':"他给你看了评估表：三项�
   ]
 },
 
-// ---- idx:158 | aca_newc | 教练组换了一茬 ----
+// ---- idx:156 | aca_newc | 教练组换了一茬 ----
 {
   'id': "aca_newc"+"oach",
   'title': "教练组换了一茬",
@@ -95,7 +95,7 @@ return{'guanxi':0xc,'ovr':-0x1,'clean':-0x4,'text':"老教练真的打了那通�
   ]
 },
 
-// ---- idx:159 | aca_gym | 力量房的那两年 ----
+// ---- idx:157 | aca_gym | 力量房的那两年 ----
 {
   'id': "aca_gym",
   'title': "力量房的那两年",
@@ -129,7 +129,7 @@ return{'ovr':0x1,'text':"你按自己的节奏来。技术教练点头，体能�
   ]
 },
 
-// ---- idx:160 | aca_demo | 被放回低一档 ----
+// ---- idx:158 | aca_demo | 被放回低一档 ----
 {
   'id': "aca_demo"+'te',
   'title': "被放回低一档",
@@ -161,7 +161,7 @@ return d(q,s)?{'ovr':0x3,'guanxi':0x6,'text':"他们让你去当了三周陪练�
   ]
 },
 
-// ---- idx:161 | aca_benc | 一线队的替补名单 ----
+// ---- idx:159 | aca_benc | 一线队的替补名单 ----
 {
   'id': "aca_benc"+"h_firstt"+"eam",
   'title': "一线队的替补名单",
@@ -193,7 +193,7 @@ return{'ovr':0x2,'clean':0x4,'text':"第二天，你第一个到基地。没有�
   ]
 },
 
-// ---- idx:162 | aca_fami | 家里问什么时候签 ----
+// ---- idx:160 | aca_fami | 家里问什么时候签 ----
 {
   'id': "aca_fami"+"ly_call",
   'title': "家里问什么时候签",
@@ -222,7 +222,7 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你托人问了几家低级别球队。�
   ]
 },
 
-// ---- idx:163 | aca_abr_ | 宿舍楼空了 ----
+// ---- idx:161 | aca_abr_ | 宿舍楼空了 ----
 {
   'id': "aca_abr_"+"alone",
   'title': "宿舍楼空了",
@@ -252,7 +252,7 @@ return{'ovr':0x1,'clean':0x4,'text':"你睡了三天。然后一个人坐火车�
   ]
 },
 
-// ---- idx:164 | aca_abr_ | 满十八岁那道关 ----
+// ---- idx:162 | aca_abr_ | 满十八岁那道关 ----
 {
   'id': "aca_abr_"+"visa",
   'title': "满十八岁那道关",
@@ -281,7 +281,7 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"你去了邻国的二级联赛，那边�
   ]
 },
 
-// ---- idx:165 | aca_cn_s | 梯队里的老队员 ----
+// ---- idx:163 | aca_cn_s | 梯队里的老队员 ----
 {
   'id': "aca_cn_s"+"tuck",
   'title': "梯队里的老队员",
@@ -312,7 +312,7 @@ return{'ovr':0x3,'clean':0x5,'text':"你把那句「老人」当成每天起床�
   ]
 },
 
-// ---- idx:166 | aca_cn_s | 回去读书还来得及 ----
+// ---- idx:164 | aca_cn_s | 回去读书还来得及 ----
 {
   'id': "aca_cn_s"+"chool",
   'title': "回去读书还来得及",

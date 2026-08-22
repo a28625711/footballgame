@@ -466,51 +466,6 @@ return{'ovr':0x2,'fame':-0x3,'text':"你留下了。那年春节又没回去，�
 },
 
 {
-  'id': "penalty",
-  'title': "决定比赛的点球",
-  'icon': '🥅',
-  'weight': 0x23,
-  'stage': "prime",
-  'when': function(p){
-return p["roleRank"]>=0x3&&'gk'!==p["posGroup"];
-},
-  'desc': "杯赛决赛，补时最后一分钟，主裁判指向点球点。你走过去，把球摆好。",
-  'options': [
-    {
-        'label': "打左下角",
-        'p': k,
-        'hint': function(p,q){
-return g(q,'罚进',"被扑出");
-},
-        'apply': function(p,q,s){return m(q,s);
-}
-    },
-    {
-        'label': "打右上角",
-        'p': k,
-        'hint': function(p,q){
-return g(q,'罚进',"被扑出");
-},
-        'apply': function(p,q,s){return m(q,s);
-}
-    },
-    {
-        'label': '勺子',
-        'p': function(p){
-return f(0.34,[[p["ovr"],0x3e,0.01]],0.2,0.72);
-},
-        'hint': function(p,q){
-return g(q,"勺进了","被扑住");
-},
-        'apply': function(p,q,s){
-return d(q,s)?{'fame':0x1e,'ovr':0x2,'mult':{'cup':0x4},'text':"球轻飘飘落进网窝，门将还趴在地上。这个画面，会被人放一辈子。"}:{'fame':-0x19,'ovr':-0x2,
-'text':"门将没动。球稳稳落进他怀里。你连头都不敢抬。"};
-}
-    }
-  ]
-},
-
-{
   'id': "red_card",
   'title': "争议红牌",
   'icon': '🟥',
@@ -2465,45 +2420,6 @@ return d(q,s)?{'ovr':0x2,'fame':0x14,'text':"第 78 分钟，你抢到了第三�
         'hint': "队内关系+，名气"+'-',
         'apply': function(){
 return{'roleDelta':0x1,'guanxi':0x8,'fame':-0x4,'text':"点球你让给了状态低迷的队长。更衣室里没人说话，但从那天起，没人再说你自私。"};
-}
-    }
-  ]
-},
-
-{
-  'id': "derby_la"+'te',
-  'title': "德比最后一分钟",
-  'icon': '🔥',
-  'weight': 0x34,
-  'stage': "prime",
-  'when': function(p){
-return'gk'!==p["posGroup"];
-},
-  'desc': "同城德比 1 比 1，补时第 4 分钟，你在禁区弧顶拿到球。身前，是三个人。",
-  'options': [
-    {
-        'label': "自己来",
-        'p': function(p){
-return f(0.55,[[p["ovr"],0x44,0.009]],0.3,0.84);
-},
-        'hint': function(p,q){
-return g(q,'绝杀',"打飞成为表情包");
-},
-        'apply': function(p,q,s){
-return d(q,s)?{'ovr':0x2,'fame':0x1c,'mult':{'league':1.4},'text':"球从三个人的缝隙里钻了进去。你跑向角旗区的那段，被做成了整座城市的表情包。"}:{'fame':-0xe,'text':"球飞出了球场。第二天，全网都是你张大嘴的截图。"};
-}
-    },
-    {
-        'label': "分给边路",
-        'p': function(p){
-return f(0.78,[[p["ovr"],0x44,0.004]],0.62,0.92);
-},
-        'hint': function(p,q){
-return g(q,'助攻',"传丢被反击");
-},
-        'apply': function(p,q,s){
-return d(q,s)?{'fame':0xc,'guanxi':0x6,'mult':{'league':1.3},'text':"边路那脚传中砸在后卫头上，弹进了门。庆祝时，没人第一个抱你，但你不在意。"}:{'fame':-0x8,'roleDelta':-0x1,
-'text':"球被断了。对方一脚长传打穿了压上的防线。终场哨响时，你还站在中圈。"};
 }
     }
   ]

@@ -2,7 +2,7 @@
 
 var EVT_club=[
 
-// ---- idx:303 | club_5yrs | 五年老臣 ----
+// ---- idx:301 | club_5yrs | 五年老臣 ----
 {
   'id': "club_5yrs",
   'title': "五年老臣",
@@ -25,7 +25,7 @@ var EVT_club=[
   ]
 },
 
-// ---- idx:304 | club_10yrs | 十年一诺 ----
+// ---- idx:302 | club_10yrs | 十年一诺 ----
 {
   'id': "club_10yrs",
   'title': "十年一诺",
@@ -48,7 +48,7 @@ var EVT_club=[
   ]
 },
 
-// ---- idx:305 | club_10yrs_way | 十年之约 ----
+// ---- idx:303 | club_10yrs_way | 十年之约 ----
 {
   'id': "club_10yrs_way",
   'title': "十年之约",

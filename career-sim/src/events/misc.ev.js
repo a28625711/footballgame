@@ -451,53 +451,7 @@ return{'ovr':0x2,'fame':-0x3,'text':"你留下了。那年春节又没回去，�
   ]
 },
 
-// ---- idx:15 | penalty | 决定比赛的点球 ----
-{
-  'id': "penalty",
-  'title': "决定比赛的点球",
-  'icon': '🥅',
-  'weight': 0x23,
-  'stage': "prime",
-  'when': function(p){
-return p["roleRank"]>=0x3&&'gk'!==p["posGroup"];
-},
-  'desc': "杯赛决赛，补时最后一分钟，主裁判指向点球点。你走过去，把球摆好。",
-  'options': [
-    {
-        'label': "打左下角",
-        'p': k,
-        'hint': function(p,q){
-return g(q,'罚进',"被扑出");
-},
-        'apply': function(p,q,s){return m(q,s);
-}
-    },
-    {
-        'label': "打右上角",
-        'p': k,
-        'hint': function(p,q){
-return g(q,'罚进',"被扑出");
-},
-        'apply': function(p,q,s){return m(q,s);
-}
-    },
-    {
-        'label': '勺子',
-        'p': function(p){
-return f(0.34,[[p["ovr"],0x3e,0.01]],0.2,0.72);
-},
-        'hint': function(p,q){
-return g(q,"勺进了","被扑住");
-},
-        'apply': function(p,q,s){
-return d(q,s)?{'fame':0x1e,'ovr':0x2,'mult':{'cup':0x4},'text':"球轻飘飘落进网窝，门将还趴在地上。这个画面，会被人放一辈子。"}:{'fame':-0x19,'ovr':-0x2,
-'text':"门将没动。球稳稳落进他怀里。你连头都不敢抬。"};
-}
-    }
-  ]
-},
-
-// ---- idx:16 | red_card | 争议红牌 ----
+// ---- idx:15 | red_card | 争议红牌 ----
 {
   'id': "red_card",
   'title': "争议红牌",
@@ -523,7 +477,7 @@ return{'banGames':0x4,'fame':0xf,'guanxi':-0xa,'text':"你在混合区说了句�
   ]
 },
 
-// ---- idx:17 | statemen | 话说重了 ----
+// ---- idx:16 | statemen | 话说重了 ----
 {
   'id': "statemen"+'t',
   'title': "话说重了",
@@ -549,7 +503,7 @@ return{'fame':0x14,'roleDelta':-0x2,'guanxi':-0xa,'text':"你一个字都没收�
   ]
 },
 
-// ---- idx:18 | sponsor | 代言找上门 ----
+// ---- idx:17 | sponsor | 代言找上门 ----
 {
   'id': "sponsor",
   'title': "代言找上门",
@@ -578,7 +532,7 @@ return{'ovr':0x2,'text':"你说，时间要留给训练。品牌方找了别人�
   ]
 },
 
-// ---- idx:19 | nightlif | 夜里被拍到了 ----
+// ---- idx:18 | nightlif | 夜里被拍到了 ----
 {
   'id': "nightlif"+'e',
   'title': "夜里被拍到了",
@@ -607,7 +561,7 @@ return d(q,s)?{'text':"这事三天就翻篇了。网上永远有下一个该骂
   ]
 },
 
-// ---- idx:20 | nt_confl | 俱乐部不放人 ----
+// ---- idx:19 | nt_confl | 俱乐部不放人 ----
 {
   'id': "nt_confl"+"ict",
   'title': "俱乐部不放人",
@@ -637,7 +591,7 @@ return{'guanxi':-0xf,'roleDelta':0x1,'text':"你留下了。名单公布那天�
   ]
 },
 
-// ---- idx:21 | injury_p | 最不该受伤的时候 ----
+// ---- idx:20 | injury_p | 最不该受伤的时候 ----
 {
   'id': "injury_p"+"eak",
   'title': "最不该受伤的时候",
@@ -667,7 +621,7 @@ return{'mult':{'league':0.4,'cup':0.4,'cont':0.4},'text':"你在看台上看完�
   ]
 },
 
-// ---- idx:22 | tattoo | ? ----
+// ---- idx:21 | tattoo | ? ----
 {
   'id': "tattoo",
   'title': '纹身',
@@ -692,7 +646,7 @@ return{'text':"你把那张图打印出来，贴在衣柜门上，一贴就是�
   ]
 },
 
-// ---- idx:23 | study | 把书念完 ----
+// ---- idx:22 | study | 把书念完 ----
 {
   'id': "study",
   'title': "把书念完",
@@ -718,7 +672,7 @@ return{'ovr':0x2,'text':"你把所有时间都交给了足球。这个年纪，�
   ]
 },
 
-// ---- idx:24 | language | 语言关 ----
+// ---- idx:23 | language | 语言关 ----
 {
   'id': "language",
   'title': "语言关",
@@ -746,7 +700,7 @@ return{'roleDelta':-0x1,'text':"翻译不能替你上场。比赛里那几次跑
   ]
 },
 
-// ---- idx:25 | homesick | 一个人的除夕 ----
+// ---- idx:24 | homesick | 一个人的除夕 ----
 {
   'id': "homesick",
   'title': "一个人的除夕",
@@ -774,7 +728,7 @@ return{'returnHome':!0x0,'money':0x1c2,'text':"你回来了。机场接机的人
   ]
 },
 
-// ---- idx:53 | late | ? ----
+// ---- idx:52 | late | ? ----
 {
   'id': "late",
   'title': '迟到',
@@ -803,7 +757,7 @@ return d(q,s)?{'text':"你说路上出了车祸。没人去核实，也没人相
   ]
 },
 
-// ---- idx:54 | coach_cl | 跟教练顶起来了 ----
+// ---- idx:53 | coach_cl | 跟教练顶起来了 ----
 {
   'id': "coach_cl"+"ash",
   'title': "跟教练顶起来了",
@@ -830,7 +784,7 @@ return{'fame':0x10,'roleDelta':-0x2,'text':"球迷夸你有血性。接下来的
   ]
 },
 
-// ---- idx:55 | worldie | 世界波 ----
+// ---- idx:54 | worldie | 世界波 ----
 {
   'id': "worldie",
   'title': "世界波",
@@ -862,7 +816,7 @@ return{'text':"你把球回给后腰。正确的选择，往往也是没人会�
   ]
 },
 
-// ---- idx:56 | own_goal | 乌龙球 ----
+// ---- idx:55 | own_goal | 乌龙球 ----
 {
   'id': "own_goal",
   'title': "乌龙球",
@@ -886,7 +840,7 @@ return d(q,s)?{'ovr':0x2,'fame':0xa,'text':"下半场，你把球送进对方球
   ]
 },
 
-// ---- idx:57 | teammate | 更衣室动手了 ----
+// ---- idx:56 | teammate | 更衣室动手了 ----
 {
   'id': "teammate"+"_fight",
   'title': "更衣室动手了",
@@ -912,7 +866,7 @@ return{'money':-0x50,'roleDelta':0x1,'fame':-0x4,'text':"你说，是自己先�
   ]
 },
 
-// ---- idx:58 | father_i | 父亲住院了 ----
+// ---- idx:57 | father_i | 父亲住院了 ----
 {
   'id': "father_i"+'ll',
   'title': "父亲住院了",
@@ -937,7 +891,7 @@ return{'roleDelta':0x1,'fame':0x4,'ovr':-0x1,'text':"你留下了，那几场也
   ]
 },
 
-// ---- idx:59 | agent_sw | 换经纪人 ----
+// ---- idx:58 | agent_sw | 换经纪人 ----
 {
   'id': "agent_sw"+"itch",
   'title': "换经纪人",
@@ -963,7 +917,7 @@ return{'guanxi':0x8,'fame':-0x3,'text':"老经纪人，是你十六岁那年就�
   ]
 },
 
-// ---- idx:60 | relapse | 老伤复发 ----
+// ---- idx:59 | relapse | 老伤复发 ----
 {
   'id': "relapse",
   'title': "老伤复发",
@@ -993,7 +947,7 @@ return{'ovr':0x2,'roleDelta':-0x3,'text':"手术很成功，你也就此错过�
   ]
 },
 
-// ---- idx:61 | leader | 更衣室的话事人 ----
+// ---- idx:60 | leader | 更衣室的话事人 ----
 {
   'id': "leader",
   'title': "更衣室的话事人",
@@ -1022,7 +976,7 @@ return{'roleDelta':0x1,'fame':-0x6,'text':"你把精力收回到自己身上。�
   ]
 },
 
-// ---- idx:70 | visa | 劳工证 ----
+// ---- idx:69 | visa | 劳工证 ----
 {
   'id': "visa",
   'title': "劳工证",
@@ -1050,7 +1004,7 @@ return{'leave':!0x0,'ovr':0x1,'text':"你先去了隔壁联赛，踢了一年半
   ]
 },
 
-// ---- idx:71 | fitness_ | 私人体能师 ----
+// ---- idx:70 | fitness_ | 私人体能师 ----
 {
   'id': "fitness_"+"coach",
   'title': "私人体能师",
@@ -1079,7 +1033,7 @@ return{'text':"你跟着队里的大课练完了整个冬训。省下的钱，�
   ]
 },
 
-// ---- idx:72 | video_ro | 录像室 ----
+// ---- idx:71 | video_ro | 录像室 ----
 {
   'id': "video_ro"+'om',
   'title': "录像室",
@@ -1105,7 +1059,7 @@ return{'text':"你说踢球靠感觉。"+"分析师没再问过第"+"二次。"}
   ]
 },
 
-// ---- idx:73 | weak_foo | 另一只脚 ----
+// ---- idx:72 | weak_foo | 另一只脚 ----
 {
   'id': "weak_foo"+'t',
   'title': "另一只脚",
@@ -1134,7 +1088,7 @@ return{'text':"你把右脚练得更好了。对手也很快知道，该往哪�
   ]
 },
 
-// ---- idx:74 | growth_s | 窜个子 ----
+// ---- idx:73 | growth_s | 窜个子 ----
 {
   'id': "growth_s"+"purt",
   'title': "窜个子",
@@ -1163,7 +1117,7 @@ return{'ovr':0x1,'text':"你等了一年。它确实自己长好了，只是那�
   ]
 },
 
-// ---- idx:75 | street_b | 野球场 ----
+// ---- idx:74 | street_b | 野球场 ----
 {
   'id': "street_b"+"all",
   'title': "野球场",
@@ -1193,7 +1147,7 @@ return{'text':"你在宿舍躺了一天。手机里那群人，后来没再叫�
   ]
 },
 
-// ---- idx:76 | foreign_ | 队里的外援 ----
+// ---- idx:75 | foreign_ | 队里的外援 ----
 {
   'id': "foreign_"+"star",
   'title': "队里的外援",
@@ -1224,7 +1178,7 @@ return{'text':"你按时到，也按时走。他后来去了日本，走之前�
   ]
 },
 
-// ---- idx:77 | summer_c | 自费夏训 ----
+// ---- idx:76 | summer_c | 自费夏训 ----
 {
   'id': "summer_c"+"amp",
   'title': "自费夏训",
@@ -1256,7 +1210,7 @@ return{'text':"你算了算钱，把机票退了。那个夏天，你在家乡�
   ]
 },
 
-// ---- idx:78 | analyst | 数据不会骗人 ----
+// ---- idx:77 | analyst | 数据不会骗人 ----
 {
   'id': "analyst",
   'title': "数据不会骗人",
@@ -1288,7 +1242,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"你说球是踢给人看的，不是
   ]
 },
 
-// ---- idx:79 | psych | 去看心理医生 ----
+// ---- idx:78 | psych | 去看心理医生 ----
 {
   'id': "psych",
   'title': "去看心理医生",
@@ -1320,7 +1274,7 @@ return d(q,s)?{'ovr':0x1,'text':"某个早上醒来，忽然就没事了。你�
   ]
 },
 
-// ---- idx:80 | body_mai | 三十岁以后的身体 ----
+// ---- idx:79 | body_mai | 三十岁以后的身体 ----
 {
   'id': "body_mai"+"ntain",
   'title': "三十岁以后的身体",
@@ -1349,7 +1303,7 @@ return d(q,s)?{'fame':0x8,'text':"你还是场场首发。解说说，你是这�
   ]
 },
 
-// ---- idx:83 | hat_tric | 帽子戏法 ----
+// ---- idx:82 | hat_tric | 帽子戏法 ----
 {
   'id': "hat_tric"+'k',
   'title': "帽子戏法",
@@ -1383,47 +1337,7 @@ return{'roleDelta':0x1,'guanxi':0x8,'fame':-0x4,'text':"点球你让给了状态
   ]
 },
 
-// ---- idx:84 | derby_la | 德比最后一分钟 ----
-{
-  'id': "derby_la"+'te',
-  'title': "德比最后一分钟",
-  'icon': '🔥',
-  'weight': 0x34,
-  'stage': "prime",
-  'when': function(p){
-return'gk'!==p["posGroup"];
-},
-  'desc': "同城德比 1 比 1，补时第 4 分钟，你在禁区弧顶拿到球。身前，是三个人。",
-  'options': [
-    {
-        'label': "自己来",
-        'p': function(p){
-return f(0.55,[[p["ovr"],0x44,0.009]],0.3,0.84);
-},
-        'hint': function(p,q){
-return g(q,'绝杀',"打飞成为表情包");
-},
-        'apply': function(p,q,s){
-return d(q,s)?{'ovr':0x2,'fame':0x1c,'mult':{'league':1.4},'text':"球从三个人的缝隙里钻了进去。你跑向角旗区的那段，被做成了整座城市的表情包。"}:{'fame':-0xe,'text':"球飞出了球场。第二天，全网都是你张大嘴的截图。"};
-}
-    },
-    {
-        'label': "分给边路",
-        'p': function(p){
-return f(0.78,[[p["ovr"],0x44,0.004]],0.62,0.92);
-},
-        'hint': function(p,q){
-return g(q,'助攻',"传丢被反击");
-},
-        'apply': function(p,q,s){
-return d(q,s)?{'fame':0xc,'guanxi':0x6,'mult':{'league':1.3},'text':"边路那脚传中砸在后卫头上，弹进了门。庆祝时，没人第一个抱你，但你不在意。"}:{'fame':-0x8,'roleDelta':-0x1,
-'text':"球被断了。对方一脚长传打穿了压上的防线。终场哨响时，你还站在中圈。"};
-}
-    }
-  ]
-},
-
-// ---- idx:169 | buyout_c | 解约金条款 ----
+// ---- idx:167 | buyout_c | 解约金条款 ----
 {
   'id': "buyout_c"+"lause",
   'title': "解约金条款",
@@ -1452,7 +1366,7 @@ return d(q,s)?{'money':0xc8,'text':"你拿到了队里第二"+"高的工资，�
   ]
 },
 
-// ---- idx:170 | media_tr | 媒体培训 ----
+// ---- idx:168 | media_tr | 媒体培训 ----
 {
   'id': "media_tr"+"aining",
   'title': "媒体培训",
@@ -1481,7 +1395,7 @@ return d(q,s)?{'fame':0x14,'text':"你那句「我们踢得不配拿工资」，
   ]
 },
 
-// ---- idx:171 | boot_dea | 球鞋合同 ----
+// ---- idx:169 | boot_dea | 球鞋合同 ----
 {
   'id': "boot_dea"+'l',
   'title': "球鞋合同",
@@ -1511,7 +1425,7 @@ return{'money':0x28,'ovr':0x2,'text':"他们给你做了六双楦头不同的鞋
   ]
 },
 
-// ---- idx:172 | play_inj | 带伤上阵 ----
+// ---- idx:170 | play_inj | 带伤上阵 ----
 {
   'id': "play_inj"+"ured",
   'title': "带伤上阵",
@@ -1542,7 +1456,7 @@ return{'guanxi':-0xa,'roleDelta':-0x1,'ovr':0x1,'text':"你在看台上看完了
   ]
 },
 
-// ---- idx:173 | system_c | 体系换了 ----
+// ---- idx:171 | system_c | 体系换了 ----
 {
   'id': "system_c"+"hange",
   'title': "体系换了",
@@ -1577,7 +1491,7 @@ return d(q,s)?{'roleDelta':0x1,'text':"他只撑了半年就离任。新来的�
   ]
 },
 
-// ---- idx:174 | family_m | 举家搬迁 ----
+// ---- idx:172 | family_m | 举家搬迁 ----
 {
   'id': "family_m"+"ove",
   'title': "举家搬迁",
@@ -1608,7 +1522,7 @@ return d(q,s)?{'ovr':0x3,'money':0x28,'text':"一个人住队里的公寓，除�
   ]
 },
 
-// ---- idx:175 | career_i | 膝盖里那块软骨 ----
+// ---- idx:173 | career_i | 膝盖里那块软骨 ----
 {
   'id': "career_i"+"njury",
   'title': "膝盖里那块软骨",
@@ -1643,7 +1557,7 @@ return{'retire':!0x0,'money':0x28,'clean':0x4,'text':"那晚你在更衣室把�
   ]
 },
 
-// ---- idx:176 | teammate | 队友出事了 ----
+// ---- idx:174 | teammate | 队友出事了 ----
 {
   'id': "teammate"+"_scandal",
   'title': "队友出事了",
@@ -1669,7 +1583,7 @@ return{'clean':0x4,'fame':-0x6,'text':"你从头到尾没开过口。他出来�
   ]
 },
 
-// ---- idx:177 | loan_out | 被外租 ----
+// ---- idx:175 | loan_out | 被外租 ----
 {
   'id': "loan_out",
   'title': "被外租",
@@ -1700,7 +1614,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"冬窗一开，队里走了两�
   ]
 },
 
-// ---- idx:178 | transfer | 转会传闻 ----
+// ---- idx:176 | transfer | 转会传闻 ----
 {
   'id': "transfer"+"_rumor",
   'title': "转会传闻",
@@ -1732,7 +1646,7 @@ return d(q,s)?{'leave':!0x0,'fame':0x8,'text':"窗口关闭前四小时"+"，你
   ]
 },
 
-// ---- idx:179 | win_bonu | 赢球奖金 ----
+// ---- idx:177 | win_bonu | 赢球奖金 ----
 {
   'id': "win_bonu"+'s',
   'title': "赢球奖金",
@@ -1765,7 +1679,7 @@ return d(q,s)?{'money':0x32,'clean':0x4,'text':"球赢了，钱照发。从头�
   ]
 },
 
-// ---- idx:180 | fan_club | 球迷会 ----
+// ---- idx:178 | fan_club | 球迷会 ----
 {
   'id': "fan_club",
   'title': "球迷会",
@@ -1795,7 +1709,7 @@ return{'text':"你说，等踢出点名堂再说。那群人后来，把名字�
   ]
 },
 
-// ---- idx:181 | second_t | 下放二队 ----
+// ---- idx:179 | second_t | 下放二队 ----
 {
   'id': "second_t"+"eam",
   'title': "下放二队",
@@ -1832,7 +1746,7 @@ return d(q,s)?{'roleDelta':0x1,'guanxi':-0x8,'text':"一个电话打上去，你
   ]
 },
 
-// ---- idx:232 | light_fi | 游戏里的自己 ----
+// ---- idx:230 | light_fi | 游戏里的自己 ----
 {
   'id': "light_fi"+'fa',
   'title': "游戏里的自己",
@@ -1865,7 +1779,7 @@ return{'text':"你把那页数值截下来，存进相册，谁也没发。那�
   ]
 },
 
-// ---- idx:233 | light_nu | 十号球衣 ----
+// ---- idx:231 | light_nu | 十号球衣 ----
 {
   'id': "light_nu"+"mber",
   'title': "十号球衣",
@@ -1894,7 +1808,7 @@ return{'guanxi':0x6,'text':"你说习惯了。更衣室里再没人提这事，�
   ]
 },
 
-// ---- idx:234 | light_ho | 队内聚餐 ----
+// ---- idx:232 | light_ho | 队内聚餐 ----
 {
   'id': "light_ho"+"tpot",
   'title': "队内聚餐",
@@ -1928,7 +1842,7 @@ return{'text':"你在宿舍点了份鸡胸肉。那晚群里两百多条消息�
   ]
 },
 
-// ---- idx:235 | light_do | 捡了只狗 ----
+// ---- idx:233 | light_do | 捡了只狗 ----
 {
   'id': "light_do"+'g',
   'title': "捡了只狗",
@@ -1954,7 +1868,7 @@ return{'text':"队医的表妹把它领走了。你偶尔会在朋友圈刷到�
   ]
 },
 
-// ---- idx:236 | light_we | 队友结婚 ----
+// ---- idx:234 | light_we | 队友结婚 ----
 {
   'id': "light_we"+"dding",
   'title': "队友结婚",
@@ -1981,7 +1895,7 @@ return{'money':-0x4,'guanxi':0x3,'text':"你送了个不出挑的数，人到得
   ]
 },
 
-// ---- idx:237 | light_ni | ? ----
+// ---- idx:235 | light_ni | ? ----
 {
   'id': "light_ni"+"ckname",
   'title': '外号',
@@ -2010,7 +1924,7 @@ return{'text':"你一次都没提过它。它还是跟了你一辈子，连退�
   ]
 },
 
-// ---- idx:238 | light_co | 自己做饭 ----
+// ---- idx:236 | light_co | 自己做饭 ----
 {
   'id': "light_co"+'ok',
   'title': "自己做饭",
@@ -2039,7 +1953,7 @@ return{'money':-0x6,'text':"你把那家亚洲超市的电话存进收藏夹。�
   ]
 },
 
-// ---- idx:239 | light_wi | 更衣室密码 ----
+// ---- idx:237 | light_wi | 更衣室密码 ----
 {
   'id': "light_wi"+'fi',
   'title': "更衣室密码",
@@ -2071,7 +1985,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   ]
 },
 
-// ---- idx:282 | cap_room | 更衣室的那一拳 ----
+// ---- idx:280 | cap_room | 更衣室的那一拳 ----
 {
   'id': "cap_room",
   'title': "更衣室的那一拳",
@@ -2101,7 +2015,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   ]
 },
 
-// ---- idx:283 | cap_money | 袖标下的邀约 ----
+// ---- idx:281 | cap_money | 袖标下的邀约 ----
 {
   'id': "cap_money",
   'title': "袖标下的邀约",
@@ -2127,7 +2041,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   ]
 },
 
-// ---- idx:284 | cap_pressure | 连败之后 ----
+// ---- idx:282 | cap_pressure | 连败之后 ----
 {
   'id': "cap_pressure",
   'title': "连败之后",

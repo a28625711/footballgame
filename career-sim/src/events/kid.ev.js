@@ -2,7 +2,7 @@
 
 var EVT_kid=[
 
-// ---- idx:127 | kid_heig | 个子不够 ----
+// ---- idx:125 | kid_heig | 个子不够 ----
 {
   'id': "kid_heig"+'ht',
   'title': "个子不够",
@@ -31,7 +31,7 @@ return d(q,s)?{'ovr':0x4,'text':"十五岁那年，一个夏天你窜了十一�
   ]
 },
 
-// ---- idx:128 | kid_pare | 家里不同意 ----
+// ---- idx:126 | kid_pare | 家里不同意 ----
 {
   'id': "kid_pare"+"nts",
   'title': "家里不同意",
@@ -58,7 +58,7 @@ return{'ovr':0x3,'guanxi':-0x6,'text':"那天你摔了门。你爸后来没再�
   ]
 },
 
-// ---- idx:129 | kid_fee | 这个月的训练费 ----
+// ---- idx:127 | kid_fee | 这个月的训练费 ----
 {
   'id': "kid_fee",
   'title': "这个月的训练费",
@@ -85,7 +85,7 @@ return{'ovr':-0x2,'guanxi':-0x4,'text':"新地方场地是煤渣的，教练一�
   ]
 },
 
-// ---- idx:130 | kid_bone | ? ----
+// ---- idx:128 | kid_bone | ? ----
 {
   'id': "kid_bone",
   'title': '骨龄',
@@ -112,7 +112,7 @@ return{'guanxi':0xa,'clean':-0xc,'ageFraud':!0x0,'text':"户口本上那个年�
   ]
 },
 
-// ---- idx:131 | kid_tryo | 省里来人挑苗子 ----
+// ---- idx:129 | kid_tryo | 省里来人挑苗子 ----
 {
   'id': "kid_tryo"+'ut',
   'title': "省里来人挑苗子",
@@ -142,7 +142,7 @@ return{'ovr':0x1,'clean':0x3,'text':"你踢了平常的那一场。他们没找�
   ]
 },
 
-// ---- idx:132 | kid_yell | 教练家的酒 ----
+// ---- idx:130 | kid_yell | 教练家的酒 ----
 {
   'id': "kid_yell"+'ow',
   'title': "教练家的酒",
@@ -169,7 +169,7 @@ return{'clean':0x8,'ovr':-0x2,'text':"那半个赛季，你大多在场边。教
   ]
 },
 
-// ---- idx:133 | kid_move | 跟着搬家 ----
+// ---- idx:131 | kid_move | 跟着搬家 ----
 {
   'id': "kid_move",
   'title': "跟着搬家",
@@ -196,7 +196,7 @@ return{'ovr':-0x2,'money':0xa,'text':"新城市的队伍没人认识你，只能
   ]
 },
 
-// ---- idx:134 | kid_matc | 全国比赛 ----
+// ---- idx:132 | kid_matc | 全国比赛 ----
 {
   'id': "kid_matc"+'h',
   'title': "全国比赛",
@@ -227,7 +227,7 @@ return{'ovr':0x2,'guanxi':0x5,'text':"一比二输了，但你踢满了全场。
   ]
 },
 
-// ---- idx:135 | kid_hurt | 膝盖疼 ----
+// ---- idx:133 | kid_hurt | 膝盖疼 ----
 {
   'id': "kid_hurt",
   'title': "膝盖疼",
@@ -256,7 +256,7 @@ return{'ovr':-0x1,'clean':0x3,'text':"歇了两个月，老老实实做康复。
   ]
 },
 
-// ---- idx:136 | kid_fore | 外教来了 ----
+// ---- idx:134 | kid_fore | 外教来了 ----
 {
   'id': "kid_fore"+"ign",
   'title': "外教来了",
@@ -283,7 +283,7 @@ return{'ovr':0x1,'guanxi':0x4,'text':"你守住了原来那套。他走的那天
   ]
 },
 
-// ---- idx:137 | kid_poac | 别人家的梯队 ----
+// ---- idx:135 | kid_poac | 别人家的梯队 ----
 {
   'id': "kid_poac"+'h',
   'title': "别人家的梯队",
@@ -310,7 +310,7 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你留下了。那家俱乐部两年后�
   ]
 },
 
-// ---- idx:138 | kid_abr_ | 听不懂 ----
+// ---- idx:136 | kid_abr_ | 听不懂 ----
 {
   'id': "kid_abr_"+"language",
   'title': "听不懂",
@@ -339,7 +339,7 @@ return{'ovr':0x1,'text':"你把每个人的跑位都刻在脑子里。语言是�
   ]
 },
 
-// ---- idx:139 | kid_abr_ | 寄宿家庭 ----
+// ---- idx:137 | kid_abr_ | 寄宿家庭 ----
 {
   'id': "kid_abr_"+"host",
   'title': "寄宿家庭",
@@ -368,7 +368,7 @@ return{'ovr':0x2,'guanxi':-0x6,'text':"宿舍里住着的，都是十三四岁�
   ]
 },
 
-// ---- idx:140 | kid_abr_ | 注册卡住了 ----
+// ---- idx:138 | kid_abr_ | 注册卡住了 ----
 {
   'id': "kid_abr_"+"paperwor"+'k',
   'title': "注册卡住了",
@@ -397,7 +397,7 @@ return{'ovr':-0x1,'clean':0x5,'text':"整整一年，你只能跟着练，比赛
   ]
 },
 
-// ---- idx:141 | kid_abr_ | 夏天那张名单 ----
+// ---- idx:139 | kid_abr_ | 夏天那张名单 ----
 {
   'id': "kid_abr_"+"release",
   'title': "夏天那张名单",
@@ -429,7 +429,7 @@ return{'clean':0x6,'text':"你的名字在倒数第三行。那一年剩下的�
   ]
 },
 
-// ---- idx:142 | kid_abr_ | 回不去的那个春节 ----
+// ---- idx:140 | kid_abr_ | 回不去的那个春节 ----
 {
   'id': "kid_abr_"+"christma"+'s',
   'title': "回不去的那个春节",
@@ -458,7 +458,7 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"那几天，基地里几乎没人。你�
   ]
 },
 
-// ---- idx:143 | kid_abr_ | 被叫去上一个年龄 ----
+// ---- idx:141 | kid_abr_ | 被叫去上一个年龄 ----
 {
   'id': "kid_abr_"+"ageup",
   'title': "被叫去上一个年龄"+'段',
@@ -493,7 +493,7 @@ return{'ovr':0x1,'clean':0x3,'text':"在同龄那批里，你是最好的几个�
   ]
 },
 
-// ---- idx:144 | kid_abr_ | 国内来的电话 ----
+// ---- idx:142 | kid_abr_ | 国内来的电话 ----
 {
   'id': "kid_abr_"+"callhome",
   'title': "国内来的电话",
@@ -522,7 +522,7 @@ return{'guanxi':0xc,'money':0x14,'ovr':-0x2,'text':"你回去待了一个夏天�
   ]
 },
 
-// ---- idx:145 | kid_abr_ | 他们给你起的外号 ----
+// ---- idx:143 | kid_abr_ | 他们给你起的外号 ----
 {
   'id': "kid_abr_"+"nickname",
   'title': "他们给你起的外号",
@@ -555,7 +555,7 @@ return{'ovr':0x3,'guanxi':0x4,'text':"接下来三个月，分组对抗，你每
   ]
 },
 
-// ---- idx:146 | kid_abr_ | 家里那笔钱 ----
+// ---- idx:144 | kid_abr_ | 家里那笔钱 ----
 {
   'id': "kid_abr_"+"money",
   'title': "家里那笔钱",
@@ -588,7 +588,7 @@ return{'money':0x8,'clean':0x5,'text':"你把每周的零花钱砍掉一半，�
   ]
 },
 
-// ---- idx:147 | kid_abr_ | 被借到下面那支队 ----
+// ---- idx:145 | kid_abr_ | 被借到下面那支队 ----
 {
   'id': "kid_abr_"+"loanback",
   'title': "被借到下面那支队",

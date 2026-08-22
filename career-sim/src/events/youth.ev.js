@@ -2,7 +2,7 @@
 
 var EVT_youth=[
 
-// ---- idx:148 | youth_do | 宿舍熄灯以后 ----
+// ---- idx:146 | youth_do | 宿舍熄灯以后 ----
 {
   'id': "youth_do"+'rm',
   'title': "宿舍熄灯以后",
@@ -35,7 +35,7 @@ return d(q,s)?{'guanxi':0x8,'fame':0x3,'text':"那几个，后来成了你在这
   ]
 },
 
-// ---- idx:149 | youth_ex | ? ----
+// ---- idx:147 | youth_ex | ? ----
 {
   'id': "youth_ex"+'am',
   'title': '中考',
@@ -65,7 +65,7 @@ return{'ovr':0x3,'text':"那个夏天，你是在训练场上过完的。班主�
   ]
 },
 
-// ---- idx:150 | youth_co | 教练的心头肉 ----
+// ---- idx:148 | youth_co | 教练的心头肉 ----
 {
   'id': "youth_co"+"ach_fav",
   'title': "教练的心头肉",
@@ -97,7 +97,7 @@ return{'ovr':0x3,'text':"整整两年，你把训练赛当正赛踢。教练换�
   ]
 },
 
-// ---- idx:151 | youth_fi | 第一份职业合同 ----
+// ---- idx:149 | youth_fi | 第一份职业合同 ----
 {
   'id': "youth_fi"+"rst_cont"+"ract",
   'title': "第一份职业合同",
@@ -129,7 +129,7 @@ return d(q,s)?{'money':0x3c,'clean':0x4,'text':"违约金砍掉一半，年限�
   ]
 },
 
-// ---- idx:152 | youth_ag | 第一个经纪人 ----
+// ---- idx:150 | youth_ag | 第一个经纪人 ----
 {
   'id': "youth_ag"+"ent",
   'title': "第一个经纪人",
@@ -161,7 +161,7 @@ return{'text':"你说要先问问家里。他留下张名片，后来再没出�
   ]
 },
 
-// ---- idx:153 | youth_lo | 借去中乙 ----
+// ---- idx:151 | youth_lo | 借去中乙 ----
 {
   'id': "youth_lo"+"an_lower",
   'title': "借去中乙",
@@ -193,7 +193,7 @@ return d(q,s)?{'ovr':0x2,'roleDelta':0x1,'text':"你在预备队联赛打满一�
   ]
 },
 
-// ---- idx:154 | youth_tr | 海外试训 ----
+// ---- idx:152 | youth_tr | 海外试训 ----
 {
   'id': "youth_tr"+"ial_abro"+'ad',
   'title': "海外试训",
@@ -226,7 +226,7 @@ return{'text':"这笔钱，家里凑不出来。同去的那个孩子，后来�
   ]
 },
 
-// ---- idx:155 | youth_he | 身高不够 ----
+// ---- idx:153 | youth_he | 身高不够 ----
 {
   'id': "youth_he"+"ight",
   'title': "身高不够",
@@ -259,7 +259,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:274 | youth_night | 熄灯后的球场 ----
+// ---- idx:272 | youth_night | 熄灯后的球场 ----
 {
   'id': "youth_night",
   'title': "熄灯后的球场",
@@ -289,7 +289,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:275 | youth_watch | 高手的慢动作 ----
+// ---- idx:273 | youth_watch | 高手的慢动作 ----
 {
   'id': "youth_watch",
   'title': "高手的慢动作",
@@ -320,7 +320,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:276 | youth_ballfeel | 睡前颠球 ----
+// ---- idx:274 | youth_ballfeel | 睡前颠球 ----
 {
   'id': "youth_ballfeel",
   'title': "睡前颠球",
@@ -350,7 +350,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:277 | youth_skills | 基本功补课 ----
+// ---- idx:275 | youth_skills | 基本功补课 ----
 {
   'id': "youth_skills",
   'title': "基本功补课",
@@ -380,7 +380,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:278 | youth_rainshoot | 雨后的球场 ----
+// ---- idx:276 | youth_rainshoot | 雨后的球场 ----
 {
   'id': "youth_rainshoot",
   'title': "雨后的球场",
@@ -410,7 +410,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:279 | youth_turnaround | 转身那一课 ----
+// ---- idx:277 | youth_turnaround | 转身那一课 ----
 {
   'id': "youth_turnaround",
   'title': "转身那一课",
@@ -440,7 +440,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:280 | youth_vice | 熄灯以后的烟火 ----
+// ---- idx:278 | youth_vice | 熄灯以后的烟火 ----
 {
   'id': "youth_vice",
   'title': "熄灯以后的烟火",
@@ -473,7 +473,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   ]
 },
 
-// ---- idx:281 | youth_selfdrill | 一个人练到天黑 ----
+// ---- idx:279 | youth_selfdrill | 一个人练到天黑 ----
 {
   'id': "youth_selfdrill",
   'title': "一个人练到天黑",

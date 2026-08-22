@@ -2,7 +2,7 @@
 
 var EVT_love=[
 
-// ---- idx:258 | love_fir | 有人在等你 ----
+// ---- idx:256 | love_fir | 有人在等你 ----
 {
   'id': "love_fir"+'st',
   'title': "有人在等你",
@@ -32,7 +32,7 @@ return{'partner':"那个游戏搭子",'fame':0x5,'money':-0xf,'ovr':0x1,'text':"
 return{'ovr':0x3,'text':"那些消息，你一条都没回。那年冬训你是全队跑得最多的，总结会上教练点了你的名。"};}},
 },
 
-// ---- idx:259 | love_lat | 三十岁那年 ----
+// ---- idx:257 | love_lat | 三十岁那年 ----
 {
   'id': "love_lat"+'e',
   'title': "三十岁那年",
@@ -60,7 +60,7 @@ return{'ovr':0x2,'text':"你说自己这几年跑来跑去，怕耽误人家。�
   ]
 },
 
-// ---- idx:260 | love_onl | 直播间 ----
+// ---- idx:258 | love_onl | 直播间 ----
 {
   'id': "love_onl"+"ine",
   'title': "直播间",
@@ -88,7 +88,7 @@ return{'fame':-0x5,'ovr':0x2,'text':"经纪人说，这种流量不要白不要�
   ]
 },
 
-// ---- idx:261 | love_lon | ? ----
+// ---- idx:259 | love_lon | ? ----
 {
   'id': "love_lon"+"gdistanc"+'e',
   'title': '时差',
@@ -120,7 +120,7 @@ return d(q,s)?{'ovr':0x2,'text':"你们撑过了那个赛季。后来她说，�
   ]
 },
 
-// ---- idx:262 | love_pro | ? ----
+// ---- idx:260 | love_pro | ? ----
 {
   'id': "love_pro"+"pose",
   'title': '戒指',
@@ -148,7 +148,7 @@ return{'ovr':0x2,'text':"你说，等踢完这个合同。她说好。这句「�
   ]
 },
 
-// ---- idx:263 | love_kid | 第一个孩子 ----
+// ---- idx:261 | love_kid | 第一个孩子 ----
 {
   'id': "love_kid"+"_first",
   'title': "第一个孩子",
@@ -184,7 +184,7 @@ return{'ovr':0x3,'text':"你说，等这份合同踢完。她把体检报告收�
   ]
 },
 
-// ---- idx:264 | love_kid | 夜里三点 ----
+// ---- idx:262 | love_kid | 夜里三点 ----
 {
   'id': "love_kid"+"_night",
   'title': "夜里三点",
@@ -213,7 +213,7 @@ return{'ovr':-0x3,'fame':0x5,'text':"有一场你在替补席上睡着了，被�
   ]
 },
 
-// ---- idx:265 | love_kid | ? ----
+// ---- idx:263 | love_kid | ? ----
 {
   'id': "love_kid"+"_second",
   'title': '老二',
@@ -241,7 +241,7 @@ return{'ovr':0x2,'text':"你说，等合同定下来。等那份合同签完，�
   ]
 },
 
-// ---- idx:266 | love_kid | 看台上的那两个 ----
+// ---- idx:264 | love_kid | 看台上的那两个 ----
 {
   'id': "love_kid"+"_watch",
   'title': "看台上的那两个",
@@ -269,7 +269,7 @@ return{'ovr':0x2,'text':"他在车上睡着了，手里还攥着那张票。后�
   ]
 },
 
-// ---- idx:267 | love_kid | 他也想踢球 ----
+// ---- idx:265 | love_kid | 他也想踢球 ----
 {
   'id': "love_kid"+"_ball",
   'title': "他也想踢球",
@@ -298,7 +298,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你跟他说，先把书念完，真喜欢�
   ]
 },
 
-// ---- idx:268 | love_inl | 岳父的意思 ----
+// ---- idx:266 | love_inl | 岳父的意思 ----
 {
   'id': "love_inl"+'aw',
   'title': "岳父的意思",
@@ -326,7 +326,7 @@ return{'ovr':0x2,'guanxi':-0xa,'fame':-0x4,'text':"你把这些年的账摊开�
   ]
 },
 
-// ---- idx:269 | love_pap | ? ----
+// ---- idx:267 | love_pap | ? ----
 {
   'id': "love_pap"+"arazzi",
   'title': '代拍',
@@ -355,7 +355,7 @@ return{'money':-0xb4,'ovr':0x2,'text':"新家在城郊，通勤多了四十分�
   ]
 },
 
-// ---- idx:270 | love_mov | 她的工作 ----
+// ---- idx:268 | love_mov | 她的工作 ----
 {
   'id': "love_mov"+'e',
   'title': "她的工作",
@@ -393,7 +393,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x4,'text':"你们靠航班表过了两年。她
   ]
 },
 
-// ---- idx:271 | love_ann | 纪念日那天有客场 ----
+// ---- idx:269 | love_ann | 纪念日那天有客场 ----
 {
   'id': "love_ann"+'iv',
   'title': "纪念日那天有客场",
@@ -422,7 +422,7 @@ return{'roleDelta':0x1,'ovr':0x1,'text':"你在酒店给她订了花，卡片上
   ]
 },
 
-// ---- idx:272 | love_spl | 说不下去了 ----
+// ---- idx:270 | love_spl | 说不下去了 ----
 {
   'id': "love_spl"+'it',
   'title': "说不下去了",
@@ -454,7 +454,7 @@ return{'split':!0x0,'money':-0x104,'ovr':-0x1,'fame':0x4,'text':"你们一起吃
   ]
 },
 
-// ---- idx:273 | love_bac | 退役以后干什么 ----
+// ---- idx:271 | love_bac | 退役以后干什么 ----
 {
   'id': "love_bac"+"khome",
   'title': "退役以后干什么",

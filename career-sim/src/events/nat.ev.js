@@ -2,7 +2,7 @@
 
 var EVT_nat=[
 
-// ---- idx:240 | nat_firs | 国家队的电话 ----
+// ---- idx:238 | nat_firs | 国家队的电话 ----
 {
   'id': "nat_firs"+"tcall",
   'title': "国家队的电话",
@@ -30,7 +30,7 @@ return{'ovr':0x3,'text':"你怕这事是假的，也怕说出去就黄了。名�
   ]
 },
 
-// ---- idx:241 | nat_firs | 国家队的电话 ----
+// ---- idx:239 | nat_firs | 国家队的电话 ----
 {
   'id': "nat_firs"+"tcall2",
   'title': "国家队的电话",
@@ -58,7 +58,7 @@ return{'ovr':0x2,'fame':0x6,'text':"你把自己最近两场的表现讲了讲�
   ]
 },
 
-// ---- idx:242 | nat_firs | 名单上的名字 ----
+// ---- idx:240 | nat_firs | 名单上的名字 ----
 {
   'id': "nat_firs"+"tcall3",
   'title': "名单上的名字",
@@ -86,7 +86,7 @@ return{'ovr':0x3,'text':"你没在人堆里多待，拐进训练场。跑起来�
   ]
 },
 
-// ---- idx:243 | nat_firs | 第一个国家队进球 ----
+// ---- idx:241 | nat_firs | 第一个国家队进球 ----
 {
   'id': "nat_firs"+"tgoal",
   'title': "第一个国家队进球",
@@ -114,7 +114,7 @@ return{'ovr':0x3,'guanxi':0x8,'text':"解说说了一句「他没庆祝」。那
   ]
 },
 
-// ---- idx:244 | nat_firs | 那个进球 ----
+// ---- idx:242 | nat_firs | 那个进球 ----
 {
   'id': "nat_firs"+"tgoal2",
   'title': "那个进球",
@@ -142,7 +142,7 @@ return{'ovr':0x3,'guanxi':0x6,'text':"你指了指给你助攻的人。那场赛
   ]
 },
 
-// ---- idx:245 | nat_firs | 主场的那一下 ----
+// ---- idx:243 | nat_firs | 主场的那一下 ----
 {
   'id': "nat_firs"+"tgoal3",
   'title': "主场的那一下",
@@ -170,7 +170,7 @@ return{'ovr':0x3,'guanxi':0x5,'text':"老队员们笑你「面无表情」。只
   ]
 },
 
-// ---- idx:246 | nat_qual | 世预赛最后一轮 ----
+// ---- idx:244 | nat_qual | 世预赛最后一轮 ----
 {
   'id': "nat_qual"+"ifier",
   'title': "世预赛最后一轮",
@@ -200,7 +200,7 @@ return{'caps':0x2,'fame':-0x5,'guanxi':0x6,'text':"0 比 0。教练组称之为�
   ]
 },
 
-// ---- idx:247 | nat_anth | ? ----
+// ---- idx:245 | nat_anth | ? ----
 {
   'id': "nat_anth"+'em',
   'title': '国歌',
@@ -228,7 +228,7 @@ return{'ovr':0x3,'text':"你满脑子都是对面那个左后卫的转身速度�
   ]
 },
 
-// ---- idx:248 | nat_newc | 新国家队主帅 ----
+// ---- idx:246 | nat_newc | 新国家队主帅 ----
 {
   'id': "nat_newc"+"oach",
   'title': "新国家队主帅",
@@ -260,7 +260,7 @@ return d(q,s)?{'caps':0x4,'guanxi':0x8,'text':"他两年后就走了，走时战
   ]
 },
 
-// ---- idx:249 | nat_capt | 国家队队长 ----
+// ---- idx:247 | nat_capt | 国家队队长 ----
 {
   'id': "nat_capt"+"ain",
   'title': "国家队队长",
@@ -288,7 +288,7 @@ return{'ovr':0x2,'guanxi':0x5,'text':"你说队里有人比你更会说话。那
   ]
 },
 
-// ---- idx:250 | nat_natu | 更衣室里的两种话 ----
+// ---- idx:248 | nat_natu | 更衣室里的两种话 ----
 {
   'id': "nat_natu"+"ralized",
   'title': "更衣室里的两种话",
@@ -316,7 +316,7 @@ return{'caps':0x2,'fame':-0x4,'text':"场上传球总是慢半拍。赛后媒体
   ]
 },
 
-// ---- idx:251 | nat_west | 西亚客场 ----
+// ---- idx:249 | nat_west | 西亚客场 ----
 {
   'id': "nat_west"+"asia",
   'title': "西亚客场",
@@ -348,7 +348,7 @@ return d(q,s)?{'fame':0xc,'caps':0x2,'text':"裁判把比赛中断了八分钟�
   ]
 },
 
-// ---- idx:252 | nat_derb | 那场球 ----
+// ---- idx:250 | nat_derb | 那场球 ----
 {
   'id': "nat_derb"+'y',
   'title': "那场球",
@@ -378,7 +378,7 @@ return{'roleDelta':0x1,'fame':-0xc,'caps':0x1,'text':"六十分钟你就被换�
   ]
 },
 
-// ---- idx:253 | nat_hurt | 带着伤去报到 ----
+// ---- idx:251 | nat_hurt | 带着伤去报到 ----
 {
   'id': "nat_hurt",
   'title': "带着伤去报到",
@@ -411,7 +411,7 @@ return{'ovr':0x2,'guanxi':-0xa,'fame':-0x6,'text':"你在俱乐部养了两周�
   ]
 },
 
-// ---- idx:254 | nat_camp | 长期集训 ----
+// ---- idx:252 | nat_camp | 长期集训 ----
 {
   'id': "nat_camp",
   'title': "长期集训",
@@ -439,7 +439,7 @@ return{'roleDelta':0x1,'guanxi':-0xc,'fame':-0x8,'text':"你交了一份体检�
   ]
 },
 
-// ---- idx:255 | nat_bus | 机场那道通道 ----
+// ---- idx:253 | nat_bus | 机场那道通道 ----
 {
   'id': "nat_bus",
   'title': "机场那道通道",
@@ -470,7 +470,7 @@ return{'fame':-0x6,'ovr':0x1,'text':"俱乐部的车等在侧门。你在车上�
   ]
 },
 
-// ---- idx:256 | nat_kid | 看台上那件球衣 ----
+// ---- idx:254 | nat_kid | 看台上那件球衣 ----
 {
   'id': "nat_kid",
   'title': "看台上那件球衣",
@@ -498,7 +498,7 @@ return{'ovr':0x3,'text':"从那以后，国家队的每一场你都跑到抽筋�
   ]
 },
 
-// ---- idx:257 | nat_quit | 退出国家队 ----
+// ---- idx:255 | nat_quit | 退出国家队 ----
 {
   'id': "nat_quit",
   'title': "退出国家队",
@@ -527,7 +527,7 @@ return{'fame':0xe,'guanxi':0x6,'ovr':0x1,'text':"你写了三百来字，最后�
   ]
 },
 
-// ---- idx:285 | ntcap_row | 替补席的冷眼 ----
+// ---- idx:283 | ntcap_row | 替补席的冷眼 ----
 {
   'id': "ntcap_row",
   'title': "替补席的冷眼",
@@ -557,7 +557,7 @@ return{'fame':0xe,'guanxi':0x6,'ovr':0x1,'text':"你写了三百来字，最后�
   ]
 },
 
-// ---- idx:286 | ntcap_young | 新人的首发 ----
+// ---- idx:284 | ntcap_young | 新人的首发 ----
 {
   'id': "ntcap_young",
   'title': "新人的首发",
@@ -587,7 +587,7 @@ return{'fame':0xe,'guanxi':0x6,'ovr':0x1,'text':"你写了三百来字，最后�
   ]
 },
 
-// ---- idx:287 | ntcap_press | 赢球之后的漩涡 ----
+// ---- idx:285 | ntcap_press | 赢球之后的漩涡 ----
 {
   'id': "ntcap_press",
   'title': "赢球之后的漩涡",

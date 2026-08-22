@@ -664,7 +664,7 @@ return bZ["result"]?(cb+="<div cla"+"ss=\"bm-l"+"og secon"+"d\">"+bZ["result"]["
 return "<div cla"+"ss=\"bm-l"+"ine\">"+ax(ce)+"</div>";
 })["join"]('')+"</div>",bZ["result"]["deltas"]&&bZ["result"]["deltas"]["length"]&&(cb+="<div cla"+"ss=\"delt"+"as\">"+bZ["result"]["deltas"]["map"](function(ce){
 return "<span cl"+"ass=\"del"+"ta "+ce["cls"]+'\x22>'+ax(ce["text"])+"</span>";
-})["join"]('')+"</div>"),cb+=bb(["<button "+"class=\"b"+"tn btn-p"+"rimary\" "+"data-act"+"=\"contin"+"ue\">继续</"+"button>"])):cb+=bb(a6["BIG_OPTS"]["map"](function(ce){
+})["join"]('')+"</div>"),cb+=bb(["<button "+"class=\"b"+"tn btn-p"+"rimary\" "+"data-act"+"=\"contin"+"ue\">继续</"+"button>"])):cb+=bb((bZ["opts"]||a6["BIG_OPTS"])["map"](function(ce){
 return ba(ce["key"],ce["label"],ce["hint"]);
 })),cb+"</div>";
 }if("staff"===bZ["type"]){var cc=a6["STAFF"]["filter"](function(ce){

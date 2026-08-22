@@ -2,7 +2,7 @@
 
 var EVT_gk=[
 
-// ---- idx:82 | gk_penal | 点球大战 ----
+// ---- idx:81 | gk_penal | 点球大战 ----
 {
   'id': "gk_penal"+'ty',
   'title': "点球大战",
@@ -36,7 +36,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x16,'mult':{'cup':2.5},'text':"你赌了一个�
   ]
 },
 
-// ---- idx:87 | gk_sweep | 出击还是守线 ----
+// ---- idx:85 | gk_sweep | 出击还是守线 ----
 {
   'id': "gk_sweep"+'er',
   'title': "出击还是守线",
@@ -67,7 +67,7 @@ return{'roleDelta':-0x1,'ovr':0x1,'text':"你不出来。防线因此往回收�
   ]
 },
 
-// ---- idx:88 | gk_howle | 黄油手 ----
+// ---- idx:86 | gk_howle | 黄油手 ----
 {
   'id': "gk_howle"+'r',
   'title': "黄油手",
@@ -98,7 +98,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"下一场，你扑出了两个必进
   ]
 },
 
-// ---- idx:89 | gk_distr | 脚下活 ----
+// ---- idx:87 | gk_distr | 脚下活 ----
 {
   'id': "gk_distr"+"ibution",
   'title': "脚下活",
@@ -129,7 +129,7 @@ return{'text':"你还是一脚开到中"+"线。教练摇头，但"+"没换你�
   ]
 },
 
-// ---- idx:90 | gk_numbe | 一号位 ----
+// ---- idx:88 | gk_numbe | 一号位 ----
 {
   'id': "gk_numbe"+'r1',
   'title': "一号位",
@@ -160,7 +160,7 @@ return{'leave':!0x0,'ovr':0x2,'text':"你去了一支保级队，场场首发。
   ]
 },
 
-// ---- idx:91 | gk_line | 门线上的那半个球 ----
+// ---- idx:89 | gk_line | 门线上的那半个球 ----
 {
   'id': "gk_line",
   'title': "门线上的那半个球",
@@ -188,7 +188,7 @@ return{'guanxi':0x8,'ovr':-0x1,'text':"你什么都没说。慢镜头里，那�
   ]
 },
 
-// ---- idx:92 | gk_coach | 门将教练走了 ----
+// ---- idx:90 | gk_coach | 门将教练走了 ----
 {
   'id': "gk_coach"+"_gone",
   'title': "门将教练走了",
@@ -219,7 +219,7 @@ return d(q,s)?{'ovr':0x1,'text':"新方法你居然适应了。身体确实比�
   ]
 },
 
-// ---- idx:93 | gk_shoot | 门将罚点球 ----
+// ---- idx:91 | gk_shoot | 门将罚点球 ----
 {
   'id': "gk_shoot"+"out_pen",
   'title': "门将罚点球",
@@ -250,7 +250,7 @@ return{'text':"你摆摆手，让门将教练去跟主帅说。第十一个走�
   ]
 },
 
-// ---- idx:94 | gk_old_k | 三十六岁的门将 ----
+// ---- idx:92 | gk_old_k | 三十六岁的门将 ----
 {
   'id': "gk_old_k"+"eeper",
   'title': "三十六岁的门将",
@@ -279,7 +279,7 @@ return{'roleDelta':-0x1,'guanxi':0x12,'fame':0x6,'text':"你把二十年攒下�
   ]
 },
 
-// ---- idx:95 | gk_corne | 最后一分钟的角球 ----
+// ---- idx:93 | gk_corne | 最后一分钟的角球 ----
 {
   'id': "gk_corne"+"r_up",
   'title': "最后一分钟的角球",
@@ -313,7 +313,7 @@ return{'guanxi':0x4,'text':"你站在中线上看完了那个角球。终场哨�
   ]
 },
 
-// ---- idx:96 | gk_last_ | 最后一个人 ----
+// ---- idx:94 | gk_last_ | 最后一个人 ----
 {
   'id': "gk_last_"+"man",
   'title': "最后一个人",
@@ -346,7 +346,7 @@ return d(q,s)?{'ovr':0x3,'fame':0xe,'text':"他挑射，球擦着横梁飞出底
   ]
 },
 
-// ---- idx:97 | gk_clean | 不失球的分钟数 ----
+// ---- idx:95 | gk_clean | 不失球的分钟数 ----
 {
   'id': "gk_clean"+"_run",
   'title': "不失球的分钟数",
@@ -380,7 +380,7 @@ return{'ovr':0x1,'guanxi':0xc,'text':"你在替补席上看完了那场，二号
   ]
 },
 
-// ---- idx:98 | gk_capta | 戴袖标的门将 ----
+// ---- idx:96 | gk_capta | 戴袖标的门将 ----
 {
   'id': "gk_capta"+'in',
   'title': "戴袖标的门将",
@@ -408,7 +408,7 @@ return{'ovr':0x2,'guanxi':0x6,'capDecline':!0x0,'text':"你说自己在门里喊
   ]
 },
 
-// ---- idx:99 | gk_var_r | VAR 说重罚 ----
+// ---- idx:97 | gk_var_r | VAR 说重罚 ----
 {
   'id': "gk_var_r"+"etake",
   'title': "VAR 说重罚",
@@ -446,7 +446,7 @@ return d(q,s)?{'ovr':0x1,'fame':0x10,'guanxi':-0x8,'text':"你拉着主裁说了
   ]
 },
 
-// ---- idx:100 | gk_charg | 他撞的是人不是球 ----
+// ---- idx:98 | gk_charg | 他撞的是人不是球 ----
 {
   'id': "gk_charg"+'e',
   'title': "他撞的是人不是球",
@@ -475,7 +475,7 @@ return{'banGames':0x2,'fame':0x10,'guanxi':-0xe,'text':"黄牌，你没停下。
   ]
 },
 
-// ---- idx:101 | gk_nt_nu | ? ----
+// ---- idx:99 | gk_nt_nu | ? ----
 {
   'id': "gk_nt_nu"+"mber1",
   'title': '国门',
@@ -508,7 +508,7 @@ return{'ovr':0x3,'caps':0x1,'fame':-0x4,'text':"你每天比另外两个早到�
   ]
 },
 
-// ---- idx:102 | gk_finge | ? ----
+// ---- idx:100 | gk_finge | ? ----
 {
   'id': "gk_finge"+'rs',
   'title': '手指',

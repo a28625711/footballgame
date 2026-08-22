@@ -2,7 +2,7 @@
 
 var EVT_vet=[
 
-// ---- idx:81 | vet_drop | 往回撤 ----
+// ---- idx:80 | vet_drop | 往回撤 ----
 {
   'id': "vet_drop"+"back",
   'title': "往回撤",
@@ -34,7 +34,7 @@ return d(q,s)?{'ovr':0x1,'fame':0x6,'text':"你用两个赛季证明了自己还
   ]
 },
 
-// ---- idx:182 | vet_last | 最后一份合同 ----
+// ---- idx:180 | vet_last | 最后一份合同 ----
 {
   'id': "vet_last"+"_contrac"+'t',
   'title': "最后一份合同",
@@ -64,7 +64,7 @@ return d(q,s)?{'leave':!0x0,'ovr':0x1,'fame':0x6,'text':"低一级的球队递�
   ]
 },
 
-// ---- idx:183 | vet_benc | 板凳上的一年 ----
+// ---- idx:181 | vet_benc | 板凳上的一年 ----
 {
   'id': "vet_benc"+"h_year",
   'title': "板凳上的一年",
@@ -90,7 +90,7 @@ return{'leave':!0x0,'ovr':0x2,'fame':-0x8,'text':"你往下走了一级，领回
   ]
 },
 
-// ---- idx:184 | vet_coac | 教练组的位置 ----
+// ---- idx:182 | vet_coac | 教练组的位置 ----
 {
   'id': "vet_coac"+"h_offer",
   'title': "教练组的位置",
@@ -119,7 +119,7 @@ return d(q,s)?{'ovr':0x1,'fame':0x8,'text':"你又踢了三年。教练席上那
   ]
 },
 
-// ---- idx:185 | vet_assi | 留下来带年轻人 ----
+// ---- idx:183 | vet_assi | 留下来带年轻人 ----
 {
   'id': "vet_assi"+"stant",
   'title': "留下来带年轻人",
@@ -148,7 +148,7 @@ return{'ovr':0x2,'text':"你说，等踢不动了再说。他笑了笑：这话�
   ]
 },
 
-// ---- idx:186 | vet_scou | 球探的差事 ----
+// ---- idx:184 | vet_scou | 球探的差事 ----
 {
   'id': "vet_scou"+'t',
   'title': "球探的差事",
@@ -179,7 +179,7 @@ return d(q,s)?{'fame':0xa,'money':0x28,'text':"你去跑商业活动，穿得体
   ]
 },
 
-// ---- idx:187 | vet_test | 告别赛 ----
+// ---- idx:185 | vet_test | 告别赛 ----
 {
   'id': "vet_test"+"imonial",
   'title': "告别赛",
@@ -208,7 +208,7 @@ return{'clean':0x6,'fame':-0x4,'text':"最后一场哨响，你自己走到中�
   ]
 },
 
-// ---- idx:188 | vet_drop | 往下走一级 ----
+// ---- idx:186 | vet_drop | 往下走一级 ----
 {
   'id': "vet_drop"+"_league",
   'title': "往下走一级",
@@ -237,7 +237,7 @@ return d(q,s)?{'roleDelta':-0x1,'text':"三月份，一支保级队伤了人，�
   ]
 },
 
-// ---- idx:189 | vet_medi | 体检没过 ----
+// ---- idx:187 | vet_medi | 体检没过 ----
 {
   'id': "vet_medi"+"cal_fail",
   'title': "体检没过",
@@ -267,7 +267,7 @@ return{'leave':!0x0,'ovr':-0x2,'money':-0x1e,'text':"一支低一级的球队，
   ]
 },
 
-// ---- idx:190 | vet_comm | 解说席的邀请 ----
+// ---- idx:188 | vet_comm | 解说席的邀请 ----
 {
   'id': "vet_comm"+"entary",
   'title': "解说席的邀请",
@@ -293,7 +293,7 @@ return{'text':"你说自己还在踢，不合适。电视台转头，找了个�
   ]
 },
 
-// ---- idx:191 | vet_acad | 合伙办个班 ----
+// ---- idx:189 | vet_acad | 合伙办个班 ----
 {
   'id': "vet_acad"+"emy",
   'title': "合伙办个班",
@@ -336,7 +336,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   ]
 },
 
-// ---- idx:298 | vet_wall | 撞上体能墙 ----
+// ---- idx:296 | vet_wall | 撞上体能墙 ----
 {
   'id': "vet_wall",
   'title': "撞上体能墙",
@@ -361,7 +361,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   ]
 },
 
-// ---- idx:299 | vet_mentor | 把绝活传下去 ----
+// ---- idx:297 | vet_mentor | 把绝活传下去 ----
 {
   'id': "vet_mentor",
   'title': "把绝活传下去",
@@ -385,7 +385,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   ]
 },
 
-// ---- idx:300 | vet_planning | 退役后的路 ----
+// ---- idx:298 | vet_planning | 退役后的路 ----
 {
   'id': "vet_planning",
   'title': "退役后的路",
@@ -415,7 +415,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   ]
 },
 
-// ---- idx:301 | vet_swan | 最后一舞 ----
+// ---- idx:299 | vet_swan | 最后一舞 ----
 {
   'id': "vet_swan",
   'title': "最后一舞",
@@ -439,7 +439,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   ]
 },
 
-// ---- idx:302 | vet_benchwarmer | 年轻人的替补 ----
+// ---- idx:300 | vet_benchwarmer | 年轻人的替补 ----
 {
   'id': "vet_benchwarmer",
   'title': "年轻人的替补",

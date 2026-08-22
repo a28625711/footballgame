@@ -2,7 +2,7 @@
 
 var EVT_star=[
 
-// ---- idx:217 | star_mar | ? ----
+// ---- idx:215 | star_mar | ? ----
 {
   'id': "star_mar"+"ker",
   'title': '对位',
@@ -36,7 +36,7 @@ return{'fame':0x2,'guanxi':0x4,'text':"你始终和他保持两米，把他往�
   ]
 },
 
-// ---- idx:218 | star_def | 他这一侧 ----
+// ---- idx:216 | star_def | 他这一侧 ----
 {
   'id': "star_def"+"_side",
   'title': "他这一侧",
@@ -70,7 +70,7 @@ return{'guanxi':0x8,'fame':0x2,'text':"你每次给他留出外侧，逼他往�
   ]
 },
 
-// ---- idx:219 | star_pen | 点球点上的那个人 ----
+// ---- idx:217 | star_pen | 点球点上的那个人 ----
 {
   'id': "star_pen"+"_save",
   'title': "点球点上的那个人",
@@ -110,7 +110,7 @@ return d(q,s)?{'ovr':0x4,'fame':0x22,'roleDelta':0x1,'text':"你站在门线中�
   ]
 },
 
-// ---- idx:220 | star_mid | 中圈那一圈 ----
+// ---- idx:218 | star_mid | 中圈那一圈 ----
 {
   'id': "star_mid"+"field",
   'title': "中圈那一圈",
@@ -144,7 +144,7 @@ return{'ovr':0x1,'text':"你不再单独追他，只守住身前那一块。他�
   ]
 },
 
-// ---- idx:221 | star_mid | 绞肉机 ----
+// ---- idx:219 | star_mid | 绞肉机 ----
 {
   'id': "star_mid"+"_rodri",
   'title': "绞肉机",
@@ -178,7 +178,7 @@ return{'ovr':0x1,'text':"你退到两名中卫身前，他出球七十九次，�
   ]
 },
 
-// ---- idx:222 | star_mid | 那脚直塞 ----
+// ---- idx:220 | star_mid | 那脚直塞 ----
 {
   'id': "star_mid"+"_kevin",
   'title': "那脚直塞",
@@ -212,7 +212,7 @@ return{'guanxi':0xa,'ovr':0x1,'text':"你整场贴着他最习惯的接球位，
   ]
 },
 
-// ---- idx:223 | star_str | 另一头那个九号 ----
+// ---- idx:221 | star_str | 另一头那个九号 ----
 {
   'id': "star_str"+"iker",
   'title': "另一头那个九号",
@@ -246,7 +246,7 @@ return{'ovr':0x1,'guanxi':0x8,'text':"你回撤了很多，跑了十一公里，
   ]
 },
 
-// ---- idx:224 | star_att | 他起步的那一下 ----
+// ---- idx:222 | star_att | 他起步的那一下 ----
 {
   'id': "star_att"+"_kylian",
   'title': "他起步的那一下",
@@ -280,7 +280,7 @@ return{'fame':0x2,'guanxi':0x6,'text':"你只贴他两步，第三步就回中�
   ]
 },
 
-// ---- idx:225 | star_att | 他背身那一块 ----
+// ---- idx:223 | star_att | 他背身那一块 ----
 {
   'id': "star_att"+"_kane",
   'title': "他背身那一块",
@@ -314,7 +314,7 @@ return{'clean':0x4,'ovr':0x1,'text':"你整场站在他身前，他拿到球的�
   ]
 },
 
-// ---- idx:226 | star_tea | 更衣室里那个位置 ----
+// ---- idx:224 | star_tea | 更衣室里那个位置 ----
 {
   'id': "star_tea"+"mmate",
   'title': "更衣室里那个位置",
@@ -342,7 +342,7 @@ return{'roleDelta':-0x1,'guanxi':0xe,'clean':0x4,'text':"你主动改踢另一�
   ]
 },
 
-// ---- idx:227 | star_shi | 赛后换球衣 ----
+// ---- idx:225 | star_shi | 赛后换球衣 ----
 {
   'id': "star_shi"+'rt',
   'title': "赛后换球衣",
@@ -370,7 +370,7 @@ return{'clean':0x6,'ovr':0x1,'text':"你没有去。更衣室里，你把自己�
   ]
 },
 
-// ---- idx:228 | star_pre | 记者的那个问题 ----
+// ---- idx:226 | star_pre | 记者的那个问题 ----
 {
   'id': "star_pre"+'ss',
   'title': "记者的那个问题",
@@ -404,7 +404,7 @@ return d(q,s)?{'fame':0x1a,'guanxi':0x4,'ovr':0x1,'text':"话一说完，全场�
   ]
 },
 
-// ---- idx:229 | star_tra | 训练课上的一对一 ----
+// ---- idx:227 | star_tra | 训练课上的一对一 ----
 {
   'id': "star_tra"+"ining",
   'title': "训练课上的一对一",
@@ -438,7 +438,7 @@ return{'ovr':0x1,'text':"你跑完了教练要求的每一米，一次多余的�
   ]
 },
 
-// ---- idx:230 | star_ucl | 欧冠淘汰赛的那两 ----
+// ---- idx:228 | star_ucl | 欧冠淘汰赛的那两 ----
 {
   'id': "star_ucl",
   'title': "欧冠淘汰赛的那两"+'回合',
@@ -472,7 +472,7 @@ return{'fame':0x8,'guanxi':0x6,'text':"你守住了自己那块，球队总比�
   ]
 },
 
-// ---- idx:231 | star_sau | 沙漠里的那些名字 ----
+// ---- idx:229 | star_sau | 沙漠里的那些名字 ----
 {
   'id': "star_sau"+'di',
   'title': "沙漠里的那些名字",
@@ -506,7 +506,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
   ]
 },
 
-// ---- idx:306 | star_training2 | 大师的中场课 ----
+// ---- idx:304 | star_training2 | 大师的中场课 ----
 {
   'id': "star_training2",
   'title': "大师的中场课",
@@ -529,7 +529,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
   ]
 },
 
-// ---- idx:307 | star_training3 | 门前的最后一课 ----
+// ---- idx:305 | star_training3 | 门前的最后一课 ----
 {
   'id': "star_training3",
   'title': "门前的最后一课",
