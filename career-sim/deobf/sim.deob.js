@@ -358,10 +358,10 @@ if(ctr>cmr)cmr=ctr;
 }}for(dcx=0;
 dcx<a0["TEAMS"]["length"];
 dcx++){if(a0["TEAMS"][dcx]["league"]===by['id']&&a0["TEAMS"][dcx]["rep"]===cmr)ctn++;
-}ca=("league"===c9?(0.5+0.04*(ctn-1)):0.35)/ctn;
+}ca=("league"===c9?(0.5+0.04*(ctn-1)):0.22)/ctn;
 ca*=1+Math["max"](0,a2["ovr"]-0x50)*0.06;
-if("league"===c9)ca*=Math["pow"](bx["rep"]/cmr,0x2);
-if("cup"===c9&&!by["cont"])ca*=0.2;
+if("league"===c9||"cup"===c9)ca*=Math["pow"](bx["rep"]/cmr,0x2);
+if("cup"===c9&&ca>0.3)ca=0.3;
 }if(("cont"!==c9||by["cont"])&&("cont"===c9&&(ca*='亚冠'===by["cont"]?2.5:'欧联'===by["cont"]?1.4:0.7),a2["cheat"]&&(ca="cont"!==c9||(function(){
 for(var cc=0x0;
 cc<a2["trophies"]["length"];
@@ -441,12 +441,12 @@ return!0x1;
 }()||function(){
 for(var cF=0x0;cF<a2["trophies"]["length"];cF++)if(a2["trophies"][cF]["age"]===age0&&/世界杯冠军/["test"](a2["trophies"][cF]["name"]))return!0x0;
 return!0x1;
-}())&&bz["apps"]>=0x13&&(function(){var eT=0x0,eB=0x0,eCnt=0x0,eC;
+}())&&bz["apps"]>=0x13&&(function(){var eT=0x0,eB=0x0,eCnt=0x0,eC,tAsia=!1;
 for(eC=0;eC<a2["trophies"]["length"];eC++){var eD=a2["trophies"][eC];
 if(eD["age"]===age0){var eF=0x0;
-if(/世界杯冠军/["test"](eD["name"]))eF=0.55;else if(/欧冠/["test"](eD["name"]))eF=0.2;else if(/世俱杯冠军/["test"](eD["name"]))eF=0.06;else if(/亚洲杯冠军/["test"](eD["name"]))eF=0.03;else if(eD["name"]===by["name"]+'冠军')eF=by["rep"]>=0x5?0.09:by["rep"]>=0x4?0.06:0x0;else if(by["rep"]>=0x4&&eD["name"]===by["cup"]+'冠军')eF=0.03;
+if(/世界杯冠军/["test"](eD["name"]))eF=0.55;else if(/欧冠/["test"](eD["name"]))eF=0.2;else if(/世俱杯冠军/["test"](eD["name"]))eF=0.06;else if(eD["name"]==='亚洲杯冠军'){tAsia=!0x0;}else if(eD["name"]===by["name"]+'冠军')eF=by["rep"]>=0x5?0.07:by["rep"]>=0x4?0.04:0x0;else if(by["rep"]>=0x4&&eD["name"]===by["cup"]+'冠军')eF=0.03;
 if(eF>0x0){if(eF>eT)eT=eF;eB+=eF,eCnt++;}}}
-var eMain=eT+Math["min"](0.25,(eCnt-0x1)*0.08);
+var eMain=eT+Math["min"](0.25,(eCnt-0x1)*0.08);if(eCnt===0)eMain=tAsia?-1:0;
 var boots=0x0,bG2;
 for(bG2=0;bG2<a2["awards"]["length"];bG2++){var aX2=a2["awards"][bG2];
 if(aX2["age"]===age0&&aX2["name"]===by["name"]+"金靴")boots+=0.02;
