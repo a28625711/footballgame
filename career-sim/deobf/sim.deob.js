@@ -467,11 +467,7 @@ return a2["period"]={'n':a3[a2["mode"]]["seasons"],'left':a3[a2["mode"]]["season
 for(var bx=a2["period"];
 bx["left"]>0x0&&a2["age"]<0x37;
 )if(bx["recs"]["push"](b2()),bx["left"]--,a2["roleAdju"+'st']=a2["roleAdju"+'st']>0x0?Math["floor"](a2["roleAdju"+'st']/0x2):Math["ceil"](a2["roleAdju"+'st']/0x2),
-a2["role"]=aH(),function(){var bT2=ar();
-if(bT2&&_dby[bT2['id']]&&ad()<0.12){var bU3=_dby[bT2['id']]["filter"](function(bV3){return aj(bV3)&&aj(bV3)["league"]===bT2["league"];});
-if(bU3["length"]){var bW3=bU3[Math["floor"](ad()*bU3["length"])],bX3=aj(bW3[0x0]);
-aV('derby',0.5,{'comp':bW3[0x1],'opp':bX3?bX3["name"]:''});}}}(),
-a2["bigQ"]&&a2["bigQ"]["length"])return aW(),null;
+a2["role"]=aH(),a2["bigQ"]&&a2["bigQ"]["length"])return aW(),null;
 return(function(){var by=a2["period"],bz=by['n'],bA=by["recs"];
 return a2["period"]=null,a2["pendingM"+"ult"]=null,a2["clean"]=ac(a2["clean"]-(au()?2.2:0.6)*bz,0x0,0x64),a2["fame"]=ac(a2["fame"]-(a6('pr')?0.35:1.5)*bz,
 0x0,0x64),a2["guanxi"]=ac(a2["guanxi"]+(au()?1.6:0.5)*bz,0x0,0x64),a2["contract"+"Left"]>0x0&&a2["contract"+"Left"]--,a2["lockAbro"+'ad']>0x0&&a2["lockAbro"+'ad']--,
@@ -621,6 +617,9 @@ bE['cn']&&(a2["flags"]["_cnCount"]=(a2["flags"]["_cnCount"]||0x0)+0x1),void(a2["
 }return bl();
 }function bl(){
 a2["flags"]["_double"]=!0x1;
+if(a2["teamId"]&&_dby[a2["teamId"]]&&!a2["flags"]["_derbyDo"+'ne']){
+var dV2=_dby[a2["teamId"]]["filter"](function(dW2){return aj(dW2[0x0])&&aj(dW2[0x0])["league"]===ar()["league"];});
+if(dV2["length"]){var dY2=dV2[Math["floor"](ad()*dV2["length"])],dZ2=aj(dY2[0x0]);a2["flags"]["_derbyDo"+'ne']=!0x0;aV("derby",0.5,{"comp":dY2[0x1],"opp":dZ2?dZ2["name"]:''});}}
 var bx=b6();
 bx&&(a2["pending"]={'type':"report",'recs':bx});
 }function bm(){var bx,by=bp(a2["originId"])["guanxi"]>=0x12?0x3:0x2,bz=bg(),bA=[],bB={};
