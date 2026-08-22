@@ -9,7 +9,7 @@ var EVT_aca=[
   'icon': '🪑',
   'weight': 0x3a,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -39,7 +39,7 @@ return{'ovr':0x1,'guanxi':0x8,'text':"合练那天你拼得最凶。一线队助
   'icon': '✒️',
   'weight': 0x38,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -72,7 +72,7 @@ return d(q,s)?{'ovr':0x2,'guanxi':0x6,'text':"他给你看了评估表：三项�
   'icon': '🔁',
   'weight': 0x36,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -229,7 +229,7 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你托人问了几家低级别球队。�
   'icon': '🌃',
   'weight': 0x34,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y']&&!p["inChina"];
 },
@@ -288,7 +288,7 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"你去了邻国的二级联赛，那边�
   'icon': '🧊',
   'weight': 0x34,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y']&&p["inChina"];
 },

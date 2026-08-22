@@ -103,7 +103,7 @@ return{'clean':0x6,'fame':0x4,'text':"你踉跄两步，没倒，球也没了。
   'icon': '⚪',
   'weight': 0x30,
   'when': function(p){
-return "att"===p["posGroup"];
+return "att"===p["posGroup"]&&p["_captain"]!==p["teamId"];
 },
   'desc': "队里的点球一直归队长。这赛季他罚丢两个，更衣室里开始有人议论。",
   'options': [

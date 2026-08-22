@@ -3545,7 +3545,7 @@ return{'clean':0x6,'fame':0x4,'text':"你踉跄两步，没倒，球也没了。
   'icon': '⚪',
   'weight': 0x30,
   'when': function(p){
-return "att"===p["posGroup"];
+return "att"===p["posGroup"]&&p["_captain"]!==p["teamId"];
 },
   'desc': "队里的点球一直归队长。这赛季他罚丢两个，更衣室里开始有人议论。",
   'options': [
@@ -4290,7 +4290,7 @@ return{'ovr':0x1,'guanxi':0x6,'text':"你留下了。整整一年，你坐在替
   'icon': "🛏️",
   'weight': 0x37,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -4539,7 +4539,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'icon': '🪑',
   'weight': 0x3a,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -4568,7 +4568,7 @@ return{'ovr':0x1,'guanxi':0x8,'text':"合练那天你拼得最凶。一线队助
   'icon': '✒️',
   'weight': 0x38,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -4600,7 +4600,7 @@ return d(q,s)?{'ovr':0x2,'guanxi':0x6,'text':"他给你看了评估表：三项�
   'icon': '🔁',
   'weight': 0x36,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -4752,7 +4752,7 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你托人问了几家低级别球队。�
   'icon': '🌃',
   'weight': 0x34,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y']&&!p["inChina"];
 },
@@ -4809,7 +4809,7 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"你去了邻国的二级联赛，那边�
   'icon': '🧊',
   'weight': 0x34,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y']&&p["inChina"];
 },
@@ -8045,7 +8045,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "熄灯后的球场",
   'icon': '🌙',
   'weight': 0x34,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8074,7 +8074,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "高手的慢动作",
   'icon': '🎬',
   'weight': 0x30,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8104,7 +8104,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "睡前颠球",
   'icon': '⚽',
   'weight': 0x2e,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8133,7 +8133,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "基本功补课",
   'icon': '🦶',
   'weight': 0x38,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8162,7 +8162,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "雨后的球场",
   'icon': '🌧️',
   'weight': 0x34,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8191,7 +8191,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "转身那一课",
   'icon': '🔄',
   'weight': 0x36,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8220,7 +8220,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "熄灯以后的烟火",
   'icon': '🚬',
   'weight': 0x32,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8252,7 +8252,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "一个人练到天黑",
   'icon': '🌆',
   'weight': 0x32,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -8451,7 +8451,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "语言关",
   'icon': '\u{1F5E3}\u{FE0F}',
   'weight': 0x36,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "训练里教练喊的葡语/西语你只听懂了一半。战术板上画得再清楚，喊话那一下你还是慢半拍。",
@@ -8475,7 +8475,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "技术流训练",
   'icon': '\u{1F3AF}',
   'weight': 0x34,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "这里的青训课和你原来踢的不一样：一个人一趟球要过十几次桩，教练不催，只看动作对不对。",
@@ -8499,7 +8499,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "异国体能营",
   'icon': '\u{1F4AA}',
   'weight': 0x2e,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "这儿的体能教练对力量有一套：不是蛮练，是算着肌肉和爆发力来。他看着你的报告摇头：「太瘦了，但能练。」",
@@ -8547,7 +8547,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "想家",
   'icon': '\u{1F3E1}',
   'weight': 0x2a,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "半夜醒来看手机，家里那边正是下午。妈妈的语音一条条发来，你躺在宿舍床上，突然不想动了。",
@@ -8571,7 +8571,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'title': "新战术体系",
   'icon': '\u{1F4D0}',
   'weight': 0x2e,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "这里的打法跟你原来完全不一样：从后场就开始倒脚，前场球员要回撤接球。你踢了几天，觉得自己像个多余的人。",
@@ -9340,7 +9340,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 
 {'id':"tier_super_heir",'title':"你的继承人",'icon':'🧒','weight':0x3e,'when':function(p){return p["ovr"]>=0x5a&&p["age"]>=0x1c;},'desc':"俱乐部开放日，一个青训小孩攥着你的球衣找你签名，说他是看你比赛长大的。你愣了一下——原来你已经到了被人当作「起点」的年纪。",'options':[{'label':"认真当这个偶像",'p':function(p){return f(0.7,[[p["guanxi"],45,0.008]],0.4,0.92);},'hint':function(p,q){return g(q,"薪火相传","偶像包袱");},'apply':function(p,q,s){return d(q,s)?{'fame':0x8,'guanxi':0x6,'ovr':0x1,'text':"之后每个开放日你都提前一小时到，教那孩子停球。两年后他在预备队戴上了队长袖标，接受采访第一句是：感谢那个没糊弄我的人。"}:{'fame':-0x3,'text':"你随口签了名就走了。后来在报纸上看到他说「现实中的他和电视上不一样」。你盯着那行字看了很久，说不上是什么感觉。"};}},{'label':"把压力讲给他听",'hint':"真诚，关系+",'apply':function(){return{'guanxi':0xa,'text':"你没签名，而是坐下来跟他聊了半小时：这条路有多苦，多少天才半路消失。小孩走的时候眼睛发亮。你忽然明白，真正的传承不是签名，是把真话说给他听。"};}}]},
 
-{'id':"tier_main_voice",'title':"更衣室的分量",'icon':'🗣','weight':0x40,'when':function(p){return p["ovr"]>=0x50&&p["ovr"]<0x5a&&p["roleRank"]>=0x3;},'desc':"一个年轻队友训练迟到、比赛隐身，老队长让你去找他谈谈——「你现在说话，有人听了。」你才意识到，自己在更衣室里的座位，已经换到中间那一排了。",'options':[{'label':"推心置腹地谈",'p':function(p){return f(0.68,[[p["guanxi"],45,0.008]],0.38,0.92);},'hint':function(p,q){return g(q,"敲醒了","谈崩了");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0x6,'text':"你没讲大道理，只问了一句：你还记得为什么开始踢球吗。他沉默了很久。第二周训练，他第一个到场。队长冲你挑了挑眉——这支球队的一半，现在交给你了。"}:{'guanxi':-0x2,'text':"他当场翻了脸：轮得到你管我？更衣室的气氛僵了一周。你学到一件事：说话的分量不在于敢不敢，而在于别人服不服。"};}},{'label':"只管好自己",'hint':"明哲保身",'apply':function(){return{'clean':0x3,'guanxi':-0x2,'text':"你婉拒了：我还想再多踢几年球。队长笑笑没勉强。那天之后你发现，中间那排的座位，好像也没那么稳。"};}}]},
+{'id':"tier_main_voice",'title':"更衣室的分量",'icon':'🗣','weight':0x40,'when':function(p){return p["ovr"]>=0x50&&p["ovr"]<0x5a&&p["roleRank"]>=0x3&&p["_captain"]!==p["teamId"];},'desc':"一个年轻队友训练迟到、比赛隐身，老队长让你去找他谈谈——「你现在说话，有人听了。」你才意识到，自己在更衣室里的座位，已经换到中间那一排了。",'options':[{'label':"推心置腹地谈",'p':function(p){return f(0.68,[[p["guanxi"],45,0.008]],0.38,0.92);},'hint':function(p,q){return g(q,"敲醒了","谈崩了");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0x6,'text':"你没讲大道理，只问了一句：你还记得为什么开始踢球吗。他沉默了很久。第二周训练，他第一个到场。队长冲你挑了挑眉——这支球队的一半，现在交给你了。"}:{'guanxi':-0x2,'text':"他当场翻了脸：轮得到你管我？更衣室的气氛僵了一周。你学到一件事：说话的分量不在于敢不敢，而在于别人服不服。"};}},{'label':"只管好自己",'hint':"明哲保身",'apply':function(){return{'clean':0x3,'guanxi':-0x2,'text':"你婉拒了：我还想再多踢几年球。队长笑笑没勉强。那天之后你发现，中间那排的座位，好像也没那么稳。"};}}]},
 
 {'id':"tier_main_ceiling",'title':"天花板之问",'icon':'🧱','weight':0x3e,'when':function(p){return p["ovr"]>=0x50&&p["ovr"]<0x5a;},'desc':"专栏文章把你排进「联赛十大令人失望球员」候选，理由是：天赋肉眼可见，进步却停在了两年前。第二天教练把你叫进办公室，桌上放着你的体测报告。",'options':[{'label':"直面瓶颈，加练突破",'p':function(p){return f(0.55,[[p["talent"],1,0.3]],0.25,0.85);},'hint':function(p,q){return g(q,"捅破窗户纸","原地踏步");},'apply':function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x4,'text':"你和教练一起重看了两年的比赛录像，找到了那个被忽略的坏习惯。改掉它的第四场，你打进赛季最佳进球。那篇专栏作者发了条道歉动态。"}:{'ovr':-0x1,'text':"你加练了，很苦，但赛季结束数据几乎没变。有些墙撞不开，可能真的需要换个姿势——或者换堵墙。"};}},{'label':"接受现在的自己",'hint':"心态平稳",'apply':function(){return{'guanxi':0x5,'text':"你对教练说：我知道自己几斤几两，把我放在合适的位置，我能踢得很稳。之后的十场比赛你零失误。稳定，也是一种没人夸但人人需要的品质。"};}}]},
 
@@ -9350,7 +9350,19 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 
 {'id':"tier_low_bench",'title':"陪练的日子",'icon':'🪑','weight':0x42,'when':function(p){return p["ovr"]<0x46&&p["roleRank"]<=0x1;},'desc':"联赛过半，你的出场时间定格在补时阶段的两分钟。训练场上你要假装是对面的哈兰德供主力们演练，训练结束还要留下来帮装备师收球。",'options':[{'label':"把陪练当事业干",'p':function(p){return f(0.6,[[p["guanxi"],45,0.008]],0.3,0.9);},'hint':function(p,q){return g(q,"等到机会","继续等待");},'apply':function(p,q,s){return d(q,s)?{'ovr':0x2,'guanxi':0x8,'text':"你的模拟逼真到主力们开始点名要你来当假想敌。第十九轮，主力前锋流感，你顶上去进了制胜球。赛后主教练搂着你：看吧，我一直说训练场上的你就是这个水平。"}:{'ovr':-0x1,'guanxi':0x4,'text':"机会始终没来。但装备师逢人就夸你是全队最勤的人，预备队的小孩都喊你哥。有些价值记分牌上看不见，但更衣室里人人心里有数。"};}},{'label':"申请外租寻找出路",'hint':"主动求变",'apply':function(){return{'ovr':0x2,'guanxi':-0x3,'text':"你和教练摊牌：再这样下去我会废掉的。俱乐部最终同意冬窗听报价。未知是可怕的，但比未知更可怕的是一眼望到头的替补席。"};}}]},
 
-{'id':"tier_low_king",'title':"小城之王",'icon':'👑','weight':0x44,'when':function(p){return p["ovr"]<0x46&&p["roleRank"]>=0x3&&p["clubRep"]<=0x2;},'desc':"这家小俱乐部的实力撑不起顶级联赛，但这里是你的王国：全队进攻从你这发起，看台上两千名球迷喊着你的名字。大城市的球场再豪华，也没有这里的一声「我们的10号」好听。",'options':[{'label':"守护这座小城",'p':function(p){return f(0.7,[[p["guanxi"],40,0.01]],0.4,0.92);},'hint':function(p,q){return g(q,"传奇延续","英雄迟暮");},'apply':function(p,q,s){return d(q,s)?{'fame':0x6,'guanxi':0xa,'ovr':0x2,'text':"赛季末你拒绝了仅有的那份高一级联赛报价，俱乐部主席激动得语无伦次。第二年你带队升上了更高的舞台，全城的报纸头版只有一个标题：他留下了。"}:{'ovr':-0x2,'guanxi':0x3,'text':"岁月不饶人，你的速度一年不如一年。年轻人开始越过你拿球，看台上的呼声也换了名字。你在更衣室坐了很久——王朝更替，古来如此。"};}},{'label':"带队冲击升级",'hint':"豪赌一把",'apply':function(){return{'ovr':0x2,'fame':0x6,'text':"你召集全队立军令状：今年必须升级。过程跌跌撞撞，最终倒在附加赛点球大战。但你罚进了本队的每一个点球。看台横幅写着：明年再来，我们等你。"};}}]}
+{'id':"tier_low_king",'title':"小城之王",'icon':'👑','weight':0x44,'when':function(p){return p["ovr"]<0x46&&p["roleRank"]>=0x3&&p["clubRep"]<=0x2;},'desc':"这家小俱乐部的实力撑不起顶级联赛，但这里是你的王国：全队进攻从你这发起，看台上两千名球迷喊着你的名字。大城市的球场再豪华，也没有这里的一声「我们的10号」好听。",'options':[{'label':"守护这座小城",'p':function(p){return f(0.7,[[p["guanxi"],40,0.01]],0.4,0.92);},'hint':function(p,q){return g(q,"传奇延续","英雄迟暮");},'apply':function(p,q,s){return d(q,s)?{'fame':0x6,'guanxi':0xa,'ovr':0x2,'text':"赛季末你拒绝了仅有的那份高一级联赛报价，俱乐部主席激动得语无伦次。第二年你带队升上了更高的舞台，全城的报纸头版只有一个标题：他留下了。"}:{'ovr':-0x2,'guanxi':0x3,'text':"岁月不饶人，你的速度一年不如一年。年轻人开始越过你拿球，看台上的呼声也换了名字。你在更衣室坐了很久——王朝更替，古来如此。"};}},{'label':"带队冲击升级",'hint':"豪赌一把",'apply':function(){return{'ovr':0x2,'fame':0x6,'text':"你召集全队立军令状：今年必须升级。过程跌跌撞撞，最终倒在附加赛点球大战。但你罚进了本队的每一个点球。看台横幅写着：明年再来，我们等你。"};}}]},
+
+{'id':"abr_nat_es",'title':"抢圈是这里的一切",'icon':'🔵','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&'ES'===p["country"];},'desc':"每天训练的第一个科目永远是抢圈：六个人围一圈，两个人在中间追。教练说，在这块土地上，抢圈丢球的人不配谈战术。",'options':[{'label':"把两脚出球练到极致",'p':function(p){return f(0.65,[[p["talent"],1,0.3]],0.35,0.92);},'hint':function(p,q){return g(q,"融进了血液","被晾在圈里");},'apply':function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"三个月后，你成了圈里坚持最久的那个人。队友开始学你接球前的那半步移动。教练只说了一句：现在你像个西班牙球员了。"}:{'ovr':-0x1,'text':"你总想多带一步。每次丢球，全组罚跑，你的名字成了口令。晚上你加练对墙传接，墙皮都踢掉了一块。"};}},{'label':"观察他们怎么思考",'hint':"学意识",'apply':function(){return{'ovr':0x1,'text':"你不急着触球，先看：他们的身体永远朝向下一个传球点。这个细节你记了满满一本笔记。"};}}]},
+
+{'id':"abr_nat_de",'title':"双轨制的下午",'icon':'📚','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='DE';},'desc':"上午在俱乐部训练，下午要去合作中学上课，一门都不能挂。德国人说：青训不是造机器，是要造完整的人——虽然他们说这话时你刚跑完十二分钟折返。",'options':[{'label':"两头都不放松",'p':function(p){return f(0.6,[[p["clean"],60,0.005]],0.3,0.9);},'hint':function(p,q){return g(q,"德式全能","顾此失彼");},'apply':function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"期末考你过了全部科目，体测数据排梯队前三。德国教练在评语里写了一个词：verlässlich——可靠。他说这个词比天赋值钱。"}:{'ovr':-0x1,'text':"德语语法和战术板在你脑子里搅成一团。月考挂了两门，俱乐部约谈了你和你监护人：学业不达标，注册会被暂停。"};}},{'label':"专注训练这一头",'hint':"风险与回报",'apply':function(){return{'ovr':0x2,'text':"你跟文化课老师摊牌：我的人生在球场上。她叹了口气，给你划了最低限度的复习范围。你压线过了——然后把自己扔进了力量房。"};}}]},
+
+{'id':"abr_nat_en",'title':"看台上的陌生人",'icon':'📋','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='EN';},'desc':"英甲球队 U18 联赛的周六早晨，场边站满了人：家长、球探、还有一个端着热茶不停做笔记的老头。领队说：这里的每一场青年队比赛，都有二十双职业的眼睛。",'options':[{'label':"把对抗拉满给他们看",'p':function(p){return f(0.58,[[p["ovr"],0x46,0.01]],0.28,0.88);},'hint':function(p,q){return g(q,"名单上有你了","差一口气");},'apply':function(p,q,s){return d(q,s)?{'fame':0x8,'ovr':0x2,'text':"你在雨里赢下了七次一对一，还造了一张红牌。周一，那个做笔记的老头出现在了一线队训练基地的前台。领队冲你扬了扬下巴：有人问你的名字了。"}:{'ovr':-0x1,'text':"英国孩子的身体对抗像橄榄球。你摔了无数次，数据栏一片空白。回程大巴上领队递给你一块巧克力：在这里，硬汉比天才先吃上饭。"};}},{'label':"用技术说话",'hint':"另一条路",'apply':function(){return{'ovr':0x1,'fame':0x4,'text':"你避开了所有硬碰硬，用两次转身过人和一脚贴地斩上了本地报纸的青年版。标题写着：这个东方孩子有点东西。"};}}]},
+
+{'id':"abr_nat_jp",'title':"练习结束之后",'icon':'🧹','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='JP';},'desc':"训练结束，没有一个人走。全队排成一列捡拾球场上的草屑和落叶，连主力前锋都在弯腰拔草。部长级的前辈路过你身边，轻轻说了一句：球场记得每一个善待它的人。",'options':[{'label':"拿起工具一起干",'p':function(p){return f(0.75,[[p["guanxi"],40,0.008]],0.45,0.94);},'hint':function(p,q){return g(q,"被接纳了","笨手笨脚");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0xa,'text':"你把捡草屑也做出了标准动作，前辈们相视一笑。周末的合宿名单上第一次出现了你的名字。在日本，被邀请参加合宿意味着：你已经是「自己人」了。"}:{'guanxi':-0x2,'text':"你分不清哪种耙子收拾哪种草，越帮越乱。前辈没说什么，只是默默把你那片重新弄了一遍。当晚你对着手机翻译软件查了一小时「球场养护」。"};}},{'label':"主动申请打扫更衣室",'hint':"诚意拉满",'apply':function(){return{'guanxi':0xc,'ovr':0x1,'text':"你承包了更衣室的清洁。一个月后，队长把一个旧臂章放在你的柜子上：这是队里给最认真的人的传统。"};}}]},
+
+{'id':"abr_nat_kr",'title':"队内序列",'icon':'🎒','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='KR';},'desc':"韩国梯队的规矩写在看不见的地方：吃饭时按年级坐，训练后低年级要帮高年级背包、收拾装备。你是队里唯一的插班生，也是年纪最小的——所有人都等着看你懂不懂事。",'options':[{'label':"入乡随俗",'p':function(p){return f(0.72,[[p["guanxi"],40,0.008]],0.42,0.93);},'hint':function(p,q){return g(q,"序列认可","忍出内伤");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0xa,'text':"你背了一个月的包，帮了两周的水壶。直到某天训练赛，你过了他们的国脚级中卫——从那天起，前辈们改口叫你「弟弟」的时候带了笑。序列还在，但位置变了。"}:{'guanxi':-0x3,'text':"你背着包摔了一跤，装备散了一地。前辈的脸色很不好看。那晚你想家想到失眠——但第二天，你还是第一个到场的。"};}},{'label':"用表现赢得尊重",'hint':"实力说话",'apply':function(){return{'ovr':0x2,'guanxi':-0x3,'text':"你拒绝了所有杂务：我是来踢球的。更衣室安静了几天。然后你在教学赛连过三人打进一球，前辈拍了拍你的头：好，那就用球说话吧。两种规矩，你选了另一种活法。"};}}]},
+
+{'id':"abr_nat_fr",'title':"十种语言的战术板",'icon':'🌍','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='FR';},'desc':"这支法国梯队的更衣室里，塞内加尔语、葡语、阿拉伯语和法语各占一角。战术讲解要翻译三遍。你说不好这是混乱还是宝藏，只知道这里的每个天才背后都有一段漂泊的故事。",'options':[{'label':"把每种语言都学一句",'p':function(p){return f(0.7,[[p["talent"],1,0.3]],0.4,0.92);},'hint':function(p,q){return g(q,"团宠诞生","闹了笑话");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0xa,'ovr':0x1,'text':"你学会了用四国语言喊「传给我」。训练场上笑声不断，但配合真的变好了。教练说：足球是最简单的世界语，而你是最好的翻译官。"}:{'guanxi':0x3,'text':"你的一句问候让整个更衣室笑翻了——后来才知道那是句玩笑话。不过没关系，笑完之后，大家记住了这个敢开口的东方人。"};}},{'label':"埋头苦练少说话",'hint':"稳",'apply':function(){return{'ovr':0x2,'text':"语言不通没关系，你的跑位就是语言。三场比赛五个进球之后，队友们开始主动找你配合。有些融入不需要开口。"};}}]}
 ];
 window["EVENTS"]=j;
 }());

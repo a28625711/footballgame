@@ -311,7 +311,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   'title': "语言关",
   'icon': '\u{1F5E3}\u{FE0F}',
   'weight': 0x36,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "训练里教练喊的葡语/西语你只听懂了一半。战术板上画得再清楚，喊话那一下你还是慢半拍。",
@@ -336,7 +336,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   'title': "技术流训练",
   'icon': '\u{1F3AF}',
   'weight': 0x34,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "这里的青训课和你原来踢的不一样：一个人一趟球要过十几次桩，教练不催，只看动作对不对。",
@@ -361,7 +361,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   'title': "异国体能营",
   'icon': '\u{1F4AA}',
   'weight': 0x2e,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "这儿的体能教练对力量有一套：不是蛮练，是算着肌肉和爆发力来。他看着你的报告摇头：「太瘦了，但能练。」",
@@ -411,7 +411,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   'title': "想家",
   'icon': '\u{1F3E1}',
   'weight': 0x2a,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "半夜醒来看手机，家里那边正是下午。妈妈的语音一条条发来，你躺在宿舍床上，突然不想动了。",
@@ -436,7 +436,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   'title': "新战术体系",
   'icon': '\u{1F4D0}',
   'weight': 0x2e,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "kid",
   'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
   'desc': "这里的打法跟你原来完全不一样：从后场就开始倒脚，前场球员要回撤接球。你踢了几天，觉得自己像个多余的人。",
@@ -555,4 +555,22 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   ]
 }
 
+,
+// ---- idx:333 | abr_nat_es | 拉玛西亚式的抢圈 ----
+{'id':"abr_nat_es",'title':"抢圈是这里的一切",'icon':'🔵','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&'ES'===p["country"];},'desc':"每天训练的第一个科目永远是抢圈：六个人围一圈，两个人在中间追。教练说，在这块土地上，抢圈丢球的人不配谈战术。",'options':[{'label':"把两脚出球练到极致",'p':function(p){return f(0.65,[[p["talent"],1,0.3]],0.35,0.92);},'hint':function(p,q){return g(q,"融进了血液","被晾在圈里");},'apply':function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"三个月后，你成了圈里坚持最久的那个人。队友开始学你接球前的那半步移动。教练只说了一句：现在你像个西班牙球员了。"}:{'ovr':-0x1,'text':"你总想多带一步。每次丢球，全组罚跑，你的名字成了口令。晚上你加练对墙传接，墙皮都踢掉了一块。"};}},{'label':"观察他们怎么思考",'hint':"学意识",'apply':function(){return{'ovr':0x1,'text':"你不急着触球，先看：他们的身体永远朝向下一个传球点。这个细节你记了满满一本笔记。"};}}]},
+
+// ---- idx:334 | abr_nat_de | 双轨制的下午 ----
+{'id':"abr_nat_de",'title':"双轨制的下午",'icon':'📚','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='DE';},'desc':"上午在俱乐部训练，下午要去合作中学上课，一门都不能挂。德国人说：青训不是造机器，是要造完整的人——虽然他们说这话时你刚跑完十二分钟折返。",'options':[{'label':"两头都不放松",'p':function(p){return f(0.6,[[p["clean"],60,0.005]],0.3,0.9);},'hint':function(p,q){return g(q,"德式全能","顾此失彼");},'apply':function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"期末考你过了全部科目，体测数据排梯队前三。德国教练在评语里写了一个词：verlässlich——可靠。他说这个词比天赋值钱。"}:{'ovr':-0x1,'text':"德语语法和战术板在你脑子里搅成一团。月考挂了两门，俱乐部约谈了你和你监护人：学业不达标，注册会被暂停。"};}},{'label':"专注训练这一头",'hint':"风险与回报",'apply':function(){return{'ovr':0x2,'text':"你跟文化课老师摊牌：我的人生在球场上。她叹了口气，给你划了最低限度的复习范围。你压线过了——然后把自己扔进了力量房。"};}}]},
+
+// ---- idx:335 | abr_nat_en | 周六的U18联赛 ----
+{'id':"abr_nat_en",'title':"看台上的陌生人",'icon':'📋','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='EN';},'desc':"英甲球队 U18 联赛的周六早晨，场边站满了人：家长、球探、还有一个端着热茶不停做笔记的老头。领队说：这里的每一场青年队比赛，都有二十双职业的眼睛。",'options':[{'label':"把对抗拉满给他们看",'p':function(p){return f(0.58,[[p["ovr"],0x46,0.01]],0.28,0.88);},'hint':function(p,q){return g(q,"名单上有你了","差一口气");},'apply':function(p,q,s){return d(q,s)?{'fame':0x8,'ovr':0x2,'text':"你在雨里赢下了七次一对一，还造了一张红牌。周一，那个做笔记的老头出现在了一线队训练基地的前台。领队冲你扬了扬下巴：有人问你的名字了。"}:{'ovr':-0x1,'text':"英国孩子的身体对抗像橄榄球。你摔了无数次，数据栏一片空白。回程大巴上领队递给你一块巧克力：在这里，硬汉比天才先吃上饭。"};}},{'label':"用技术说话",'hint':"另一条路",'apply':function(){return{'ovr':0x1,'fame':0x4,'text':"你避开了所有硬碰硬，用两次转身过人和一脚贴地斩上了本地报纸的青年版。标题写着：这个东方孩子有点东西。"};}}]},
+
+// ---- idx:336 | abr_nat_jp | 练习后的球场清扫 ----
+{'id':"abr_nat_jp",'title':"练习结束之后",'icon':'🧹','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='JP';},'desc':"训练结束，没有一个人走。全队排成一列捡拾球场上的草屑和落叶，连主力前锋都在弯腰拔草。部长级的前辈路过你身边，轻轻说了一句：球场记得每一个善待它的人。",'options':[{'label':"拿起工具一起干",'p':function(p){return f(0.75,[[p["guanxi"],40,0.008]],0.45,0.94);},'hint':function(p,q){return g(q,"被接纳了","笨手笨脚");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0xa,'text':"你把捡草屑也做出了标准动作，前辈们相视一笑。周末的合宿名单上第一次出现了你的名字。在日本，被邀请参加合宿意味着：你已经是「自己人」了。"}:{'guanxi':-0x2,'text':"你分不清哪种耙子收拾哪种草，越帮越乱。前辈没说什么，只是默默把你那片重新弄了一遍。当晚你对着手机翻译软件查了一小时「球场养护」。"};}},{'label':"主动申请打扫更衣室",'hint':"诚意拉满",'apply':function(){return{'guanxi':0xc,'ovr':0x1,'text':"你承包了更衣室的清洁。一个月后，队长把一个旧臂章放在你的柜子上：这是队里给最认真的人的传统。"};}}]},
+
+// ---- idx:337 | abr_nat_kr | 前辈的背包 ----
+{'id':"abr_nat_kr",'title':"队内序列",'icon':'🎒','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='KR';},'desc':"韩国梯队的规矩写在看不见的地方：吃饭时按年级坐，训练后低年级要帮高年级背包、收拾装备。你是队里唯一的插班生，也是年纪最小的——所有人都等着看你懂不懂事。",'options':[{'label':"入乡随俗",'p':function(p){return f(0.72,[[p["guanxi"],40,0.008]],0.42,0.93);},'hint':function(p,q){return g(q,"序列认可","忍出内伤");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0xa,'text':"你背了一个月的包，帮了两周的水壶。直到某天训练赛，你过了他们的国脚级中卫——从那天起，前辈们改口叫你「弟弟」的时候带了笑。序列还在，但位置变了。"}:{'guanxi':-0x3,'text':"你背着包摔了一跤，装备散了一地。前辈的脸色很不好看。那晚你想家想到失眠——但第二天，你还是第一个到场的。"};}},{'label':"用表现赢得尊重",'hint':"实力说话",'apply':function(){return{'ovr':0x2,'guanxi':-0x3,'text':"你拒绝了所有杂务：我是来踢球的。更衣室安静了几天。然后你在教学赛连过三人打进一球，前辈拍了拍你的头：好，那就用球说话吧。两种规矩，你选了另一种活法。"};}}]},
+
+// ---- idx:338 | abr_nat_fr | 克莱枫丹的更衣室 ----
+{'id':"abr_nat_fr",'title':"十种语言的战术板",'icon':'🌍','weight':0x30,'stage':"youth",'repeat':1,'when':function(p){return p["inAcadem"+'y']&&p["youthAbroad"]&&p["country"]==='FR';},'desc':"这支法国梯队的更衣室里，塞内加尔语、葡语、阿拉伯语和法语各占一角。战术讲解要翻译三遍。你说不好这是混乱还是宝藏，只知道这里的每个天才背后都有一段漂泊的故事。",'options':[{'label':"把每种语言都学一句",'p':function(p){return f(0.7,[[p["talent"],1,0.3]],0.4,0.92);},'hint':function(p,q){return g(q,"团宠诞生","闹了笑话");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0xa,'ovr':0x1,'text':"你学会了用四国语言喊「传给我」。训练场上笑声不断，但配合真的变好了。教练说：足球是最简单的世界语，而你是最好的翻译官。"}:{'guanxi':0x3,'text':"你的一句问候让整个更衣室笑翻了——后来才知道那是句玩笑话。不过没关系，笑完之后，大家记住了这个敢开口的东方人。"};}},{'label':"埋头苦练少说话",'hint':"稳",'apply':function(){return{'ovr':0x2,'text':"语言不通没关系，你的跑位就是语言。三场比赛五个进球之后，队友们开始主动找你配合。有些融入不需要开口。"};}}]}
 ];

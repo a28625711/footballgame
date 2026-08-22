@@ -449,7 +449,7 @@ if(eF>0x0){if(eF>eT)eT=eF;eB+=eF,eCnt++;}}}
 var eMain=eT+Math["min"](0.25,(eCnt-0x1)*0.08);
 var boots=0x0,bG2;
 for(bG2=0;bG2<a2["awards"]["length"];bG2++){var aX2=a2["awards"][bG2];
-if(aX2["age"]===age0&&aX2["name"]===by["name"]+"金靴")boots+=0.06;
+if(aX2["age"]===age0&&aX2["name"]===by["name"]+"金靴")boots+=0.03;
 if(aX2["age"]===age0&&aX2["name"]===a0["AWARDS"]["boot"])boots+=0.1;}
 var rank=a0["ROLES"][bz["role"]]["rank"],ovrB=bz["ovr"]>=0x5a?0.12:bz["ovr"]>=0x55?0.06:0x0,p=eMain+boots+ovrB;
 p*=rank>=0x4?1.3:rank>=0x3?0.5:rank>=0x2?0.25:0.1;
@@ -496,7 +496,7 @@ if(bA>=0x4)return ae(0x1,0x2)+(bB<=0x3?0x1:0x0);
 if(bA>=0x3)return (bB>=0x4?0x1:ae(0x1,0x2))+(a2["ovr"]>=0x4b?0x1:0x0);
 return a2["ovr"]>=0x4b?ae(0x1,0x2):0x1;
 }
-return a2["age"]>=0x1d?ae(0x1,0x3):ae(0x2,0x5);
+var cA2=aI(bx||ar()),cB2=cA2?a0['ROLES'][cA2]['rank']:0x0;if(cB2>=0x4)return ae(3,5);if(cB2>=0x3)return ae(2,4);return ae(1,3);
 }function bf(bx,by){
 by=by||{};
 var bz=ba(),bA=ar(),bB=as(),bC=bB?bB["rep"]:0x1,bD=a2["ovr"]>=0x52?0x2:0x1;

@@ -9,7 +9,7 @@ var EVT_youth=[
   'icon': "🛏️",
   'weight': 0x37,
   'stage': "youth",
-  'repeat': 0x2,
+  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -265,7 +265,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "熄灯后的球场",
   'icon': '🌙',
   'weight': 0x34,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -295,7 +295,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "高手的慢动作",
   'icon': '🎬',
   'weight': 0x30,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -326,7 +326,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "睡前颠球",
   'icon': '⚽',
   'weight': 0x2e,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -356,7 +356,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "基本功补课",
   'icon': '🦶',
   'weight': 0x38,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -386,7 +386,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "雨后的球场",
   'icon': '🌧️',
   'weight': 0x34,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -416,7 +416,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "转身那一课",
   'icon': '🔄',
   'weight': 0x36,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -446,7 +446,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "熄灯以后的烟火",
   'icon': '🚬',
   'weight': 0x32,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
@@ -479,7 +479,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'title': "一个人练到天黑",
   'icon': '🌆',
   'weight': 0x32,
-  'repeat': 0x2,
+  'repeat': 1,
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
