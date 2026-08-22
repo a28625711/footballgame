@@ -36,16 +36,23 @@ au.flags={}; au.usedEvents={}; au.forceQ=[]; au.pending=null;
     if '<div class="money-row"><span></span>' in youth_html:
         raise harness.Fail('legacy empty money-row still rendered')
 
+    # First-year-after-signing scenario: seasonWage is still 0 (it is only
+    # written at season-end payout), so the UI must compute the live wage
+    # instead of displaying "0 万 / 赛季".
     career_html = render_state(mr, """
 au.age=25; au.ovr=84; au.maxOvr=88; au.money=-50; au.phase='career';
-au.teamId='cn-sh'; au.contractLeft=3; au.seasonWage=120; au.seasonsAtClub=1;
+au.teamId='cn-sh'; au.contractLeft=3; au.seasonsAtClub=1;
 au.roleAdjust=0; au.guanxi=50; au.fame=60; au.clean=70; au.role='starter';
 au.flags={}; au.usedEvents={}; au.forceQ=[]; au.pending=null;
 """)
     for token in ['家里的欠债', 'st-v neg', '当前薪资', '/ 赛季']:
         if token not in career_html:
             raise harness.Fail('career view missing %r' % token)
-    print('PASS status_row (youth 无合同, career salary+debt styling)')
+    if '0 万 / 赛季' in career_html or '>0 万<' in career_html:
+        raise harness.Fail('salary rendered as 0 in first year after signing')
+    i = career_html.find('当前薪资')
+    print('career salary snippet:', career_html[i:i+90].replace('\n', ' '))
+    print('PASS status_row (youth 无合同, first-year live salary, debt styling)')
 
 
 if __name__ == '__main__':
