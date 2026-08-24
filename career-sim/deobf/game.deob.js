@@ -52,6 +52,7 @@ for(var c1 in bX)Object["prototyp"+'e']["hasOwnPr"+"operty"]["call"](bX,c1)&&c0+
 return{'lives':bZ,'best':bY,'endings':c0,'total':a0["ENDINGS"]["length"]};
 }function aI(){var bW=ay("save",null);
 return bW&&bW["ver"]===a7?(bW["natRuns"]||(bW["natRuns"]=[]),null==bW["banGames"]&&(bW["banGames"]=0x0),bW["choices"]||(bW["choices"]=[],bW["rid"]=null),null==bW["wageMul"+'t']&&(bW["wageMul"+'t']=0x1),
+bW["pending"]&&"staff"===bW["pending"]["type"]&&bW["pending"]["offers"]&&(bW["pending"]["offers"]=bW["pending"]["offers"]["filter"](function(bX){return!!a6["staffBy"+'Id'](bX);}),bW["pending"]["offers"]["length"]||(bW["pending"]=null)),
 void 0x0===bW["rid"]&&(bW["rid"]=null),bW):null;
 }function aJ(){
 try{localStorage["removeIt"+'em'](a2+"save");
@@ -672,7 +673,7 @@ return au["staff"]&&au["staff"][ce['id']];
 }),cd="<div cla"+"ss=\"even"+"t\">"+b1('🤝','决策',"有人想跟你签约",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">经纪公"+"司列了几个人。都"+"是按赛季付钱，签"+"了就每年从你账上"+"走。</div>")+(cc["length"]?"<div cla"+"ss=\"staf"+"f-cur\">现"+"在养着："+cc["map"](function(ce){
 return "<span cl"+"ass=\"chi"+"p\">"+ax(ce["name"])+"</span>";
 })["join"]('')+"<b>"+al(a6["staffFee"]())+(" / 赛季</b"+"></div>"):'');
-return cd+=bb(bZ["offers"]["map"](function(ce){var cf=a6["staffByI"+'d'](ce);
+return cd+=bb(bZ["offers"]["map"](function(ce){var cf=a6["staffByI"+'d'](ce);if(!cf)return'';
 return "<button "+"class=\"o"+"pt staff"+"-opt\" da"+"ta-opt=\""+ax(ce)+("\"><span "+"class=\"o"+"pt-label"+'\x22>')+ax(cf["name"])+("</span><"+"span cla"+"ss=\"staf"+"f-fee\">")+al(a6["staffPri"+'ce'](cf))+(" / 赛季</s"+"pan><spa"+"n class="+"\"opt-hin"+"t\">")+ax(cf["desc"])+("</span><"+"span cla"+"ss=\"staf"+"f-note\">")+ax(cf["note"])+("</span><"+"/button>");
 })),(cd+=bb([ba("skip","先不请","钱留着")],"opts-alt"))+"</div>";
 }return "retire_f"+"orced"===bZ["type"]?"<div cla"+"ss=\"even"+"t\">"+b1('📵','决策',"没人来问了",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">经纪人"+"的电话半年没响过"+"。你自己也知道是"+"时候了。</di"+'v>')+bb([ba("retire",'挂靴',"结束职业生涯")])+"</div>":'';
