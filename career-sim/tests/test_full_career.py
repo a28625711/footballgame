@@ -103,7 +103,8 @@ def run():
             raise harness.Fail('career stuck: %r' % c)
         if c['phase'] not in ('summary', 'done'):
             raise harness.Fail('career not finished: %r' % c)
-        if c['age'] > 50:
+        # engine force-retires at 55 ("年龄到了"); anything below is legal
+        if c['age'] >= 55:
             raise harness.Fail('unreasonable age %d in %r' % (c['age'], c))
         if c['seasons'] < 3 and not c['endReason']:
             raise harness.Fail('too few seasons (%d, no endReason) in %r'

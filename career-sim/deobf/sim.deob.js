@@ -327,7 +327,8 @@ else{if(bx){var bJ=a0["ROLES"][a2["role"]],bK=ae(bJ["apps"][0x0],bJ["apps"][0x1]
 if(a2["age"]<=0x13?bK=Math["round"](0.5*bK):0x14===a2["age"]?bK=Math["round"](0.78*bK):a2["age"]>=0x2b?bK=Math["round"](0.45*bK):a2["age"]>=0x29?bK=Math["round"](0.58*bK):a2["age"]>=0x27?bK=Math["round"](0.7*bK):a2["age"]>=0x25?bK=Math["round"](0.82*bK):a2["age"]>=0x23&&(bK=Math["round"](0.92*bK)),
 a2["cheat"]&&(bK=Math["round"](1.05*bK)),a6("nutritio"+'n')&&(bK=Math["round"](1.05*bK)),a2["banGames"]>0x0){var bL=Math["min"](bK,a2["banGames"]);
 bK-=bL,a2["banGames"]-=bL,bL>0x0&&(bz["note"]="停赛 "+bL+'\x20场');
-}var bM=ac((a2["ovr"]-0x2a)/0x30,0.05,1.4);
+}bK=Math["round"](bK*APPS_F(a2["age"])/OLDF(a2["age"]));
+var bM=ac((a2["ovr"]-0x2a)/0x30,0.05,1.4);
 a2["cheat"]&&(bM*=1.25);
 var bN=aK();
 if(bz["apps"]=bK,'gk'===al(a2["pos"])["group"])bz['cs']=Math["min"](bK,Math["round"](bK*(0.15+0.28*bM)*(0.8+0.5*ad()))),bz['ga']=Math["round"]((bK-bz['cs'])*(1.85-0.47*ac(bM,0x0,0x1))*(0.9+0.2*ad()));
@@ -339,7 +340,7 @@ var bQ=aJ(bx,by,a2["ovr"]),bR=Math["round"](bQ*(a2["wageMul"+'t']||0x1)*(a0["ROL
 a2["money"]+=bR,a2["seasonWa"+'ge']=bR,bR>a2["peakAnnu"+"alWage"]&&(a2["peakAnnu"+"alWage"]=bR),a2["careerEa"+"rnings"]+=bR;
 var bS=(0.15*(bz["goals"]+bz["assists"])+0.02*bz["apps"]+0.05*bz['cs'])*(0x1+0.25*by["rep"]);
 a2["fame"]=ac(a2["fame"]+bS*(0x1-a2["fame"]/0x64),0x0,0x64);
-}}var bT=a2["age"]<=0x12?0.015:a2["age"]<=0x15?0.03:0.07;
+}}var bT=a2["age"]<0x12?0.015:a2["age"]<0x15?0.015+0.005*(a2["age"]-0x12):(a2["age"]===0x15?0.03:0.07);
 if(a2["achBonus"]&&a2["achBonus"]["injury"])bT*=a2["achBonus"]["injury"];
 if(a2["healthBonus"])bT*=a2["healthBonus"];
 if(a2["legend"]&&a2["legend"]['i']===1)bT*=1.4;
@@ -490,7 +491,10 @@ return 0x30+7.5*bx["rep"];
 }function bd(bx){return ba()+function(by){
 return Math["max"](0x0,0x3-by["rep"])*bb(a2["age"])*0.12;
 }(bx);
-}function bAge(){return Math["max"](0.68,1-0.028*Math["max"](0,a2["age"]-24))*Math["max"](0.8,1-0.05*Math["max"](0,23-a2["age"]));
+}var APPT=(function(){var f=[],a;for(a=0;a<60;a++)f[a]=a<=0x13?0.5:(a===20?0.78:(a<=24?1:(a<=36?0.92:(a<=38?0.82:(a<=40?0.7:(a<=42?0.58:0.45))))));var g=f.slice();g[0]=f[0];for(a=1;a<59;a++)g[a]=0.25*f[a-1]+0.5*f[a]+0.25*f[a+1];g[59]=f[59];return g;})();
+function APPS_F(bx){return APPT[Math["max"](0,Math["min"](59,bx))]}
+function OLDF(bx){return bx<=0x13?0.5:bx===20?0.78:bx>=43?0.45:bx>=41?0.58:bx>=39?0.7:bx>=37?0.82:bx>=25?0.92:1}
+function bAge(){return Math["max"](0.68,1-0.028*Math["max"](0,a2["age"]-24))*Math["max"](0.8,1-0.05*Math["max"](0,23-a2["age"]));
 }function be(bx){
 var by=bx||ar(),rel=a2["ovr"]-(by?0x30+7*by["rep"]:0x3e)+3*a2["roleAdju"+'st'];
 var fit=1/(1+Math["exp"](-rel/6));
