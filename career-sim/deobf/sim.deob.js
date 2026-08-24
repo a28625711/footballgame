@@ -190,10 +190,12 @@ return["ageFraud","yinyang","fixed","gambled","degree","coachCer"+'t',"academy",
 bx[bI]&&(a2["flags"][bI]=!0x0);
 }),by;
 }function aG(bx){
-for(var by=a0["GROWTH"],bz=by[0x0]['d'],bA=0x0;
-bA<by["length"];
-bA++)bx>=by[bA]["age"]&&(bz=by[bA]['d']);
-return bz;
+var T=a0["GROWTH"],N=T["length"];
+if(bx>=T[N-1]["age"])return T[N-1]['d'];
+var k=0x0;
+while(k<N-0x2&&bx>=T[k+0x1]["age"])k++;
+var t=Math["max"](0,Math["min"](1,(bx-T[k]["age"])/(T[k+1]["age"]-T[k]["age"]))),p=T[k]['d'],q=T[k+1]['d'];
+return [p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];
 }function aH(){var bx=ar();
 return bx?aI(bx):"sub";
 }function aI(bx){var by=0x30+0x7*bx["rep"],bz=a2["ovr"]-by+0x3*a2["roleAdju"+'st'];
@@ -319,7 +321,7 @@ delete a2["staff"][bC['id']],bB["push"](bC["name"]),bA-=a7(bC);
 }var bE=aG(a2["age"]),bF=bE[0x0]+ad()*(bE[0x1]-bE[0x0]),bG=a2["talent"];
 if(by&&(bG*=0x1+0.05*(by["rep"]-0x2)),a2["stagnate"]&&(bG*=0.55),a6("chef")&&(bG*=1.08),a0["ROLES"][a2["role"]]["rank"]<=0x1&&(bG*=a2["age"]<=0x17&&bx&&bx["rep"]>=0x4?0.85:0.5),
 a2["achBonus"]&&a2["achBonus"]["growth"]&&(bG*=a2["achBonus"]["growth"]),
-bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)),bF<0x0&&(a2["achBonus"]&&a2["achBonus"]["decay"]&&(bF*=a2["achBonus"]["decay"]),bG=a6("fitness")?0.8:0x1),a2["ovr"]=ac(a2["ovr"]+bF*bG,0x14,0x63),
+bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)),bF<0x0&&(a2["achBonus"]&&a2["achBonus"]["decay"]&&(bF*=a2["achBonus"]["decay"]),bG=(a2["ovr"]>a2["maxOvr"]*0.94?1.18:Math["max"](0.78,1.34-0.38*a2["talent"]))*(a6("fitness")?0.8:0x1)),a2["ovr"]=ac(a2["ovr"]+bF*bG,0x14,0x63),
 a2["cheat"]){var bH=ac(0x2a+bp(a2["originId"])["ovr"]+(a2["legacy"]?a2["legacy"]["ovr"]:0x0),0x1e,0x3c),bI=bH+(0x63-bH)*ac((a2["age"]-0x10)/0xa,0x0,0x1);
 a2["ovr"]=ac(Math["max"](a2["ovr"],bI),0x14,0x63);
 }if(a2["banLeft"]>0x0)bz["note"]='禁赛',a2["banLeft"]--;
