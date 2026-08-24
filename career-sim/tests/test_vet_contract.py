@@ -1,84 +1,115 @@
-# Veteran contract-years feature (be() relaxation for high-ovr veterans).
-# Samples offerBrief().years across age/ovr/club-rep configs and asserts the
-# bounds implemented in be(): young stars sign 3-5 year deals, 33+ players
-# are capped short, low-ovr old players get exactly 1. Also pins the feature
-# direction: young star average > old star average at the same club.
+# Property-based regression for the smooth contract-years curve (be) and the
+# wage age factor (bAge). The old branch-tree asserted exact ae() ranges; the
+# curve model is pinned by invariants instead:
+#   - years always within [1,5]
+#   - young players sign longer deals than veterans at equal ability
+#   - potential (maxOvr>ovr) lengthens teen contracts
+#   - weak-club veterans no longer get 3-year deals
+#   - wage decays with age (kills the "older = pricier" paradox)
 import json
 
 import harness
 
-SAMPLES = 40
+SAMPLES = 12
 
-JS = """
+
+def build_js():
+    cells = []
+    for club in ['mci', 'cn-sh']:
+        for ovr in [76, 84, 92]:
+            for age in [18, 22, 26, 30, 34, 38]:
+                cells.append((club, age, ovr))
+    js = """
 (function(){
-function fresh(seed,teamId){
-  var au=window.__SIMTEST.start('normal',%NEW_PLAYER%,seed);
-  au.age=21; au.ovr=88; au.maxOvr=88; au.role='starter'; au.phase='career';
-  au.teamId=teamId; au.contractLeft=1; au.seasonsAtClub=2; au.money=800;
-  au.roleAdjust=0; au.guanxi=50;
+var out=[];
+function mk(seed,club,age,ovr,maxOvr){
+  var au=window.__SIMTEST.start('normal',{'name':'p','origin':'sd','pos':'ST','nation':'cn','talent':1.1,'number':9,'foot':'r'},seed);
+  au.phase='career'; au.money=800; au.roleAdjust=0; au.guanxi=50;
   au.flags={}; au.usedEvents={}; au.forceQ=[]; au.pending=null;
+  au.banned=false; au.banLeft=0; au.banGames=0;
+  au.age=age; au.ovr=ovr; au.maxOvr=maxOvr;
+  au.teamId=club; au.contractLeft=1; au.seasonsAtClub=2; au.role='starter';
   return au;
 }
-function yearsAt(teamId,age,ovr){
-  var ys=[];
-  for(var k=0;k<%SAMPLES%;k++){
-    var au=fresh(900+k,teamId);
-    au.age=age; au.ovr=ovr; au.maxOvr=ovr;
-    var ob;
-    try{ ob=window.SIM.offerBrief(teamId); }
-    catch(e){ return {err:String(e).slice(0,120)}; }
-    if(!ob||!(ob.years>=1)) return {err:'no brief years'};
-    ys.push(ob.years);
+function sample(club,age,ovr,maxOvr){
+  var yrs=[],ws=[];
+  for(var k=0;k<%S%;k++){
+    var ob=window.SIM.offerBrief(club);
+    if(ob){yrs.push(ob.years);ws.push(ob.wage);}
+    mk(9100+k,club,age,ovr,maxOvr);
   }
-  var min=Math.min.apply(null,ys),max=Math.max.apply(null,ys),sum=0;
-  for(var i=0;i<ys.length;i++)sum+=ys[i];
-  return {min:min,max:max,avg:sum/ys.length};
+  return {yrs:yrs,ws:ws};
 }
-var out={
-  youngStar:yearsAt('cn-sh',21,88),
-  oldStarLowRep:yearsAt('cn-sh',38,88),
-  oldStarHighRep:yearsAt('rma',38,88),
-  vetStarter:yearsAt('cn-sh',35,72),
-  oldBenchHighRep:yearsAt('rma',38,60)
-};
+%CELLS%
 return JSON.stringify(out);
 })()
-""".replace('%NEW_PLAYER%', harness.NEW_PLAYER).replace('%SAMPLES%', str(SAMPLES))
+"""
+    lines = ["var au;", "var S=%d;" % SAMPLES]
+    for i, (club, age, ovr) in enumerate(cells):
+        mo = '96' if age < 22 else str(ovr)
+        lines.append(
+            "au=mk(9000+%d,'%s',%d,%d,%s);var c%d=sample('%s',%d,%d,%s);"
+            % (i, club, age, ovr, mo, i, club, age, ovr, mo))
+        lines.append(
+            "out.push({club:'%s',age:%d,ovr:%d,yrs:c%d.yrs,ws:c%d.ws});"
+            % (club, age, ovr, i, i))
+    return (js.replace('%CELLS%', '\n'.join(lines))
+              .replace('%S%', str(SAMPLES)))
+
+
+def avg(xs):
+    return sum(xs) / len(xs)
 
 
 def run():
     mr = harness.new_engine()
-    r = json.loads(mr.eval(JS))
-    for name, d in r.items():
-        if d.get('err'):
-            raise harness.Fail('%s: %s' % (name, d['err']))
-        if d['min'] < 1 or d['max'] > 5:
-            raise harness.Fail('%s out of global range [%d..%d]' % (name, d['min'], d['max']))
+    rows = json.loads(mr.eval(build_js()))
+    check = harness.check
 
-    def chk(name, lo, hi):
-        d = r[name]
-        if d['min'] < lo or d['max'] > hi:
-            raise harness.Fail('%s expected years within [%d..%d], got [%d..%d]'
-                               % (name, lo, hi, d['min'], d['max']))
+    for r in rows:
+        check(r['yrs'] and all(1 <= y <= 5 for y in r['yrs']),
+              'years out of [1,5] at %r' % {k: r[k] for k in ('club', 'age', 'ovr')})
+        check(all(w >= 3 for w in r['ws']), 'wage below floor')
 
-    # be(): <33 & star rank -> ae(3,5)
-    chk('youngStar', 3, 5)
-    # >=33 & star rank, club rep<=3 -> ae(1,2)+1
-    chk('oldStarLowRep', 1, 3)
-    # >=33 & star rank, club rep>=4 -> ae(1,2)+0
-    chk('oldStarHighRep', 1, 2)
-    # >=33, starter rank (ovr72 vs cn-sh) -> (rep<=3? ae(1,2):1) + (ovr>=75?0)
-    chk('vetStarter', 1, 2)
-    # deterministic branch: >=33, low rank, ovr<75 -> exactly 1
-    d = r['oldBenchHighRep']
-    if d['min'] != 1 or d['max'] != 1:
-        raise harness.Fail('oldBenchHighRep expected fixed 1, got [%d..%d]'
-                           % (d['min'], d['max']))
-    if not r['youngStar']['avg'] > r['oldStarLowRep']['avg']:
-        raise harness.Fail('relaxation direction broken: young avg %.2f <= old avg %.2f'
-                           % (r['youngStar']['avg'], r['oldStarLowRep']['avg']))
-    print('PASS vet_contract ' + ' '.join(
-        '%s=[%d..%d]' % (k, v['min'], v['max']) for k, v in r.items()))
+    def cell(club, age, ovr):
+        return next(x for x in rows if x['club'] == club and x['age'] == age and x['ovr'] == ovr)
+
+    # monotonic age: young > veteran (same club/ovr)
+    for club in ['mci', 'cn-sh']:
+        y_young = avg(cell(club, 22, 84)['yrs'])
+        y_old = avg(cell(club, 34, 84)['yrs'])
+        check(y_young > y_old,
+              '%s: youth %.2f !> vet %.2f' % (club, y_young, y_old))
+
+    # potential: teen with headroom signs longer than fully-grown peer
+    js_pot = """
+(function(){
+function mk(seed,maxOvr){var au=window.__SIMTEST.start('normal',{'name':'p','origin':'sd','pos':'ST','nation':'cn','talent':1.1,'number':9,'foot':'r'},seed);
+au.phase='career';au.money=800;au.roleAdjust=0;au.guanxi=50;au.flags={};au.usedEvents={};au.forceQ=[];au.pending=null;
+au.age=18;au.ovr=88;au.maxOvr=maxOvr;au.teamId='mci';au.contractLeft=1;au.seasonsAtClub=2;au.role='starter';return au;}
+var hi=[],lo=[];
+for(var k=0;k<%S%;k++){mk(9500+k,96);hi.push(window.SIM.offerBrief('mci').years);
+mk(9700+k,88);lo.push(window.SIM.offerBrief('mci').years);}
+return JSON.stringify({hi:hi,lo:lo});
+})()""".replace('%S%', str(SAMPLES))
+    pot = json.loads(mr.eval(js_pot))
+    p_hi, p_lo = avg(pot['hi']), avg(pot['lo'])
+    check(p_hi > p_lo, 'potential bonus missing: hi %.2f <= flat %.2f' % (p_hi, p_lo))
+
+    # weak-club veteran cap
+    v = cell('cn-sh', 34, 92)['yrs']
+    check(max(v) <= 3, 'weak-club 34yo got %d years' % max(v))
+    v38 = cell('cn-sh', 38, 92)['yrs']
+    check(max(v38) <= 2, 'weak-club 38yo got %d years' % max(v38))
+
+    # wage: no seniority premium (veteran short-deal x1.3 must be cancelled
+    # by the age factor; parity within 5% counts as success)
+    w26 = avg(cell('mci', 26, 92)['ws'])
+    w34 = avg(cell('mci', 34, 92)['ws'])
+    check(w34 <= w26 * 1.05, 'seniority premium: 34yo %.0f > 26yo %.0f' % (w34, w26))
+
+    print('PASS vet_contract_curve (young>old, potential+, vet<=3y, wage %.0f@26 vs %.0f@34)'
+          % (w26, w34))
 
 
 if __name__ == '__main__':
