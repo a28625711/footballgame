@@ -8554,14 +8554,14 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'options': [
     {
         'label': "把自己练到没力气想",
-        'p': function(p){return f(0.35,[[p["fame"],25,0.008],[p["ovr"],60,0.004]],0.15,0.75);},
+        'p': function(p){return f(0.50,[[p["fame"],15,0.008],[p["ovr"],45,0.006]],0.25,0.85);},
         'hint': function(p,q){return g(q,"挺过去了","状态下滑");},
         'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'fame':0x1,'text':"你把思乡变成训练。那阵子你练得比谁都狠，状态不但没掉，反而起来了。"}:{'ovr':-0x2,'text':"想家想得厉害，训练里走神。教练看出来了，问你「要不要回去待几天」。"};}
     },
     {
         'label': "和家里多视频",
         'hint': "状态稳住",
-        'apply': function(){return{'ovr':0x1,'text':"跟家里说开了，心里反而踏实。你决定再熬一熬，这条路是自己选的。"};}
+        'apply': function(){return{'ovr':0x1,'guanxi':0x2,'text':"跟家里说开了，心里反而踏实。你决定再熬一熬，这条路是自己选的。"};}
     }
   ]
 },

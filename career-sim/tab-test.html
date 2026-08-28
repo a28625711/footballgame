@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tab 切换测试</title>
+<style>
+  :root { --accent: 160 80% 50%; --muted: 0 0% 60%; --border: 0 0% 20%; --card: 0 0% 10%; }
+  * { box-sizing: border-box; }
+  body { background: #0e100f; color: #e8ece6; font-family: sans-serif; padding: 1rem; }
+  .timeline {
+    background: hsl(var(--card)); border: 1px solid hsl(var(--border));
+    border-radius: 0.8rem; padding: 0.5rem; max-width: 26rem;
+  }
+  .tl-tabs { display: flex; gap: .3rem; padding: .3rem .3rem 0; border-bottom: 1px solid hsl(var(--border)); margin-bottom: .35rem; }
+  .tl-tab {
+    flex: 1; padding: .45rem .4rem; font-size: .7rem; font-weight: 700;
+    color: hsl(var(--muted)); background: none; border: none;
+    border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap;
+  }
+  .tl-tab.on { color: hsl(var(--accent)); border-bottom-color: hsl(var(--accent)); }
+  .tl-panel.hidden { display: none; }
+  .tl-panel .tl-scroll { max-height: min(30vh, 18rem); overflow-y: auto; }
+  .panel-box { padding: 1rem; border: 1px dashed #555; border-radius: .5rem; margin-top: .5rem; }
+  .panel-box b { font-size: 1.2rem; }
+  .debug { margin-top: 1rem; font-size: .75rem; color: #888; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+  <div id="app">
+    <div class="timeline" id="timeline-test">
+      <div class="tl-tabs">
+        <button class="tl-tab on" data-tab="club">俱乐部</button>
+        <button class="tl-tab" data-tab="nat">国家队</button>
+        <button class="tl-tab" data-tab="award">奖项</button>
+      </div>
+      <div class="tl-panel" data-panel="club">
+        <div class="tl-scroll"><div class="panel-box"><b>俱乐部面板</b><br>这里是俱乐部的固定文字测试</div></div>
+      </div>
+      <div class="tl-panel hidden" data-panel="nat">
+        <div class="tl-scroll"><div class="panel-box"><b>国家队面板</b><br>这里是国家队的固定文字测试</div></div>
+      </div>
+      <div class="tl-panel hidden" data-panel="award">
+        <div class="tl-scroll"><div class="panel-box"><b>奖项面板</b><br>这里是奖项的固定文字测试</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="debug" id="debug">点击任意选项卡查看切换结果...</div>
+
+  <script>
+    (function(){
+      var app = document.getElementById('app');
+      var log = document.getElementById('debug');
+      function dump(){
+        var tabs = app.querySelectorAll('.tl-tab');
+        var pans = app.querySelectorAll('.tl-panel');
+        var lines = [];
+        for (var i=0;i<tabs.length;i++){
+          lines.push('按钮['+tabs[i].getAttribute('data-tab')+'] class='+tabs[i].className);
+        }
+        for (var j=0;j<pans.length;j++){
+          lines.push('面板['+pans[j].getAttribute('data-panel')+'] class='+pans[j].className+' 可见='+(!pans[j].classList.contains('hidden')));
+        }
+        log.textContent = lines.join('\n');
+      }
+      dump();
+      app.addEventListener('click', function(ev){
+        var btn = ev.target.closest('[data-tab]');
+        if (!btn) return;
+        var tab = btn.getAttribute('data-tab');
+        var pans = app.querySelectorAll('.tl-panel');
+        var tabsAll = app.querySelectorAll('.tl-tab');
+        for (var i=0;i<tabsAll.length;i++) tabsAll[i].classList.toggle('on', tabsAll[i]===btn);
+        for (var j=0;j<pans.length;j++){
+          var pk = pans[j].getAttribute('data-panel');
+          if (pk===tab) pans[j].classList.remove('hidden');
+          else pans[j].classList.add('hidden');
+        }
+        log.textContent = '点击了 ['+tab+']\n' + log.textContent;
+        dump();
+      });
+    })();
+  </script>
+</body>
+</html>

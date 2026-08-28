@@ -6,7 +6,7 @@
  *  §2  工具函数 (L14-78)     职员费用、钳制、随机、球队/联赛查找
  *  §3  遗产与状态 (L79-151)  遗产计算、事件评分、状态快照
  *  §4  成长曲线 (L192-198)   aG() 插值成长表
- *  §5  球员类型 (L198-199)   _ptm_ 乘数表 + _ptg_ 类型计算
+ *  §5  球员类型 (L198-199)   TYPE_MODS 乘数表 + calcPlayerType 类型计算
  *  §6  角色与能力 (L200-213) aH 角色判定、aK 基础产出率
  *  §7  赛事与德比 (L214-288) 淘汰赛、国家大赛、德比映射
  *  §8  大赛系统 (L289-302)   bigmatch 选项与叙事
@@ -222,8 +222,12 @@ while(k<N-0x2&&bx>=T[k+0x1]["age"])k++;
 var t=Math["max"](0,Math["min"](1,(bx-T[k]["age"])/(T[k+1]["age"]-T[k]["age"]))),p=T[k]['d'],q=T[k+1]['d'];
 return [p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];}
 /* ── §5 球员类型系统 ────────────────────────────────────────────── */
-var _ptm_=[{'g':1.40,'a':0.50},{'g':0.70,'a':1.50},{'g':1.10,'a':1.10},{'g':1.15,'a':0.85},{'g':1.20,'a':0.65},{'g':1.70,'a':0.75},{'g':1.05,'a':1.05},{'g':0.45,'a':0.65},{'g':1.15,'a':1.55},{'g':1.00,'a':1.25},{'g':0.45,'a':0.45},{'g':1.00,'a':1.00}];
-function _ptg_(){var bx=al(a2["pos"])["group"];if('gk'===bx)return 0xb;if('att'===bx){if(a2["age"]<=0x14)return 0x3;if(a2["age"]<=0x17)return a2["talent"]>=0x75?0x1:0x0;if(a2["age"]<=0x21)return a2["ovr"]>=0x46?0x2:(a2["talent"]>=0x68?0x1:0x4);return 0x0;}if('mid'===bx){if(a2["talent"]>=0x70)return 0x1;if(a2["age"]<=0x16)return 0x5;return a2["ovr"]>=0x48?0x6:0x7;}return a2["ovr"]>=0x44?0x8:(a2["talent"]>=0x60?0x9:0xa);}
+var TYPE_MODS=[{'g':1.40,'a':0.50},{'g':0.70,'a':1.50},{'g':1.10,'a':1.10},{'g':1.15,'a':0.85},{'g':1.20,'a':0.65},{'g':1.70,'a':0.75},{'g':1.05,'a':1.05},{'g':0.45,'a':0.65},{'g':1.15,'a':1.55},{'g':1.00,'a':1.25},{'g':0.45,'a':0.45},{'g':1.00,'a':1.00}];
+function calcPlayerType(){var bx=al(a2["pos"])["group"],tl=a2["talent"],ov=a2["ovr"],ag=a2["age"];
+if('gk'===bx)return 0xb;
+if('att'===bx){if(ag<=0x14)return tl>=1.3?0x1:(tl>=1.05?0x3:(ov>=35?0x0:0x4));if(ag<=0x17)return tl>=1.35?0x1:(ov>=42?0x2:0x0);if(ag<=0x21)return ov>=55?0x2:(tl>=1.15?0x1:0x4);return 0x0;}
+if('mid'===bx){if(tl>=1.25)return 0x1;if(ag<=0x16)return 0x5;return ov>=50?0x6:0x7;}
+return ov>=45?0x8:(tl>=1.1?0x9:0xa);}
 /* ── §6 角色与能力 ──────────────────────────────────────────────── */
 function aH(){var bx=ar();
 return bx?aI(bx):"sub";
@@ -363,7 +367,7 @@ bK-=bL,a2["banGames"]-=bL,bL>0x0&&(bz["note"]="停赛 "+bL+'\x20场');
 }bK=Math["round"](bK*APPS_F(a2["age"])/OLDF(a2["age"]));
 var bM=ac((a2["ovr"]-0x2a)/0x30,0.05,1.4);
 a2["cheat"]&&(bM*=1.25);
-var bN=aK(),_pm=_ptm_[a2["playerType"]!=null?a2["playerType"]:0xb];bz["_type"]=a2["playerType"]!=null?a2["playerType"]:0xb;
+var bN=aK(),_pm=TYPE_MODS[a2["playerType"]!=null?a2["playerType"]:0xb];bz["_type"]=a2["playerType"]!=null?a2["playerType"]:0xb;
 if(bz["apps"]=bK,'gk'===al(a2["pos"])["group"])bz['cs']=Math["min"](bK,Math["round"](bK*(0.15+0.28*bM)*(0.8+0.5*ad()))),bz['ga']=Math["round"]((bK-bz['cs'])*(1.85-0.47*ac(bM,0x0,0x1))*(0.9+0.2*ad()));
 else{var bO=0x1+Math["max"](0x0,a2["ovr"]-0x50)/0x28,bP=0.88+0.24*ad();
 bz["goals"]=Math["round"](bK*bN["goal"]*bM*bO*bP*_pm["g"]),bz["assists"]=Math["round"](bK*bN["ast"]*bM*(0x1+bO)/0x2*(0.88+0.24*ad())*_pm["a"]);
@@ -896,7 +900,7 @@ return!!bB&&(bw(bB["res"]),!0x0);
 }if("youth_pa"+'th'===bA["type"]){var bC=bA["offers"][Number(bx)];
 return!!bC&&(bv(bx),a2["youthTea"+"mId"]=bC,aq(aj(bC))['cn']||(a2["money"]-=a0["YOUTH_AB"+"ROAD_FEE"],a2["flags"]["youthAbr"+"oad"]=!0x0),
 a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':"加入青训营",'text':"进入"+((aj(bC)["academy"])||aj(bC)["name"])}),a2["talent"]=0.7+0.78*Math["pow"](ad(),1.7)+(a2["legacy"]?a2["legacy"]["talent"]:0x0)+(a2["legend"]?a2["legend"]['t']:0x0),
-a2["playerType"]=_ptg_(),a2["pending"]=null,bk(),!0x0);
+a2["playerType"]=calcPlayerType(),a2["pending"]=null,bk(),!0x0);
 }if("academy"===bA["type"]){if("youth"===bx)return!!bA["canStayY"+"outh"]&&(bv(bx),a2["flags"]["_gradCd"]=0x2,a2["phase"]="youth",
 a2["pending"]=null,bk(),!0x0);
 var bD=bA["offers"][Number(bx)];
