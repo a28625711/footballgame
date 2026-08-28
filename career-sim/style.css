@@ -527,6 +527,7 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
   background: hsl(var(--row)); color: hsl(var(--muted));
 }
 .tag.blue { background: hsl(var(--accent) / .18); color: hsl(var(--accent)); }
+.tag.type-tag { background: hsl(270 45% 55% / .18); color: hsl(270 65% 72%); font-size: .58rem; }
 /* 球员名是这张卡的主角，队名退一档 —— 一眼扫过去先看见「我是谁」，再看见「我在哪」 */
 .player-name {
   font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.25;
