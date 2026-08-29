@@ -270,6 +270,7 @@ function bg(bW,bX,bY,bZ,c0){var c1=a6["leagueOf"+"Team"](bX),c2=["保级队","�
 return "<button "+"class=\"o"+'pt'+(au["dreamId"]===bX['id']?" dream":'')+("\" data-o"+"pt=\"")+bW+'\x22>'+(bZ?"<span cl"+"ass=\"opt"+"-lead\">"+ax(bZ)+"</span>":'')+(au["dreamId"]===bX['id']?"<span cl"+"ass=\"opt"+"-dream\">"+"心仪</span"+'>':'')+("<span cl"+"ass=\"opt"+"-label\">")+ax(bY)+"</span>"+aT(bX)+("<span cl"+"ass=\"opt"+"-hint\">")+ax(c1["name"]+" · "+c2)+"</span>"+(c3?"<span cl"+"ass=\"opt"+"-offer\">"+"<b>"+ax(al(c3["wage"]))+("</b>/赛季"+c3["years"]+('年<span class="opt-role role-'))+c3["role"]+'\x22>'+ax(c3["roleName"])+("</span><"+"/span>"):'')+("</button"+'>');
 }var bh=[[/欧冠/,"ucl"],[/欧联/,"uel"],[/亚冠/,"challeng"+'e'],[/世界杯冠军/,'wc'],[/打进世界杯/,"wcgold"],[/亚洲杯/,"asiancup"],[/亚洲足球先生/,"afcpoy"],
 [/中超冠军/,"csl"],[/足协杯/,"cn-facup"],[/世俱杯/,"cwc"],[/金球/,"ballon"],[/金靴/,"boot"],[/金手套/,"glove"],[/最佳球员/,"best"],[/国王杯/,"kingcup"],
+[/英联杯/,"eflcup"],[/社区盾/,"community"],[/西班牙超级杯|德国超级杯|意大利超级杯|法国超级杯/,"supercup"],[/中国超级杯|日本超级杯|韩国超级杯|沙特超级杯|荷兰超级杯|葡萄牙超级杯|比利时超级杯/,"cn-super"],
 [/德国杯/,"dfb"],[/足总杯/,"facup"],[/意大利杯|法国杯|荷兰杯|葡萄牙杯|比利时杯|天皇杯|韩国杯|公开杯/,"pedestal"],[/冠军$/,"league"]];
 function bi(bW){
 for(var bX=String(bW||''),bY=0x0;
@@ -309,7 +310,8 @@ return a0["ENDINGS"][a0["ENDINGS"]["length"]-0x1];
 'rank':0x3},{'re':/^亚洲杯冠军$/,'label':"亚洲杯冠军",'rank':0x4},{'re':/^亚洲足球先生$/,'label':"亚洲足球先生",'rank':0x5},{'re':/^欧洲金靴$/,'label':"欧洲金靴",
 'rank':0x6},{'re':/^金手套$/,'label':"金手套",'rank':0x6},{'re':/^(英超|西甲|意甲|德甲|法甲)冠军$/,'label':"联赛冠军",'rank':0x7},{'re':/^欧联冠军$/,
 'label':"欧联冠军",'rank':0x8},{'re':/^世俱杯冠军$/,'label':"世俱杯冠军",'rank':0x9},{'re':/^中超最佳球员$/,'label':"中超最佳球员",'rank':0xa},{'re':/^中超冠军$/,
-'label':"中超冠军",'rank':0xb},{'re':/^足协杯冠军$/,'label':"足协杯冠军",'rank':0xc},{'re':/杯冠军$/,'label':"杯赛冠军",'rank':0xd}],bo=["没走到那一步",
+'label':"中超冠军",'rank':0xb},{'re':/^足协杯冠军$/,'label':"足协杯冠军",'rank':0xc},{'re':/英联杯冠军$/,'label':"英联杯冠军",'rank':0xd},
+{'re':/^(社区盾|.*超级杯)冠军$/,'label':"超级杯冠军",'rank':0xe},{'re':/杯冠军$/,'label':"杯赛冠军",'rank':0xf}],bo=["没走到那一步",
 "抹不掉的",'封神','巅峰','出色',"怎么收场","走过的路",'兜底'];
 function bp(bW){
 return bW["endings"]&&bW["endings"]["length"]?bW["endings"]:bW["ending"]?[bW["ending"]]:[];
