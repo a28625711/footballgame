@@ -501,6 +501,148 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 }
     }
   ]
+},
+
+// ---- idx:339 | youth_type_shift | 位置感的觉醒 ----
+{
+  'id': "youth_type_shift",
+  'title': "位置感的觉醒",
+  'icon': '🔄',
+  'weight': 0x38,
+  'stage': "youth",
+  'repeat': 1,
+  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11;},
+  'desc': function(p){
+    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+    var cur=p["playerType"]!=null?p["playerType"]:11;
+    var adjByGrp={
+      'att':{0:[3,4],1:[2,5],2:[1,4],3:[0,2],4:[0,2],5:[1,2]},
+      'mid':{1:[5,6],5:[1,6],6:[1,7],7:[6]},
+      'def':{8:[9],9:[8,10],10:[9]}
+    };
+    var adj=adjByGrp[p["posGroup"]];
+    if(!adj)return null;
+    var cands=adj[cur];
+    if(!cands||!cands.length)return null;
+    var tgt=cands[Math.floor(Math.random()*cands.length)];
+    p._shiftTarget=tgt;
+    return "训练结束后教练把你叫住：「你最近的表现让我觉得，你可能更适合踢"+TN[tgt]+"。」他摊开战术板，画了几个跑位路线。也许，是时候换个方式了。";
+  },
+  'options': [
+    {
+      'label': "试试看",
+      'p': function(p){return f(0.55,[[p["talent"],1,0.25],[p["ovr"],40,0.005]],0.25,0.85);},
+      'hint': function(p,q){
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=p._shiftTarget!=null?p._shiftTarget:0;
+        return g(q,"转型成功→"+TN[tgt],"转型失败");
+      },
+      'apply': function(p,q,s){
+        var tgt=p._shiftTarget!=null?p._shiftTarget:0;
+        return d(q,s)?{'playerType':tgt,'ovr':0x2,'_typeShiftDone':1,'text':"你试了教练的方案，发现那种跑位和思维方式竟然出奇地顺畅。几周后，你在训练赛里用新位置的方式打进一球——教练笑着点了点头。"}
+        :{'ovr':-0x1,'_typeShiftDone':1,'text':"你照着教练画的路线跑了两周，但身体总是往原来的位置上凑。教练说：也许时机不对，先放一放。"};
+      }
+    },
+    {
+      'label': "坚持自己的风格",
+      'hint': "稳一点",
+      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你礼貌地告诉教练：谢谢，但我想先把现在的位置踢到极致。教练没说什么，只是在下次训练里多看了你几眼。"};}
+    }
+  ]
+},
+
+// ---- idx:340 | youth_type_evolve | 训练赛的意外发现 ----
+{
+  'id': "youth_type_evolve",
+  'title': "训练赛的意外发现",
+  'icon': '💡',
+  'weight': 0x35,
+  'stage': "youth",
+  'repeat': 1,
+  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11&&p["age"]>=15;},
+  'desc': function(p){
+    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+    var cur=p["playerType"]!=null?p["playerType"]:11;
+    var evoByGrp={
+      'att':{0:[4,2],1:[5,2],2:[1,4],3:[2,0],4:[2,3],5:[1,3]},
+      'mid':{1:[6,5],5:[1,7],6:[5,7],7:[6,5]},
+      'def':{8:[10,9],9:[8,10],10:[9,8]}
+    };
+    var evo=evoByGrp[p["posGroup"]];
+    if(!evo)return null;
+    var cands=evo[cur];
+    if(!cands||!cands.length)return null;
+    var tgt=cands[Math.floor(Math.random()*cands.length)];
+    p._evoTarget=tgt;
+    return "队内训练赛，你被临时安排到一个不熟悉的位置。你本来只想应付了事，却发现自己在这个新位置上竟然踢出了不一样的东西。";
+  },
+  'options': [
+    {
+      'label': "认真研究这个位置",
+      'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["clean"],50,0.004]],0.20,0.82);},
+      'hint': function(p,q){
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        return g(q,"融会贯通→"+TN[tgt],"还是算了");
+      },
+      'apply': function(p,q,s){
+        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"你花了一周看录像、加练，渐渐摸到了那个位置的门道。教练赛后拍着你的肩说：你看，你的能力不止一种用法。"}
+        :{'ovr':0x1,'_typeShiftDone':1,'text':"你试了几次，但总觉得隔了一层。教练说：没关系，知道自己不适合什么，也是一种进步。"};
+      }
+    },
+    {
+      'label': "还是回到熟悉的位置",
+      'hint': "保险",
+      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你婉拒了：我现在的位置还没踢明白，不想分心。教练点点头，没再提。"};}
+    }
+  ]
+},
+
+// ---- idx:341 | youth_type_late | 最后一次机会 ----
+{
+  'id': "youth_type_late",
+  'title': "最后一次机会",
+  'icon': '⏰',
+  'weight': 0x32,
+  'stage': "youth",
+  'repeat': 1,
+  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11&&p["age"]>=17;},
+  'desc': function(p){
+    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+    var cur=p["playerType"]!=null?p["playerType"]:11;
+    var allByGrp={
+      'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]
+    };
+    var pool=allByGrp[p["posGroup"]];
+    if(!pool)return null;
+    var filtered=pool.filter(function(x){return x!==cur;});
+    if(!filtered.length)return null;
+    var tgt=filtered[Math.floor(Math.random()*filtered.length)];
+    p._lateTarget=tgt;
+    return "离毕业考核只剩最后几个月。你偶然看到一线队的比赛录像，某个球员的踢法让你心动了——也许你也能那样踢。";
+  },
+  'options': [
+    {
+      'label': "大胆改变",
+      'p': function(p){return f(0.48,[[p["talent"],1,0.35],[p["age"],18,-0.04]],0.18,0.80);},
+      'hint': function(p,q){
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=p._lateTarget!=null?p._lateTarget:0;
+        return g(q,"涅槃重生→"+TN[tgt],"为时已晚");
+      },
+      'apply': function(p,q,s){
+        var tgt=p._lateTarget!=null?p._lateTarget:0;
+        return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"最后几个月你像变了个人，每天加练到最晚。毕业考核那天，你用全新的方式完成了一次教科书般的进球。教练在评估表上写下：此人上限不止于此。"}
+        :{'ovr':-0x2,'_typeShiftDone':1,'text':"改变来得太晚了。身体习惯已经定型，新学的东西和旧的互相打架。考核日你表现平平，教练叹了口气：可惜了，早点下决心就好了。"};
+      }
+    },
+    {
+      'label': "留到职业赛场再说",
+      'hint': "以后再变",
+      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你把那个念头压了下去。也许等到了职业赛场，有了更好的教练和队友，再做改变也不迟。至少现在，先把基础打牢。"};}
+    }
+  ]
 }
 
 ];

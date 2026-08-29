@@ -2069,6 +2069,99 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 }
     }
   ]
+},
+
+// ---- idx:342 | injury_type_shift | 伤后的抉择 ----
+{
+  'id': "injury_type_shift",
+  'title': "伤后的抉择",
+  'icon': '🩹',
+  'weight': 0x50,
+  'repeat': 1,
+  'when': function(p){return p["_severeInjury"]&&p["playerType"]!==11;},
+  'desc': function(p){
+    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+    var cur=p["playerType"]!=null?p["playerType"]:11;
+    var injuryTarget={
+      'att':{0:0,1:0,2:0,3:0,4:0,5:0},
+      'mid':{1:6,5:6,6:6,7:6},
+      'def':{8:10,9:10,10:10}
+    };
+    var grp=p["posGroup"];
+    var map=injuryTarget[grp];
+    if(!map||map[cur]==null)return null;
+    var tgt=map[cur];
+    p._injTarget=tgt;
+    return "严重的伤病让你不得不重新审视自己的踢法。身体恢复后，教练建议你换个方式踢——也许能延长你的职业生涯。";
+  },
+  'options': [
+    {
+      'label': "接受转型",
+      'p': function(p){return f(0.55,[[p["talent"],1,0.2],[p["age"],28,-0.02]],0.25,0.85);},
+      'hint': function(p,q){
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=p._injTarget!=null?p._injTarget:0;
+        return g(q,"转型成功→"+TN[tgt],"转型失败");
+      },
+      'apply': function(p,q,s){
+        var tgt=p._injTarget!=null?p._injTarget:0;
+        return d(q,s)?{'playerType':tgt,'ovr':0x2,'_severeInjury':0,'text':"你接受了教练的建议，花了三个月适应新的位置和踢法。虽然过程痛苦，但你发现自己在这个新位置上反而活得更自在了。"}
+        :{'playerType':tgt,'ovr':-0x2,'_severeInjury':0,'text':"你硬着头皮试了新位置，但身体记忆太顽固。转型没成功，反而因为不适应掉了状态。不过至少，你试过了。"};
+      }
+    },
+    {
+      'label': "不转，硬扛",
+      'hint': "能力-3",
+      'apply': function(){return{'ovr':-0x3,'_severeInjury':0,'text':"你拒绝了所有人的建议：我就是我，不需要变。伤愈后你回到了原来的位置，但身体已经不如从前。"}}
+    }
+  ]
+},
+
+// ---- idx:343 | vet_type_shift | 老将的转型 ----
+{
+  'id': "vet_type_shift",
+  'title': "老将的转型",
+  'icon': '🧓',
+  'weight': 0x48,
+  'repeat': 1,
+  'when': function(p){return p["age"]>=32&&p["playerType"]!==11&&!p["_vetTypeShiftDone"];},
+  'desc': function(p){
+    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+    var cur=p["playerType"]!=null?p["playerType"]:11;
+    var vetTarget={
+      'att':{0:0,1:0,2:0,3:0,4:0,5:0},
+      'mid':{1:6,5:6,6:6,7:6},
+      'def':{8:10,9:10,10:10}
+    };
+    var grp=p["posGroup"];
+    var map=vetTarget[grp];
+    if(!map||map[cur]==null)return null;
+    var tgt=map[cur];
+    if(tgt===cur)return null;
+    p._vetTarget=tgt;
+    return "年龄不饶人，你的速度和爆发力都在下降。教练找你谈话：是时候换个活法了——经验比身体更值钱。";
+  },
+  'options': [
+    {
+      'label': "主动转型",
+      'p': function(p){return f(0.60,[[p["talent"],1,0.25],[p["age"],35,-0.03]],0.30,0.88);},
+      'hint': function(p,q){
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=p._vetTarget!=null?p._vetTarget:0;
+        return g(q,"转型成功→"+TN[tgt],"转型失败");
+      },
+      'apply': function(p,q,s){
+        var tgt=p._vetTarget!=null?p._vetTarget:0;
+        return d(q,s)?{'playerType':tgt,'ovr':0x2,'_vetTypeShiftDone':1,'text':"你花了整个夏天加练新位置的技术。新赛季开始，你用经验弥补了身体的退化——虽然不再是从前的你，但依然有用。"}
+        :{'playerType':tgt,'ovr':-0x1,'_vetTypeShiftDone':1,'text':"转型比想象中难。旧的习惯根深蒂固，新的位置也学得磕磕绊绊。教练叹了口气：算了，还是按你习惯的来吧。"};
+      }
+    },
+    {
+      'label': "不转，拼到退役",
+      'hint': "能力-4",
+      'apply': function(){return{'ovr':-0x4,'_vetTypeShiftDone':1,'text':"你告诉教练：我的身体我自己清楚。接下来的赛季，你拼尽全力维持状态，但岁月终究不可逆。"}}
+    }
+  ]
 }
 
 ];
