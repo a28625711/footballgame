@@ -891,7 +891,7 @@ return{'ver':0x6,'seed':bD,'rngState':ai(String(bD)),'mode':bB,'phase':"youth",'
 'totals':{'apps':0x0,'goals':0x0,'assists':0x0,'cs':0x0,'ga':0x0},'seasons':[],'trophies':[],'awards':[],'natRuns':[],'forceQ':[],
 'life':{'partner':null,'married':0x0,'kids':[],'splits':0x0},'natForm':{'wc':0x0,'asia':0x0},'flags':{},'staff':{},'pending':null,'_awardDue':!0x1,'usedEvents':{},'choices':[],'eventLog':[],
 'rid':null,'achBonus':bAch||null,'playerType':0xb};
-}(bx,by,bz,bA,bAch),a2;
+}(bx,by,bz,bA,bAch),a2["playerType"]=calcPlayerType(),a2;
 },'nextStep':bk,'doPeriod':bl,'choose':function(bx){var by,bz,bA=a2["pending"];
 if(!bA)return!0x1;
 if("random"===bA["type"]){var bB=bs(bx);
