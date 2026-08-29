@@ -225,11 +225,15 @@ var t=Math["max"](0,Math["min"](1,(bx-T[k]["age"])/(T[k+1]["age"]-T[k]["age"])))
 return [p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];}
 /* ── §5 球员类型系统 ────────────────────────────────────────────── */
 var TYPE_MODS=[{'g':1.40,'a':0.50},{'g':0.70,'a':1.50},{'g':1.10,'a':1.10},{'g':1.15,'a':0.85},{'g':1.20,'a':0.65},{'g':1.70,'a':0.75},{'g':1.05,'a':1.05},{'g':0.45,'a':0.65},{'g':1.15,'a':1.55},{'g':1.00,'a':1.25},{'g':0.45,'a':0.45},{'g':1.00,'a':1.00}];
-function calcPlayerType(){var bx=al(a2["pos"])["group"],tl=a2["talent"],ov=a2["ovr"],ag=a2["age"];
-if('gk'===bx)return 0xb;
-if('att'===bx){if(ag<=0x14)return tl>=1.3?0x1:(tl>=1.05?0x3:(ov>=35?0x0:0x4));if(ag<=0x17)return tl>=1.35?0x1:(ov>=42?0x2:0x0);if(ag<=0x21)return ov>=55?0x2:(tl>=1.15?0x1:0x4);return 0x0;}
-if('mid'===bx){if(tl>=1.25)return 0x1;if(ag<=0x16)return 0x5;return ov>=50?0x6:0x7;}
-return ov>=45?0x8:(tl>=1.1?0x9:0xa);}
+function calcPlayerType(){var p=a2["pos"],t=a2["talent"],o=a2["ovr"],a=a2["age"];
+if(p==="GK")return 0xb;
+if(p==="ST")return t>=1.25?0x2:(t>=1.05?(a<=0x14?0x3:0x0):(o>=35?0x0:0x4));
+if(p==="RW"||p==="LW")return t>=1.25?0x0:(a<=0x16?0x3:0x0);
+if(p==="CAM")return t>=1.15?0x1:(o>=50?0x1:0x5);
+if(p==="CM")return t>=1.2?0x1:(o>=50?0x2:0x6);
+if(p==="CDM")return t>=1.15?0x6:0x7;
+if(p==="CB")return t>=1.1?0x9:0xa;
+return t>=1.1?0x9:0x8;}
 /* ── §6 角色与能力 ──────────────────────────────────────────────── */
 function aH(){var bx=ar();
 return bx?aI(bx):"sub";
