@@ -1095,17 +1095,26 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
   background: linear-gradient(90deg, hsl(var(--gold2)), hsl(var(--gold1)));
 }
 .codex-note { font-size: .76rem; color: hsl(var(--muted)); line-height: 1.6; margin-bottom: 1rem; }
+.codex-sec { margin: 1.1rem 0 .5rem; }
+.codex-sec.open .codex-grid { display: grid; }
 .codex-tier {
-  display: flex; align-items: baseline; justify-content: space-between;
-  margin: 1.1rem 0 .5rem; font-size: .78rem; font-weight: 700;
-  letter-spacing: .1em; color: hsl(var(--muted));
+  display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+  width: 100%; margin: 0; padding: .4rem .55rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+  color: hsl(var(--muted)); background: hsl(var(--row) / .6);
+  border: 1px solid hsl(var(--border) / .5); border-radius: .45rem;
+  cursor: pointer; font-family: inherit; text-align: left;
 }
-.codex-tier span { font-weight: 600; font-variant-numeric: tabular-nums; }
+.codex-tier:hover { background: hsl(var(--accent) / .08); }
+.codex-tier-t { font-weight: 700; letter-spacing: .1em; }
+.codex-tier-s { font-weight: 600; font-variant-numeric: tabular-nums; margin-left: auto; }
+.codex-tier-c { font-size: .62rem; color: hsl(var(--muted)); transition: transform .15s ease; }
+.codex-sec.open .codex-tier-c { transform: rotate(90deg); }
 /* 一条一张卡，按容器宽度自动分列 —— PC 上五列，手机上一列。
    注意这条只有在 #app 拿到 .wide（1180px）时才排得开：
    容器是 460px 窄栏的话，minmax(210px, 1fr) 只够一列，
    四十九条就成了一路往下拉。放宽是在 game.js 的 show() 里做的。 */
-.codex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .55rem; }
+.codex-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .55rem; }
 .codex-item {
   padding: .65rem .75rem; border-radius: var(--r-row);
   background: hsl(var(--card)); border: 1px solid hsl(var(--border));

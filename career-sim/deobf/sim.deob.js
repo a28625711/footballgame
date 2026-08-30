@@ -1297,7 +1297,36 @@ return!0x1;
 return bL["name"]["indexOf"]("最佳球员")>=0x0;
 })["length"],'topCount':(a2["awards"]||[]).filter(function(bL){
 return bL["name"]["indexOf"]('金靴')>=0x0;
-})["length"]};
+})["length"],'leagueTitles':(function(){var _lt={},_lgNames={};
+(a0["LEAGUES"]||[]).forEach(function(l){_lgNames[l["name"]+'冠军']=0x1;});
+(a2["trophies"]||[]).forEach(function(t){if(t["name"]&&_lgNames[t["name"]])_lt[t["name"]]=0x1;});
+return Object["keys"](_lt)["length"];
+}()),'domTreble':(function(){var _hasL=!0x1,_hasC=!0x1,_hasS=!0x1;
+(a2["trophies"]||[]).forEach(function(t){var n=t["name"]||"";
+if(!_hasL){var _lg=!0x1;(a0["LEAGUES"]||[]).forEach(function(l){if(n===l["name"]+'冠军')_lg=!0x0;});_hasL=_lg;}
+if(!_hasC&&/杯冠军$/.test(n)&&!/世俱杯/.test(n))_hasC=!0x0;
+if(!_hasS&&(/超级杯/.test(n)||/社区盾/.test(n)))_hasS=!0x0;
+});
+return _hasL&&_hasC&&_hasS;
+}()),'seasonTreble':(function(){var _byAge={};
+(a2["trophies"]||[]).forEach(function(t){var n=t["name"]||"",_a=t["age"];if(_a==null)return;
+_byAge[_a]=_byAge[_a]||{L:!0x1,C:!0x1,U:!0x1};
+var _isL=!0x1;(a0["LEAGUES"]||[]).forEach(function(l){if(n===l["name"]+'冠军')_isL=!0x0;});
+if(_isL)_byAge[_a]["L"]=!0x0;
+if(/杯冠军$/.test(n)&&!/世俱杯/.test(n))_byAge[_a]["C"]=!0x0;
+if(/欧冠冠军/.test(n))_byAge[_a]["U"]=!0x0;
+});
+for(var _k in _byAge)if(_byAge[_k]["L"]&&_byAge[_k]["C"]&&_byAge[_k]["U"])return!0x0;
+return!0x1;
+}()),'seasonMaxApps':(function(){var _m=0x0;
+(a2["seasons"]||[]).forEach(function(s){if(s["apps"]>_m)_m=s["apps"];});
+return _m;
+}()),'cupTitles':(function(){var _c=0x0;
+(a2["trophies"]||[]).forEach(function(t){var n=t["name"]||"";
+if(/杯冠军$/.test(n)||/超级杯/.test(n)||/社区盾/.test(n))_c++;
+});
+return _c;
+}())};
 }function br(bx){
 a2["phase"]="summary",a2["endReaso"+'n']=bx;
 var by=bq(),bz="青训淘汰"===by["reason"];

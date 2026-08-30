@@ -330,15 +330,15 @@ a0["ENDINGS"]["forEach"](function(c5){var c6=null==c5["tier"]?0x7:c5["tier"];
 c3[c6]||(c3[c6]=[],c4["push"](c6)),c3[c6]["push"](c5);
 }),c4["sort"](function(c5,c6){return c5-c6;
 }),c4["forEach"](function(c5){
-c2+="<div cla"+"ss=\"code"+"x-tier\">"+ax(bo[c5]||'第\x20'+c5+'\x20档')+"<span>"+c3[c5]["filter"](function(c6){return bX[c6['id']];
-})["length"]+" / "+c3[c5]["length"]+("</span><"+"/div>"),c2+="<div cla"+"ss=\"code"+"x-grid\">"+c3[c5]["map"](function(c6){var c7=bX[c6['id']]||0x0,c8=c7>0x0,c9=function(cc){var cd=[cc["title"]];
+c2+="<div cla"+"ss=\"code"+"x-sec open\"><button type=\"button\" class=\"codex-tier\" data-act=\"codex-grp\"><span class=\"codex-tier-t\">"+ax(bo[c5]||'第\x20'+c5+'\x20档')+"</span><span class=\"codex-tier-s\">"+c3[c5]["filter"](function(c6){return bX[c6['id']];
+})["length"]+" / "+c3[c5]["length"]+"</span><span class=\"codex-tier-c\">\u25b8</span></button><div class=\"codex-grid\">"+c3[c5]["map"](function(c6){var c7=bX[c6['id']]||0x0,c8=c7>0x0,c9=function(cc){var cd=[cc["title"]];
 if(cc["pos"]){for(var ce in cc["pos"])if(Object["prototyp"+'e']["hasOwnPr"+"operty"]["call"](cc["pos"],ce)){var cf=cc["pos"][ce]&&cc["pos"][ce]["title"];
 cf&&cd["indexOf"](cf)<0x0&&cd["push"](cf);
 }}return cd;
 }(c6),ca=0x2===c7&&bZ[c6['id']]||c6["title"],cb=c9["filter"](function(cc){return cc!==ca;
 });
 return "<div cla"+"ss=\"code"+"x-item"+(0x2===c7?" got":0x1===c7?" touch":'')+("\"><div c"+"lass=\"co"+"dex-titl"+"e\">")+(c8?ax(ca):"？？？")+(bY[c6['id']]>0x1?"<span cl"+"ass=\"cod"+"ex-x\">×"+bY[c6['id']]+"</span>":'')+(0x1===c7?"<span cl"+"ass=\"cod"+"ex-touch"+"\">够到过</s"+"pan>":'')+"</div>"+(c8&&cb["length"]?"<div cla"+"ss=\"code"+"x-alias\""+">按位置也叫："+ax(cb["join"]('、'))+"</div>":'')+("<div cla"+"ss=\"code"+"x-desc\">")+ax(c8?c6["desc"]:c6["hint"]||'')+"</div>"+(c8&&c6["hint"]?"<div cla"+"ss=\"code"+"x-hint\">"+ax(c6["hint"])+"</div>":'')+(c8&&c6["bonus"]?"<div style=\"margin-top:.4rem;padding:.35rem .5rem;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.35);border-radius:.35rem;font-size:.72rem;color:#d4af37\">加成："+cBch(c6)+"</div>":'')+"</div>";
-})["join"]('')+"</div>";
+})["join"]('')+"</div></div>";
 }),c2+="<div cla"+"ss=\"btn-"+"stack\"><"+"button c"+"lass=\"bt"+"n btn-pr"+"imary\" d"+"ata-act="+"\"codex-b"+"ack\">回首页"+"</button"+"></div>",
 aw("codex-ar"+'ea')["innerHTM"+'L']=c2;
 }());
@@ -1108,6 +1108,7 @@ bK("复制不了，已经填"+"进首页的种子框");
 }}(cb["getAttri"+"bute"]("data-see"+'d'));
 if("arc-back"===cc)return bM("view-int"+'ro');
 if("codex-ba"+'ck'===cc)return bM("view-int"+'ro');
+if("codex-gr"+'p'===cc){var _cs=cb["closest"](".codex-sec");if(_cs)_cs["classList"]["toggle"]("open");return!0x1;}
 if("arc-clea"+'r'===cc){if(!confirm("清空生涯历史档案"+"？这些记录只存在"+"这台设备上，清了"+"找不回来。"))return;
 return(function(){
 try{localStorage["removeIt"+'em'](a2+"archive");
