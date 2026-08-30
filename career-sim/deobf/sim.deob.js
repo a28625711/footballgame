@@ -349,7 +349,7 @@ do{k++;p*=ad();}while(p>L);return k-0x1;
 }
 function _matchSim(aStr,bStr){
 var sd=(aStr-bStr)/0x32;
-var lH=1.35*(1+sd*0.65),lA=1.35*(1-sd*0.65);
+var lH=1.35*(1+sd*0.85),lA=1.35*(1-sd*0.85);
 var hg=_poisson(lH),ag=_poisson(lA);
 return{hg:hg,ag:ag,won:hg>ag};
 }
