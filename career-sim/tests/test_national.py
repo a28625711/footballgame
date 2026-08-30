@@ -41,7 +41,7 @@ function sim(seed){
       window.__SIMTEST.cont();
     } else if(p.type==='bigmatch'){
       if(!p.result){ try{ window.SIM.choose('push'); }catch(e){ out.errs.push('bm:'+String(e).slice(0,80)); } }
-      window.__SIMTEST.cont();
+      else{ window.__SIMTEST.cont(); }
     } else if(p.type==='transfer'||p.type==='academy'||p.type==='youth_path'||p.type==='staff'){
       try{
         window.SIM.choose(p.type==='transfer'?(p.offers&&p.offers.length?'0':(p.canStay?'stay':'retire'))

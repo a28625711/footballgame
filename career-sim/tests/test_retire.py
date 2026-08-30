@@ -26,7 +26,7 @@ js = r"""
       }
       if(p.type==='random'){ if(p.result) window.__SIMTEST.cont(); else window.__SIMTEST.option(0); continue; }
       if(p.type==='report'){ window.__SIMTEST.cont(); continue; }
-      if(p.type==='bigmatch'){ window.__SIMTEST.option('hold'); window.__SIMTEST.cont(); continue; }
+      if(p.type==='bigmatch'){ window.__SIMTEST.option('hold'); if(p.result) window.__SIMTEST.cont(); continue; }
       if(p.type==='staff'){ window.__SIMTEST.option(0); continue; }
       if(p.type==='transfer'){
         if(p.canRetire && st.age>=35){ window.__SIMTEST.option('retire'); continue; }

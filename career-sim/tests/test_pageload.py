@@ -29,7 +29,7 @@ js = r"""
       if(p.type==='report'){ window.SIM.cont(); continue; }
       if(p.type==='academy'){ window.SIM.option(0); continue; }
       if(p.type==='youth_path'){ window.SIM.option(0); continue; }
-      if(p.type==='bigmatch'){ if(!p.result) window.SIM.choose('push'); window.SIM.cont(); continue; }
+      if(p.type==='bigmatch'){ if(!p.result) window.SIM.choose('push'); else window.SIM.cont(); continue; }
       if(p.type==='staff'){ window.SIM.option(0); continue; }
       if(p.type==='transfer'){
         if(p.offers && p.offers.length) window.SIM.option('0');

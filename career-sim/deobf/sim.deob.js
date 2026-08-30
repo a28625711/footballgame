@@ -653,52 +653,174 @@ if(a2["bigQ"]&&a2["bigQ"]["length"])return!0x1;
 var bA=ar(),bB=as();
 return a2["bigQ"]=[{'kind':bx,'p':by,'recIdx':a2["seasons"]["length"],'age':a2["age"],'comp':bz&&bz["comp"]||'','team':bA?bA["name"]:'','opp':bz&&bz["opp"]||aU(bx,bA,bB),'teamId':bA?bA['id']:null}],
 !0x0;
-}function aW(){var bx=a2["bigQ"][0x0],bk2=ac((a2["ovr"]-0x46)/0x1e,-0.5,0x1),by,by2,bz,bz2;by2=ad();by=by2<0.38-0.25*bk2?0x0:by2<0.73?0x1:by2<0.93-0.15*bk2?0x2:0x3;bz2=ad();bz=bz2<0.5+0.2*bk2?0x0:bz2<0.85?0x1:0x2;
-var bE2=ad(),bF2=null;
-if(bE2<("derby"===bx["kind"]||"wc"===bx["kind"]?0.45:0.3)){
-var bG2=[
-['第'+ae(8,28)+' 分钟，你送出一记过顶球，队友单刀推射得手！',1,0],
-['第'+ae(14,40)+' 分钟，禁区一片混战，是你最先把球捅进了网窝！',1,0],
-['第'+ae(16,44)+' 分钟，你在二十五米外起脚远射，皮球直挂死角！这球会被反复回放。',1,0],
-['第'+ae(12,38)+' 分钟，对方利用角球混战率先破门。',0,1],
-['第'+ae(18,48)+' 分钟，你们的左路被连续打穿，失球来自一次二点进攻。',0,1],
-['第'+ae(9,34)+' 分钟，你的远射击中立柱弹出，全场齐声惊呼。',0,0],
-['VAR 回看判定越位在先，进球无效，比分保持不变。',0,0],
-['第'+ae(11,36)+' 分钟，对方前锋的单刀被你们门将神扑化解，他抱着球冲队友怒吼。',0,0],
-['雨越下越大，皮球在湿滑的草皮上不听使唤，双方失误都开始变多。',0,0],
-['中场绞杀白热化，短短三分钟内裁判掏出了两张黄牌。',0,0],['第'+ae(88,93)+' 分钟，主裁判指向点球点！全场屏息——你深吸一口气，骗过门将推进死角！',1,0],['第'+ae(88,93)+' 分钟，你站上十二码点——可对方门将猜对了方向！扑出球的他顺势发动反击…',0,1],
-];
-if("derby"===bx["kind"])bG2=bG2.concat([
-['第'+ae(13,39)+' 分钟，全场最恨的那个人战术犯规了——黄牌和嘘声一起砸向他。',0,0],
-['第'+ae(15,41)+' 分钟，你的挑射擦着横梁飞出，对面看台齐刷刷倒吸一口凉气。',0,0],
-['补时第'+ae(1,4)+' 分钟，你在禁区弧顶拿球，身前是三个人——你起脚了！球从缝隙里钻进了网窝！绝杀！',1,0],['补时阶段你的传球被断，对方的反击长传打穿了压上的防线……',0,1]]);
-else if("wc"===bx["kind"]||"asia"===bx["kind"])bG2=bG2.concat([
-['国歌奏响的那一刻，你的眼眶发热——这份重量只有扛着它的人知道。',0,0],
-['亿万双眼睛正透过屏幕注视着这块草皮。',0,0],
-['看台上旅欧球迷助威团的鼓声，从开场第一秒就没停过。',0,0]]);
-else if("cont"===bx["kind"])bG2=bG2.concat([
-['欧冠主题曲响起的瞬间，整座球场灯光熄灭，只剩星海般的手机灯。',0,0],
-['客场远征军的旗帜铺满了上层看台，那是漂泊者的军团。',0,0],
-['欧洲之巅的对决，每一次触球都被整块大陆注视着。',0,0]]);
-else if("promo"===bx["kind"]||"drop"===bx["kind"])bG2=bG2.concat([
-['一整年三十四轮的意义，全部压缩进了这九十分钟。',0,0],
-['看台上有人举着写满年份的旧横幅——上一代人等这一场等了很久了。',0,0]]);
-var bH2=bG2[Math["floor"](ad()*bG2["length"])];
-by=Math["max"](0,by+bH2[1]),bz=Math["max"](0,bz+bH2[2]),bF2=bH2[0];}
-var bI2=by>bz?1:by<bz?-1:0;
-var bJ2={"derby":{"hold":["收缩防线","先别丢球，德比的反击最能要命"],"push":["为他们冲垮对面","全城的人今晚都看着这一场"],"run":["在中场缠住他们","把德比变成一场绞肉机"]},
-"wc":{"hold":["踢得务实些","亿万人的期待，先站稳脚跟"],"push":["为国家豁出去","这九十分钟重过一切"],"run":["让皮球流动起来","国家队的比赛也要踢出内容"]},
-"cont":{"hold":["控制节奏","欧战的老经验：千万别慌"],"push":["全场高压逼抢","站上欧洲之巅就不能退缩"],"run":["控球渗透","用传球掌控自己的命运"]},
-"asia":{"hold":["务实防守","先把零封拿到手再说"],"push":["全力冲击对手","在亚洲我们要建立统治"],"run":["地面推进","把球黏在自己脚下"]},
-"promo":{"hold":["守住这个结果","升级只差一步，别功亏一篑"],"push":["历史由我们书写","冲上去，结束所有人的等待"],"run":["耐心倒脚","把焦虑都还给对面的球迷"]},
-"drop":{"hold":["冷静，再冷静","保级最需要的是清醒的头脑"],"push":["豁出去搏命","反正降级了说什么都晚了"],"run":["把球牢牢拿住","多消耗一秒，他们就多急一分"]}};
-var bK2=bJ2[bx["kind"]]||{};
-function bL2(k){var df=null;for(var t=0;t<aY.length;t++)if(aY[t]["key"]===k)df=aY[t];return{"key":k,"label":bK2[k]?bK2[k][0]:df["label"],"hint":bK2[k]?bK2[k][1]:df["hint"]};}
-var bM2=by>bz?["hold","wall","push"]:by<bz?["push","solo","hold"]:["hold","push","run"];
-bx["opts"]=bM2.map(bL2);
-bx["half"]=[by,bz],bx["ev"]=bF2,a2["pending"]={'type':"bigmatch",'kind':bx["kind"],'comp':bx["comp"],'age':bx["age"],'icon':aR[bx["kind"]]["icon"],'side':aR[bx["kind"]]["side"]||bx["team"],
-'opp':bx["opp"],'half':[by,bz],'opts':bx["opts"],'log':aX(bx,by,bz)};
-}function aX(bx,by,bz){var bA=aR[bx["kind"]]["side"]||bx["team"],bB=[],bC=ae(0x0,0x4),bD=ae(0x0,0x2);
+}function _bmOppStr(bx){
+  var tm=bx["teamId"]?ar():null;
+  if(bx["kind"]==="wc"||bx["kind"]==="asia")return 0x3c+(bx["kind"]==="wc"?0x10:0x8);
+  return tm?tm["rep"]*0x8+0x2e:0x46;
+}
+function _bmEvents(bx){
+  var k=bx["kind"];
+  var common=[
+    ["第"+ae(0x3,0x18)+" 分钟，角球开出，禁区内抢点差之毫厘，全场一阵叹息。",null],
+    ["一次漂亮的二过一撕开防线，可惜最后的射门被门将没收。",null],
+    ["对方在边路起高球，你回撤顶出第一落点，化解险情。",null],
+    ["主裁判示意补水时间，双方球员聚在教练席前听布置。",null],
+    ["中场拼抢激烈，皮球在两队之间来回易手。",null],
+    ["你在三十米外尝试远射，球擦着横梁飞出，对方门将惊出一身冷汗。",null],
+    ["VAR 介入检查一次禁区内倒地，最终维持原判。",null],
+    ["第"+ae(0x10,0x32)+" 分钟，你接直塞形成单刀——门将出击封堵，球被扑出！",null]
+  ];
+  var goalMe=[
+    ["第"+ae(0x5,0x2b)+" 分钟，你接到队友直塞，冷静推射远角得手！","打进了关键一球"],
+    ["第"+ae(0x9,0x2e)+" 分钟，你在禁区混战中捅射破门！","率先打破僵局"],
+    ["第"+ae(0xc,0x34)+" 分钟，你主罚的任意球绕过人墙，直挂死角！","轰进世界波"],
+    ["第"+ae(0x10,0x38)+" 分钟，你用一次灵巧的转身摆脱防守，低射入网！","完成致命一击"]
+  ];
+  var goalOpp=[
+    ["第"+ae(0x6,0x2c)+" 分钟，对方利用定位球头球破门。",null],
+    ["第"+ae(0xb,0x31)+" 分钟，对方反击三打二，轻松推空门得手。",null],
+    ["第"+ae(0xf,0x36)+" 分钟，你的一次解围踢疵，被对方抓住机会打进。",null]
+  ];
+  if(k==="derby")common=common.concat([
+    ["德比的火药味蔓延到看台，两片看台隔空对骂。",null],
+    ["第"+ae(0xa,0x26)+" 分钟，全场最恨的那个人放铲——你被抬到场边处理。",null]
+  ]);
+  if(k==="wc"||k==="asia")common=common.concat([
+    ["国歌奏响时，你的眼眶发热。",null],
+    ["看台上旅欧球迷的助威鼓声从没停过。",null]
+  ]);
+  var pool=common.slice();
+  if(ad()<0.3)pool=pool.concat(goalMe);
+  if(ad()<0.24)pool=pool.concat(goalOpp);
+  return pool;
+}
+function _bmOpts(bx,dec){
+  var k=bx["kind"];
+  var map=({"derby":["收缩防线","为他们冲垮对面","在中场缠住他们"],"wc":["踢得务实些","为国家豁出去","让皮球流动起来"],"cont":["控制节奏","全场高压逼抢","控球渗透"],"asia":["务实防守","全力冲击对手","地面推进"],"promo":["守住这个结果","历史由我们书写","耐心倒脚"],"drop":["冷静，再冷静","豁出去搏命","把球牢牢拿住"]}[k])||["稳住","压上","控球"];
+  function opt(key){
+    var lab=key==="hold"?map[0x0]:key==="push"?map[0x1]:key==="run"?map[0x2]:key==="wall"?"全员退防":key==="solo"?"自己单干":"稳住";
+    var hint=key==="hold"?"小幅提高赢面，个人数据平淡":key==="push"?"赢面涨得最多，也最可能被反击打穿":key==="run"?"居中，队友更愿意找你":key==="wall"?"摆大巴死守到底，难看但有效":key==="solo"?"孤注一掷用个人能力解决问题":"";
+    return{"key":key,"label":lab,"hint":hint};
+  }
+  var sc=bx["score"]||[0,0];
+  if(dec==="kickoff"||dec==="halftime"){
+    if(sc[0x0]>sc[0x1])return[opt("hold"),opt("wall"),opt("push")];
+    if(sc[0x0]<sc[0x1])return[opt("push"),opt("solo"),opt("hold")];
+    return[opt("hold"),opt("push"),opt("run")];
+  }
+  if(dec==="endgame"){
+    if(sc[0x0]>=sc[0x1])return[opt("hold"),opt("push")];
+    return[opt("push"),opt("solo")];
+  }
+  if(dec==="extra")return[opt("push"),opt("hold")];
+  if(dec==="pen")return[{"key":"left","label":"射向左下角","hint":"瞄着最刁的角度，但门将也可能猜中"},{"key":"top","label":"打中路","hint":"骗门将扑边，自己打中间"},{"key":"right","label":"射向右上角","hint":"大力抽向死角"}];
+  return[opt("hold"),opt("push"),opt("run")];
+}
+function _bmSeg(bx){
+  var as=Math["round"](a2["ovr"]+0x18),bs=_bmOppStr(bx);
+  if(bx["kind"]==="wc"||bx["kind"]==="asia")as=Math["round"](_natStr? _natStr() : a2["ovr"]+0x18);
+  var sd=(as-bs)/0x5a;
+  var mood=bx["_mood"]||0x0;
+  var lH=0.375*(1+(sd+mood*0.06)*0.85),lA=0.375*(1-(sd+mood*0.06)*0.85);
+  if(lH<0.15)lH=0.15;if(lA<0.15)lA=0.15;
+  var hg=_poisson(lH),ag=_poisson(lA);
+  var ev=null;
+  if(ad()<0.55){
+    var pool=_bmEvents(bx);
+    if(pool&&pool["length"])ev=pool[Math["floor"](ad()*pool["length"])];
+    if(ev&&ev[0x2]!=null)hg=Math["max"](hg,ev[0x2]);
+    if(ev&&ev[0x3]!=null)ag=Math["max"](ag,ev[0x3]);
+  }
+  bx["score"][0x0]+=hg;bx["score"][0x1]+=ag;
+  if(ev&&ev[0x0])bx["log"]["push"](ev[0x0]+(ev[0x1]?"（你"+ev[0x1]+"）":""));
+  else{
+    var t=bx["t"]||0;
+    if(hg>0)bx["log"]["push"]("第"+ae(t+0x1,t+0xf)+" 分钟，"+(bx["side"]||"你们")+"由一次流畅配合破门。");
+    if(ag>0)bx["log"]["push"]("第"+ae(t+0x1,t+0xf)+" 分钟，对方抓住一次机会扳回一城。");
+  }
+  return{hg:hg,ag:ag};
+}
+function _bmAdvance(bx){
+  while(true){
+    if(bx["done"])return;
+    if(bx["dec"])return;
+    var seg=bx["seg"]||0x0;
+    if(seg===0x0){bx["seg"]=0x1;bx["dec"]="kickoff";bx["opts"]=_bmOpts(bx,"kickoff");return;}
+    if(seg===0x3){bx["seg"]=0x4;bx["dec"]="halftime";bx["opts"]=_bmOpts(bx,"halftime");return;}
+    if(seg===0x6){
+      var sc=bx["score"];
+      if(sc[0x0]===sc[0x1]){bx["seg"]=0x7;bx["dec"]="extra";bx["opts"]=_bmOpts(bx,"extra");return;}
+      bx["done"]=!0x0;return;
+    }
+    if(seg>=0x7){bx["done"]=!0x0;return;}
+    _bmSeg(bx);
+    bx["t"]=(bx["t"]||0x0)+0xf;
+    bx["log"]["push"]("比分 "+(bx["side"]||"你们")+" "+bx["score"][0x0]+" : "+bx["score"][0x1]);
+    bx["seg"]=seg+0x1;
+  }
+}
+function _bmFinish(bI,_p){
+  var bM,bN=_p["score"][0x0],bO=_p["score"][0x1],bP=[],bQ='',bS=null;
+  var bW=al(a2["pos"])["group"],bV=aR[bI["kind"]]["side"]||bI["team"];
+  var as=Math["round"](a2["ovr"]+0x18),bs=_bmOppStr(bI);
+  if(bI["kind"]==="wc"||bI["kind"]==="asia")as=Math["round"](_natStr? _natStr() : a2["ovr"]+0x18);
+  var _mood=bI["_mood"]||0x0;
+  var sd=(as-bs)/0x5a;
+  if(bN===bO&&!_p["_extraDone"]){
+    _p["_extraDone"]=!0x0;
+    _p["log"]["push"]("九十分钟战平，进入加时赛。");
+    var eH=0.12*(1+(sd+_mood*0.06)*0.85),eA=0.12*(1-(sd+_mood*0.06)*0.85);
+    if(eH<0.06)eH=0.06;if(eA<0.06)eA=0.06;
+    var _eh=_poisson(eH),_ea=_poisson(eA);
+    if(_eh>0)bN+=_eh,_p["log"]["push"]("加时赛，"+bV+"终于打破僵局！");
+    if(_ea>0)bO+=_ea,_p["log"]["push"]("加时赛，对方完成了绝杀！");
+    _p["score"][0x0]=bN;_p["score"][0x1]=bO;
+    _p["log"]["push"]("比分 "+bV+" "+bN+" : "+bO);
+    if(bN===bO){
+      _p["dec"]="pen";_p["opts"]=_bmOpts(bI,"pen");
+      a2["pending"]=_p;
+      return;
+    }
+  }
+  if(bN===bO&&_p["_extraDone"]){
+    bP["push"]("九十分钟和加时都没分出胜负。点球大战。");
+    var _sa=_p["_penA"]===!0x0?0x6c:0x5e,_sb=0x5c;
+    var _pa=ac(_sa/0x64,0.5,0.82),_pb=ac(_sb/0x64,0.5,0.82);
+    var _a=0,_b=0,_guard=0;
+    function _pkR(p){return ad()<p;}
+    for(var _r=0;_r<5;_r++){if(_pkR(_pa))_a++;if(_pkR(_pb))_b++;}
+    while(_a===_b&&_guard++<0x14){if(_pkR(_pa))_a++;if(_pkR(_pb))_b++;}
+    bS=[_a,_b];
+    bM=_a>=_b;
+    bP["push"](_p["_penA"]===!0x0?"你主罚的一球稳稳命中，为球队提供了保障。":"你主罚的一球被扑出，球队陷入被动。");
+    bP["push"]("点球 "+_a+" : "+_b);
+  }else{
+    bM=bN>bO;
+    bQ=bM?"领先":"落后";
+  }
+  var bX=null;
+  (a2["seasons"][bI["recIdx"]]||{"apps":0x0})["apps"]>0x0&&ad()<0.4&&(bX='gk'===bW?bS?"点球大战中扑出了关键一球":'第\x20'+ae(0x3c,0x58)+(" 分钟单掌把必进"+"球托了出去"):"def"===bW?"在门线上把球解围"+'出去':"mid"===bW?bM?"送出了那记决定比"+"赛的直塞":"把球权一次次抢回"+'来':bM?"打进了那个球":"打出了全队唯一一"+"次射正"),
+  bX&&bP["push"]('你'+bX+'。');
+  'derby'===bI["kind"]&&bP["push"](bM?"终场哨响的那一刻"+"，属于你的那半边"+"看台炸了。有人抱"+"着你哭。":"对面看台的歌声一"+"直唱到终场，像刀"+"子一样扎进耳朵。"+"\u8fd9就是德比。");
+  var bY=bV+'\x20'+bN+" 比 "+bO+(bS?"，点球 "+bS[0x0]+" 比 "+bS[0x1]:'')+'。';
+  bP["push"](bM?"终场哨响。"+bY+(bS?"点球大战赢下来的"+"那种赢法，腿是软"+'的。':"很多年以后你还会"+"梦到这一刻。"):bY+(bS?"点球大战输掉的球"+"，最难过去。":"你在草皮上坐了很"+"久，没人来拉你。"));
+  var bZ=a2["seasons"][bI["recIdx"]]||null,c0=[];
+  bZ&&bZ["apps"]>0x0&&(bX&&'gk'!==bW&&("mid"===bW||"def"===bW?(bZ["assists"]++,a2["totals"]["assists"]++):(bZ["goals"]++,a2["totals"]["goals"]++)),
+  'wc'===bI["kind"]||"asia"===bI["kind"]?(b0(bZ,bI["comp"],bM?'冠军':'亚军',bI["age"]),'wc'===bI["kind"]?a2["natForm"]["wc"]=bM?0x4:0x3:a2["natForm"]["asia"]=bM?0x3:0x2):"cont"===bI["kind"]&&bM?(bZ["trophies"]["push"](bI["comp"]+'冠军'),a2["trophies"]["push"]({'name':bI["comp"]+'冠军','age':bI["age"],'team':bI["team"]})):"promo"===bI["kind"]&&bM?(a2["leagueOf"]=a2["leagueOf"]||{},a2["leagueOf"][bI["teamId"]]=am[bI["fromLeag"+'ue']],bZ["move"]='升上'+ak(am[bI["fromLeag"+'ue']])["name"]):"drop"!==bI["kind"]||bM||(a2["leagueOf"]=a2["leagueOf"]||{},a2["leagueOf"][bI["teamId"]]=ao[bI["fromLeag"+'ue']],bZ["move"]='降入'+ak(ao[bI["fromLeag"+'ue']])["name"]));
+  if(a2["_natWC"]){var _tw=a2["_natWC"];_tw["stage"]=bM?'冠军':'亚军';_natFinalScore(_tw,"中国队",bN,bO,bS);var _frw=_tw["rounds"]&&_tw["rounds"]["length"]?_tw["rounds"][_tw["rounds"]["length"]-0x1]:null;if(_frw)_frw["won"]=bM;var _pw=_tw["path"]&&_tw["path"]["length"]?_tw["path"][_tw["path"]["length"]-0x1]:null;if(_pw){_pw["won"]=bM;var _ps2=(bS&&bS["length"]>=2)?(bN+"-"+bO+" (点球 "+bS[0x0]+"-"+bS[0x1]+")"):(bN+"-"+bO);_pw["score"]=_ps2;}a2["natForm"]["wc"]=bM?0x4:0x3;delete a2["_natWC"];}if(a2["_natAsia"]){var _ta=a2["_natAsia"];_ta["stage"]=bM?'冠军':'亚军';_natFinalScore(_ta,"中国队",bN,bO,bS);var _fra=_ta["rounds"]&&_ta["rounds"]["length"]?_ta["rounds"][_ta["rounds"]["length"]-0x1]:null;if(_fra)_fra["won"]=bM;var _pa2=_ta["path"]&&_ta["path"]["length"]?_ta["path"][_ta["path"]["length"]-0x1]:null;if(_pa2){_pa2["won"]=bM;var _ps3=(bS&&bS["length"]>=2)?(bN+"-"+bO+" (点球 "+bS[0x0]+"-"+bS[0x1]+")"):(bN+"-"+bO);_pa2["score"]=_ps3;}a2["natForm"]["asia"]=bM?0x3:0x2;delete a2["_natAsia"];}if(a2["_contRun"]){var _cr3=a2["_contRun"];_cr3["result"]=bM?"冠军":"止步决赛";var _fr3=_cr3["rounds"][_cr3["rounds"]["length"]-0x1];_fr3["won"]=bM;_fr3["score"]=bN+"-"+bO;if(bS)_fr3["score"]+=(" (点球 "+bS[0x0]+"-"+bS[0x1]+")");delete a2["_contRun"];}
+  var c1=bM?'derby'===bI["kind"]?0xc:'wc'===bI["kind"]?0x1e:"asia"===bI["kind"]?0x12:0x10:'derby'===bI["kind"]?0x2:'wc'===bI["kind"]?0xa:0x4,c2=Math["round"](c1*(0x1-a2["fame"]/0x64));
+  return a2["fame"]=ac(a2["fame"]+c2,0x0,0x64),c2&&c0["push"]({'cls':'up','text':"名气+"+c2}),bI["_mood"]&&(a2["guanxi"]=ac(a2["guanxi"]+bI["_mood"],0x0,0x64),
+  c0["push"]({'cls':'up','text':"关系+"+bI["_mood"]})),a2["pending"]["result"]={'won':bM,'log':bP,'deltas':c0,'score':[bN,bO],'pens':bS},a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bI["comp"],'text':(bM?'derby'===bI["kind"]?'胜':'冠军':'derby'===bI["kind"]?'负':'失利')+'：'+bY}),a2["_awardDue"]&&(a2["_awardDue"]=!0x1,bAw(a2["seasons"][bI["recIdx"]])),
+  a2["bigQ"]=[],!0x0;
+}
+function aW(){var bx=a2["bigQ"][0x0];
+bx["score"]=[0x0,0x0];bx["log"]=[];
+bx["seg"]=0x0;bx["dec"]=null;bx["opts"]=null;bx["done"]=!0x1;bx["t"]=0x0;
+a2["pending"]={'type':"bigmatch",'kind':bx["kind"],'comp':bx["comp"],'age':bx["age"],'icon':aR[bx["kind"]]["icon"],'side':aR[bx["kind"]]["side"]||bx["team"],
+'opp':bx["opp"],'score':bx["score"],'seg':bx["seg"],'dec':bx["dec"],'opts':bx["opts"],'log':bx["log"],'done':bx["done"],'t':bx["t"]};
+_bmAdvance(bx);
+a2["pending"]["score"]=bx["score"];a2["pending"]["seg"]=bx["seg"];a2["pending"]["dec"]=bx["dec"];a2["pending"]["opts"]=bx["opts"];a2["pending"]["done"]=bx["done"];a2["pending"]["log"]=bx["log"];a2["pending"]["t"]=bx["t"];}
+function aX(bx,by,bz){var bA=aR[bx["kind"]]["side"]||bx["team"],bB=[],bC=ae(0x0,0x4),bD=ae(0x0,0x2);
 'derby'===bx["kind"]&&bB["push"](af(["这座城市提前一周就分成了两半。","地铁里两拨球迷隔着车厢对视。","报纸头版印着历史交手记录：恩怨已经写了一百年。","看台上有人在发那种著名的挑衅海报。","出租车司机一路都在骂对面那个队。"]));
 bx["ev"]&&bB["unshift"](bx["ev"]);return 0x0===by&&0x0===bz?bB["push"]("上半场谁都没打开"+"局面。你们在中场"+"来回磨了四十五分"+'钟。'):by>bz?(bB["push"]('第\x20'+ae(0x9,0x29)+" 分钟，"+bA+("先进了一个。看台"+"整个站了起来。")),
 by>0x1&&bB["push"]("半场结束前又来一"+"个。你们把优势拉"+"到了两球。"),bz&&bB["push"]("对方在补时扳回一"+"个。中场哨响时那"+"边的替补席在喊。")):by<bz?(bB["push"]('第\x20'+ae(0x6,0x26)+(" 分钟丢球。皮球"+"进网的那一下，场"+"里安静得能听见对"+"方球迷。")),
@@ -1426,35 +1548,37 @@ return!!bF&&(bv(bx),b8(bF,!0x0),function(){var bV2=a2["_offerTerms"]&&a2["_offer
 a2["contract"+"Left"]=bV2?bV2["years"]:be(),a2["wageMul"+'t']=bV2?bV2["mult"]:0x1;
 }(),a2["pending"]=null,bk(),!0x0);
 }return "staff"===bA["type"]?(bv(bx),"skip"!==bx&&bA["offers"]["indexOf"](bx)>=0x0&&(a2["staff"]=a2["staff"]||{},a2["staff"][bx]=!0x0),
-a2["pending"]=null,bk(),!0x0):"bigmatch"===bA["type"]?!bA["result"]&&function(bG){var bH,bI=a2["bigQ"][0x0],bJ=null;
-for(bH=0x0;
-bH<aY["length"];
-bH++)aY[bH]["key"]===bG&&(bJ=aY[bH]);
-if(!bJ)return!0x1;
+a2["pending"]=null,bk(),!0x0):"bigmatch"===bA["type"]?!bA["result"]&&function(bG){
+var bH,bI=a2["bigQ"][0x0],bJ=null;
+var _p=bA;
+for(bH=0x0;bH<aY["length"];bH++)aY[bH]["key"]===bG&&(bJ=aY[bH]);
+var _dec=_p["dec"]||"kickoff";
+/* 决策点: 点球 —— 玩家一次机会,只给一点加成 */
+if(_dec==="pen"){
+  bv(bG);
+  var _pBase=0x68;
+  var _bonus=(bG==="left"||bG==="right")?0x5:0x3;
+  var _pb=ac((_pBase+_bonus)/0x64,0.55,0.85);
+  var _sA=ad()<_pb;
+  _p["log"]["push"](bG==="left"?"你走向点球点，深吸一口气，瞄准左下角……":"你走向点球点，深吸一口气……");
+  _p["log"]["push"](_sA?"你冷静推射，皮球应声入网！":"你的一脚被门将猜中方向扑出！");
+  _p["_penA"]=_sA;
+  _p["_penDone"]=!0x0;
+  _bmFinish(bI,_p);
+  return!0x0;
+}
+/* 普通决策点: 应用战术 mood 修正 */
+var _moodMap={"hold":0x1,"push":0x2,"run":0x0,"solo":0x1,"wall":-0x1};
+bI["_mood"]=(bI["_mood"]||0x0)+(_moodMap[bG]!=null?_moodMap[bG]:0x0);
+bI["_choice"]=bG;
 bv(bG);
-var bN=bI["half"][0x0],bO=bI["half"][0x1],bP=[],bQ='',bK=Math["max"](0x0,(a2["ovr"]-0x46))/0x23,bL=ac(bI['p']-0.095+bJ['dp']+bK*(bJ["risk"]?0.09:0.045)+(bN-bO)*0.15,0.04,0.93),bM=ad()<bL;
-a2["cheat"]&&(bM=!0x0);
-var bR=!bM&&ad()<0.14||bM&&ad()<0.12,bS=null;
-if(bR){if(bO>bN)bN=bO;else bO=bN;
-var bT=ae(0x3,0x5),bU=0x5===bT?ae(0x3,0x4):bT-0x1;
-bS=bM?[bT,bU]:[bU,bT];
-}else{bM?bN<=bO?(bN=bO+0x1,bQ="落后到反超"):bN+=ad()<0.45?0x1:0x0:bN>=bO?(bO=bN+0x1,bQ="被反超"):bO+=ad()<0.4?0x1:0x0;}var bV=aR[bI["kind"]]["side"]||bI["team"];
-"push"===bJ["key"]?bP["push"]("下半场你们把防线"+"整体压过中圈。这"+"么踢没有中间地带"+'。'):"hold"===bJ["key"]?bP["push"]("下半场你们把阵型"+"收了回去，先不丢"+"球再说。"):bP["push"]("下半场球开始从你"+"脚下过。节奏慢下"+"来了，但每一脚都"+"有去处。");
-var bW=al(a2["pos"])["group"],bX=null;
-(a2["seasons"][bI["recIdx"]]||{"apps":0x0})["apps"]>0x0&&ad()<bJ["glory"]&&(bX='gk'===bW?bR?"扑出了点球大战里"+"的第三轮":'第\x20'+ae(0x3c,0x58)+(" 分钟单掌把必进"+"球托了出去"):"def"===bW?"在门线上把球解围"+'出去':"mid"===bW?bM?"送出了那记决定比"+"赛的直塞":"把球权一次次抢回"+'来':bM?"打进了那个球":"打出了全队唯一一"+"次射正"),
-bR?bP["push"]("九十分钟和加时都"+"没分出胜负。点球"+"大战。"):"落后到反超"===bQ?bP["push"]('第\x20'+ae(0x46,0x5a)+(" 分钟，比分被翻"+"了过来。")):"被反超"===bQ&&bP["push"]('第\x20'+ae(0x48,0x5a)+(" 分钟，对方把比"+"分反超。")),
-bX&&bP["push"]('你'+bX+'。');
-'derby'===bI["kind"]&&bP["push"](bM?"终场哨响的那一刻"+"，属于你的那半边"+"看台炸了。有人抱"+"着你哭。":"对面看台的歌声一"+"直唱到终场，像刀"+"子一样扎进耳朵。"+"\u8fd9就是德比。");
-var bY=bV+'\x20'+bN+" 比 "+bO+(bS?"，点球 "+bS[0x0]+" 比 "+bS[0x1]:'')+'。';
-bP["push"](bM?"终场哨响。"+bY+(bR?"点球大战赢下来的"+"那种赢法，腿是软"+'的。':"很多年以后你还会"+"梦到这一刻。"):bY+(bR?"点球大战输掉的球"+"，最难过去。":"你在草皮上坐了很"+"久，没人来拉你。"));
-var bZ=a2["seasons"][bI["recIdx"]]||null,c0=[];
-bZ&&bZ["apps"]>0x0&&(bX&&'gk'!==bW&&("mid"===bW||"def"===bW?(bZ["assists"]++,a2["totals"]["assists"]++):(bZ["goals"]++,a2["totals"]["goals"]++)),
-'wc'===bI["kind"]||"asia"===bI["kind"]?(b0(bZ,bI["comp"],bM?'冠军':'亚军',bI["age"]),'wc'===bI["kind"]?a2["natForm"]["wc"]=bM?0x4:0x3:a2["natForm"]["asia"]=bM?0x3:0x2):"cont"===bI["kind"]&&bM?(bZ["trophies"]["push"](bI["comp"]+'冠军'),a2["trophies"]["push"]({'name':bI["comp"]+'冠军','age':bI["age"],'team':bI["team"]})):"promo"===bI["kind"]&&bM?(a2["leagueOf"]=a2["leagueOf"]||{},a2["leagueOf"][bI["teamId"]]=am[bI["fromLeag"+'ue']],bZ["move"]='升上'+ak(am[bI["fromLeag"+'ue']])["name"]):"drop"!==bI["kind"]||bM||(a2["leagueOf"]=a2["leagueOf"]||{},a2["leagueOf"][bI["teamId"]]=ao[bI["fromLeag"+'ue']],bZ["move"]='降入'+ak(ao[bI["fromLeag"+'ue']])["name"]));
-if(a2["_natWC"]){var _tw=a2["_natWC"];_tw["stage"]=bM?'冠军':'亚军';_natFinalScore(_tw,"中国队",bN,bO,bS);var _frw=_tw["rounds"]&&_tw["rounds"]["length"]?_tw["rounds"][_tw["rounds"]["length"]-0x1]:null;if(_frw)_frw["won"]=bM;var _pw=_tw["path"]&&_tw["path"]["length"]?_tw["path"][_tw["path"]["length"]-0x1]:null;if(_pw){_pw["won"]=bM;var _ps2=(bS&&bS["length"]>=2)?(bN+"-"+bO+" (点球 "+bS[0x0]+"-"+bS[0x1]+")"):(bN+"-"+bO);_pw["score"]=_ps2;}a2["natForm"]["wc"]=bM?0x4:0x3;delete a2["_natWC"];}if(a2["_natAsia"]){var _ta=a2["_natAsia"];_ta["stage"]=bM?'冠军':'亚军';_natFinalScore(_ta,"中国队",bN,bO,bS);var _fra=_ta["rounds"]&&_ta["rounds"]["length"]?_ta["rounds"][_ta["rounds"]["length"]-0x1]:null;if(_fra)_fra["won"]=bM;var _pa2=_ta["path"]&&_ta["path"]["length"]?_ta["path"][_ta["path"]["length"]-0x1]:null;if(_pa2){_pa2["won"]=bM;var _ps3=(bS&&bS["length"]>=2)?(bN+"-"+bO+" (点球 "+bS[0x0]+"-"+bS[0x1]+")"):(bN+"-"+bO);_pa2["score"]=_ps3;}a2["natForm"]["asia"]=bM?0x3:0x2;delete a2["_natAsia"];}if(a2["_contRun"]){var _cr3=a2["_contRun"];_cr3["result"]=bM?"冠军":"止步决赛";var _fr3=_cr3["rounds"][_cr3["rounds"]["length"]-0x1];_fr3["won"]=bM;_fr3["score"]=bN+"-"+bO;if(bS)_fr3["score"]+=(" (点球 "+bS[0x0]+"-"+bS[0x1]+")");delete a2["_contRun"];}
-var c1=bM?'derby'===bI["kind"]?0xc:'wc'===bI["kind"]?0x1e:"asia"===bI["kind"]?0x12:0x10:'derby'===bI["kind"]?0x2:'wc'===bI["kind"]?0xa:0x4,c2=Math["round"](c1*(0x1-a2["fame"]/0x64));
-return a2["fame"]=ac(a2["fame"]+c2,0x0,0x64),c2&&c0["push"]({'cls':'up','text':"名气+"+c2}),bJ["mood"]&&(a2["guanxi"]=ac(a2["guanxi"]+bJ["mood"],0x0,0x64),
-c0["push"]({'cls':'up','text':"关系+"+bJ["mood"]})),a2["pending"]["result"]={'won':bM,'log':bP,'deltas':c0,'score':[bN,bO],'pens':bS},a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bI["comp"],'text':(bM?'derby'===bI["kind"]?'胜':'冠军':'derby'===bI["kind"]?'负':'失利')+'：'+bY}),a2["_awardDue"]&&(a2["_awardDue"]=!0x1,bAw(a2["seasons"][bI["recIdx"]])),
-a2["bigQ"]=[],!0x0;
+_p["log"]["push"](_dec==="kickoff"?(bG==="push"?"开场哨响，你们选择主动压上，气势如虹。":bG==="hold"?"开场哨响，你们选择稳扎稳打，先站稳脚跟。":"开场哨响，你们选择控制节奏，让球流动起来。"):_dec==="halftime"?(bG==="push"?"下半场开始，你们阵型整体前压，不留余地。":bG==="hold"?"下半场开始，你们选择收缩防线，守住局面。":"下半场开始，你们加强了中场控制。"):_dec==="extra"?(bG==="push"?"加时赛你们选择压上搏命！":"加时赛你们选择控制节奏，等待点球。"):bG==="push"?"终场前你们孤注一掷全线压上！":"终场前你们选择守住现有局面。");
+_p["dec"]=null;_p["opts"]=null;bI["dec"]=null;bI["opts"]=null;
+/* 推进到下一决策点或结束 */
+_bmAdvance(bI);
+_p["score"]=bI["score"];_p["seg"]=bI["seg"];_p["dec"]=bI["dec"];_p["opts"]=bI["opts"];_p["done"]=bI["done"];_p["log"]=bI["log"];_p["t"]=bI["t"];
+if(_p["done"]){_bmFinish(bI,_p);}
+return!0x0;
 }(bx):"retire_f"+"orced"===bA["type"]&&(bv(bx),br("无人问津"),!0x0);
 },'cont':function(){var bx=a2["pending"];
 if(bx){if("report"===bx["type"]||("random"===bx["type"]||"bigmatch"===bx["type"])&&bx["result"]){if("random"===bx["type"]&&bx["result"]){if(a2["pending"]=null,!a2["flags"]["_double"]&&ad()<0.35){var by=aE();

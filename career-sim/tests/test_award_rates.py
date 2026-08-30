@@ -29,7 +29,7 @@ for(var s=3000;s<3000+%CAREERS%;s++){
     try{
       if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
       else if(p.type==='report'){ window.__SIMTEST.cont(); }
-      else if(p.type==='bigmatch'){ if(!p.result){window.SIM.choose('push');} window.__SIMTEST.cont(); }
+      else if(p.type==='bigmatch'){ if(!p.result){window.SIM.choose('push');}else{window.__SIMTEST.cont();} }
       else if(p.type==='staff'){ window.SIM.choose(p.offers[0]); }
       else if(p.type==='transfer'){
         if(p.offers&&p.offers.length){

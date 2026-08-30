@@ -54,7 +54,7 @@ for(var s=0;s<%N%;s++){
     try{
       if(p.type==='random'){if(p.result){window.__SIMTEST.cont();}else{window.SIM.choose(0);}}
       else if(p.type==='report'){window.__SIMTEST.cont();}
-      else if(p.type==='bigmatch'){if(!p.result){window.SIM.choose('push');}window.__SIMTEST.cont();}
+      else if(p.type==='bigmatch'){if(!p.result){window.SIM.choose('push');}else{window.__SIMTEST.cont();}}
       else if(p.type==='staff'){window.SIM.choose('skip');}
       else if(p.type==='transfer'){if(p.offers&&p.offers.length){var h=p.offers.indexOf('mci')>=0;window.SIM.choose(h?'mci':'stay');}else{window.SIM.choose(p.canStay?'stay':'retire');}}
       else if(p.type==='academy'||p.type==='youth_path'){window.SIM.choose(0);}

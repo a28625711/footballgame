@@ -22,7 +22,7 @@ js = r"""
       if(p.type==='academy'){ window.__SIMTEST.option(0); continue; }
       if(p.type==='random'){ if(p.result) window.__SIMTEST.cont(); else window.__SIMTEST.option(0); continue; }
       if(p.type==='report'){ window.__SIMTEST.cont(); continue; }
-      if(p.type==='bigmatch'){ if(!p.result) window.__SIMTEST.option('push'); window.__SIMTEST.cont(); continue; }
+      if(p.type==='bigmatch'){ if(!p.result) window.__SIMTEST.option('push'); else window.__SIMTEST.cont(); continue; }
       if(p.type==='staff'){ window.__SIMTEST.option(0); continue; }
       if(p.type==='transfer'){
         if(p.offers && p.offers.length) window.__SIMTEST.option('0');
@@ -96,7 +96,7 @@ js = r"""
       if(p.type==='academy'){ window.__SIMTEST.option(0); continue; }
       if(p.type==='random'){ if(p.result) window.__SIMTEST.cont(); else window.__SIMTEST.option(0); continue; }
       if(p.type==='report'){ window.__SIMTEST.cont(); continue; }
-      if(p.type==='bigmatch'){ if(!p.result) window.__SIMTEST.option('push'); window.__SIMTEST.cont(); continue; }
+      if(p.type==='bigmatch'){ if(!p.result) window.__SIMTEST.option('push'); else window.__SIMTEST.cont(); continue; }
       if(p.type==='staff'){ window.__SIMTEST.option(0); continue; }
       if(p.type==='transfer'){
         if(p.offers && p.offers.length) window.__SIMTEST.option('0');

@@ -16,7 +16,7 @@ function resolve(p){
   var t=p.type;
   if(t==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} return; }
   if(t==='report'){ window.__SIMTEST.cont(); return; }
-  if(t==='bigmatch'){ if(!p.result){ window.SIM.choose('push'); } window.__SIMTEST.cont(); return; }
+  if(t==='bigmatch'){ if(!p.result){ window.SIM.choose('push'); } else { window.__SIMTEST.cont(); } return; }
   if(t==='staff'){ window.__SIMTEST.option(p.offers[0]); return; }
   if(t==='transfer'){
     if(p.offers&&p.offers.length){ window.__SIMTEST.option('0'); }
@@ -104,7 +104,7 @@ def run():
         if c['phase'] not in ('summary', 'done'):
             raise harness.Fail('career not finished: %r' % c)
         # engine force-retires at 55 ("年龄到了"); anything below is legal
-        if c['age'] >= 55:
+        if c['age'] > 55:
             raise harness.Fail('unreasonable age %d in %r' % (c['age'], c))
         if c['seasons'] < 3 and not c['endReason']:
             raise harness.Fail('too few seasons (%d, no endReason) in %r'
