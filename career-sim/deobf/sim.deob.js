@@ -671,15 +671,15 @@ function _bmEvents(bx){
     ["第"+ae(0x10,0x32)+" 分钟，你接直塞形成单刀——门将出击封堵，球被扑出！",null]
   ];
   var goalMe=[
-    ["第"+ae(0x5,0x2b)+" 分钟，你接到队友直塞，冷静推射远角得手！","打进了关键一球"],
-    ["第"+ae(0x9,0x2e)+" 分钟，你在禁区混战中捅射破门！","率先打破僵局"],
-    ["第"+ae(0xc,0x34)+" 分钟，你主罚的任意球绕过人墙，直挂死角！","轰进世界波"],
-    ["第"+ae(0x10,0x38)+" 分钟，你用一次灵巧的转身摆脱防守，低射入网！","完成致命一击"]
+    ["第"+ae(0x5,0x2b)+" 分钟，你接到队友直塞，冷静推射远角得手！","打进了关键一球",0x1,null],
+    ["第"+ae(0x9,0x2e)+" 分钟，你在禁区混战中捅射破门！","率先打破僵局",0x1,null],
+    ["第"+ae(0xc,0x34)+" 分钟，你主罚的任意球绕过人墙，直挂死角！","轰进世界波",0x1,null],
+    ["第"+ae(0x10,0x38)+" 分钟，你用一次灵巧的转身摆脱防守，低射入网！","完成致命一击",0x1,null]
   ];
   var goalOpp=[
-    ["第"+ae(0x6,0x2c)+" 分钟，对方利用定位球头球破门。",null],
-    ["第"+ae(0xb,0x31)+" 分钟，对方反击三打二，轻松推空门得手。",null],
-    ["第"+ae(0xf,0x36)+" 分钟，你的一次解围踢疵，被对方抓住机会打进。",null]
+    ["第"+ae(0x6,0x2c)+" 分钟，对方利用定位球头球破门。",null,null,0x1],
+    ["第"+ae(0xb,0x31)+" 分钟，对方反击三打二，轻松推空门得手。",null,null,0x1],
+    ["第"+ae(0xf,0x36)+" 分钟，你的一次解围踢疵，被对方抓住机会打进。",null,null,0x1]
   ];
   if(k==="derby")common=common.concat([
     ["德比的火药味蔓延到看台，两片看台隔空对骂。",null],
@@ -719,10 +719,10 @@ function _bmOpts(bx,dec){
 function _bmSeg(bx){
   var as=Math["round"](a2["ovr"]+0x18),bs=_bmOppStr(bx);
   if(bx["kind"]==="wc"||bx["kind"]==="asia")as=Math["round"](_natStr? _natStr() : a2["ovr"]+0x18);
-  var sd=(as-bs)/0x5a;
+  var sd=(as-bs)/0x32;
   var mood=bx["_mood"]||0x0;
-  var lH=0.375*(1+(sd+mood*0.06)*0.85),lA=0.375*(1-(sd+mood*0.06)*0.85);
-  if(lH<0.15)lH=0.15;if(lA<0.15)lA=0.15;
+  var lH=0.225*(1+(sd+mood*0.06)*0.85),lA=0.225*(1-(sd+mood*0.06)*0.85);
+  if(lH<0.08)lH=0.08;if(lA<0.08)lA=0.08;
   var hg=_poisson(lH),ag=_poisson(lA);
   var ev=null;
   if(ad()<0.55){
@@ -746,13 +746,13 @@ function _bmAdvance(bx){
     if(bx["dec"])return;
     var seg=bx["seg"]||0x0;
     if(seg===0x0){bx["seg"]=0x1;bx["dec"]="kickoff";bx["opts"]=_bmOpts(bx,"kickoff");return;}
-    if(seg===0x3){bx["seg"]=0x4;bx["dec"]="halftime";bx["opts"]=_bmOpts(bx,"halftime");return;}
-    if(seg===0x6){
+    if(seg===0x4){bx["seg"]=0x5;bx["dec"]="halftime";bx["opts"]=_bmOpts(bx,"halftime");return;}
+    if(seg===0x8){
       var sc=bx["score"];
-      if(sc[0x0]===sc[0x1]){bx["seg"]=0x7;bx["dec"]="extra";bx["opts"]=_bmOpts(bx,"extra");return;}
+      if(sc[0x0]===sc[0x1]){bx["seg"]=0x9;bx["dec"]="extra";bx["opts"]=_bmOpts(bx,"extra");return;}
       bx["done"]=!0x0;return;
     }
-    if(seg>=0x7){bx["done"]=!0x0;return;}
+    if(seg>=0x9){bx["done"]=!0x0;return;}
     _bmSeg(bx);
     bx["t"]=(bx["t"]||0x0)+0xf;
     bx["log"]["push"]("比分 "+(bx["side"]||"你们")+" "+bx["score"][0x0]+" : "+bx["score"][0x1]);
@@ -826,9 +826,9 @@ bx["ev"]&&bB["unshift"](bx["ev"]);return 0x0===by&&0x0===bz?bB["push"]("上半�
 by>0x1&&bB["push"]("半场结束前又来一"+"个。你们把优势拉"+"到了两球。"),bz&&bB["push"]("对方在补时扳回一"+"个。中场哨响时那"+"边的替补席在喊。")):by<bz?(bB["push"]('第\x20'+ae(0x6,0x26)+(" 分钟丢球。皮球"+"进网的那一下，场"+"里安静得能听见对"+"方球迷。")),
 bz>0x1&&bB["push"]("下半场开始前又被"+"打进一个。你们落"+"后两球。"),by&&bB["push"]("你们在半场前扳回"+"一个，比分咬住了"+'。')):bB["push"]("上半场互交白卷式"+"的两球。谁也没能"+"把比分甩开。"),
 bB["push"](0x0===bD?"中场休息。更衣室"+"里教练在白板上画"+"了一通，最后转过"+"头看着你。":0x1===bD?"中场休息。主队球迷"+"的歌声盖过了客队，"+"教练在战术板上写了"+"又擦。":"中场休息。裁判因为"+"几次争议判罚被围住"+"，保安把两边隔开。"),by>0x2&&bB["push"]("上半场你们就进了三"+"个，看台已经有人提"+"前庆祝了。"),bz>0x1&&bB["push"]("对方两球在手，气势"+"正盛。你们的防线感"+"觉快撑不住了。"),bB;
-}var aY=[{'key':"hold",'label':"稳住阵型",'hint':"小幅提高赢面，个"+"人数据平淡",'dp':0.06,'glory':0.12,'mood':0x4},{'key':"push",'label':"压上去搏",
-'hint':"赢面涨得最多，也"+"最可能被反击打穿",'dp':0.13,'glory':0.5,'mood':0x0,'risk':!0x0},{'key':"run",'label':"把球做出来",'hint':"居中，队友更愿意"+'找你',
-'dp':0.09,'glory':0.28,'mood':0x8},{'key':'solo','label':'自己单干','hint':'不再信任队友，孤注一掷用个人能力解决问题','dp':0.02,'glory':0.62,'mood':-0x4},{'key':'wall','label':'全员退防','hint':'摆大巴死守到底，难看但有效','dp':0.12,'glory':0.04,'mood':0x2}];
+}var aY=[{'key':"hold",'label':"稳住阵型",'hint':"小幅提高赢面，个"+"人数据平淡",'dp':0.06,'glory':0.12,'mood':0x1},{'key':"push",'label':"压上去搏",
+'hint':"赢面涨得最多，也"+"最可能被反击打穿",'dp':0.13,'glory':0.5,'mood':0x2,'risk':!0x0},{'key':"run",'label':"把球做出来",'hint':"居中，队友更愿意"+'找你',
+'dp':0.09,'glory':0.28,'mood':0x0},{'key':'solo','label':'自己单干','hint':'不再信任队友，孤注一掷用个人能力解决问题','dp':0.02,'glory':0.62,'mood':0x1},{'key':'wall','label':'全员退防','hint':'摆大巴死守到底，难看但有效','dp':0.12,'glory':0.04,'mood':-0x1}];
 /* ── §8 大赛系统 ──────────────────────────────────────────────── */
 function aZ(bx,by,bz){
 b0(bx,by,bz,a2["age"]);
