@@ -1172,7 +1172,7 @@ h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u676f\u8d5b\u8d70\u52bf</di
 for(var ck=0;ck<ageCups["length"];ck++){
 var cup=ageCups[ck];
 h+="<div class=\"sm-cup-entry\"><div class=\"sm-cup-head\"><span class=\"sm-cup-name\">"+ax(cup["comp"]||"")+"</span><span class=\"sm-cup-result\">"+ax(cup["result"]||"")+"</span></div>";
-if(cup["group"]&&cup["group"]["standings"])h+="<div class=\"sm-rounds\"><span class=\"sm-round\">小组第"+cup["group"]["pos"]+" · "+(cup["group"]["standings"]||[]).map(function(s){return ax(s);}).join(" / ")+"</span></div>";
+if(cup["group"]){var _fs=cup["group"]["fullStandings"];if(_fs&&_fs["length"]){h+="<div class=\"sm-rounds\"><span class=\"sm-round\">\u5c0f\u7ec4\u7b2c"+cup["group"]["pos"]+"\u540d</span></div><div class=\"sm-stat-grid\">";for(var fi3=0;fi3<_fs["length"];fi3++){var _st=_fs[fi3];h+="<div class=\"sm-stat\"><span class=\"sm-stat-l\">"+(fi3+1)+". "+ax(_st["name"]||"")+"</span><span class=\"sm-stat-v\">"+_st["w"]+"\u80dc"+_st["d"]+"\u5e73"+_st["l"]+"\u8d1f "+_st["gf"]+":"+_st["ga"]+" "+_st["pts"]+"\u5206</span></div>";}h+="</div>";}else if(cup["group"]["standings"])h+="<div class=\"sm-rounds\"><span class=\"sm-round\">\u5c0f\u7ec4\u7b2c"+cup["group"]["pos"]+"\u540d \u00b7 "+(cup["group"]["standings"]||[]).map(function(s){return ax(s);})["join"](" / ")+"</span></div>";}
 if(cup["rounds"]&&cup["rounds"]["length"]){
 h+="<div class=\"sm-rounds\">";
 for(var rl=0;rl<cup["rounds"]["length"];rl++){
@@ -1187,17 +1187,25 @@ h+="</div>";
 }
 }
 var tourns=au["tournaments"]||[];
-if(view==="nat"){
+var natRuns=au["natRuns"]||[];
 var ageT=[];
 for(var ti=0;ti<tourns["length"];ti++){
 if(tourns[ti]["age"]>=lo&&tourns[ti]["age"]<=hi)ageT["push"](tourns[ti]);
 }
-if(ageT["length"]){
-h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f\u6bd4\u8d5b</div>";
+var ageNat=[];
+for(var ni=0;ni<natRuns["length"];ni++){
+if(natRuns[ni]["age"]>=lo&&natRuns[ni]["age"]<=hi)ageNat["push"](natRuns[ni]);
+}
+if(view==="nat"&&(ageT["length"]||ageNat["length"])){
+h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f</div>";
+for(var nk=0;nk<ageNat["length"];nk++){
+var nr=ageNat[nk];
+var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";if(nr["standings"]&&nr["standings"]["length"]){h+="<div class=\"sm-stat-grid\">";for(var nq=0;nq<nr["standings"]["length"];nq++){var _qs=nr["standings"][nq];h+="<div class=\"sm-stat\"><span class=\"sm-stat-l\">"+(nq+1)+". "+ax(_qs["name"]||"")+"</span><span class=\"sm-stat-v\">"+(_qs["w"]||0)+"胜"+(_qs["d"]||0)+"平"+(_qs["l"]||0)+"负 "+(_qs["gf"]||0)+":"+(_qs["ga"]||0)+" "+(_qs["pts"]||0)+"分</span></div>";}h+="</div>";}if(nr["matches"]&&nr["matches"]["length"]){var _qset={};for(var qs2=0;qs2<(nr["standings"]||[]).length;qs2++)_qset[nr["standings"][qs2]["i"]]=1;var _qmh="";for(var qm=0;qm<nr["matches"]["length"];qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]]){var _isP=(_qm["hid"]==="chn"||_qm["aid"]==="chn");_qmh+="<span class=\"sm-round"+( _isP?" won":"")+"\">"+ax(_qm["hn"]||"")+" "+_qm["hg"]+"-"+_qm["ag"]+" "+ax(_qm["an"]||"")+"</span>";}}if(_qmh)h+="<div class=\"sm-rounds\">"+_qmh+"</div>";}
+}
 for(var tk=0;tk<ageT["length"];tk++){
 var tn=ageT[tk];
 h+="<div class=\"sm-cup-entry\"><div class=\"sm-cup-head\"><span class=\"sm-cup-name\">"+ax(tn["comp"]||"")+"</span><span class=\"sm-cup-result\">"+ax(tn["stage"]||"")+(tn["playerPos"]?"\uff08\u5c0f\u7ec4\u7b2c"+tn["playerPos"]+"\u540d\uff09":"")+"</span></div>";
-if(tn["standings"]&&tn["standings"]["length"])h+="<div class=\"sm-rounds\"><span class=\"sm-round\">\u5c0f\u7ec4\uff1a"+tn["standings"]["map"](function(s){return ax(s["name"]||'');})["join"](" / ")+"</span></div>";
+if(tn["standings"]&&tn["standings"]["length"]){h+="<div class=\"sm-stat-grid\">";for(var ti2=0;ti2<tn["standings"]["length"];ti2++){var _ts=tn["standings"][ti2];h+="<div class=\"sm-stat\"><span class=\"sm-stat-l\">"+(ti2+1)+". "+ax(_ts["name"]||"")+"</span><span class=\"sm-stat-v\">"+(_ts["w"]||0)+"\u80dc"+(_ts["d"]||0)+"\u5e73"+(_ts["l"]||0)+"\u8d1f "+(_ts["gf"]||0)+":"+(_ts["ga"]||0)+" "+(_ts["pts"]||0)+"\u5206</span></div>";}h+="</div>";}
 if(tn["path"]&&tn["path"]["length"]){
 h+="<div class=\"sm-rounds\">";
 for(var tq=0;tq<tn["path"]["length"];tq++){
@@ -1209,20 +1217,6 @@ h+="</div>";
 h+="</div>";
 }
 h+="</div>";
-}
-var natRuns=au["natRuns"]||[];
-var ageNat=[];
-for(var ni=0;ni<natRuns["length"];ni++){
-if(natRuns[ni]["age"]>=lo&&natRuns[ni]["age"]<=hi)ageNat["push"](natRuns[ni]);
-}
-if(ageNat["length"]){
-h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f</div>";
-for(var nk=0;nk<ageNat["length"];nk++){
-var nr=ageNat[nk];
-var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";
-}
-h+="</div>";
-}
 if(!h)h+="<div class=\"sm-empty\">\u672c\u8d5b\u5b63\u65e0\u7279\u522b\u8bb0\u5f55</div>";
 }
 _md["querySelector"](".sm-title")["textContent"]=(lo===hi?lo+"\u5c81":lo+"-"+hi+"\u5c81")+"\u8d5b\u5b63\u8be6\u60c5";
