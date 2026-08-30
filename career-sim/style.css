@@ -2110,6 +2110,7 @@ img.crest.plate {
 }
 .sm-round.won { color: hsl(136 50% 55%); border-color: hsl(136 30% 35%); background: hsl(136 30% 12%); }
 .sm-round.lost { color: hsl(8 50% 58%); border-color: hsl(8 30% 35%); background: hsl(8 20% 12%); }
+.sm-round.draw { color: hsl(46 55% 55%); border-color: hsl(46 30% 38%); background: hsl(46 30% 14%); }
 
 /* National team / tournament entry */
 .sm-nat-entry { padding: .25rem 0; border-top: 1px solid hsl(var(--border) / .4); }

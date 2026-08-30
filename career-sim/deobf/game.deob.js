@@ -1168,7 +1168,7 @@ var _cls="";
 if(pid&&(m["hid"]===pid||m["aid"]===pid||m["homeId"]===pid||m["awayId"]===pid)){
 var _pg=(m["hid"]===pid||m["homeId"]===pid)?m["hg"]:m["ag"];
 var _og=(m["hid"]===pid||m["homeId"]===pid)?m["ag"]:m["hg"];
-_cls=_pg>_og?" won":(_pg<_og?" lost":"");
+_cls=_pg>_og?" won":(_pg<_og?" lost":" draw");
 }
 h+="<span class=\"sm-round"+_cls+"\">"+ax(hn)+" "+m["hg"]+"-"+m["ag"]+" "+ax(an)+"</span>";
 }
@@ -1245,7 +1245,7 @@ if(view==="nat"&&(ageT["length"]||ageNat["length"])){
 h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f</div>";
 for(var nk=0;nk<ageNat["length"];nk++){
 var nr=ageNat[nk];
-var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";if(nr["standings"]&&nr["standings"]["length"]){var _chp=-1;for(var _ch2=0;_ch2<nr["standings"]["length"];_ch2++)if(nr["standings"][_ch2]["i"]==="chn"){_chp=_ch2;break;}var _qset={};for(var qs2=0;qs2<nr["standings"]["length"];qs2++)_qset[nr["standings"][qs2]["i"]]=1;var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]])_qml["push"](_qm);}h+=_grpBox(nr["comp"]||"\u9884\u9009\u8d5b",nr["standings"],_qml,_chp,"chn");}if(nr["friendly"]&&nr["matches"]&&nr["matches"]["length"]){h+="<div class=\"sm-rounds\">";for(var _fm=0;_fm<nr["matches"]["length"];_fm++){var _f=nr["matches"][_fm];var _fg=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["hg"]:_f["ag"];var _fa=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["ag"]:_f["hg"];var _fcls=_fg>_fa?" won":(_fg<_fa?" lost":"");h+="<span class=\"sm-round"+_fcls+"\">"+ax(_f["home"]||_f["hn"]||"")+" "+_f["hg"]+"-"+_f["ag"]+" "+ax(_f["away"]||_f["an"]||"")+"</span>";}h+="</div>";}
+var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";if(nr["standings"]&&nr["standings"]["length"]){var _chp=-1;for(var _ch2=0;_ch2<nr["standings"]["length"];_ch2++)if(nr["standings"][_ch2]["i"]==="chn"){_chp=_ch2;break;}var _qset={};for(var qs2=0;qs2<nr["standings"]["length"];qs2++)_qset[nr["standings"][qs2]["i"]]=1;var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]])_qml["push"](_qm);}h+=_grpBox(nr["comp"]||"\u9884\u9009\u8d5b",nr["standings"],_qml,_chp,"chn");}if(nr["friendly"]&&nr["matches"]&&nr["matches"]["length"]){h+="<div class=\"sm-rounds\">";for(var _fm=0;_fm<nr["matches"]["length"];_fm++){var _f=nr["matches"][_fm];var _fg=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["hg"]:_f["ag"];var _fa=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["ag"]:_f["hg"];var _fcls=_fg>_fa?" won":(_fg<_fa?" lost":" draw");h+="<span class=\"sm-round"+_fcls+"\">"+ax(_f["home"]||_f["hn"]||"")+" "+_f["hg"]+"-"+_f["ag"]+" "+ax(_f["away"]||_f["an"]||"")+"</span>";}h+="</div>";}
 }
 for(var tk=0;tk<ageT["length"];tk++){
 var tn=ageT[tk];
