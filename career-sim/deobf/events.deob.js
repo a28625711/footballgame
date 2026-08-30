@@ -9441,11 +9441,16 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["clean"],50,0.004]],0.20,0.82);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        var cur=p["playerType"]!=null?p["playerType"]:11;
+        var evoByGrp={'att':{0:[4,2],1:[5,2],2:[1,4],3:[2,0],4:[2,3],5:[1,3]},'mid':{1:[6,5],5:[1,7],6:[5,7],7:[6,5]},'def':{8:[10,9],9:[8,10],10:[9,8]}};
+        var evo=evoByGrp[p["posGroup"]];var cands=evo&&evo[cur];var tgt=cands?cands[(cur+p["age"])%cands.length]:0;
         return g(q,"融会贯通→"+TN[tgt],"还是算了");
       },
       'apply': function(p,q,s){
-        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var cur=p["playerType"]!=null?p["playerType"]:11;
+        var evoByGrp={'att':{0:[4,2],1:[5,2],2:[1,4],3:[2,0],4:[2,3],5:[1,3]},'mid':{1:[6,5],5:[1,7],6:[5,7],7:[6,5]},'def':{8:[10,9],9:[8,10],10:[9,8]}};
+        var evo=evoByGrp[p["posGroup"]];var cands=evo&&evo[cur];var tgt=cands?cands[(cur+p["age"])%cands.length]:0;
         return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"你花了一周看录像、加练，渐渐摸到了那个位置的门道。教练赛后拍着你的肩说：你看，你的能力不止一种用法。"}
         :{'ovr':0x1,'_typeShiftDone':1,'text':"你试了几次，但总觉得隔了一层。教练说：没关系，知道自己不适合什么，也是一种进步。"};
       }

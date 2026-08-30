@@ -608,7 +608,7 @@ if("random"===bZ["type"]){for(var c0=null,c1=0x0;
 c1<a1["length"];
 c1++)a1[c1]['id']===bZ["eventId"]&&(c0=a1[c1]);
 if(!c0)return'';
-var c2="<div cla"+"ss=\"even"+"t\">"+b1(c0["icon"]||'⚽',c0['cn']?"国内 · 事件":'事件',ao(c0["title"]))+("<div cla"+"ss=\"ev-d"+"esc\">")+ax(ao(c0["desc"]))+"</div>";
+var c2="<div cla"+"ss=\"even"+"t\">"+b1(c0["icon"]||'⚽',c0['cn']?"国内 · 事件":'事件',ao(c0["title"]))+("<div cla"+"ss=\"ev-d"+"esc\">")+ax(ao("function"===typeof c0["desc"]?c0["desc"](a6["snap"]()):c0["desc"]))+"</div>";
 return bZ["roll"]&&(c2+=function(ce){var cf=Math["round"](0x64*ce['p']);
 function cg(ch,ci,cj){var ck="slot";
 return ce["spinning"]||(ck+='a'===ch==!!ce['ok']?" win":" lose"),"<div cla"+"ss=\""+ck+("\" data-s"+"ide=\"")+ch+("\"><span "+"class=\"s"+"lot-pct\""+'>')+ci+("%</span>"+"<span cl"+"ass=\"slo"+"t-lab\">")+ax(cj)+("</span><"+"/div>");
