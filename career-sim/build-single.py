@@ -69,7 +69,7 @@ css = css.replace('url("assets/fonts/noto-emoji-subset.woff2")', f'url(data:font
 
 # ========== 7. 组装 HTML ==========
 html = open(os.path.join(BASE, 'index.html'), encoding='utf-8').read()
-html = html.replace('<link rel="stylesheet" href="style.css?v=48">', f'<style>\n{css}\n</style>')
+html = re.sub(r'<link rel="stylesheet" href="style\.css\?v=\d+">', lambda m: f'<style>\n{css}\n</style>', html)
 
 # 注入数据
 inject = '<script>window._TROPHY_DATA={' + ','.join(f'"{k}":"{v}"' for k, v in trophy_data.items()) + '};</script>'

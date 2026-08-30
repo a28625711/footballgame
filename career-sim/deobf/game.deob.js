@@ -1132,7 +1132,33 @@ document["body"]["appendChild"](_md);
 }
 _md["addEventListener"]("click",function(e){
 if(e["target"]["closest"]&&e["target"]["closest"]("[data-act=\"sm-close\"]")||e["target"]["className"]==="sm-backdrop")_md["classList"]["add"]("hidden");
+var _g=e["target"]["closest"]&&e["target"]["closest"]("[data-act=\"sm-grp\"]");
+if(_g){var _bx=_g["parentNode"];if(_bx&&_bx["classList"])_bx["classList"]["toggle"]("open");}
 });
+function _grpBox(title,st,ml,prow,pid){
+if(!st||!st["length"])return"";
+var me=prow>=0&&prow<st["length"]?st[prow]:null;
+var s=me?("\u7b2c"+(prow+1)+"\u540d \u00b7 "+ax(me["name"]||"")+" "+me["w"]+"\u80dc"+me["d"]+"\u5e73"+me["l"]+"\u8d1f "+me["pts"]+"\u5206"):title;
+var h="<div class=\"sm-grp\"><button type=\"button\" class=\"sm-grp-hd\" data-act=\"sm-grp\"><span class=\"sm-grp-t\">"+title+"</span><span class=\"sm-grp-s\">"+s+"</span><span class=\"sm-grp-c\">\u25b8</span></button><div class=\"sm-grp-bd\"><div class=\"sm-tbl\"><div class=\"sm-tr sm-th\"><span>#</span><span>\u7403\u961f</span><span>\u80dc/\u5e73/\u8d1f</span><span>\u8fdb/\u5931</span><span>\u5206</span></div>";
+for(var i=0;i<st["length"];i++){
+var r=st[i];
+h+="<div class=\"sm-tr"+(i===prow?" sm-me":"")+"\"><span>"+(i+1)+"</span><span>"+ax(r["name"]||"")+"</span><span>"+r["w"]+"-"+r["d"]+"-"+r["l"]+"</span><span>"+r["gf"]+":"+r["ga"]+"</span><span>"+r["pts"]+"</span></div>";
+}
+h+="</div>";
+if(ml&&ml["length"]){
+h+="<div class=\"sm-grp-ms\">";
+for(var j=0;j<ml["length"];j++){
+var m=ml[j];
+var hn=m["home"]||m["hn"]||"",an=m["away"]||m["an"]||"";
+var isP=pid&&(m["hid"]===pid||m["aid"]===pid||m["homeId"]===pid||m["awayId"]===pid);
+h+="<span class=\"sm-round"+(isP?" won":"")+"\">"+ax(hn)+" "+m["hg"]+"-"+m["ag"]+" "+ax(an)+"</span>";
+}
+h+="</div>";
+}
+h+="</div></div>";
+return h;
+}
+
 document["addEventListener"]("click",function(e){
 var row=e["target"]["closest"]("[data-age]");
 if(!row)return;
@@ -1172,7 +1198,7 @@ h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u676f\u8d5b\u8d70\u52bf</di
 for(var ck=0;ck<ageCups["length"];ck++){
 var cup=ageCups[ck];
 h+="<div class=\"sm-cup-entry\"><div class=\"sm-cup-head\"><span class=\"sm-cup-name\">"+ax(cup["comp"]||"")+"</span><span class=\"sm-cup-result\">"+ax(cup["result"]||"")+"</span></div>";
-if(cup["group"]){var _fs=cup["group"]["fullStandings"];if(_fs&&_fs["length"]){h+="<div class=\"sm-rounds\"><span class=\"sm-round\">\u5c0f\u7ec4\u7b2c"+cup["group"]["pos"]+"\u540d</span></div><div class=\"sm-stat-grid\">";for(var fi3=0;fi3<_fs["length"];fi3++){var _st=_fs[fi3];h+="<div class=\"sm-stat\"><span class=\"sm-stat-l\">"+(fi3+1)+". "+ax(_st["name"]||"")+"</span><span class=\"sm-stat-v\">"+_st["w"]+"\u80dc"+_st["d"]+"\u5e73"+_st["l"]+"\u8d1f "+_st["gf"]+":"+_st["ga"]+" "+_st["pts"]+"\u5206</span></div>";}h+="</div>";}else if(cup["group"]["standings"])h+="<div class=\"sm-rounds\"><span class=\"sm-round\">\u5c0f\u7ec4\u7b2c"+cup["group"]["pos"]+"\u540d \u00b7 "+(cup["group"]["standings"]||[]).map(function(s){return ax(s);})["join"](" / ")+"</span></div>";}
+if(cup["group"]){var _fs=cup["group"]["fullStandings"];if(_fs&&_fs["length"]){h+=_grpBox("\u5c0f\u7ec4\u8d5b\u79ef\u5206",_fs,cup["group"]["matches"]||[],(cup["group"]["pos"]||1)-1);}else if(cup["group"]["standings"])h+="<div class=\"sm-rounds\"><span class=\"sm-round\">\u5c0f\u7ec4\u7b2c"+cup["group"]["pos"]+"\u540d \u00b7 "+(cup["group"]["standings"]||[]).map(function(s){return ax(s);})["join"](" / ")+"</span></div>";}
 if(cup["rounds"]&&cup["rounds"]["length"]){
 h+="<div class=\"sm-rounds\">";
 for(var rl=0;rl<cup["rounds"]["length"];rl++){
@@ -1200,12 +1226,12 @@ if(view==="nat"&&(ageT["length"]||ageNat["length"])){
 h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f</div>";
 for(var nk=0;nk<ageNat["length"];nk++){
 var nr=ageNat[nk];
-var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";if(nr["standings"]&&nr["standings"]["length"]){h+="<div class=\"sm-stat-grid\">";for(var nq=0;nq<nr["standings"]["length"];nq++){var _qs=nr["standings"][nq];h+="<div class=\"sm-stat\"><span class=\"sm-stat-l\">"+(nq+1)+". "+ax(_qs["name"]||"")+"</span><span class=\"sm-stat-v\">"+(_qs["w"]||0)+"胜"+(_qs["d"]||0)+"平"+(_qs["l"]||0)+"负 "+(_qs["gf"]||0)+":"+(_qs["ga"]||0)+" "+(_qs["pts"]||0)+"分</span></div>";}h+="</div>";}if(nr["matches"]&&nr["matches"]["length"]){var _qset={};for(var qs2=0;qs2<(nr["standings"]||[]).length;qs2++)_qset[nr["standings"][qs2]["i"]]=1;var _qmh="";for(var qm=0;qm<nr["matches"]["length"];qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]]){var _isP=(_qm["hid"]==="chn"||_qm["aid"]==="chn");_qmh+="<span class=\"sm-round"+( _isP?" won":"")+"\">"+ax(_qm["hn"]||"")+" "+_qm["hg"]+"-"+_qm["ag"]+" "+ax(_qm["an"]||"")+"</span>";}}if(_qmh)h+="<div class=\"sm-rounds\">"+_qmh+"</div>";}
+var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";if(nr["standings"]&&nr["standings"]["length"]){var _chp=-1;for(var _ch2=0;_ch2<nr["standings"]["length"];_ch2++)if(nr["standings"][_ch2]["i"]==="chn"){_chp=_ch2;break;}var _qset={};for(var qs2=0;qs2<nr["standings"]["length"];qs2++)_qset[nr["standings"][qs2]["i"]]=1;var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]])_qml["push"](_qm);}h+=_grpBox(nr["comp"]||"\u9884\u9009\u8d5b",nr["standings"],_qml,_chp,"chn");}
 }
 for(var tk=0;tk<ageT["length"];tk++){
 var tn=ageT[tk];
 h+="<div class=\"sm-cup-entry\"><div class=\"sm-cup-head\"><span class=\"sm-cup-name\">"+ax(tn["comp"]||"")+"</span><span class=\"sm-cup-result\">"+ax(tn["stage"]||"")+(tn["playerPos"]?"\uff08\u5c0f\u7ec4\u7b2c"+tn["playerPos"]+"\u540d\uff09":"")+"</span></div>";
-if(tn["standings"]&&tn["standings"]["length"]){h+="<div class=\"sm-stat-grid\">";for(var ti2=0;ti2<tn["standings"]["length"];ti2++){var _ts=tn["standings"][ti2];h+="<div class=\"sm-stat\"><span class=\"sm-stat-l\">"+(ti2+1)+". "+ax(_ts["name"]||"")+"</span><span class=\"sm-stat-v\">"+(_ts["w"]||0)+"\u80dc"+(_ts["d"]||0)+"\u5e73"+(_ts["l"]||0)+"\u8d1f "+(_ts["gf"]||0)+":"+(_ts["ga"]||0)+" "+(_ts["pts"]||0)+"\u5206</span></div>";}h+="</div>";}
+if(tn["standings"]&&tn["standings"]["length"]){var _tp=-1;for(var _tp2=0;_tp2<tn["standings"]["length"];_tp2++)if(tn["standings"][_tp2]["i"]==="chn"){_tp=_tp2;break;}h+=_grpBox("\u5c0f\u7ec4\u8d5b\u79ef\u5206",tn["standings"],tn["matches"]||[],_tp,"chn");}
 if(tn["path"]&&tn["path"]["length"]){
 h+="<div class=\"sm-rounds\">";
 for(var tq=0;tq<tn["path"]["length"];tq++){
