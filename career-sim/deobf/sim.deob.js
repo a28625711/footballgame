@@ -263,8 +263,7 @@ var _all=[{name:bx["name"],id:bx["id"],rep:bx["rep"],ovr:bx["ovr"],isPlayer:0x1}
 var _m=[],_t={};_all.forEach(function(t){_t[t['id']]={name:t["name"],pts:0x0,gf:0x0,ga:0x0,w:0x0,d:0x0,l:0x0};});
 for(var i=0x0;i<_all["length"];i++){for(var j=i+0x1;j<_all["length"];j++){
 var a=_all[i],b=_all[j],as=a["ovr"]?a["ovr"]:50+a["rep"]*0x5+ad()*0xa,bs=b["ovr"]?b["ovr"]:50+b["rep"]*0x5+ad()*0xa;
-var df=(as-bs)/0x14+ad()*0.6-0.3,hg=Math["max"](0x0,Math["round"](1.4+df*0.5+ad()*0.8)),ag=Math["max"](0x0,Math["round"](1.4-df*0.5+ad()*0.8));
-if(hg===ag){if(ad()<0.4){ad()<0.5?hg++:ag++;}}else if(Math["abs"](hg-ag)===0x1&&ad()<0.3){hg>ag?hg++:ag++;}
+var _sim=_matchSim(as,bs),hg=_sim["hg"],ag=_sim["ag"];
 _m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:hg,ag:ag});
 var h=_t[a["id"]],ap=_t[b["id"]];
 h["gf"]+=hg,h["ga"]+=ag,ap["gf"]+=ag,ap["ga"]+=hg;
@@ -391,9 +390,7 @@ var byId={};for(var i5=0;i5<tm.length;i5++)byId[tm[i5].i]={i:tm[i5].i,name:tm[i5
 var matches=[];
 for(var a=0;a<tm.length;a++)for(var b=a+1;b<tm.length;b++){
 var tA=tm[a],tB=tm[b],as=tA.ovr||tA.s,bs=tB.ovr||tB.s;
-var sd2=(as-bs)/0x3c;
-var lH2=1.35*(1+sd2*0.5),lA2=1.35*(1-sd2*0.5);
-var hg=_poisson(lH2),ag=_poisson(lA2);
+var sim=_matchSim(as,bs),hg=sim.hg,ag=sim.ag;
 matches.push({home:tA.n,away:tB.n,homeId:tA.i,awayId:tB.i,hg:hg,ag:ag});
 var A=byId[tA.i],B=byId[tB.i];
 A.gf+=hg;A.ga+=ag;B.gf+=ag;B.ga+=hg;
@@ -543,8 +540,7 @@ var _ms=[],_w=0,_d=0,_l=0,_gf=0,_ga=0;
 for(var _fm=0;_fm<_fn;_fm++){
 var _o=_pool[_fm];
 var _sa=_ft["ovr"]||_ft["s"],_sb=_o["s"]||_o["ovr"]||0x32;
-var _sd=(_sa-_sb)/0x3c;
-var _hg=_poisson(1.35*(1+_sd*0.5)),_ag=_poisson(1.35*(1-_sd*0.5));
+var _sim=_matchSim(_sa,_sb),_hg=_sim["hg"],_ag=_sim["ag"];
 _ms["push"]({home:_ft["n"],away:_o["n"],homeId:'chn',awayId:_o["i"],hg:_hg,ag:_ag});
 _gf+=_hg;_ga+=_ag;
 if(_hg>_ag)_w++;else if(_hg<_ag)_l++;else _d++;
@@ -576,10 +572,8 @@ qallGroups["push"](allG);
 for(var qa=0;qa<allG["length"];qa++){
 for(var qb=qa+0x1;qb<allG["length"];qb++){
 var ta=allG[qa],tb=allG[qb];
-var sa=ta["s"]||ta["ovr"]||0x3c,sb=tb["s"]||tb["ovr"]||0x3c;
-var sd3=(sa-sb)/0x3c;
-var lH3=1.35*(1+sd3*0.5),lA3=1.35*(1-sd3*0.5);
-var hg=_poisson(lH3),ag=_poisson(lA3);
+var sa=ta["ovr"]||ta["s"]||0x3c,sb=tb["ovr"]||tb["s"]||0x3c;
+var sim=_matchSim(sa,sb),hg=sim["hg"],ag=sim["ag"];
 qmatches["push"]({hid:ta["i"],aid:tb["i"],hn:ta["n"],an:tb["n"],hg:hg,ag:ag});
 }
 }
@@ -619,11 +613,11 @@ var _m=[],_w=[];
 for(var i=0x0;i<_cur["length"];i++){
 var a=_cur[i][0x0],b=_cur[i][0x1];
 var as=a["ovr"]?a["ovr"]:50+(a["rep"]||0x3)*0x5+ad()*0xa,bs=b["ovr"]?b["ovr"]:50+(b["rep"]||0x3)*0x5+ad()*0xa;
-var df=(as-bs)/0x14+ad()*0.6-0.3,hg=Math["max"](0x0,Math["round"](1.4+df*0.5+ad()*0.8)),ag=Math["max"](0x0,Math["round"](1.4-df*0.5+ad()*0.8));
+var _sim=_matchSim(as,bs),_hg=_sim["hg"],_ag=_sim["ag"];
 var _pk=null;
-if(hg===ag){_pk=_penSim(as,bs);}
-_m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:hg,ag:ag,pens:_pk?[_pk.a,_pk.b]:null});
-_w["push"]((_pk&&_pk.a>=_pk.b)||(!_pk&&hg>=ag)?a:b);
+if(_hg===_ag){_pk=_penSim(as,bs);}
+_m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:_hg,ag:_ag,pens:_pk?[_pk.a,_pk.b]:null});
+_w["push"]((_pk&&_pk.a>=_pk.b)||(!_pk&&_hg>=_ag)?a:b);
 }
 _r["push"]({name:_cur["length"]===8?"十六强":_cur["length"]===4?"八强":_cur["length"]===2?"四强":"决赛",matches:_m});
 _cur=[];
