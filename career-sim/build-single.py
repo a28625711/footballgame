@@ -57,6 +57,7 @@ js_blocks = {
     'supporters.deob.js': read_js('supporters.deob.js'),
     'crests.deob.js': new_crests,
     'qr.deob.js': read_js('qr.deob.js'),
+    'natdata.deob.js': read_js('natdata.deob.js'),
     'sim.deob.js': read_js('sim.deob.js'),
     'game.deob.js': game_js,
 }

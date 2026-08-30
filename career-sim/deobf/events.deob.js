@@ -9371,7 +9371,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'weight': 0x38,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
@@ -9384,7 +9384,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
     if(!adj)return null;
     var cands=adj[cur];
     if(!cands||!cands.length)return null;
-    var tgt=cands[Math.floor(Math.random()*cands.length)];
+    var tgt=cands[(cur+p["age"])%cands.length];
     p._shiftTarget=tgt;
     return "训练结束后教练把你叫住：「你最近的表现让我觉得，你可能更适合踢"+TN[tgt]+"。」他摊开战术板，画了几个跑位路线。也许，是时候换个方式了。";
   },
@@ -9418,7 +9418,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'weight': 0x35,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11&&p["age"]>=15;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<15)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
@@ -9431,7 +9431,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
     if(!evo)return null;
     var cands=evo[cur];
     if(!cands||!cands.length)return null;
-    var tgt=cands[Math.floor(Math.random()*cands.length)];
+    var tgt=cands[(cur+p["age"])%cands.length];
     p._evoTarget=tgt;
     return "队内训练赛，你被临时安排到一个不熟悉的位置。你本来只想应付了事，却发现自己在这个新位置上竟然踢出了不一样的东西。";
   },
@@ -9465,7 +9465,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'weight': 0x32,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11&&p["age"]>=17;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<17)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
@@ -9476,7 +9476,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
     if(!pool)return null;
     var filtered=pool.filter(function(x){return x!==cur;});
     if(!filtered.length)return null;
-    var tgt=filtered[Math.floor(Math.random()*filtered.length)];
+    var tgt=filtered[(cur+p["age"])%filtered.length];
     p._lateTarget=tgt;
     return "离毕业考核只剩最后几个月。你偶然看到一线队的比赛录像，某个球员的踢法让你心动了——也许你也能那样踢。";
   },
@@ -9509,7 +9509,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'icon': '🩹',
   'weight': 0x50,
   'repeat': 1,
-  'when': function(p){return p["_severeInjury"]&&p["playerType"]!==11;},
+  'when': function(p){if(!p["_severeInjury"]||p["playerType"]===11)return false;var _m={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_m[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
@@ -9554,7 +9554,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'icon': '🧓',
   'weight': 0x48,
   'repeat': 1,
-  'when': function(p){return p["age"]>=32&&p["playerType"]!==11&&!p["_vetTypeShiftDone"];},
+  'when': function(p){if(p["age"]<32||p["playerType"]===11||p["_vetTypeShiftDone"])return false;var _m={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_m[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;

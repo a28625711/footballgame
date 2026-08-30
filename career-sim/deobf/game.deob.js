@@ -152,8 +152,8 @@ return "<div cla"+"ss=\"bar\""+"><span c"+"lass=\"ba"+"r-l\">"+bW+("</span><"+"d
 0x0,0x64)+("%;backgr"+"ound:")+bY+("\"></div>"+"</div><s"+"pan clas"+"s=\"bar-v"+'\x22>')+Math["round"](bX)+("</span><"+"/div>");
 }function b7(){var bW=ag(au["youthTea"+"mId"]);
 return bW?a6["academyN"+"ame"](bW):'';
-}function b8(bW,bX,bY,bZ,c0,c1,c2){
-return "<div cla"+"ss=\"tl-r"+"ow tl-co"+"ls "+bW+'\x22>'+bX+bY+bZ+("<span cl"+"ass=\"tl-"+"n r\">")+c0+("</span><"+"span cla"+"ss=\"tl-n"+" r\">")+c1+("</span><"+"span cla"+"ss=\"tl-n"+" r hide-"+"xs\">")+c2+("</span><"+"/div>");
+}function b8(bW,bX,bY,bZ,c0,c1,c2,c3,c4,c5){
+return "<div cla"+"ss=\"tl-r"+"ow tl-co"+"ls "+bW+'\x22'+(c3!=null?' data-age="'+c3+'"':'')+((c4!=null&&c4!=c3)?' data-from="'+c4+'"':'')+(c5?' data-view="'+c5+'"':'')+">"+bX+bY+bZ+("<span cl"+"ass=\"tl-"+"n r\">")+c0+("</span><"+"span cla"+"ss=\"tl-n"+" r\">")+c1+("</span><"+"span cla"+"ss=\"tl-n"+" r hide-"+"xs\">")+c2+("</span><"+"/div>");
 }function b9(bW){var bX=ah(au["pos"])["group"];
 var bY="";
 var agg=(function(){var c2=a8[au["mode"]]["seasons"],c3=[],c4=null,c5=null,c6=0x0;
@@ -161,7 +161,7 @@ function c7(){
 c4&&c5&&(c4["age"]=c5["age"],c4["teamName"]=c5["teamName"],c4["color"]=c5["color"],c4["ovr"]=c5["ovrEnd"],c4["teamId"]=c5["teamId"],
 c3["push"](c4),c4=null,c6=0x0);
 }return au["seasons"]["forEach"](function(c8,c9){
-c4&&c5&&c8["teamId"]!==c5["teamId"]&&c7(),c4||(c4={'apps':0x0,'goals':0x0,'assists':0x0,'cs':0x0,'ga':0x0,'caps':0x0,'natGoals':0x0,'natAssists':0x0,'natCs':0x0,'trophies':[],'notes':[],'nats':[],'moves':[]}),
+c4&&c5&&c8["teamId"]!==c5["teamId"]&&c7(),c4||(c4={'apps':0x0,'goals':0x0,'assists':0x0,'cs':0x0,'ga':0x0,'caps':0x0,'natGoals':0x0,'natAssists':0x0,'natCs':0x0,'trophies':[],'notes':[],'nats':[],'moves':[],'from':c8['age']}),
 c4["apps"]+=c8["apps"],c4["goals"]+=c8["goals"],c4["assists"]+=c8["assists"],c4['cs']+=c8['cs'],c4['ga']+=c8['ga'],c4["caps"]+=c8["caps"]||0x0,
 c4["natGoals"]+=c8["natGoals"]||0x0,c4["natAssis"+'ts']+=c8["natAssis"+'ts']||0x0,c4["natCs"]+=c8["natCs"]||0x0,c8["trophies"]["length"]&&(c4["trophies"]=c4["trophies"]["concat"](c8["trophies"])),
 c8["note"]&&c4["notes"]["push"](c8["note"]),c8["nat"]&&c4["nats"]["push"](c8["nat"]),c8["move"]&&c4["moves"]["push"](c8["move"]),
@@ -190,7 +190,7 @@ return '<span class="mini-badge">'+ax(c5)+'</span>';
 clubBody+=b8("done",'<span class="age-chip"'+(c2["color"]?' style="background:'+c2["color"]+(';color:#fff"'):'')+'>'+c2["age"]+'</span>',
 '<span class="tl-club">'+aT(ag(c2["teamId"]))+('<span class="tl-club-name">')+ax(c2["teamName"])+'</span>'+(c3a?'<span class="tl-badges">'+c3a+'</span>':'')+'</span>',
 '<span class="r"><span class="ovr-pill '+b5(c2["ovr"])+'">'+c2["ovr"]+'</span></span>',c2["apps"],'gk'===bX?c2['cs']:c2["goals"],
-'gk'===bX?c2['ga']:c2["assists"]);
+'gk'===bX?c2['ga']:c2["assists"],c2["age"],c2["from"],"club");
 });
 /* 当前状态行（若有） */
 if(!bW){var bZ=ai(),c0=au["pending"]&&("academy"===au["pending"]["type"]||"transfer"===au["pending"]["type"]||"retire_f"+"orced"===au["pending"]["type"]),c1=au["pending"]&&"youth_pa"+'th'===au["pending"]["type"];
@@ -209,7 +209,7 @@ return '<span class="mini-badge nat">'+ax(c5)+'</span>';
 natBody+=b8("done",'<span class="age-chip"'+(c2["color"]?' style="background:'+c2["color"]+(';color:#fff"'):'')+'>'+c2["age"]+'</span>',
 '<span class="tl-club"><span class="tl-club-name">中国队</span>'+(c3a?'<span class="tl-badges">'+c3a+'</span>':'')+'</span>',
 '<span class="r"><span class="ovr-pill '+b5(c2["ovr"])+'">'+c2["ovr"]+'</span></span>',c2["caps"],'gk'===bX?c2["natCs"]:c2["natGoals"],
-'gk'===bX?c2["natCs"]:c2["natAssists"]);
+'gk'===bX?c2["natCs"]:c2["natAssists"],c2["age"],c2["from"],"nat");
 }
 });
 if(!natRows)natBody+='<div class="tl-row done tl-cols"><span class="age-chip"></span><span class="tl-club"><span class="tl-club-name">生涯从未入选国家队</span></span></div>';
@@ -1120,6 +1120,116 @@ var c6=aw("btn-arch"+"ive");
 c6&&c6["addEvent"+"Listener"]("click",bs);
 var c7=aw("btn-code"+'x');
 c7&&c7["addEvent"+"Listener"]("click",bq);
+/* ── Season Detail Modal ── */
+(function(){
+var _md=document["getElementById"]("season-modal");
+if(!_md){
+_md=document["createElement"]("div");
+_md["id"]="season-modal";
+_md["className"]="season-modal hidden";
+_md["innerHTML"]="<div class=\"sm-backdrop\"></div><div class=\"sm-box\"><div class=\"sm-head\"><span class=\"sm-title\"></span><button class=\"sm-close\" data-act=\"sm-close\">\u00d7</button></div><div class=\"sm-body\"></div></div>";
+document["body"]["appendChild"](_md);
+}
+_md["addEventListener"]("click",function(e){
+if(e["target"]["closest"]&&e["target"]["closest"]("[data-act=\"sm-close\"]")||e["target"]["className"]==="sm-backdrop")_md["classList"]["add"]("hidden");
+});
+document["addEventListener"]("click",function(e){
+var row=e["target"]["closest"]("[data-age]");
+if(!row)return;
+var age=parseInt(row["getAttribute"]("data-age"),0xa);
+if(isNaN(age))return;
+var from=row["getAttribute"]("data-from");
+var fromAge=from?parseInt(from,0xa):age;
+var lo=Math.min(age,fromAge),hi=Math.max(age,fromAge);
+var view=row["getAttribute"]("data-view");
+var seasons=au&&au["seasons"]||[];
+var found=[];
+for(var si=0;si<seasons["length"];si++){if(seasons[si]["age"]>=lo&&seasons[si]["age"]<=hi)found["push"](seasons[si]);}
+if(!found["length"])return;
+var h="";
+if(view!=="nat"){
+for(var fi=0;fi<found["length"];fi++){
+var f0=found[fi];
+h+="<div class=\"sm-section\">";
+if(found["length"]>0x1)h+="<div class=\"sm-sub\">"+f0["age"]+"\u5c81 \u8d5b\u5b63</div>";
+h+="<div class=\"sm-league-row\"><span class=\"sm-league-rank\">"+(f0["leaguePos"]?"#"+f0["leaguePos"]:"—")+"</span><span class=\"sm-league-name\">"+ax(f0["league"]||"\u65e0")+"</span></div>";
+if(f0["leagueW"]!=null)h+="<div class=\"sm-stat-grid\"><div class=\"sm-stat\"><span class=\"sm-stat-l\">W / D / L</span><span class=\"sm-stat-v\">"+f0["leagueW"]+" / "+f0["leagueD"]+" / "+f0["leagueL"]+"</span></div><div class=\"sm-stat\"><span class=\"sm-stat-l\">\u79ef\u5206</span><span class=\"sm-stat-v pos\">"+(f0["leaguePts"]||0)+"</span></div><div class=\"sm-stat\"><span class=\"sm-stat-l\">\u8fdb\u5931\u7403</span><span class=\"sm-stat-v\">"+f0["leagueGF"]+" : "+f0["leagueGA"]+"</span></div></div>";
+h+="</div>";
+}
+var trophies=[];
+for(var fi2=0;fi2<found["length"];fi2++){var f1=found[fi2];(f1["trophies"]||[])["forEach"](function(t){trophies["push"](t);});}
+if(trophies["length"]){
+h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u5956\u676f</div><div class=\"sm-trophies\">"+trophies["map"](function(t){return "<span class=\"sm-tag cup\">\ud83c\udfc6 "+ax(t)+"</span>";})["join"]("")+"</div></div>";
+}
+var cupRuns=au["cupRuns"]||[];
+var ageCups=[];
+for(var ci=0;ci<cupRuns["length"];ci++){
+var cr=cupRuns[ci];
+if(cr["age"]>=lo&&cr["age"]<=hi)ageCups["push"](cr);
+}
+if(ageCups["length"]){
+h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u676f\u8d5b\u8d70\u52bf</div>";
+for(var ck=0;ck<ageCups["length"];ck++){
+var cup=ageCups[ck];
+h+="<div class=\"sm-cup-entry\"><div class=\"sm-cup-head\"><span class=\"sm-cup-name\">"+ax(cup["comp"]||"")+"</span><span class=\"sm-cup-result\">"+ax(cup["result"]||"")+"</span></div>";
+if(cup["group"]&&cup["group"]["standings"])h+="<div class=\"sm-rounds\"><span class=\"sm-round\">小组第"+cup["group"]["pos"]+" · "+(cup["group"]["standings"]||[]).map(function(s){return ax(s);}).join(" / ")+"</span></div>";
+if(cup["rounds"]&&cup["rounds"]["length"]){
+h+="<div class=\"sm-rounds\">";
+for(var rl=0;rl<cup["rounds"]["length"];rl++){
+var rd=cup["rounds"][rl];
+h+="<span class=\"sm-round "+(rd["won"]?"won":"lost")+"\">"+ax(rd["round"])+" vs "+ax(rd["opp"])+(rd["score"]?" <i>"+ax(rd["score"])+"</i>":"")+"</span>";
+}
+h+="</div>";
+}
+h+="</div>";
+}
+h+="</div>";
+}
+}
+var tourns=au["tournaments"]||[];
+if(view==="nat"){
+var ageT=[];
+for(var ti=0;ti<tourns["length"];ti++){
+if(tourns[ti]["age"]>=lo&&tourns[ti]["age"]<=hi)ageT["push"](tourns[ti]);
+}
+if(ageT["length"]){
+h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f\u6bd4\u8d5b</div>";
+for(var tk=0;tk<ageT["length"];tk++){
+var tn=ageT[tk];
+h+="<div class=\"sm-cup-entry\"><div class=\"sm-cup-head\"><span class=\"sm-cup-name\">"+ax(tn["comp"]||"")+"</span><span class=\"sm-cup-result\">"+ax(tn["stage"]||"")+(tn["playerPos"]?"\uff08\u5c0f\u7ec4\u7b2c"+tn["playerPos"]+"\u540d\uff09":"")+"</span></div>";
+if(tn["standings"]&&tn["standings"]["length"])h+="<div class=\"sm-rounds\"><span class=\"sm-round\">\u5c0f\u7ec4\uff1a"+tn["standings"]["map"](function(s){return ax(s["name"]||'');})["join"](" / ")+"</span></div>";
+if(tn["path"]&&tn["path"]["length"]){
+h+="<div class=\"sm-rounds\">";
+for(var tq=0;tq<tn["path"]["length"];tq++){
+var pr=tn["path"][tq];
+h+="<span class=\"sm-round "+(pr["won"]?"won":"lost")+"\">"+ax(pr["round"])+" vs "+ax(pr["opp"])+(pr["score"]?" <i>"+ax(pr["score"])+"</i>":"")+"</span>";
+}
+h+="</div>";
+}
+h+="</div>";
+}
+h+="</div>";
+}
+var natRuns=au["natRuns"]||[];
+var ageNat=[];
+for(var ni=0;ni<natRuns["length"];ni++){
+if(natRuns[ni]["age"]>=lo&&natRuns[ni]["age"]<=hi)ageNat["push"](natRuns[ni]);
+}
+if(ageNat["length"]){
+h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f</div>";
+for(var nk=0;nk<ageNat["length"];nk++){
+var nr=ageNat[nk];
+var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";
+}
+h+="</div>";
+}
+if(!h)h+="<div class=\"sm-empty\">\u672c\u8d5b\u5b63\u65e0\u7279\u522b\u8bb0\u5f55</div>";
+}
+_md["querySelector"](".sm-title")["textContent"]=(lo===hi?lo+"\u5c81":lo+"-"+hi+"\u5c81")+"\u8d5b\u5b63\u8be6\u60c5";
+_md["querySelector"](".sm-body")["innerHTML"]=h;
+_md["classList"]["remove"]("hidden");
+});
+}());
 }());
 var bW=aI();
 bW&&bW["seasons"]&&bW["seasons"]["length"]?(au=bW,au["eventLog"]||(au["eventLog"]=[]),(au["seasons"]||[])["forEach"](function(c2){

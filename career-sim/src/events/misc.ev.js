@@ -2078,7 +2078,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   'icon': '🩹',
   'weight': 0x50,
   'repeat': 1,
-  'when': function(p){return p["_severeInjury"]&&p["playerType"]!==11;},
+  'when': function(p){if(!p["_severeInjury"]||p["playerType"]===11)return false;var _m={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_m[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
@@ -2124,7 +2124,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   'icon': '🧓',
   'weight': 0x48,
   'repeat': 1,
-  'when': function(p){return p["age"]>=32&&p["playerType"]!==11&&!p["_vetTypeShiftDone"];},
+  'when': function(p){if(p["age"]<32||p["playerType"]===11||p["_vetTypeShiftDone"])return false;var _m={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_m[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;

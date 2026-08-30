@@ -45,7 +45,7 @@
     "flag": "🇲🇽",
     "kit": "linear-gradient(90deg, #176b45 0 30%, #f4f0df 30% 70%, #c83b32 70%)",
     "name": "Mexico",
-    "nationalStrength": 78,
+    "nationalStrength": 81,
     "region": "North America",
     "fifaCode": "MEX",
     "confederation": "CONCACAF"
@@ -62,7 +62,7 @@
     "flag": "🇺🇸",
     "kit": "repeating-linear-gradient(0deg, #f4f0df 0 12px, #c8323a 12px 24px)",
     "name": "United States",
-    "nationalStrength": 79,
+    "nationalStrength": 80,
     "region": "North America",
     "fifaCode": "USA",
     "confederation": "CONCACAF"
@@ -79,7 +79,7 @@
     "flag": "🇨🇴",
     "kit": "linear-gradient(0deg, #c8323a 0 18%, #173b68 18% 36%, #f2cf38 36%)",
     "name": "Colombia",
-    "nationalStrength": 80,
+    "nationalStrength": 82,
     "region": "South America",
     "fifaCode": "COL",
     "confederation": "CONMEBOL"
@@ -96,7 +96,7 @@
     "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "kit": "linear-gradient(90deg, transparent 0 42%, #c9363d 42% 58%, transparent 58%), linear-gradient(0deg, transparent 0 44%, #c9363d 44% 58%, transparent 58%), #f4f0df",
     "name": "England",
-    "nationalStrength": 88,
+    "nationalStrength": 89,
     "region": "Europe",
     "fifaCode": "ENG",
     "confederation": "UEFA"
@@ -147,7 +147,7 @@
     "flag": "🇩🇪",
     "kit": "linear-gradient(145deg, transparent 0 62%, #e0b93a 63% 70%, #b53232 70% 77%, #151918 77%), #f4f0df",
     "name": "Germany",
-    "nationalStrength": 90,
+    "nationalStrength": 88,
     "region": "Europe",
     "fifaCode": "GER",
     "confederation": "UEFA"
@@ -164,7 +164,7 @@
     "flag": "🇮🇹",
     "kit": "linear-gradient(90deg, #166cba 0 82%, #f4f0df 82% 88%, #c9363d 88%)",
     "name": "Italy",
-    "nationalStrength": 89,
+    "nationalStrength": 86,
     "region": "Europe",
     "fifaCode": "ITA",
     "confederation": "UEFA"
@@ -181,7 +181,7 @@
     "flag": "🇵🇹",
     "kit": "linear-gradient(90deg, #1e754f 0 38%, #b52637 38%)",
     "name": "Portugal",
-    "nationalStrength": 86,
+    "nationalStrength": 87,
     "region": "Europe",
     "fifaCode": "POR",
     "confederation": "UEFA"
@@ -198,7 +198,7 @@
     "flag": "🇵🇱",
     "kit": "linear-gradient(180deg, #f4f0df 0 72%, #d4213d 72%)",
     "name": "Poland",
-    "nationalStrength": 78,
+    "nationalStrength": 80,
     "region": "Europe",
     "fifaCode": "POL",
     "confederation": "UEFA"
@@ -232,7 +232,7 @@
     "flag": "🇯🇵",
     "kit": "linear-gradient(135deg, #174a91 0 72%, #d23b43 72% 78%, #f4f0df 78%)",
     "name": "Japan",
-    "nationalStrength": 77,
+    "nationalStrength": 82,
     "region": "Asia",
     "fifaCode": "JPN",
     "confederation": "AFC"
@@ -249,7 +249,7 @@
     "flag": "🇰🇷",
     "kit": "linear-gradient(145deg, #e94b58 0 78%, #173b68 78% 84%, #f4f0df 84%)",
     "name": "South Korea",
-    "nationalStrength": 76,
+    "nationalStrength": 81,
     "region": "Asia",
     "fifaCode": "KOR",
     "confederation": "AFC"
@@ -266,7 +266,7 @@
     "flag": "🇲🇦",
     "kit": "linear-gradient(135deg, transparent 0 46%, #176b45 46% 54%, transparent 54%), #b92f3b",
     "name": "Morocco",
-    "nationalStrength": 80,
+    "nationalStrength": 82,
     "region": "Africa",
     "fifaCode": "MAR",
     "confederation": "CAF"
@@ -283,7 +283,7 @@
     "flag": "🇳🇬",
     "kit": "repeating-linear-gradient(90deg, #1e754f 0 24%, #f4f0df 24% 48%)",
     "name": "Nigeria",
-    "nationalStrength": 79,
+    "nationalStrength": 80,
     "region": "Africa",
     "fifaCode": "NGA",
     "confederation": "CAF"
@@ -295,7 +295,7 @@
     "fifaCode": "AFG",
     "flag": "⚽",
     "name": "Afghanistan",
-    "nationalStrength": 63,
+    "nationalStrength": 56,
     "region": "Asia"
   },
   {
@@ -305,7 +305,7 @@
     "fifaCode": "ALB",
     "flag": "⚽",
     "name": "Albania",
-    "nationalStrength": 80,
+    "nationalStrength": 68,
     "region": "Europe"
   },
   {
@@ -315,7 +315,7 @@
     "fifaCode": "ALG",
     "flag": "⚽",
     "name": "Algeria",
-    "nationalStrength": 70,
+    "nationalStrength": 76,
     "region": "Africa"
   },
   {
@@ -325,7 +325,7 @@
     "fifaCode": "ASA",
     "flag": "⚽",
     "name": "American Samoa",
-    "nationalStrength": 53,
+    "nationalStrength": 52,
     "region": "Oceania"
   },
   {
@@ -335,7 +335,7 @@
     "fifaCode": "AND",
     "flag": "⚽",
     "name": "Andorra",
-    "nationalStrength": 80,
+    "nationalStrength": 52,
     "region": "Europe"
   },
   {
@@ -355,7 +355,7 @@
     "fifaCode": "AIA",
     "flag": "⚽",
     "name": "Anguilla",
-    "nationalStrength": 67,
+    "nationalStrength": 53,
     "region": "North America"
   },
   {
@@ -365,7 +365,7 @@
     "fifaCode": "ATG",
     "flag": "⚽",
     "name": "Antigua and Barbuda",
-    "nationalStrength": 59,
+    "nationalStrength": 57,
     "region": "North America"
   },
   {
@@ -375,7 +375,7 @@
     "fifaCode": "ARM",
     "flag": "⚽",
     "name": "Armenia",
-    "nationalStrength": 66,
+    "nationalStrength": 65,
     "region": "Europe"
   },
   {
@@ -395,7 +395,7 @@
     "fifaCode": "AUS",
     "flag": "⚽",
     "name": "Australia",
-    "nationalStrength": 68,
+    "nationalStrength": 78,
     "region": "Asia"
   },
   {
@@ -405,7 +405,7 @@
     "fifaCode": "AUT",
     "flag": "⚽",
     "name": "Austria",
-    "nationalStrength": 69,
+    "nationalStrength": 80,
     "region": "Europe"
   },
   {
@@ -415,7 +415,7 @@
     "fifaCode": "AZE",
     "flag": "⚽",
     "name": "Azerbaijan",
-    "nationalStrength": 68,
+    "nationalStrength": 64,
     "region": "Europe"
   },
   {
@@ -425,7 +425,7 @@
     "fifaCode": "BAH",
     "flag": "⚽",
     "name": "Bahamas",
-    "nationalStrength": 66,
+    "nationalStrength": 56,
     "region": "North America"
   },
   {
@@ -435,7 +435,7 @@
     "fifaCode": "BHR",
     "flag": "⚽",
     "name": "Bahrain",
-    "nationalStrength": 64,
+    "nationalStrength": 65,
     "region": "Asia"
   },
   {
@@ -445,7 +445,7 @@
     "fifaCode": "BAN",
     "flag": "⚽",
     "name": "Bangladesh",
-    "nationalStrength": 69,
+    "nationalStrength": 54,
     "region": "Asia"
   },
   {
@@ -455,7 +455,7 @@
     "fifaCode": "BRB",
     "flag": "⚽",
     "name": "Barbados",
-    "nationalStrength": 65,
+    "nationalStrength": 57,
     "region": "North America"
   },
   {
@@ -465,7 +465,7 @@
     "fifaCode": "BLR",
     "flag": "⚽",
     "name": "Belarus",
-    "nationalStrength": 76,
+    "nationalStrength": 66,
     "region": "Europe"
   },
   {
@@ -475,7 +475,7 @@
     "fifaCode": "BEL",
     "flag": "⚽",
     "name": "Belgium",
-    "nationalStrength": 76,
+    "nationalStrength": 85,
     "region": "Europe"
   },
   {
@@ -485,7 +485,7 @@
     "fifaCode": "BLZ",
     "flag": "⚽",
     "name": "Belize",
-    "nationalStrength": 60,
+    "nationalStrength": 59,
     "region": "North America"
   },
   {
@@ -495,7 +495,7 @@
     "fifaCode": "BEN",
     "flag": "⚽",
     "name": "Benin",
-    "nationalStrength": 69,
+    "nationalStrength": 63,
     "region": "Africa"
   },
   {
@@ -505,7 +505,7 @@
     "fifaCode": "BER",
     "flag": "⚽",
     "name": "Bermuda",
-    "nationalStrength": 61,
+    "nationalStrength": 59,
     "region": "North America"
   },
   {
@@ -515,7 +515,7 @@
     "fifaCode": "BHU",
     "flag": "⚽",
     "name": "Bhutan",
-    "nationalStrength": 67,
+    "nationalStrength": 53,
     "region": "Asia"
   },
   {
@@ -525,7 +525,7 @@
     "fifaCode": "BOL",
     "flag": "⚽",
     "name": "Bolivia",
-    "nationalStrength": 70,
+    "nationalStrength": 66,
     "region": "South America"
   },
   {
@@ -535,7 +535,7 @@
     "fifaCode": "BIH",
     "flag": "⚽",
     "name": "Bosnia and Herzegovina",
-    "nationalStrength": 79,
+    "nationalStrength": 70,
     "region": "Europe"
   },
   {
@@ -545,7 +545,7 @@
     "fifaCode": "BOT",
     "flag": "⚽",
     "name": "Botswana",
-    "nationalStrength": 72,
+    "nationalStrength": 61,
     "region": "Africa"
   },
   {
@@ -555,7 +555,7 @@
     "fifaCode": "VGB",
     "flag": "⚽",
     "name": "British Virgin Islands",
-    "nationalStrength": 57,
+    "nationalStrength": 53,
     "region": "North America"
   },
   {
@@ -565,7 +565,7 @@
     "fifaCode": "BRU",
     "flag": "⚽",
     "name": "Brunei Darussalam",
-    "nationalStrength": 59,
+    "nationalStrength": 53,
     "region": "Asia"
   },
   {
@@ -575,7 +575,7 @@
     "fifaCode": "BUL",
     "flag": "⚽",
     "name": "Bulgaria",
-    "nationalStrength": 71,
+    "nationalStrength": 67,
     "region": "Europe"
   },
   {
@@ -585,7 +585,7 @@
     "fifaCode": "BFA",
     "flag": "⚽",
     "name": "Burkina Faso",
-    "nationalStrength": 74,
+    "nationalStrength": 69,
     "region": "Africa"
   },
   {
@@ -595,7 +595,7 @@
     "fifaCode": "BDI",
     "flag": "⚽",
     "name": "Burundi",
-    "nationalStrength": 73,
+    "nationalStrength": 59,
     "region": "Africa"
   },
   {
@@ -605,7 +605,7 @@
     "fifaCode": "CPV",
     "flag": "⚽",
     "name": "Cabo Verde",
-    "nationalStrength": 61,
+    "nationalStrength": 66,
     "region": "Africa"
   },
   {
@@ -615,7 +615,7 @@
     "fifaCode": "CAM",
     "flag": "⚽",
     "name": "Cambodia",
-    "nationalStrength": 58,
+    "nationalStrength": 55,
     "region": "Asia"
   },
   {
@@ -625,7 +625,7 @@
     "fifaCode": "CMR",
     "flag": "⚽",
     "name": "Cameroon",
-    "nationalStrength": 67,
+    "nationalStrength": 74,
     "region": "Africa"
   },
   {
@@ -635,7 +635,7 @@
     "fifaCode": "CAN",
     "flag": "⚽",
     "name": "Canada",
-    "nationalStrength": 69,
+    "nationalStrength": 78,
     "region": "North America"
   },
   {
@@ -645,7 +645,7 @@
     "fifaCode": "CAY",
     "flag": "⚽",
     "name": "Cayman Islands",
-    "nationalStrength": 60,
+    "nationalStrength": 56,
     "region": "North America"
   },
   {
@@ -655,7 +655,7 @@
     "fifaCode": "CTA",
     "flag": "⚽",
     "name": "Central African Republic",
-    "nationalStrength": 66,
+    "nationalStrength": 59,
     "region": "Africa"
   },
   {
@@ -665,7 +665,7 @@
     "fifaCode": "CHA",
     "flag": "⚽",
     "name": "Chad",
-    "nationalStrength": 63,
+    "nationalStrength": 58,
     "region": "Africa"
   },
   {
@@ -675,7 +675,7 @@
     "fifaCode": "CHI",
     "flag": "⚽",
     "name": "Chile",
-    "nationalStrength": 78,
+    "nationalStrength": 77,
     "region": "South America"
   },
   {
@@ -685,7 +685,7 @@
     "fifaCode": "CHN",
     "flag": "⚽",
     "name": "China PR",
-    "nationalStrength": 60,
+    "nationalStrength": 62,
     "region": "Asia"
   },
   {
@@ -695,7 +695,7 @@
     "fifaCode": "TPE",
     "flag": "⚽",
     "name": "Chinese Taipei",
-    "nationalStrength": 66,
+    "nationalStrength": 57,
     "region": "Asia"
   },
   {
@@ -705,7 +705,7 @@
     "fifaCode": "COM",
     "flag": "⚽",
     "name": "Comoros",
-    "nationalStrength": 73,
+    "nationalStrength": 57,
     "region": "Africa"
   },
   {
@@ -715,7 +715,7 @@
     "fifaCode": "CGO",
     "flag": "⚽",
     "name": "Congo",
-    "nationalStrength": 65,
+    "nationalStrength": 63,
     "region": "Africa"
   },
   {
@@ -735,7 +735,7 @@
     "fifaCode": "COK",
     "flag": "⚽",
     "name": "Cook Islands",
-    "nationalStrength": 60,
+    "nationalStrength": 52,
     "region": "Oceania"
   },
   {
@@ -745,7 +745,7 @@
     "fifaCode": "CRC",
     "flag": "⚽",
     "name": "Costa Rica",
-    "nationalStrength": 64,
+    "nationalStrength": 74,
     "region": "North America"
   },
   {
@@ -755,7 +755,7 @@
     "fifaCode": "CIV",
     "flag": "⚽",
     "name": "Côte d'Ivoire",
-    "nationalStrength": 69,
+    "nationalStrength": 76,
     "region": "Africa"
   },
   {
@@ -765,7 +765,7 @@
     "fifaCode": "CRO",
     "flag": "⚽",
     "name": "Croatia",
-    "nationalStrength": 76,
+    "nationalStrength": 83,
     "region": "Europe"
   },
   {
@@ -785,7 +785,7 @@
     "fifaCode": "CUW",
     "flag": "⚽",
     "name": "Curaçao",
-    "nationalStrength": 62,
+    "nationalStrength": 64,
     "region": "North America"
   },
   {
@@ -795,7 +795,7 @@
     "fifaCode": "CYP",
     "flag": "⚽",
     "name": "Cyprus",
-    "nationalStrength": 79,
+    "nationalStrength": 62,
     "region": "Europe"
   },
   {
@@ -815,7 +815,7 @@
     "fifaCode": "DEN",
     "flag": "⚽",
     "name": "Denmark",
-    "nationalStrength": 78,
+    "nationalStrength": 80,
     "region": "Europe"
   },
   {
@@ -825,7 +825,7 @@
     "fifaCode": "DJI",
     "flag": "⚽",
     "name": "Djibouti",
-    "nationalStrength": 74,
+    "nationalStrength": 54,
     "region": "Africa"
   },
   {
@@ -835,7 +835,7 @@
     "fifaCode": "DMA",
     "flag": "⚽",
     "name": "Dominica",
-    "nationalStrength": 68,
+    "nationalStrength": 55,
     "region": "North America"
   },
   {
@@ -845,7 +845,7 @@
     "fifaCode": "DOM",
     "flag": "⚽",
     "name": "Dominican Republic",
-    "nationalStrength": 70,
+    "nationalStrength": 63,
     "region": "North America"
   },
   {
@@ -855,7 +855,7 @@
     "fifaCode": "PRK",
     "flag": "⚽",
     "name": "DPR Korea",
-    "nationalStrength": 66,
+    "nationalStrength": 62,
     "region": "Asia"
   },
   {
@@ -865,7 +865,7 @@
     "fifaCode": "ECU",
     "flag": "⚽",
     "name": "Ecuador",
-    "nationalStrength": 68,
+    "nationalStrength": 75,
     "region": "South America"
   },
   {
@@ -875,7 +875,7 @@
     "fifaCode": "EGY",
     "flag": "⚽",
     "name": "Egypt",
-    "nationalStrength": 72,
+    "nationalStrength": 78,
     "region": "Africa"
   },
   {
@@ -885,7 +885,7 @@
     "fifaCode": "SLV",
     "flag": "⚽",
     "name": "El Salvador",
-    "nationalStrength": 70,
+    "nationalStrength": 67,
     "region": "North America"
   },
   {
@@ -895,7 +895,7 @@
     "fifaCode": "EQG",
     "flag": "⚽",
     "name": "Equatorial Guinea",
-    "nationalStrength": 69,
+    "nationalStrength": 61,
     "region": "Africa"
   },
   {
@@ -905,7 +905,7 @@
     "fifaCode": "ERI",
     "flag": "⚽",
     "name": "Eritrea",
-    "nationalStrength": 73,
+    "nationalStrength": 57,
     "region": "Africa"
   },
   {
@@ -915,7 +915,7 @@
     "fifaCode": "EST",
     "flag": "⚽",
     "name": "Estonia",
-    "nationalStrength": 79,
+    "nationalStrength": 62,
     "region": "Europe"
   },
   {
@@ -925,7 +925,7 @@
     "fifaCode": "SWZ",
     "flag": "⚽",
     "name": "Eswatini",
-    "nationalStrength": 64,
+    "nationalStrength": 58,
     "region": "Africa"
   },
   {
@@ -935,7 +935,7 @@
     "fifaCode": "ETH",
     "flag": "⚽",
     "name": "Ethiopia",
-    "nationalStrength": 68,
+    "nationalStrength": 62,
     "region": "Africa"
   },
   {
@@ -945,7 +945,7 @@
     "fifaCode": "FRO",
     "flag": "⚽",
     "name": "Faroe Islands",
-    "nationalStrength": 80,
+    "nationalStrength": 54,
     "region": "Europe"
   },
   {
@@ -955,7 +955,7 @@
     "fifaCode": "FIJ",
     "flag": "⚽",
     "name": "Fiji",
-    "nationalStrength": 52,
+    "nationalStrength": 55,
     "region": "Oceania"
   },
   {
@@ -965,7 +965,7 @@
     "fifaCode": "FIN",
     "flag": "⚽",
     "name": "Finland",
-    "nationalStrength": 78,
+    "nationalStrength": 74,
     "region": "Europe"
   },
   {
@@ -975,7 +975,7 @@
     "fifaCode": "GAB",
     "flag": "⚽",
     "name": "Gabon",
-    "nationalStrength": 70,
+    "nationalStrength": 66,
     "region": "Africa"
   },
   {
@@ -985,7 +985,7 @@
     "fifaCode": "GEO",
     "flag": "⚽",
     "name": "Georgia",
-    "nationalStrength": 71,
+    "nationalStrength": 67,
     "region": "Europe"
   },
   {
@@ -995,7 +995,7 @@
     "fifaCode": "GHA",
     "flag": "⚽",
     "name": "Ghana",
-    "nationalStrength": 64,
+    "nationalStrength": 73,
     "region": "Africa"
   },
   {
@@ -1005,7 +1005,7 @@
     "fifaCode": "GIB",
     "flag": "⚽",
     "name": "Gibraltar",
-    "nationalStrength": 80,
+    "nationalStrength": 52,
     "region": "Europe"
   },
   {
@@ -1015,7 +1015,7 @@
     "fifaCode": "GRE",
     "flag": "⚽",
     "name": "Greece",
-    "nationalStrength": 69,
+    "nationalStrength": 72,
     "region": "Europe"
   },
   {
@@ -1025,7 +1025,7 @@
     "fifaCode": "GRN",
     "flag": "⚽",
     "name": "Grenada",
-    "nationalStrength": 67,
+    "nationalStrength": 57,
     "region": "North America"
   },
   {
@@ -1035,7 +1035,7 @@
     "fifaCode": "GUM",
     "flag": "⚽",
     "name": "Guam",
-    "nationalStrength": 66,
+    "nationalStrength": 53,
     "region": "Asia"
   },
   {
@@ -1045,7 +1045,7 @@
     "fifaCode": "GUA",
     "flag": "⚽",
     "name": "Guatemala",
-    "nationalStrength": 61,
+    "nationalStrength": 66,
     "region": "North America"
   },
   {
@@ -1055,7 +1055,7 @@
     "fifaCode": "GUI",
     "flag": "⚽",
     "name": "Guinea",
-    "nationalStrength": 73,
+    "nationalStrength": 66,
     "region": "Africa"
   },
   {
@@ -1065,7 +1065,7 @@
     "fifaCode": "GNB",
     "flag": "⚽",
     "name": "Guinea-Bissau",
-    "nationalStrength": 67,
+    "nationalStrength": 65,
     "region": "Africa"
   },
   {
@@ -1075,7 +1075,7 @@
     "fifaCode": "GUY",
     "flag": "⚽",
     "name": "Guyana",
-    "nationalStrength": 68,
+    "nationalStrength": 59,
     "region": "North America"
   },
   {
@@ -1085,7 +1085,7 @@
     "fifaCode": "HAI",
     "flag": "⚽",
     "name": "Haiti",
-    "nationalStrength": 66,
+    "nationalStrength": 64,
     "region": "North America"
   },
   {
@@ -1095,7 +1095,7 @@
     "fifaCode": "HON",
     "flag": "⚽",
     "name": "Honduras",
-    "nationalStrength": 71,
+    "nationalStrength": 70,
     "region": "North America"
   },
   {
@@ -1105,7 +1105,7 @@
     "fifaCode": "HKG",
     "flag": "⚽",
     "name": "Hong Kong, China",
-    "nationalStrength": 67,
+    "nationalStrength": 58,
     "region": "Asia"
   },
   {
@@ -1115,7 +1115,7 @@
     "fifaCode": "HUN",
     "flag": "⚽",
     "name": "Hungary",
-    "nationalStrength": 70,
+    "nationalStrength": 75,
     "region": "Europe"
   },
   {
@@ -1125,7 +1125,7 @@
     "fifaCode": "ISL",
     "flag": "⚽",
     "name": "Iceland",
-    "nationalStrength": 72,
+    "nationalStrength": 70,
     "region": "Europe"
   },
   {
@@ -1135,7 +1135,7 @@
     "fifaCode": "IND",
     "flag": "⚽",
     "name": "India",
-    "nationalStrength": 68,
+    "nationalStrength": 61,
     "region": "Asia"
   },
   {
@@ -1155,7 +1155,7 @@
     "fifaCode": "IRN",
     "flag": "⚽",
     "name": "IR Iran",
-    "nationalStrength": 61,
+    "nationalStrength": 77,
     "region": "Asia"
   },
   {
@@ -1165,7 +1165,7 @@
     "fifaCode": "IRQ",
     "flag": "⚽",
     "name": "Iraq",
-    "nationalStrength": 69,
+    "nationalStrength": 70,
     "region": "Asia"
   },
   {
@@ -1175,7 +1175,7 @@
     "fifaCode": "ISR",
     "flag": "⚽",
     "name": "Israel",
-    "nationalStrength": 75,
+    "nationalStrength": 72,
     "region": "Europe"
   },
   {
@@ -1185,7 +1185,7 @@
     "fifaCode": "JAM",
     "flag": "⚽",
     "name": "Jamaica",
-    "nationalStrength": 62,
+    "nationalStrength": 70,
     "region": "North America"
   },
   {
@@ -1195,7 +1195,7 @@
     "fifaCode": "JOR",
     "flag": "⚽",
     "name": "Jordan",
-    "nationalStrength": 64,
+    "nationalStrength": 68,
     "region": "Asia"
   },
   {
@@ -1205,7 +1205,7 @@
     "fifaCode": "KAZ",
     "flag": "⚽",
     "name": "Kazakhstan",
-    "nationalStrength": 77,
+    "nationalStrength": 66,
     "region": "Europe"
   },
   {
@@ -1215,7 +1215,7 @@
     "fifaCode": "KEN",
     "flag": "⚽",
     "name": "Kenya",
-    "nationalStrength": 72,
+    "nationalStrength": 64,
     "region": "Africa"
   },
   {
@@ -1245,7 +1245,7 @@
     "fifaCode": "KGZ",
     "flag": "⚽",
     "name": "Kyrgyz Republic",
-    "nationalStrength": 67,
+    "nationalStrength": 60,
     "region": "Asia"
   },
   {
@@ -1255,7 +1255,7 @@
     "fifaCode": "LAO",
     "flag": "⚽",
     "name": "Laos",
-    "nationalStrength": 62,
+    "nationalStrength": 54,
     "region": "Asia"
   },
   {
@@ -1265,7 +1265,7 @@
     "fifaCode": "LVA",
     "flag": "⚽",
     "name": "Latvia",
-    "nationalStrength": 73,
+    "nationalStrength": 61,
     "region": "Europe"
   },
   {
@@ -1275,7 +1275,7 @@
     "fifaCode": "LBN",
     "flag": "⚽",
     "name": "Lebanon",
-    "nationalStrength": 58,
+    "nationalStrength": 60,
     "region": "Asia"
   },
   {
@@ -1285,7 +1285,7 @@
     "fifaCode": "LES",
     "flag": "⚽",
     "name": "Lesotho",
-    "nationalStrength": 61,
+    "nationalStrength": 59,
     "region": "Africa"
   },
   {
@@ -1295,7 +1295,7 @@
     "fifaCode": "LBR",
     "flag": "⚽",
     "name": "Liberia",
-    "nationalStrength": 71,
+    "nationalStrength": 60,
     "region": "Africa"
   },
   {
@@ -1305,7 +1305,7 @@
     "fifaCode": "LBY",
     "flag": "⚽",
     "name": "Libya",
-    "nationalStrength": 63,
+    "nationalStrength": 58,
     "region": "Africa"
   },
   {
@@ -1315,7 +1315,7 @@
     "fifaCode": "LIE",
     "flag": "⚽",
     "name": "Liechtenstein",
-    "nationalStrength": 70,
+    "nationalStrength": 53,
     "region": "Europe"
   },
   {
@@ -1325,7 +1325,7 @@
     "fifaCode": "LTU",
     "flag": "⚽",
     "name": "Lithuania",
-    "nationalStrength": 70,
+    "nationalStrength": 61,
     "region": "Europe"
   },
   {
@@ -1335,7 +1335,7 @@
     "fifaCode": "LUX",
     "flag": "⚽",
     "name": "Luxembourg",
-    "nationalStrength": 78,
+    "nationalStrength": 59,
     "region": "Europe"
   },
   {
@@ -1345,7 +1345,7 @@
     "fifaCode": "MAC",
     "flag": "⚽",
     "name": "Macau",
-    "nationalStrength": 61,
+    "nationalStrength": 55,
     "region": "Asia"
   },
   {
@@ -1355,7 +1355,7 @@
     "fifaCode": "MAD",
     "flag": "⚽",
     "name": "Madagascar",
-    "nationalStrength": 72,
+    "nationalStrength": 63,
     "region": "Africa"
   },
   {
@@ -1365,7 +1365,7 @@
     "fifaCode": "MWI",
     "flag": "⚽",
     "name": "Malawi",
-    "nationalStrength": 65,
+    "nationalStrength": 60,
     "region": "Africa"
   },
   {
@@ -1375,7 +1375,7 @@
     "fifaCode": "MAS",
     "flag": "⚽",
     "name": "Malaysia",
-    "nationalStrength": 62,
+    "nationalStrength": 58,
     "region": "Asia"
   },
   {
@@ -1385,7 +1385,7 @@
     "fifaCode": "MDV",
     "flag": "⚽",
     "name": "Maldives",
-    "nationalStrength": 60,
+    "nationalStrength": 54,
     "region": "Asia"
   },
   {
@@ -1395,7 +1395,7 @@
     "fifaCode": "MLI",
     "flag": "⚽",
     "name": "Mali",
-    "nationalStrength": 69,
+    "nationalStrength": 71,
     "region": "Africa"
   },
   {
@@ -1405,7 +1405,7 @@
     "fifaCode": "MLT",
     "flag": "⚽",
     "name": "Malta",
-    "nationalStrength": 72,
+    "nationalStrength": 58,
     "region": "Europe"
   },
   {
@@ -1415,7 +1415,7 @@
     "fifaCode": "MTN",
     "flag": "⚽",
     "name": "Mauritania",
-    "nationalStrength": 66,
+    "nationalStrength": 59,
     "region": "Africa"
   },
   {
@@ -1425,7 +1425,7 @@
     "fifaCode": "MRI",
     "flag": "⚽",
     "name": "Mauritius",
-    "nationalStrength": 64,
+    "nationalStrength": 58,
     "region": "Africa"
   },
   {
@@ -1435,7 +1435,7 @@
     "fifaCode": "MDA",
     "flag": "⚽",
     "name": "Moldova",
-    "nationalStrength": 79,
+    "nationalStrength": 60,
     "region": "Europe"
   },
   {
@@ -1445,7 +1445,7 @@
     "fifaCode": "MNG",
     "flag": "⚽",
     "name": "Mongolia",
-    "nationalStrength": 58,
+    "nationalStrength": 54,
     "region": "Asia"
   },
   {
@@ -1455,7 +1455,7 @@
     "fifaCode": "MNE",
     "flag": "⚽",
     "name": "Montenegro",
-    "nationalStrength": 79,
+    "nationalStrength": 68,
     "region": "Europe"
   },
   {
@@ -1465,7 +1465,7 @@
     "fifaCode": "MSR",
     "flag": "⚽",
     "name": "Montserrat",
-    "nationalStrength": 70,
+    "nationalStrength": 53,
     "region": "North America"
   },
   {
@@ -1475,7 +1475,7 @@
     "fifaCode": "MOZ",
     "flag": "⚽",
     "name": "Mozambique",
-    "nationalStrength": 67,
+    "nationalStrength": 63,
     "region": "Africa"
   },
   {
@@ -1485,7 +1485,7 @@
     "fifaCode": "MYA",
     "flag": "⚽",
     "name": "Myanmar",
-    "nationalStrength": 68,
+    "nationalStrength": 57,
     "region": "Asia"
   },
   {
@@ -1495,7 +1495,7 @@
     "fifaCode": "NAM",
     "flag": "⚽",
     "name": "Namibia",
-    "nationalStrength": 70,
+    "nationalStrength": 59,
     "region": "Africa"
   },
   {
@@ -1505,7 +1505,7 @@
     "fifaCode": "NEP",
     "flag": "⚽",
     "name": "Nepal",
-    "nationalStrength": 62,
+    "nationalStrength": 54,
     "region": "Asia"
   },
   {
@@ -1515,7 +1515,7 @@
     "fifaCode": "NCL",
     "flag": "⚽",
     "name": "New Caledonia",
-    "nationalStrength": 55,
+    "nationalStrength": 54,
     "region": "Oceania"
   },
   {
@@ -1525,7 +1525,7 @@
     "fifaCode": "NZL",
     "flag": "⚽",
     "name": "New Zealand",
-    "nationalStrength": 54,
+    "nationalStrength": 70,
     "region": "Oceania"
   },
   {
@@ -1535,7 +1535,7 @@
     "fifaCode": "NCA",
     "flag": "⚽",
     "name": "Nicaragua",
-    "nationalStrength": 65,
+    "nationalStrength": 61,
     "region": "North America"
   },
   {
@@ -1545,7 +1545,7 @@
     "fifaCode": "NIG",
     "flag": "⚽",
     "name": "Niger",
-    "nationalStrength": 74,
+    "nationalStrength": 60,
     "region": "Africa"
   },
   {
@@ -1565,7 +1565,7 @@
     "fifaCode": "NIR",
     "flag": "⚽",
     "name": "Northern Ireland",
-    "nationalStrength": 68,
+    "nationalStrength": 69,
     "region": "Europe"
   },
   {
@@ -1585,7 +1585,7 @@
     "fifaCode": "OMA",
     "flag": "⚽",
     "name": "Oman",
-    "nationalStrength": 64,
+    "nationalStrength": 66,
     "region": "Asia"
   },
   {
@@ -1595,7 +1595,7 @@
     "fifaCode": "PAK",
     "flag": "⚽",
     "name": "Pakistan",
-    "nationalStrength": 67,
+    "nationalStrength": 54,
     "region": "Asia"
   },
   {
@@ -1615,7 +1615,7 @@
     "fifaCode": "PAN",
     "flag": "⚽",
     "name": "Panama",
-    "nationalStrength": 63,
+    "nationalStrength": 72,
     "region": "North America"
   },
   {
@@ -1625,7 +1625,7 @@
     "fifaCode": "PNG",
     "flag": "⚽",
     "name": "Papua New Guinea",
-    "nationalStrength": 60,
+    "nationalStrength": 54,
     "region": "Oceania"
   },
   {
@@ -1635,7 +1635,7 @@
     "fifaCode": "PAR",
     "flag": "⚽",
     "name": "Paraguay",
-    "nationalStrength": 69,
+    "nationalStrength": 71,
     "region": "South America"
   },
   {
@@ -1645,7 +1645,7 @@
     "fifaCode": "PER",
     "flag": "⚽",
     "name": "Peru",
-    "nationalStrength": 69,
+    "nationalStrength": 72,
     "region": "South America"
   },
   {
@@ -1655,7 +1655,7 @@
     "fifaCode": "PHI",
     "flag": "⚽",
     "name": "Philippines",
-    "nationalStrength": 58,
+    "nationalStrength": 56,
     "region": "Asia"
   },
   {
@@ -1665,7 +1665,7 @@
     "fifaCode": "PUR",
     "flag": "⚽",
     "name": "Puerto Rico",
-    "nationalStrength": 57,
+    "nationalStrength": 58,
     "region": "North America"
   },
   {
@@ -1675,7 +1675,7 @@
     "fifaCode": "QAT",
     "flag": "⚽",
     "name": "Qatar",
-    "nationalStrength": 68,
+    "nationalStrength": 72,
     "region": "Asia"
   },
   {
@@ -1685,7 +1685,7 @@
     "fifaCode": "IRL",
     "flag": "⚽",
     "name": "Republic of Ireland",
-    "nationalStrength": 67,
+    "nationalStrength": 70,
     "region": "Europe"
   },
   {
@@ -1695,7 +1695,7 @@
     "fifaCode": "ROU",
     "flag": "⚽",
     "name": "Romania",
-    "nationalStrength": 67,
+    "nationalStrength": 74,
     "region": "Europe"
   },
   {
@@ -1705,7 +1705,7 @@
     "fifaCode": "RUS",
     "flag": "⚽",
     "name": "Russia",
-    "nationalStrength": 68,
+    "nationalStrength": 76,
     "region": "Europe"
   },
   {
@@ -1715,7 +1715,7 @@
     "fifaCode": "RWA",
     "flag": "⚽",
     "name": "Rwanda",
-    "nationalStrength": 68,
+    "nationalStrength": 62,
     "region": "Africa"
   },
   {
@@ -1725,7 +1725,7 @@
     "fifaCode": "SAM",
     "flag": "⚽",
     "name": "Samoa",
-    "nationalStrength": 54,
+    "nationalStrength": 53,
     "region": "Oceania"
   },
   {
@@ -1735,7 +1735,7 @@
     "fifaCode": "SMR",
     "flag": "⚽",
     "name": "San Marino",
-    "nationalStrength": 78,
+    "nationalStrength": 52,
     "region": "Europe"
   },
   {
@@ -1745,7 +1745,7 @@
     "fifaCode": "STP",
     "flag": "⚽",
     "name": "São Tomé and Príncipe",
-    "nationalStrength": 74,
+    "nationalStrength": 53,
     "region": "Africa"
   },
   {
@@ -1755,7 +1755,7 @@
     "fifaCode": "KSA",
     "flag": "⚽",
     "name": "Saudi Arabia",
-    "nationalStrength": 65,
+    "nationalStrength": 75,
     "region": "Asia"
   },
   {
@@ -1765,7 +1765,7 @@
     "fifaCode": "SCO",
     "flag": "⚽",
     "name": "Scotland",
-    "nationalStrength": 69,
+    "nationalStrength": 75,
     "region": "Europe"
   },
   {
@@ -1775,7 +1775,7 @@
     "fifaCode": "SEN",
     "flag": "⚽",
     "name": "Senegal",
-    "nationalStrength": 63,
+    "nationalStrength": 80,
     "region": "Africa"
   },
   {
@@ -1785,7 +1785,7 @@
     "fifaCode": "SRB",
     "flag": "⚽",
     "name": "Serbia",
-    "nationalStrength": 67,
+    "nationalStrength": 78,
     "region": "Europe"
   },
   {
@@ -1795,7 +1795,7 @@
     "fifaCode": "SEY",
     "flag": "⚽",
     "name": "Seychelles",
-    "nationalStrength": 61,
+    "nationalStrength": 58,
     "region": "Africa"
   },
   {
@@ -1805,7 +1805,7 @@
     "fifaCode": "SLE",
     "flag": "⚽",
     "name": "Sierra Leone",
-    "nationalStrength": 72,
+    "nationalStrength": 60,
     "region": "Africa"
   },
   {
@@ -1815,7 +1815,7 @@
     "fifaCode": "SGP",
     "flag": "⚽",
     "name": "Singapore",
-    "nationalStrength": 67,
+    "nationalStrength": 58,
     "region": "Asia"
   },
   {
@@ -1825,7 +1825,7 @@
     "fifaCode": "SVK",
     "flag": "⚽",
     "name": "Slovakia",
-    "nationalStrength": 68,
+    "nationalStrength": 73,
     "region": "Europe"
   },
   {
@@ -1835,7 +1835,7 @@
     "fifaCode": "SVN",
     "flag": "⚽",
     "name": "Slovenia",
-    "nationalStrength": 73,
+    "nationalStrength": 72,
     "region": "Europe"
   },
   {
@@ -1845,7 +1845,7 @@
     "fifaCode": "SOL",
     "flag": "⚽",
     "name": "Solomon Islands",
-    "nationalStrength": 52,
+    "nationalStrength": 53,
     "region": "Oceania"
   },
   {
@@ -1855,7 +1855,7 @@
     "fifaCode": "SOM",
     "flag": "⚽",
     "name": "Somalia",
-    "nationalStrength": 62,
+    "nationalStrength": 57,
     "region": "Africa"
   },
   {
@@ -1875,7 +1875,7 @@
     "fifaCode": "SSD",
     "flag": "⚽",
     "name": "South Sudan",
-    "nationalStrength": 72,
+    "nationalStrength": 57,
     "region": "Africa"
   },
   {
@@ -1885,7 +1885,7 @@
     "fifaCode": "SRI",
     "flag": "⚽",
     "name": "Sri Lanka",
-    "nationalStrength": 67,
+    "nationalStrength": 54,
     "region": "Asia"
   },
   {
@@ -1895,7 +1895,7 @@
     "fifaCode": "SKN",
     "flag": "⚽",
     "name": "St Kitts and Nevis",
-    "nationalStrength": 58,
+    "nationalStrength": 57,
     "region": "North America"
   },
   {
@@ -1905,7 +1905,7 @@
     "fifaCode": "LCA",
     "flag": "⚽",
     "name": "St Lucia",
-    "nationalStrength": 60,
+    "nationalStrength": 57,
     "region": "North America"
   },
   {
@@ -1915,7 +1915,7 @@
     "fifaCode": "VIN",
     "flag": "⚽",
     "name": "St Vincent and the Grenadines",
-    "nationalStrength": 70,
+    "nationalStrength": 57,
     "region": "North America"
   },
   {
@@ -1935,7 +1935,7 @@
     "fifaCode": "SUR",
     "flag": "⚽",
     "name": "Suriname",
-    "nationalStrength": 67,
+    "nationalStrength": 63,
     "region": "North America"
   },
   {
@@ -1945,7 +1945,7 @@
     "fifaCode": "SWE",
     "flag": "⚽",
     "name": "Sweden",
-    "nationalStrength": 80,
+    "nationalStrength": 78,
     "region": "Europe"
   },
   {
@@ -1955,7 +1955,7 @@
     "fifaCode": "SUI",
     "flag": "⚽",
     "name": "Switzerland",
-    "nationalStrength": 70,
+    "nationalStrength": 81,
     "region": "Europe"
   },
   {
@@ -1965,7 +1965,7 @@
     "fifaCode": "SYR",
     "flag": "⚽",
     "name": "Syria",
-    "nationalStrength": 60,
+    "nationalStrength": 64,
     "region": "Asia"
   },
   {
@@ -1975,7 +1975,7 @@
     "fifaCode": "TAH",
     "flag": "⚽",
     "name": "Tahiti",
-    "nationalStrength": 53,
+    "nationalStrength": 54,
     "region": "Oceania"
   },
   {
@@ -1985,7 +1985,7 @@
     "fifaCode": "TJK",
     "flag": "⚽",
     "name": "Tajikistan",
-    "nationalStrength": 58,
+    "nationalStrength": 59,
     "region": "Asia"
   },
   {
@@ -1995,7 +1995,7 @@
     "fifaCode": "TAN",
     "flag": "⚽",
     "name": "Tanzania",
-    "nationalStrength": 70,
+    "nationalStrength": 62,
     "region": "Africa"
   },
   {
@@ -2005,7 +2005,7 @@
     "fifaCode": "THA",
     "flag": "⚽",
     "name": "Thailand",
-    "nationalStrength": 66,
+    "nationalStrength": 63,
     "region": "Asia"
   },
   {
@@ -2015,7 +2015,7 @@
     "fifaCode": "GAM",
     "flag": "⚽",
     "name": "The Gambia",
-    "nationalStrength": 69,
+    "nationalStrength": 62,
     "region": "Africa"
   },
   {
@@ -2025,7 +2025,7 @@
     "fifaCode": "TLS",
     "flag": "⚽",
     "name": "Timor-Leste",
-    "nationalStrength": 59,
+    "nationalStrength": 53,
     "region": "Asia"
   },
   {
@@ -2035,7 +2035,7 @@
     "fifaCode": "TOG",
     "flag": "⚽",
     "name": "Togo",
-    "nationalStrength": 65,
+    "nationalStrength": 63,
     "region": "Africa"
   },
   {
@@ -2045,7 +2045,7 @@
     "fifaCode": "TGA",
     "flag": "⚽",
     "name": "Tonga",
-    "nationalStrength": 63,
+    "nationalStrength": 53,
     "region": "Oceania"
   },
   {
@@ -2055,7 +2055,7 @@
     "fifaCode": "TRI",
     "flag": "⚽",
     "name": "Trinidad and Tobago",
-    "nationalStrength": 68,
+    "nationalStrength": 64,
     "region": "North America"
   },
   {
@@ -2065,7 +2065,7 @@
     "fifaCode": "TUN",
     "flag": "⚽",
     "name": "Tunisia",
-    "nationalStrength": 74,
+    "nationalStrength": 77,
     "region": "Africa"
   },
   {
@@ -2075,7 +2075,7 @@
     "fifaCode": "TUR",
     "flag": "⚽",
     "name": "Türkiye",
-    "nationalStrength": 75,
+    "nationalStrength": 77,
     "region": "Europe"
   },
   {
@@ -2085,7 +2085,7 @@
     "fifaCode": "TKM",
     "flag": "⚽",
     "name": "Turkmenistan",
-    "nationalStrength": 69,
+    "nationalStrength": 59,
     "region": "Asia"
   },
   {
@@ -2095,7 +2095,7 @@
     "fifaCode": "TCA",
     "flag": "⚽",
     "name": "Turks and Caicos Islands",
-    "nationalStrength": 59,
+    "nationalStrength": 53,
     "region": "North America"
   },
   {
@@ -2105,7 +2105,7 @@
     "fifaCode": "UGA",
     "flag": "⚽",
     "name": "Uganda",
-    "nationalStrength": 68,
+    "nationalStrength": 63,
     "region": "Africa"
   },
   {
@@ -2115,7 +2115,7 @@
     "fifaCode": "UKR",
     "flag": "⚽",
     "name": "Ukraine",
-    "nationalStrength": 78,
+    "nationalStrength": 76,
     "region": "Europe"
   },
   {
@@ -2125,7 +2125,7 @@
     "fifaCode": "UAE",
     "flag": "⚽",
     "name": "United Arab Emirates",
-    "nationalStrength": 65,
+    "nationalStrength": 71,
     "region": "Asia"
   },
   {
@@ -2135,7 +2135,7 @@
     "fifaCode": "URU",
     "flag": "⚽",
     "name": "Uruguay",
-    "nationalStrength": 82,
+    "nationalStrength": 84,
     "region": "South America"
   },
   {
@@ -2145,7 +2145,7 @@
     "fifaCode": "VIR",
     "flag": "⚽",
     "name": "US Virgin Islands",
-    "nationalStrength": 66,
+    "nationalStrength": 54,
     "region": "North America"
   },
   {
@@ -2155,7 +2155,7 @@
     "fifaCode": "UZB",
     "flag": "⚽",
     "name": "Uzbekistan",
-    "nationalStrength": 62,
+    "nationalStrength": 70,
     "region": "Asia"
   },
   {
@@ -2175,7 +2175,7 @@
     "fifaCode": "VEN",
     "flag": "⚽",
     "name": "Venezuela",
-    "nationalStrength": 81,
+    "nationalStrength": 78,
     "region": "South America"
   },
   {
@@ -2185,7 +2185,7 @@
     "fifaCode": "VIE",
     "flag": "⚽",
     "name": "Vietnam",
-    "nationalStrength": 65,
+    "nationalStrength": 64,
     "region": "Asia"
   },
   {
@@ -2215,7 +2215,7 @@
     "fifaCode": "ZAM",
     "flag": "⚽",
     "name": "Zambia",
-    "nationalStrength": 66,
+    "nationalStrength": 64,
     "region": "Africa"
   },
   {
@@ -2225,7 +2225,7 @@
     "fifaCode": "ZIM",
     "flag": "⚽",
     "name": "Zimbabwe",
-    "nationalStrength": 63,
+    "nationalStrength": 61,
     "region": "Africa"
   }
 ]

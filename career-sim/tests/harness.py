@@ -16,6 +16,7 @@ FILES = [
     'supporters.deob.js',
     'crests.deob.js',
     'qr.deob.js',
+    'natdata.deob.js',
     'sim.deob.js',
     'game.deob.js',
 ]

@@ -511,7 +511,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'weight': 0x38,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
@@ -559,7 +559,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'weight': 0x35,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11&&p["age"]>=15;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<15)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
@@ -607,7 +607,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'weight': 0x32,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){return p["inAcademy"]&&!p["_typeShiftDone"]&&p["playerType"]!==11&&p["age"]>=17;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<17)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;

@@ -1979,3 +1979,93 @@ img.crest.plate {
 .mini-badge.star { color: hsl(var(--gold)); }
 .tl-cols.award { grid-template-columns: 2.4rem minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); }
 .tl-cols.award .tl-badges { margin-left: 0; }
+/* Season Detail Modal — matches game card/row/tag design */
+.season-modal { position: fixed; inset: 0; z-index: 9000; display: flex; align-items: center; justify-content: center; }
+.season-modal.hidden { display: none; }
+.sm-backdrop { position: absolute; inset: 0; background: hsl(var(--scrim) / .75); }
+.sm-box {
+  position: relative; background: hsl(var(--card));
+  border: 1px solid hsl(var(--border-strong)); border-radius: var(--r-card);
+  width: min(92vw, 400px); max-height: 80vh; overflow-y: auto;
+  box-shadow: 0 8px 32px hsl(var(--scrim) / .6);
+}
+.sm-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .65rem .85rem; border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--row)); border-radius: var(--r-card) var(--r-card) 0 0;
+}
+.sm-title { font-size: .88rem; font-weight: 700; color: hsl(var(--text)); letter-spacing: -.01em; }
+.sm-close {
+  background: none; border: none; color: hsl(var(--muted)); font-size: 1.15rem;
+  cursor: pointer; padding: .1rem .3rem; line-height: 1; border-radius: var(--r-row);
+}
+.sm-close:hover { color: hsl(var(--text)); background: hsl(var(--border) / .4); }
+.sm-body { padding: .5rem .7rem .7rem; font-size: .78rem; color: hsl(var(--text)); }
+
+/* Section card — each block gets its own card background */
+.sm-section {
+  background: hsl(var(--row) / .55); border-radius: var(--r-row);
+  padding: .5rem .65rem; margin-bottom: .45rem;
+  border: 1px solid hsl(var(--border) / .6);
+}
+.sm-section:last-child { margin-bottom: 0; }
+.sm-sub {
+  font-size: .7rem; font-weight: 700; letter-spacing: .06em;
+  color: hsl(var(--accent)); margin-bottom: .35rem; text-transform: uppercase;
+}
+
+/* Stat rows — two-column key/value */
+.sm-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .25rem .6rem; }
+.sm-stat { display: flex; flex-direction: column; }
+.sm-stat-l { font-size: .6rem; letter-spacing: .08em; color: hsl(var(--muted)); text-transform: uppercase; }
+.sm-stat-v { font-size: .95rem; font-weight: 700; color: hsl(var(--text)); line-height: 1.3; }
+.sm-stat-v.pos { color: hsl(var(--gold1)); }
+
+/* League row — big rank number */
+.sm-league-row { display: flex; align-items: center; gap: .6rem; margin-bottom: .3rem; }
+.sm-league-rank {
+  font-size: 1.6rem; font-weight: 800; color: hsl(var(--gold1));
+  min-width: 2rem; text-align: center; line-height: 1;
+}
+.sm-league-name { font-size: .82rem; color: hsl(var(--muted)); }
+
+/* Trophy tags — match existing .chip style */
+.sm-trophies { display: flex; flex-wrap: wrap; gap: .25rem; margin-top: .25rem; }
+.sm-tag {
+  display: inline-flex; align-items: center; gap: .2rem;
+  background: hsl(var(--accent) / .15); color: hsl(var(--accent));
+  padding: .15rem .45rem; border-radius: 4px; font-size: .72rem; font-weight: 500;
+}
+.sm-tag.cup { background: hsl(var(--gold1) / .12); color: hsl(var(--gold1)); }
+
+/* Cup / tournament entries */
+.sm-cup-entry { padding: .3rem 0; border-top: 1px solid hsl(var(--border) / .4); }
+.sm-cup-entry:first-child { border-top: none; padding-top: 0; }
+.sm-cup-head { display: flex; justify-content: space-between; align-items: baseline; }
+.sm-cup-name { font-weight: 600; color: hsl(var(--text)); font-size: .8rem; }
+.sm-cup-result { font-size: .72rem; color: hsl(var(--muted)); }
+
+/* Cup round pills */
+.sm-rounds { display: flex; flex-wrap: wrap; gap: .2rem; margin-top: .25rem; }
+.sm-round {
+  font-size: .68rem; padding: .12rem .4rem; border-radius: 3px;
+  background: hsl(var(--bg)); color: hsl(var(--muted));
+  border: 1px solid hsl(var(--border) / .5);
+}
+.sm-round.won { color: hsl(136 50% 55%); border-color: hsl(136 30% 35%); background: hsl(136 30% 12%); }
+.sm-round.lost { color: hsl(8 50% 58%); border-color: hsl(8 30% 35%); background: hsl(8 20% 12%); }
+
+/* National team / tournament entry */
+.sm-nat-entry { padding: .25rem 0; border-top: 1px solid hsl(var(--border) / .4); }
+.sm-nat-entry:first-child { border-top: none; padding-top: 0; }
+.sm-nat-comp { font-weight: 600; color: hsl(var(--text)); }
+.sm-nat-stage { color: hsl(var(--muted)); font-size: .75rem; }
+
+/* Empty state */
+.sm-empty { text-align: center; padding: .6rem 0; color: hsl(var(--muted)); font-size: .75rem; }
+
+/* Clickable timeline rows */
+[data-age] { cursor: pointer; transition: background .12s; }
+[data-age]:hover { background: hsl(var(--accent) / .08); }
+
+.sm-nat-stats { display: block; font-size: .7rem; color: hsl(var(--muted)); margin-top: .15rem; }
