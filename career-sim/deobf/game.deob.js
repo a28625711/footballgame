@@ -117,7 +117,16 @@ return "<svg vie"+"wBox=\"0 "+"0 300 41"+"5\" prese"+"rveAspec"+"tRatio=\""+"non
 }())+a0["POSITION"+'S']["map"](function(c2){var c3=aW[c2['id']]||[0x32,0x32];
 return "<button "+"class=\"p"+"os-btn"+(av["pos"]===c2['id']?" selecte"+'d':'')+("\" data-p"+"os=\"")+c2['id']+("\" style="+"\"left:")+c3[0x0]+"%;top:"+c3[0x1]+"%\">"+c2['id']+("</button"+'>');
 })["join"]('')+("</div><p"+" class=\""+"pitch-hi"+"nt\">已选 <"+'b>')+ax(bY["name"])+'（'+bY['id']+("）</b></p"+'>')+function(c2){var c3=cAch();
-return "<div style=\"margin-top:1rem;padding:.8rem .9rem;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);border-radius:.5rem\"><label style=\"display:flex;align-items:center;gap:.5rem;cursor:pointer\"><input type=\"checkbox\" id=\"ach-boost\" checked style=\"accent-color:#34d399;width:1rem;height:1rem\"><span style=\"font-size:.85rem;font-weight:600\">启用成就加成（已解锁 "+c3["count"]+" 项）</span></label><p style=\"margin:.5rem 0 0;font-size:.75rem;opacity:.75\">"+(c3["count"]?c3["list"]["join"](" · "):"暂无，先踢出第一个结局再回来")+"</p></div>";
+return "<div style=\"margin-top:1rem;padding:.8rem .9rem;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);border-radius:.5rem\"><label style=\"display:flex;align-items:center;gap:.5rem;cursor:pointer\"><input type=\"checkbox\" id=\"ach-boost\" checked style=\"accent-color:#34d399;width:1rem;height:1rem\"><span style=\"font-size:.85rem;font-weight:600\">启用成就加成（已解锁 "+c3["count"]+" 项）</span></label>"+function(c4){var c5=[],c6;
+if(c4["ovr"])c5["push"]("能力 +"+c4["ovr"]);
+if(c4["talent"])c5["push"]("天赋 +"+c4["talent"]["toFixed"](0x2));
+if(c4["growth"])c5["push"]("成长 +"+Math["round"]((c4["growth"]-0x1)*0x64)+'%');
+if(c4["decay"])c5["push"]("30岁后回落减半");
+if(c4["injury"])c5["push"]("伤病概率 -"+Math["round"]((0x1-c4["injury"])*0x64)+'%');
+if(c4["money"])c5["push"]("开局家底 +"+c4["money"]+'万');
+if(c4["natCall"])c5["push"]("国家队入选 +"+Math["round"]((c4["natCall"]-0x1)*0x64)+'%');
+return c5["length"]?"<div style=\"margin-top:.55rem;display:flex;flex-wrap:wrap;gap:.35rem\">"+c5["map"](function(c7){return"<span style=\"padding:.2rem .5rem;font-size:.72rem;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);border-radius:2rem;color:#34d399\">"+c7+"</span>";})["join"]('')+"</div>":"<p style=\"margin:.5rem 0 0;font-size:.75rem;opacity:.75\">暂无加成，先踢出第一个结局再回来</p>";
+}(c3["bonus"])+"</div>";
 }(0x0);
 }else{if(0x3===aX){var bZ=av["dreamId"]?ag(av["dreamId"]):null,c0=bZ?a6["leagueOf"+"Team"](bZ):null,c1=aZ||(bZ?bZ["league"]:"csl");
 bX="<button "+"class=\"d"+"ream-non"+'e'+(bZ?'':" selecte"+'d')+("\" data-d"+"ream=\"\">"+"<span cl"+"ass=\"dre"+"am-none-"+"t\">随缘</s"+"pan><spa"+"n class="+"\"dream-n"+"one-d\">")+(bZ?"现在指定的是 "+ax(bZ["name"])+'（'+ax(c0?c0["name"]:'')+'）'+(c0&&!c0['cn']?" · 12 岁送"+"出国要花 "+a0["YOUTH_AB"+"ROAD_FEE"]+(" 万，家底不够就"+"是欠债去的"):''):"不指定，报价单照"+"旧全凭运气")+("</span><"+"/button>"+"<div cla"+"ss=\"lg-t"+"abs\">")+a0["LEAGUES"]["map"](function(c2){
