@@ -121,7 +121,7 @@ return "<div style=\"margin-top:1rem;padding:.8rem .9rem;background:rgba(52,211,
 if(c4["ovr"])c5["push"]("能力 +"+c4["ovr"]);
 if(c4["talent"])c5["push"]("天赋 +"+c4["talent"]["toFixed"](0x2));
 if(c4["growth"])c5["push"]("成长 +"+Math["round"]((c4["growth"]-0x1)*0x64)+'%');
-if(c4["decay"])c5["push"]("30岁后回落减半");
+if(c4["decay"])c5["push"]("回落减缓 "+Math["round"]((0x1-c4["decay"])*0x64)+'%');
 if(c4["injury"])c5["push"]("伤病概率 -"+Math["round"]((0x1-c4["injury"])*0x64)+'%');
 if(c4["money"])c5["push"]("开局家底 +"+c4["money"]+'万');
 if(c4["natCall"])c5["push"]("国家队入选 +"+Math["round"]((c4["natCall"]-0x1)*0x64)+'%');
@@ -932,16 +932,16 @@ for(var cg=0x0;cg<a0["ENDINGS"]["length"];cg++)if(a0["ENDINGS"][cg]['id']===c3){
 if(cf&&cf["bonus"]){var ck='',ch;
 for(ch in cf["bonus"]){ck=ch;break;}
 ck=(function(cg){
-return"injury"===cg?"受伤概率-"+Math["round"]((0x1-cf["bonus"][cg])*0x64)+('%'):"ovr"===cg?"初始能力+"+cf["bonus"][cg]:"talent"===cg?"天赋+"+cf["bonus"][cg]["toFixed"](0x2):"growth"===cg?"成长速度+"+Math["round"]((cf["bonus"][cg]-0x1)*0x64)+('%'):"money"===cg?"开局家底+"+cf["bonus"][cg]+'万':"natCall"===cg?"国家队入选+"+Math["round"]((cf["bonus"][cg]-0x1)*0x64)+('%'):"decay"===cg?"30岁后能力回落减半":'';
+return"injury"===cg?"受伤概率-"+Math["round"]((0x1-cf["bonus"][cg])*0x64)+('%'):"ovr"===cg?"初始能力+"+cf["bonus"][cg]:"talent"===cg?"天赋+"+cf["bonus"][cg]["toFixed"](0x2):"growth"===cg?"成长速度+"+Math["round"]((cf["bonus"][cg]-0x1)*0x64)+('%'):"money"===cg?"开局家底+"+cf["bonus"][cg]+'万':"natCall"===cg?"国家队入选+"+Math["round"]((cf["bonus"][cg]-0x1)*0x64)+('%'):"decay"===cg?"回落减缓"+Math["round"]((0x1-cf["bonus"][cg])*0x64)+('%'):'';
 }(ck));
 ck=cf["title"]+"："+ck;
 if(bY["indexOf"](ck)<0x0)bY["push"](ck);
-for(ch in cf["bonus"])Object["prototype"]["hasOwnProperty"]["call"](cf["bonus"],ch)&&(null==bX[ch]||cf["bonus"][ch]>bX[ch])&&(bX[ch]=cf["bonus"][ch]);}
+for(ch in cf["bonus"])Object["prototype"]["hasOwnProperty"]["call"](cf["bonus"],ch)&&("ovr"===ch||"talent"===ch||"money"===ch?(bX[ch]=(bX[ch]||0x0)+cf["bonus"][ch]):"growth"===ch||"injury"===ch||"decay"===ch||"natCall"===ch?(bX[ch]=null==bX[ch]?cf["bonus"][ch]:bX[ch]*cf["bonus"][ch]):(null==bX[ch]||cf["bonus"][ch]>bX[ch])&&(bX[ch]=cf["bonus"][ch]));}
 });});
 return{'bonus':bX,'list':bY,'count':bY["length"]};
 }function cBch(cf){var cg=[];
 for(var ch in cf["bonus"])Object["prototype"]["hasOwnProperty"]["call"](cf["bonus"],ch)&&cg["push"](function(ch){var v=cf["bonus"][ch];
-return"injury"===ch?"受伤概率-"+Math["round"]((0x1-v)*0x64)+('%'):"ovr"===ch?"初始能力+"+v:"talent"===ch?"天赋+"+v["toFixed"](0x2):"growth"===ch?"成长速度+"+Math["round"]((v-0x1)*0x64)+('%'):"money"===ch?"开局家底+"+v+'万':"natCall"===ch?"国家队入选+"+Math["round"]((v-0x1)*0x64)+('%'):"decay"===ch?"30岁后能力回落减半":'';
+return"injury"===ch?"受伤概率-"+Math["round"]((0x1-v)*0x64)+('%'):"ovr"===ch?"初始能力+"+v:"talent"===ch?"天赋+"+v["toFixed"](0x2):"growth"===ch?"成长速度+"+Math["round"]((v-0x1)*0x64)+('%'):"money"===ch?"开局家底+"+v+'万':"natCall"===ch?"国家队入选+"+Math["round"]((v-0x1)*0x64)+('%'):"decay"===ch?"回落减缓"+Math["round"]((0x1-v)*0x64)+('%'):'';
 }(ch));
 return cg["join"]("、");
 }function bS(bW){

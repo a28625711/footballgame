@@ -19,7 +19,7 @@ return c["youthCut"]>=0xd;
 return c["youthCut"]<=0xc;
 }},{'id':"banned",'tier':0x1,'title':"足坛蛀虫",'desc':"反赌扫黑没漏掉你"+"。名字被从纪录里"+"抹掉，只留在通报"+'里。','hint':"被反赌扫黑查到，"+"终身禁足",'test':function(c){
 return c["banned"];
-}},{'id':"goat",'tier':0x2,'title':"GOAT",'desc':"世界杯、金球、欧"+"冠，一样不缺。以"+"后每次有人排历史"+"最佳，名单第一行"+"都得先写你，再从"+"第二行开始吵。",'hint':"世界杯、金球、欧"+"冠，三样齐全",'bonus':{'talent':0.06},
+}},{'id':"goat",'tier':0x2,'title':"GOAT",'desc':"世界杯、金球、欧"+"冠，一样不缺。以"+"后每次有人排历史"+"最佳，名单第一行"+"都得先写你，再从"+"第二行开始吵。",'hint':"世界杯、金球、欧"+"冠，三样齐全",'bonus':{'talent':0.06,'ovr':0x2},
 'test':function(c){
 return c["wcRank"]>=0x6&&c["award"](a["ballon"])>=0x1&&c["uclTroph"+"ies"]>=0x1&&c["maxOvr"]>=0x5c;
 }},{'id':"wcchamp",'tier':0x2,'title':"大力神杯",'desc':"中国队捧起了那座"+"杯。这一天之前，"+"没有人敢把这句话"+"写进任何一篇稿子"+'。','hint':"随中国队拿下世界"+'杯',
@@ -50,12 +50,12 @@ return(c["flags"]["fixed"]||c["flags"]["gambled"])&&c["clean"]<0x2d;
 }},{'id':"agefraud",'tier':0x4,'title':"大三岁",'desc':"户口本上的那个年"+"份陪了你一辈子。"+"退役那年真实年龄"+"的你，其实还能再"+"踢两年。",'hint':"改过年龄",'test':function(c){
 return c["flags"]["ageFraud"];
 }},{'id':"legend",'tier':0x2,'title':"中国梅西",'desc':"以后每个踢球的小"+"孩都会被拿来跟你"+"比，然后被说「你"+"不是他」。",'pos':{'gk':{'title':"中国布冯"},'def':{'title':"中国马尔蒂尼"}},
-'hint':"能力到过 88、"+"四座大赛级奖杯、"+"五大联赛六个赛季",'bonus':{'talent':0.04},'test':function(c){
+'hint':"能力到过 88、"+"四座大赛级奖杯、"+"五大联赛六个赛季",'bonus':{'talent':0.04,'growth':1.05},'test':function(c){
 return c["maxOvr"]>=0x58&&c["bigTroph"+"ies"]>=0x4&&c["top5Seas"+"ons"]>=0x6;
 }},{'id':"cr7",'tier':0x2,'title':"中国C罗",'desc':"别人三十五岁开始"+"告别，你三十五岁"+"开始加练。最后那"+"几年没人再拿天赋"+"说你，只说自律。",'pos':{'gk':{'title':"中国范德萨"},
-'def':{'title':"中国佩佩"},'mid':{'title':"中国莫德里奇"}},'hint':"能力到过 90、"+"生涯出场 110"+"0 以上、40 "+"岁之后才退役",'bonus':{'talent':0.03,'ovr':0x1},'test':function(c){
+'def':{'title':"中国佩佩"},'mid':{'title':"中国莫德里奇"}},'hint':"能力到过 90、"+"生涯出场 110"+"0 以上、40 "+"岁之后才退役",'bonus':{'talent':0.03,'ovr':0x1,'decay':0.85,'injury':0.9},'test':function(c){
 return c["maxOvr"]>=0x5a&&c["apps"]>=0x44c&&c["age"]>=0x28;
-}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'bonus':{'talent':0.03},'test':function(c){
+}},{'id':"ballon",'tier':0x2,'title':"金球先生",'desc':"颁奖礼上你用中文"+"说了谢谢。台下有"+"人没听懂，但所有"+"人都站起来了。",'hint':"拿过金球奖",'bonus':{'talent':0.03,'money':60},'test':function(c){
 return c["award"](a["ballon"])>=0x1;
 }},{'id':"asiaking",'tier':0x3,'title':"亚洲一哥",'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中场都在研究"+"你怎么转身。",'pos':{'gk':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的前锋赛前都在"+"看你的扑点录像。"},
 'def':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的中锋都记得被"+"你贴了九十分钟是"+"什么滋味。"},'att':{'desc':"亚洲足球先生拿了"+"不止一次。整个亚"+"洲的后卫都在研究"+"你怎么启动。"}},
@@ -164,11 +164,11 @@ return c["caps"]>=0x64;
 return c["poyCount"]>=0x4;
 }},{'id':"topmas"+"ter",'tier':0x3,'title':"金靴收藏家",'desc':"三个联赛的金靴摆一"+"排，一双脚穿不过来。"+"射手榜榜首，你上去"+"过很多次。",'hint':"拿过 4 次联赛金靴",'test':function(c){
 return c["topCount"]>=0x4;
-}},{'id':"grand_slam",'tier':0x2,'title':"大满贯",'desc':"世界杯、欧冠、联赛冠军，"+"金球也进了柜子。这一"+"行字本身，就是一代人"+"的梦想清单。",'hint':"世界杯、欧冠、联赛、金球"+"，四样齐全",'bonus':{'talent':0.06},'test':function(c){
+}},{'id':"grand_slam",'tier':0x2,'title':"大满贯",'desc':"世界杯、欧冠、联赛冠军，"+"金球也进了柜子。这一"+"行字本身，就是一代人"+"的梦想清单。",'hint':"世界杯、欧冠、联赛、金球"+"，四样齐全",'bonus':{'talent':0.06,'growth':1.08},'test':function(c){
 return c["wcRank"]>=0x6&&c["uclTroph"+"ies"]>=0x1&&c["leagueTit"+"les"]>=0x1&&c["award"](a["ballon"])>=0x1;
-}},{'id':"cl_king",'tier':0x2,'title':"欧冠之王",'desc':"三座大耳朵杯。欧洲解说"+"开始用你的名字命名那座"+"看台。",'hint':"拿过 3 次欧冠",'bonus':{'growth':1.06},'test':function(c){
+}},{'id':"cl_king",'tier':0x2,'title':"欧冠之王",'desc':"三座大耳朵杯。欧洲解说"+"开始用你的名字命名那座"+"看台。",'hint':"拿过 3 次欧冠",'bonus':{'growth':1.08},'test':function(c){
 return c["uclTroph"+"ies"]>=0x3;
-}},{'id':"ballon3",'tier':0x2,'title':"金球连庄",'desc':"三座金球摆在一起，年份"+"连成一条线。颁奖人说，下"+"一个十年也在你的名字下"+"面。",'hint':"拿过 3 次金球奖",'bonus':{'talent':0.03},'test':function(c){
+}},{'id':"ballon3",'tier':0x2,'title':"金球连庄",'desc':"三座金球摆在一起，年份"+"连成一条线。颁奖人说，下"+"一个十年也在你的名字下"+"面。",'hint':"拿过 3 次金球奖",'bonus':{'talent':0.03,'natCall':1.2},'test':function(c){
 return c["award"](a["ballon"])>=0x3;
 }},{'id':"treble",'tier':0x3,'title':"三冠王",'desc':"联赛、国内杯、欧冠，同"+"一个赛季。那一年你坐拥"+"整个欧洲的掌声。",'hint':"单赛季同时拿下联赛、国内"+"杯、欧冠",'test':function(c){
 return c["seasonTr"+"eble"];
