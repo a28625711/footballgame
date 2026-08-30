@@ -1104,9 +1104,9 @@ if(cb){var cc=cb["getAttri"+"bute"]("data-act");
 if("continue"===cc)return bR();
 if("restart"===cc){if(bf)return;
 if(!confirm("这一局就不要了？"+"当前存档会清掉，"+"重新选出身开一局"+"新的。"))return;
-return bT();
+return aC(a6["legacyFr"+'om'](aq())),bT();
 }if("next-lif"+'e'===cc)return aC(a6["legacyFr"+'om'](aq())),bT();
-if("replay"===cc)return aD(),bT();
+if("replay"===cc)return aC(a6["legacyFr"+'om'](aq())),bT();
 if("share"===cc)return bH();
 if("copy-see"+'d'===cc)return function(cd){
 if(cd){var ce=aw("in-seed");

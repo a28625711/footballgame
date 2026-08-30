@@ -471,8 +471,7 @@ function _natFinalScore(t,playerName,bN,bO,bS){
 if(t&&t["rounds"]&&t["rounds"]["length"]){
 var fin=t["rounds"][t["rounds"]["length"]-0x1]["matches"];
 if(fin&&fin["length"]){var m=fin[0x0];
-if(m["home"]===playerName){m["hg"]=bN;m["ag"]=bO;}else{m["ag"]=bN;m["hg"]=bO;}
-if(bS)m["pens"]=[bS[0x0],bS[0x1]];
+if(m["home"]===playerName){m["hg"]=bN;m["ag"]=bO;if(bS)m["pens"]=[bS[0x0],bS[0x1]];}else{m["ag"]=bN;m["hg"]=bO;if(bS)m["pens"]=[bS[0x1],bS[0x0]];}
 }
 }
 }
@@ -505,7 +504,7 @@ if(mm["home"]===playerName||mm["away"]===playerName){
 var isHome=mm["home"]===playerName;
 var opp=isHome?mm["away"]:mm["home"];
 var pg=isHome?mm["hg"]:mm["ag"],og=isHome?mm["ag"]:mm["hg"];
-var _nsc=pg+"-"+og;if(mm["pens"]&&mm["pens"]["length"]>=2)_nsc+=" (点球 "+mm["pens"][0x0]+"-"+mm["pens"][0x1]+")";var _nwon=pg>og;if(pg===og&&mm["pens"]&&mm["pens"]["length"]>=2)_nwon=(isHome?mm["pens"][0x0]:mm["pens"][0x1])>=(isHome?mm["pens"][0x1]:mm["pens"][0x0]);path.push({round:rounds[r]["name"],opp:opp,oppId:isHome?mm["awayId"]:mm["homeId"],won:_nwon,score:_nsc});
+var _nsc=pg+"-"+og;if(mm["pens"]&&mm["pens"]["length"]>=2){var _pa=isHome?mm["pens"][0x0]:mm["pens"][0x1],_pb=isHome?mm["pens"][0x1]:mm["pens"][0x0];_nsc+=" (点球 "+_pa+"-"+_pb+")";}var _nwon=pg>og;if(pg===og&&mm["pens"]&&mm["pens"]["length"]>=2)_nwon=(isHome?mm["pens"][0x0]:mm["pens"][0x1])>=(isHome?mm["pens"][0x1]:mm["pens"][0x0]);path.push({round:rounds[r]["name"],opp:opp,oppId:isHome?mm["awayId"]:mm["homeId"],won:_nwon,score:_nsc});
 break;
 }
 }
