@@ -862,8 +862,9 @@ var _gpos=0x1;for(var _z=0;_z<_grp["standings"]["length"];_z++)if(_grp["standing
 var _run={'comp':_ctName,'rounds':[],'group':{'pos':_gpos,'standings':_grp["standings"]["map"](function(s){return s["name"];}),'fullStandings':_grp["standings"],'matches':_grp["matches"]},'age':a2["age"]};
 if(_gpos<=0x2){
 var _bTeams2=[{i:bx['id'],n:bx["name"],ovr:_teamStr()}];
-var _maxT2=Math.min(16,_ctPool.length+1), _total2=4;while(_total2*2<=_maxT2)_total2*=2;
-for(var _oi2=0;_oi2<_total2-1&&_oi2<_ctPool.length;_oi2++)_bTeams2.push({i:_ctPool[_oi2]['id'],n:_ctPool[_oi2]["name"],ovr:0x2e+_ctPool[_oi2]["rep"]*0x8});
+var _koPool=_ctPool.slice(0x3);
+var _maxT2=Math.min(16,_koPool.length+1), _total2=4;while(_total2*2<=_maxT2)_total2*=2;
+for(var _oi2=0;_oi2<_total2-1&&_oi2<_koPool.length;_oi2++)_bTeams2.push({i:_koPool[_oi2]['id'],n:_koPool[_oi2]["name"],ovr:0x2e+_koPool[_oi2]["rep"]*0x8});
 var _path2=_bracketSim(bx["name"],_bTeams2);
 _run["rounds"]=_path2;
 if(_path2.length&&_path2[_path2.length-1]["won"]&&_path2[_path2.length-1]["round"]==="决赛"){
