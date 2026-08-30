@@ -18,6 +18,13 @@ return v+'%\x20'+q+" / "+(0x64-v)+'%\x20'+s;
 function h(p,q){
 return p&&q[p["posGroup"]]||q["other"];
 }
+function shiftTarget(p){
+var cur=p["playerType"]!=null?p["playerType"]:0xb;
+var map={'att':{0:4,1:2,2:1,3:0,4:0,5:1},'mid':{1:7,5:1,6:7,7:1},'def':{8:10,9:10,10:9}};
+var m=map[p["posGroup"]];
+if(!m||m[cur]==null||m[cur]===cur)return null;
+return m[cur];
+}
 window["EV_ROLL"]={'reset':function(){b=null;
 },'last':function(){return b;
 },'force':function(p){c=!0x0===p||!0x1===p?p:null;
@@ -9384,7 +9391,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
     if(!adj)return null;
     var cands=adj[cur];
     if(!cands||!cands.length)return null;
-    var tgt=cands[(cur+p["age"])%cands.length];
+    var tgt=cands[Math.floor(Math.random()*cands.length)];
     p._shiftTarget=tgt;
     return "训练结束后教练把你叫住：「你最近的表现让我觉得，你可能更适合踢"+TN[tgt]+"。」他摊开战术板，画了几个跑位路线。也许，是时候换个方式了。";
   },
@@ -9431,7 +9438,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
     if(!evo)return null;
     var cands=evo[cur];
     if(!cands||!cands.length)return null;
-    var tgt=cands[(cur+p["age"])%cands.length];
+    var tgt=cands[Math.floor(Math.random()*cands.length)];
     p._evoTarget=tgt;
     return "队内训练赛，你被临时安排到一个不熟悉的位置。你本来只想应付了事，却发现自己在这个新位置上竟然踢出了不一样的东西。";
   },
@@ -9441,16 +9448,11 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["clean"],50,0.004]],0.20,0.82);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var cur=p["playerType"]!=null?p["playerType"]:11;
-        var evoByGrp={'att':{0:[4,2],1:[5,2],2:[1,4],3:[2,0],4:[2,3],5:[1,3]},'mid':{1:[6,5],5:[1,7],6:[5,7],7:[6,5]},'def':{8:[10,9],9:[8,10],10:[9,8]}};
-        var evo=evoByGrp[p["posGroup"]];var cands=evo&&evo[cur];var tgt=cands?cands[(cur+p["age"])%cands.length]:0;
+        var tgt=p._evoTarget!=null?p._evoTarget:0;
         return g(q,"融会贯通→"+TN[tgt],"还是算了");
       },
       'apply': function(p,q,s){
-        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var cur=p["playerType"]!=null?p["playerType"]:11;
-        var evoByGrp={'att':{0:[4,2],1:[5,2],2:[1,4],3:[2,0],4:[2,3],5:[1,3]},'mid':{1:[6,5],5:[1,7],6:[5,7],7:[6,5]},'def':{8:[10,9],9:[8,10],10:[9,8]}};
-        var evo=evoByGrp[p["posGroup"]];var cands=evo&&evo[cur];var tgt=cands?cands[(cur+p["age"])%cands.length]:0;
+        var tgt=p._evoTarget!=null?p._evoTarget:0;
         return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"你花了一周看录像、加练，渐渐摸到了那个位置的门道。教练赛后拍着你的肩说：你看，你的能力不止一种用法。"}
         :{'ovr':0x1,'_typeShiftDone':1,'text':"你试了几次，但总觉得隔了一层。教练说：没关系，知道自己不适合什么，也是一种进步。"};
       }
@@ -9481,7 +9483,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
     if(!pool)return null;
     var filtered=pool.filter(function(x){return x!==cur;});
     if(!filtered.length)return null;
-    var tgt=filtered[(cur+p["age"])%filtered.length];
+    var tgt=filtered[Math.floor(Math.random()*filtered.length)];
     p._lateTarget=tgt;
     return "离毕业考核只剩最后几个月。你偶然看到一线队的比赛录像，某个球员的踢法让你心动了——也许你也能那样踢。";
   },
@@ -9514,19 +9516,11 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'icon': '🩹',
   'weight': 0x50,
   'repeat': 1,
-  'when': function(p){if(!p["_severeInjury"]||p["playerType"]===11)return false;var _m={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_m[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+  'when': function(p){if(!p["_severeInjury"])return false;return shiftTarget(p)!==null;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    var cur=p["playerType"]!=null?p["playerType"]:11;
-    var injuryTarget={
-      'att':{0:0,1:0,2:0,3:0,4:0,5:0},
-      'mid':{1:6,5:6,6:6,7:6},
-      'def':{8:10,9:10,10:10}
-    };
-    var grp=p["posGroup"];
-    var map=injuryTarget[grp];
-    if(!map||map[cur]==null)return null;
-    var tgt=map[cur];
+    var tgt=shiftTarget(p);
+    if(tgt===null)return null;
     p._injTarget=tgt;
     return "严重的伤病让你不得不重新审视自己的踢法。身体恢复后，教练建议你换个方式踢——也许能延长你的职业生涯。";
   },
@@ -9536,11 +9530,12 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'p': function(p){return f(0.55,[[p["talent"],1,0.2],[p["age"],28,-0.02]],0.25,0.85);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._injTarget!=null?p._injTarget:0;
+        var tgt=shiftTarget(p)!==null?shiftTarget(p):0;
         return g(q,"转型成功→"+TN[tgt],"转型失败");
       },
       'apply': function(p,q,s){
-        var tgt=p._injTarget!=null?p._injTarget:0;
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=shiftTarget(p)!==null?shiftTarget(p):0;
         return d(q,s)?{'playerType':tgt,'ovr':0x2,'_severeInjury':0,'text':"你接受了教练的建议，花了三个月适应新的位置和踢法。虽然过程痛苦，但你发现自己在这个新位置上反而活得更自在了。"}
         :{'playerType':tgt,'ovr':-0x2,'_severeInjury':0,'text':"你硬着头皮试了新位置，但身体记忆太顽固。转型没成功，反而因为不适应掉了状态。不过至少，你试过了。"};
       }
@@ -9559,20 +9554,11 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'icon': '🧓',
   'weight': 0x48,
   'repeat': 1,
-  'when': function(p){if(p["age"]<32||p["playerType"]===11||p["_vetTypeShiftDone"])return false;var _m={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_m[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+  'when': function(p){if(p["age"]<32||p["_vetTypeShiftDone"])return false;return shiftTarget(p)!==null;},
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    var cur=p["playerType"]!=null?p["playerType"]:11;
-    var vetTarget={
-      'att':{0:0,1:0,2:0,3:0,4:0,5:0},
-      'mid':{1:6,5:6,6:6,7:6},
-      'def':{8:10,9:10,10:10}
-    };
-    var grp=p["posGroup"];
-    var map=vetTarget[grp];
-    if(!map||map[cur]==null)return null;
-    var tgt=map[cur];
-    if(tgt===cur)return null;
+    var tgt=shiftTarget(p);
+    if(tgt===null)return null;
     p._vetTarget=tgt;
     return "年龄不饶人，你的速度和爆发力都在下降。教练找你谈话：是时候换个活法了——经验比身体更值钱。";
   },
@@ -9582,11 +9568,12 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'p': function(p){return f(0.60,[[p["talent"],1,0.25],[p["age"],35,-0.03]],0.30,0.88);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._vetTarget!=null?p._vetTarget:0;
+        var tgt=shiftTarget(p)!==null?shiftTarget(p):0;
         return g(q,"转型成功→"+TN[tgt],"转型失败");
       },
       'apply': function(p,q,s){
-        var tgt=p._vetTarget!=null?p._vetTarget:0;
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=shiftTarget(p)!==null?shiftTarget(p):0;
         return d(q,s)?{'playerType':tgt,'ovr':0x2,'_vetTypeShiftDone':1,'text':"你花了整个夏天加练新位置的技术。新赛季开始，你用经验弥补了身体的退化——虽然不再是从前的你，但依然有用。"}
         :{'playerType':tgt,'ovr':-0x1,'_vetTypeShiftDone':1,'text':"转型比想象中难。旧的习惯根深蒂固，新的位置也学得磕磕绊绊。教练叹了口气：算了，还是按你习惯的来吧。"};
       }

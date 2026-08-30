@@ -16,6 +16,13 @@ return v+'%\x20'+q+" / "+(0x64-v)+'%\x20'+s;
 function h(p,q){
 return p&&q[p["posGroup"]]||q["other"];
 }
+function shiftTarget(p){
+var cur=p["playerType"]!=null?p["playerType"]:0xb;
+var map={'att':{0:4,1:2,2:1,3:0,4:0,5:1},'mid':{1:7,5:1,6:7,7:1},'def':{8:10,9:10,10:9}};
+var m=map[p["posGroup"]];
+if(!m||m[cur]==null||m[cur]===cur)return null;
+return m[cur];
+}
 window["EV_ROLL"]={'reset':function(){b=null;
 },'last':function(){return b;
 },'force':function(p){c=!0x0===p||!0x1===p?p:null;
