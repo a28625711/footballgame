@@ -499,6 +499,27 @@ var arr=[];for(var k in st)if(st[k])arr["push"](st[k]);
 arr["sort"](function(a,b){return b["pts"]-a["pts"]||(b["gf"]-b["ga"])-(a["gf"]-a["ga"]);});
 return arr;
 }
+function _runFriendlies(){
+var _ft={i:'chn',n:'\u4e2d\u56fd',s:60,ovr:_natStr()};
+var _pool=[];
+for(var _fi=0;_fi<NATS["length"];_fi++){
+var _f=NATS[_fi];
+if(_f["i"]!=='chn'&&_f["c"]!=='UEFA'&&_f["c"]!=='CONMEBOL'&&(_f["s"]||0)>=0x2d)_pool["push"](_f);
+}
+for(var _fj=_pool["length"]-1;_fj>0;_fj--){var _fk=Math["floor"](ad()*(_fj+1));var _ft2=_pool[_fj];_pool[_fj]=_pool[_fk];_pool[_fk]=_ft2;}
+var _fn=Math["min"](_pool["length"],ae(0x2,0x4));
+var _ms=[],_w=0,_d=0,_l=0,_gf=0,_ga=0;
+for(var _fm=0;_fm<_fn;_fm++){
+var _o=_pool[_fm];
+var _sa=_ft["ovr"]||_ft["s"],_sb=_o["s"]||_o["ovr"]||0x32;
+var _sd=(_sa-_sb)/0x3c;
+var _hg=_poisson(1.35*(1+_sd*0.5)),_ag=_poisson(1.35*(1-_sd*0.5));
+_ms["push"]({home:_ft["n"],away:_o["n"],homeId:'chn',awayId:_o["i"],hg:_hg,ag:_ag});
+_gf+=_hg;_ga+=_ag;
+if(_hg>_ag)_w++;else if(_hg<_ag)_l++;else _d++;
+}
+return {matches:_ms,w:_w,d:_d,l:_l,gf:_gf,ga:_ga};
+}
 function _runNatQual(comp,playerTeam){
 var isWC=comp==='wc';
 var gSize=isWC?0x5:0x4;
@@ -867,7 +888,7 @@ cj&&(c9["natCs"]=cj,a2["natStats"]['cs']+=cj);
 return Math["floor"](cl+ad());
 }}(bz,c1));if(0x1===c3){if(a2["cheat"]&&a2["ovr"]>=0x55)aZ(bz,"世界杯",'冠军'),a2["natForm"]["wc"]=0x4;
 else{var _playerTeam={i:'chn',n:'\u4e2d\u56fd\u961f',s:60,ovr:_natStr()};var _wcQual=_runNatQual('wc',_playerTeam);a2["natRuns"]["push"]({age:a2["age"],comp:_wcQual["comp"],stage:_wcQual["stage"],playerPos:_wcQual["playerPos"],caps:0,natGoals:0,natAssists:0,natCs:0,matches:_wcQual["matches"],standings:_wcQual["standings"],playerGroup:_wcQual["playerGroup"]});if(_wcQual["qualified"]){var _wcRes=_runNatComp('wc',_playerTeam);var _wcStage=_wcRes.stage;a2["natForm"]["wc"]=_natFormVal(_wcStage,'wc');a2["tournaments"]["push"](_wcRes);if(_wcStage==="\u5c0f\u7ec4\u8d5b\u51fa\u5c40"){aZ(bz,"\u4e16\u754c\u676f","\u5c0f\u7ec4\u8d5b\u51fa\u5c40");}else{var _wcBM=false;if(_wcStage==="\u51a0\u519b"){_wcBM=aV('wc',0.55,{'comp':"\u4e16\u754c\u676f",'opp':_finalOpp(_wcRes['rounds'],"\u4e2d\u56fd\u961f")});}if(_wcBM){a2["_natWC"]=_wcRes;}else aZ(bz,"\u4e16\u754c\u676f",_wcStage);}}else aZ(bz,"\u4e16\u754c\u676f","\u9884\u9009\u8d5b\u51fa\u5c40"),a2["natForm"]["wc"]=0x0;}}}if(0x3===c3){if(a2["cheat"]&&a2["ovr"]>=0x4a)aZ(bz,"\u4e9a\u6d32\u676f",'\u51a0\u519b'),a2["natForm"]["asia"]=0x3;
-else{var _playerTeam2={i:'chn',n:'\u4e2d\u56fd\u961f',s:60,ovr:a2["ovr"]};var _asiaQual=_runNatQual('asia',_playerTeam2);a2["natRuns"]["push"]({age:a2["age"],comp:_asiaQual["comp"],stage:_asiaQual["stage"],playerPos:_asiaQual["playerPos"],caps:0,natGoals:0,natAssists:0,natCs:0,matches:_asiaQual["matches"],standings:_asiaQual["standings"],playerGroup:_asiaQual["playerGroup"]});if(_asiaQual["qualified"]){var _asiaRes=_runNatComp('asia',_playerTeam2);var _asiaStage=_asiaRes.stage;a2["natForm"]["asia"]=_natFormVal(_asiaStage,'asia');a2["tournaments"]["push"](_asiaRes);if(_asiaStage==="\u5c0f\u7ec4\u8d5b\u51fa\u5c40"){aZ(bz,"\u4e9a\u6d32\u676f","\u5c0f\u7ec4\u8d5b\u51fa\u5c40");}else{var _asiaBM=false;if(_asiaStage==="\u51a0\u519b"){_asiaBM=aV("asia",0.55,{'comp':"\u4e9a\u6d32\u676f",'opp':_finalOpp(_asiaRes['rounds'],"\u4e2d\u56fd\u961f")});}if(_asiaBM){a2["_natAsia"]=_asiaRes;}else aZ(bz,"\u4e9a\u6d32\u676f",_asiaStage);}}else aZ(bz,"\u4e9a\u6d32\u676f","\u9884\u9009\u8d5b\u51fa\u5c40"),a2["natForm"]["asia"]=0x0;}}if(bx&&by){if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;}else{bAw(bz);}}return function(c9,ca,cb){
+else{var _playerTeam2={i:'chn',n:'\u4e2d\u56fd\u961f',s:60,ovr:a2["ovr"]};var _asiaQual=_runNatQual('asia',_playerTeam2);a2["natRuns"]["push"]({age:a2["age"],comp:_asiaQual["comp"],stage:_asiaQual["stage"],playerPos:_asiaQual["playerPos"],caps:0,natGoals:0,natAssists:0,natCs:0,matches:_asiaQual["matches"],standings:_asiaQual["standings"],playerGroup:_asiaQual["playerGroup"]});if(_asiaQual["qualified"]){var _asiaRes=_runNatComp('asia',_playerTeam2);var _asiaStage=_asiaRes.stage;a2["natForm"]["asia"]=_natFormVal(_asiaStage,'asia');a2["tournaments"]["push"](_asiaRes);if(_asiaStage==="\u5c0f\u7ec4\u8d5b\u51fa\u5c40"){aZ(bz,"\u4e9a\u6d32\u676f","\u5c0f\u7ec4\u8d5b\u51fa\u5c40");}else{var _asiaBM=false;if(_asiaStage==="\u51a0\u519b"){_asiaBM=aV("asia",0.55,{'comp':"\u4e9a\u6d32\u676f",'opp':_finalOpp(_asiaRes['rounds'],"\u4e2d\u56fd\u961f")});}if(_asiaBM){a2["_natAsia"]=_asiaRes;}else aZ(bz,"\u4e9a\u6d32\u676f",_asiaStage);}}else aZ(bz,"\u4e9a\u6d32\u676f","\u9884\u9009\u8d5b\u51fa\u5c40"),a2["natForm"]["asia"]=0x0;}}if(c3!==0x1&&c3!==0x3){var _fr=_runFriendlies();a2["natRuns"]["push"]({age:a2["age"],comp:"\u53cb\u8c0a\u8d5b",stage:"",friendly:true,matches:_fr["matches"],caps:0,natGoals:0,natAssists:0,natCs:0});}if(bx&&by){if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;}else{bAw(bz);}}return function(c9,ca,cb){
 if(ca&&cb){var cc=am[cb['id']];
 if(cc){if(c9["trophies"]["indexOf"](cb["name"]+'冠军')>=0x0)return b4(c9,ca,cc);
 var cd=ac(0.06+0.1*ca["rep"]+0.12*aL(),0x0,0.45);
