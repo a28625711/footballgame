@@ -925,11 +925,11 @@ bf=!0x1,au["pending"]&&au["pending"]["roll"]&&(au["pending"]["roll"]["spinning"]
 a6["choose"](bW)&&(aA(),ar());
 }}function bR(){
 a6["cont"](),aA(),ar();
-}function cAch(){var bW=aG(),bX={},bY=[];
+}function cAch(){var bW=aG(),bX={},bY=[],bZ={};
 bW["forEach"](function(c2){
 bp(c2)["forEach"](function(c3){var cf=null;
 for(var cg=0x0;cg<a0["ENDINGS"]["length"];cg++)if(a0["ENDINGS"][cg]['id']===c3){cf=a0["ENDINGS"][cg];break;}
-if(cf&&cf["bonus"]){var ck='',ch;
+if(cf&&cf["bonus"]&&!bZ[cf['id']]){bZ[cf['id']]=0x1;var ck='',ch;
 for(ch in cf["bonus"]){ck=ch;break;}
 ck=(function(cg){
 return"injury"===cg?"受伤概率-"+Math["round"]((0x1-cf["bonus"][cg])*0x64)+('%'):"ovr"===cg?"初始能力+"+cf["bonus"][cg]:"talent"===cg?"天赋+"+cf["bonus"][cg]["toFixed"](0x2):"growth"===cg?"成长速度+"+Math["round"]((cf["bonus"][cg]-0x1)*0x64)+('%'):"money"===cg?"开局家底+"+cf["bonus"][cg]+'万':"natCall"===cg?"国家队入选+"+Math["round"]((cf["bonus"][cg]-0x1)*0x64)+('%'):"decay"===cg?"回落减缓"+Math["round"]((0x1-cf["bonus"][cg])*0x64)+('%'):'';
