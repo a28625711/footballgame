@@ -293,13 +293,17 @@ var winners=[],pRound=null;
 for(var m=0;m<cur.length;m++){
 var a=cur[m][0],b=cur[m][1];
 var r=_matchSim(a.ovr,b.ovr);
+var pk=null;
+if(r.hg===r.ag){pk=_penSim(a.ovr||0x32,b.ovr||0x32);r.won=pk.a>=pk.b;}
 var aIsP=a.n===playerName,bIsP=b.n===playerName;
 winners.push(r.won?a:b);
 if(aIsP||bIsP){
 var pWon=aIsP?r.won:!r.won;
 var pg=aIsP?r.hg:r.ag,og=aIsP?r.ag:r.hg;
 var opp=aIsP?b:a;
-pRound={round:rn[rIdx]||("第"+(rIdx+1)+"轮"),opp:opp.n,oppId:opp.i,won:pWon,score:pg+"-"+og};
+var _sc=pg+"-"+og;
+if(pk)_sc+=" (点球 "+pk.a+"-"+pk.b+")";
+pRound={round:rn[rIdx]||("第"+(rIdx+1)+"轮"),opp:opp.n,oppId:opp.i,won:pWon,score:_sc};
 path.push(pRound);
 }
 }
@@ -328,10 +332,21 @@ if(lam<=0)return 0x0;var L=Math["exp"](-lam),k=0x0,p=0x1;
 do{k++;p*=ad();}while(p>L);return k-0x1;
 }
 function _matchSim(aStr,bStr){
-var sd=(aStr-bStr)/0x3c;
-var lH=1.35*(1+sd*0.5),lA=1.35*(1-sd*0.5);
+var sd=(aStr-bStr)/0x32;
+var lH=1.35*(1+sd*0.65),lA=1.35*(1-sd*0.65);
 var hg=_poisson(lH),ag=_poisson(lA);
 return{hg:hg,ag:ag,won:hg>ag};
+}
+function _penSim(aStr,bStr){
+aStr=aStr||0x32;bStr=bStr||0x32;
+var sd=(aStr-bStr)/0x78;
+var pa=Math["max"](0.52,Math["min"](0.8,0.68+sd*0.13));
+var pb=Math["max"](0.52,Math["min"](0.8,0.68-sd*0.13));
+var a=0,b=0,rn=5;
+for(var i=0;i<rn;i++){if(ad()<pa)a++;if(ad()<pb)b++;}
+var guard=0;
+while(a===b&&guard++<0x14){if(ad()<pa)a++;if(ad()<pb)b++;}
+return{a:a,b:b};
 }
 function _natPool(comp,playerId){
 var all=NATS,list=[],picked={};
@@ -477,7 +492,7 @@ if(mm["home"]===playerName||mm["away"]===playerName){
 var isHome=mm["home"]===playerName;
 var opp=isHome?mm["away"]:mm["home"];
 var pg=isHome?mm["hg"]:mm["ag"],og=isHome?mm["ag"]:mm["hg"];
-path.push({round:rounds[r]["name"],opp:opp,oppId:isHome?mm["awayId"]:mm["homeId"],won:pg>og,score:pg+"-"+og});
+var _nsc=pg+"-"+og;if(mm["pens"]&&mm["pens"]["length"]>=2)_nsc+=" (点球 "+mm["pens"][0x0]+"-"+mm["pens"][0x1]+")";var _nwon=pg>og;if(pg===og&&mm["pens"]&&mm["pens"]["length"]>=2)_nwon=(isHome?mm["pens"][0x0]:mm["pens"][0x1])>=(isHome?mm["pens"][0x1]:mm["pens"][0x0]);path.push({round:rounds[r]["name"],opp:opp,oppId:isHome?mm["awayId"]:mm["homeId"],won:_nwon,score:_nsc});
 break;
 }
 }
@@ -589,9 +604,10 @@ for(var i=0x0;i<_cur["length"];i++){
 var a=_cur[i][0x0],b=_cur[i][0x1];
 var as=a["ovr"]?a["ovr"]:50+(a["rep"]||0x3)*0x5+ad()*0xa,bs=b["ovr"]?b["ovr"]:50+(b["rep"]||0x3)*0x5+ad()*0xa;
 var df=(as-bs)/0x14+ad()*0.6-0.3,hg=Math["max"](0x0,Math["round"](1.4+df*0.5+ad()*0.8)),ag=Math["max"](0x0,Math["round"](1.4-df*0.5+ad()*0.8));
-if(hg===ag){ad()<0.5?hg++:ag++;}
-_m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:hg,ag:ag});
-_w["push"](hg>=ag?a:b);
+var _pk=null;
+if(hg===ag){_pk=_penSim(as,bs);}
+_m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:hg,ag:ag,pens:_pk?[_pk.a,_pk.b]:null});
+_w["push"]((_pk&&_pk.a>=_pk.b)||(!_pk&&hg>=ag)?a:b);
 }
 _r["push"]({name:_cur["length"]===8?"十六强":_cur["length"]===4?"八强":_cur["length"]===2?"四强":"决赛",matches:_m});
 _cur=[];
@@ -599,7 +615,7 @@ if(_w["length"]>0x1){for(var j=0x0;j<_w["length"];j+=0x2){if(j+0x1<_w["length"])
 _ri++;
 }
 var _fin=_r["length"]>0x0?_r[_r["length"]-0x1]["matches"][0x0]:null;
-return{rounds:_r,champion:_fin?(_fin["hg"]>=_fin["ag"]?_fin["home"]:_fin["away"]):null};
+return{rounds:_r,champion:_fin?((_fin["pens"]&&_fin["pens"]["length"]>=2)?(_fin["pens"][0x0]>=_fin["pens"][0x1]?_fin["home"]:_fin["away"]):(_fin["hg"]>=_fin["ag"]?_fin["home"]:_fin["away"])):null};
 }
 var aQ={'预选赛出局':0x0,'小组赛出局':0x1,'止步十六强':0x2,'止步八强':0x3,'止步四强':0x4,'亚军':0x5,'冠军':0x6},aR={'wc':{'icon':'🏆','side':"中国队"},'asia':{'icon':'🏅',
 'side':"中国队"},'cont':{'icon':'⭐','side':null},'promo':{'icon':'🏟','side':null},'drop':{'icon':'🚨','side':null},'derby':{'icon':'🔥','side':null}},aS={'欧冠':'eu',
