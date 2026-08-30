@@ -960,6 +960,33 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
 
 .season-mini { display: grid; gap: .25rem; margin-top: .8rem; }
 
+/* 战报重构：每赛季一张卡片，四行（头部/联赛/杯赛/数据+奖章），奖章独立换行不重叠 */
+.sb-row {
+  padding: .5rem .55rem; border-radius: var(--r-row);
+  background: hsl(var(--row) / .55); display: grid; gap: .28rem;
+  border: 1px solid hsl(var(--border) / .35);
+}
+.sb-hd { display: flex; align-items: center; gap: .45rem; min-width: 0; }
+.sb-team { font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-role { font-size: .66rem; color: hsl(var(--info)); border: 1px solid hsl(var(--info) / .35); border-radius: 2rem; padding: .05rem .4rem; white-space: nowrap; }
+.sb-ovr { margin-left: auto; font-size: .74rem; font-weight: 650; color: hsl(var(--gold1)); white-space: nowrap; }
+.sb-lg { font-size: .74rem; }
+.sb-lg-t { font-weight: 650; }
+.sb-lg-t.won { color: hsl(var(--accent)); }
+.sb-lg-t.lost { color: hsl(var(--failure)); }
+.sb-cups { display: flex; flex-wrap: wrap; gap: .28rem; }
+.sb-cup { font-size: .64rem; font-weight: 700; padding: .1rem .4rem; border-radius: 2rem; border: 1px solid hsl(var(--border) / .6); color: hsl(var(--muted)); }
+.sb-cup.win { color: hsl(var(--accent)); border-color: hsl(var(--accent) / .4); background: hsl(var(--accent) / .08); }
+.sb-cup.dim { opacity: .55; }
+.sb-st { font-size: .78rem; font-weight: 600; }
+.sb-badges { display: flex; flex-wrap: wrap; gap: .25rem; row-gap: .2rem; }
+.sb-tro { font-size: .62rem; font-weight: 700; color: hsl(var(--gold1)); }
+.sb-tro-more { font-size: .62rem; font-weight: 700; color: hsl(var(--gold1) / .7); }
+.sb-badges .mini-badge { color: hsl(var(--warning)); }
+.sb-badges .mini-badge.nat { color: hsl(var(--info)); }
+.sb-badges .mini-badge.bad { color: hsl(var(--failure)); }
+.sb-badges .mini-badge.up { color: hsl(var(--accent)); }
+
 /* ================= 结算 =================
    照 copero 的「生涯完成」那屏：顶部姓名 + 身价 + OVR，
    然后国家队 / 个人奖项两张卡，再往下每家效力过的俱乐部一张卡（队色渐变 + 队徽水印）。 */
