@@ -880,6 +880,9 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
 .bm-pens { margin-top: .3rem; text-align: center; font-size: .7rem;
   letter-spacing: .08em; color: hsl(var(--muted)); }
 .bm-log { margin-top: .8rem; display: flex; flex-direction: column; gap: .45rem; }
+.bm-intro { margin-top: .8rem; padding: .8rem .9rem; font-size: .9rem; line-height: 1.65;
+  background: hsl(var(--accent) / .07); border: 1px solid hsl(var(--border));
+  border-radius: .55rem; color: hsl(var(--fg)); }
 /* 每一行前面一个竖杠，读起来像一条时间轴上的播报 */
 .bm-line { font-size: .87rem; line-height: 1.5; padding-left: .7rem;
   border-left: 2px solid hsl(var(--border)); }
