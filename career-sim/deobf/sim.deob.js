@@ -793,9 +793,10 @@ a2["cupRuns"]["push"](_wRun);
 }var natFm=a2["natForm"]||{},natB=Math["max"](natFm["wc"]>=0x4?0.2:natFm["wc"]>=0x3?0.15:natFm["wc"]>=0x2?0.1:natFm["wc"]>=0x1?0.05:0x0,natFm["asia"]>=0x3?0.15:natFm["asia"]>=0x2?0.1:natFm["asia"]>=0x1?0.05:0x0),bW=0x48-0.12*(a2["guanxi"]-0x32),bX=!0x1;
 if(!a2["banned"]&&a2["age"]>=0x12&&bx&&by){var bY=ac((a2["ovr"]-bW)/0xc,0x0,0x1),bZ=a0["ROLES"][a2["role"]]["rank"],c0=ac(bY*(bZ>=0x3?0x1:bZ>=0x2?0.6:0.2)*(by["rep"]>=0x4?1.15:by['cn']?0x1:by["rep"]>=0x2?0.8:0.35)*(a2["age"]>=0x1e?0.8:0x1)*(a2["achBonus"]&&a2["achBonus"]["natCall"]||0x1)*(0x1+natB),0x0,0.9);
 bX=a2["cheat"]||ad()<c0;
-}if(bX){var c1=ae(0x2,0x5),c2=aL(),c3=a2["seasons"]["length"]%0x4;
-if(0x1!==c3&&0x3!==c3||(c1+=0x2),a2["caps"]+=c1,bz["caps"]=c1,a2["flags"]["_natCall"+'ed']||(a2["flags"]["_natCall"+'ed']=!0x0,b1(["nat_firs"+"tcall","nat_firs"+"tcall2","nat_firs"+"tcall3"][Math["floor"](ad()*0x3)]),a2["usedEven"+'ts']["nat_firs"+"tcall"]=(a2["usedEven"+'ts']["nat_firs"+"tcall"]||0x0)+0x1,a2["usedEven"+'ts']["nat_firs"+"tcall2"]=(a2["usedEven"+'ts']["nat_firs"+"tcall2"]||0x0)+0x1,a2["usedEven"+'ts']["nat_firs"+"tcall3"]=(a2["usedEven"+'ts']["nat_firs"+"tcall3"]||0x0)+0x1),
-function(c9,ca){
+}if(bX){var c2=aL(),c3=a2["seasons"]["length"]%0x4;
+var c1=a2["cheat"]?ae(0x5,0x8):(function(){var _tm=c3===0x1?ae(0x8,0xc):c3===0x3?ae(0x5,0x7):ae(0x4,0x6);var _pp=ac((a2["ovr"]-0x46)/0x32,0.55,0.95);if(a2["age"]>=0x22)_pp*=0.85;if(a2["age"]>=0x24)_pp*=0.8;var _c=0x0;for(var _mi=0x0;_mi<_tm;_mi++)if(ad()<_pp)_c+=0x1;return _c;})();
+a2["caps"]+=c1,bz["caps"]=c1;if(!a2["flags"]["_natCall"+'ed']){a2["flags"]["_natCall"+'ed']=!0x0;b1(["nat_firs"+"tcall","nat_firs"+"tcall2","nat_firs"+"tcall3"][Math["floor"](ad()*0x3)]);a2["usedEven"+'ts']["nat_firs"+"tcall"]=(a2["usedEven"+'ts']["nat_firs"+"tcall"]||0x0)+0x1;a2["usedEven"+'ts']["nat_firs"+"tcall2"]=(a2["usedEven"+'ts']["nat_firs"+"tcall2"]||0x0)+0x1;a2["usedEven"+'ts']["nat_firs"+"tcall3"]=(a2["usedEven"+'ts']["nat_firs"+"tcall3"]||0x0)+0x1;}
+(function(c9,ca){
 if(ca&&a2["natStats"]){var cb=al(a2["pos"])["group"],cc=ac((a2["ovr"]-0x2a)/0x30,0.05,1.4)*(0x1+0.5*natB);
 if(a2["cheat"]&&(cc*=1.25),'gk'!==cb){var cd=aK(),ce=0x1+Math["max"](0x0,a2["ovr"]-0x50)/0x28,cf=0x1+Math["max"](0x0,a2["ovr"]-0x50)/0x16,
 cg=ac((a2["ovr"]-0x4b)/0x14,0x0,0x1),ch=ck(ca*cd["goal"]*(0.5+0.55*cg)*cc*cf*(0.6+0.8*ad())),ci=ck(ca*cd["ast"]*(0.45+0.45*cg)*cc*(0x1+ce)/0x2*(0.6+0.8*ad()));
@@ -805,7 +806,7 @@ a2["natStats"]["assists"]+=ci);
 cj&&(c9["natCs"]=cj,a2["natStats"]['cs']+=cj);
 }}function ck(cl){
 return Math["floor"](cl+ad());
-}}(bz,c1),0x1===c3){if(a2["cheat"]&&a2["ovr"]>=0x55)aZ(bz,"世界杯",'冠军'),a2["natForm"]["wc"]=0x4;
+}}(bz,c1));if(0x1===c3){if(a2["cheat"]&&a2["ovr"]>=0x55)aZ(bz,"世界杯",'冠军'),a2["natForm"]["wc"]=0x4;
 else{if(ad()<aM()["wcq"]){
 var _playerTeam={i:'chn',n:'中国队',s:60,ovr:_natStr()};
 var _wcRes=_runNatComp('wc',_playerTeam);
