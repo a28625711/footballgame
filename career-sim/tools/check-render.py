@@ -2,7 +2,8 @@ import sys, os, json
 sys.stdout.reconfigure(encoding='utf-8')
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEOBF = os.path.join(BASE, 'deobf')
+SRC = os.path.join(BASE, 'src')
+BUILD = os.path.join(BASE, 'build')
 
 try:
     from py_mini_racer import MiniRacer
@@ -10,7 +11,7 @@ except ImportError:
     print("需要 py_mini_racer: pip install py-mini-racer")
     sys.exit(1)
 
-FILES = ['data.deob.js','events.deob.js','supporters.deob.js','crests.deob.js','qr.deob.js','sim.deob.js','game.deob.js']
+FILES = ['data.js','events.js','supporters.js','crests.js','qr.js','natdata.js','sim.js','game.js']
 
 DOM_MOCK = r'''
 var _lastHTML = '';
@@ -27,7 +28,8 @@ def load_all():
     mr = MiniRacer()
     mr.eval(DOM_MOCK)
     for f in FILES:
-        mr.eval(open(os.path.join(DEOBF, f), encoding='utf-8').read())
+        path = os.path.join(BUILD, f) if f == 'events.js' else os.path.join(SRC, f)
+        mr.eval(open(path, encoding='utf-8').read())
     return mr
 
 def render_timeline(mr, seasons, awards=None):

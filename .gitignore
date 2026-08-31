@@ -11,6 +11,7 @@ __pycache__/
 
 # 单文件打包产物（可随时用脚本重新生成）
 career-sim/career-sim-single.html
+career-sim/build/career-sim-single.html
 
 # Windows 保留设备名（git 无法索引）
 career-sim/assets/crests/aux.png

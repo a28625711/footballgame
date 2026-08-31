@@ -4,7 +4,7 @@ import esprima
 
 BASE = r'D:\football\career-sim'
 SRC = os.path.join(BASE, 'src', 'events')
-OUT = os.path.join(BASE, 'deobf', 'events.deob.js')
+OUT = os.path.join(BASE, 'build', 'events.js')
 NL = chr(10)
 
 manifest = json.load(open(os.path.join(SRC, 'MANIFEST.json'), encoding='utf-8'))

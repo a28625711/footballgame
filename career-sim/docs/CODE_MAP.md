@@ -5,13 +5,17 @@
 
 ## 文件结构
 
-- `deobf/game.deob.js` — 主逻辑 / DOM 渲染（1371 行）
-- `deobf/sim.deob.js` — 游戏引擎 / 纯逻辑（895 行）
-- `deobf/events.deob.js` — 事件数据（3390 行）
-- `deobf/data.deob.js` — 球队/联赛/位置/出身数据（328 行）
-- `deobf/crests.deob.js` — 队徽映射（98 行）
-- `deobf/qr.deob.js` — 二维码（250 行）
-- `deobf/supporters.deob.js` — 支持者名单（32 行）
+> 更新：2026-08-31（目录整理：手写源进 `src/`，事件编译产物进 `build/`）
+
+- `src/game.js` — 主逻辑 / DOM 渲染
+- `src/sim.js` — 游戏引擎 / 纯逻辑
+- `build/events.js` — 事件数据（由 `src/events/` 编译生成）
+- `src/data.js` — 球队/联赛/位置/出身数据
+- `src/crests.js` — 队徽映射
+- `src/qr.js` — 二维码
+- `src/supporters.js` — 支持者名单
+- `src/natdata.js` — 国家队数据
+- `src/events/` — 事件模块源（*.ev.js），编辑后用 `py tools/build_events.py` 编译到 `build/events.js`
 
 ## 重要函数索引（sim.deob.js）
 
@@ -201,8 +205,8 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 ### ⚠️ 模块化架构（2026-08-22 起）
 - **编辑入口**：`career-sim/src/events/*.ev.js`（16 个主题模块：vet/club/star/league/cn/kid/youth/abr/nat/gk/love/att/mid/def/aca/misc + helpers.js 公共函数 d/f/g/h、EV_ROLL、k、m）+ `MANIFEST.json`（拼接顺序）。
 - 每个事件带 `// ---- idx:N | id | 标题 ----` 头注释，idx 为**原始全局顺序**，build 时按它排序还原数组序（权重抽取依赖遍历顺序，不可乱）。
-- **改完必须重建**：`py tools/build_events.py` → 生成 `deobf/events.deob.js`（生成物，勿手改）；`py tools/split_events.py` 可从 deobf 反向重切（会覆盖手改，慎用）。
-- 全部 deobf 文件已剥离混淆字符串表/自旋转解码器（stub 化），总字符 596k→412k；无损验证：种子化 Math.random 下 16 个确定性生涯与 HEAD 逐字节一致。
+- **改完必须重建**：`py tools/build_events.py` → 生成 `build/events.js`（生成物，勿手改）；`py tools/split_events.py` 可从 `build/events.js` 反向重切（会覆盖手改，慎用）。
+- 全部源文件已剥离混淆字符串表/自旋转解码器（stub 化），总字符 596k→412k；无损验证：种子化 Math.random 下 16 个确定性生涯与 HEAD 逐字节一致。
 
 - 事件数组：`var j=[` 起始于 182707
 - 数组结束：351582（`]`）

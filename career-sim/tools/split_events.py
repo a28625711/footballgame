@@ -4,7 +4,7 @@ import esprima
 
 BASE = r'D:\football\career-sim'
 SRC_DIR = os.path.join(BASE, 'src', 'events')
-p = os.path.join(BASE, 'deobf', 'events.deob.js')
+p = os.path.join(BASE, 'build', 'events.js')
 src = open(p, encoding='utf-8').read()
 NL = chr(10)
 

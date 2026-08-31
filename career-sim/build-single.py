@@ -2,7 +2,7 @@ import re, sys, os, base64
 sys.stdout.reconfigure(encoding='utf-8')
 
 BASE = r'D:\football\career-sim'
-OUT = r'D:\football\career-sim\career-sim-single.html'
+OUT = r'D:\football\career-sim\build\career-sim-single.html'
 
 # ========== 1. 队徽 base64 映射（键名 -> data URI）==========
 crest_dir = os.path.join(BASE, 'assets', 'crests')
@@ -25,8 +25,8 @@ for f in os.listdir(trophy_dir):
     trophy_data[name] = f'data:image/png;base64,{b}'
 print(f"奖杯映射: {len(trophy_data)}")
 
-# ========== 3. 读取并处理 crests.deob.js ==========
-crests_js = open(os.path.join(BASE, 'deobf', 'crests.deob.js'), encoding='utf-8').read()
+# ========== 3. 读取并处理 crests.js ==========
+crests_js = open(os.path.join(BASE, 'src', 'crests.js'), encoding='utf-8').read()
 # 用键名替换所有 "assets/c"+... 值为 data URI
 # 模式: '键':"assets/c"+... (多段拼接) 或 '键':(替换后的)
 def repl_crest_entry(m):
@@ -39,8 +39,8 @@ new_crests = re.sub(r"'([^']+)':\"assets/c\"(?:\s*\+\s*[\"'][^\"']*[\"'])*", rep
 remaining = new_crests.count('"assets/c"')
 print(f"crests 替换后残留 assets/c: {remaining}")
 
-# ========== 4. 处理 game.deob.js 的奖杯路径 ==========
-game_js = open(os.path.join(BASE, 'deobf', 'game.deob.js'), encoding='utf-8').read()
+# ========== 4. 处理 game.js 的奖杯路径 ==========
+game_js = open(os.path.join(BASE, 'src', 'game.js'), encoding='utf-8').read()
 # bi() 里: return "assets/t"+"rophies/"+bh[bY][0x1]+".png"
 old_trophy = '"assets/t"+"rophies/"+bh[bY][0x1]+".png"'
 new_trophy = '(window._TROPHY_DATA&&window._TROPHY_DATA[bh[bY][0x1]]||"")'
@@ -49,17 +49,17 @@ print("game.js 奖杯路径替换:", "残留" if old_trophy in game_js else "成
 
 # ========== 5. 处理其他文件 ==========
 def read_js(name):
-    return open(os.path.join(BASE, 'deobf', name), encoding='utf-8').read()
+    return open(os.path.join(BASE, 'src', name), encoding='utf-8').read()
 
 js_blocks = {
-    'data.deob.js': read_js('data.deob.js'),
-    'events.deob.js': read_js('events.deob.js'),
-    'supporters.deob.js': read_js('supporters.deob.js'),
-    'crests.deob.js': new_crests,
-    'qr.deob.js': read_js('qr.deob.js'),
-    'natdata.deob.js': read_js('natdata.deob.js'),
-    'sim.deob.js': read_js('sim.deob.js'),
-    'game.deob.js': game_js,
+    'data.js': read_js('data.js'),
+    'events.js': open(os.path.join(BASE, 'build', 'events.js'), encoding='utf-8').read(),
+    'supporters.js': read_js('supporters.js'),
+    'crests.js': new_crests,
+    'qr.js': read_js('qr.js'),
+    'natdata.js': read_js('natdata.js'),
+    'sim.js': read_js('sim.js'),
+    'game.js': game_js,
 }
 
 # ========== 6. 内联 CSS（含字体）==========
@@ -77,11 +77,15 @@ html = html.replace('</head>', inject + '\n</head>')
 
 # 内联 JS
 for name, js in js_blocks.items():
-    tag = f'<script src="deobf/{name}">'
-    if tag in html:
-        html = html.replace(tag, f'<script>\n{js}\n</script>')
+    # 支持两种引用：src/xxx.js 和 build/xxx.js
+    tag_src = f'<script src="src/{name}">'
+    tag_build = f'<script src="build/{name}">'
+    if tag_src in html:
+        html = html.replace(tag_src, f'<script>\n{js}\n</script>')
+    elif tag_build in html:
+        html = html.replace(tag_build, f'<script>\n{js}\n</script>')
     else:
-        print(f"  警告: 未找到 {tag}")
+        print(f"  警告: 未找到 {tag_src} 或 {tag_build}")
 
 # ========== 8. 写文件 ==========
 with open(OUT, 'w', encoding='utf-8') as f:

@@ -1,4 +1,4 @@
-# Syntax gate: every deobf source must parse before any other test runs.
+# Syntax gate: every source must parse before any other test runs.
 import os
 
 import esprima
@@ -9,7 +9,8 @@ import harness
 def run():
     bad = []
     for name in harness.FILES:
-        path = os.path.join(harness.DEOBF_DIR, name)
+        path = (os.path.join(harness.BUILD_DIR, name) if name == 'events.js'
+                else os.path.join(harness.SRC_DIR, name))
         with open(path, encoding='utf-8', newline='') as fh:
             src = fh.read()
         try:

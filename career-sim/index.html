@@ -261,19 +261,19 @@
   <p class="thanks hidden" id="thanks">感谢支持：<span id="thanks-row"></span></p>
 </footer>
 
-<script src="deobf/data.deob.js"></script>
-<script src="deobf/events.deob.js"></script>
+<script src="src/data.js"></script>
+<script src="build/events.js"></script>
 <!-- 支持者名单。由 tools/import-supporters.js 从爱发电导出的 CSV 生成，
      里面只有昵称和留言 —— 金额、订单号、地址电话一概不进这个文件 -->
-<script src="deobf/supporters.deob.js"></script>
+<script src="src/supporters.js"></script>
 <!-- 海外俱乐部的真实队徽映射；缺哪支就回退到 game.js 里按队色现画的那版 -->
-<script src="deobf/crests.deob.js"></script>
+<script src="src/crests.js"></script>
 <!-- 分享卡右下角那张二维码自己算，不请求外部服务：跨域图片会污染 canvas -->
-<script src="deobf/qr.deob.js"></script>
+<script src="src/qr.js"></script>
 <!-- 引擎（纯逻辑，不认识 DOM）。必须排在 game.js 前面：game.js 一加载就从 window.SIM 取名字 -->
-<script src="deobf/natdata.deob.js"></script>
-<script src="deobf/sim.deob.js"></script>
-<script src="deobf/game.deob.js"></script>
+<script src="src/natdata.js"></script>
+<script src="src/sim.js"></script>
+<script src="src/game.js"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {

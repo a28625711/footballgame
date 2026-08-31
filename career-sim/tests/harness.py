@@ -8,18 +8,23 @@ sys.stdout.reconfigure(encoding='utf-8')
 from py_mini_racer import MiniRacer
 
 TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
-DEOBF_DIR = os.path.abspath(os.path.join(TESTS_DIR, '..', 'deobf'))
+BASE_DIR = os.path.abspath(os.path.join(TESTS_DIR, '..'))
+SRC_DIR = os.path.join(BASE_DIR, 'src')
+BUILD_DIR = os.path.join(BASE_DIR, 'build')
 
+# 手写源文件在 src/，事件编译产物在 build/
 FILES = [
-    'data.deob.js',
-    'events.deob.js',
-    'supporters.deob.js',
-    'crests.deob.js',
-    'qr.deob.js',
-    'natdata.deob.js',
-    'sim.deob.js',
-    'game.deob.js',
+    'data.js',
+    'events.js',
+    'supporters.js',
+    'crests.js',
+    'qr.js',
+    'natdata.js',
+    'sim.js',
+    'game.js',
 ]
+# 每个文件所在目录：events.js 用 build/，其余用 src/
+EVENTS_IN_BUILD = True
 
 # Headless DOM/browser mocks. Elements are cached by id into window.__ELS so
 # tests can inspect rendered innerHTML after calling __SIMTEST.render().
@@ -42,7 +47,10 @@ def new_engine():
     mr = MiniRacer()
     mr.eval(ENV_JS)
     for name in FILES:
-        path = os.path.join(DEOBF_DIR, name)
+        if name == 'events.js':
+            path = os.path.join(BUILD_DIR, name)
+        else:
+            path = os.path.join(SRC_DIR, name)
         with open(path, encoding='utf-8') as fh:
             mr.eval(fh.read())
     return mr

@@ -1,18 +1,18 @@
 /* 足一把-生涯模拟器 Service Worker
    缓存所有游戏资源，支持离线游玩和"添加到主屏幕" */
-const CACHE_NAME = 'zuyiba-v3';
+const CACHE_NAME = 'zuyiba-v4';
 const CORE_ASSETS = [
   './',
   './index.html',
   './style.css',
   './manifest.json',
-  './deobf/data.deob.js',
-  './deobf/events.deob.js',
-  './deobf/supporters.deob.js',
-  './deobf/crests.deob.js',
-  './deobf/qr.deob.js',
-  './deobf/sim.deob.js',
-  './deobf/game.deob.js',
+  './src/data.js',
+  './build/events.js',
+  './src/supporters.js',
+  './src/crests.js',
+  './src/qr.js',
+  './src/sim.js',
+  './src/game.js',
   './assets/fonts/noto-emoji-subset.woff2',
 ];
 

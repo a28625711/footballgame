@@ -1,7 +1,7 @@
 import os, re, base64, urllib.parse, json
 
 DST = r'D:\football\career-sim'
-OUT = r'D:\football\career-sim\deobf'
+OUT = r'D:\football\career-sim\src'
 FILES = ['data.js', 'events.js', 'supporters.js', 'crests.js', 'qr.js', 'sim.js', 'game.js']
 
 OBF_TABLE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/='

@@ -73,14 +73,15 @@ def split_comma(s, max_line):
     return parts
 
 if __name__ == '__main__':
-    base = r'D:\football\career-sim\deobf'
+    base = r'D:\football\career-sim\src'
     outdir = r'C:\Users\chen\AppData\Local\Temp\opencode\formatted_final'
     os.makedirs(outdir, exist_ok=True)
-    files = ['data.deob.js','events.deob.js','supporters.deob.js','crests.deob.js','qr.deob.js','sim.deob.js','game.deob.js']
+    files = ['data.js','supporters.js','crests.js','qr.js','sim.js','game.js','../build/events.js']
     for f in files:
-        t = open(os.path.join(base, f), encoding='utf-8').read()
+        p = os.path.join(base, f)
+        t = open(p, encoding='utf-8').read()
         result = formatter_final(t)
-        out = os.path.join(outdir, f.replace('.deob.js', '.formatted.js'))
+        out = os.path.join(outdir, os.path.basename(f).replace('.js', '.formatted.js'))
         with open(out, 'w', encoding='utf-8') as fh:
             fh.write(result)
         lines = result.split('\n')
