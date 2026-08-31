@@ -1060,8 +1060,7 @@ a2["cupRuns"]["push"](_scRun);
 }}
 function b2Continental(bx,by,bz){/* ── 洲际赛跑表（小组赛+淘汰赛） ── */
 if(bx&&by&&by["cont"]&&bz["leaguePos"]<=0x6){
-var _ctName=by["cont"],_ctTag=aS[_ctName];
-var _ctPool=a0["TEAMS"]["filter"](function(t){return t['id']!==bx['id']&&aT(aq(t))===_ctTag&&t["rep"]>=0x3;});
+var _ctName=by["cont"],_ctTag=aS[_ctName];var _ctPool=a0["TEAMS"]["filter"](function(t){return t['id']!==bx['id']&&aT(aq(t))===_ctTag&&t["rep"]>=0x3;});
 if(_ctPool["length"]<0x9)_ctPool=a0["TEAMS"]["filter"](function(t){return t['id']!==bx['id']&&aT(aq(t))===_ctTag&&t["rep"]>=0x2;});
 var _grpPick=_wDraw(_ctPool,0x3,_repWeight);
 var _gTeams=[{'i':bx['id'],'n':bx["name"],'ovr':_teamStr()}];
@@ -1084,8 +1083,8 @@ if(_ctBM){_run["result"]="决赛";a2["_contRun"]=_run;}
 else{_run["result"]="冠军";a2["cupRuns"]["push"](_run);bz["trophies"]["push"](_ctName+'冠军');a2["trophies"]["push"]({'name':_ctName+'冠军','age':a2["age"],'team':bx["name"]});}
 }else if(_path2.length){_run["result"]="止步"+_path2[_path2.length-1]["round"];a2["cupRuns"]["push"](_run);}
 else{_run["result"]="止步"+(_bracketNames(_total2)[0]||"第一轮");a2["cupRuns"]["push"](_run);}
-}
-}else{_run["result"]="小组赛出局";a2["cupRuns"]["push"](_run);}}}
+}else{_run["result"]="小组赛出局";a2["cupRuns"]["push"](_run);}
+}else{var _runEmpty={'comp':_ctName,'rounds':[],'group':null,'age':a2["age"]};_runEmpty["result"]="小组赛出局";a2["cupRuns"]["push"](_runEmpty);}}}
 function b2ClubWC(bx,by,bz){/* ── 世俱杯跑表（单场决赛） ── */
 if(bx&&by&&a2["seasons"]["length"]%4===0x2){
 var _wPool=a0["TEAMS"]["filter"](function(t){return t['id']!==bx['id']&&t["rep"]>=0x4;})["sort"](function(a,b){return b["rep"]-a["rep"];});
@@ -1382,7 +1381,12 @@ else return a2["phase"]="career",bm();
 }var bx=aE();
 if(!bx)return bj();
 a2["pending"]={'type':"random",'eventId':bx['id']};
-}function bk(){
+}/* ── §12 青训 送出国学费（choose 选国外青训时扣费，须在顶层作用域）── */
+function _youthFee(rep){
+var _base=[12,20,35,55,80,100];
+return _base[rep]||_base[0x1];
+}
+function bk(){
 if(a2["step"]++,"youth"===a2["phase"])return a2["youthTea"+"mId"]?bj():(function(){var bF=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];
 }),bG=bF["filter"](function(bR){
 return ab(a2["originId"],bR['id']);
@@ -1404,10 +1408,6 @@ QQ=Math["max"](0,Math["min"](1,0.55*nTv+0.45*nOv)),
 loR=QQ<0.42?1:(QQ<0.72?2:3),bI=[],bJ={};
 function pU(bR){return bR&&!bJ[bR['id']]?(bJ[bR['id']]=0x1,bI.push(bR),!0x0):!0x1}
 /* ── §12 青训 ──────────────────────────────────────────────────── */
-function _youthFee(rep){
-  var _base=[12,20,35,55,80,100];
-  return _base[rep]||_base[0x1];
-}
 function pickBand(pool,n){for(var w=0;w<3&&n>0;w++){
 var cand=pool["filter"](function(bR){return !bJ[bR['id']]&&bR["rep"]>=loR-w&&bR["rep"]<=loR+1+w});
 while(n>0&&cand["length"]){var cX=cand[Math["floor"](ad()*cand["length"])];
