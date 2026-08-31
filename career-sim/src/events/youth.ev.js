@@ -277,7 +277,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 },
         'hint': function(p,q){return g(q,"球感大涨","白练一夜");
 },
-        'apply': function(p,q,s){return d(q,s)?{'talent':0.02,'text':"第一百脚，落点终于贴地。门卫的脚步声响起时，你刚好收球。"}:{'text':"第二天晨训你站着都想睡。教练盯着你看了三秒，什么也没说。"};
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.05,'text':"第一百脚，落点终于贴地。门卫的脚步声响起时，你刚好收球。"}:{'text':"第二天晨训你站着都想睡。教练盯着你看了三秒，什么也没说。"};
 }
     },
     {
@@ -307,7 +307,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 },
         'hint': function(p,q){return g(q,"悟到了","走神了");
 },
-        'apply': function(p,q,s){return d(q,s)?{'talent':0.015,'ovr':0x1,'text':"第二十遍，你终于看清那只脚是怎么踩的。第二天训练你照着来了一次，教练没说话，但点了点头。"}:{'ovr':-0x1,
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.05,'ovr':0x1,'text':"第二十遍，你终于看清那只脚是怎么踩的。第二天训练你照着来了一次，教练没说话，但点了点头。"}:{'ovr':-0x1,
 'text':"看到第十遍你就走了神。第二天教练抽查，你一句话答不上来。"};
 }
     },
@@ -338,7 +338,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 },
         'hint': function(p,q){return g(q,"球感大涨","差点吵醒室友");
 },
-        'apply': function(p,q,s){return d(q,s)?{'talent':0.02,'text':"两百个后你停住了。那种球贴着脚的感觉，你第一次不靠蒙。"}:{'text':"第一百零三个，球滚进了床底。你趴着捞球，被室友的夜灯照了个正着。"};
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.06,'text':"两百个后你停住了。那种球贴着脚的感觉，你第一次不靠蒙。"}:{'text':"第一百零三个，球滚进了床底。你趴着捞球，被室友的夜灯照了个正着。"};
 }
     },
     {
@@ -366,9 +366,9 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
         'label': "全部按要求来",
         'p': function(p){return f(0.5,[[p["talent"],1,0.3]],0.3,0.75);
 },
-        'hint': function(p,q){return g(q,"能力+2","越练越别扭");
+        'hint': function(p,q){return g(q,"能力+3","越练越别扭");
 },
-        'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"补课结束那周，对抗赛你被放进了首发。一脚出球，全队节奏都顺了。"}:{'ovr':-0x1,'text':"越练越别扭，左脚那一脚至今还是歪的。你把这归咎于补课时间不够。"};
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'text':"补课结束那周，对抗赛你被放进了首发。一脚出球，全队节奏都顺了。"}:{'ovr':-0x1,'text':"越练越别扭，左脚那一脚至今还是歪的。你把这归咎于补课时间不够。"};
 }
     },
     {
@@ -398,7 +398,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 },
         'hint': function(p,q){return g(q,"天赋+","感冒一场");
 },
-        'apply': function(p,q,s){return d(q,s)?{'talent':0.02,'text':"湿球比干球难控，你就专挑它练。半年后教练说，你脚下比同龄人多一点东西。"}:{'ovr':-0x1,'text':"第二天你开始发烧，队医给你开了三天的药。积水的草地，到底还是凉。"};
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.06,'text':"湿球比干球难控，你就专挑它练。半年后教练说，你脚下比同龄人多一点东西。"}:{'ovr':-0x1,'text':"第二天你开始发烧，队医给你开了三天的药。积水的草地，到底还是凉。"};
 }
     },
     {
@@ -426,9 +426,9 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
         'label': "课后自己加量",
         'p': function(p){return f(0.5,[[p["talent"],1,0.3]],0.3,0.75);
 },
-        'hint': function(p,q){return g(q,"能力+2","练岔了");
+        'hint': function(p,q){return g(q,"能力+4","练岔了");
 },
-        'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"那阵子你连吃饭都在想转身的时机。期末评语里，教练写了一句：会自己加量。"}:{'ovr':-0x1,'text':"加量加到用力过猛，那两天转身总是慢半拍。教练让你先歇够了再来。"};
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x4,'text':"那阵子你连吃饭都在想转身的时机。期末评语里，教练写了一句：会自己加量。"}:{'ovr':-0x1,'text':"加量加到用力过猛，那两天转身总是慢半拍。教练让你先歇够了再来。"};
 }
     },
     {
@@ -491,7 +491,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 },
         'hint': function(p,q){return g(q,"天赋+","白练，但心里踏实");
 },
-        'apply': function(p,q,s){return d(q,s)?{'talent':0.02,'text':"天色暗下来，你反而更准了。管理员来催第三次的时候，你已经能闭着眼找到球门。"}:{'text':"天黑了，球都看不清，你只靠感觉踢。没进步，但也不亏。"};
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.07,'text':"天色暗下来，你反而更准了。管理员来催第三次的时候，你已经能闭着眼找到球门。"}:{'text':"天黑了，球都看不清，你只靠感觉踢。没进步，但也不亏。"};
 }
     },
     {
@@ -641,6 +641,141 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
       'label': "留到职业赛场再说",
       'hint': "以后再变",
       'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你把那个念头压了下去。也许等到了职业赛场，有了更好的教练和队友，再做改变也不迟。至少现在，先把基础打牢。"};}
+    }
+  ]
+},
+
+// ---- idx:344 | youth_elite | 顶级青训的洗礼 ----
+{
+  'id': "youth_elite",
+  'title': "顶级青训的洗礼",
+  'icon': '🏆',
+  'weight': 0x38,
+  'repeat': 1,
+  'stage': "youth",
+  'when': function(p){
+return p["inAcadem"+'y']&&p["clubRep"]>=5;
+},
+  'desc': "你站在全世界最贵的青训基地门口，旁边是未来可能身价过亿的同龄人。这里的每个人都是各自国家的天才，但最终能进一线队的，整个梯队不超过三个人。",
+  'options': [
+    {
+        'label': "和天才们拼一把",
+        'p': function(p){return f(0.35,[[p["talent"],1,0.4],[p["ovr"],55,0.008]],0.15,0.80);},
+        'hint': function(p,q){return g(q,"站稳脚跟","被淹没了");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x4,'talent':0.04,'text':"训练赛你连过两人送出助攻，旁边的球探在本子上写下你的名字。教练说：你证明了自己配得上这个基地。"}:{'ovr':-0x2,'text':"第一周你就意识到差距——这里的替补都比你见过的主力强。你在对抗赛里被断了七次，晚上躺在宿舍想：天才和天才之间，也隔着一道墙。"};}
+    },
+    {
+        'label': "先扎实基本功",
+        'hint': "能力+2，稳",
+        'apply': function(){return{'ovr':0x2,'text':"你没急着表现，先花三个月把每一项基础数据都练到位。教练在报告里写：此人态度端正，潜力待开发。"};}
+    }
+  ]
+},
+
+// ---- idx:345 | youth_topclub | 豪门梯队的日常 ----
+{
+  'id': "youth_topclub",
+  'title': "豪门梯队的日常",
+  'icon': '⭐',
+  'weight': 0x36,
+  'repeat': 1,
+  'stage': "youth",
+  'when': function(p){
+return p["inAcadem"+'y']&&p["clubRep"]>=4&&p["clubRep"]<5;
+},
+  'desc': "每周三下午，一线队教练会来看梯队训练。他站在场边的时候，所有人的跑动距离都会多出半公里。你知道，被他记住名字，可能比进十个球都重要。",
+  'options': [
+    {
+        'label': "抓住每次曝光机会",
+        'p': function(p){return f(0.45,[[p["talent"],1,0.3],[p["ovr"],50,0.006]],0.22,0.82);},
+        'hint': function(p,q){return g(q,"被一线队注意到","太紧张了");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x3,'text':"那天训练赛你打进一粒倒钩，一线队教练走过来拍了拍你肩膀。第二天，你出现在了一线队合练名单上。"}:{'ovr':-0x1,'text':"你太想表现，动作全变形了。教练看完就走了，连名单都没抄。晚上你想：机会来了，但没接住。"};}
+    },
+    {
+        'label': "按自己节奏踢",
+        'hint': "能力+1，稳",
+        'apply': function(){return{'ovr':0x1,'text':"你没刻意表现，只是做了该做的事。一周后教练在报告里加了一行：此人沉稳，可观察。"};}
+    }
+  ]
+},
+
+// ---- idx:346 | youth_contender | 争冠队的青训氛围 ----
+{
+  'id': "youth_contender",
+  'title': "争冠队的青训氛围",
+  'icon': '🔥',
+  'weight': 0x34,
+  'repeat': 1,
+  'stage': "youth",
+  'when': function(p){
+return p["inAcadem"+'y']&&p["clubRep"]>=3&&p["clubRep"]<4;
+},
+  'desc': "这支球队每年都在争冠，梯队的压力也不小：每月一次的内部考核，排名末位的直接降级到更低的梯队。你不想成为那个被刷下去的人。",
+  'options': [
+    {
+        'label': "用训练赛成绩说话",
+        'p': function(p){return f(0.5,[[p["talent"],1,0.3],[p["ovr"],48,0.005]],0.28,0.82);},
+        'hint': function(p,q){return g(q,"排名上升","原地踏步");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'text':"连续五场训练赛你都有进球或助攻，月度考核从第十二升到第三。教练说：这就是竞争的意义。"}:{'ovr':-0x1,'text':"你拼了命，但对手也在拼。考核排名从第十二掉到第十五，再差一步就要去B队了。那种压力，让你第一次失眠。"};}
+    },
+    {
+        'label': "和队友搞好关系",
+        'hint': "关系+，稳",
+        'apply': function(){return{'guanxi':0x6,'text':"你帮队友捡球、递水、主动加练配合。大家觉得你这人不错，训练赛里也愿意给你传球。"};}
+    }
+  ]
+},
+
+// ---- idx:347 | youth_midtable | 中游球队的青训日子 ----
+{
+  'id': "youth_midtable",
+  'title': "中游球队的青训日子",
+  'icon': '🌱',
+  'weight': 0x32,
+  'repeat': 1,
+  'stage': "youth",
+  'when': function(p){
+return p["inAcadem"+'y']&&p["clubRep"]>=2&&p["clubRep"]<3;
+},
+  'desc': "这里没有顶级的设施，也没有一线队的聚光灯。但教练说了一句话让你记住：中游球队的青训，靠的是自己给自己加戏。没人盯着你，所以你要自己盯着自己。",
+  'options': [
+    {
+        'label': "每天多练一小时",
+        'p': function(p){return f(0.55,[[p["talent"],1,0.25],[p["ovr"],45,0.004]],0.3,0.82);},
+        'hint': function(p,q){return g(q,"能力见长","没太大变化");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'text':"三个月后你的体测数据排进了梯队前五。教练在周会上表扬了你，虽然只有一句话，但你知道那是真的。"}:{'ovr':0x1,'text':"你多练了一小时，但效果不明显。教练说：方向对了，量也够了，再等等。"};}
+    },
+    {
+        'label': "多看比赛录像",
+        'hint': "天赋+",
+        'apply': function(){return{'talent':0.03,'text':"你把每周的训练录像看了三遍，笔记记了厚厚一本。虽然身体进步不大，但脑子比以前清楚多了。"};}
+    }
+  ]
+},
+
+// ---- idx:348 | youth_grassroots | 小球会的青训路 ----
+{
+  'id': "youth_grassroots",
+  'title': "小球会的青训路",
+  'icon': '💪',
+  'weight': 0x30,
+  'repeat': 1,
+  'stage': "youth",
+  'when': function(p){
+return p["inAcadem"+'y']&&p["clubRep"]<=1;
+},
+  'desc': "训练场是公共的，周末还有市民来踢野球。教练身兼三职，梯队就二十来人。但正因如此，你几乎每场训练赛都能踢满全场——在大俱乐部，这不可能。",
+  'options': [
+    {
+        'label': "珍惜每次上场机会",
+        'p': function(p){return f(0.6,[[p["talent"],1,0.2],[p["ovr"],42,0.003]],0.35,0.85);},
+        'hint': function(p,q){return g(q,"实力提升","机会太少");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x4,'text':"一个赛季你打了三十场全场，这在大俱乐部的梯队根本不敢想。教练说：你是这里最努力的孩子，别小看自己。"}:{'ovr':0x2,'text':"训练赛你表现不错，但正式比赛的机会太少了。教练说：别急，你的水平会被人看到的。"};}
+    },
+    {
+        'label': "加练个人技术",
+        'hint': "天赋+",
+        'apply': function(){return{'talent':0.04,'text':"每天训练结束后你对着墙练传球，虽然条件简陋，但你比任何人都珍惜每一脚球。"};}
     }
   ]
 }

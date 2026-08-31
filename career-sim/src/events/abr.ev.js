@@ -345,7 +345,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
         'label': "跟着磨细节",
         'p': function(p){return f(0.55,[[p["talent"],1,0.3]],0.3,0.85);},
         'hint': function(p,q){return g(q,"脚下功夫见长","动作学歪了");},
-        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'talent':0.01,'text':"一个夏天下来，你的趟球、触球都变了样。回到队里热身，教练多看了你几眼。"}:{'ovr':-0x1,'text':"你想学他们那种灵巧，结果动作学得四不像。回去还是用自己那套。"};}
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'talent':0.05,'text':"一个夏天下来，你的趟球、触球都变了样。回到队里热身，教练多看了你几眼。"}:{'ovr':-0x1,'text':"你想学他们那种灵巧，结果动作学得四不像。回去还是用自己那套。"};}
     },
     {
         'label': "保持自己的踢法",
@@ -395,7 +395,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
         'label': "认真记下来",
         'p': function(p){return f(0.65,[[p["talent"],1,0.25]],0.4,0.9);},
         'hint': function(p,q){return g(q,"开了窍","没听进去");},
-        'apply': function(p,q,s){return d(q,s)?{'ovr':0x4,'talent':0.015,'fame':0x1,'text':"那几句话像钥匙。之后你在场上的站位、跑动都有了章法，教练开始让你打更重要的位置。"}:{'ovr':0x1,'text':"他讲了半天，你记住一半。不过那一半也够你用一阵子了。"};}
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x4,'talent':0.06,'fame':0x1,'text':"那几句话像钥匙。之后你在场上的站位、跑动都有了章法，教练开始让你打更重要的位置。"}:{'ovr':0x1,'text':"他讲了半天，你记住一半。不过那一半也够你用一阵子了。"};}
     },
     {
         'label': "按自己的理解踢",
@@ -420,7 +420,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
         'label': "把自己练到没力气想",
         'p': function(p){return f(0.35,[[p["fame"],25,0.008],[p["ovr"],60,0.004]],0.15,0.75);},
         'hint': function(p,q){return g(q,"挺过去了","状态下滑");},
-        'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'fame':0x1,'text':"你把思乡变成训练。那阵子你练得比谁都狠，状态不但没掉，反而起来了。"}:{'ovr':-0x2,'text':"想家想得厉害，训练里走神。教练看出来了，问你「要不要回去待几天」。"};}
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x1,'text':"你把思乡变成训练。那阵子你练得比谁都狠，状态不但没掉，反而起来了。"}:{'ovr':-0x2,'text':"想家想得厉害，训练里走神。教练看出来了，问你「要不要回去待几天」。"};}
     },
     {
         'label': "和家里多视频",
