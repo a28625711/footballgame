@@ -129,7 +129,7 @@ return c5["length"]?"<div style=\"margin-top:.55rem;display:flex;flex-wrap:wrap;
 }(c3["bonus"])+"</div>";
 }(0x0);
 }else{if(0x3===aX){var bZ=av["dreamId"]?ag(av["dreamId"]):null,c0=bZ?a6["leagueOf"+"Team"](bZ):null,c1=aZ||(bZ?bZ["league"]:"csl");
-bX="<button "+"class=\"d"+"ream-non"+'e'+(bZ?'':" selecte"+'d')+("\" data-d"+"ream=\"\">"+"<span cl"+"ass=\"dre"+"am-none-"+"t\">随缘</s"+"pan><spa"+"n class="+"\"dream-n"+"one-d\">")+(bZ?"现在指定的是 "+ax(bZ["name"])+'（'+ax(c0?c0["name"]:'')+'）'+(c0&&!c0['cn']?" · 12 岁送"+"出国要花 "+a0["YOUTH_AB"+"ROAD_FEE"]+(" 万，家底不够就"+"是欠债去的"):''):"不指定，报价单照"+"旧全凭运气")+("</span><"+"/button>"+"<div cla"+"ss=\"lg-t"+"abs\">")+a0["LEAGUES"]["map"](function(c2){
+bX="<button "+"class=\"d"+"ream-non"+'e'+(bZ?'':" selecte"+'d')+("\" data-d"+"ream=\"\">"+"<span cl"+"ass=\"dre"+"am-none-"+"t\">随缘</s"+"pan><spa"+"n class="+"\"dream-n"+"one-d\">")+(bZ?"现在指定的是 "+ax(bZ["name"])+'（'+ax(c0?c0["name"]:'')+'）'+(c0&&!c0['cn']?" · 12 岁送"+"出国要花 "+[12,20,35,55,80,100][bZ["rep"]||0x1]+(" 万，家底不够就"+"是欠债去的"):''):"不指定，报价单照"+"旧全凭运气")+("</span><"+"/button>"+"<div cla"+"ss=\"lg-t"+"abs\">")+a0["LEAGUES"]["map"](function(c2){
 return "<button "+"class=\"l"+"g-tab"+(c1===c2['id']?" selecte"+'d':'')+("\" data-d"+"reamlg=\"")+c2['id']+'\x22>'+ax(c2["name"])+("</button"+'>');
 })["join"]('')+("</div><d"+"iv class"+"=\"dream-"+"grid\">")+a0["TEAMS"]["filter"](function(c2){
 return c2["league"]===c1;
@@ -653,7 +653,7 @@ return "<div cla"+"ss=\"sb-row"+'\x22'+'>'+"<div cla"+"ss=\"sb-hd\""+'>'+"<span 
 })["join"]('')+"</div>"+bb(["<button "+"class=\"b"+"tn btn-p"+"rimary\" "+"data-act"+"=\"contin"+"ue\">继续</"+"button>"])+"</div>";
 }if("youth_pa"+'th'===bZ["type"])return "<div cla"+"ss=\"even"+"t\">"+b1('🧒',"十二岁","去哪儿练",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">同龄的"+"孩子里，你踢得算"+"好的那几个。接下"+"来几年在哪家青训"+"营，家里得拿个主"+"意 —— 好队伍"+"练得快，也刷得狠"+"。</div>")+bb(bZ["offers"]["map"](function(ce,cf){var cg=ag(ce),ch=a6["leagueOf"+"Team"](cg),ci=cf===bZ["abroadId"+'x'];
 return "<button "+"class=\"o"+"pt youth"+"-opt\" da"+"ta-opt=\""+cf+("\"><span "+"class=\"o"+"pt-lead\""+'>')+(ci?"送出国踢":ac(au["originId"],ce)?'本省':ab(au["originId"],ce)?'邻近':'外地')+"</span>"+aT(cg)+("<span cl"+"ass=\"opt"+"-label\">")+ax(a6["academyN"+"ame"](cg))+("</span><"+"span cla"+"ss=\"opt-"+"hint\">")+ax(ch["name"]+" · "+["保级队","中下游",'中游','争冠','豪门',"顶级豪门"][cg["rep"]])+("</span><"+"span cla"+"ss=\"yout"+"h-trade\""+'>')+["清静，练得慢",
-'稳当',"练得不错","强度大","长得快，刷得狠","顶尖，也最挤"][cg["rep"]]+(ci?" · 家里出 "+al(a0["YOUTH_AB"+"ROAD_FEE"]):'')+("</span><"+"/button>");
+'稳当',"练得不错","强度大","长得快，刷得狠","顶尖，也最挤"][cg["rep"]]+(ci?" · 家里出 "+al([12,20,35,55,80,100][cg["rep"]]||20):'')+("</span><"+"/button>");
 }))+"</div>";
 if("academy"===bZ["type"]){var c5=bZ["youthId"]?ag(bZ["youthId"]):null,c6="<div cla"+"ss=\"even"+"t\">"+b1('🎒','决策',"该上成年队了",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">")+au["age"]+(" 岁，能力够得着"+"成年队了。")+(bZ["homeId"]?"自家一线队也开了"+'口。':'')+(bZ["canStayY"+"outh"]?"也可以不急着走，"+"在梯队再练一年。":'')+"</div>"+bb(bZ["offers"]["map"](function(ce,cf){
 return bg(cf,ag(ce),ag(ce)["name"],ce===bZ["homeId"]?"自家一线队":'加盟',!0x0);
