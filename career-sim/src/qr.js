@@ -1,4 +1,10 @@
-function _qr_0b(x,x){return '';}function _qr_0a(){return [];}(0x0,!(function(){'use strict';
+function _qr_0b(x,x){
+    return '';
+}
+function _qr_0a(){
+    return [];
+}
+(0x0,!(function(){'use strict';
 var b=new Array(0x200),c=new Array(0x100);
 function d(l,m){return l&&m?b[c[l]+c[m]]:0x0;
 }function g(l,m){var p,q,s=function(x){var y,z,A=[0x1];

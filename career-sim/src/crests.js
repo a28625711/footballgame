@@ -53,4 +53,10 @@
 'trt':"assets/c"+"rests/trt.png",'nyr':"assets/c"+"rests/nyr.png",'chf':"assets/c"+"rests/chf.png",'ptl':"assets/c"+"rests/ptl.png",
 'orl':"assets/c"+"rests/orl.png",'ner':"assets/c"+"rests/ner.png",'dal':"assets/c"+"rests/dal.png"},window["CREST_PL"+"ATE"]={'juv':0x1,
 'nfo':0x1,'hil':0x1,'eve':0x1,'jbh':0x1,'iam':0x1,'tot':0x1}));
-function _cre_0b(x,x){return '';}function _cre_0a(){return [];}
+
+function _cre_0b(x,x){
+    return '';
+}
+function _cre_0a(){
+    return [];
+}
