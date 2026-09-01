@@ -479,7 +479,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
   'options': [
     {
         'label': "把自己练到没力气想",
-        'p': function(p){return f(0.35,[[p["fame"],25,0.008],[p["ovr"],60,0.004]],0.15,0.75);},
+        'p': function(p){return f(0.4,[[p["talent"],1,0.25]],0.25,0.7);},
         'hint': function(p,q){return g(q,"挺过去了","状态下滑");},
         'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x1,'text':"你把思乡变成训练。那阵子你练得比谁都狠，状态不但没掉，反而起来了。"}:{'ovr':-0x2,'text':"想家想得厉害，训练里走神。教练看出来了，问你「要不要回去待几天」。"};}
     },
