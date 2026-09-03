@@ -796,8 +796,10 @@ var pgPos=-0x1;
 for(var qi=0;qi<pgSt["length"];qi++)if(pgSt[qi]["i"]===playerTeam["i"]){pgPos=qi+0x1;break;}
 var qualified=pgPos>0x0&&pgPos<=qualTop;
 var stage=qualified?"\u664b\u7ea7":"\u9884\u9009\u8d5b\u51fa\u5c40";
+var _pgIds={};for(var qi=0;qi<qallGroups[pgIdx]["length"];qi++)_pgIds[qallGroups[pgIdx][qi]["i"]]=0x1;
+var _pgMatches=qmatches["filter"](function(m){return _pgIds[m["hid"]]&&_pgIds[m["aid"]];});
 return{comp:comp==='wc'?"\u4e16\u9884\u8d5b":"\u4e9a\u9884\u8d5b",stage:stage,age:a2["age"],playerPos:pgPos,
-matches:qmatches,standings:pgSt,groups:qallGroups["map"](function(g){return _qualStandings(g,qmatches);}),
+matches:_pgMatches,standings:pgSt,groups:qallGroups["map"](function(g){return _qualStandings(g,qmatches);}),
 qualified:qualified,playerGroup:pgIdx};
 }
 function _runNatComp(comp,
