@@ -894,8 +894,8 @@ var _dby={'rma':[['bar','国家德比'],['atl','马德里德比']],'bar':[['rma'
 'cn-sh':[['cn-shh','上海德比'],['cn-bj','京沪大战']],
 'cn-shh':[['cn-sh','上海德比']],
 'cn-bj':[['cn-sh','京沪大战'],['cn-sd','京津德比']],'cn-sd':[['cn-bj','京津德比'],['cn-sh','京沪大战']],
-'hil':[['nsr','利雅得德比']],
-'nsr':[['hil','利雅得德比']],
+'hil':[['nsr2','利雅得德比']],
+'nsr2':[['hil','利雅得德比']],
 'ahl':[['itt','吉达德比']],'itt':[['ahl','吉达德比']],
 'jbh':[['suw','现代德比']],'suw':[['jbh','现代德比']],'ulh':[['jbh','韩国德比'],['suw','韩国德比']],
 
@@ -908,9 +908,9 @@ var _dby={'rma':[['bar','国家德比'],['atl','马德里德比']],'bar':[['rma'
 'sto':[['wba','西米德兰德比']],'wba':[['sto','西米德兰德比'],['avl','西米德比']],'avl':[['wba','西米德兰德比']],'nfo':[['lct','东米德兰德比']],'lct':[['nfo','东米德兰德比']],
 
 'nor':[['ips','东盎格利亚德比']],'ips':[['nor','东盎格利亚德比']],
-'nyc':[['nyr','纽约德比']],'nyr':[['nyc','纽约德比']],'iam':[['lfc','洛杉矶德比']],
+'nyc':[['nyr','纽约德比']],'nyr':[['nyc','纽约德比']],'lag':[['lfc','洛杉矶德比']],
 
-'lfc':[['iam','洛杉矶德比']],
+'lfc':[['lag','洛杉矶德比']],
 'ptl':[['sea','卡斯卡迪亚德比']],'sea':[['ptl','卡斯卡迪亚德比']],
 'clb':[['and','比利时德比']],'and':[['clb','比利时德比']],
 
@@ -936,14 +936,14 @@ _dbn={'rma':'国家德比','bar':'国家德比','atl':'马德里德比','mci':'�
 'cn-sh':'上海德比','cn-shh':'上海德比','cn-bj':'京沪大战','cn-sd':'京津德比',
 'hil':'利雅得德比',
 
-'nsr':'利雅得德比','ahl':'吉达德比','itt':'吉达德比','jbh':'现代德比','suw':'现代德比','ulh':'韩国德比',
+'nsr2':'利雅得德比','ahl':'吉达德比','itt':'吉达德比','jbh':'现代德比','suw':'现代德比','ulh':'韩国德比',
 'gmb':'大阪德比','cre':'大阪德比','kaw':'神奈川德比','yok':'神奈川德比',
 
 'urw':'关西德比','kob':'关西德比',
 'sun':'泰恩威尔德比','new':'泰恩威尔德比','lee':'约克郡德比','shu':'约克郡德比','sto':'西米德兰德比','wba':'西米德兰德比','avl':'西米德兰德比',
 
 'nfo':'东米德兰德比','lct':'东米德兰德比','nor':'东盎格利亚德比','ips':'东盎格利亚德比',
-'nyc':'纽约德比','nyr':'纽约德比','iam':'洛杉矶德比','lfc':'洛杉矶德比','ptl':'卡斯卡迪亚德比',
+'nyc':'纽约德比','nyr':'纽约德比','lag':'洛杉矶德比','lfc':'洛杉矶德比','ptl':'卡斯卡迪亚德比',
 
 'sea':'卡斯卡迪亚德比',
 'clb':'比利时德比','and':'比利时德比','gnk':'比利时德比'};
@@ -1440,7 +1440,7 @@ var _cupName=_cupList[_ci];
 var _cupQualOK=(_cupName===by["cup"])?bz["leaguePos"]<=0xc:bz["leaguePos"]<=0xe;
 if(!_cupQualOK)continue;
 
-var _cupMap={"epl":6,"liga":6,"seri":5,"bund":6,"l1":6,"csl":6,"ere":5,"pri":5,"jl":5,"kl":4,"spl":5,"mls":5,"ch":6,"seg":6,"b2":4,"jup":5};
+var _cupMap={"epl":6,"liga":6,"seri":5,"bund":6,"l1":6,"csl":6,"ere":5,"pri":5,"jl":5,"kl":4,"spl":5,"mls":5,"ch":6,"seg":6,"b2":4,"jup":5,"tur":6,"ale":5};
 var _pool=a0["TEAMS"]["filter"](function(t){return t['id']!==bx['id']&&t["league"]===by['id'];});
 var _bTeams=[{i:bx['id'],n:bx["name"],ovr:_teamStr()}];
 var _maxT=Math.min(16,_pool.length+1),

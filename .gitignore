@@ -22,6 +22,11 @@ career-sim-snapshot*/
 # 下载的开源项目（90MB，不入库）
 open-source/
 
+# 外部数据源（下载包 / 独立 git clone，不入库）
+clubsvg/
+football-logos/
+openfootball-data/
+
 # 临时脚本
 /temp/
 
