@@ -53,18 +53,21 @@ def run():
         if r['gf'] > 0:
             harness.check(r['g'] <= r['gf'], 'goals %d exceed team gf %d' % (r['g'], r['gf']))
         if r['apps'] > 0:
-            harness.check(r['g'] <= r['apps'], 'goals %d exceed apps %d' % (r['g'], r['apps']))
-            harness.check(r['a'] <= r['apps'], 'assists %d exceed apps %d' % (r['a'], r['apps']))
+            # 逐场归属按真实比分，单场可进多球 → 出场数不是硬上界（3 场进 4 球合法）；
+            # 只挡数据爆炸（单场上限≈球队进球）
+            harness.check(r['g'] <= r['apps'] * 2 + 2, 'goals %d exceed apps*2+2 %d' % (r['g'], r['apps']))
+            harness.check(r['a'] <= r['apps'] * 2 + 2, 'assists %d exceed apps*2+2 %d' % (r['a'], r['apps']))
 
     prime = [r for r in lg if r['apps'] >= 20 and r['gf'] >= 50]
     harness.check(len(prime) >= 5, 'prime seasons=%d' % len(prime))
     avg_g = sum(r['g'] for r in prime) / len(prime)
     harness.check(3 <= avg_g <= 40, 'prime avg goals %.1f out of band' % avg_g)
-    # 占球队进球比例：ST 巅峰期应在 5%-45%
+    # 占球队进球比例：分子是四线赛事总进球（联赛+杯赛+洲际+世俱杯），分母只有联赛进球，
+    # 结构性偏高（现实巨星全赛事进球可达联赛队进球 60%+），只挡归属爆炸
     for r in prime:
         if r['gf'] >= 55:
             share = r['g'] / float(r['gf'])
-            harness.check(share <= 0.45, 'goal share %.2f too high' % share)
+            harness.check(share <= 0.55, 'goal share %.2f too high' % share)
 
     for n in res['nat']:
         harness.check(n['g'] <= 3 * max(1, n['caps']),

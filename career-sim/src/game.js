@@ -209,7 +209,7 @@ return h;
 
 /* ── 世界面板：联赛/杯赛/洲际赛程与签表查询（数据走 SIM.world 只读接口，当季赛程仅本会话内可查） ── */
 
-var _wl={'tab':'lg','lg':'epl','rd':0,'cup':'','cont':'ucl','natAge':-1};
+var _wl={'tab':'lg','lg':'epl','rd':0,'cup':'','cont':'ucl','natAge':-1,'fxSeason':null,'natT':''};
 function _wlTable(tb,meTid){
 if(!tb||!tb["length"])return'<div class="wl-empty">暂无积分榜数据</div>';
 var hasPts=tb[0]["pts"]!=null;
@@ -243,6 +243,16 @@ return t2?'<span class="cr-tm">'+aT(t2)+ax(t2["name"])+'</span>':ax(fb||id||'');
 function _wlTm(id){return _crTm(id);}
 function _wlSide(id,fb){return _crTm(id,fb);}
 function _wlSeasonLab(n){if(!n)return'';var s2=(au&&au["seasons"]&&au["seasons"][n-1])||null;return'第'+n+'季'+(s2&&s2["age"]!=null?' · '+s2["age"]+'岁':'');}
+/* 历史赛季选择 chips（联赛/杯赛/洲际共用）：null=当季 */
+function _wlFxSeasonChips(seasons,sel){
+if(!seasons||seasons.length<2)return'';
+var h='<div class="wl-sub">';
+seasons.forEach(function(sn){
+var cur=sn===seasons[seasons.length-1];
+h+='<button class="wl-chip'+((sel==null&&cur)||(sel===sn)?" on":"")+'" data-wld="fxS:'+(cur?'':sn)+'">'+(cur?'当季':'第'+sn+'季')+'</button>';
+});
+return h+'</div>';
+}
 function _wlRounds(fx,meTid){
 if(!fx||!fx["length"])return'<div class="wl-empty">暂无当季赛程（完成首个赛季后生成）</div>';
 var rds=fx["length"];if(_wl["rd"]>=rds)_wl["rd"]=0;
@@ -283,7 +293,7 @@ h+='</div>';
 if(champId){h+='<div class="wl-bcol"><div class="wl-bhead">冠军</div><div class="wl-champ">'+_wlSide(champId)+' 🏆</div></div>';}
 return h+'</div>';
 }
-function _wlNatBracket(rounds){
+function _wlNatBracket(rounds,meTid){
 if(!rounds||!rounds["length"])return'';
 var all=rounds["map"](function(rd){
 return{'name':rd["name"],'ties':(rd["matches"]||[])["map"](function(m){
@@ -291,7 +301,14 @@ var w=m["pens"]?(m["pens"][0]>=m["pens"][1]?m["homeId"]:m["awayId"]):(m["hg"]>=m
 return{'h':m["homeId"],'a':m["awayId"],'hn':m["home"],'an':m["away"],'hg':m["hg"],'ag':m["ag"],'p':m["pens"]||null,'w':w};
 })};
 });
-return _wlBracket(all,'n_chn');
+return _wlBracket(all,meTid||'n_chn');
+}
+/* 从淘汰轮最后一 场推断冠军（决赛可能被大场面改分后回填） */
+function _wlNatChamp(rounds){
+if(!rounds||!rounds["length"])return null;
+var fin=rounds[rounds["length"]-1]["matches"]?rounds[rounds["length"]-1]["matches"][0]:null;
+if(!fin||fin["hg"]==null)return null;
+return fin["pens"]&&fin["pens"]["length"]>=2?(fin["pens"][0]>=fin["pens"][1]?fin["homeId"]:fin["awayId"]):(fin["hg"]>=fin["ag"]?fin["homeId"]:fin["awayId"]);
 }
 function bWorldHTML(){
 var meTid=au&&au["teamId"],h='<div class="wl-sub">';
@@ -304,7 +321,8 @@ var ls=window["SIM"]["world"]({'q':'leagues'})["leagues"];
 h+='<div class="wl-sub">';
 ls["forEach"](function(l2){h+='<button class="wl-chip'+(_wl["lg"]===l2["id"]?" on":"")+'" data-wld="lg:'+l2["id"]+'">'+ax(l2["name"])+'</button>';});
 h+='</div>';
-var d1=window["SIM"]["world"]({'q':'lg','id':_wl["lg"]});
+var d1=window["SIM"]["world"]({'q':'lg','id':_wl["lg"],'season':_wl["fxSeason"]});
+h+=_wlFxSeasonChips(d1["fxSeasons"],_wl["fxSeason"]);
 h+='<div class="wl-title">'+ax(d1["name"])+'<span class="wl-note">'+(_wlSeasonLab(d1["fxSeason"])||(d1["table"]&&d1["table"][0]&&d1["table"][0]["pts"]==null?'仅名次':''))+'</span></div>';
 h+=_wlTable(d1["table"],meTid);
 h+='<div class="wl-title">赛程</div>';
@@ -316,7 +334,8 @@ h+='<div class="wl-sub">';
 cs["forEach"](function(c2){h+='<button class="wl-chip'+(_wl["cup"]===c2["name"]?" on":"")+'" data-wld="cup:'+c2["name"]+'">'+ax(c2["name"])+'</button>';});
 h+='</div>';
 var cur=null;for(var ci=0;ci<cs["length"];ci++)if(cs[ci]["name"]===_wl["cup"])cur=cs[ci];
-var d2=window["SIM"]["world"]({'q':'cup','id':_wl["cup"]});
+var d2=window["SIM"]["world"]({'q':'cup','id':_wl["cup"],'season':_wl["fxSeason"]});
+h+=_wlFxSeasonChips(d2["fxSeasons"],_wl["fxSeason"]);
 h+='<div class="wl-title">'+ax(d2["name"])+'<span class="wl-note">'+_wlSeasonLab(d2["bracketSeason"])+'</span></div>';
 if(!d2["bracket"]&&cur&&cur["champ"]){var ct2=ag(cur["champ"]);h+='<div class="wl-title">上季冠军 '+_crTm(cur["champ"])+'</div>';}
 h+=_wlBracket(d2["bracket"]&&d2["bracket"]["all"],meTid,d2["bracket"]&&d2["bracket"]["champion"]);
@@ -325,7 +344,8 @@ var cs2=window["SIM"]["world"]({'q':'conts'})["conts"];
 h+='<div class="wl-sub">';
 cs2["forEach"](function(c3){h+='<button class="wl-chip'+(_wl["cont"]===c3["id"]?" on":"")+'" data-wld="cont:'+c3["id"]+'">'+ax(c3["name"])+'</button>';});
 h+='</div>';
-var d3=window["SIM"]["world"]({'q':'cont','id':_wl["cont"]});
+var d3=window["SIM"]["world"]({'q':'cont','id':_wl["cont"],'season':_wl["fxSeason"]});
+h+=_wlFxSeasonChips(d3["fxSeasons"],_wl["fxSeason"]);
 if(d3["data"]){
 h+='<div class="wl-title">'+ax(d3["name"])+'<span class="wl-note">'+_wlSeasonLab(d3["dataSeason"])+'</span></div>';
 if(d3["data"]["group"])h+=_grpBox('联赛阶段',d3["data"]["group"]["standings"],d3["data"]["group"]["matches"],-1,meTid);
@@ -333,6 +353,24 @@ h+=_wlBracket(d3["data"]["rounds"],meTid,d3["data"]["champion"]);
 }else{
 var ch3='';if(d3["champ"]){var ct3=ag(d3["champ"]);ch3=ct3?' · 上届冠军 '+ax(ct3["name"]):'';}
 h+='<div class="wl-empty">暂无当季对阵'+ch3+'</div>';
+}
+}else{
+var nts=window["SIM"]["world"]({'q':'natTs'})["natTs"]||[];
+h+='<div class="wl-sub">';
+h+='<button class="wl-chip'+(!_wl["natT"]?" on":"")+'" data-wld="natT:">总览</button>';
+nts["forEach"](function(nt){h+='<button class="wl-chip'+(_wl["natT"]===nt["id"]?" on":"")+'" data-wld="natT:'+nt["id"]+'">'+ax(nt["name"])+'</button>';});
+h+='</div>';
+if(_wl["natT"]){
+var d4=window["SIM"]["world"]({'q':'natT','id':_wl["natT"],'season':_wl["fxSeason"]});
+h+=_wlFxSeasonChips(d4["fxSeasons"],_wl["fxSeason"]);
+if(d4["data"]){
+h+='<div class="wl-title">'+ax(d4["name"])+'<span class="wl-note">'+_wlSeasonLab(d4["dataSeason"])+'</span></div>';
+var _nch=d4["data"]["champion"]||_wlNatChamp(d4["data"]["rounds"]);
+if(_nch)h+='<div class="wl-champ">'+_crTm(_nch)+' 🏆</div>';
+(d4["data"]["groups"]||[]).forEach(function(g4){h+=_grpBox(g4["name"],g4["standings"],g4["matches"],-1,'n_chn');});
+h+=_wlNatBracket(d4["data"]["rounds"],'n_chn');
+}else{
+h+='<div class="wl-empty">本届无数据</div>';
 }
 }else{
 var nd=window["SIM"]["world"]({'q':'nat'});
@@ -389,6 +427,7 @@ h+='</div>';
 h+='<div class="wl-empty">还没有国家队记录</div>';
 }
 }
+}
 return h;
 }
 document["addEventListener"]("click",function(e){
@@ -399,11 +438,13 @@ if(i2<0)return;
 var act=v["slice"](0,i2),val=v["slice"](i2+1);
 if(act==='tab')_wl["tab"]=val;
 else if(act==='nat'){var av=parseInt(val,10)||0;_wl["natAge"]=_wl["natAge"]===av?null:av;_wl["tab"]='nat';}
-else if(act==='lg'){_wl["lg"]=val;_wl["tab"]='lg';_wl["rd"]=0;}
+else if(act==='lg'){_wl["lg"]=val;_wl["tab"]='lg';_wl["rd"]=0;_wl["fxSeason"]=null;}
 else if(act==='rd')_wl["rd"]=parseInt(val,10)||0;
-else if(act==='cup'){_wl["cup"]=val;_wl["tab"]='cup';}
-else if(act==='cont'){_wl["cont"]=val;_wl["tab"]='cont';}
+else if(act==='cup'){_wl["cup"]=val;_wl["tab"]='cup';_wl["fxSeason"]=null;}
+else if(act==='cont'){_wl["cont"]=val;_wl["tab"]='cont';_wl["fxSeason"]=null;}
+else if(act==='fxS'){_wl["fxSeason"]=val?parseInt(val,10):null;_wl["rd"]=0;}
 else if(act==='natAge'){_wl["natAge"]=parseInt(val,10)||-1;_wl["tab"]='nat';}
+else if(act==='natT'){_wl["natT"]=val;_wl["tab"]='nat';_wl["fxSeason"]=null;}
 else if(act==='open'){
 _wl["lg"]=val;_wl["tab"]='lg';_wl["rd"]=0;
 var wBtn=document["querySelector"]('.tl-tab[data-tab="world"]');

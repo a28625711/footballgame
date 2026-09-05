@@ -111,7 +111,7 @@ def run():
 
     print('PASS growth_curve (P1 Δ%.2f | P2 Δ%.2f | P3 Δ%.2f)'
           % (hi['slope'] - lo['slope'], d_hi['slope'] - d_lo['slope'],
-             c_far['slope'] - c_near['slope']))
+             far - near))
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ import json, sys
 sys.stdout.reconfigure(encoding='utf-8')
 import harness
 
-CAREERS = 8
+CAREERS = 16  # 转型事件靠种子化 RNG 抽签，样本太少时总转型数在 1-2 间抖动
 
 POSITIONS = [
     ('ST', 'FW', 9),
