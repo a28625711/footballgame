@@ -769,48 +769,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:293 | abr_rival | 本地球员的敌意 ----
-
-
-
-
-{
-  'id': "abr_rival",
-  'title': "本地球员的敌意",
-  'icon': '\u{2694}\u{FE0F}',
-  'weight': 0x2c,
-  'repeat': 0x1,
-  'stage': "kid",
-
-
-
-
-  'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
-  'desc': "青训队里有个本地球员看你不太顺眼，训练里总爱跟你较劲，几次对抗都下狠脚。",
-  'options': [
-    {
-        'label': "用实力回应",
-        'p': function(p){return f(0.5,[[p["ovr"],0x32,0.02]],0.25,0.8);},
-        'hint': function(p,q){return g(q,"他服了","吃了亏");},
-        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x1,'text':"你在一次队内对抗里把他过了个干净，还进了球。从那以后他对你客气多了——是那种「服了」的客气。"}:{'ovr':-0x2,'text':"你被他几次撞翻在地，教练吹了哨也没用。那天晚上你大腿青了一块。"};}
-    },
-    {
-        'label': "绕着走",
-        'hint': "避开冲突",
-        'apply': function(){return{'ovr':0x0,'text':"你不想把精力耗在斗气上，训练里尽量绕开他。他倒也没再找茬。"};}
-    }
-  ]
-},
-
-
-
-
-
-
-
-
-
-// ---- idx:294 | abr_reputation | 表现被注意到 ----
+// ---- idx:293 | abr_reputation | 表现被注意到 ----
 
 
 
@@ -855,7 +814,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:295 | abr_teammate | 交到第一个朋友 ----
+// ---- idx:294 | abr_teammate | 交到第一个朋友 ----
 
 
 
@@ -901,7 +860,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:333 | abr_nat_es | 拉玛西亚式的抢圈 ----
+// ---- idx:332 | abr_nat_es | 拉玛西亚式的抢圈 ----
 
 
 
@@ -920,7 +879,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:334 | abr_nat_de | 双轨制的下午 ----
+// ---- idx:333 | abr_nat_de | 双轨制的下午 ----
 
 
 
@@ -939,7 +898,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:335 | abr_nat_en | 周六的U18联赛 ----
+// ---- idx:334 | abr_nat_en | 周六的U18联赛 ----
 
 
 
@@ -958,7 +917,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:336 | abr_nat_jp | 练习后的球场清扫 ----
+// ---- idx:335 | abr_nat_jp | 练习后的球场清扫 ----
 
 
 
@@ -977,7 +936,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:337 | abr_nat_kr | 前辈的背包 ----
+// ---- idx:336 | abr_nat_kr | 前辈的背包 ----
 
 
 
@@ -996,7 +955,7 @@ return{'money':-0x3c,'fame':0x6,'clean':0x4,'text':"两百双球鞋和十个球�
 
 
 
-// ---- idx:338 | abr_nat_fr | 克莱枫丹的更衣室 ----
+// ---- idx:337 | abr_nat_fr | 克莱枫丹的更衣室 ----
 
 
 

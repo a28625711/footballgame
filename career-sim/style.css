@@ -2191,3 +2191,6 @@ img.crest.plate {
 
 /* 心仪选队：球队水平提示行 */
 .dream-team em.dream-hint { display: block; font-style: normal; font-size: .68rem; color: hsl(var(--faint)); line-height: 1.2; }
+
+/* 世界面板：往期赛季下拉选择 */
+.wl-season { background: hsl(var(--panel2, 0 0% 14%)); color: hsl(var(--text)); border: 1px solid hsl(var(--border) / .8); border-radius: var(--r-row, 8px); font-size: .72rem; padding: 3px 6px; margin-left: auto; max-width: 7.5rem; }

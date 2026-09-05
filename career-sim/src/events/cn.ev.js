@@ -453,7 +453,7 @@ return p["inChina"];
   'options': [
     {
         'label': '接受',
-        'hint': "收入下降，夺冠概"+"率下降",
+        'hint': "收入下降，球队实"+"力受损",
         'apply': function(){
 return{'money':-0x3c,'mult':{'league':0.6,'cup':0.6},'text':"改完名之后，球迷论坛最热的帖子是「我们还是不是我们」。这个问题，没人给得出答案。"};
 }
@@ -1205,7 +1205,7 @@ return p["inChina"]&&p["guanxi"]>=0x2d;
   'options': [
     {
         'label': "什么都不说",
-        'hint': "夺冠概率提升，清"+'白-',
+        'hint': "球队实力提升，清"+'白-',
         'apply': function(){
 return{'mult':{'league':1.6,'cup':1.6},'clean':-0x8,'text':"你什么也没说，转身跑回半场。赛后集锦里，那个镜头被剪掉了。"};
 }

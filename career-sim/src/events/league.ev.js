@@ -10,7 +10,7 @@ var EVT_league=[
 
 
 
-// ---- idx:306 | lg_epl_dec | 没有冬歇的十二月 ----
+// ---- idx:305 | lg_epl_dec | 没有冬歇的十二月 ----
 
 
 
@@ -49,7 +49,7 @@ var EVT_league=[
 
 
 
-// ---- idx:307 | lg_epl_mixedzone | 混采区 ----
+// ---- idx:306 | lg_epl_mixedzone | 混采区 ----
 
 
 
@@ -88,7 +88,7 @@ var EVT_league=[
 
 
 
-// ---- idx:308 | lg_liga_tiki | 把球传进大门 ----
+// ---- idx:307 | lg_liga_tiki | 把球传进大门 ----
 
 
 
@@ -126,7 +126,7 @@ var EVT_league=[
 
 
 
-// ---- idx:309 | lg_liga_clasico | 第一次大赛考验 ----
+// ---- idx:308 | lg_liga_clasico | 第一次大赛考验 ----
 
 
 
@@ -166,7 +166,7 @@ var EVT_league=[
 
 
 
-// ---- idx:310 | lg_bund_press | 从门将开始逼抢 ----
+// ---- idx:309 | lg_bund_press | 从门将开始逼抢 ----
 
 
 
@@ -205,7 +205,7 @@ var EVT_league=[
 
 
 
-// ---- idx:311 | lg_bund_kid | 十六岁的队友 ----
+// ---- idx:310 | lg_bund_kid | 十六岁的队友 ----
 
 
 
@@ -244,7 +244,7 @@ var EVT_league=[
 
 
 
-// ---- idx:312 | lg_seri_defense | 防守是一门功课 ----
+// ---- idx:311 | lg_seri_defense | 防守是一门功课 ----
 
 
 
@@ -283,7 +283,7 @@ var EVT_league=[
 
 
 
-// ---- idx:313 | lg_seri_slow | 领先之后的九十分钟 ----
+// ---- idx:312 | lg_seri_slow | 领先之后的九十分钟 ----
 
 
 
@@ -322,7 +322,7 @@ var EVT_league=[
 
 
 
-// ---- idx:314 | lg_l1_scouts | 看台上的陌生人 ----
+// ---- idx:313 | lg_l1_scouts | 看台上的陌生人 ----
 
 
 
@@ -361,7 +361,7 @@ var EVT_league=[
 
 
 
-// ---- idx:315 | lg_l1_tower | 巴别塔更衣室 ----
+// ---- idx:314 | lg_l1_tower | 巴别塔更衣室 ----
 
 
 
@@ -400,7 +400,7 @@ var EVT_league=[
 
 
 
-// ---- idx:316 | lg_ere_price | 下一个标价 ----
+// ---- idx:315 | lg_ere_price | 下一个标价 ----
 
 
 
@@ -439,7 +439,7 @@ var EVT_league=[
 
 
 
-// ---- idx:317 | lg_pri_sea | 南美的孩子们 ----
+// ---- idx:316 | lg_pri_sea | 南美的孩子们 ----
 
 
 
@@ -478,7 +478,7 @@ var EVT_league=[
 
 
 
-// ---- idx:318 | lg_jup_step | 跳板 ----
+// ---- idx:317 | lg_jup_step | 跳板 ----
 
 
 
@@ -517,7 +517,7 @@ var EVT_league=[
 
 
 
-// ---- idx:319 | lg_seg_bus | 大巴与人工草皮 ----
+// ---- idx:318 | lg_seg_bus | 大巴与人工草皮 ----
 
 
 
@@ -556,7 +556,7 @@ var EVT_league=[
 
 
 
-// ---- idx:320 | lg_b2_climb | 冲甲积分榜 ----
+// ---- idx:319 | lg_b2_climb | 冲甲积分榜 ----
 
 
 
@@ -595,7 +595,7 @@ var EVT_league=[
 
 
 
-// ---- idx:321 | lg_ch_grind | 四十六轮 ----
+// ---- idx:320 | lg_ch_grind | 四十六轮 ----
 
 
 
@@ -634,7 +634,7 @@ var EVT_league=[
 
 
 
-// ---- idx:322 | lg_jl_detail | 细节即一切 ----
+// ---- idx:321 | lg_jl_detail | 细节即一切 ----
 
 
 
@@ -673,7 +673,7 @@ var EVT_league=[
 
 
 
-// ---- idx:323 | lg_kl_service | 兵役倒计时 ----
+// ---- idx:322 | lg_kl_service | 兵役倒计时 ----
 
 
 
@@ -712,7 +712,7 @@ var EVT_league=[
 
 
 
-// ---- idx:324 | lg_mls_coast | 五个时区 ----
+// ---- idx:323 | lg_mls_coast | 五个时区 ----
 
 
 

@@ -352,7 +352,7 @@ return p["roleRank"]<=0x3;
   'options': [
     {
         'label': '带他',
-        'hint': "球队夺冠概率翻倍"+"，自己地位下降",
+        'hint': "球队实力大增，自"+"己地位下降",
         'apply': function(){
 return{'roleDelta':-0x1,'mult':{'league':0x2,'cup':0x2},'fame':0x5,'text':"你把自己会的全教给了他。赛季末，最佳新人的获奖感言里，第一个念的是你的名字。"};
 }
@@ -484,7 +484,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"新体系反而更适合你。�
   'options': [
     {
         'label': "就去",
-        'hint': "转会至{riva"+"l}，夺冠概率提"+"升，名气受损",
+        'hint': "转会至{riva"+"l}，球队实力提"+"升，名气受损",
         'apply': function(p){
 return{'transferTo':p["rivalId"],'fame':-0x12,'mult':{'league':1.8,'cont':1.8},'text':"你走了。老东家的球迷在你家楼下拉起横幅，没有一个脏字，每个字都很脏。"};
 }
@@ -528,7 +528,7 @@ return p["clubRep"]<=0x2;
   'options': [
     {
         'label': "留下来打保级",
-        'hint': "夺冠概率归零，名"+'气+',
+        'hint': "球队实力大跌，名"+'气+',
         'apply': function(){
 return{'fame':0xc,'mult':{'league':0x0,'cup':0.5},'text':"你留下了，最后一轮打进保级的关键球。这个赛季你什么也没拿到，除了球迷的记性。"};
 }
@@ -572,7 +572,7 @@ return p["clubRep"]>=0x3;
   'options': [
     {
         'label': "站出来扛",
-        'hint': "夺冠概率减半，名"+'气+',
+        'hint': "球队实力下降，名"+'气+',
         'apply': function(){
 return{'fame':0xe,'mult':{'league':0.4,'cup':1.2},'text':"发布会上你把话说死：成绩是全队的事。那半个赛季你场场首发。球队终究没追上，但再没人提更衣室。"};
 }
@@ -938,14 +938,14 @@ return p["ovr"]>=0x48;
   'options': [
     {
         'label': "打针上场",
-        'hint': "夺冠概率大增，能"+"力-4",
+        'hint': "球队实力大增，能"+"力-4",
         'apply': function(){
 return{'ovr':-0x4,'mult':{'league':2.5,'cup':0x3,'cont':2.5},'fame':0x12,'text':"你打完了那场比赛。捧杯的时候，你连蹲下都要人扶。"};
 }
     },
     {
         'label': '养伤',
-        'hint': "夺冠概率降低，能"+"力保住",
+        'hint': "球队实力下降，能"+"力保住",
         'apply': function(){
 return{'mult':{'league':0.4,'cup':0.4,'cont':0.4},'text':"你在看台上看完了那场决赛。膝盖是保住了，可别的，什么都没保住。"};
 }
@@ -3188,7 +3188,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
-// ---- idx:342 | injury_type_shift | 伤后的抉择 ----
+// ---- idx:341 | injury_type_shift | 伤后的抉择 ----
 
 
 
@@ -3247,7 +3247,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
-// ---- idx:343 | vet_type_shift | 老将的转型 ----
+// ---- idx:342 | vet_type_shift | 老将的转型 ----
 
 
 

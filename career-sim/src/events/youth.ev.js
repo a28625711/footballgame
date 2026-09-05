@@ -767,7 +767,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
-// ---- idx:339 | youth_type_shift | 位置感的觉醒 ----
+// ---- idx:338 | youth_type_shift | 位置感的觉醒 ----
 
 
 
@@ -836,7 +836,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
-// ---- idx:340 | youth_type_evolve | 训练赛的意外发现 ----
+// ---- idx:339 | youth_type_evolve | 训练赛的意外发现 ----
 
 
 
@@ -908,7 +908,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
-// ---- idx:341 | youth_type_late | 最后一次机会 ----
+// ---- idx:340 | youth_type_late | 最后一次机会 ----
 
 
 
@@ -974,7 +974,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
-// ---- idx:344 | youth_elite | 顶级青训的洗礼 ----
+// ---- idx:343 | youth_elite | 顶级青训的洗礼 ----
 
 
 
@@ -1017,7 +1017,7 @@ return p["inAcadem"+'y']&&p["clubRep"]>=5;
 
 
 
-// ---- idx:345 | youth_topclub | 豪门梯队的日常 ----
+// ---- idx:344 | youth_topclub | 豪门梯队的日常 ----
 
 
 
@@ -1060,7 +1060,7 @@ return p["inAcadem"+'y']&&p["clubRep"]>=4&&p["clubRep"]<5;
 
 
 
-// ---- idx:346 | youth_contender | 争冠队的青训氛围 ----
+// ---- idx:345 | youth_contender | 争冠队的青训氛围 ----
 
 
 
@@ -1105,7 +1105,7 @@ return p["inAcadem"+'y']&&p["clubRep"]>=3&&p["clubRep"]<4;
 
 
 
-// ---- idx:347 | youth_midtable | 中游球队的青训日子 ----
+// ---- idx:346 | youth_midtable | 中游球队的青训日子 ----
 
 
 
@@ -1150,7 +1150,7 @@ return p["inAcadem"+'y']&&p["clubRep"]>=2&&p["clubRep"]<3;
 
 
 
-// ---- idx:348 | youth_grassroots | 小球会的青训路 ----
+// ---- idx:347 | youth_grassroots | 小球会的青训路 ----
 
 
 

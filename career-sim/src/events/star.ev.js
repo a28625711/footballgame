@@ -754,7 +754,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
 
 
 
-// ---- idx:304 | star_training2 | 大师的中场课 ----
+// ---- idx:303 | star_training2 | 大师的中场课 ----
 
 
 
@@ -793,7 +793,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
 
 
 
-// ---- idx:305 | star_training3 | 门前的最后一课 ----
+// ---- idx:304 | star_training3 | 门前的最后一课 ----
 
 
 

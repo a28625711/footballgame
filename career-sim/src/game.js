@@ -242,17 +242,19 @@ return t2?'<span class="cr-tm">'+aT(t2)+ax(t2["name"])+'</span>':ax(fb||id||'');
 }
 function _wlTm(id){return _crTm(id);}
 function _wlSide(id,fb){return _crTm(id,fb);}
-function _wlSeasonLab(n){if(!n)return'';var s2=(au&&au["seasons"]&&au["seasons"][n-1])||null;return'第'+n+'季'+(s2&&s2["age"]!=null?' · '+s2["age"]+'岁':'');}
-/* 历史赛季选择 chips（联赛/杯赛/洲际/国家队共用）：null=当季；
-   赛事类（欧洲杯/世俱杯等）只列有数据的年份，'当季'按真实当前季判定 */
-function _wlFxSeasonChips(seasons,sel,curSeason){
-if(!seasons||!seasons.length)return'';
-var h='<div class="wl-sub">';
-seasons.forEach(function(sn){
-var cur=curSeason!=null?sn===curSeason:sn===seasons[seasons.length-1];
-h+='<button class="wl-chip'+((sel==null&&cur)||(sel===sn)?" on":"")+'" data-wld="fxS:'+(cur?'':sn)+'">'+(cur?'当季':'第'+sn+'季')+'</button>';
+function _wlSeasonLab(n){if(!n)return'';if(n<0)return (n+100)+'岁';var s2=(au&&au["seasons"]&&au["seasons"][n-1])||null;return'第'+n+'季'+(s2&&s2["age"]!=null?' · '+s2["age"]+'岁':'');}
+/* 历史赛季下拉选择（联赛/杯赛/洲际/国家队共用）：null=当季；
+   赛事类只列有数据的年份；青训期年份为负数标签（年龄-100），显示为「N岁」 */
+function _wlSeasonSel(d){
+var ss=d["fxSeasons"]||[];
+if(ss.length<2)return'';
+var cur=d["curSeason"],h='<select class="wl-season" data-wlsel="1">';
+ss.forEach(function(sn){
+var isCur=cur!=null?sn===cur:sn===ss[ss.length-1];
+var lab=sn<0?(sn+100)+'岁':(isCur?'当季':'第'+sn+'季');
+h+='<option value="'+(isCur?'':sn)+'"'+((_wl["fxSeason"]!=null?_wl["fxSeason"]===sn:isCur)?" selected":"")+'>'+lab+'</option>';
 });
-return h+'</div>';
+return h+'</select>';
 }
 function _wlRounds(fx,meTid){
 if(!fx||!fx["length"])return'<div class="wl-empty">暂无当季赛程（完成首个赛季后生成）</div>';
@@ -323,7 +325,7 @@ h+='<div class="wl-sub">';
 ls["forEach"](function(l2){h+='<button class="wl-chip'+(_wl["lg"]===l2["id"]?" on":"")+'" data-wld="lg:'+l2["id"]+'">'+ax(l2["name"])+'</button>';});
 h+='</div>';
 var d1=window["SIM"]["world"]({'q':'lg','id':_wl["lg"],'season':_wl["fxSeason"]});
-h+=_wlFxSeasonChips(d1["fxSeasons"],_wl["fxSeason"]);
+h+=_wlSeasonSel(d1);
 h+='<div class="wl-title">'+ax(d1["name"])+'<span class="wl-note">'+(_wlSeasonLab(d1["fxSeason"])||(d1["table"]&&d1["table"][0]&&d1["table"][0]["pts"]==null?'仅名次':''))+'</span></div>';
 h+=_wlTable(d1["table"],meTid);
 h+='<div class="wl-title">赛程</div>';
@@ -336,7 +338,7 @@ cs["forEach"](function(c2){h+='<button class="wl-chip'+(_wl["cup"]===c2["name"]?
 h+='</div>';
 var cur=null;for(var ci=0;ci<cs["length"];ci++)if(cs[ci]["name"]===_wl["cup"])cur=cs[ci];
 var d2=window["SIM"]["world"]({'q':'cup','id':_wl["cup"],'season':_wl["fxSeason"]});
-h+=_wlFxSeasonChips(d2["fxSeasons"],_wl["fxSeason"]);
+h+=_wlSeasonSel(d2);
 h+='<div class="wl-title">'+ax(d2["name"])+'<span class="wl-note">'+_wlSeasonLab(d2["bracketSeason"])+'</span></div>';
 if(!d2["bracket"]&&cur&&cur["champ"]){var ct2=ag(cur["champ"]);h+='<div class="wl-title">上季冠军 '+_crTm(cur["champ"])+'</div>';}
 h+=_wlBracket(d2["bracket"]&&d2["bracket"]["all"],meTid,d2["bracket"]&&d2["bracket"]["champion"]);
@@ -350,7 +352,7 @@ if(!d3["data"]&&d3["fxSeasons"]&&d3["fxSeasons"]["length"]&&(d3["curSeason"]==nu
 _wl["fxSeason"]=d3["fxSeasons"][d3["fxSeasons"]["length"]-1];
 d3=window["SIM"]["world"]({'q':'cont','id':_wl["cont"],'season':_wl["fxSeason"]});
 }
-h+=_wlFxSeasonChips(d3["fxSeasons"],_wl["fxSeason"],d3["curSeason"]);
+h+=_wlSeasonSel(d3);
 if(d3["data"]){
 h+='<div class="wl-title">'+ax(d3["name"])+'<span class="wl-note">'+_wlSeasonLab(d3["dataSeason"])+'</span></div>';
 if(d3["data"]["group"])h+=_grpBox('联赛阶段',d3["data"]["group"]["standings"],d3["data"]["group"]["matches"],-1,meTid);
@@ -371,7 +373,7 @@ if(!d4["data"]&&d4["fxSeasons"]&&d4["fxSeasons"]["length"]&&(d4["curSeason"]==nu
 _wl["fxSeason"]=d4["fxSeasons"][d4["fxSeasons"]["length"]-1];
 d4=window["SIM"]["world"]({'q':'natT','id':_wl["natT"],'season':_wl["fxSeason"]});
 }
-h+=_wlFxSeasonChips(d4["fxSeasons"],_wl["fxSeason"],d4["curSeason"]);
+h+=_wlSeasonSel(d4);
 if(d4["data"]){
 h+='<div class="wl-title">'+ax(d4["name"])+'<span class="wl-note">'+_wlSeasonLab(d4["dataSeason"])+'</span></div>';
 var _nch=d4["data"]["champion"]||_wlNatChamp(d4["data"]["rounds"]);
@@ -439,6 +441,14 @@ h+='<div class="wl-empty">还没有国家队记录</div>';
 }
 return h;
 }
+document["addEventListener"]("change",function(e){
+var _sel=e["target"]&&e["target"]["closest"]?e["target"]["closest"]("[data-wlsel]"):null;
+if(!_sel)return;
+var _v=_sel["value"];
+_wl["fxSeason"]=_v?parseInt(_v,10):null;_wl["rd"]=0;
+var root=document["querySelector"]('[data-panel="world"] .wl-root');
+if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';}
+});
 document["addEventListener"]("click",function(e){
 var el=e["target"]["closest"]("[data-wld]");
 if(!el)return;

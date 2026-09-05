@@ -455,7 +455,7 @@ return p["roleRank"]<=0x3;
   'options': [
     {
         'label': '带他',
-        'hint': "球队实力大增，自"+"己地位下降",
+        'hint': "球队夺冠概率翻倍"+"，自己地位下降",
         'apply': function(){
 return{'roleDelta':-0x1,'mult':{'league':0x2,'cup':0x2},'fame':0x5,'text':"你把自己会的全教给了他。赛季末，最佳新人的获奖感言里，第一个念的是你的名字。"};
 }
@@ -548,7 +548,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"新体系反而更适合你。�
   'options': [
     {
         'label': "就去",
-        'hint': "转会至{riva"+"l}，球队实力提"+"升，名气受损",
+        'hint': "转会至{riva"+"l}，夺冠概率提"+"升，名气受损",
         'apply': function(p){
 return{'transferTo':p["rivalId"],'fame':-0x12,'mult':{'league':1.8,'cont':1.8},'text':"你走了。老东家的球迷在你家楼下拉起横幅，没有一个脏字，每个字都很脏。"};
 }
@@ -579,7 +579,7 @@ return p["clubRep"]<=0x2;
   'options': [
     {
         'label': "留下来打保级",
-        'hint': "球队实力大跌，名"+'气+',
+        'hint': "夺冠概率归零，名"+'气+',
         'apply': function(){
 return{'fame':0xc,'mult':{'league':0x0,'cup':0.5},'text':"你留下了，最后一轮打进保级的关键球。这个赛季你什么也没拿到，除了球迷的记性。"};
 }
@@ -610,7 +610,7 @@ return p["clubRep"]>=0x3;
   'options': [
     {
         'label': "站出来扛",
-        'hint': "球队实力下降，名"+'气+',
+        'hint': "夺冠概率减半，名"+'气+',
         'apply': function(){
 return{'fame':0xe,'mult':{'league':0.4,'cup':1.2},'text':"发布会上你把话说死：成绩是全队的事。那半个赛季你场场首发。球队终究没追上，但再没人提更衣室。"};
 }
@@ -872,14 +872,14 @@ return p["ovr"]>=0x48;
   'options': [
     {
         'label': "打针上场",
-        'hint': "球队实力大增，能"+"力-4",
+        'hint': "夺冠概率大增，能"+"力-4",
         'apply': function(){
 return{'ovr':-0x4,'mult':{'league':2.5,'cup':0x3,'cont':2.5},'fame':0x12,'text':"你打完了那场比赛。捧杯的时候，你连蹲下都要人扶。"};
 }
     },
     {
         'label': '养伤',
-        'hint': "球队实力下降，能"+"力保住",
+        'hint': "夺冠概率降低，能"+"力保住",
         'apply': function(){
 return{'mult':{'league':0.4,'cup':0.4,'cont':0.4},'text':"你在看台上看完了那场决赛。膝盖是保住了，可别的，什么都没保住。"};
 }
@@ -1323,7 +1323,7 @@ return p["inChina"];
   'options': [
     {
         'label': '接受',
-        'hint': "收入下降，球队实"+"力受损",
+        'hint': "收入下降，夺冠概"+"率下降",
         'apply': function(){
 return{'money':-0x3c,'mult':{'league':0.6,'cup':0.6},'text':"改完名之后，球迷论坛最热的帖子是「我们还是不是我们」。这个问题，没人给得出答案。"};
 }
@@ -1867,7 +1867,7 @@ return p["inChina"]&&p["guanxi"]>=0x2d;
   'options': [
     {
         'label': "什么都不说",
-        'hint': "球队实力提升，清"+'白-',
+        'hint': "夺冠概率提升，清"+'白-',
         'apply': function(){
 return{'mult':{'league':1.6,'cup':1.6},'clean':-0x8,'text':"你什么也没说，转身跑回半场。赛后集锦里，那个镜头被剪掉了。"};
 }
@@ -9967,6 +9967,34 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
         'label': "自己开小灶",
         'hint': "花点钱保状态",
         'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'money':-0x1,'text':"你自己买食材做中餐，吃是吃好了，但钱包瘪得快。"}:{'ovr':0x0,'text':"你试了几次，锅都没找齐。最后还是回食堂将就。"};}
+    }
+  ]
+},
+
+{
+  'id': "abr_rival",
+  'title': "本地球员的敌意",
+  'icon': '\u{2694}\u{FE0F}',
+  'weight': 0x2c,
+  'repeat': 0x1,
+  'stage': "kid",
+
+
+
+
+  'when': function(p){return p["inAcademy"]&&p["youthAbroad"];},
+  'desc': "青训队里有个本地球员看你不太顺眼，训练里总爱跟你较劲，几次对抗都下狠脚。",
+  'options': [
+    {
+        'label': "用实力回应",
+        'p': function(p){return f(0.5,[[p["ovr"],0x32,0.02]],0.25,0.8);},
+        'hint': function(p,q){return g(q,"他服了","吃了亏");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x1,'text':"你在一次队内对抗里把他过了个干净，还进了球。从那以后他对你客气多了——是那种「服了」的客气。"}:{'ovr':-0x2,'text':"你被他几次撞翻在地，教练吹了哨也没用。那天晚上你大腿青了一块。"};}
+    },
+    {
+        'label': "绕着走",
+        'hint': "避开冲突",
+        'apply': function(){return{'ovr':0x0,'text':"你不想把精力耗在斗气上，训练里尽量绕开他。他倒也没再找茬。"};}
     }
   ]
 },

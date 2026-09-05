@@ -107,13 +107,16 @@ return p&&q[p["posGroup"]]||q["other"];
 /* 类型转型的组内安全回退：desc 侧写的 _xTarget 缺失时保持现类型，绝不允许跨位置组 */
 function safeTypeTgt(p,key){
 var cur=p["playerType"]!=null?p["playerType"]:0xb;
+if(typeof cur!=="number"||isNaN(cur))cur=0xb;
 var pool={'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10],'gk':[11]}[p["posGroup"]]||[];
-/* 目标绝不允许等于当前类型：desc 侧写丢失或失效时在组内另选 */
-if(key&&p[key]!=null&&p[key]!==cur)return p[key];
+/* 目标绝不允许等于当前类型或非法值：desc 侧写丢失/脏值时在组内另选 */
+if(key&&p[key]!=null&&pool.indexOf(p[key])>=0&&p[key]!==cur)return p[key];
 var cands=pool.filter(function(t){return t!==cur;});
 if(!cands.length)return cur;
 /* 确定性选取（hint/apply 两次调用结果一致），代替 Math.random */
-return cands[(cur*7+(p["age"]||0)*13+(p["ovr"]||0)*3)%cands.length];
+var idx=(cur*7+(p["age"]||0)*13+(p["ovr"]||0)*3)%cands.length;
+if(!(idx>=0))idx=0;
+return cands[idx];
 }
 function shiftTarget(p){
     

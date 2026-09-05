@@ -10,7 +10,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:325 | tier_super_focus | 全世界的瞄准镜 ----
+// ---- idx:324 | tier_super_focus | 全世界的瞄准镜 ----
 
 
 
@@ -29,7 +29,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:326 | tier_super_heir | 你的继承人 ----
+// ---- idx:325 | tier_super_heir | 你的继承人 ----
 
 
 
@@ -48,7 +48,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:327 | tier_main_voice | 更衣室的分量 ----
+// ---- idx:326 | tier_main_voice | 更衣室的分量 ----
 
 
 
@@ -67,7 +67,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:328 | tier_main_ceiling | 天花板之问 ----
+// ---- idx:327 | tier_main_ceiling | 天花板之问 ----
 
 
 
@@ -86,7 +86,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:329 | tier_rot_wheel | 轮换的齿轮 ----
+// ---- idx:328 | tier_rot_wheel | 轮换的齿轮 ----
 
 
 
@@ -105,7 +105,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:330 | tier_rot_loan | 租借名单上的名字 ----
+// ---- idx:329 | tier_rot_loan | 租借名单上的名字 ----
 
 
 
@@ -124,7 +124,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:331 | tier_low_bench | 陪练的日子 ----
+// ---- idx:330 | tier_low_bench | 陪练的日子 ----
 
 
 
@@ -143,7 +143,7 @@ var EVT_tier=[
 
 
 
-// ---- idx:332 | tier_low_king | 小城之王 ----
+// ---- idx:331 | tier_low_king | 小城之王 ----
 
 
 
