@@ -2166,11 +2166,13 @@ img.crest.plate {
 .wl-tm i { font-style: normal; font-size: 11px; color: hsl(var(--faint)); }
 .wl-tm.me span { color: hsl(var(--gold1)); }
 .wl-pk { color: hsl(var(--info)); }
-/* 签表内队徽与文字同排（.crest 全局是 display:block，会单独成行把队名挤下去） */
-.wl-tm .crest, .wl-title .crest, .wl-champ .crest { display: inline-block; vertical-align: -.18em; }
-.wl-tm .crest { width: 1.05rem; height: 1.05rem; }
-.wl-tm .crest-pic { width: 1.05rem; height: 1.05rem; display: inline-block; }
-.wl-tm .crest-pic .crest { width: 100%; height: 100%; }
+/* 统一「队徽+队名」行内格式（_crTm 生成，世界面板/小组赛/赛程 chips 共用）：
+   .crest 全局是 display:block 会把队名挤到下一行，这里改 inline 并缩放到文字大小 */
+.cr-tm { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
+.cr-tm .crest, .cr-tm .crest-pic { width: 1.05rem; height: 1.05rem; }
+.cr-tm .crest { display: inline-block; vertical-align: middle; }
+.cr-tm .crest-pic { display: inline-flex; }
+.cr-tm .crest-pic .crest { width: 100%; height: 100%; }
 .wl-title .crest, .wl-title .crest-pic { width: 1.05rem; height: 1.05rem; }
 .wl-champ { display: flex; align-items: center; gap: 6px; justify-content: center;
             border: 1px solid hsl(var(--gold2) / .6); border-radius: var(--r-row);

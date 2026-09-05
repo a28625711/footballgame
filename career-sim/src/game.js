@@ -167,7 +167,12 @@ return "<div cla"+"ss=\"tl-r"+"ow tl-co"+"ls "+bW+'\x22'+(c3!=null?' data-age="'
 function _grpBox(title,st,ml,prow,pid){
 if(!st||!st["length"])return"";
 /* 瑞士轮积分榜字段是 n，国家队等是 name；统一回退解析 */
-function _gName(r){return r["name"]||r["n"]||(function(){var t2=r["i"]?ag(r["i"]):null;return t2?t2["name"]:"";})();}
+function _gName(r){
+if(r["name"])return r["name"];
+var nm=_natMapGet()[r["i"]];if(nm)return nm["n"];
+if(r["n"])return r["n"];
+var t2=r["i"]?ag(r["i"]):null;return t2?t2["name"]:"";
+}
 var me=prow>=0&&prow<st["length"]?st[prow]:null;
 var s=me?("第"+(prow+1)+"名 · "+ax(_gName(me))+" "+me["w"]+"胜"+me["d"]+"平"+me["l"]+"负 "+me["pts"]+"分"):title;
 var h="<div class=\"sm-grp\"><button type=\"button\" class=\"sm-grp-hd\" data-act=\"sm-grp\"><span class=\"sm-grp-t\">"+title+"</span><span class=\"sm-grp-s\">"+s+"</span><span class=\"sm-grp-c\">▸</span></button><div class=\"sm-grp-bd\"><div class=\"sm-tbl\"><div class=\"sm-tr sm-th\"><span>#</span><span>球队</span><span>胜/平/负</span><span>进/失</span><span>分</span></div>";
@@ -194,7 +199,7 @@ var _pg=_hid===_pid?m["hg"]:m["ag"];
 var _og=_hid===_pid?m["ag"]:m["hg"];
 _cls=_pg>_og?" won":(_pg<_og?" lost":" draw");
 }
-h+="<span class=\"sm-round"+_cls+"\">"+ax(hn)+" "+m["hg"]+"-"+m["ag"]+" "+ax(an)+"</span>";
+h+="<span class=\"sm-round"+_cls+"\">"+(_hT?_crTm(m["hid"]||m["homeId"],hn):ax(hn))+" "+m["hg"]+"-"+m["ag"]+" "+(_aT2?_crTm(m["aid"]||m["awayId"],an):ax(an))+"</span>";
 }
 h+="</div>";
 }
@@ -220,9 +225,22 @@ h+='<div class="wl-row'+(r["i"]===meTid?" me":"")+'">'
 });
 return h;
 }
-function _wlTm(id){var t2=ag(id);return t2?aT(t2)+ax(t2["name"]):ax(id);}
-/* 签表侧栏：有队徽就 队徽+队名，国家队等无注册队徽时回退到传入名 */
-function _wlSide(id,fb){var t2=id?ag(id):null;return t2?aT(t2)+ax(t2["name"]):ax(fb||id||'');}
+/* 统一「队徽+队名」行内格式：世界面板赛程/签表/小组赛/赛程 chips 共用（样式 .cr-tm）。
+   注意：国家队 id 与部分俱乐部 id 撞名（par=巴拉圭/帕尔马、col、kor 等），
+   必须先查国家队注册表（NATS），只有真正的俱乐部才走队徽渲染 */
+var _natMap=null;
+function _natMapGet(){
+if(!_natMap){_natMap={};(window["NATS"]||[]).forEach(function(n2){_natMap[n2["i"]]={'n':n2["n"],'f':n2["f"]||''};});}
+return _natMap;
+}
+function _crTm(id,fb){
+var nm=id?_natMapGet()[id]:null;
+if(nm)return'<span class="cr-tm">'+nm["f"]+' '+ax(nm["n"])+'</span>';
+var t2=id?ag(id):null;
+return t2?'<span class="cr-tm">'+aT(t2)+ax(t2["name"])+'</span>':ax(fb||id||'');
+}
+function _wlTm(id){return _crTm(id);}
+function _wlSide(id,fb){return _crTm(id,fb);}
 function _wlSeasonLab(n){if(!n)return'';var s2=(au&&au["seasons"]&&au["seasons"][n-1])||null;return'第'+n+'季'+(s2&&s2["age"]!=null?' · '+s2["age"]+'岁':'');}
 function _wlRounds(fx,meTid){
 if(!fx||!fx["length"])return'<div class="wl-empty">暂无当季赛程（完成首个赛季后生成）</div>';
@@ -297,7 +315,7 @@ h+='</div>';
 var cur=null;for(var ci=0;ci<cs["length"];ci++)if(cs[ci]["name"]===_wl["cup"])cur=cs[ci];
 var d2=window["SIM"]["world"]({'q':'cup','id':_wl["cup"]});
 h+='<div class="wl-title">'+ax(d2["name"])+'<span class="wl-note">'+_wlSeasonLab(d2["bracketSeason"])+'</span></div>';
-if(!d2["bracket"]&&cur&&cur["champ"]){var ct2=ag(cur["champ"]);h+='<div class="wl-title">上季冠军 '+(ct2?aT(ct2)+ax(ct2["name"]):'')+'</div>';}
+if(!d2["bracket"]&&cur&&cur["champ"]){var ct2=ag(cur["champ"]);h+='<div class="wl-title">上季冠军 '+_crTm(cur["champ"])+'</div>';}
 h+=_wlBracket(d2["bracket"]&&d2["bracket"]["all"],meTid,d2["bracket"]&&d2["bracket"]["champion"]);
 }else if(_wl["tab"]==='cont'){
 var cs2=window["SIM"]["world"]({'q':'conts'})["conts"];
@@ -348,7 +366,7 @@ var _f=nr["matches"][_fm];
 var _fg=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["hg"]:_f["ag"];
 var _fa=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["ag"]:_f["hg"];
 var _fcls=_fg>_fa?" won":(_fg<_fa?" lost":" draw");
-h+='<span class="sm-round'+_fcls+'">'+ax(_f["home"]||_f["hn"]||"")+" "+_f["hg"]+"-"+_f["ag"]+" "+ax(_f["away"]||_f["an"]||"")+'</span>';
+h+='<span class="sm-round'+_fcls+'">'+_crTm(_f["homeId"]||_f["hid"],_f["home"]||_f["hn"])+" "+_f["hg"]+"-"+_f["ag"]+" "+_crTm(_f["awayId"]||_f["aid"],_f["away"]||_f["an"])+'</span>';
 }
 h+='</div>';
 }
