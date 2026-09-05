@@ -780,7 +780,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'repeat': 1,
 
-  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
 
 
 
@@ -790,8 +790,8 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
     var cur=p["playerType"]!=null?p["playerType"]:11;
     var adjByGrp={
       'att':{0:[3,4],1:[2,5],2:[1,4],3:[0,2],4:[0,2],5:[1,2]},
-      'mid':{1:[5,6],5:[1,6],6:[1,7],7:[6]},
-      'def':{8:[9],9:[8,10],10:[9]}
+      'mid':{1:[5,6],2:[6,1],5:[1,6],6:[1,7],7:[6]},
+      'def':{2:[9,10],3:[8,9],8:[9],9:[8,10],10:[9]}
     };
     var adj=adjByGrp[p["posGroup"]];
     if(!adj)return null;
@@ -852,7 +852,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
-  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<15)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<15)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
 
 
 
@@ -862,8 +862,8 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
     var cur=p["playerType"]!=null?p["playerType"]:11;
     var evoByGrp={
       'att':{0:[4,2],1:[5,2],2:[1,4],3:[2,0],4:[2,3],5:[1,3]},
-      'mid':{1:[6,5],5:[1,7],6:[5,7],7:[6,5]},
-      'def':{8:[10,9],9:[8,10],10:[9,8]}
+      'mid':{1:[6,5],2:[1,6],5:[1,7],6:[5,7],7:[6,5]},
+      'def':{2:[9,8],3:[8,10],8:[10,9],9:[8,10],10:[9,8]}
     };
     var evo=evoByGrp[p["posGroup"]];
     if(!evo)return null;
@@ -920,7 +920,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'weight': 0x32,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<17)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<17)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
 
 
 
@@ -929,7 +929,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var cur=p["playerType"]!=null?p["playerType"]:11;
     var allByGrp={
-      'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]
+      'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]
     };
     var pool=allByGrp[p["posGroup"]];
     if(!pool)return null;

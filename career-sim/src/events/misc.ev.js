@@ -3821,9 +3821,9 @@ return{'ovr':0x3,'_sponsor':0x4,'text':"你告诉经纪人不续了。挂了电�
   'icon': '🏥',
   'weight': 0x26,
   'when': function(p){
-return!p["_injuryChain"]&&p["ovr"]>=0x3c;
+return!p["_injuryChain"]&&p["_severeInjury"];
 },
-  'desc': "比赛第三十分钟，你起跳争顶落地。左膝传来一声脆响——不是骨头，是韧带。你倒在草坪上，知道这次不一样。",
+  'desc': "比赛第三十分钟，你起跳争顶落地。左膝传来一声脆响——十字韧带断了。你倒在草坪上，队医跑过来的时候你已经知道这次不一样了。",
   'options': [
     {
       'label': "积极康复，按计划来",
@@ -3852,7 +3852,7 @@ return d(q,s)?{'_injuryChain':0x1,'ovr':0x1,'text':"你比预期提前两个月�
   'when': function(p){
 return p["_injuryChain"]===0x1&&p["seasonsAtClub"]>=0x1;
 },
-  'desc': "时隔八个月，你终于回到了大名单。教练问你：首发还是替补？你说：首发。他看了你很久，然后点了点头。",
+  'desc': "时隔十个月，你终于回到了大名单。膝盖上那道疤还在，但医生说已经完全恢复了。教练问你：首发还是替补？",
   'options': [
     {
       'label': "首发，用表现证明自己",

@@ -97,11 +97,16 @@ def run():
     harness.check(d_hi['slope'] > d_lo['slope'] + 0.08,
                   'P2 broken: longevity inversion')
 
-    # P3 cap-proximity: hugging maxOvr declines FASTER
-    c_near = json.loads(mr.eval(cohort_js('cN', 700000, 1.0, 32, 90, 90, win_end=40)))
-    c_far = json.loads(mr.eval(cohort_js('cF', 700000, 1.0, 32, 80, 90, win_end=40)))
-    print('P3 slopes near=%.2f(n%d) far=%.2f(n%d)' % (c_near['slope'], c_near['n'], c_far['slope'], c_far['n']))
-    harness.check(c_near['slope'] < c_far['slope'] - 0.1,
+    # P3 cap-proximity: hugging maxOvr declines FASTER（三种子平均降噪，同 P2）
+    p3 = []
+    for base in (700000, 800000, 900000):
+        cn = json.loads(mr.eval(cohort_js('cN', base, 1.0, 32, 90, 90, win_end=40)))
+        cf = json.loads(mr.eval(cohort_js('cF', base, 1.0, 32, 80, 90, win_end=40)))
+        p3.append((cn['slope'], cf['slope'], cn['n']))
+    near = sum(x[0] for x in p3) / len(p3)
+    far = sum(x[1] for x in p3) / len(p3)
+    print('P3 slopes near=%.2f(n%d) far=%.2f(n%d)' % (near, sum(x[2] for x in p3), far, sum(x[2] for x in p3)))
+    harness.check(near < far - 0.1,
                   'P3 broken: cap pressure inactive')
 
     print('PASS growth_curve (P1 Δ%.2f | P2 Δ%.2f | P3 Δ%.2f)'

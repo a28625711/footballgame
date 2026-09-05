@@ -76,10 +76,12 @@ print(f"Type transitions observed: {len(d['shifts'])}")
 for s in d['shifts']:
     print(f"  Age {s['age']}: {s['from']} -> {s['to']} ({s['event']})")
 
-# Safety check: no cross-position transitions
-att_types = set([0,1,2,3,4,5])  # 射手,组织核心,全能,速度型,支点,影锋
-mid_types = set([1,5,6,7])      # 组织核心,影锋,B2B,铁腰
-def_types = set([8,9,10])       # 边后卫,自由人,铁卫
+# Safety check: no cross-position transitions.
+# 类型组池与引擎一致（位置决定组，全能/速度型横跨多组）——
+# 转型合法当且仅当存在某个组同时包含前后两个类型
+att_types = set([0,1,2,3,4,5])  # 前场：射手,组织核心,全能,速度型,支点,影锋
+mid_types = set([1,2,5,6,7])    # 中场：组织核心,全能,影锋,B2B,铁腰
+def_types = set([2,3,8,9,10])   # 后场：全能,速度型,边后卫,自由人,铁卫
 
 TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将']
 name_to_idx={n:i for i,n in enumerate(TN)}
@@ -88,12 +90,8 @@ errors=[]
 for s in d['shifts']:
     fi=name_to_idx[s['from']]
     ti=name_to_idx[s['to']]
-    if fi in att_types and ti not in att_types:
-        errors.append(f"BAD: att {s['from']}->{s['to']}")
-    if fi in mid_types and ti not in mid_types:
-        errors.append(f"BAD: mid {s['from']}->{s['to']}")
-    if fi in def_types and ti not in def_types:
-        errors.append(f"BAD: def {s['from']}->{s['to']}")
+    if not any(fi in g and ti in g for g in (att_types,mid_types,def_types)):
+        errors.append(f"BAD: {s['from']}->{s['to']}")
 
 if errors:
     print("\n!!! CROSS-POSITION TRANSITIONS FOUND:")

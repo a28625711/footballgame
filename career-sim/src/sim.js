@@ -397,12 +397,14 @@ function calcPlayerType(){var p=a2["pos"],
 t=a2["talent"],o=a2["ovr"],a=a2["age"];
 if(p==="GK")return 0xb;
 if(p==="ST")return t>=1.25?0x2:(t>=1.05?(a<=0x14?0x3:0x0):(o>=35?0x0:0x4));
-if(p==="RW"||p==="LW")return t>=1.25?0x0:(a<=0x16?0x3:0x0);
-if(p==="CAM")return t>=1.15?0x1:(o>=50?0x1:0x5);
-if(p==="CM")return t>=1.2?0x1:(o>=50?0x2:0x6);
-if(p==="CDM")return t>=1.15?0x6:0x7;
-if(p==="CB")return t>=1.1?0x9:0xa;
-return t>=1.1?0x9:0x8;}
+/* 每个非门将位置至少 3 种初始类型：
+   边锋 0射手/3速度/2全能 · CAM 2全能/1组织/5影锋 · CDM 1组织/6B2B/7铁腰
+   CB 9自由人/2全能/10铁卫 · 边后卫 9自由人/8边后卫/3速度 */
+if(p==="RW"||p==="LW")return t>=1.25?0x0:(t>=1.05?(a<=0x16?0x3:0x0):(o>=40?0x3:0x2));
+if(p==="CAM")return t>=1.25?0x2:(t>=1.15?0x1:(o>=50?0x1:0x5));
+if(p==="CDM")return t>=1.25?0x1:(t>=1.15?0x6:0x7);
+if(p==="CB")return t>=1.2?0x9:(t>=1.05?0x2:0xa);
+return t>=1.2?0x9:(t>=1.05?0x8:(a<=0x16?0x3:0x8));}
 
 
 
