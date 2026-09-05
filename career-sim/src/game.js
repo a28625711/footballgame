@@ -268,12 +268,14 @@ all["forEach"](function(rd){
 h+='<div class="wl-bcol"><div class="wl-bhead">'+ax(rd["name"])+'</div>';
 rd["ties"]["forEach"](function(t){
 if(t["b"]){h+='<div class="wl-tie"><div class="wl-tm win"><span>'+_wlSide(t["h"],t["hn"])+'</span><i>轮空</i></div></div>';return;}
-var pen=t["p"]?'<i class="wl-pk">点球 '+t["p"][0]+'-'+t["p"][1]+'</i>':'';
-var sc=t["hg"]!=null?(t["hg"]+'-'+t["ag"]):(t["sa"]+'-'+t["sb"]);
 var hn=t["hn"]||(ag(t["h"])||{}).name||t["h"],an=t["an"]||(ag(t["a"])||{}).name||t["a"];
+/* 每队右侧显示自己这一侧的比分（两回合则显示总比分），点球追加括号：日本 2(5) / 中国 2(4) */
+var _hs,_as;
+if(t["hg"]!=null){_hs=t["hg"];_as=t["ag"];}else{_hs=t["sa"];_as=t["sb"];}
+if(t["p"]){_hs=_hs+'('+t["p"][0]+')';_as=_as+'('+t["p"][1]+')';}
 h+='<div class="wl-tie">'
-+'<div class="wl-tm'+(t["w"]===t["h"]?" win":"")+(t["h"]===meTid?" me":"")+'"><span>'+_wlSide(t["h"],hn)+'</span><i>'+(t["pd"]?'vs':sc)+'</i></div>'
-+'<div class="wl-tm'+(t["w"]===t["a"]?" win":"")+(t["a"]===meTid?" me":"")+'"><span>'+_wlSide(t["a"],an)+'</span><i>'+(t["pd"]?'待定':pen)+'</i></div>'
++'<div class="wl-tm'+(t["w"]===t["h"]?" win":"")+(t["h"]===meTid?" me":"")+'"><span>'+_wlSide(t["h"],hn)+'</span><i>'+(t["pd"]?'vs':_hs)+'</i></div>'
++'<div class="wl-tm'+(t["w"]===t["a"]?" win":"")+(t["a"]===meTid?" me":"")+'"><span>'+_wlSide(t["a"],an)+'</span><i>'+(t["pd"]?'待定':_as)+'</i></div>'
 +'</div>';
 });
 h+='</div>';

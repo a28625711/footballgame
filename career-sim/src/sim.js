@@ -1789,7 +1789,7 @@ return r;
 }
 function _scoreTxt(tie,
 meIsA){
-var base='总比分 '+(meIsA?tie["aggA"]+'-'+tie["aggB"]:tie["aggB"]+'-'+tie["aggA"]);
+var base=(meIsA?tie["aggA"]+'-'+tie["aggB"]:tie["aggB"]+'-'+tie["aggA"]);
 if(tie["pens"])base+=' (点球 '+tie["pens"][0]+'-'+tie["pens"][1]+')';
 return base;
 }
