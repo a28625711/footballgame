@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_league=[
 
 
 
 
+
 // ---- idx:306 | lg_epl_dec | 没有冬歇的十二月 ----
+
 
 
 
@@ -18,6 +21,7 @@ var EVT_league=[
   'icon': '📅',
   'weight': 0x50,
   'when': function(p){return "epl"===p["leagueId"];},
+
 
 
 
@@ -43,7 +47,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:307 | lg_epl_mixedzone | 混采区 ----
+
 
 
 
@@ -53,6 +60,7 @@ var EVT_league=[
   'icon': '🎤',
   'weight': 0x50,
   'when': function(p){return "epl"===p["leagueId"];},
+
 
 
 
@@ -78,7 +86,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:308 | lg_liga_tiki | 把球传进大门 ----
+
 
 
 
@@ -88,6 +99,7 @@ var EVT_league=[
   'icon': '🧩',
   'weight': 0x50,
   'when': function(p){return "liga"===p["leagueId"];},
+
 
 
 
@@ -113,7 +125,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:309 | lg_liga_clasico | 第一次国家德比 ----
+
 
 
 
@@ -123,6 +138,7 @@ var EVT_league=[
   'icon': '🔥',
   'weight': 0x52,
   'when': function(p){return "liga"===p["leagueId"]&&p["clubRep"]>=0x4;},
+
 
 
 
@@ -148,7 +164,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:310 | lg_bund_press | 从门将开始逼抢 ----
+
 
 
 
@@ -158,6 +177,7 @@ var EVT_league=[
   'icon': '🏃',
   'weight': 0x50,
   'when': function(p){return "bund"===p["leagueId"];},
+
 
 
 
@@ -183,7 +203,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:311 | lg_bund_kid | 十六岁的队友 ----
+
 
 
 
@@ -193,6 +216,7 @@ var EVT_league=[
   'icon': '🧒',
   'weight': 0x50,
   'when': function(p){return "bund"===p["leagueId"]&&p["age"]>=0x17;},
+
 
 
 
@@ -218,7 +242,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:312 | lg_seri_defense | 防守是一门功课 ----
+
 
 
 
@@ -228,6 +255,7 @@ var EVT_league=[
   'icon': '🛡',
   'weight': 0x50,
   'when': function(p){return "seri"===p["leagueId"]&&p["posGroup"]!=='gk';},
+
 
 
 
@@ -253,7 +281,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:313 | lg_seri_slow | 领先之后的九十分钟 ----
+
 
 
 
@@ -263,6 +294,7 @@ var EVT_league=[
   'icon': '⏱',
   'weight': 0x50,
   'when': function(p){return "seri"===p["leagueId"];},
+
 
 
 
@@ -288,7 +320,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:314 | lg_l1_scouts | 看台上的陌生人 ----
+
 
 
 
@@ -298,6 +333,7 @@ var EVT_league=[
   'icon': '🔭',
   'weight': 0x50,
   'when': function(p){return 'l1'===p["leagueId"];},
+
 
 
 
@@ -323,7 +359,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:315 | lg_l1_tower | 巴别塔更衣室 ----
+
 
 
 
@@ -333,6 +372,7 @@ var EVT_league=[
   'icon': '🌍',
   'weight': 0x50,
   'when': function(p){return 'l1'===p["leagueId"];},
+
 
 
 
@@ -358,7 +398,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:316 | lg_ere_price | 下一个标价 ----
+
 
 
 
@@ -368,6 +411,7 @@ var EVT_league=[
   'icon': '🏷',
   'weight': 0x50,
   'when': function(p){return "ere"===p["leagueId"];},
+
 
 
 
@@ -393,7 +437,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:317 | lg_pri_sea | 南美的孩子们 ----
+
 
 
 
@@ -403,6 +450,7 @@ var EVT_league=[
   'icon': '🌊',
   'weight': 0x50,
   'when': function(p){return "pri"===p["leagueId"];},
+
 
 
 
@@ -428,7 +476,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:318 | lg_jup_step | 跳板 ----
+
 
 
 
@@ -438,6 +489,7 @@ var EVT_league=[
   'icon': '🪜',
   'weight': 0x50,
   'when': function(p){return "jup"===p["leagueId"];},
+
 
 
 
@@ -463,7 +515,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:319 | lg_seg_bus | 大巴与人工草皮 ----
+
 
 
 
@@ -473,6 +528,7 @@ var EVT_league=[
   'icon': '🚌',
   'weight': 0x50,
   'when': function(p){return "seg"===p["leagueId"];},
+
 
 
 
@@ -498,7 +554,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:320 | lg_b2_climb | 冲甲积分榜 ----
+
 
 
 
@@ -508,6 +567,7 @@ var EVT_league=[
   'icon': '📈',
   'weight': 0x50,
   'when': function(p){return "b2"===p["leagueId"];},
+
 
 
 
@@ -533,7 +593,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:321 | lg_ch_grind | 四十六轮 ----
+
 
 
 
@@ -543,6 +606,7 @@ var EVT_league=[
   'icon': '♻️',
   'weight': 0x50,
   'when': function(p){return "ch"===p["leagueId"];},
+
 
 
 
@@ -568,7 +632,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:322 | lg_jl_detail | 细节即一切 ----
+
 
 
 
@@ -578,6 +645,7 @@ var EVT_league=[
   'icon': '📐',
   'weight': 0x50,
   'when': function(p){return "jl"===p["leagueId"];},
+
 
 
 
@@ -603,7 +671,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:323 | lg_kl_service | 兵役倒计时 ----
+
 
 
 
@@ -613,6 +684,7 @@ var EVT_league=[
   'icon': '⏳',
   'weight': 0x50,
   'when': function(p){return "kl"===p["leagueId"];},
+
 
 
 
@@ -638,7 +710,10 @@ var EVT_league=[
 
 
 
+
+
 // ---- idx:324 | lg_mls_coast | 五个时区 ----
+
 
 
 
@@ -648,6 +723,7 @@ var EVT_league=[
   'icon': '✈️',
   'weight': 0x50,
   'when': function(p){return "mls"===p["leagueId"];},
+
 
 
 
@@ -668,6 +744,7 @@ var EVT_league=[
 }
 
 ];
+
 
 
 

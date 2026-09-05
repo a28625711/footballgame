@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_club=[
 
 
 
 
+
 // ---- idx:301 | club_5yrs | 五年老臣 ----
+
 
 
 
@@ -18,6 +21,7 @@ var EVT_club=[
   'icon': '📜',
   'weight': 0x30,
   'when': function(p){return p["seasonsAtClub"]>=0x5&&p["seasonsAtClub"]<0x8;},
+
 
 
 
@@ -43,7 +47,10 @@ var EVT_club=[
 
 
 
+
+
 // ---- idx:302 | club_10yrs | 十年一诺 ----
+
 
 
 
@@ -53,6 +60,7 @@ var EVT_club=[
   'icon': '🏆',
   'weight': 0x38,
   'when': function(p){return p["seasonsAtClub"]>=0xa&&p["youthTeamId"]===p["teamId"];},
+
 
 
 
@@ -78,7 +86,10 @@ var EVT_club=[
 
 
 
+
+
 // ---- idx:303 | club_10yrs_way | 十年之约 ----
+
 
 
 
@@ -88,6 +99,7 @@ var EVT_club=[
   'icon': '🏆',
   'weight': 0x38,
   'when': function(p){return p["seasonsAtClub"]>=0xa&&p["youthTeamId"]!==p["teamId"];},
+
 
 
 
@@ -108,6 +120,7 @@ var EVT_club=[
 }
 
 ];
+
 
 
 

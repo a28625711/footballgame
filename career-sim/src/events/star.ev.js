@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_star=[
 
 
 
 
+
 // ---- idx:215 | star_mar | ? ----
+
 
 
 
@@ -20,6 +23,7 @@ var EVT_star=[
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"def"===p["posGroup"];
 },
+
 
 
 
@@ -54,7 +58,10 @@ return{'fame':0x2,'guanxi':0x4,'text':"你始终和他保持两米，把他往�
 
 
 
+
+
 // ---- idx:216 | star_def | 他这一侧 ----
+
 
 
 
@@ -66,6 +73,7 @@ return{'fame':0x2,'guanxi':0x4,'text':"你始终和他保持两米，把他往�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"def"===p["posGroup"];
 },
+
 
 
 
@@ -100,7 +108,10 @@ return{'guanxi':0x8,'fame':0x2,'text':"你每次给他留出外侧，逼他往�
 
 
 
+
+
 // ---- idx:217 | star_pen | 点球点上的那个人 ----
+
 
 
 
@@ -112,6 +123,7 @@ return{'guanxi':0x8,'fame':0x2,'text':"你每次给他留出外侧，逼他往�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&'gk'===p["posGroup"];
 },
+
 
 
 
@@ -152,7 +164,10 @@ return d(q,s)?{'ovr':0x4,'fame':0x22,'roleDelta':0x1,'text':"你站在门线中�
 
 
 
+
+
 // ---- idx:218 | star_mid | 中圈那一圈 ----
+
 
 
 
@@ -164,6 +179,7 @@ return d(q,s)?{'ovr':0x4,'fame':0x22,'roleDelta':0x1,'text':"你站在门线中�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"mid"===p["posGroup"];
 },
+
 
 
 
@@ -198,7 +214,10 @@ return{'ovr':0x1,'text':"你不再单独追他，只守住身前那一块。他�
 
 
 
+
+
 // ---- idx:219 | star_mid | 绞肉机 ----
+
 
 
 
@@ -210,6 +229,7 @@ return{'ovr':0x1,'text':"你不再单独追他，只守住身前那一块。他�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"mid"===p["posGroup"];
 },
+
 
 
 
@@ -244,7 +264,10 @@ return{'ovr':0x1,'text':"你退到两名中卫身前，他出球七十九次，�
 
 
 
+
+
 // ---- idx:220 | star_mid | 那脚直塞 ----
+
 
 
 
@@ -256,6 +279,7 @@ return{'ovr':0x1,'text':"你退到两名中卫身前，他出球七十九次，�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"mid"===p["posGroup"];
 },
+
 
 
 
@@ -290,7 +314,10 @@ return{'guanxi':0xa,'ovr':0x1,'text':"你整场贴着他最习惯的接球位，
 
 
 
+
+
 // ---- idx:221 | star_str | 另一头那个九号 ----
+
 
 
 
@@ -302,6 +329,7 @@ return{'guanxi':0xa,'ovr':0x1,'text':"你整场贴着他最习惯的接球位，
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
 },
+
 
 
 
@@ -336,7 +364,10 @@ return{'ovr':0x1,'guanxi':0x8,'text':"你回撤了很多，跑了十一公里，
 
 
 
+
+
 // ---- idx:222 | star_att | 他起步的那一下 ----
+
 
 
 
@@ -348,6 +379,7 @@ return{'ovr':0x1,'guanxi':0x8,'text':"你回撤了很多，跑了十一公里，
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
 },
+
 
 
 
@@ -382,7 +414,10 @@ return{'fame':0x2,'guanxi':0x6,'text':"你只贴他两步，第三步就回中�
 
 
 
+
+
 // ---- idx:223 | star_att | 他背身那一块 ----
+
 
 
 
@@ -394,6 +429,7 @@ return{'fame':0x2,'guanxi':0x6,'text':"你只贴他两步，第三步就回中�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
 },
+
 
 
 
@@ -428,7 +464,10 @@ return{'clean':0x4,'ovr':0x1,'text':"你整场站在他身前，他拿到球的�
 
 
 
+
+
 // ---- idx:224 | star_tea | 更衣室里那个位置 ----
+
 
 
 
@@ -440,6 +479,7 @@ return{'clean':0x4,'ovr':0x1,'text':"你整场站在他身前，他拿到球的�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&p["clubRep"]>=0x4;
 },
+
 
 
 
@@ -468,7 +508,10 @@ return{'roleDelta':-0x1,'guanxi':0xe,'clean':0x4,'text':"你主动改踢另一�
 
 
 
+
+
 // ---- idx:225 | star_shi | 赛后换球衣 ----
+
 
 
 
@@ -480,6 +523,7 @@ return{'roleDelta':-0x1,'guanxi':0xe,'clean':0x4,'text':"你主动改踢另一�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4;
 },
+
 
 
 
@@ -508,7 +552,10 @@ return{'clean':0x6,'ovr':0x1,'text':"你没有去。更衣室里，你把自己�
 
 
 
+
+
 // ---- idx:226 | star_pre | 记者的那个问题 ----
+
 
 
 
@@ -520,6 +567,7 @@ return{'clean':0x6,'ovr':0x1,'text':"你没有去。更衣室里，你把自己�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&p["fame"]>=0x19;
 },
+
 
 
 
@@ -554,7 +602,10 @@ return d(q,s)?{'fame':0x1a,'guanxi':0x4,'ovr':0x1,'text':"话一说完，全场�
 
 
 
+
+
 // ---- idx:227 | star_tra | 训练课上的一对一 ----
+
 
 
 
@@ -566,6 +617,7 @@ return d(q,s)?{'fame':0x1a,'guanxi':0x4,'ovr':0x1,'text':"话一说完，全场�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&p["clubRep"]>=0x4;
 },
+
 
 
 
@@ -600,7 +652,10 @@ return{'ovr':0x1,'text':"你跑完了教练要求的每一米，一次多余的�
 
 
 
+
+
 // ---- idx:228 | star_ucl | 欧冠淘汰赛的那两 ----
+
 
 
 
@@ -612,6 +667,7 @@ return{'ovr':0x1,'text':"你跑完了教练要求的每一米，一次多余的�
   'when': function(p){
 return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&p["hasCont"]&&p["roleRank"]>=0x3;
 },
+
 
 
 
@@ -646,7 +702,10 @@ return{'fame':0x8,'guanxi':0x6,'text':"你守住了自己那块，球队总比�
 
 
 
+
+
 // ---- idx:229 | star_sau | 沙漠里的那些名字 ----
+
 
 
 
@@ -658,6 +717,7 @@ return{'fame':0x8,'guanxi':0x6,'text':"你守住了自己那块，球队总比�
   'when': function(p){
 return!p["inChina"]&&"spl"===p["leagueId"];
 },
+
 
 
 
@@ -692,7 +752,10 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
 
 
 
+
+
 // ---- idx:304 | star_training2 | 大师的中场课 ----
+
 
 
 
@@ -702,6 +765,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
   'icon': '🎯',
   'weight': 0x96,
   'when': function(p){return "mid"===p["posGroup"]&&!p["inChina"]&&p["leagueRep"]>=0x4&&p["clubRep"]>=0x4;},
+
 
 
 
@@ -727,7 +791,10 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
 
 
 
+
+
 // ---- idx:305 | star_training3 | 门前的最后一课 ----
+
 
 
 
@@ -737,6 +804,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
   'icon': '⚽',
   'weight': 0x96,
   'when': function(p){return "att"===p["posGroup"]&&!p["inChina"]&&p["leagueRep"]>=0x4&&p["clubRep"]>=0x4;},
+
 
 
 
@@ -757,6 +825,7 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
 }
 
 ];
+
 
 
 

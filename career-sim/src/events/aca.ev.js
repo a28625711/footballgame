@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_aca=[
 
 
 
 
+
 // ---- idx:154 | aca_rese | 预备队联赛 ----
+
 
 
 
@@ -22,6 +25,7 @@ var EVT_aca=[
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -50,7 +54,10 @@ return{'ovr':0x1,'guanxi':0x8,'text':"合练那天你拼得最凶。一线队助
 
 
 
+
+
 // ---- idx:155 | aca_sign | 同批人签走了一个 ----
+
 
 
 
@@ -61,6 +68,7 @@ return{'ovr':0x1,'guanxi':0x8,'text':"合练那天你拼得最凶。一线队助
   'weight': 0x38,
   'stage': "youth",
   'repeat': 1,
+
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -95,7 +103,10 @@ return d(q,s)?{'ovr':0x2,'guanxi':0x6,'text':"他给你看了评估表：三项�
 
 
 
+
+
 // ---- idx:156 | aca_newc | 教练组换了一茬 ----
+
 
 
 
@@ -106,6 +117,7 @@ return d(q,s)?{'ovr':0x2,'guanxi':0x6,'text':"他给你看了评估表：三项�
   'weight': 0x36,
   'stage': "youth",
   'repeat': 1,
+
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -137,7 +149,10 @@ return{'guanxi':0xc,'ovr':-0x1,'clean':-0x4,'text':"老教练真的打了那通�
 
 
 
+
+
 // ---- idx:157 | aca_gym | 力量房的那两年 ----
+
 
 
 
@@ -150,6 +165,7 @@ return{'guanxi':0xc,'ovr':-0x1,'clean':-0x4,'text':"老教练真的打了那通�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -183,7 +199,10 @@ return{'ovr':0x1,'text':"你按自己的节奏来。技术教练点头，体能�
 
 
 
+
+
 // ---- idx:158 | aca_demo | 被放回低一档 ----
+
 
 
 
@@ -196,6 +215,7 @@ return{'ovr':0x1,'text':"你按自己的节奏来。技术教练点头，体能�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -227,7 +247,10 @@ return d(q,s)?{'ovr':0x3,'guanxi':0x6,'text':"他们让你去当了三周陪练�
 
 
 
+
+
 // ---- idx:159 | aca_benc | 一线队的替补名单 ----
+
 
 
 
@@ -240,6 +263,7 @@ return d(q,s)?{'ovr':0x3,'guanxi':0x6,'text':"他们让你去当了三周陪练�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -271,7 +295,10 @@ return{'ovr':0x2,'clean':0x4,'text':"第二天，你第一个到基地。没有�
 
 
 
+
+
 // ---- idx:160 | aca_fami | 家里问什么时候签 ----
+
 
 
 
@@ -284,6 +311,7 @@ return{'ovr':0x2,'clean':0x4,'text':"第二天，你第一个到基地。没有�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -312,7 +340,10 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你托人问了几家低级别球队。�
 
 
 
+
+
 // ---- idx:161 | aca_abr_ | 宿舍楼空了 ----
+
 
 
 
@@ -326,6 +357,7 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你托人问了几家低级别球队。�
   'when': function(p){
 return p["inAcadem"+'y']&&!p["inChina"];
 },
+
 
 
 
@@ -354,7 +386,10 @@ return{'ovr':0x1,'clean':0x4,'text':"你睡了三天。然后一个人坐火车�
 
 
 
+
+
 // ---- idx:162 | aca_abr_ | 满十八岁那道关 ----
+
 
 
 
@@ -367,6 +402,7 @@ return{'ovr':0x1,'clean':0x4,'text':"你睡了三天。然后一个人坐火车�
   'when': function(p){
 return p["inAcadem"+'y']&&!p["inChina"];
 },
+
 
 
 
@@ -395,7 +431,10 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"你去了邻国的二级联赛，那边�
 
 
 
+
+
 // ---- idx:163 | aca_cn_s | 梯队里的老队员 ----
+
 
 
 
@@ -406,6 +445,7 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"你去了邻国的二级联赛，那边�
   'weight': 0x34,
   'stage': "youth",
   'repeat': 1,
+
   'when': function(p){
 return p["inAcadem"+'y']&&p["inChina"];
 },
@@ -414,6 +454,7 @@ return p["inAcadem"+'y']&&p["inChina"];
 
   'cn': !0x0,
   'desc': "梯队里比你小三岁的孩子，已经去跟一线队合练了，而你还在这儿。队里人管你叫「老人」——那不是好话。",
+
   'options': [
     {
         'label': "找人问问能不能走",
@@ -438,7 +479,10 @@ return{'ovr':0x3,'clean':0x5,'text':"你把那句「老人」当成每天起床�
 
 
 
+
+
 // ---- idx:164 | aca_cn_s | 回去读书还来得及 ----
+
 
 
 
@@ -451,6 +495,7 @@ return{'ovr':0x3,'clean':0x5,'text':"你把那句「老人」当成每天起床�
   'when': function(p){
 return p["inAcadem"+'y']&&p["inChina"];
 },
+
 
 
 
@@ -475,6 +520,7 @@ return{'ovr':0x3,'clean':0x4,'text':"你把课本收进箱子，塞到床底。�
 }
 
 ];
+
 
 
 

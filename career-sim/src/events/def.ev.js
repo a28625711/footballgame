@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_def=[
 
 
 
 
+
 // ---- idx:101 | def_offs | 造越位 ----
+
 
 
 
@@ -20,6 +23,7 @@ var EVT_def=[
   'when': function(p){
 return "def"===p["posGroup"];
 },
+
 
 
 
@@ -51,7 +55,10 @@ return{'text':"你按老办法回追。防线没被打穿，可也没人说这�
 
 
 
+
+
 // ---- idx:102 | def_aeri | ? ----
+
 
 
 
@@ -63,6 +70,7 @@ return{'text':"你按老办法回追。防线没被打穿，可也没人说这�
   'when': function(p){
 return "def"===p["posGroup"];
 },
+
 
 
 
@@ -94,7 +102,10 @@ return{'roleDelta':-0x1,'text':"门将替你摘了一年高球。后来他在采
 
 
 
+
+
 // ---- idx:103 | def_buil | 后场出球 ----
+
 
 
 
@@ -106,6 +117,7 @@ return{'roleDelta':-0x1,'text':"门将替你摘了一年高球。后来他在采
   'when': function(p){
 return "def"===p["posGroup"];
 },
+
 
 
 
@@ -137,7 +149,10 @@ return{'roleDelta':-0x1,'text':"你把球全往看台上招呼。安全，可战
 
 
 
+
+
 // ---- idx:104 | def_tact | 战术犯规 ----
+
 
 
 
@@ -149,6 +164,7 @@ return{'roleDelta':-0x1,'text':"你把球全往看台上招呼。安全，可战
   'when': function(p){
 return "def"===p["posGroup"];
 },
+
 
 
 
@@ -180,7 +196,10 @@ return d(q,s)?{'ovr':0x2,'fame':0x8,'text':"你从三十米外追上去，在禁
 
 
 
+
+
 // ---- idx:105 | def_pace | 追不上了 ----
+
 
 
 
@@ -193,6 +212,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x8,'text':"你从三十米外追上去，在禁
   'when': function(p){
 return "def"===p["posGroup"];
 },
+
 
 
 
@@ -224,7 +244,10 @@ return d(q,s)?{'fame':0x8,'ovr':0x1,'text':"你靠着经验和小动作，又扛
 
 
 
+
+
 // ---- idx:106 | def_mars | 后防线的嘴 ----
+
 
 
 
@@ -236,6 +259,7 @@ return d(q,s)?{'fame':0x8,'ovr':0x1,'text':"你靠着经验和小动作，又扛
   'when': function(p){
 return "def"===p["posGroup"]&&p["roleRank"]>=0x3;
 },
+
 
 
 
@@ -264,7 +288,10 @@ return{'text':"防线还是各踢各的。丢球之后，大家互相看一眼�
 
 
 
+
+
 // ---- idx:107 | def_own_ | 禁区里那只手 ----
+
 
 
 
@@ -276,6 +303,7 @@ return{'text':"防线还是各踢各的。丢球之后，大家互相看一眼�
   'when': function(p){
 return "def"===p["posGroup"];
 },
+
 
 
 
@@ -307,7 +335,10 @@ return{'clean':0x8,'fame':-0x8,'guanxi':-0x6,'text':"你举了手。对方球员
 
 
 
+
+
 // ---- idx:108 | def_full | 边后卫要不要压上 ----
+
 
 
 
@@ -319,6 +350,7 @@ return{'clean':0x8,'fame':-0x8,'guanxi':-0x6,'text':"你举了手。对方球员
   'when': function(p){
 return "def"===p["posGroup"];
 },
+
 
 
 
@@ -345,6 +377,7 @@ return{'ovr':0x1,'text':"你老老实实待在自"+"己那条线上。数据"+"�
 }
 
 ];
+
 
 
 

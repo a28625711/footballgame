@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_gk=[
 
 
 
 
+
 // ---- idx:81 | gk_penal | 点球大战 ----
+
 
 
 
@@ -20,6 +23,7 @@ var EVT_gk=[
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -54,7 +58,10 @@ return d(q,s)?{'ovr':0x2,'fame':0x16,'mult':{'cup':2.5},'text':"你赌了一个�
 
 
 
+
+
 // ---- idx:85 | gk_sweep | 出击还是守线 ----
+
 
 
 
@@ -66,6 +73,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x16,'mult':{'cup':2.5},'text':"你赌了一个�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -97,7 +105,10 @@ return{'roleDelta':-0x1,'ovr':0x1,'text':"你不出来。防线因此往回收�
 
 
 
+
+
 // ---- idx:86 | gk_howle | 黄油手 ----
+
 
 
 
@@ -109,6 +120,7 @@ return{'roleDelta':-0x1,'ovr':0x1,'text':"你不出来。防线因此往回收�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -140,7 +152,10 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"下一场，你扑出了两个必进
 
 
 
+
+
 // ---- idx:87 | gk_distr | 脚下活 ----
+
 
 
 
@@ -152,6 +167,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"下一场，你扑出了两个必进
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -183,7 +199,10 @@ return{'text':"你还是一脚开到中"+"线。教练摇头，但"+"没换你�
 
 
 
+
+
 // ---- idx:88 | gk_numbe | 一号位 ----
+
 
 
 
@@ -195,6 +214,7 @@ return{'text':"你还是一脚开到中"+"线。教练摇头，但"+"没换你�
   'when': function(p){
 return'gk'===p["posGroup"]&&p["roleRank"]<=0x2;
 },
+
 
 
 
@@ -226,7 +246,10 @@ return{'leave':!0x0,'ovr':0x2,'text':"你去了一支保级队，场场首发。
 
 
 
+
+
 // ---- idx:89 | gk_line | 门线上的那半个球 ----
+
 
 
 
@@ -238,6 +261,7 @@ return{'leave':!0x0,'ovr':0x2,'text':"你去了一支保级队，场场首发。
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -266,7 +290,10 @@ return{'guanxi':0x8,'ovr':-0x1,'text':"你什么都没说。慢镜头里，那�
 
 
 
+
+
 // ---- idx:90 | gk_coach | 门将教练走了 ----
+
 
 
 
@@ -278,6 +305,7 @@ return{'guanxi':0x8,'ovr':-0x1,'text':"你什么都没说。慢镜头里，那�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -309,7 +337,10 @@ return d(q,s)?{'ovr':0x1,'text':"新方法你居然适应了。身体确实比�
 
 
 
+
+
 // ---- idx:91 | gk_shoot | 门将罚点球 ----
+
 
 
 
@@ -321,6 +352,7 @@ return d(q,s)?{'ovr':0x1,'text':"新方法你居然适应了。身体确实比�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -352,7 +384,10 @@ return{'text':"你摆摆手，让门将教练去跟主帅说。第十一个走�
 
 
 
+
+
 // ---- idx:92 | gk_old_k | 三十六岁的门将 ----
+
 
 
 
@@ -365,6 +400,7 @@ return{'text':"你摆摆手，让门将教练去跟主帅说。第十一个走�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -393,7 +429,10 @@ return{'roleDelta':-0x1,'guanxi':0x12,'fame':0x6,'text':"你把二十年攒下�
 
 
 
+
+
 // ---- idx:93 | gk_corne | 最后一分钟的角球 ----
+
 
 
 
@@ -405,6 +444,7 @@ return{'roleDelta':-0x1,'guanxi':0x12,'fame':0x6,'text':"你把二十年攒下�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -439,7 +479,10 @@ return{'guanxi':0x4,'text':"你站在中线上看完了那个角球。终场哨�
 
 
 
+
+
 // ---- idx:94 | gk_last_ | 最后一个人 ----
+
 
 
 
@@ -451,6 +494,7 @@ return{'guanxi':0x4,'text':"你站在中线上看完了那个角球。终场哨�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -484,7 +528,10 @@ return d(q,s)?{'ovr':0x3,'fame':0xe,'text':"他挑射，球擦着横梁飞出底
 
 
 
+
+
 // ---- idx:95 | gk_clean | 不失球的分钟数 ----
+
 
 
 
@@ -496,6 +543,7 @@ return d(q,s)?{'ovr':0x3,'fame':0xe,'text':"他挑射，球擦着横梁飞出底
   'when': function(p){
 return'gk'===p["posGroup"]&&p["roleRank"]>=0x3;
 },
+
 
 
 
@@ -530,7 +578,10 @@ return{'ovr':0x1,'guanxi':0xc,'text':"你在替补席上看完了那场，二号
 
 
 
+
+
 // ---- idx:96 | gk_capta | 戴袖标的门将 ----
+
 
 
 
@@ -542,6 +593,7 @@ return{'ovr':0x1,'guanxi':0xc,'text':"你在替补席上看完了那场，二号
   'when': function(p){
 return'gk'===p["posGroup"]&&p["roleRank"]>=0x3&&p["seasonsA"+"tClub"]>=0x3&&p["ovr"]>=0x32+0x4*(p["clubRep"]||0x0)&&(p["capDone"]||[])["indexOf"](p["teamId"])<0x0;
 },
+
 
 
 
@@ -570,7 +622,10 @@ return{'ovr':0x2,'guanxi':0x6,'capDecline':!0x0,'text':"你说自己在门里喊
 
 
 
+
+
 // ---- idx:97 | gk_var_r | VAR 说重罚 ----
+
 
 
 
@@ -582,6 +637,7 @@ return{'ovr':0x2,'guanxi':0x6,'capDecline':!0x0,'text':"你说自己在门里喊
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -620,7 +676,10 @@ return d(q,s)?{'ovr':0x1,'fame':0x10,'guanxi':-0x8,'text':"你拉着主裁说了
 
 
 
+
+
 // ---- idx:98 | gk_charg | 他撞的是人不是球 ----
+
 
 
 
@@ -633,6 +692,7 @@ return d(q,s)?{'ovr':0x1,'fame':0x10,'guanxi':-0x8,'text':"你拉着主裁说了
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -661,7 +721,10 @@ return{'banGames':0x2,'fame':0x10,'guanxi':-0xe,'text':"黄牌，你没停下。
 
 
 
+
+
 // ---- idx:99 | gk_nt_nu | ? ----
+
 
 
 
@@ -673,6 +736,7 @@ return{'banGames':0x2,'fame':0x10,'guanxi':-0xe,'text':"黄牌，你没停下。
   'when': function(p){
 return'gk'===p["posGroup"]&&p["caps"]>=0x5;
 },
+
 
 
 
@@ -706,7 +770,10 @@ return{'ovr':0x3,'caps':0x1,'fame':-0x4,'text':"你每天比另外两个早到�
 
 
 
+
+
 // ---- idx:100 | gk_finge | ? ----
+
 
 
 
@@ -718,6 +785,7 @@ return{'ovr':0x3,'caps':0x1,'fame':-0x4,'text':"你每天比另外两个早到�
   'when': function(p){
 return'gk'===p["posGroup"];
 },
+
 
 
 
@@ -744,6 +812,7 @@ return d(q,s)?{'ovr':0x2,'fame':0xa,'guanxi':0x8,'text':"整个赛季，你把�
 }
 
 ];
+
 
 
 

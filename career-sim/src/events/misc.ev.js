@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_misc=[
 
 
 
 
+
 // ---- idx:0 | extra_tr | ? ----
+
 
 
 
@@ -19,6 +22,7 @@ var EVT_misc=[
   'weight': 0x5a,
   'repeat': 0x2,
   'desc': "队里加了一期封闭集训。名单贴出来的第二天，教练在更衣室堵住你，只问了一句话。",
+
 
 
 
@@ -49,7 +53,10 @@ return{'text':"你按原计划走完了这一期。没有惊喜，也没有意�
 
 
 
+
+
 // ---- idx:1 | nutritio | 营养师 ----
+
 
 
 
@@ -87,7 +94,10 @@ return{'text':"你照旧吃你的。队医摇摇头，那份食谱落到了别�
 
 
 
+
+
 // ---- idx:2 | suppleme | 来路不明的补剂 ----
+
 
 
 
@@ -97,6 +107,7 @@ return{'text':"你照旧吃你的。队医摇摇头，那份食谱落到了别�
   'icon': '💊',
   'weight': 0x28,
   'desc': "有人塞给你两瓶看不出名堂的胶囊，压低声音：「队里好几个都在吃，查不出来的。」",
+
 
 
 
@@ -129,7 +140,10 @@ return{'clean':0x5,'text':"胶囊进了马桶。塞给你的人，后来再没�
 
 
 
+
+
 // ---- idx:3 | load | 赛季负荷 ----
+
 
 
 
@@ -141,6 +155,7 @@ return{'clean':0x5,'text':"胶囊进了马桶。塞给你的人，后来再没�
   'repeat': 0x2,
   'stage': "prime",
   'desc': "赛程密到一周三赛。队医让你轮休，主教练点名要你场场首发。两个人都在等你表态。",
+
 
 
 
@@ -171,7 +186,10 @@ return{'roleDelta':-0x1,'ovr':0x2,'text':"比赛少了一半，身体是保住�
 
 
 
+
+
 // ---- idx:4 | position | 位置改造 ----
+
 
 
 
@@ -183,6 +201,7 @@ return{'roleDelta':-0x1,'ovr':0x2,'text':"比赛少了一半，身体是保住�
   'when': function(p){
 return'gk'!==p["posGroup"];
 },
+
 
 
 
@@ -211,7 +230,10 @@ return{'roleDelta':-0x1,'text':"你守住了自己的位置。教练也守住了
 
 
 
+
+
 // ---- idx:5 | competit | 有人来抢位置 ----
+
 
 
 
@@ -224,6 +246,7 @@ return{'roleDelta':-0x1,'text':"你守住了自己的位置。教练也守住了
   'when': function(p){
 return p["roleRank"]<=0x3;
 },
+
 
 
 
@@ -256,7 +279,10 @@ return{'leave':!0x0,'text':"你让经纪人放话出去：想踢球，哪里都�
 
 
 
+
+
 // ---- idx:6 | competit | 队里买了替身 ----
+
 
 
 
@@ -269,6 +295,7 @@ return{'leave':!0x0,'text':"你让经纪人放话出去：想踢球，哪里都�
   'when': function(p){
 return p["roleRank"]>=0x4;
 },
+
 
 
 
@@ -301,7 +328,10 @@ return d(q,s)?{'fame':0xa,'roleDelta':0x1,'text':"那个赛季的每一分钟你
 
 
 
+
+
 // ---- idx:7 | prospect | 小孩上来了 ----
+
 
 
 
@@ -314,6 +344,7 @@ return d(q,s)?{'fame':0xa,'roleDelta':0x1,'text':"那个赛季的每一分钟你
   'when': function(p){
 return p["roleRank"]<=0x3;
 },
+
 
 
 
@@ -345,7 +376,10 @@ return d(q,s)?{'roleDelta':0x1,'text':"你用状态说话，把他按回替补�
 
 
 
+
+
 // ---- idx:8 | captain | 队长袖标 ----
+
 
 
 
@@ -358,6 +392,7 @@ return d(q,s)?{'roleDelta':0x1,'text':"你用状态说话，把他按回替补�
   'when': function(p){
 return p["roleRank"]>=0x3&&p["seasonsA"+"tClub"]>=0x2&&p["ovr"]>=0x32+0x4*(p["clubRep"]||0x0)&&(p["capDone"]||[])["indexOf"](p["teamId"])<0x0;
 },
+
 
 
 
@@ -390,7 +425,10 @@ return{'capDecline':!0x0,'text':"你说，还是专心踢球吧。教练点点�
 
 
 
+
+
 // ---- idx:9 | coach_ch | ? ----
+
 
 
 
@@ -401,6 +439,7 @@ return{'capDecline':!0x0,'text':"你说，还是专心踢球吧。教练点点�
   'weight': 0x37,
   'repeat': 0x3,
   'desc': "{club}中途换帅。新教练第一堂课，就把所有人的位置重新洗了一遍。",
+
 
 
 
@@ -424,7 +463,10 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"新体系反而更适合你。�
 
 
 
+
+
 // ---- idx:10 | rival_of | 死敌的报价 ----
+
 
 
 
@@ -435,6 +477,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"新体系反而更适合你。�
   'weight': 0x46,
   'stage': "prime",
   'desc': "{rival}想签你。钱和荣誉都更多，代价是穿上这座城里最不该穿的那件球衣。",
+
 
 
 
@@ -462,7 +505,10 @@ return{'fame':0xe,'roleDelta':0x1,'text':"采访里你说了句「我不会走�
 
 
 
+
+
 // ---- idx:11 | crisis | 球队掉队了 ----
+
 
 
 
@@ -474,6 +520,7 @@ return{'fame':0xe,'roleDelta':0x1,'text':"采访里你说了句「我不会走�
   'when': function(p){
 return p["clubRep"]<=0x2;
 },
+
 
 
 
@@ -502,7 +549,10 @@ return{'leave':!0x0,'fame':-0x8,'text':"球队最难的时候，你递上了转�
 
 
 
+
+
 // ---- idx:12 | crisis_b | 掉出争冠圈 ----
+
 
 
 
@@ -514,6 +564,7 @@ return{'leave':!0x0,'fame':-0x8,'text':"球队最难的时候，你递上了转�
   'when': function(p){
 return p["clubRep"]>=0x3;
 },
+
 
 
 
@@ -549,7 +600,10 @@ return{'leave':!0x0,'fame':-0x8,'text':"「这样的球队配不上他」。这�
 
 
 
+
+
 // ---- idx:13 | renew | 续约谈判 ----
+
 
 
 
@@ -562,6 +616,7 @@ return{'leave':!0x0,'fame':-0x8,'text':"「这样的球队配不上他」。这�
   'when': function(p){
 return p["seasonsA"+"tClub"]>=0x3;
 },
+
 
 
 
@@ -593,7 +648,10 @@ return d(q,s)?{'money':0x190+0x7*p["ovr"],'leave':!0x0,'text':"自由身换来�
 
 
 
+
+
 // ---- idx:14 | return_h | 家里来电话 ----
+
 
 
 
@@ -606,6 +664,7 @@ return d(q,s)?{'money':0x190+0x7*p["ovr"],'leave':!0x0,'text':"自由身换来�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -634,7 +693,10 @@ return{'ovr':0x2,'fame':-0x3,'text':"你留下了。那年春节又没回去，�
 
 
 
+
+
 // ---- idx:15 | red_card | 争议红牌 ----
+
 
 
 
@@ -645,6 +707,7 @@ return{'ovr':0x2,'fame':-0x3,'text':"你留下了。那年春节又没回去，�
   'weight': 0x2d,
   'repeat': 0x2,
   'desc': "中圈，你铲倒了对方核心，主裁掏出红牌。慢镜头回放，那是个五五开的球。",
+
 
 
 
@@ -672,7 +735,10 @@ return{'banGames':0x4,'fame':0xf,'guanxi':-0xa,'text':"你在混合区说了句�
 
 
 
+
+
 // ---- idx:16 | statemen | 话说重了 ----
+
 
 
 
@@ -683,6 +749,7 @@ return{'banGames':0x4,'fame':0xf,'guanxi':-0xa,'text':"你在混合区说了句�
   'weight': 0x2d,
   'repeat': 0x2,
   'desc': "输球后的采访里，你说了句「有些人根本不想赢」。第二天，全网都在猜你说的是谁。",
+
 
 
 
@@ -710,7 +777,10 @@ return{'fame':0x14,'roleDelta':-0x2,'guanxi':-0xa,'text':"你一个字都没收�
 
 
 
+
+
 // ---- idx:17 | sponsor | 代言找上门 ----
+
 
 
 
@@ -723,6 +793,7 @@ return{'fame':0x14,'roleDelta':-0x2,'guanxi':-0xa,'text':"你一个字都没收�
   'when': function(p){
 return p["fame"]>=0x2d;
 },
+
 
 
 
@@ -751,7 +822,10 @@ return{'ovr':0x2,'text':"你说，时间要留给训练。品牌方找了别人�
 
 
 
+
+
 // ---- idx:18 | nightlif | 夜里被拍到了 ----
+
 
 
 
@@ -762,6 +836,7 @@ return{'ovr':0x2,'text':"你说，时间要留给训练。品牌方找了别人�
   'weight': 0x28,
   'stage': "prime",
   'desc': "赛季中，你在酒吧的照片被人挂到网上，配文写着「{club} 的人凌晨三点仍在」。",
+
 
 
 
@@ -792,7 +867,10 @@ return d(q,s)?{'text':"这事三天就翻篇了。网上永远有下一个该骂
 
 
 
+
+
 // ---- idx:19 | nt_confl | 俱乐部不放人 ----
+
 
 
 
@@ -803,6 +881,7 @@ return d(q,s)?{'text':"这事三天就翻篇了。网上永远有下一个该骂
   'weight': 0x2d,
   'repeat': 0x2,
   'stage': "prime",
+
   'when': function(p){
 return p["caps"]>=0x1;
 },
@@ -834,7 +913,10 @@ return{'guanxi':-0xf,'roleDelta':0x1,'text':"你留下了。名单公布那天�
 
 
 
+
+
 // ---- idx:20 | injury_p | 最不该受伤的时候 ----
+
 
 
 
@@ -845,6 +927,7 @@ return{'guanxi':-0xf,'roleDelta':0x1,'text':"你留下了。名单公布那天�
   'weight': 0x23,
   'repeat': 0x2,
   'stage': "prime",
+
 
 
   'when': function(p){
@@ -876,7 +959,10 @@ return{'mult':{'league':0.4,'cup':0.4,'cont':0.4},'text':"你在看台上看完�
 
 
 
+
+
 // ---- idx:21 | tattoo | ? ----
+
 
 
 
@@ -910,7 +996,10 @@ return{'text':"你把那张图打印出来，贴在衣柜门上，一贴就是�
 
 
 
+
+
 // ---- idx:22 | study | 把书念完 ----
+
 
 
 
@@ -921,6 +1010,7 @@ return{'text':"你把那张图打印出来，贴在衣柜门上，一贴就是�
   'weight': 0x19,
   'stage': "youth",
   'desc': "俱乐部跟学校合开了一个班，可以边踢球边把学历念完，代价是挤占训练时间。",
+
 
 
 
@@ -948,7 +1038,10 @@ return{'ovr':0x2,'text':"你把所有时间都交给了足球。这个年纪，�
 
 
 
+
+
 // ---- idx:23 | language | 语言关 ----
+
 
 
 
@@ -960,6 +1053,7 @@ return{'ovr':0x2,'text':"你把所有时间都交给了足球。这个年纪，�
   'when': function(p){
 return!p["inChina"]&&p["seasonsA"+"broad"]<=0x3;
 },
+
 
 
 
@@ -988,7 +1082,10 @@ return{'roleDelta':-0x1,'text':"翻译不能替你上场。比赛里那几次跑
 
 
 
+
+
 // ---- idx:24 | homesick | 一个人的除夕 ----
+
 
 
 
@@ -1000,6 +1097,7 @@ return{'roleDelta':-0x1,'text':"翻译不能替你上场。比赛里那几次跑
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -1028,7 +1126,10 @@ return{'returnHome':!0x0,'money':0x1c2,'text':"你回来了。机场接机的人
 
 
 
+
+
 // ---- idx:52 | late | ? ----
+
 
 
 
@@ -1039,6 +1140,7 @@ return{'returnHome':!0x0,'money':0x1c2,'text':"你回来了。机场接机的人
   'weight': 0x37,
   'repeat': 0x2,
   'desc': "冬训第一天，你迟到了四十分钟。全队站在寒风里等你，教练一句话没说。",
+
 
 
 
@@ -1069,7 +1171,10 @@ return d(q,s)?{'text':"你说路上出了车祸。没人去核实，也没人相
 
 
 
+
+
 // ---- idx:53 | coach_cl | 跟教练顶起来了 ----
+
 
 
 
@@ -1080,6 +1185,7 @@ return d(q,s)?{'text':"你说路上出了车祸。没人去核实，也没人相
   'weight': 0x37,
   'repeat': 0x2,
   'stage': "prime",
+
 
   'desc': "半场被换下时，你把球衣摔在地上。摄像机全程跟着你。",
 
@@ -1108,7 +1214,10 @@ return{'fame':0x10,'roleDelta':-0x2,'text':"球迷夸你有血性。接下来的
 
 
 
+
+
 // ---- idx:54 | worldie | 世界波 ----
+
 
 
 
@@ -1121,6 +1230,7 @@ return{'fame':0x10,'roleDelta':-0x2,'text':"球迷夸你有血性。接下来的
   'when': function(p){
 return p["roleRank"]>=0x2&&'gk'!==p["posGroup"];
 },
+
 
 
 
@@ -1152,7 +1262,10 @@ return{'text':"你把球回给后腰。正确的选择，往往也是没人会�
 
 
 
+
+
 // ---- idx:55 | own_goal | 乌龙球 ----
+
 
 
 
@@ -1164,6 +1277,7 @@ return{'text':"你把球回给后腰。正确的选择，往往也是没人会�
   'when': function(p){
 return'gk'!==p["posGroup"];
 },
+
 
 
 
@@ -1188,7 +1302,10 @@ return d(q,s)?{'ovr':0x2,'fame':0xa,'text':"下半场，你把球送进对方球
 
 
 
+
+
 // ---- idx:56 | teammate | 更衣室动手了 ----
+
 
 
 
@@ -1199,6 +1316,7 @@ return d(q,s)?{'ovr':0x2,'fame':0xa,'text':"下半场，你把球送进对方球
   'weight': 0x2d,
   'stage': "prime",
   'desc': "一次对抗，先是推搡，最后你们在更衣室里扭作一团。",
+
 
 
 
@@ -1226,7 +1344,10 @@ return{'money':-0x50,'roleDelta':0x1,'fame':-0x4,'text':"你说，是自己先�
 
 
 
+
+
 // ---- idx:57 | father_i | 父亲住院了 ----
+
 
 
 
@@ -1236,6 +1357,7 @@ return{'money':-0x50,'roleDelta':0x1,'fame':-0x4,'text':"你说，是自己先�
   'icon': '🏥',
   'weight': 0x2d,
   'desc': "赛季中段，家里来了电话：父亲要做手术，需要人守着。",
+
   'options': [
     {
         'label': "请假回去",
@@ -1260,7 +1382,10 @@ return{'roleDelta':0x1,'fame':0x4,'ovr':-0x1,'text':"你留下了，那几场也
 
 
 
+
+
 // ---- idx:58 | agent_sw | 换经纪人 ----
+
 
 
 
@@ -1271,6 +1396,7 @@ return{'roleDelta':0x1,'fame':0x4,'ovr':-0x1,'text':"你留下了，那几场也
   'weight': 0x2d,
   'stage': "prime",
   'desc': "一家大牌经纪公司找上门：能把你的身价翻一倍，前提是，和跟了你多年的老经纪人解约。",
+
 
 
 
@@ -1298,7 +1424,10 @@ return{'guanxi':0x8,'fame':-0x3,'text':"老经纪人，是你十六岁那年就�
 
 
 
+
+
 // ---- idx:59 | relapse | 老伤复发 ----
+
 
 
 
@@ -1312,6 +1441,7 @@ return{'guanxi':0x8,'fame':-0x3,'text':"老经纪人，是你十六岁那年就�
   'when': function(p){
 return p["age"]>=0x1b;
 },
+
 
 
 
@@ -1340,7 +1470,10 @@ return{'ovr':0x2,'roleDelta':-0x3,'text':"手术很成功，你也就此错过�
 
 
 
+
+
 // ---- idx:60 | leader | 更衣室的话事人 ----
+
 
 
 
@@ -1353,6 +1486,7 @@ return{'ovr':0x2,'roleDelta':-0x3,'text':"手术很成功，你也就此错过�
   'when': function(p){
 return p["roleRank"]>=0x2;
 },
+
 
 
 
@@ -1381,7 +1515,10 @@ return{'roleDelta':0x1,'fame':-0x6,'text':"你把精力收回到自己身上。�
 
 
 
+
+
 // ---- idx:69 | visa | 劳工证 ----
+
 
 
 
@@ -1393,6 +1530,7 @@ return{'roleDelta':0x1,'fame':-0x6,'text':"你把精力收回到自己身上。�
   'when': function(p){
 return!p["inChina"]&&p["seasonsA"+"broad"]<=0x2;
 },
+
 
 
 
@@ -1421,7 +1559,10 @@ return{'leave':!0x0,'ovr':0x1,'text':"你先去了隔壁联赛，踢了一年半
 
 
 
+
+
 // ---- idx:70 | fitness_ | 私人体能师 ----
+
 
 
 
@@ -1432,6 +1573,7 @@ return{'leave':!0x0,'ovr':0x1,'text':"你先去了隔壁联赛，踢了一年半
   'weight': 0x3c,
   'repeat': 0x2,
   'desc': "队友介绍来一个体能师。一个冬训的报价，顶得上你两个月工资。",
+
 
 
 
@@ -1462,7 +1604,10 @@ return{'text':"你跟着队里的大课练完了整个冬训。省下的钱，�
 
 
 
+
+
 // ---- idx:71 | video_ro | 录像室 ----
+
 
 
 
@@ -1473,6 +1618,7 @@ return{'text':"你跟着队里的大课练完了整个冬训。省下的钱，�
   'weight': 0x3a,
   'repeat': 0x2,
   'desc': "分析师把你半年的比赛剪成四十分钟，问你要不要每周留下来看一遍。",
+
 
 
 
@@ -1500,7 +1646,10 @@ return{'text':"你说踢球靠感觉。"+"分析师没再问过第"+"二次。"}
 
 
 
+
+
 // ---- idx:72 | weak_foo | 另一只脚 ----
+
 
 
 
@@ -1511,6 +1660,7 @@ return{'text':"你说踢球靠感觉。"+"分析师没再问过第"+"二次。"}
   'weight': 0x37,
   'stage': "youth",
   'desc': "教练说你这只脚只能用来站着。要改，得从最基础的动作重新来一遍。",
+
 
 
 
@@ -1541,7 +1691,10 @@ return{'text':"你把右脚练得更好了。对手也很快知道，该往哪�
 
 
 
+
+
 // ---- idx:73 | growth_s | 窜个子 ----
+
 
 
 
@@ -1552,6 +1705,7 @@ return{'text':"你把右脚练得更好了。对手也很快知道，该往哪�
   'weight': 0x34,
   'stage': "youth",
   'desc': "一个夏天，你长了七公分。裤子短了一截，脚下的球也不太听话了。",
+
 
 
 
@@ -1582,7 +1736,10 @@ return{'ovr':0x1,'text':"你等了一年。它确实自己长好了，只是那�
 
 
 
+
+
 // ---- idx:74 | street_b | 野球场 ----
+
 
 
 
@@ -1594,6 +1751,7 @@ return{'ovr':0x1,'text':"你等了一年。它确实自己长好了，只是那�
   'stage': "youth",
   'repeat': 0x2,
   'desc': "周末，有人喊你去公园的水泥地踢五人制。队规不让。",
+
 
 
 
@@ -1624,7 +1782,10 @@ return{'text':"你在宿舍躺了一天。手机里那群人，后来没再叫�
 
 
 
+
+
 // ---- idx:75 | foreign_ | 队里的外援 ----
+
 
 
 
@@ -1636,6 +1797,7 @@ return{'text':"你在宿舍躺了一天。手机里那群人，后来没再叫�
   'when': function(p){
 return p["inChina"]&&p["clubRep"]>=0x2;
 },
+
 
 
 
@@ -1667,7 +1829,10 @@ return{'text':"你按时到，也按时走。他后来去了日本，走之前�
 
 
 
+
+
 // ---- idx:76 | summer_c | 自费夏训 ----
+
 
 
 
@@ -1679,6 +1844,7 @@ return{'text':"你按时到，也按时走。他后来去了日本，走之前�
   'when': function(p){
 return p["inChina"]&&p["age"]<=0x1b;
 },
+
 
 
 
@@ -1711,7 +1877,10 @@ return{'text':"你算了算钱，把机票退了。那个夏天，你在家乡�
 
 
 
+
+
 // ---- idx:77 | analyst | 数据不会骗人 ----
+
 
 
 
@@ -1724,6 +1893,7 @@ return{'text':"你算了算钱，把机票退了。那个夏天，你在家乡�
   'when': function(p){
 return "att"===p["posGroup"]||"mid"===p["posGroup"];
 },
+
 
 
 
@@ -1755,7 +1925,10 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"你说球是踢给人看的，不是
 
 
 
+
+
 // ---- idx:78 | psych | 去看心理医生 ----
+
 
 
 
@@ -1768,6 +1941,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"你说球是踢给人看的，不是
   'when': function(p){
 return p["roleRank"]<=0x2;
 },
+
 
 
 
@@ -1799,7 +1973,10 @@ return d(q,s)?{'ovr':0x1,'text':"某个早上醒来，忽然就没事了。你�
 
 
 
+
+
 // ---- idx:79 | body_mai | 三十岁以后的身体 ----
+
 
 
 
@@ -1810,6 +1987,7 @@ return d(q,s)?{'ovr':0x1,'text':"某个早上醒来，忽然就没事了。你�
   'weight': 0x37,
   'stage': "vet",
   'desc': "队医给了两套方案。一套是保养着踢，一套是当没这回事。",
+
 
 
 
@@ -1840,7 +2018,10 @@ return d(q,s)?{'fame':0x8,'text':"你还是场场首发。解说说，你是这�
 
 
 
+
+
 // ---- idx:82 | hat_tric | 帽子戏法 ----
+
 
 
 
@@ -1853,6 +2034,7 @@ return d(q,s)?{'fame':0x8,'text':"你还是场场首发。解说说，你是这�
   'when': function(p){
 return "att"===p["posGroup"]&&p["roleRank"]>=0x2;
 },
+
 
 
 
@@ -1886,7 +2068,10 @@ return{'roleDelta':0x1,'guanxi':0x8,'fame':-0x4,'text':"点球你让给了状态
 
 
 
+
+
 // ---- idx:167 | buyout_c | 解约金条款 ----
+
 
 
 
@@ -1897,6 +2082,7 @@ return{'roleDelta':0x1,'guanxi':0x8,'fame':-0x4,'text':"点球你让给了状态
   'weight': 0x34,
   'stage': "prime",
   'desc': "续约文本里有一条解约金条款。经纪人说，数字写低些，将来好走。",
+
 
 
 
@@ -1927,7 +2113,10 @@ return d(q,s)?{'money':0xc8,'text':"你拿到了队里第二"+"高的工资，�
 
 
 
+
+
 // ---- idx:168 | media_tr | 媒体培训 ----
+
 
 
 
@@ -1938,6 +2127,7 @@ return d(q,s)?{'money':0xc8,'text':"你拿到了队里第二"+"高的工资，�
   'weight': 0x30,
   'stage': "prime",
   'desc': "俱乐部请了人来教球员面对镜头：少说话、说套话、别接情绪。",
+
 
 
 
@@ -1968,7 +2158,10 @@ return d(q,s)?{'fame':0x14,'text':"你那句「我们踢得不配拿工资」，
 
 
 
+
+
 // ---- idx:169 | boot_dea | 球鞋合同 ----
+
 
 
 
@@ -1979,6 +2172,7 @@ return d(q,s)?{'fame':0x14,'text':"你那句「我们踢得不配拿工资」，
   'weight': 0x32,
   'stage': "prime",
   'desc': "两家品牌找上门：一家钱多，鞋却不合脚；一家钱少，但按你的脚做楦。",
+
 
 
 
@@ -2010,7 +2204,10 @@ return{'money':0x28,'ovr':0x2,'text':"他们给你做了六双楦头不同的鞋
 
 
 
+
+
 // ---- idx:170 | play_inj | 带伤上阵 ----
+
 
 
 
@@ -2022,6 +2219,7 @@ return{'money':0x28,'ovr':0x2,'text':"他们给你做了六双楦头不同的鞋
   'stage': "prime",
   'repeat': 0x2,
   'desc': "关键战前一天，队医说：打一针就能上，但赛季可能就交代了。",
+
 
 
 
@@ -2053,7 +2251,10 @@ return{'guanxi':-0xa,'roleDelta':-0x1,'ovr':0x1,'text':"你在看台上看完了
 
 
 
+
+
 // ---- idx:171 | system_c | 体系换了 ----
+
 
 
 
@@ -2064,6 +2265,7 @@ return{'guanxi':-0xa,'roleDelta':-0x1,'ovr':0x1,'text':"你在看台上看完了
   'weight': 0x34,
   'stage': "prime",
   'repeat': 0x2,
+
 
   'desc': "新帅带来的踢法完全换了套。你练了多年的本事，在战术板上找不到一格。",
 
@@ -2100,7 +2302,10 @@ return d(q,s)?{'roleDelta':0x1,'text':"他只撑了半年就离任。新来的�
 
 
 
+
+
 // ---- idx:172 | family_m | 举家搬迁 ----
+
 
 
 
@@ -2112,6 +2317,7 @@ return d(q,s)?{'roleDelta':0x1,'text':"他只撑了半年就离任。新来的�
   'when': function(p){
 return p["age"]>=0x1c&&p["age"]<=0x22;
 },
+
 
 
 
@@ -2143,7 +2349,10 @@ return d(q,s)?{'ovr':0x3,'money':0x28,'text':"一个人住队里的公寓，除�
 
 
 
+
+
 // ---- idx:173 | career_i | 膝盖里那块软骨 ----
+
 
 
 
@@ -2156,6 +2365,7 @@ return d(q,s)?{'ovr':0x3,'money':0x28,'text':"一个人住队里的公寓，除�
   'when': function(p){
 return p["age"]>=0x18&&p["ovr"]>=0x46;
 },
+
 
 
 
@@ -2190,7 +2400,10 @@ return{'retire':!0x0,'money':0x28,'clean':0x4,'text':"那晚你在更衣室把�
 
 
 
+
+
 // ---- idx:174 | teammate | 队友出事了 ----
+
 
 
 
@@ -2201,6 +2414,7 @@ return{'retire':!0x0,'money':0x28,'clean':0x4,'text':"那晚你在更衣室把�
   'weight': 0x32,
   'stage': "prime",
   'desc': "跟你关系最好的队友被带走调查。第二天，记者堵在基地门口，见谁都问。",
+
 
 
 
@@ -2228,7 +2442,10 @@ return{'clean':0x4,'fame':-0x6,'text':"你从头到尾没开过口。他出来�
 
 
 
+
+
 // ---- idx:175 | loan_out | 被外租 ----
+
 
 
 
@@ -2239,6 +2456,7 @@ return{'clean':0x4,'fame':-0x6,'text':"你从头到尾没开过口。他出来�
   'weight': 0x34,
   'stage': "prime",
   'desc': "俱乐部不打算用你，又不肯放你走。折中的方案：租给一支保级队，半年。",
+
 
 
 
@@ -2271,7 +2489,10 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"冬窗一开，队里走了两�
 
 
 
+
+
 // ---- idx:176 | transfer | 转会传闻 ----
+
 
 
 
@@ -2282,6 +2503,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"冬窗一开，队里走了两�
   'weight': 0x30,
   'stage': "prime",
   'repeat': 0x2,
+
 
   'desc': "整个冬窗，你要走的传闻没断过。训练场上，有人开始绕着你走。",
 
@@ -2315,7 +2537,10 @@ return d(q,s)?{'leave':!0x0,'fame':0x8,'text':"窗口关闭前四小时"+"，你
 
 
 
+
+
 // ---- idx:177 | win_bonu | 赢球奖金 ----
+
 
 
 
@@ -2329,6 +2554,7 @@ return d(q,s)?{'leave':!0x0,'fame':0x8,'text':"窗口关闭前四小时"+"，你
   'when': function(p){
 return p["clubRep"]<=0x2;
 },
+
 
 
 
@@ -2360,7 +2586,10 @@ return d(q,s)?{'money':0x32,'clean':0x4,'text':"球赢了，钱照发。从头�
 
 
 
+
+
 // ---- idx:178 | fan_club | 球迷会 ----
+
 
 
 
@@ -2371,6 +2600,7 @@ return d(q,s)?{'money':0x32,'clean':0x4,'text':"球赢了，钱照发。从头�
   'weight': 0x2d,
   'stage': "prime",
   'desc': "一伙球迷想用你的名字注册个球迷会，说不为赚钱，就是想让大伙有个地方聚。",
+
 
 
 
@@ -2402,7 +2632,10 @@ return{'text':"你说，等踢出点名堂再说。那群人后来，把名字�
 
 
 
+
+
 // ---- idx:179 | second_t | 下放二队 ----
+
 
 
 
@@ -2415,6 +2648,7 @@ return{'text':"你说，等踢出点名堂再说。那群人后来，把名字�
   'when': function(p){
 return p["roleRank"]<=0x1&&p["age"]<=0x18;
 },
+
 
 
 
@@ -2451,7 +2685,10 @@ return d(q,s)?{'roleDelta':0x1,'guanxi':-0x8,'text':"一个电话打上去，你
 
 
 
+
+
 // ---- idx:230 | light_fi | 游戏里的自己 ----
+
 
 
 
@@ -2464,6 +2701,7 @@ return d(q,s)?{'roleDelta':0x1,'guanxi':-0x8,'text':"一个电话打上去，你
   'when': function(p){
 return p["fame"]>=0x14;
 },
+
 
 
 
@@ -2496,7 +2734,10 @@ return{'text':"你把那页数值截下来，存进相册，谁也没发。那�
 
 
 
+
+
 // ---- idx:231 | light_nu | 十号球衣 ----
+
 
 
 
@@ -2509,6 +2750,7 @@ return{'text':"你把那页数值截下来，存进相册，谁也没发。那�
   'when': function(p){
 return p["roleRank"]>=0x2&&p["seasonsA"+"tClub"]>=0x2;
 },
+
 
 
 
@@ -2537,7 +2779,10 @@ return{'guanxi':0x6,'text':"你说习惯了。更衣室里再没人提这事，�
 
 
 
+
+
 // ---- idx:232 | light_ho | 队内聚餐 ----
+
 
 
 
@@ -2549,6 +2794,7 @@ return{'guanxi':0x6,'text':"你说习惯了。更衣室里再没人提这事，�
   'tone': "light",
   'repeat': 0x2,
   'desc': "队友在群里组了个聚餐，说好了 AA。周一早上还有恢复训练。",
+
 
 
 
@@ -2583,7 +2829,10 @@ return{'text':"你在宿舍点了份鸡胸肉。那晚群里两百多条消息�
 
 
 
+
+
 // ---- idx:233 | light_do | 捡了只狗 ----
+
 
 
 
@@ -2594,6 +2843,7 @@ return{'text':"你在宿舍点了份鸡胸肉。那晚群里两百多条消息�
   'weight': 0x32,
   'tone': "light",
   'desc': "训练基地门口趴着只狗，跟了你三天。门卫说，没人认领。",
+
 
 
 
@@ -2621,7 +2871,10 @@ return{'text':"队医的表妹把它领走了。你偶尔会在朋友圈刷到�
 
 
 
+
+
 // ---- idx:234 | light_we | 队友结婚 ----
+
 
 
 
@@ -2633,6 +2886,7 @@ return{'text':"队医的表妹把它领走了。你偶尔会在朋友圈刷到�
   'tone': "light",
   'repeat': 0x2,
   'desc': "同屋那位要结婚了。队里传的随礼数目一个比一个离谱。",
+
 
 
 
@@ -2660,7 +2914,10 @@ return{'money':-0x4,'guanxi':0x3,'text':"你送了个不出挑的数，人到得
 
 
 
+
+
 // ---- idx:235 | light_ni | ? ----
+
 
 
 
@@ -2673,6 +2930,7 @@ return{'money':-0x4,'guanxi':0x3,'text':"你送了个不出挑的数，人到得
   'when': function(p){
 return p["fame"]>=0xf;
 },
+
 
 
 
@@ -2701,7 +2959,10 @@ return{'text':"你一次都没提过它。它还是跟了你一辈子，连退�
 
 
 
+
+
 // ---- idx:236 | light_co | 自己做饭 ----
+
 
 
 
@@ -2714,6 +2975,7 @@ return{'text':"你一次都没提过它。它还是跟了你一辈子，连退�
   'when': function(p){
 return!p["inChina"]&&p["seasonsA"+"broad"]>=0x1;
 },
+
 
 
 
@@ -2742,7 +3004,10 @@ return{'money':-0x6,'text':"你把那家亚洲超市的电话存进收藏夹。�
 
 
 
+
+
 // ---- idx:237 | light_wi | 更衣室密码 ----
+
 
 
 
@@ -2755,6 +3020,7 @@ return{'money':-0x6,'text':"你把那家亚洲超市的电话存进收藏夹。�
   'when': function(p){
 return p["roleRank"]>=0x3;
 },
+
 
 
 
@@ -2786,7 +3052,10 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
+
+
 // ---- idx:280 | cap_room | 更衣室的那一拳 ----
+
 
 
 
@@ -2798,6 +3067,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   'repeat': 0x2,
   'when': function(p){return p["_captain"]===p["teamId"];
 },
+
 
 
 
@@ -2828,7 +3098,10 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
+
+
 // ---- idx:281 | cap_money | 袖标下的邀约 ----
+
 
 
 
@@ -2840,6 +3113,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   'repeat': 0x1,
   'when': function(p){return p["_captain"]===p["teamId"];
 },
+
 
 
 
@@ -2866,7 +3140,10 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
+
+
 // ---- idx:282 | cap_pressure | 连败之后 ----
+
 
 
 
@@ -2878,6 +3155,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
   'repeat': 0x2,
   'when': function(p){return p["_captain"]===p["teamId"];
 },
+
 
 
 
@@ -2908,7 +3186,10 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
+
+
 // ---- idx:342 | injury_type_shift | 伤后的抉择 ----
+
 
 
 
@@ -2922,6 +3203,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
+
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var tgt=shiftTarget(p);
@@ -2929,6 +3211,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
     p._injTarget=tgt;
     return "严重的伤病让你不得不重新审视自己的踢法。身体恢复后，教练建议你换个方式踢——也许能延长你的职业生涯。";
   },
+
 
 
 
@@ -2962,7 +3245,10 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
+
+
 // ---- idx:343 | vet_type_shift | 老将的转型 ----
+
 
 
 
@@ -2976,6 +3262,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 
 
 
+
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
     var tgt=shiftTarget(p);
@@ -2983,6 +3270,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
     p._vetTarget=tgt;
     return "年龄不饶人，你的速度和爆发力都在下降。教练找你谈话：是时候换个活法了——经验比身体更值钱。";
   },
+
 
 
 
@@ -3011,6 +3299,7 @@ return{'text':"你把它存进备忘录，命名「别问」。三年后换了�
 }
 
 ];
+
 
 
 

@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_att=[
 
 
 
 
+
 // ---- idx:117 | att_offb | 无球跑动 ----
+
 
 
 
@@ -20,6 +23,7 @@ var EVT_att=[
   'when': function(p){
 return "att"===p["posGroup"];
 },
+
 
 
 
@@ -51,7 +55,10 @@ return d(q,s)?{'fame':0x5,'text':"你还是那种拿球才踢的前锋。在国�
 
 
 
+
+
 // ---- idx:118 | att_drou | 十场不进球 ----
+
 
 
 
@@ -63,6 +70,7 @@ return d(q,s)?{'fame':0x5,'text':"你还是那种拿球才踢的前锋。在国�
   'when': function(p){
 return "att"===p["posGroup"];
 },
+
 
 
 
@@ -94,7 +102,10 @@ return{'ovr':0x2,'fame':-0x6,'text':"你开始回撤接球，把球做给别人�
 
 
 
+
+
 // ---- idx:119 | att_dive | 禁区里那一下 ----
+
 
 
 
@@ -106,6 +117,7 @@ return{'ovr':0x2,'fame':-0x6,'text':"你开始回撤接球，把球做给别人�
   'when': function(p){
 return "att"===p["posGroup"];
 },
+
 
 
 
@@ -138,7 +150,10 @@ return{'clean':0x6,'fame':0x4,'text':"你踉跄两步，没倒，球也没了。
 
 
 
+
+
 // ---- idx:120 | att_pena | 点球归谁 ----
+
 
 
 
@@ -150,6 +165,7 @@ return{'clean':0x6,'fame':0x4,'text':"你踉跄两步，没倒，球也没了。
   'when': function(p){
 return "att"===p["posGroup"]&&p["_captain"]!==p["teamId"];
 },
+
 
 
 
@@ -181,7 +197,10 @@ return{'guanxi':0xa,'text':"你说谁罚都行，进了就好。更衣室里，�
 
 
 
+
+
 // ---- idx:121 | att_numb | 九号球衣 ----
+
 
 
 
@@ -193,6 +212,7 @@ return{'guanxi':0xa,'text':"你说谁罚都行，进了就好。更衣室里，�
   'when': function(p){
 return "att"===p["posGroup"];
 },
+
 
 
 
@@ -224,7 +244,10 @@ return{'text':"你说号码不重要。那件九号，在队里空了三年，�
 
 
 
+
+
 // ---- idx:122 | att_drop | 回撤拿球 ----
+
 
 
 
@@ -236,6 +259,7 @@ return{'text':"你说号码不重要。那件九号，在队里空了三年，�
   'when': function(p){
 return "att"===p["posGroup"];
 },
+
 
 
 
@@ -267,7 +291,10 @@ return d(q,s)?{'fame':0xa,'ovr':0x1,'text':"你一场只碰九次球，进了两
 
 
 
+
+
 // ---- idx:123 | att_head | 站桩中锋 ----
+
 
 
 
@@ -279,6 +306,7 @@ return d(q,s)?{'fame':0xa,'ovr':0x1,'text':"你一场只碰九次球，进了两
   'when': function(p){
 return "att"===p["posGroup"];
 },
+
 
 
 
@@ -310,7 +338,10 @@ return d(q,s)?{'fame':0xe,'ovr':0x2,'text':"你进了十五个。教练承认，
 
 
 
+
+
 // ---- idx:124 | att_big_ | 大场面 ----
+
 
 
 
@@ -322,6 +353,7 @@ return d(q,s)?{'fame':0xe,'ovr':0x2,'text':"你进了十五个。教练承认，
   'when': function(p){
 return "att"===p["posGroup"]&&p["roleRank"]>=0x2;
 },
+
 
 
 
@@ -349,6 +381,7 @@ return{'fame':0x6,'guanxi':0x6,'text':"你没做任何冒险动作，也没犯�
 }
 
 ];
+
 
 
 

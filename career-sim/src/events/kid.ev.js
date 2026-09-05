@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_kid=[
 
 
 
 
+
 // ---- idx:125 | kid_heig | 个子不够 ----
+
 
 
 
@@ -19,6 +22,7 @@ var EVT_kid=[
   'weight': 0x3c,
   'stage': "kid",
   'desc': "选材表上，你的身高预测被划了一道。教练说得很直接：这个位置，你将来不好办。",
+
 
 
 
@@ -49,7 +53,10 @@ return d(q,s)?{'ovr':0x4,'text':"十五岁那年，一个夏天你窜了十一�
 
 
 
+
+
 // ---- idx:126 | kid_pare | 家里不同意 ----
+
 
 
 
@@ -61,6 +68,7 @@ return d(q,s)?{'ovr':0x4,'text':"十五岁那年，一个夏天你窜了十一�
   'stage': "kid",
   'cn': !0x0,
   'desc': "你妈把训练包藏了起来。她说这条路一万个人里出一个，你成绩又不差。",
+
 
 
 
@@ -88,7 +96,10 @@ return{'ovr':0x3,'guanxi':-0x6,'text':"那天你摔了门。你爸后来没再�
 
 
 
+
+
 // ---- idx:127 | kid_fee | 这个月的训练费 ----
+
 
 
 
@@ -100,6 +111,7 @@ return{'ovr':0x3,'guanxi':-0x6,'text':"那天你摔了门。你爸后来没再�
   'stage': "kid",
   'cn': !0x0,
   'desc': "青训营涨价了。一年两万八，还不含比赛差旅。家里算了一晚上的账。",
+
 
 
 
@@ -127,7 +139,10 @@ return{'ovr':-0x2,'guanxi':-0x4,'text':"新地方场地是煤渣的，教练一�
 
 
 
+
+
 // ---- idx:128 | kid_bone | ? ----
+
 
 
 
@@ -139,6 +154,7 @@ return{'ovr':-0x2,'guanxi':-0x4,'text':"新地方场地是煤渣的，教练一�
   'stage': "kid",
   'cn': !0x0,
   'desc': "赛前统一查骨龄。有个队友，前一晚被家长接走，再没回来。",
+
 
 
 
@@ -166,7 +182,10 @@ return{'guanxi':0xa,'clean':-0xc,'ageFraud':!0x0,'text':"户口本上那个年�
 
 
 
+
+
 // ---- idx:129 | kid_tryo | 省里来人挑苗子 ----
+
 
 
 
@@ -178,6 +197,7 @@ return{'guanxi':0xa,'clean':-0xc,'ageFraud':!0x0,'text':"户口本上那个年�
   'stage': "kid",
   'cn': !0x0,
   'desc': "省队来了两个人，在场边看了一下午，手里的本子一直没合上。",
+
 
 
 
@@ -208,7 +228,10 @@ return{'ovr':0x1,'clean':0x3,'text':"你踢了平常的那一场。他们没找�
 
 
 
+
+
 // ---- idx:130 | kid_yell | 教练家的酒 ----
+
 
 
 
@@ -220,6 +243,7 @@ return{'ovr':0x1,'clean':0x3,'text':"你踢了平常的那一场。他们没找�
   'stage': "kid",
   'cn': !0x0,
   'desc': "有家长张罗着给梯队教练送节礼，问你家凑不凑。不凑的话，名单上就你家没有。",
+
 
 
 
@@ -247,7 +271,10 @@ return{'clean':0x8,'ovr':-0x2,'text':"那半个赛季，你大多在场边。教
 
 
 
+
+
 // ---- idx:131 | kid_move | 跟着搬家 ----
+
 
 
 
@@ -259,6 +286,7 @@ return{'clean':0x8,'ovr':-0x2,'text':"那半个赛季，你大多在场边。教
   'stage': "kid",
   'cn': !0x0,
   'desc': "你爸的工作调去了外地。两条路摆在面前：全家一起走，或者你一个人住进宿舍留下。",
+
 
 
 
@@ -286,7 +314,10 @@ return{'ovr':-0x2,'money':0xa,'text':"新城市的队伍没人认识你，只能
 
 
 
+
+
 // ---- idx:132 | kid_matc | 全国比赛 ----
+
 
 
 
@@ -298,6 +329,7 @@ return{'ovr':-0x2,'money':0xa,'text':"新城市的队伍没人认识你，只能
   'stage': "kid",
   'cn': !0x0,
   'desc': "全国青少年赛，你一路闯进了决赛圈。对面那支队，年年都是冠军。",
+
 
 
 
@@ -329,7 +361,10 @@ return{'ovr':0x2,'guanxi':0x5,'text':"一比二输了，但你踢满了全场。
 
 
 
+
+
 // ---- idx:133 | kid_hurt | 膝盖疼 ----
+
 
 
 
@@ -340,6 +375,7 @@ return{'ovr':0x2,'guanxi':0x5,'text':"一比二输了，但你踢满了全场。
   'weight': 0x30,
   'stage': "kid",
   'desc': "长身高的那阵子，膝盖一直隐隐作痛。队医说是生长痛，忍一忍就过去了。",
+
 
 
 
@@ -370,7 +406,10 @@ return{'ovr':-0x1,'clean':0x3,'text':"歇了两个月，老老实实做康复。
 
 
 
+
+
 // ---- idx:134 | kid_fore | 外教来了 ----
+
 
 
 
@@ -382,6 +421,7 @@ return{'ovr':-0x1,'clean':0x3,'text':"歇了两个月，老老实实做康复。
   'stage': "kid",
   'cn': !0x0,
   'desc': "青训营来了一位西班牙教练。他不看你能跑多快，只看你接球之前回不回头。",
+
 
 
 
@@ -409,7 +449,10 @@ return{'ovr':0x1,'guanxi':0x4,'text':"你守住了原来那套。他走的那天
 
 
 
+
+
 // ---- idx:135 | kid_poac | 别人家的梯队 ----
+
 
 
 
@@ -421,6 +464,7 @@ return{'ovr':0x1,'guanxi':0x4,'text':"你守住了原来那套。他走的那天
   'stage': "kid",
   'cn': !0x0,
   'desc': "另一家俱乐部的人找上门来，说那边条件更好，让你现在就过去。",
+
 
 
 
@@ -448,7 +492,10 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你留下了。那家俱乐部两年后�
 
 
 
+
+
 // ---- idx:136 | kid_abr_ | 听不懂 ----
+
 
 
 
@@ -461,6 +508,7 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你留下了。那家俱乐部两年后�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -489,7 +537,10 @@ return{'ovr':0x1,'text':"你把每个人的跑位都刻在脑子里。语言是�
 
 
 
+
+
 // ---- idx:137 | kid_abr_ | 寄宿家庭 ----
+
 
 
 
@@ -502,6 +553,7 @@ return{'ovr':0x1,'text':"你把每个人的跑位都刻在脑子里。语言是�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -530,7 +582,10 @@ return{'ovr':0x2,'guanxi':-0x6,'text':"宿舍里住着的，都是十三四岁�
 
 
 
+
+
 // ---- idx:138 | kid_abr_ | 注册卡住了 ----
+
 
 
 
@@ -543,6 +598,7 @@ return{'ovr':0x2,'guanxi':-0x6,'text':"宿舍里住着的，都是十三四岁�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -571,7 +627,10 @@ return{'ovr':-0x1,'clean':0x5,'text':"整整一年，你只能跟着练，比赛
 
 
 
+
+
 // ---- idx:139 | kid_abr_ | 夏天那张名单 ----
+
 
 
 
@@ -584,6 +643,7 @@ return{'ovr':-0x1,'clean':0x5,'text':"整整一年，你只能跟着练，比赛
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -615,7 +675,10 @@ return{'clean':0x6,'text':"你的名字在倒数第三行。那一年剩下的�
 
 
 
+
+
 // ---- idx:140 | kid_abr_ | 回不去的那个春节 ----
+
 
 
 
@@ -628,6 +691,7 @@ return{'clean':0x6,'text':"你的名字在倒数第三行。那一年剩下的�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -656,7 +720,10 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"那几天，基地里几乎没人。你�
 
 
 
+
+
 // ---- idx:141 | kid_abr_ | 被叫去上一个年龄 ----
+
 
 
 
@@ -669,6 +736,7 @@ return{'ovr':0x2,'guanxi':-0x4,'text':"那几天，基地里几乎没人。你�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -703,7 +771,10 @@ return{'ovr':0x1,'clean':0x3,'text':"在同龄那批里，你是最好的几个�
 
 
 
+
+
 // ---- idx:142 | kid_abr_ | 国内来的电话 ----
+
 
 
 
@@ -716,6 +787,7 @@ return{'ovr':0x1,'clean':0x3,'text':"在同龄那批里，你是最好的几个�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -744,7 +816,10 @@ return{'guanxi':0xc,'money':0x14,'ovr':-0x2,'text':"你回去待了一个夏天�
 
 
 
+
+
 // ---- idx:143 | kid_abr_ | 他们给你起的外号 ----
+
 
 
 
@@ -757,6 +832,7 @@ return{'guanxi':0xc,'money':0x14,'ovr':-0x2,'text':"你回去待了一个夏天�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -789,7 +865,10 @@ return{'ovr':0x3,'guanxi':0x4,'text':"接下来三个月，分组对抗，你每
 
 
 
+
+
 // ---- idx:144 | kid_abr_ | 家里那笔钱 ----
+
 
 
 
@@ -802,6 +881,7 @@ return{'ovr':0x3,'guanxi':0x4,'text':"接下来三个月，分组对抗，你每
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -834,7 +914,10 @@ return{'money':0x8,'clean':0x5,'text':"你把每周的零花钱砍掉一半，�
 
 
 
+
+
 // ---- idx:145 | kid_abr_ | 被借到下面那支队 ----
+
 
 
 
@@ -847,6 +930,7 @@ return{'money':0x8,'clean':0x5,'text':"你把每周的零花钱砍掉一半，�
   'when': function(p){
 return!p["inChina"];
 },
+
 
 
 
@@ -870,6 +954,7 @@ return{'ovr':0x1,'guanxi':0x6,'text':"你留下了。整整一年，你坐在替
 }
 
 ];
+
 
 
 

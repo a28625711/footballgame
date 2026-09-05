@@ -1,23 +1,31 @@
 function _qr_0b(x,x){
     
     
+    
     return '';
     
     
+    
+
 
 
 }
+
 
 
 function _qr_0a(){
     
     
+    
     return [];
     
     
+    
+
 
 
 }
+
 
 
 (0x0,!(function(){'use strict';

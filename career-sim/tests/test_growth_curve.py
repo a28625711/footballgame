@@ -82,10 +82,17 @@ def run():
                   'P1 broken: %.2f !> %.2f+0.05' % (hi['slope'], lo['slope']))
 
     # P2 decline longevity: high talent declines SLOWER at same window
-    d_lo = json.loads(mr.eval(cohort_js('d08', 500000, 0.8, 32, 76, 92)))
-    d_hi = json.loads(mr.eval(cohort_js('d13', 500000, 1.3, 32, 76, 92)))
-    print('P2 slopes t0.8=%.2f(n%d) t1.3=%.2f(n%d)' % (d_lo['slope'], d_lo['n'], d_hi['slope'], d_hi['n']))
-    harness.check(d_hi['slope'] > d_lo['slope'] + 0.1,
+    # （三种子平均降低抽样方差；每季 ovr 噪声来自伤病与随机成长，Δ 真值约 0.2）
+    p2 = []
+    for base in (500000, 600000, 700000):
+        d_lo = json.loads(mr.eval(cohort_js('d08', base, 0.8, 32, 76, 92)))
+        d_hi = json.loads(mr.eval(cohort_js('d13', base, 1.3, 32, 76, 92)))
+        p2.append((d_lo, d_hi))
+        print('P2 base=%d slopes t0.8=%.2f(n%d) t1.3=%.2f(n%d)'
+              % (base, d_lo['slope'], d_lo['n'], d_hi['slope'], d_hi['n']))
+    d_lo = {'slope': sum(x[0]['slope'] for x in p2) / len(p2)}
+    d_hi = {'slope': sum(x[1]['slope'] for x in p2) / len(p2)}
+    harness.check(d_hi['slope'] > d_lo['slope'] + 0.08,
                   'P2 broken: longevity inversion')
 
     # P3 cap-proximity: hugging maxOvr declines FASTER

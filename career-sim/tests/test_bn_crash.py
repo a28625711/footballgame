@@ -7,13 +7,13 @@ from harness import new_engine, logs
 mr = new_engine()
 
 # Start a career and simulate a few seasons
-mr.eval("__SIMTEST.start('normal',__SIMTEST.origins[0],null)")
-mr.eval("try{__SIMTEST.cont()}catch(e){}")
-mr.eval("try{__SIMTEST.cont()}catch(e){}")
+mr.eval("window.__SIMTEST.start('normal',{name:'bn_test',origin:'sd',pos:'ST',nation:'cn',talent:1.1,number:9,foot:'r'},null)")
+mr.eval("try{window.__SIMTEST.cont()}catch(e){}")
+mr.eval("try{window.__SIMTEST.cont()}catch(e){}")
 
 # Now try render (calls bO -> bN)
 try:
-    mr.eval("__SIMTEST.render()")
+    mr.eval("window.__SIMTEST.render()")
     print("render() OK")
 except Exception as e:
     print("render() FAILED:", str(e)[:300])

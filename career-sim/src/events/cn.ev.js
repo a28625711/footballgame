@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_cn=[
 
 
 
 
+
 // ---- idx:25 | cn_zuxia | 足校的学费 ----
+
 
 
 
@@ -22,6 +25,7 @@ var EVT_cn=[
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -50,7 +54,10 @@ return{'ovr':0x1,'text':"你留在了市队。教练很负责，场地是水泥�
 
 
 
+
+
 // ---- idx:26 | cn_age | 年龄这事 ----
+
 
 
 
@@ -64,6 +71,7 @@ return{'ovr':0x1,'text':"你留在了市队。教练很负责，场地是水泥�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -92,7 +100,10 @@ return{'clean':0xa,'guanxi':-0x8,'text':"你按真实年龄踢。同组对手个
 
 
 
+
+
 // ---- idx:27 | cn_bone | 骨龄检测 ----
+
 
 
 
@@ -106,6 +117,7 @@ return{'clean':0xa,'guanxi':-0x8,'text':"你按真实年龄踢。同组对手个
   'when': function(p){
 return p["ageFraud"];
 },
+
 
 
 
@@ -137,7 +149,10 @@ return{'money':-0xc,'clean':-0xf,'guanxi':0x8,'text':"报告顺利通过。那�
 
 
 
+
+
 // ---- idx:28 | cn_hongb | 教练的暗示 ----
+
 
 
 
@@ -149,6 +164,7 @@ return{'money':-0xc,'clean':-0xf,'guanxi':0x8,'text':"报告顺利通过。那�
   'repeat': 0x2,
   'cn': !0x0,
   'stage': "youth",
+
 
 
 
@@ -180,7 +196,10 @@ return{'roleDelta':-0x2,'clean':0x8,'text':"你装作没听懂。之后半年，
 
 
 
+
+
 // ---- idx:29 | cn_guosh | 国少的名额 ----
+
 
 
 
@@ -194,6 +213,7 @@ return{'roleDelta':-0x2,'clean':0x8,'text':"你装作没听懂。之后半年，
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -224,7 +244,10 @@ return d(q,Math["min"](0.7,(p["ovr"]-0x32)/0x28))?{'caps':0x3,'clean':0x5,'fame'
 
 
 
+
+
 // ---- idx:30 | cn_liuya | 留洋的岔路 ----
+
 
 
 
@@ -237,6 +260,7 @@ return d(q,Math["min"](0.7,(p["ovr"]-0x32)/0x28))?{'caps':0x3,'clean':0x5,'fame'
   'when': function(p){
 return p["inChina"]&&p["age"]>=0x12&&p["age"]<=0x1b&&p["ovr"]>=0x3e;
 },
+
 
 
 
@@ -265,7 +289,10 @@ return{'money':0x384,'ovr':-0x1,'roleDelta':0x1,'stagnate':!0x0,'text':"你签�
 
 
 
+
+
 // ---- idx:31 | cn_jinyu | 天价续约 ----
+
 
 
 
@@ -278,6 +305,7 @@ return{'money':0x384,'ovr':-0x1,'roleDelta':0x1,'stagnate':!0x0,'text':"你签�
   'when': function(p){
 return p["inChina"]&&p["ovr"]>=0x44;
 },
+
 
 
 
@@ -306,7 +334,10 @@ return{'roleDelta':-0x1,'fame':0x8,'text':"你拒绝了。老板笑着说「年�
 
 
 
+
+
 // ---- idx:32 | cn_arrea | 工资停了 ----
+
 
 
 
@@ -320,6 +351,7 @@ return{'roleDelta':-0x1,'fame':0x8,'text':"你拒绝了。老板笑着说「年�
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -352,7 +384,10 @@ return{'money':-0xb4,'text':"你忍了一年。后来俱乐部换了投资人，
 
 
 
+
+
 // ---- idx:33 | cn_disso | 俱乐部要没了 ----
+
 
 
 
@@ -365,6 +400,7 @@ return{'money':-0xb4,'text':"你忍了一年。后来俱乐部换了投资人，
   'when': function(p){
 return p["inChina"]&&p["clubRep"]<=0x2;
 },
+
 
 
 
@@ -393,7 +429,10 @@ return{'leave':!0x0,'money':0x96,'ovr':-0x3,'fame':0xa,'text':"你们在体育�
 
 
 
+
+
 // ---- idx:34 | cn_neutr | ? ----
+
 
 
 
@@ -406,6 +445,7 @@ return{'leave':!0x0,'money':0x96,'ovr':-0x3,'fame':0xa,'text':"你们在体育�
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -427,7 +467,10 @@ return{'money':-0x3c,'mult':{'league':0.6,'cup':0.6},'text':"改完名之后，�
 
 
 
+
+
 // ---- idx:35 | cn_fixed | 有人来找你聊天 ----
+
 
 
 
@@ -441,6 +484,7 @@ return{'money':-0x3c,'mult':{'league':0.6,'cup':0.6},'text':"改完名之后，�
   'when': function(p){
 return p["inChina"]&&p["roleRank"]>=0x2;
 },
+
 
 
 
@@ -476,7 +520,10 @@ return{'clean':0x1e,'guanxi':-0x1e,'roleDelta':-0x2,'fame':0x14,'text':"你把�
 
 
 
+
+
 // ---- idx:36 | cn_gambl | 赌一把 ----
+
 
 
 
@@ -488,6 +535,7 @@ return{'clean':0x1e,'guanxi':-0x1e,'roleDelta':-0x2,'fame':0x14,'text':"你把�
   'repeat': 0x2,
   'cn': !0x0,
   'desc': "队友把你拉进一个群，群里押自己队的比赛。「小钱，玩玩而已。」",
+
 
 
 
@@ -519,7 +567,10 @@ return{'clean':0xa,'text':"你退了群。三年后，那个群里的人上了�
 
 
 
+
+
 // ---- idx:37 | cn_antic | ? ----
+
 
 
 
@@ -533,6 +584,7 @@ return{'clean':0xa,'text':"你退了群。三年后，那个群里的人上了�
   'when': function(p){
 return p["age"]>=0x16;
 },
+
 
 
 
@@ -564,7 +616,10 @@ return{'guanxi':-0x23,'clean':0x5,'fame':-0x5,'text':"你连夜删光了所有�
 
 
 
+
+
 // ---- idx:38 | cn_yinya | 两份合同 ----
+
 
 
 
@@ -577,6 +632,7 @@ return{'guanxi':-0x23,'clean':0x5,'fame':-0x5,'text':"你连夜删光了所有�
   'when': function(p){
 return p["inChina"]&&p["ovr"]>=0x41;
 },
+
 
 
 
@@ -605,7 +661,10 @@ return{'money':-0xb4,'clean':0xc,'text':"财务看了你一眼，说了句「你
 
 
 
+
+
 // ---- idx:39 | cn_tax | ? ----
+
 
 
 
@@ -618,6 +677,7 @@ return{'money':-0xb4,'clean':0xc,'text':"财务看了你一眼，说了句「你
   'when': function(p){
 return p["yinyang"]||p["money"]>=0xbb8;
 },
+
 
 
 
@@ -649,7 +709,10 @@ return d(q,s)?{'text':"材料递上去之后没了下文。悬了一年的心，
 
 
 
+
+
 // ---- idx:40 | cn_titi | ? ----
+
 
 
 
@@ -663,6 +726,7 @@ return d(q,s)?{'text':"材料递上去之后没了下文。悬了一年的心，
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -694,7 +758,10 @@ return d(q,s)?{'text':"压线过了。你在终点线躺了五分钟，队医过
 
 
 
+
+
 // ---- idx:41 | cn_u23 | U23 政策 ----
+
 
 
 
@@ -707,6 +774,7 @@ return d(q,s)?{'text':"压线过了。你在终点线躺了五分钟，队医过
   'when': function(p){
 return p["inChina"]&&p["age"]<=0x17;
 },
+
 
 
 
@@ -739,7 +807,10 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x3,'text':"你跟教练摊牌了。"+"他�
 
 
 
+
+
 // ---- idx:42 | cn_jixun | 抽调进集训队 ----
+
 
 
 
@@ -752,6 +823,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x3,'text':"你跟教练摊牌了。"+"他�
   'when': function(p){
 return p["inChina"]&&p["age"]<=0x1a&&p["ovr"]>=0x3c;
 },
+
 
 
 
@@ -780,7 +852,10 @@ return{'guanxi':-0x14,'roleDelta':0x1,'text':"队医给你开了一张诊断。�
 
 
 
+
+
 // ---- idx:43 | cn_leade | 领导来看球 ----
+
 
 
 
@@ -794,6 +869,7 @@ return{'guanxi':-0x14,'roleDelta':0x1,'text':"队医给你开了一张诊断。�
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -826,7 +902,10 @@ return{'text':"你按平时的踢法，走完了 90 分钟。赛后的总结会�
 
 
 
+
+
 // ---- idx:44 | cn_weibo | 上了热搜 ----
+
 
 
 
@@ -840,6 +919,7 @@ return{'text':"你按平时的踢法，走完了 90 分钟。赛后的总结会�
   'when': function(p){
 return p["caps"]>=0x1;
 },
+
 
 
 
@@ -871,7 +951,10 @@ return{'fame':-0x6,'ovr':0x1,'text':"你把 App 卸了，第二天照常出现�
 
 
 
+
+
 // ---- idx:45 | cn_natur | ? ----
+
 
 
 
@@ -884,6 +967,7 @@ return{'fame':-0x6,'ovr':0x1,'text':"你把 App 卸了，第二天照常出现�
   'when': function(p){
 return p["inChina"]&&p["roleRank"]<=0x3;
 },
+
 
 
 
@@ -912,7 +996,10 @@ return{'leave':!0x0,'fame':-0x5,'text':"你递了转会申请。走的那天，�
 
 
 
+
+
 // ---- idx:46 | cn_lives | 直播带货 ----
+
 
 
 
@@ -925,6 +1012,7 @@ return{'leave':!0x0,'fame':-0x5,'text':"你递了转会申请。走的那天，�
   'when': function(p){
 return p["inChina"]&&p["fame"]>=0x28;
 },
+
 
 
 
@@ -953,7 +1041,10 @@ return{'ovr':0x2,'text':"你说，自己还是球员。MCN 转身签了另一个
 
 
 
+
+
 // ---- idx:47 | cn_zhoub | 队内酒局 ----
+
 
 
 
@@ -967,6 +1058,7 @@ return{'ovr':0x2,'text':"你说，自己还是球员。MCN 转身签了另一个
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -995,7 +1087,10 @@ return{'ovr':0x2,'roleDelta':-0x1,'text':"你回房间睡了。之"+"后半年�
 
 
 
+
+
 // ---- idx:48 | cn_trans | 转会卡在手里 ----
+
 
 
 
@@ -1008,6 +1103,7 @@ return{'ovr':0x2,'roleDelta':-0x1,'text':"你回房间睡了。之"+"后半年�
   'when': function(p){
 return p["inChina"]&&p["ovr"]>=0x42;
 },
+
 
 
 
@@ -1039,7 +1135,10 @@ return{'ovr':-0x1,'text':"报价过期了。俱乐部通稿里写着「球员本
 
 
 
+
+
 // ---- idx:49 | cn_schoo | ? ----
+
 
 
 
@@ -1053,6 +1152,7 @@ return{'ovr':-0x1,'text':"报价过期了。俱乐部通稿里写着「球员本
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -1081,7 +1181,10 @@ return{'ovr':-0x3,'clean':0x8,'degree':!0x0,'text':"你考上了，读的是体�
 
 
 
+
+
 // ---- idx:50 | cn_ref | ? ----
+
 
 
 
@@ -1094,6 +1197,7 @@ return{'ovr':-0x3,'clean':0x8,'degree':!0x0,'text':"你考上了，读的是体�
   'when': function(p){
 return p["inChina"]&&p["guanxi"]>=0x2d;
 },
+
 
 
 
@@ -1122,7 +1226,10 @@ return{'fame':0x19,'guanxi':-0x12,'mult':{'league':0.7},'text':"你跑过去告�
 
 
 
+
+
 // ---- idx:51 | cn_farew | 退役之后 ----
+
 
 
 
@@ -1134,6 +1241,7 @@ return{'fame':0x19,'guanxi':-0x12,'mult':{'league':0.7},'text':"你跑过去告�
   'cn': !0x0,
   'stage': "vet",
   'desc': "你开始想，退役以后做什么。有人劝你去考教练证，有人说搞青训正赶上了风口。",
+
 
 
 
@@ -1164,7 +1272,10 @@ return d(q,s)?{'money':0xb4,'academy':!0x0,'text':"第一批学员招满了。�
 
 
 
+
+
 // ---- idx:61 | cn_donxu | ? ----
+
 
 
 
@@ -1176,6 +1287,7 @@ return d(q,s)?{'money':0xb4,'academy':!0x0,'text':"第一批学员招满了。�
   'cn': !0x0,
   'repeat': 0x3,
   'desc': "又是昆明海埂。一天三练：上午越野，下午对抗，晚上开会看录像，直到十一点。",
+
 
 
 
@@ -1206,7 +1318,10 @@ return{'ovr':0x1,'guanxi':-0x8,'roleDelta':-0x1,'text':"你按自己的节奏练
 
 
 
+
+
 // ---- idx:62 | cn_xianx | 限薪令 ----
+
 
 
 
@@ -1220,6 +1335,7 @@ return{'ovr':0x1,'guanxi':-0x8,'roleDelta':-0x1,'text':"你按自己的节奏练
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -1252,7 +1368,10 @@ return d(q,s)?{'money':0x64,'fame':0xc,'guanxi':-0xf,'text':"仲裁支持了你�
 
 
 
+
+
 // ---- idx:63 | cn_waiyu | 外援政策 ----
+
 
 
 
@@ -1266,6 +1385,7 @@ return d(q,s)?{'money':0x64,'fame':0xc,'guanxi':-0xf,'text':"仲裁支持了你�
   'when': function(p){
 return p["inChina"]&&'gk'!==p["posGroup"]&&p["roleRank"]<=0x3;
 },
+
 
 
 
@@ -1297,7 +1417,10 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x2,'fame':0x8,'text':"热身赛，你把�
 
 
 
+
+
 // ---- idx:64 | cn_yidi | 球队搬走了 ----
+
 
 
 
@@ -1310,6 +1433,7 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x2,'fame':0x8,'text':"热身赛，你把�
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -1338,7 +1462,10 @@ return{'leave':!0x0,'fame':0xa,'text':"你说，这座城市养了你八年。�
 
 
 
+
+
 // ---- idx:65 | cn_qingx | 青训补偿 ----
+
 
 
 
@@ -1351,6 +1478,7 @@ return{'leave':!0x0,'fame':0xa,'text':"你说，这座城市养了你八年。�
   'when': function(p){
 return p["age"]<=0x18;
 },
+
 
 
 
@@ -1382,7 +1510,10 @@ return d(q,s)?{'fame':0x8,'clean':0x5,'text':"仲裁认定协议无效"+"。你�
 
 
 
+
+
 // ---- idx:66 | cn_yueta | 被约谈 ----
+
 
 
 
@@ -1396,6 +1527,7 @@ return d(q,s)?{'fame':0x8,'clean':0x5,'text':"仲裁认定协议无效"+"。你�
   'when': function(p){
 return p["inChina"]&&p["fame"]>=0x1e;
 },
+
 
 
 
@@ -1424,7 +1556,10 @@ return{'banGames':0x5,'money':-0x50,'fame':0x14,'guanxi':-0x14,'text':"停赛五
 
 
 
+
+
 // ---- idx:67 | cn_saihu | 赛会制 ----
+
 
 
 
@@ -1437,6 +1572,7 @@ return{'banGames':0x5,'money':-0x50,'fame':0x14,'guanxi':-0x14,'text':"停赛五
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -1465,7 +1601,10 @@ return{'guanxi':-0xc,'roleDelta':-0x1,'text':"申请没批。领队说：「大�
 
 
 
+
+
 // ---- idx:68 | cn_zhuan | 退役以后干什么 ----
+
 
 
 
@@ -1477,6 +1616,7 @@ return{'guanxi':-0xc,'roleDelta':-0x1,'text':"申请没批。领队说：「大�
   'cn': !0x0,
   'stage': "vet",
   'desc': "队里请来个讲师，讲职业规划。台下二十个人，谁也说不出明年自己会在哪。",
+
 
 
 
@@ -1504,7 +1644,10 @@ return{'ovr':0x2,'text':"你说还能再踢几年。讲师笑了笑，说你这�
 
 
 
+
+
 // ---- idx:83 | cn_bianz | 体育局的编制 ----
+
 
 
 
@@ -1516,6 +1659,7 @@ return{'ovr':0x2,'text':"你说还能再踢几年。讲师笑了笑，说你这�
   'cn': !0x0,
   'stage': "youth",
   'desc': "省队给了个带编制的名额。工资不高，但一辈子有保障，代价是别再想随便转会。",
+
 
 
 
@@ -1543,7 +1687,10 @@ return{'ovr':0x3,'guanxi':-0x6,'text':"你说，想去踢真正的比赛。那�
 
 
 
+
+
 // ---- idx:84 | cn_shiye | 欠薪冲超 ----
+
 
 
 
@@ -1556,6 +1703,7 @@ return{'ovr':0x3,'guanxi':-0x6,'text':"你说，想去踢真正的比赛。那�
   'when': function(p){
 return p["clubRep"]<=0x2;
 },
+
 
 
 
@@ -1588,7 +1736,10 @@ return{'ovr':0x1,'guanxi':-0xa,'roleDelta':-0x1,'text':"你去劳动仲裁递了
 
 
 
+
+
 // ---- idx:165 | cn_youth | 青年赛的默契球 ----
+
 
 
 
@@ -1602,6 +1753,7 @@ return{'ovr':0x1,'guanxi':-0xa,'roleDelta':-0x1,'text':"你去劳动仲裁递了
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -1634,7 +1786,10 @@ return d(q,s)?{'clean':0x8,'ovr':0x3,'fame':0x8,'text':"第 80 分钟，你当�
 
 
 
+
+
 // ---- idx:166 | cn_hukou | ? ----
+
 
 
 
@@ -1648,6 +1803,7 @@ return d(q,s)?{'clean':0x8,'ovr':0x3,'fame':0x8,'text':"第 80 分钟，你当�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -1679,7 +1835,10 @@ return d(q,s)?{'ovr':0x1,'clean':0x4,'text':"第二年，注册办法改了。�
 
 
 
+
+
 // ---- idx:190 | cn_new_s | 新球场 ----
+
 
 
 
@@ -1690,6 +1849,7 @@ return d(q,s)?{'ovr':0x1,'clean':0x4,'text':"第二年，注册办法改了。�
   'weight': 0x30,
   'cn': !0x0,
   'desc': "地方上砸下座六万人的新球场。主队搬进去，票价翻了一倍，上座率掉了一半。",
+
 
 
 
@@ -1717,7 +1877,10 @@ return{'guanxi':0xc,'money':0x28,'fame':-0x6,'text':"你站在新球场中央拍
 
 
 
+
+
 // ---- idx:191 | cn_fan_c | 球迷冲突 ----
+
 
 
 
@@ -1728,6 +1891,7 @@ return{'guanxi':0xc,'money':0x28,'fame':-0x6,'text':"你站在新球场中央拍
   'weight': 0x2d,
   'cn': !0x0,
   'desc': "德比刚结束，两边球迷在停车场动起手来。你的车，正好堵在最中间。",
+
 
 
 
@@ -1759,7 +1923,10 @@ return{'text':"你在车里坐了四十分钟。第二天，没人再提这事�
 
 
 
+
+
 // ---- idx:192 | cn_agent | 经纪人的抽成 ----
+
 
 
 
@@ -1771,6 +1938,7 @@ return{'text':"你在车里坐了四十分钟。第二天，没人再提这事�
   'cn': !0x0,
   'stage': "prime",
   'desc': "转会敲定后你才听说，经纪人从俱乐部那头也抽了一笔，数目比你的签字费还高。",
+
 
 
 
@@ -1802,7 +1970,10 @@ return{'money':-0x50,'guanxi':0xa,'text':"你什么都没说。他后来又替�
 
 
 
+
+
 // ---- idx:193 | cn_team_ | ? ----
+
 
 
 
@@ -1813,6 +1984,7 @@ return{'money':-0x50,'guanxi':0xa,'text':"你什么都没说。他后来又替�
   'weight': 0x30,
   'cn': !0x0,
   'desc': "队医是老板的亲戚。处理伤病只有两招：冰敷，和一句「再练练」。",
+
 
 
 
@@ -1843,7 +2015,10 @@ return d(q,s)?{'text':"那点伤，后来自己好了。你至今不知道，它
 
 
 
+
+
 // ---- idx:194 | cn_forei | 外教来了 ----
+
 
 
 
@@ -1854,6 +2029,7 @@ return d(q,s)?{'text':"那点伤，后来自己好了。你至今不知道，它
   'weight': 0x32,
   'cn': !0x0,
   'desc': "俱乐部请来个欧洲教练。第一堂训练课，他让全队做自己青训里十四岁孩子的传接练习。",
+
 
 
 
@@ -1884,7 +2060,10 @@ return{'guanxi':0xc,'ovr':-0x2,'text':"更衣室里没人听他的。他走那�
 
 
 
+
+
 // ---- idx:195 | cn_salar | 限薪令 ----
+
 
 
 
@@ -1898,6 +2077,7 @@ return{'guanxi':0xc,'ovr':-0x2,'text':"更衣室里没人听他的。他走那�
   'when': function(p){
 return p["ovr"]>=0x44&&p["roleRank"]>=0x2;
 },
+
 
 
 
@@ -1930,7 +2110,10 @@ return d(q,s)?{'money':0xb4,'clean':-0xe,'yinyang':!0x0,'text':"差额，走了�
 
 
 
+
+
 // ---- idx:196 | cn_quany | 全运会的名额 ----
+
 
 
 
@@ -1943,6 +2126,7 @@ return d(q,s)?{'money':0xb4,'clean':-0xe,'yinyang':!0x0,'text':"差额，走了�
   'when': function(p){
 return p["age"]>=0x12&&p["age"]<=0x17;
 },
+
 
 
 
@@ -1974,7 +2158,10 @@ return{'guanxi':-0x12,'roleDelta':0x1,'ovr':0x1,'text':"你说合同在这儿。
 
 
 
+
+
 // ---- idx:197 | cn_winte | ? ----
+
 
 
 
@@ -1986,6 +2173,7 @@ return{'guanxi':-0x12,'roleDelta':0x1,'ovr':0x1,'text':"你说合同在这儿。
   'cn': !0x0,
   'repeat': 0x2,
   'desc': "昆明海埂，海拔一千九，一天两练，三个月。队医说在这儿练完，回平原能多跑十公里。",
+
 
 
 
@@ -2018,7 +2206,10 @@ return{'ovr':0x1,'guanxi':-0x8,'text':"你递给教练组一份自己的计划�
 
 
 
+
+
 // ---- idx:198 | cn_acl_a | 亚冠西亚客场 ----
+
 
 
 
@@ -2031,6 +2222,7 @@ return{'ovr':0x1,'guanxi':-0x8,'text':"你递给教练组一份自己的计划�
   'when': function(p){
 return p["clubRep"]>=0x2&&p["roleRank"]>=0x2;
 },
+
 
 
 
@@ -2063,7 +2255,10 @@ return{'ovr':0x2,'guanxi':-0x8,'text':"那场客场丢了三个。赛后发布�
 
 
 
+
+
 // ---- idx:199 | cn_amate | 足协杯打业余队 ----
+
 
 
 
@@ -2076,6 +2271,7 @@ return{'ovr':0x2,'guanxi':-0x8,'text':"那场客场丢了三个。赛后发布�
   'when': function(p){
 return p["roleRank"]>=0x2;
 },
+
 
 
 
@@ -2108,7 +2304,10 @@ return{'fame':-0x8,'text':"你踢了半场就被换"+"下。第二天当地论"+
 
 
 
+
+
 // ---- idx:200 | cn_bus_s | 大巴被查封了 ----
+
 
 
 
@@ -2121,6 +2320,7 @@ return{'fame':-0x8,'text':"你踢了半场就被换"+"下。第二天当地论"+
   'when': function(p){
 return p["clubRep"]<=0x2;
 },
+
 
 
 
@@ -2149,7 +2349,10 @@ return{'money':-0x5a,'guanxi':0x12,'text':"你订了两辆中巴。那笔钱后�
 
 
 
+
+
 // ---- idx:201 | cn_reg_d | 注册截止前四小时 ----
+
 
 
 
@@ -2160,6 +2363,7 @@ return{'money':-0x5a,'guanxi':0x12,'text':"你订了两辆中巴。那笔钱后�
   'weight': 0x2e,
   'cn': !0x0,
   'desc': "转会窗最后一天，注册材料就差俱乐部一个章。办公室的人说，领导在外地。",
+
 
 
 
@@ -2190,7 +2394,10 @@ return d(q,s)?{'text':"系统关闭前二十分钟，材料提交成功。中间
 
 
 
+
+
 // ---- idx:202 | cn_leade | 领导来看球 ----
+
 
 
 
@@ -2201,6 +2408,7 @@ return d(q,s)?{'text':"系统关闭前二十分钟，材料提交成功。中间
   'weight': 0x30,
   'cn': !0x0,
   'desc': "地方领导带队来调研，赛前合影，赛后座谈。队里放话：这场球性质不一样。",
+
 
 
 
@@ -2232,7 +2440,10 @@ return{'ovr':0x1,'text':"你照常热身，照常拉伸。合影时，你站在�
 
 
 
+
+
 // ---- idx:203 | cn_media | 统一口径 ----
+
 
 
 
@@ -2245,6 +2456,7 @@ return{'ovr':0x1,'text':"你照常热身，照常拉伸。合影时，你站在�
   'when': function(p){
 return p["fame"]>=0x19;
 },
+
 
 
 
@@ -2273,7 +2485,10 @@ return{'fame':0x14,'guanxi':-0x10,'clean':0x6,'text':"你说：「欠薪的事�
 
 
 
+
+
 // ---- idx:204 | cn_banne | 看台上的横幅 ----
+
 
 
 
@@ -2286,6 +2501,7 @@ return{'fame':0x14,'guanxi':-0x10,'clean':0x6,'text':"你说：「欠薪的事�
   'when': function(p){
 return p["clubRep"]<=0x3;
 },
+
 
 
 
@@ -2309,6 +2525,7 @@ return{'fame':-0x5,'text':"走进球员通道时，你回头看了一眼。横�
 }
 
 ];
+
 
 
 

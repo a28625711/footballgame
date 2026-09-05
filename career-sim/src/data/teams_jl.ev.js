@@ -1,0 +1,25 @@
+// window.DATA.TEAMS 中 league="jl" 的球队
+var TEAMS_jl = [
+{'id':"kaw",'name':"川崎前锋",'league':'jl',
+'rep':0x2,'color':"#009FE8"},
+{'id':"yok",'name':"横滨水手",'league':'jl','rep':0x2,'color':"#004098"},
+{'id':"urw",'name':"浦和红钻",
+'league':'jl','rep':0x2,'color':"#E60012"},
+{'id':"kob",'name':"神户胜利船",'league':'jl','rep':0x2,'color':"#862633"},
+{'id':"ksm",'name':"鹿岛鹿角",'league':"jl",'rep':2,'color':"#C8102E"},
+{'id':"san",'name':"广岛三箭",'league':"jl",'rep':2,'color':"#6E4FA4"},
+{'id':"gmb",'name':"大阪钢巴",'league':"jl",'rep':2,'color':"#004197"},
+{'id':"cre",'name':"大阪樱花",'league':"jl",'rep':2,'color':"#D1113B"},
+{'id':"ngy",'name':"名古屋鲸八",'league':"jl",'rep':1,'color':"#C8102E"},
+{'id':"fct",'name':"FC东京",'league':"jl",'rep':1,'color':"#005CA9"},
+{'id':"ksw",'name':"柏雷素尔",'league':"jl",'rep':1,'color':"#F5C400"},
+{'id':"mit",'name':"水户蜀葵",'league':"jl",'rep':1,'color':"#005D9F"},
+{'id':"jef",'name':"千叶市原",'league':"jl",'rep':1,'color':"#008E5C"},
+{'id':"fag",'name':"冈山绿雉",'league':"jl",'rep':1,'color':"#B0063E"},
+{'id':"avi",'name':"福冈黄蜂",'league':"jl",'rep':1,'color':"#0092AE"},
+{'id':"nag",'name':"长崎成功丸",'league':"jl",'rep':1,'color':"#213A8F"},
+{'id':"verdy",'name':"东京绿茵",'league':"jl",'rep':1,'color':"#004197"},
+{'id':"mac2",'name':"町田泽维亚",'league':"jl",'rep':2,'color':"#C8102E"},
+{'id':"shim",'name':"清水心跳",'league':"jl",'rep':2,'color':"#004197"},
+{'id':"kyo",'name':"京都桑加",'league':"jl",'rep':1,'color':"#7B2D8E"}
+];

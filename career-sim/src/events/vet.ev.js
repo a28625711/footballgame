@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_vet=[
 
 
 
 
+
 // ---- idx:80 | vet_drop | 往回撤 ----
+
 
 
 
@@ -21,6 +24,7 @@ var EVT_vet=[
   'when': function(p){
 return "att"===p["posGroup"]||"mid"===p["posGroup"];
 },
+
 
 
 
@@ -52,7 +56,10 @@ return d(q,s)?{'ovr':0x1,'fame':0x6,'text':"你用两个赛季证明了自己还
 
 
 
+
+
 // ---- idx:180 | vet_last | 最后一份合同 ----
+
 
 
 
@@ -63,6 +70,7 @@ return d(q,s)?{'ovr':0x1,'fame':0x6,'text':"你用两个赛季证明了自己还
   'weight': 0x37,
   'stage': "vet",
   'desc': "俱乐部只肯签一年，工资砍掉六成，附加条款只有一条：带好那几个年轻人。",
+
 
 
 
@@ -94,7 +102,10 @@ return d(q,s)?{'leave':!0x0,'ovr':0x1,'fame':0x6,'text':"低一级的球队递�
 
 
 
+
+
 // ---- idx:181 | vet_benc | 板凳上的一年 ----
+
 
 
 
@@ -105,6 +116,7 @@ return d(q,s)?{'leave':!0x0,'ovr':0x1,'fame':0x6,'text':"低一级的球队递�
   'weight': 0x34,
   'stage': "vet",
   'desc': "一个赛季你只上场四次，全在补时。汗还没出，哨就响了。",
+
 
 
 
@@ -132,7 +144,10 @@ return{'leave':!0x0,'ovr':0x2,'fame':-0x8,'text':"你往下走了一级，领回
 
 
 
+
+
 // ---- idx:182 | vet_coac | 教练组的位置 ----
+
 
 
 
@@ -143,6 +158,7 @@ return{'leave':!0x0,'ovr':0x2,'fame':-0x8,'text':"你往下走了一级，领回
   'weight': 0x30,
   'stage': "vet",
   'desc': "俱乐部递来一个位置：退役后进教练组。前提是，这个赛季打完就挂靴。",
+
 
 
 
@@ -173,7 +189,10 @@ return d(q,s)?{'ovr':0x1,'fame':0x8,'text':"你又踢了三年。教练席上那
 
 
 
+
+
 // ---- idx:183 | vet_assi | 留下来带年轻人 ----
+
 
 
 
@@ -186,6 +205,7 @@ return d(q,s)?{'ovr':0x1,'fame':0x8,'text':"你又踢了三年。教练席上那
   'when': function(p){
 return p["seasonsA"+"tClub"]>=0x3;
 },
+
 
 
 
@@ -214,7 +234,10 @@ return{'ovr':0x2,'text':"你说，等踢不动了再说。他笑了笑：这话�
 
 
 
+
+
 // ---- idx:184 | vet_scou | 球探的差事 ----
+
 
 
 
@@ -227,6 +250,7 @@ return{'ovr':0x2,'text':"你说，等踢不动了再说。他笑了笑：这话�
   'when': function(p){
 return p["age"]>=0x22;
 },
+
 
 
 
@@ -257,7 +281,10 @@ return d(q,s)?{'fame':0xa,'money':0x28,'text':"你去跑商业活动，穿得体
 
 
 
+
+
 // ---- idx:185 | vet_test | 告别赛 ----
+
 
 
 
@@ -270,6 +297,7 @@ return d(q,s)?{'fame':0xa,'money':0x28,'text':"你去跑商业活动，穿得体
   'when': function(p){
 return p["seasonsA"+"tClub"]>=0x4;
 },
+
 
 
 
@@ -298,7 +326,10 @@ return{'clean':0x6,'fame':-0x4,'text':"最后一场哨响，你自己走到中�
 
 
 
+
+
 // ---- idx:186 | vet_drop | 往下走一级 ----
+
 
 
 
@@ -309,6 +340,7 @@ return{'clean':0x6,'fame':-0x4,'text':"最后一场哨响，你自己走到中�
   'weight': 0x32,
   'stage': "vet",
   'desc': "{league}已经没有球队要你了。往低走一级，倒有两支队伍，愿意给你主力位置。",
+
 
 
 
@@ -339,7 +371,10 @@ return d(q,s)?{'roleDelta':-0x1,'text':"三月份，一支保级队伤了人，�
 
 
 
+
+
 // ---- idx:187 | vet_medi | 体检没过 ----
+
 
 
 
@@ -350,6 +385,7 @@ return d(q,s)?{'roleDelta':-0x1,'text':"三月份，一支保级队伤了人，�
   'weight': 0x2d,
   'stage': "vet",
   'desc': "转会都谈妥了。体检报告出来的那天，对方打来电话，只说了句「很遗憾」。",
+
 
 
 
@@ -381,7 +417,10 @@ return{'leave':!0x0,'ovr':-0x2,'money':-0x1e,'text':"一支低一级的球队，
 
 
 
+
+
 // ---- idx:188 | vet_comm | 解说席的邀请 ----
+
 
 
 
@@ -392,6 +431,7 @@ return{'leave':!0x0,'ovr':-0x2,'money':-0x1e,'text':"一支低一级的球队，
   'weight': 0x2d,
   'stage': "vet",
   'desc': "电视台想请现役球员当嘉宾解说，一场两万，代价是得评点同行。",
+
 
 
 
@@ -419,7 +459,10 @@ return{'text':"你说自己还在踢，不合适。电视台转头，找了个�
 
 
 
+
+
 // ---- idx:189 | vet_acad | 合伙办个班 ----
+
 
 
 
@@ -432,6 +475,7 @@ return{'text':"你说自己还在踢，不合适。电视台转头，找了个�
   'when': function(p){
 return p["money"]>=0x12c;
 },
+
 
 
 
@@ -474,7 +518,10 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
 
 
 
+
+
 // ---- idx:296 | vet_wall | 撞上体能墙 ----
+
 
 
 
@@ -485,6 +532,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   'weight': 0x3c,
   'stage': "vet",
   'when': function(p){return p["age"]>=0x22&&p["age"]<=0x24&&p["posGroup"]!=='gk';},
+
 
 
 
@@ -511,7 +559,10 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
 
 
 
+
+
 // ---- idx:297 | vet_mentor | 把绝活传下去 ----
+
 
 
 
@@ -522,6 +573,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   'weight': 0x3e,
   'stage': "vet",
   'when': function(p){return p["age"]>=0x21&&p["roleRank"]>=0x3;},
+
 
 
 
@@ -547,7 +599,10 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
 
 
 
+
+
 // ---- idx:298 | vet_planning | 退役后的路 ----
+
 
 
 
@@ -558,6 +613,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   'weight': 0x3a,
   'stage': "vet",
   'when': function(p){return p["age"]>=0x23;},
+
 
 
 
@@ -589,7 +645,10 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
 
 
 
+
+
 // ---- idx:299 | vet_swan | 最后一舞 ----
+
 
 
 
@@ -600,6 +659,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   'weight': 0x40,
   'stage': "vet",
   'when': function(p){return p["age"]>=0x25;},
+
 
 
 
@@ -625,7 +685,10 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
 
 
 
+
+
 // ---- idx:300 | vet_benchwarmer | 年轻人的替补 ----
+
 
 
 
@@ -636,6 +699,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   'weight': 0x3a,
   'stage': "vet",
   'when': function(p){return p["age"]>=0x22&&p["roleRank"]<=0x2;},
+
 
 
 
@@ -656,6 +720,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
 }
 
 ];
+
 
 
 

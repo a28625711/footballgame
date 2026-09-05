@@ -2129,3 +2129,50 @@ img.crest.plate {
 [data-age]:hover { background: hsl(var(--accent) / .08); }
 
 .sm-nat-stats { display: block; font-size: .7rem; color: hsl(var(--muted)); margin-top: .15rem; }
+
+/* ── 世界查询面板（时间线「世界」tab：联赛榜/轮次赛程/杯赛晋级图/洲际对阵） ── */
+.wl-sub { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.wl-chip { border: 1px solid hsl(var(--border)); background: hsl(var(--row)); color: hsl(var(--text));
+           border-radius: 999px; padding: 3px 10px; font-size: 12px; cursor: pointer; line-height: 1.5; }
+.wl-chip.on { background: hsl(var(--accent)); border-color: hsl(var(--accent));
+              color: hsl(var(--accent-on)); font-weight: 700; }
+.wl-title { margin: 10px 0 6px; font-size: 13px; font-weight: 700; color: hsl(var(--text)); }
+.wl-note { margin-left: 8px; font-size: 11px; font-weight: 400; color: hsl(var(--muted)); }
+.wl-row { display: grid; grid-template-columns: 30px minmax(0,1fr) repeat(3, 24px) repeat(2, 26px) 30px;
+          gap: 4px; align-items: center; padding: 4px 6px;
+          border-bottom: 1px solid hsl(var(--border) / .45); }
+.wl-row.me { background: hsl(var(--row-hi)); }
+.wl-row .r { text-align: right; font-size: 12px; color: hsl(var(--text)); }
+.wl-row.wl-head .r, .wl-row.wl-head .age-chip { font-size: 11px; color: hsl(var(--muted)); font-weight: 600; }
+.wl-row.wl-head { border-bottom: 1px solid hsl(var(--border)); }
+.wl-row .wl-pts { display: inline-block; min-width: 22px; text-align: center;
+                  border-radius: 999px; padding: 1px 6px; font-weight: 700; font-size: 11px;
+                  color: hsl(var(--gold1)); background: hsl(var(--gold1) / .12); }
+@media (max-width: 560px) { .wl-row { grid-template-columns: 28px minmax(0,1fr) repeat(3, 22px) 30px; }
+  .wl-row .hide-xs { display: none; } }
+.wl-empty { padding: 10px; font-size: 12px; color: hsl(var(--muted));
+            border: 1px dashed hsl(var(--border)); border-radius: var(--r-row); margin: 6px 0; }
+.wl-bracket { display: flex; gap: 12px; overflow-x: auto; padding: 6px 2px 10px;
+              -webkit-overflow-scrolling: touch; }
+.wl-bcol { display: flex; flex-direction: column; justify-content: space-around;
+           gap: 8px; min-width: 132px; flex: 0 0 auto; }
+.wl-bhead { font-size: 11px; color: hsl(var(--muted)); text-align: center; margin-bottom: 2px; }
+.wl-tie { border: 1px solid hsl(var(--border)); border-radius: var(--r-row);
+          overflow: hidden; background: hsl(var(--row)); }
+.wl-tm { display: flex; justify-content: space-between; align-items: center; gap: 8px;
+         padding: 4px 8px; font-size: 12px; color: hsl(var(--muted)); }
+.wl-tm + .wl-tm { border-top: 1px solid hsl(var(--border) / .6); }
+.wl-tm.win { color: hsl(var(--text)); font-weight: 700; }
+.wl-tm i { font-style: normal; font-size: 11px; color: hsl(var(--faint)); }
+.wl-tm.me span { color: hsl(var(--gold1)); }
+.wl-pk { color: hsl(var(--info)); }
+.wl-champ { display: flex; align-items: center; gap: 6px; justify-content: center;
+            border: 1px solid hsl(var(--gold2) / .6); border-radius: var(--r-row);
+            padding: 8px; font-weight: 700; color: hsl(var(--gold1));
+            background: hsl(var(--gold1) / .08); font-size: 12px; }
+.mini-badge.lnk { cursor: pointer; border-bottom: 1px dashed hsl(var(--gold2)); }
+.sm-link { margin-left: auto; border: 1px solid hsl(var(--border-strong));
+           background: hsl(var(--btn-bg)); color: hsl(var(--text));
+           border-radius: 999px; padding: 2px 10px; font-size: 11px; cursor: pointer; }
+.sm-link:active { background: hsl(var(--accent)); color: hsl(var(--accent-on)); }
+.sm-round.me { border-color: hsl(var(--gold2) / .7); }

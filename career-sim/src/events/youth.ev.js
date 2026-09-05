@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_youth=[
 
 
 
 
+
 // ---- idx:146 | youth_do | 宿舍熄灯以后 ----
+
 
 
 
@@ -22,6 +25,7 @@ var EVT_youth=[
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -53,7 +57,10 @@ return d(q,s)?{'guanxi':0x8,'fame':0x3,'text':"那几个，后来成了你在这
 
 
 
+
+
 // ---- idx:147 | youth_ex | ? ----
+
 
 
 
@@ -67,6 +74,7 @@ return d(q,s)?{'guanxi':0x8,'fame':0x3,'text':"那几个，后来成了你在这
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -95,7 +103,10 @@ return{'ovr':0x3,'text':"那个夏天，你是在训练场上过完的。班主�
 
 
 
+
+
 // ---- idx:148 | youth_co | 教练的心头肉 ----
+
 
 
 
@@ -108,6 +119,7 @@ return{'ovr':0x3,'text':"那个夏天，你是在训练场上过完的。班主�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -139,7 +151,10 @@ return{'ovr':0x3,'text':"整整两年，你把训练赛当正赛踢。教练换�
 
 
 
+
+
 // ---- idx:149 | youth_fi | 第一份职业合同 ----
+
 
 
 
@@ -152,6 +167,7 @@ return{'ovr':0x3,'text':"整整两年，你把训练赛当正赛踢。教练换�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -183,7 +199,10 @@ return d(q,s)?{'money':0x3c,'clean':0x4,'text':"违约金砍掉一半，年限�
 
 
 
+
+
 // ---- idx:150 | youth_ag | 第一个经纪人 ----
+
 
 
 
@@ -196,6 +215,7 @@ return d(q,s)?{'money':0x3c,'clean':0x4,'text':"违约金砍掉一半，年限�
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -227,7 +247,10 @@ return{'text':"你说要先问问家里。他留下张名片，后来再没出�
 
 
 
+
+
 // ---- idx:151 | youth_lo | 借去中乙 ----
+
 
 
 
@@ -240,6 +263,7 @@ return{'text':"你说要先问问家里。他留下张名片，后来再没出�
   'when': function(p){
 return p["inChina"];
 },
+
 
 
 
@@ -271,7 +295,10 @@ return d(q,s)?{'ovr':0x2,'roleDelta':0x1,'text':"你在预备队联赛打满一�
 
 
 
+
+
 // ---- idx:152 | youth_tr | 海外试训 ----
+
 
 
 
@@ -284,6 +311,7 @@ return d(q,s)?{'ovr':0x2,'roleDelta':0x1,'text':"你在预备队联赛打满一�
   'when': function(p){
 return p["inChina"]&&p["inAcadem"+'y'];
 },
+
 
 
 
@@ -316,7 +344,10 @@ return{'text':"这笔钱，家里凑不出来。同去的那个孩子，后来�
 
 
 
+
+
 // ---- idx:153 | youth_he | 身高不够 ----
+
 
 
 
@@ -329,6 +360,7 @@ return{'text':"这笔钱，家里凑不出来。同去的那个孩子，后来�
   'when': function(p){
 return p["inAcadem"+'y'];
 },
+
 
 
 
@@ -361,7 +393,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:272 | youth_night | 熄灯后的球场 ----
+
 
 
 
@@ -374,6 +409,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
+
 
 
 
@@ -403,7 +439,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:273 | youth_watch | 高手的慢动作 ----
+
 
 
 
@@ -416,6 +455,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
+
 
 
 
@@ -446,7 +486,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:274 | youth_ballfeel | 睡前颠球 ----
+
 
 
 
@@ -459,6 +502,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
+
 
 
 
@@ -488,7 +532,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:275 | youth_skills | 基本功补课 ----
+
 
 
 
@@ -501,6 +548,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
+
 
 
 
@@ -530,7 +578,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:276 | youth_rainshoot | 雨后的球场 ----
+
 
 
 
@@ -543,6 +594,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
+
 
 
 
@@ -572,7 +624,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:277 | youth_turnaround | 转身那一课 ----
+
 
 
 
@@ -585,6 +640,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
+
 
 
 
@@ -614,7 +670,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:278 | youth_vice | 熄灯以后的烟火 ----
+
 
 
 
@@ -627,6 +686,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'when': function(p){return p["inAcademy"];
 },
+
 
 
 
@@ -659,7 +719,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:279 | youth_selfdrill | 一个人练到天黑 ----
+
 
 
 
@@ -670,6 +733,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'weight': 0x32,
   'repeat': 1,
   'stage': "youth",
+
   'when': function(p){return p["inAcademy"];
 },
 
@@ -701,7 +765,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:339 | youth_type_shift | 位置感的觉醒 ----
+
 
 
 
@@ -712,7 +779,9 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'weight': 0x38,
   'stage': "youth",
   'repeat': 1,
+
   'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+
 
 
 
@@ -732,6 +801,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
     p._shiftTarget=tgt;
     return "训练结束后教练把你叫住：「你最近的表现让我觉得，你可能更适合踢"+TN[tgt]+"。」他摊开战术板，画了几个跑位路线。也许，是时候换个方式了。";
   },
+
 
 
 
@@ -764,7 +834,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:340 | youth_type_evolve | 训练赛的意外发现 ----
+
 
 
 
@@ -778,7 +851,9 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
   'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<15)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+
 
 
 
@@ -798,6 +873,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
     p._evoTarget=tgt;
     return "队内训练赛，你被临时安排到一个不熟悉的位置。你本来只想应付了事，却发现自己在这个新位置上竟然踢出了不一样的东西。";
   },
+
 
 
 
@@ -830,7 +906,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:341 | youth_type_late | 最后一次机会 ----
+
 
 
 
@@ -842,6 +921,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'stage': "youth",
   'repeat': 1,
   'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<17)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
+
 
 
 
@@ -859,6 +939,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
     p._lateTarget=tgt;
     return "离毕业考核只剩最后几个月。你偶然看到一线队的比赛录像，某个球员的踢法让你心动了——也许你也能那样踢。";
   },
+
 
 
 
@@ -891,7 +972,10 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
 
 
 
+
+
 // ---- idx:344 | youth_elite | 顶级青训的洗礼 ----
+
 
 
 
@@ -905,6 +989,7 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
   'when': function(p){
 return p["inAcadem"+'y']&&p["clubRep"]>=5;
 },
+
 
 
 
@@ -930,7 +1015,10 @@ return p["inAcadem"+'y']&&p["clubRep"]>=5;
 
 
 
+
+
 // ---- idx:345 | youth_topclub | 豪门梯队的日常 ----
+
 
 
 
@@ -944,6 +1032,7 @@ return p["inAcadem"+'y']&&p["clubRep"]>=5;
   'when': function(p){
 return p["inAcadem"+'y']&&p["clubRep"]>=4&&p["clubRep"]<5;
 },
+
 
 
 
@@ -969,7 +1058,10 @@ return p["inAcadem"+'y']&&p["clubRep"]>=4&&p["clubRep"]<5;
 
 
 
+
+
 // ---- idx:346 | youth_contender | 争冠队的青训氛围 ----
+
 
 
 
@@ -981,12 +1073,14 @@ return p["inAcadem"+'y']&&p["clubRep"]>=4&&p["clubRep"]<5;
   'repeat': 1,
   'stage': "youth",
 
+
   'when': function(p){
 return p["inAcadem"+'y']&&p["clubRep"]>=3&&p["clubRep"]<4;
 },
 
 
   'desc': "这支球队每年都在争冠，梯队的压力也不小：每月一次的内部考核，排名末位的直接降级到更低的梯队。你不想成为那个被刷下去的人。",
+
 
   'options': [
     {
@@ -1009,7 +1103,10 @@ return p["inAcadem"+'y']&&p["clubRep"]>=3&&p["clubRep"]<4;
 
 
 
+
+
 // ---- idx:347 | youth_midtable | 中游球队的青训日子 ----
+
 
 
 
@@ -1021,12 +1118,14 @@ return p["inAcadem"+'y']&&p["clubRep"]>=3&&p["clubRep"]<4;
   'repeat': 1,
   'stage': "youth",
 
+
   'when': function(p){
 return p["inAcadem"+'y']&&p["clubRep"]>=2&&p["clubRep"]<3;
 },
 
 
   'desc': "这里没有顶级的设施，也没有一线队的聚光灯。但教练说了一句话让你记住：中游球队的青训，靠的是自己给自己加戏。没人盯着你，所以你要自己盯着自己。",
+
 
   'options': [
     {
@@ -1049,7 +1148,10 @@ return p["inAcadem"+'y']&&p["clubRep"]>=2&&p["clubRep"]<3;
 
 
 
+
+
 // ---- idx:348 | youth_grassroots | 小球会的青训路 ----
+
 
 
 
@@ -1061,12 +1163,14 @@ return p["inAcadem"+'y']&&p["clubRep"]>=2&&p["clubRep"]<3;
   'repeat': 1,
   'stage': "youth",
 
+
   'when': function(p){
 return p["inAcadem"+'y']&&p["clubRep"]<=1;
 },
 
 
   'desc': "训练场是公共的，周末还有市民来踢野球。教练身兼三职，梯队就二十来人。但正因如此，你几乎每场训练赛都能踢满全场——在大俱乐部，这不可能。",
+
 
   'options': [
     {
@@ -1084,6 +1188,7 @@ return p["inAcadem"+'y']&&p["clubRep"]<=1;
 }
 
 ];
+
 
 
 

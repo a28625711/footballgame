@@ -3,12 +3,15 @@
 
 
 
+
 var EVT_mid=[
 
 
 
 
+
 // ---- idx:109 | mid_engi | 跑动数据 ----
+
 
 
 
@@ -20,6 +23,7 @@ var EVT_mid=[
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -51,7 +55,10 @@ return{'ovr':0x1,'roleDelta':-0x1,'text':"你把力气留给带球那几下。�
 
 
 
+
+
 // ---- idx:110 | mid_deep | 往后撤一条线 ----
+
 
 
 
@@ -63,6 +70,7 @@ return{'ovr':0x1,'roleDelta':-0x1,'text':"你把力气留给带球那几下。�
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -94,7 +102,10 @@ return d(q,s)?{'ovr':0x2,'fame':0x8,'text':"你用两个赛季，证明了那个
 
 
 
+
+
 // ---- idx:111 | mid_setp | 定位球主罚权 ----
+
 
 
 
@@ -106,6 +117,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x8,'text':"你用两个赛季，证明了那个
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -137,7 +149,10 @@ return{'text':"你等了两年。他退役那天，把角旗区的位置，交�
 
 
 
+
+
 // ---- idx:112 | mid_temp | 节拍器 ----
+
 
 
 
@@ -149,6 +164,7 @@ return{'text':"你等了两年。他退役那天，把角旗区的位置，交�
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -180,7 +196,10 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"你那套节奏在国内够用。出
 
 
 
+
+
 // ---- idx:113 | mid_tack | 抢断还是站位 ----
+
 
 
 
@@ -192,6 +211,7 @@ return d(q,s)?{'ovr':0x2,'fame':0x6,'text':"你那套节奏在国内够用。出
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -223,7 +243,10 @@ return d(q,s)?{'fame':0xe,'ovr':0x1,'text':"对方前腰赛前会专门研究你
 
 
 
+
+
 // ---- idx:114 | mid_long | 四十米转移 ----
+
 
 
 
@@ -235,6 +258,7 @@ return d(q,s)?{'fame':0xe,'ovr':0x1,'text':"对方前腰赛前会专门研究你
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -266,7 +290,10 @@ return d(q,s)?{'ovr':0x2,'fame':0xc,'text':"有一脚六十米转移，直接变
 
 
 
+
+
 // ---- idx:115 | mid_box_ | 两个禁区之间 ----
+
 
 
 
@@ -278,6 +305,7 @@ return d(q,s)?{'ovr':0x2,'fame':0xc,'text':"有一脚六十米转移，直接变
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -309,7 +337,10 @@ return{'ovr':0x2,'text':"你专心做好防守那一半。教练在那个位置�
 
 
 
+
+
 // ---- idx:116 | mid_crea | 别冒险 ----
+
 
 
 
@@ -321,6 +352,7 @@ return{'ovr':0x2,'text':"你专心做好防守那一半。教练在那个位置�
   'when': function(p){
 return "mid"===p["posGroup"];
 },
+
 
 
 
@@ -347,6 +379,7 @@ return d(q,s)?{'ovr':0x4,'fame':0xe,'text':"一个赛季，十一次助攻。后
 }
 
 ];
+
 
 
 

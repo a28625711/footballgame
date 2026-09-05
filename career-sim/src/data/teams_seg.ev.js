@@ -1,0 +1,25 @@
+// window.DATA.TEAMS 中 league="seg" 的球队
+var TEAMS_seg = [
+{'id':"spo2",'name':"希洪竞技",'league':"seg",'rep':0x1,'color':"#E30613"},
+{'id':"hue",'name':"韦斯卡",'league':"seg",'rep':0x0,'color':"#003DA5"},
+{'id':"eib",'name':"埃瓦尔",'league':"seg",'rep':0x1,'color':"#0C4CA3"},
+{'id':"zar",'name':"萨拉戈萨",'league':"seg",'rep':0x1,'color':"#1B4F9C"},
+{'id':"dep",'name':"拉科鲁尼亚",'league':"seg",'rep':0x1,'color':"#0067B2"},
+{'id':"mlg",'name':"马拉加",'league':"seg",'rep':2,'color':"#004FA3"},
+{'id':"leg",'name':"莱加内斯",'league':"seg",'rep':1,'color':"#004197"},
+{'id':"ovd",'name':"奥维耶多",'league':"seg",'rep':1,'color':"#004197"},
+{'id':"alba",'name':"阿尔巴塞特",'league':"seg",'rep':1,'color':"#C8102E"},
+{'id':"bur",'name':"布尔戈斯",'league':"seg",'rep':1,'color':"#C8102E"},
+{'id':"cas2",'name':"卡斯特利翁",'league':"seg",'rep':1,'color':"#FFD700"},
+{'id':"eld",'name':"埃尔登塞",'league':"seg",'rep':1,'color':"#004197"},
+{'id':"mir",'name':"米兰德斯",'league':"seg",'rep':1,'color':"#C8102E"},
+{'id':"ten",'name':"特内里费",'league':"seg",'rep':2,'color':"#004197"},
+{'id':"cor",'name':"科尔多瓦",'league':"seg",'rep':1,'color':"#C8102E"},
+{'id':"elc",'name':"埃尔切",'league':"seg",'rep':1,'color':"#004197"},
+{'id':"lev2",'name':"莱万特",'league':"seg",'rep':2,'color':"#004197"},
+{'id':"racing",'name':" Racing桑坦德",'league':"seg",'rep':1,'color':"#C8102E"},
+{'id':"alme",'name':"阿尔梅里亚",'league':"seg",'rep':1,'color':"#E50000"},
+{'id':"ando",'name':"安道尔",'league':"seg",'rep':0,'color':"#004197"},
+{'id':"ceut",'name':"休达",'league':"seg",'rep':0,'color':"#004197"},
+{'id':"vall",'name':"巴利亚多利德",'league':"seg",'rep':1,'color':"#7A263A"}
+];

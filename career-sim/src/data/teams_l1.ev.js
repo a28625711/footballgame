@@ -1,0 +1,26 @@
+// window.DATA.TEAMS 中 league="l1" 的球队
+var TEAMS_l1 = [
+{'id':"psg",'name':"巴黎圣日耳曼",'league':'l1','rep':0x5,
+'academy':"普瓦西训练营",'color':"#004170"},
+{'id':"mar",'name':'马赛','league':'l1','rep':0x3,'color':"#2FAEE0"},
+{'id':"lyo",'name':'里昂',
+'league':'l1','rep':0x3,'academy':"里昂青训营",'color':"#083D77"},
+{'id':"mon",'name':"摩纳哥",'league':'l1','rep':0x3,'academy':"摩纳哥学院",
+'color':"#E63312"},
+{'id':"lil",'name':'里尔','league':'l1','rep':0x3,'color':"#E01E13"},
+{'id':"ren",'name':'雷恩','league':'l1',
+'rep':0x2,'color':"#E23838"},
+{'id':"nic",'name':'尼斯','league':'l1','rep':0x3,'color':"#E01C3C"},
+{'id':"len",'name':'朗斯','league':'l1',
+'rep':0x3,'color':"#9C2424"},
+{'id':"rcs",'name':"斯特拉斯堡",'league':'l1','rep':0x2,'color':"#0C9CE4"},
+{'id':"bdx",'name':"波尔多",'league':"l1",'rep':2,'color':"#00295B"},
+{'id':"mpl",'name':"蒙彼利埃",'league':"l1",'rep':2,'color':"#E23B3B"},
+{'id':"tls",'name':"图卢兹",'league':"l1",'rep':2,'color':"#553B77"},
+{'id':"nts",'name':"南特",'league':"l1",'rep':2,'color':"#FCD100"},
+{'id':"set",'name':"圣埃蒂安",'league':"l1",'rep':2,'color':"#00855B"},
+{'id':"rei",'name':"兰斯",'league':"l1",'rep':2,'color':"#C8102E"},
+{'id':"aux",'name':"欧塞尔",'league':"l1",'rep':1,'color':"#004197"},
+{'id':"ang",'name':"昂热",'league':"l1",'rep':1,'color':"#E50016"},
+{'id':"bst",'name':"布雷斯特",'league':"l1",'rep':1,'color':"#E30613"}
+];

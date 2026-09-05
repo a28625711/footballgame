@@ -6,14 +6,14 @@ from harness import new_engine, logs, rendered_html
 def test():
     mr = new_engine()
     # Start a career
-    mr.eval("var _s=__SIMTEST.start('normal',__SIMTEST.origins[0],null)")
+    mr.eval("var _s=window.__SIMTEST.start('normal',{name:'init_test',origin:'sd',pos:'ST',nation:'cn',talent:1.1,number:9,foot:'r'},null)")
     # Simulate 3 seasons
     for _ in range(3):
-        mr.eval("try{__SIMTEST.cont()}catch(e){}")
+        mr.eval("try{window.__SIMTEST.cont()}catch(e){}")
 
     # Get the current state and simulate an OLD save (no playerType)
     mr.eval("""
-    var _st = __SIMTEST.state();
+    var _st = window.__SIMTEST.state();
     // Remove playerType to simulate old save
     delete _st.playerType;
     var _hasPT = ('playerType' in _st);
@@ -24,7 +24,7 @@ def test():
     result = mr.eval("""
     var _result = {};
     try {
-        __SIMTEST.render();
+        window.__SIMTEST.render();
         _result.renderOK = true;
     } catch(e) {
         _result.renderOK = false;

@@ -40,3 +40,4 @@
 'vil':"assets/c"+"rests/vil.svg",'vit':"assets/c"+"rests/vit.svg",'volendam':"assets/c"+"rests/volendam.svg",'wat':"assets/c"+"rests/wat.png",'wba':"assets/c"+"rests/wba.png",'wel':"assets/c"+"rests/wel.svg",'west':"assets/c"+"rests/west.png",'whu':"assets/c"+"rests/whu.png",
 'willem2':"assets/c"+"rests/willem2.svg",'wob':"assets/c"+"rests/wob.svg",'wol':"assets/c"+"rests/wol.png",'wsw':"assets/c"+"rests/wsw.svg",'wun':"assets/c"+"rests/wun.svg",'yok':"assets/c"+"rests/yok.svg",'zar':"assets/c"+"rests/zar.png",
 'zul':"assets/c"+"rests/corum.svg"}));
+
