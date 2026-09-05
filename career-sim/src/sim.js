@@ -3518,7 +3518,11 @@ if(q.q==='cont'){
     _osrc=_oarch||_osrc;
     out["data"]=_osrc?_osrc["data"][q.id]||null:null;
 out["dataSeason"]=_osrc?_osrc["season"]:0;
-    out["fxSeasons"]=_fxSeasons(a2["contFx"]?a2["contFx"]["season"]:0,a2["contFxArch"]);
+    out["curSeason"]=a2["contFx"]?a2["contFx"]["season"]:0;
+    out["fxSeasons"]=_fxSeasons(a2["contFx"]?a2["contFx"]["season"]:0,a2["contFxArch"])["filter"](function(sn){
+if(a2["contFx"]&&a2["contFx"]["season"]===sn&&a2["contFx"]["data"][q.id])return true;
+for(var ai=0;ai<(a2["contFxArch"]||[]).length;ai++){var f=a2["contFxArch"][ai];if(f["season"]===sn&&f["data"]&&f["data"][q.id])return true;}
+return false;});
     if(!out["data"]&&a2["contHist"]){for(i=a2["contHist"]["length"]-1;i>=0;i--)if(a2["contHist"][i]["comp"]===q.id){out["champ"]=a2["contHist"][i]["tid"];break;}}
 }
 if(q.q==='natTs'){
@@ -3532,7 +3536,11 @@ if(q.q==='natT'){
     _nsrc=_narch||_nsrc;
     out["data"]=_nsrc?_nsrc["data"][q.id]||null:null;
     out["dataSeason"]=_nsrc?_nsrc["season"]:0;
-    out["fxSeasons"]=_fxSeasons(a2["natFx"]?a2["natFx"]["season"]:0,a2["natFxArch"]);
+    out["curSeason"]=a2["natFx"]?a2["natFx"]["season"]:0;
+    out["fxSeasons"]=_fxSeasons(a2["natFx"]?a2["natFx"]["season"]:0,a2["natFxArch"])["filter"](function(sn){
+if(a2["natFx"]&&a2["natFx"]["season"]===sn&&a2["natFx"]["data"][q.id])return true;
+for(var ai=0;ai<(a2["natFxArch"]||[]).length;ai++){var f=a2["natFxArch"][ai];if(f["season"]===sn&&f["data"]&&f["data"][q.id])return true;}
+return false;});
 }
 if(q.q==='nat'){
     var natYrs=[];

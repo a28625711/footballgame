@@ -243,12 +243,13 @@ return t2?'<span class="cr-tm">'+aT(t2)+ax(t2["name"])+'</span>':ax(fb||id||'');
 function _wlTm(id){return _crTm(id);}
 function _wlSide(id,fb){return _crTm(id,fb);}
 function _wlSeasonLab(n){if(!n)return'';var s2=(au&&au["seasons"]&&au["seasons"][n-1])||null;return'第'+n+'季'+(s2&&s2["age"]!=null?' · '+s2["age"]+'岁':'');}
-/* 历史赛季选择 chips（联赛/杯赛/洲际共用）：null=当季 */
-function _wlFxSeasonChips(seasons,sel){
-if(!seasons||seasons.length<2)return'';
+/* 历史赛季选择 chips（联赛/杯赛/洲际/国家队共用）：null=当季；
+   赛事类（欧洲杯/世俱杯等）只列有数据的年份，'当季'按真实当前季判定 */
+function _wlFxSeasonChips(seasons,sel,curSeason){
+if(!seasons||!seasons.length)return'';
 var h='<div class="wl-sub">';
 seasons.forEach(function(sn){
-var cur=sn===seasons[seasons.length-1];
+var cur=curSeason!=null?sn===curSeason:sn===seasons[seasons.length-1];
 h+='<button class="wl-chip'+((sel==null&&cur)||(sel===sn)?" on":"")+'" data-wld="fxS:'+(cur?'':sn)+'">'+(cur?'当季':'第'+sn+'季')+'</button>';
 });
 return h+'</div>';
@@ -345,7 +346,11 @@ h+='<div class="wl-sub">';
 cs2["forEach"](function(c3){h+='<button class="wl-chip'+(_wl["cont"]===c3["id"]?" on":"")+'" data-wld="cont:'+c3["id"]+'">'+ax(c3["name"])+'</button>';});
 h+='</div>';
 var d3=window["SIM"]["world"]({'q':'cont','id':_wl["cont"],'season':_wl["fxSeason"]});
-h+=_wlFxSeasonChips(d3["fxSeasons"],_wl["fxSeason"]);
+if(!d3["data"]&&d3["fxSeasons"]&&d3["fxSeasons"]["length"]&&(d3["curSeason"]==null||d3["fxSeasons"]["indexOf"](d3["curSeason"])<0)){
+_wl["fxSeason"]=d3["fxSeasons"][d3["fxSeasons"]["length"]-1];
+d3=window["SIM"]["world"]({'q':'cont','id':_wl["cont"],'season':_wl["fxSeason"]});
+}
+h+=_wlFxSeasonChips(d3["fxSeasons"],_wl["fxSeason"],d3["curSeason"]);
 if(d3["data"]){
 h+='<div class="wl-title">'+ax(d3["name"])+'<span class="wl-note">'+_wlSeasonLab(d3["dataSeason"])+'</span></div>';
 if(d3["data"]["group"])h+=_grpBox('联赛阶段',d3["data"]["group"]["standings"],d3["data"]["group"]["matches"],-1,meTid);
@@ -362,7 +367,11 @@ nts["forEach"](function(nt){h+='<button class="wl-chip'+(_wl["natT"]===nt["id"]?
 h+='</div>';
 if(_wl["natT"]){
 var d4=window["SIM"]["world"]({'q':'natT','id':_wl["natT"],'season':_wl["fxSeason"]});
-h+=_wlFxSeasonChips(d4["fxSeasons"],_wl["fxSeason"]);
+if(!d4["data"]&&d4["fxSeasons"]&&d4["fxSeasons"]["length"]&&(d4["curSeason"]==null||d4["fxSeasons"]["indexOf"](d4["curSeason"])<0)){
+_wl["fxSeason"]=d4["fxSeasons"][d4["fxSeasons"]["length"]-1];
+d4=window["SIM"]["world"]({'q':'natT','id':_wl["natT"],'season':_wl["fxSeason"]});
+}
+h+=_wlFxSeasonChips(d4["fxSeasons"],_wl["fxSeason"],d4["curSeason"]);
 if(d4["data"]){
 h+='<div class="wl-title">'+ax(d4["name"])+'<span class="wl-note">'+_wlSeasonLab(d4["dataSeason"])+'</span></div>';
 var _nch=d4["data"]["champion"]||_wlNatChamp(d4["data"]["rounds"]);
