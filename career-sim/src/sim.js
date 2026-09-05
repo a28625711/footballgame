@@ -475,7 +475,7 @@ var _m=[],
 _t={};_all.forEach(function(t){_t[t['id']]={name:t["name"],pts:0x0,gf:0x0,ga:0x0,w:0x0,d:0x0,l:0x0};});
 for(var i=0x0;i<_all["length"];i++){for(var j=i+0x1;j<_all["length"];j++){
 var a=_all[i],b=_all[j],as=a["ovr"]?a["ovr"]:50+a["rep"]*0x5+ad()*0xa,bs=b["ovr"]?b["ovr"]:50+b["rep"]*0x5+ad()*0xa;
-var _sim=_matchSim(as,bs),hg=_sim["hg"],ag=_sim["ag"];
+var _sim=_matchSim(as,bs,null,true),hg=_sim["hg"],ag=_sim["ag"];
 _m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:hg,ag:ag});
 var h=_t[a["id"]],ap=_t[b["id"]];
 h["gf"]+=hg,h["ga"]+=ag,ap["gf"]+=ag,ap["ga"]+=hg;
@@ -582,16 +582,46 @@ if(lam<=0)return 0x0;var L=Math["exp"](-lam),
 k=0x0,p=0x1;
 do{k++;p*=ad();}while(p>L);return k-0x1;
 }
-function _matchSim(aStr,bStr,gl){
-var sd=(aStr-bStr)/0x32;
-var _g=gl||0x1;
-var lH=1.35*(1+sd*0.85)*_g,
-
-
-
-lA=1.35*(1-sd*0.85)*_g;
-var hg=_poisson(lH),ag=_poisson(lA);
+/* 单场比分模拟 v2（全赛事统一）：
+   主队进球份额 share = home + k·sd + k2·sd·|sd|，sd=(aStr−bStr)/scale；
+   总进球 2·base·gl（gl=双方联赛风格几何平均，节奏随球队带入所有赛事）；
+   平局修正：净胜≤1 时按 _msPd(gl) 转平（低节奏联赛平局更多）；
+   中立场地（neu）时主队份额基准为 0.5。参数由 tools/calib_fit.py 按现实拟合。 */
+var _msCfg={'base':1.40,'scale':22,'k':0.40,'k2':0.16,'home':0.57,'pd':0.08};
+function _glOf(a,b){return Math.sqrt((_lgStyle[a]||1)*(_lgStyle[b]||1));}
+function _msPd(g){return Math.max(0,Math.min(0.25,_msCfg["pd"]+(1-g)*0.18));}
+function _msShare(aStr,bStr,neu){
+var sd=(aStr-bStr)/_msCfg["scale"];
+var c0=neu?0.5:_msCfg["home"];
+return Math.max(0.12,Math.min(0.93,c0+_msCfg["k"]*sd+_msCfg["k2"]*sd*Math["abs"](sd)));
+}
+function _matchSim(aStr,bStr,gl,neu){
+var g=gl||1;
+var tot=2*_msCfg["base"]*g;
+var share=_msShare(aStr,bStr,neu);
+var hg=_poisson(tot*share),ag=_poisson(tot*(1-share));
+if(hg!==ag&&Math.abs(hg-ag)<=1&&ad()<_msPd(g))hg=ag=Math.min(hg,ag);
 return{hg:hg,ag:ag,won:hg>ag};
+}
+/* 加时（约 1/3 场时长的进球环境，同份额模型）；仍平则点球 */
+function _etSim(aStr,bStr,gl,neu){
+var g=gl||1;
+var tot=0.33*2*_msCfg["base"]*g;
+var share=_msShare(aStr,bStr,neu);
+return{hg:_poisson(tot*share),ag:_poisson(tot*(1-share))};
+}
+/* 90分钟→加时→点球 的单场淘汰：hg/ag 为含加时总分，et/pk 为加时与点球比分 */
+function _koSim(aStr,bStr,gl,neu){
+var r=_matchSim(aStr,bStr,gl,neu);
+var o={'hg':r.hg,'ag':r.ag,'et':null,'pk':null,'won':r.hg>r.ag};
+if(r.hg===r.ag){
+var et=_etSim(aStr,bStr,gl,neu);
+o["et"]=[et.hg,et.ag];
+o["hg"]+=et.hg;o["ag"]+=et.ag;
+if(et.hg!==et.ag)o["won"]=et.hg>et.ag;
+else{var pk=_penSim(aStr,bStr);o["pk"]=[pk.a,pk.b];o["won"]=pk.a>=pk.b;}
+}
+return o;
 }
 function _penSim(aStr,bStr){
 aStr=aStr||0x32;bStr=bStr||0x32;
@@ -639,7 +669,7 @@ var byId={};for(var i5=0;i5<tm.length;i5++)byId[tm[i5].i]={i:tm[i5].i,name:tm[i5
 var matches=[];
 for(var a=0;a<tm.length;a++)for(var b=a+1;b<tm.length;b++){
 var tA=tm[a],tB=tm[b],as=tA.ovr||tA.s,bs=tB.ovr||tB.s;
-var sim=_matchSim(as,bs),hg=sim.hg,ag=sim.ag;
+var sim=_matchSim(as,bs,null,true),hg=sim.hg,ag=sim.ag;
 matches.push({home:tA.n,away:tB.n,homeId:tA.i,awayId:tB.i,hg:hg,ag:ag});
 var A=byId[tA.i],B=byId[tB.i];
 A.gf+=hg;A.ga+=ag;B.gf+=ag;B.ga+=hg;
@@ -909,11 +939,11 @@ var _m=[],_w=[];
 for(var i=0x0;i<_cur["length"];i++){
 var a=_cur[i][0x0],b=_cur[i][0x1];
 var as=a["ovr"]?a["ovr"]:50+(a["rep"]||0x3)*0x5+ad()*0xa,bs=b["ovr"]?b["ovr"]:50+(b["rep"]||0x3)*0x5+ad()*0xa;
-var _sim=_matchSim(as,bs),_hg=_sim["hg"],_ag=_sim["ag"];
-var _pk=null;
-if(_hg===_ag){_pk=_penSim(as,bs);}
-_m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:_hg,ag:_ag,pens:_pk?[_pk.a,_pk.b]:null});
-_w["push"]((_pk&&_pk.a>=_pk.b)||(!_pk&&_hg>=_ag)?a:b);
+/* 淘汰赛中立场：90分钟平→加时→点球 */
+var _ko=_koSim(as,bs,null,true);
+var _hg=_ko["hg"],_ag=_ko["ag"];
+_m["push"]({home:a["name"],away:b["name"],homeId:a["id"],awayId:b["id"],hg:_hg,ag:_ag,pens:_ko["pk"],et:_ko["et"]});
+_w["push"](_ko["won"]?a:b);
 }
 _r["push"]({name:_cur["length"]===8?"十六强":_cur["length"]===4?"八强":_cur["length"]===2?"四强":"决赛",matches:_m});
 _cur=[];
@@ -1623,7 +1653,7 @@ var Th=tbl[H],Ta=tbl[A];
 Th.gf+=s1.hg;Th.ga+=s1.ag;Ta.gf+=s1.ag;Ta.ga+=s1.hg;
 if(s1.hg>s1.ag){Th.w++;Th.pts+=3;Ta.l++;}else if(s1.ag>s1.hg){Ta.w++;Ta.pts+=3;Th.l++;}else{Th.d++;Ta.d++;Th.pts++;Ta.pts++;}
 Ta.gf+=s2.hg;Ta.ga+=s2.ag;Th.gf+=s2.ag;Th.ga+=s2.hg;
-if(s2.hg>s2.ag){Ta.w++;Ta.pts+=3;Th.l++;}else if(s2.ag>s2.hg){Th.w++;Th.pts+=3;Ta.l++;}else{Ta.d++;Ta.d++;Ta.pts++;Th.pts++;}
+if(s2.hg>s2.ag){Ta.w++;Ta.pts+=3;Th.l++;}else if(s2.ag>s2.hg){Th.w++;Th.pts+=3;Ta.l++;}else{Th.d++;Ta.d++;Th.pts++;Ta.pts++;}
 fx[r].push([H,A,s1.hg,s1.ag]);
 fx[r+half].push([A,H,s2.hg,s2.ag]);
 }
@@ -1686,13 +1716,18 @@ a2["_devBonus"]={};
 }
 
 
-/* 两回合淘汰（A 先主），平局点球 */
-
-function _tieSim(sa,sb){
-var g1=_matchSim(sa,sb),g2=_matchSim(sb,sa);
+/* 两回合淘汰（A 先主），汇总平局→次回合加时→点球；gl=双方联赛风格几何平均 */
+function _tieSim(sa,sb,gl){
+var g1=_matchSim(sa,sb,gl),g2=_matchSim(sb,sa,gl);
 var aa=g1.hg+g2.ag,ab=g1.ag+g2.hg;
 var r={'aggA':aa,'aggB':ab,'won':aa>ab,'pens':null};
-if(aa===ab){var pk=_penSim((sa+sb)/2,(sa+sb)/2);r["pens"]=[pk.a,pk.b];r["won"]=pk.a>=pk.b;}
+if(aa===ab){
+var et=_etSim(sa,sb,gl);
+aa+=et.hg;ab+=et.ag;
+r["aggA"]=aa;r["aggB"]=ab;
+if(et.hg!==et.ag)r["won"]=et.hg>et.ag;
+else{var pk=_penSim(sa,sb);r["pens"]=[pk.a,pk.b];r["won"]=pk.a>=pk.b;}
+}
 return r;
 }
 function _scoreTxt(tie,
@@ -1776,10 +1811,12 @@ var winners=[],cnt=alive.length,ties=[];
 for(var m=0;m<cnt/2;m++){
 var A=alive[m],B=alive[cnt-1-m],W=null,sc='',pk=null;
 if(A&&B){
-var r=_matchSim(A.s,B.s);
-if(r.hg===r.ag){pk=_penSim(A.s,B.s);W=pk.a>=pk.b?A:B;sc=r.hg+'-'+r.ag+' (点球 '+pk.a+'-'+pk.b+')';}
-else{W=r.hg>r.ag?A:B;sc=r.hg+'-'+r.ag;}
-ties.push({'h':A.i,'a':B.i,'hg':r.hg,'ag':r.ag,'p':pk?[pk.a,pk.b]:null,'w':W.i});
+/* 单场淘汰：联赛风格几何平均，决赛中立场，加时+点球 */
+var ko=_koSim(A.s,B.s,_glOf(A.lg,B.lg),cnt===2);
+W=ko.won?A:B;
+sc=ko.hg+'-'+ko.ag+(ko.pk?' (点球 '+ko.pk[0]+'-'+ko.pk[1]+')':(ko.et?' (加时)':''));
+pk=ko.pk;
+ties.push({'h':A.i,'a':B.i,'hg':ko.hg,'ag':ko.ag,'et':ko.et,'p':ko.pk,'w':W.i});
 }else{
 W=A||B;
 ties.push({'h':W.i,'w':W.i,'b':1});
@@ -1787,7 +1824,7 @@ ties.push({'h':W.i,'w':W.i,'b':1});
 winners.push(W);
 if(A&&B&&(A.i===playerTid||B.i===playerTid)){
 var me=A.i===playerTid?A:B,fo=A.i===playerTid?B:A;
-path.push({'round':rn[rIdx]||('第'+(rIdx+1)+'轮'),'opp':fo.n,'oppId':fo.i,'won':W.i===playerTid,'score':(me===A)?sc:(sc.split(' ')[0].split('-').reverse().join('-')+(sc.indexOf('点球')>=0?sc.slice(sc.indexOf(' (')):''))});
+path.push({'round':rn[rIdx]||('第'+(rIdx+1)+'轮'),'opp':fo.n,'oppId':fo.i,'won':W.i===playerTid,'score':(me===A)?sc:(sc.split(' ')[0].split('-').reverse().join('-')+(sc.indexOf(' (')>=0?sc.slice(sc.indexOf(' (')):''))});
 }
 }
 all.push({'name':rn[rIdx]||('第'+(rIdx+1)+'轮'),'ties':ties});
@@ -1885,7 +1922,7 @@ while(alive.length>need){
 var winners=[];
 for(var m=0;m<alive.length/2;m++){
 var A=alive[m],B=alive[alive.length-1-m];
-var tie=_tieSim(A.s,B.s);
+var tie=_tieSim(A.s,B.s,_glOf(A.lg,B.lg));
 var W=tie.won?A:B;
 winners.push(W);
 if(A.i===a2["teamId"]||B.i===a2["teamId"]){
@@ -1914,7 +1951,7 @@ po=st.slice(8,Math.min(24,st.length));
 var playerOut=null,wPo=[];
 for(var m2=0;m2<po.length/2;m2++){
 var A=po[m2],B=po[po.length-1-m2];
-var tie=_tieSim(A.s,B.s),W=tie.won?A:B;
+var tie=_tieSim(A.s,B.s,_glOf(A.lg,B.lg)),W=tie.won?A:B;
 wPo.push(W);
 if(A.i===a2["teamId"]||B.i===a2["teamId"]){
 var me=A.i===a2["teamId"]?A:B,fo=A.i===a2["teamId"]?B:A;
@@ -1946,12 +1983,11 @@ return{'champion':null};
 }
 }
 if(isFinal){
-var sim2=_matchSim(A2.s,B2.s);
-if(sim2.hg===sim2.ag){var pk2=_penSim(A2.s,B2.s);W2=pk2.a>=pk2.b?A2:B2;sc=sim2.hg+'-'+sim2.ag+' (点球 '+pk2.a+'-'+pk2.b+')';}
-else{W2=sim2.hg>sim2.ag?A2:B2;sc=sim2.hg+'-'+sim2.ag;}
-ties.push({'h':A2.i,'a':B2.i,'sa':sim2.hg,'sb':sim2.ag,'p':pk2?[pk2.a,pk2.b]:null,'w':W2.i});
+var ko2=_koSim(A2.s,B2.s,_glOf(A2.lg,B2.lg),true);
+W2=ko2.won?A2:B2;sc=ko2.hg+'-'+ko2.ag+(ko2.pk?' (点球 '+ko2.pk[0]+'-'+ko2.pk[1]+')':(ko2.et?' (加时)':''));
+ties.push({'h':A2.i,'a':B2.i,'sa':ko2.hg,'sb':ko2.ag,'p':ko2.pk,'w':W2.i});
 }else{
-var tie2=_tieSim(A2.s,B2.s);
+var tie2=_tieSim(A2.s,B2.s,_glOf(A2.lg,B2.lg));
 W2=tie2.won?A2:B2;sc=_scoreTxt(tie2,true);
 ties.push({'h':A2.i,'a':B2.i,'sa':tie2["aggA"],'sb':tie2["aggB"],'p':tie2["pens"],'w':W2.i});
 }
@@ -2066,12 +2102,12 @@ var other=cupW&&cupW!==champ?cupW:order[1];
 if(!other||other===champ)return;
 var A=aj(champ),
 B=aj(other);if(!A||!B)return;
-var r=_matchSim(_teamAbs(A),_teamAbs(B),_lgStyle[own]||1);
-var winTid=r.hg>r.ag?champ:other;
-if(r.hg===r.ag){var pk=_penSim(_teamAbs(A),_teamAbs(B));winTid=pk.a>=pk.b?champ:other;}
+var _sc2=_koSim(_teamAbs(A),_teamAbs(B),_lgStyle[own]||1,true);
+var winTid=_sc2.won?champ:other;
+var scTxt=_sc2.hg+'-'+_sc2.ag+(_sc2.pk?' (点球 '+_sc2.pk[0]+'-'+_sc2.pk[1]+')':(_sc2.et?' (加时)':''));
 if(a2["teamId"]!==champ&&a2["teamId"]!==other)return;
 var meIsA=a2["teamId"]===champ;
-var run={'comp':lgO["superCup"],'rounds':[{'round':'决赛','opp':meIsA?B.name:A.name,'oppId':meIsA?B.id:A.id,'won':winTid===a2["teamId"],'score':meIsA?r.hg+'-'+r.ag:r.ag+'-'+r.hg}],'age':a2["age"]};
+var run={'comp':lgO["superCup"],'rounds':[{'round':'决赛','opp':meIsA?B.name:A.name,'oppId':meIsA?B.id:A.id,'won':winTid===a2["teamId"],'score':meIsA?scTxt:scTxt.split(' ')[0].split('-').reverse().join('-')+(scTxt.indexOf(' (')>=0?scTxt.slice(scTxt.indexOf(' (')):'')}],'age':a2["age"]};
 if(winTid===a2["teamId"]){run["result"]='冠军';bz["trophies"].push(lgO["superCup"]+'冠军');a2["trophies"].push({'name':lgO["superCup"]+'冠军','age':a2["age"],'team':bx["name"]});}
 else run["result"]='止步决赛';
 a2["cupRuns"].push(run);
@@ -2148,8 +2184,7 @@ if(!to2||!order3)continue;
 var seeds=[];
 for(var p3=zone[0];p3<=zone[1]&&p3<=order3.length;p3++)seeds.push(_cardById(order3[p3-1]));
 if(seeds.length<4)continue;
-var f1=_poOne(seeds[0],seeds[3]),f2=_poOne(seeds[1],seeds[2]);
-var pIn=a2["teamId"]&&(f1.i===a2["teamId"]||f2.i===a2["teamId"]);
+var f1=_poOne(seeds[0],seeds[3]),f2=_poOne(seeds[1],seeds[2]);var pIn=a2["teamId"]&&(f1.i===a2["teamId"]||f2.i===a2["teamId"]);
 var done=false;
 if(pIn&&b3()){
 var meC=f1.i===a2["teamId"]?f1:f2,foC=f1.i===a2["teamId"]?f2:f1;
@@ -2158,17 +2193,17 @@ done=true;
 }
 }
 if(!done){
-var wC=_poOne(f1,f2);
+var wC=_poOne(f1,f2,true);
 _moveTeam(wC.i,to2,true,2);
 if(a2["teamId"]===wC.i&&bz)bz["move"]='升上'+ak(to2)["name"];
 }
 }
 }
 function _poOne(x,
-y){
-var r=_matchSim(x.s,y.s);
-if(r.hg===r.ag){var pk=_penSim(x.s,y.s);return pk.a>=pk.b?x:y;}
-return r.hg>r.ag?x:y;
+y,neu){
+var ko=_koSim(x.s,y.s,_glOf(x.lg,y.lg),!!neu);
+if(ko.pk)return ko.won?x:y;
+return ko.won?x:y;
 }
 
 
