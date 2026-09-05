@@ -856,6 +856,39 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
   font-variant-numeric: tabular-nums; letter-spacing: 0; }
 .staff-chips { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .4rem; }
 
+/* 团队面板：在编成员 + 每季候选市场 */
+.team-list { margin-top: .45rem; display: flex; flex-direction: column; gap: .28rem; }
+.team-row { display: flex; align-items: center; gap: .5rem;
+  padding: .32rem .45rem; background: hsl(var(--bg)); border-radius: var(--r-row);
+  font-size: .74rem; }
+.team-row.mk { border: 1px dashed hsl(var(--line, 0 0% 50% / .35)); }
+.team-name { font-weight: 600; min-width: 5.2em; white-space: nowrap; }
+.team-name i { font-style: normal; font-size: .64rem; color: hsl(var(--muted)); margin-left: .25rem; }
+.team-fx { flex: 1; color: hsl(var(--muted)); font-size: .68rem;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.team-fee { font-variant-numeric: tabular-nums; color: hsl(var(--muted)); white-space: nowrap; }
+.team-btn { border: none; cursor: pointer; padding: .18rem .55rem;
+  border-radius: .4rem; font-size: .68rem; background: hsl(var(--accent));
+  color: var(--accent-contrast, #08120c); white-space: nowrap; }
+.team-btn.fire { background: hsl(var(--row)); color: hsl(var(--danger, 4 62% 52%)); }
+.st-sy { font-size: .6rem; color: hsl(var(--accent)); border: 1px solid hsl(var(--accent));
+  border-radius: .3rem; padding: 0 .25rem; margin-left: .3rem; }
+.team-empty { font-size: .68rem; color: hsl(var(--muted)); margin-top: .4rem; }
+.team-mkt-t { font-size: .64rem; letter-spacing: .1em; color: hsl(var(--muted)); margin-top: .45rem; }
+.st-warn { color: hsl(var(--danger, 4 62% 52%)); font-size: .68rem; letter-spacing: 0; }
+.team-tgl { border: none; cursor: pointer; margin-left: auto;
+  background: none; color: hsl(var(--muted)); font-size: .66rem;
+  padding: 0 0 0 .5rem; white-space: nowrap; }
+.team-tgl:hover { color: hsl(var(--fg)); }
+.team-row.yk { cursor: pointer; }
+.team-row.yk input[type="checkbox"] { accent-color: hsl(var(--accent)); margin: 0 .1rem 0 0; }
+.team-row.yk .team-fx { flex: 1; }
+.team-row.yk:hover { background: hsl(var(--row)); }
+.team-row.yk.on { background: hsl(var(--accent) / .16); outline: 1px solid hsl(var(--accent) / .55); }
+.team-row.yk.on .team-name { color: hsl(var(--accent)); }
+.team-year { font-style: normal; font-size: .68rem; color: hsl(var(--muted));
+  margin-left: .5rem; font-variant-numeric: tabular-nums; }
+
 /* ==================== 关键战 ====================
    决赛、附加赛、保级战。一段生涯就这么两三场球，所以它跟普通事件
    长得不一样：比分牌摆在最上面，战报一行一行往下走。
