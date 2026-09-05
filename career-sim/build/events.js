@@ -106,6 +106,13 @@ return p&&q[p["posGroup"]]||q["other"];
 
 
 
+/* 类型转型的组内安全回退：desc 侧写的 _xTarget 缺失时保持现类型，绝不允许跨位置组 */
+function safeTypeTgt(p,key){
+if(key&&p[key]!=null)return p[key];
+var cur=p["playerType"]!=null?p["playerType"]:0xb;
+var pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10],'gk':[11]}[p["posGroup"]]||[cur];
+return pool.indexOf(cur)>=0?cur:pool[0];
+}
 function shiftTarget(p){
     
     
@@ -2013,7 +2020,7 @@ return'gk'!==p["posGroup"];
 
 
 
-  'desc': "解围，一脚把球捅进自家球门——偏偏还是德比。",
+  'desc': "解围，一脚把球捅进自家球门——全场安静了两秒，然后客队看台炸了。",
   'options': [
     {
         'p': function(p){return f(0.5,[[p["ovr"],60,0.008]],0.2,0.9);
@@ -6567,7 +6574,7 @@ return{'guanxi':0xc,'money':0x28,'fame':-0x6,'text':"你站在新球场中央拍
   'icon': '🚧',
   'weight': 0x2d,
   'cn': !0x0,
-  'desc': "德比刚结束，两边球迷在停车场动起手来。你的车，正好堵在最中间。",
+  'desc': "比赛刚结束，两边球迷在停车场动起手来。你的车，正好堵在最中间。",
 
 
 
@@ -7842,7 +7849,7 @@ return{'ovr':0x1,'text':"你跑完了教练要求的每一米，一次多余的�
 
 {
   'id': "star_ucl",
-  'title': "欧冠淘汰赛的那两"+'回合',
+  'title': "洲际赛场的聚光灯",
   'icon': '🌟',
   'weight': 0x96,
   'when': function(p){
@@ -7852,26 +7859,26 @@ return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&p["hasCont"]&&p["roleRank"]>=0x3;
 
 
 
-  'desc': "抽签结果出来，八分之一决赛的对手，是他所在的球队。国内转播在凌晨四点，所有人却说会熬夜看。",
+  'desc': "大赛当前，全世界的镜头都对准了你所在的这支球队。赛前新闻发布会上，记者问了一个尖锐的问题——你接过话筒，全场安静。",
   'options': [
     {
-        'label': "把这两场当成自己"+"的决赛",
+        'label': "把这场比赛当成自己"+"的决赛",
         'p': function(p){
 return f(0.34,[[p["ovr"],0x4e,0.011],[p["fame"],0x2d,0.003]],0.1,0.72);
 },
         'hint': function(p,q){
-return g(q,"你成了那两回合的"+'主角',"被打成了背景板");
+return g(q,"你成了全场的"+'主角',"被打成了背景板");
 },
         'apply': function(p,q,s){
-return d(q,s)?{'ovr':0x3,'fame':0x22,'roleDelta':0x1,'mult':{'cont':1.5},'text':h(p,{'gk':"两回合你扑了九次"+"，次回合终场前那"+"个单刀你用腿封住"+"了，保住了平局。",'def':"两回合他一次没进"+"，次回合终场前那"+"次回追解围保住了"+"平局。",'other':"两回合你一球一助"+"攻，次回合终场前"+"那次回追解围保住"+"了平局。"})+("赛后欧足联官方社"+"媒发了你的名字，"+"国内的热搜挂了整"+"整一天。")}:{'ovr':-0x2,
-'fame':0xa,'text':"两回合，总比分 1-6。他一个人参与了四个球。"+h(p,{'gk':"第六个球进的时候"+"你还坐在门线上没"+"起来，镜头给了你"+"很久，",'other':"你被换下的时候镜"+"头给了你很久，"})+("第二天那张脸出现"+"在所有的赛后总结"+'里。')};
+return d(q,s)?{'ovr':0x3,'fame':0x22,'roleDelta':0x1,'mult':{'cont':1.5},'text':h(p,{'gk':"你全场扑了九次"+"，终场前那个单刀"+"你用腿封住了，保"+"住了平局。",'def':"你全场一次没让对"+"方过掉，终场前那"+"次回追解围保住了"+"平局。",'other':"你一球一助攻，终"+"场前那次关键传球"+"保住了平局。"})+("赛后你的名字出现在"+"所有体育头条，国"+"内的热搜挂了整整"+"一天。")}:{'ovr':-0x2,
+'fame':0xa,'text':"全场结束，对手进了四个球。"+h(p,{'gk':"第四个球进的时候"+"你还坐在门线上没"+"起来，镜头给了你"+"很久，",'other':"你被换下的时候镜"+"头给了你很久，"})+("第二天那张脸出现"+"在所有的赛后总结"+'里。')};
 }
     },
     {
         'label': "照平时那样踢",
         'hint': "不出彩，也不难看",
         'apply': function(){
-return{'fame':0x8,'guanxi':0x6,'text':"你守住了自己那块，球队总比分输了一个球。回到更衣室，没有人指责谁。教练说：下一次，我们还会来。"};
+return{'fame':0x8,'guanxi':0x6,'text':"你守住了自己那块，球队输了一个球。回到更衣室，没有人指责谁。教练说：下一次，我们还会来。"};
 }
     }
   ]
@@ -8572,10 +8579,10 @@ return p["caps"]>=0xa;
 
 
 
-  'desc': "对日本还是对韩国，这些年已经没什么区别了——赛前所有人只说一句「至少别输太多」。",
+  'desc': "大赛当前，压力从四面八方涌来——赛前所有人只说一句「至少别全力以赴」。",
   'options': [
     {
-        'label': "把这场当决赛踢",
+        'label': "全力以赴拼一场",
         'hint': "拼一场，赢了这辈"+"子都有人记得",
         'apply': function(p,q){
 return d(q,f(0.3,[[p["ovr"],0x4a,0.011]],0.12,0.62))?{'fame':0x19,'ovr':0x2,'caps':0x3,'text':h(p,{'gk':"你扑掉了那记点球"+"。那一晚全国的社"+"交平台都在放同一"+"段十秒的视频。",'def':"你在最后一分钟把"+"对方那记必进的射"+"门封了下来。那一"+"晚全国的社交平台"+"都在放同一段十秒"+"的视频。",'other':"你打进了那个球。"+"那一晚全国的社交"+"平台都在放同一段"+"十秒的视频。"})}:{'fame':-0x8,
@@ -10404,7 +10411,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 
 {
   'id': "lg_liga_clasico",
-  'title': "第一次国家德比",
+  'title': "第一次大赛考验",
   'icon': '🔥',
   'weight': 0x52,
   'when': function(p){return "liga"===p["leagueId"]&&p["clubRep"]>=0x4;},
@@ -10941,11 +10948,11 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'p': function(p){return f(0.55,[[p["talent"],1,0.25],[p["ovr"],40,0.005]],0.25,0.85);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._shiftTarget!=null?p._shiftTarget:0;
+        var tgt=safeTypeTgt(p,"_shiftTarget");
         return g(q,"转型成功→"+TN[tgt],"转型失败");
       },
       'apply': function(p,q,s){
-        var tgt=p._shiftTarget!=null?p._shiftTarget:0;
+        var tgt=safeTypeTgt(p,"_shiftTarget");
         return d(q,s)?{'playerType':tgt,'ovr':0x2,'_typeShiftDone':1,'text':"你试了教练的方案，发现那种跑位和思维方式竟然出奇地顺畅。几周后，你在训练赛里用新位置的方式打进一球——教练笑着点了点头。"}
         :{'ovr':-0x1,'_typeShiftDone':1,'text':"你照着教练画的路线跑了两周，但身体总是往原来的位置上凑。教练说：也许时机不对，先放一放。"};
       }
@@ -11000,11 +11007,11 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["clean"],50,0.004]],0.20,0.82);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        var tgt=safeTypeTgt(p,"_evoTarget");
         return g(q,"融会贯通→"+TN[tgt],"还是算了");
       },
       'apply': function(p,q,s){
-        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        var tgt=safeTypeTgt(p,"_evoTarget");
         return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"你花了一周看录像、加练，渐渐摸到了那个位置的门道。教练赛后拍着你的肩说：你看，你的能力不止一种用法。"}
         :{'ovr':0x1,'_typeShiftDone':1,'text':"你试了几次，但总觉得隔了一层。教练说：没关系，知道自己不适合什么，也是一种进步。"};
       }
@@ -11053,11 +11060,11 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'p': function(p){return f(0.48,[[p["talent"],1,0.35],[p["age"],18,-0.04]],0.18,0.80);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._lateTarget!=null?p._lateTarget:0;
+        var tgt=safeTypeTgt(p,"_lateTarget");
         return g(q,"涅槃重生→"+TN[tgt],"为时已晚");
       },
       'apply': function(p,q,s){
-        var tgt=p._lateTarget!=null?p._lateTarget:0;
+        var tgt=safeTypeTgt(p,"_lateTarget");
         return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"最后几个月你像变了个人，每天加练到最晚。毕业考核那天，你用全新的方式完成了一次教科书般的进球。教练在评估表上写下：此人上限不止于此。"}
         :{'ovr':-0x2,'_typeShiftDone':1,'text':"改变来得太晚了。身体习惯已经定型，新学的东西和旧的互相打架。考核日你表现平平，教练叹了口气：可惜了，早点下决心就好了。"};
       }
@@ -11158,6 +11165,606 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
       'label': "不转，拼到退役",
       'hint': "能力-4",
       'apply': function(){return{'ovr':-0x4,'_vetTypeShiftDone':1,'text':"你告诉教练：我的身体我自己清楚。接下来的赛季，你拼尽全力维持状态，但岁月终究不可逆。"}}
+    }
+  ]
+},
+
+
+
+// ==== 连续事件链：一生挚友 ====
+
+{
+  'id': "friend_meet",
+  'title': "上下铺",
+  'icon': '🤝',
+  'weight': 0x32,
+  'stage': "kid",
+  'when': function(p){
+return!p["_friend"];
+},
+  'desc': "青训宿舍，你住上铺他住下铺。晚上熄灯以后，他问你将来的目标是什么。你说踢出来。他说他也是。",
+  'options': [
+    {
+      'label': "跟他约好一起踢职业",
+      'hint': "关系+3，能力+1",
+      'apply': function(){
+return{'guanxi':0x3,'ovr':0x1,'_friend':1,'text':"那个晚上你们聊到凌晨两点。从那以后，训练场上总能看到你们俩加练的身影。"};
+}
+    },
+    {
+      'label': "各凭本事吧",
+      'hint': "能力+2",
+      'apply': function(){
+return{'ovr':0x2,'_friend':1,'text':"你笑了笑没接话。竞争从第一天就开始了——但有个对手在身边，反而让你更想变强。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "friend_part",
+  'title': "他要走了",
+  'icon': '💔',
+  'weight': 0x30,
+  'when': function(p){
+return p["_friend"]===0x1&&p["age"]>=0x12;
+},
+  'desc': "他收到了一份职业合同。不是你们俱乐部——是另一座城市。临走前一晚，他请你吃了顿饭。",
+  'options': [
+    {
+      'label': "保持联系",
+      'hint': "关系+4",
+      'apply': function(){
+return{'guanxi':0x4,'_friend':2,'text':"你说：到了那边好好踢，有事随时找我。他点了点头。后来你们真的一直保持联系。"};
+}
+    },
+    {
+      'label': "祝你好运，各走各路",
+      'hint': "能力+2",
+      'apply': function(){
+return{'ovr':0x2,'_friend':3,'text':"你握了握手。走出饭馆的时候，你突然觉得这个城市空了一点。但你知道路是自己选的。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "friend_reunion",
+  'title': "又见面了",
+  'icon': '⚡',
+  'weight': 0x2a,
+  'when': function(p){
+return(p["_friend"]===0x2||p["_friend"]===0x3)&&p["seasonsAtClub"]>=0x3;
+},
+  'desc': "赛前发布会，记者问你关于对手阵中那个球员的看法。你笑了笑：我们从小就认识。",
+  'options': [
+    {
+      'label': "赛后找他聊聊",
+      'hint': "关系+3，声望+2",
+      'apply': function(){
+return{'guanxi':0x3,'fame':0x2,'_friend':0x4,'text':"终场哨响，你俩在球员通道聊了十分钟。他说：下赛季我们就是对手了。你说：那就好好踢。"};
+}
+    },
+    {
+      'label': "场上见真章",
+      'hint': "能力+3",
+      'apply': function(){
+return{'ovr':0x3,'_friend':0x4,'text':"比赛中你专门对位他。他也不示弱。九十分钟结束，你们握了握手，什么都没说——但什么都说了。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "friend_end",
+  'title': "一辈子的事",
+  'icon': '🥂',
+  'weight': 0x28,
+  'stage': "vet",
+  'when': function(p){
+return p["_friend"]>=0x2;
+},
+  'desc': "退役聚会上，他也在。二十年了，从上下铺到各自退役。他举杯说：敬我们的第一步。",
+  'options': [
+    {
+      'label': "敬一辈子的朋友",
+      'hint': "声望+5，人脉+5",
+      'apply': function(){
+return{'fame':0x5,'guanxi':0x5,'text':"你们碰了杯。有些关系不需要天天见面，不需要同城，不需要同队。只需要那个晚上的一句话。"};
+}
+    },
+    {
+      'label': "敬足球",
+      'hint': "能力保留+2",
+      'apply': function(){
+return{'ovr':0x2,'fame':0x3,'text':"你说：敬足球。他笑了笑：是啊，没有这玩意儿，我们什么都不是。你们又聊了一整晚。"};
+}
+    }
+  ]
+},
+
+
+
+// ==== 连续事件链：小球迷 ====
+
+{
+  'id': "fan_boy",
+  'title': "那个小孩",
+  'icon': '👦',
+  'weight': 0x2e,
+  'when': function(p){
+return!p["_fan"]&&p["fame"]>=0xf;
+},
+  'desc': "训练场外，一个小孩举着你的海报等了一个小时。保安说他从早上就来了。他看到你出来，眼睛亮了。",
+  'options': [
+    {
+      'label': "蹲下来跟他合影签名",
+      'hint': "声望+3，人脉+2",
+      'apply': function(){
+return{'fame':0x3,'guanxi':0x2,'_fan':0x1,'text':"你蹲下来，他紧张得说不出话。你签了名，拍了照，还跟他聊了几句。他妈妈在远处擦眼泪。"};
+}
+    },
+    {
+      'label': "赶时间，点了点头就走了",
+      'hint': "无影响",
+      'apply': function(){
+return{'_fan':0x2,'text':"你冲他点了点头，上了大巴。从后视镜里看到他还在举着那张海报。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "fan_match",
+  'title': "他又来了",
+  'icon': '🎫',
+  'weight': 0x28,
+  'when': function(p){
+return p["_fan"]>=0x1&&p["fame"]>=0x23&&p["seasonsAtClub"]>=0x2;
+},
+  'desc': "又一个主场比赛，你看台第三排，那个小孩坐在那里。他穿着你的球衣——号码是错的，但名字是对的。",
+  'options': [
+    {
+      'label': "赛后过去找他",
+      'hint': "声望+4，人脉+3",
+      'apply': function(){
+return{'fame':0x4,'guanxi':0x3,'_fan':0x3,'text':"你走过去，他愣了三秒然后尖叫出来。他爸爸说他攒了三个月零花钱买的球票。你把你的球衣给了他。"};
+}
+    },
+    {
+      'label': "在场上好好踢就是最好的回应",
+      'hint': "能力+2",
+      'apply': function(){
+return{'ovr':0x2,'_fan':0x3,'text':"那天你进了两个球。每次进球，你都朝他那个方向看一眼。他跳起来的样子，你记了很久。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "fan_social",
+  'title': "你的名字出现在评论区",
+  'icon': '📱',
+  'weight': 0x24,
+  'when': function(p){
+return p["_fan"]>=0x3&&p["fame"]>=0x28;
+},
+  'desc': "社交媒体上，一个账号发了条动态：'从小看着他踢球长大，现在我也在青训营了。'配图是那张合影。评论区全是你的名字。",
+  'options': [
+    {
+      'label': "转发并鼓励他",
+      'hint': "声望+5",
+      'apply': function(){
+return{'fame':0x5,'_fan':0x4,'text':"你转发了那条动态，写了一句：加油，未来见。那条动态被转发了上万次。"};
+}
+    },
+    {
+      'label': "看到了，但没转发",
+      'hint': "无影响",
+      'apply': function(){
+return{'_fan':0x4,'text':"你看了看，笑了一下，划走了。有些事情不需要让全世界知道。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "fan_pro",
+  'title': "他穿上了同一件球衣",
+  'icon': '⭐',
+  'weight': 0x22,
+  'stage': "vet",
+  'when': function(p){
+return p["_fan"]>=0x3&&p["age"]>=0x1c;
+},
+  'desc': "新赛季第一天，青训名单里有个名字很眼熟。你走进更衣室，看到那个小孩——不，那个年轻人——穿着你的球衣站在那里。他看到你，紧张得立正了。",
+  'options': [
+    {
+      'label': "告诉他：有不懂的随时来找我",
+      'hint': "传承+声望+4",
+      'apply': function(){
+return{'fame':0x4,'guanxi':0x3,'_fan':0x5,'text':"他眼眶红了。你说：别紧张，你走到这里说明你有实力。以后训练有什么不懂的，随时来找我。"};
+}
+    },
+    {
+      'label': "公事公办，训练场上见真章",
+      'hint': "能力+2",
+      'apply': function(){
+return{'ovr':0x2,'_fan':0x5,'text':"你跟他握了握手：欢迎来到一线队。在足球面前，没有偶像，只有队友。"};
+}
+    }
+  ]
+},
+
+
+
+// ==== 连续事件链：培养年轻球员 ====
+
+{
+  'id': "mentor_find",
+  'title': "训练场边那个孩子",
+  'icon': '🔍',
+  'weight': 0x2c,
+  'stage': "youth",
+  'when': function(p){
+return!p["_mentor"]&&p["talent"]>=0x1&&p["inAcademy"];
+},
+  'desc': "训练结束以后，你看到一个比你小两岁的孩子在场边独自练任意球。动作很粗糙，但球速和角度都不错。教练说他天赋一般，但特别努力。",
+  'options': [
+    {
+      'label': "每天陪他加练一小时",
+      'hint': "关系+3，能力+1，天赋+0.1",
+      'apply': function(){
+return{'guanxi':0x3,'ovr':0x1,'talent':0.1,'_mentor':0x1,'text':"接下来三个月，你每天陪他练。他学得很快，你发现自己教他的过程里，自己也在进步。"};
+}
+    },
+    {
+      'label': "指点两句就行了",
+      'hint': "能力+1",
+      'apply': function(){
+return{'ovr':0x1,'_mentor':0x2,'text':"你告诉他注意支撑脚的位置，然后就走了。后来听说他进步了不少——但你们之间也就是点头之交。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "mentor_grow",
+  'title': "他进了大名单",
+  'icon': '📋',
+  'weight': 0x28,
+  'when': function(p){
+return p["_mentor"]>=0x1&&p["age"]>=0x16&&p["roleRank"]>=0x2;
+},
+  'desc': "新赛季大名单公布，那个孩子——不，那个年轻人——第一次出现在替补席。赛后他过来找你：哥，谢谢你。",
+  'options': [
+    {
+      'label': "告诉他保持冷静，路还长",
+      'hint': "关系+4，声望+2",
+      'apply': function(){
+return{'guanxi':0x4,'fame':0x2,'_mentor':0x3,'text':"他点了点头。后来的比赛里，每次你进球，他都是第一个冲过来庆祝的人。"};
+}
+    },
+    {
+      'label': "他已经是竞争对手了",
+      'hint': "能力+3",
+      'apply': function(){
+return{'ovr':0x3,'guanxi':-0x2,'_mentor':0x3,'text':"你告诉他：场上别叫我哥，叫名字。他愣了一下，然后笑了。竞争让你们都变得更强。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "mentor_pass",
+  'title': "该教的都教了",
+  'icon': '🎓',
+  'weight': 0x24,
+  'stage': "vet",
+  'when': function(p){
+return p["_mentor"]>=0x1&&p["age"]>=0x21&&p["roleRank"]>=0x2;
+},
+  'desc': "训练结束后，你坐在更衣室里，看着镜子里的自己。那个年轻人走过来：教练说下赛季让我打主力了。你知道，该交接了。",
+  'options': [
+    {
+      'label': "退役后留下来当教练",
+      'hint': "教练证+声望+3",
+      'apply': function(){
+return{'coachCert':!0x0,'fame':0x3,'_mentor':0x4,'text':"你跟俱乐部谈好了。退役以后，你留在这支队伍里，用另一种方式继续踢球。"};
+}
+    },
+    {
+      'label': "他超越了我，这是好事",
+      'hint': "声望+5",
+      'apply': function(){
+return{'fame':0x5,'_mentor':0x4,'text':"你拍了拍他的肩膀：以后这支球队就靠你了。他没说话，但你看得到他眼里的光。传承，大概就是这种感觉。"};
+}
+    }
+  ]
+},
+
+
+
+// ==== 连续事件链：青训对手 ====
+
+{
+  'id': "rival_youth",
+  'title': "本地球员的敌意",
+  'icon': '😤',
+  'weight': 0x2c,
+  'stage': "kid",
+  'when': function(p){
+return!p["_rival"]&&p["inAcademy"];
+},
+  'desc': "训练分组，你跟一个本地孩子分到了对面。他看你的眼神不太友善——后来才知道，你占了他原本的位置。",
+  'options': [
+    {
+      'label': "用实力说话，每次训练都赢他",
+      'hint': "能力+3，关系-3",
+      'apply': function(){
+return{'ovr':0x3,'guanxi':-0x3,'_rival':0x1,'text':"从那天起，每次训练你们都针锋相对。他进步得很快——因为他也想赢你。教练说这是最好的训练。"};
+}
+    },
+    {
+      'label': "主动找他聊，一起加练",
+      'hint': "关系+4，能力+1",
+      'apply': function(){
+return{'guanxi':0x4,'ovr':0x1,'_rival':0x2,'text':"你请他喝了瓶水，说：一起练吧。他犹豫了一下，点了头。后来你们成了训练场上最好的搭档——也是最强的对手。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "rival_pro",
+  'title': "又见面了",
+  'icon': '🔄',
+  'weight': 0x28,
+  'when': function(p){
+return p["_rival"]>=0x1&&!p["inChina"]&&p["roleRank"]>=0x2&&p["seasonsAtClub"]>=0x2;
+},
+  'desc': "赛前战术会上，教练提到对手阵中一个名字。你愣了一下——那是青训营里跟你对位的那个人。他也踢出来了。",
+  'options': [
+    {
+      'label': "赛前找他打个招呼",
+      'hint': "关系+2，能力+1",
+      'apply': function(){
+return{'guanxi':0x2,'ovr':0x1,'_rival':0x3,'text':"你俩在球员通道聊了几分钟。他说：没想到我们会在这种场合见面。你说：我也没想到——但也不意外。"};
+}
+    },
+    {
+      'label': "不用打招呼，场上见",
+      'hint': "能力+3",
+      'apply': function(){
+return{'ovr':0x3,'_rival':0x3,'text':"你在热身的时候看了他一眼。他也看了你。什么都没说——但你们都知道这场比赛不一样。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "rival_clash",
+  'title': "直接对话",
+  'icon': '⚔️',
+  'weight': 0x26,
+  'when': function(p){
+return p["_rival"]===0x3;
+},
+  'desc': "比赛第六十分钟，你跟他一对一。他过了你——不，你把他断了下来。全场都在喊。他爬起来看着你，你也看着他。",
+  'options': [
+    {
+      'label': "必须赢他，这场不能输",
+      'hint': "能力+4，声望+3",
+      'apply': function(){
+return{'ovr':0x4,'fame':0x3,'_rival':0x4,'text':"最后十分钟你像换了一个人。终场哨响，你们队赢了。你走过去拉起他：下次不会这么容易了。"};
+}
+    },
+    {
+      'label': "踢好自己的就行",
+      'hint': "能力+2，人脉+2",
+      'apply': function(){
+return{'ovr':0x2,'guanxi':0x2,'_rival':0x4,'text':"比赛结束后你们握了握手。他说：你变强了。你说：你也是。有些对手不需要分出胜负——互相成就就够了。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "rival_end",
+  'title': "终章",
+  'icon': '🤝',
+  'weight': 0x22,
+  'stage': "vet",
+  'when': function(p){
+return p["_rival"]>=0x3&&p["age"]>=0x1c;
+},
+  'desc': "职业生涯最后一次跟他交手。赛后你们在球员通道里站了很久。他说：退役以后干什么？你说：没想好。他说：我也没想好。",
+  'options': [
+    {
+      'label': "交换球衣，一笑泯恩仇",
+      'hint': "声望+5，人脉+5",
+      'apply': function(){
+return{'fame':0x5,'guanxi':0x5,'_rival':0x5,'text':"你把球衣脱下来递给他。他接过去，看了很久。二十年的对手，最后变成了最了解你的人。"};
+}
+    },
+    {
+      'label': "留个联系方式，以后常联系",
+      'hint': "人脉+6",
+      'apply': function(){
+return{'guanxi':0x6,'_rival':0x5,'text':"你们加了微信。走出球场的时候，你回头看了一眼——这座球场，你们在这里踢了十年。如今，都结束了。"};
+}
+    }
+  ]
+},
+
+
+
+// ==== 连续事件链：商业代言 ====
+
+{
+  'id': "sponsor_deal",
+  'title': "那个电话",
+  'icon': '📞',
+  'weight': 0x2c,
+  'when': function(p){
+return!p["_sponsor"]&&p["fame"]>=0x23&&p["age"]>=0x16;
+},
+  'desc': "经纪人打来电话，说有个运动品牌想跟你签代言合同。第一笔钱是你年薪的三倍。条件是：所有公开场合必须穿他们的装备。",
+  'options': [
+    {
+      'label': "签，这钱为什么不赚",
+      'hint': "金钱+20，声望+3",
+      'apply': function(){
+return{'money':0x14,'fame':0x3,'_sponsor':0x1,'text':"合同签了。第一个广告拍了两天，你不太习惯——但看着银行账户上的数字，你觉得值了。"};
+}
+    },
+    {
+      'label': "再等等，等我更强的时候价码更高",
+      'hint': "能力+3",
+      'apply': function(){
+return{'ovr':0x3,'_sponsor':0x2,'text':"你告诉经纪人再等等。挂了电话，你加练了一小时。你知道现在的自己还不值那个价——但以后会的。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "sponsor_conflict",
+  'title': "广告和训练",
+  'icon': '⏰',
+  'weight': 0x28,
+  'when': function(p){
+return p["_sponsor"]===0x1;
+},
+  'desc': "品牌方要求你周末去拍一个新广告。但周六有联赛，周四还有杯赛半决赛。经纪人说：广告很重要。教练说：训练不能缺。",
+  'options': [
+    {
+      'label': "以球员为重，广告推后",
+      'hint': "能力+3，金钱-5",
+      'apply': function(){
+return{'ovr':0x3,'money':-0x5,'_sponsor':0x3,'text':"你告诉经纪人：我是球员，不是模特。品牌方有点不高兴——但教练在训练场上点了头。"};
+}
+    },
+    {
+      'label': "两头兼顾，挤时间拍",
+      'hint': "金钱+8，能力-1",
+      'apply': function(){
+return{'money':0x8,'ovr':-0x1,'_sponsor':0x3,'text':"那周你每天睡五个小时。广告拍了，训练也没落下——但周五你感觉身体被掏空了。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "sponsor_end",
+  'title': "合同到期",
+  'icon': '📝',
+  'weight': 0x24,
+  'when': function(p){
+return p["_sponsor"]>=0x1&&p["seasonsAtClub"]>=0x2;
+},
+  'desc': "两年合同到期了。品牌方来找你续约，价码翻了一倍——但附加条件更多了：直播、综艺、社交媒体每天三条。",
+  'options': [
+    {
+      'label': "续约，这些要求我能接受",
+      'hint': "金钱+25，声望+5",
+      'apply': function(){
+return{'money':0x19,'fame':0x5,'_sponsor':0x4,'text':"新合同签了。你的生活变得更忙碌了——但银行账户和知名度都在涨。"};
+}
+    },
+    {
+      'label': "不续了，专心踢球",
+      'hint': "能力+3",
+      'apply': function(){
+return{'ovr':0x3,'_sponsor':0x4,'text':"你告诉经纪人不续了。挂了电话，你去跑了五公里。你知道自己选了什么——也知道什么对自己最重要。"};
+}
+    }
+  ]
+},
+
+
+
+// ==== 连续事件链：伤病涅槃 ====
+
+{
+  'id': "injury_chain_bad",
+  'title': "那声脆响",
+  'icon': '🏥',
+  'weight': 0x26,
+  'when': function(p){
+return!p["_injuryChain"]&&p["ovr"]>=0x3c;
+},
+  'desc': "比赛第三十分钟，你起跳争顶落地。左膝传来一声脆响——不是骨头，是韧带。你倒在草坪上，知道这次不一样。",
+  'options': [
+    {
+      'label': "积极康复，按计划来",
+      'hint': "恢复更快",
+      'apply': function(){
+return{'_injuryChain':0x1,'text':"手术很成功。医生说恢复期六到八个月。你给自己定了计划：每天六小时康复训练，一天不落。"};
+}
+    },
+    {
+      'label': "急于复出，缩短恢复期",
+      'hint': "有风险",
+      'odds': ["恢复顺利","旧伤复发"],
+      'apply': function(p,q,s){
+return d(q,s)?{'_injuryChain':0x1,'ovr':0x1,'text':"你比预期提前两个月回到了训练场。身体感觉不错——也许你天生恢复力就强。"}
+:{'_injuryChain':0x1,'ovr':-0x3,'text':"你提前复出了。第三场比赛，同一个位置又响了一声。医生说：我说过不能急。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "injury_chain_comeback",
+  'title': "复出之战",
+  'icon': '🏃',
+  'weight': 0x24,
+  'when': function(p){
+return p["_injuryChain"]===0x1&&p["seasonsAtClub"]>=0x1;
+},
+  'desc': "时隔八个月，你终于回到了大名单。教练问你：首发还是替补？你说：首发。他看了你很久，然后点了点头。",
+  'options': [
+    {
+      'label': "首发，用表现证明自己",
+      'hint': "声望+5，能力+2",
+      'apply': function(){
+return{'fame':0x5,'ovr':0x2,'_injuryChain':0x2,'text':"第七十分钟你进了球。全场起立鼓掌。你跑到角旗区，看着看台——你回来了。"};
+}
+    },
+    {
+      'label': "从替补开始，稳一点",
+      'hint': "能力+2",
+      'apply': function(){
+return{'ovr':0x2,'_injuryChain':0x2,'text':"下半场你替补上场。二十分钟，一次助攻。赛后更衣室里，队友们拍着你的背：欢迎回来。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "injury_chain_philosophy",
+  'title': "受伤教会我的事",
+  'icon': '💡',
+  'weight': 0x22,
+  'when': function(p){
+return p["_injuryChain"]>=0x2&&p["age"]>=0x19;
+},
+  'desc': "赛季结束了。你坐在空荡荡的球场里，看着膝盖上那道疤。受伤之前你是靠身体踢球的——现在你得换个活法了。",
+  'options': [
+    {
+      'label': "变得更聪明，用脑子踢球",
+      'hint': "能力+3，地位+1",
+      'apply': function(){
+return{'ovr':0x3,'roleDelta':0x1,'_injuryChain':0x3,'text':"你开始比以前更多地观察、预判、选位。身体跟不上了——但脑子可以更快。教练说你踢得比受伤前更成熟了。"};
+}
+    },
+    {
+      'label': "更凶狠，让对手怕我",
+      'hint': "能力+2，人脉-2",
+      'apply': function(){
+return{'ovr':0x2,'guanxi':-0x2,'_injuryChain':0x3,'text':"你开始更多地身体对抗、拼抢、铲球。对手开始怕你——不是因为技术，是因为你不要命。代价是黄牌多了，关系差了。"};
+}
     }
   ]
 },

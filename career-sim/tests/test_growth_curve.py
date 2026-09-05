@@ -8,7 +8,9 @@ import harness
 CAREERS = 20
 
 
-def cohort_js(tag, seed_base, talent, start_age, ovr, mo):
+def cohort_js(tag, seed_base, talent, start_age, ovr, mo, win_end=None):
+    if win_end is None:
+        win_end = start_age + 6  # 缺省窗口：起测年龄后 6 年（P1/P2 用）
     return """
 (function(){
 var recs=[];
@@ -65,7 +67,7 @@ return JSON.stringify({n:recs.length,slope:+(sum/recs.length).toFixed(3)});
 """.replace('%N%', str(CAREERS)).replace('%BASE%', str(seed_base)) \
        .replace('%TAL%', str(talent)).replace('%AGE%', str(start_age)) \
        .replace('%OVR%', str(ovr)).replace('%MO%', str(mo)) \
-       .replace('%A0%', str(start_age)).replace('%A1%', str(start_age + 6))
+       .replace('%A0%', str(start_age)).replace('%A1%', str(win_end))
 
 
 def run():
@@ -96,8 +98,8 @@ def run():
                   'P2 broken: longevity inversion')
 
     # P3 cap-proximity: hugging maxOvr declines FASTER
-    c_near = json.loads(mr.eval(cohort_js('cN', 700000, 1.0, 32, 90, 90)))
-    c_far = json.loads(mr.eval(cohort_js('cF', 700000, 1.0, 32, 80, 90)))
+    c_near = json.loads(mr.eval(cohort_js('cN', 700000, 1.0, 32, 90, 90, win_end=40)))
+    c_far = json.loads(mr.eval(cohort_js('cF', 700000, 1.0, 32, 80, 90, win_end=40)))
     print('P3 slopes near=%.2f(n%d) far=%.2f(n%d)' % (c_near['slope'], c_near['n'], c_far['slope'], c_far['n']))
     harness.check(c_near['slope'] < c_far['slope'] - 0.1,
                   'P3 broken: cap pressure inactive')

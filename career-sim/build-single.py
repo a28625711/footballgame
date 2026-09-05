@@ -25,6 +25,15 @@ for f in os.listdir(trophy_dir):
     trophy_data[name] = f'data:image/png;base64,{b}'
 print(f"奖杯映射: {len(trophy_data)}")
 
+# ========== 2b. 国旗 base64 映射（window._FLAG_DATA，key 同 NATS.img）==========
+flag_dir = os.path.join(BASE, 'assets', 'flags')
+flag_data = {}
+for f in os.listdir(flag_dir):
+    if f.endswith('.svg'):
+        b = base64.b64encode(open(os.path.join(flag_dir, f), 'rb').read()).decode()
+        flag_data[f[:-4]] = f'data:image/svg+xml;base64,{b}'
+print(f"国旗映射: {len(flag_data)}")
+
 # ========== 3. 读取并处理 crests.js ==========
 crests_js = open(os.path.join(BASE, 'src', 'crests.js'), encoding='utf-8').read()
 # 用键名替换所有 "assets/c"+... 值为 data URI
@@ -72,7 +81,8 @@ html = open(os.path.join(BASE, 'index.html'), encoding='utf-8').read()
 html = re.sub(r'<link rel="stylesheet" href="style\.css\?v=\d+">', lambda m: f'<style>\n{css}\n</style>', html)
 
 # 注入数据
-inject = '<script>window._TROPHY_DATA={' + ','.join(f'"{k}":"{v}"' for k, v in trophy_data.items()) + '};</script>'
+inject = ('<script>window._TROPHY_DATA={' + ','.join(f'"{k}":"{v}"' for k, v in trophy_data.items()) + '};</script>\n'
+          '<script>window._FLAG_DATA={' + ','.join(f'"{k}":"{v}"' for k, v in flag_data.items()) + '};</script>')
 html = html.replace('</head>', inject + '\n</head>')
 
 # 内联 JS

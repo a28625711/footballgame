@@ -2173,6 +2173,8 @@ img.crest.plate {
 .cr-tm .crest { display: inline-block; vertical-align: middle; }
 .cr-tm .crest-pic { display: inline-flex; }
 .cr-tm .crest-pic .crest { width: 100%; height: 100%; }
+/* 国旗（国家队）：SVG 原始 3:2 比例，等宽对齐队徽行 */
+.cr-tm .cr-flag { width: 1.05rem; height: auto; display: inline-block; vertical-align: middle; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.18); }
 .wl-title .crest, .wl-title .crest-pic { width: 1.05rem; height: 1.05rem; }
 .wl-champ { display: flex; align-items: center; gap: 6px; justify-content: center;
             border: 1px solid hsl(var(--gold2) / .6); border-radius: var(--r-row);

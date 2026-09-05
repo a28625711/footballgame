@@ -104,6 +104,13 @@ return p&&q[p["posGroup"]]||q["other"];
 
 
 
+/* 类型转型的组内安全回退：desc 侧写的 _xTarget 缺失时保持现类型，绝不允许跨位置组 */
+function safeTypeTgt(p,key){
+if(key&&p[key]!=null)return p[key];
+var cur=p["playerType"]!=null?p["playerType"]:0xb;
+var pool={'att':[0,1,2,3,4,5],'mid':[1,5,6,7],'def':[8,9,10],'gk':[11]}[p["posGroup"]]||[cur];
+return pool.indexOf(cur)>=0?cur:pool[0];
+}
 function shiftTarget(p){
     
     

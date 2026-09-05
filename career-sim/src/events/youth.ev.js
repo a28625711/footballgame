@@ -811,11 +811,11 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
       'p': function(p){return f(0.55,[[p["talent"],1,0.25],[p["ovr"],40,0.005]],0.25,0.85);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._shiftTarget!=null?p._shiftTarget:0;
+        var tgt=safeTypeTgt(p,"_shiftTarget");
         return g(q,"转型成功→"+TN[tgt],"转型失败");
       },
       'apply': function(p,q,s){
-        var tgt=p._shiftTarget!=null?p._shiftTarget:0;
+        var tgt=safeTypeTgt(p,"_shiftTarget");
         return d(q,s)?{'playerType':tgt,'ovr':0x2,'_typeShiftDone':1,'text':"你试了教练的方案，发现那种跑位和思维方式竟然出奇地顺畅。几周后，你在训练赛里用新位置的方式打进一球——教练笑着点了点头。"}
         :{'ovr':-0x1,'_typeShiftDone':1,'text':"你照着教练画的路线跑了两周，但身体总是往原来的位置上凑。教练说：也许时机不对，先放一放。"};
       }
@@ -883,11 +883,11 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
       'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["clean"],50,0.004]],0.20,0.82);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        var tgt=safeTypeTgt(p,"_evoTarget");
         return g(q,"融会贯通→"+TN[tgt],"还是算了");
       },
       'apply': function(p,q,s){
-        var tgt=p._evoTarget!=null?p._evoTarget:0;
+        var tgt=safeTypeTgt(p,"_evoTarget");
         return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"你花了一周看录像、加练，渐渐摸到了那个位置的门道。教练赛后拍着你的肩说：你看，你的能力不止一种用法。"}
         :{'ovr':0x1,'_typeShiftDone':1,'text':"你试了几次，但总觉得隔了一层。教练说：没关系，知道自己不适合什么，也是一种进步。"};
       }
@@ -949,11 +949,11 @@ return{'ovr':0x2,'clean':0x4,'text':"你把重心、启动和"+"脑子练到了�
       'p': function(p){return f(0.48,[[p["talent"],1,0.35],[p["age"],18,-0.04]],0.18,0.80);},
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=p._lateTarget!=null?p._lateTarget:0;
+        var tgt=safeTypeTgt(p,"_lateTarget");
         return g(q,"涅槃重生→"+TN[tgt],"为时已晚");
       },
       'apply': function(p,q,s){
-        var tgt=p._lateTarget!=null?p._lateTarget:0;
+        var tgt=safeTypeTgt(p,"_lateTarget");
         return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"最后几个月你像变了个人，每天加练到最晚。毕业考核那天，你用全新的方式完成了一次教科书般的进球。教练在评估表上写下：此人上限不止于此。"}
         :{'ovr':-0x2,'_typeShiftDone':1,'text':"改变来得太晚了。身体习惯已经定型，新学的东西和旧的互相打架。考核日你表现平平，教练叹了口气：可惜了，早点下决心就好了。"};
       }

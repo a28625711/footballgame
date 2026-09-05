@@ -304,3 +304,21 @@ dev = clamp( dev×0.85 + clamp(delta×0.3, −0.75, +0.75) + rand(−1.2,+1.2) +
 - 确定性修复：sim.js 残留三处 `Math.random`（两处事件选项池洗牌、大赛开场文案）改种子化——`SIM.choose(0)` 选洗牌后首个选项，未种子化的洗牌会让同种子运行分叉。
 - 「队徽+队名」统一为 `_crTm()` + `.cr-tm` 样式（1.05rem、inline、队名左侧），世界面板赛程/签表/小组赛/友谊赛 chips 共用。
 - sw 缓存 v11。
+
+## 十一、国家队/俱乐部 id 命名空间隔离 + 国标本地化（2026-09-05 第三轮）
+
+### 11.1 国家队 id 加 `n_` 前缀（根治撞名）
+
+§10.2 的「国家优先查表」只修了世界杯方向的显示，反向问题随之暴露：欧冠等俱乐部赛事里 21 个撞名 id（por=波尔图↔葡萄牙、mar=马赛↔摩洛哥、ben=本菲卡↔贝宁 等）显示成国家队。显示层无法区分语境，根治唯一解是命名空间隔离：
+
+- `src/natdata.js`：211 个国家队 id 全部加 `n_` 前缀（`par`→`n_par`），与 341 个俱乐部 id 彻底不相交（`tools/probe_clash.js` 验证 clashes: 0）。
+- sim.js/game.js 内硬编码的 `'chn'`（球员国家队、友谊赛/预选赛/正赛标识、面板分组查找）同步改为 `'n_chn'`。
+- **旧存档不迁移**（用户确认）：旧档国家队记录显示会退化，新开档即可。
+
+### 11.2 国标本地化（lipis/flag-icons）
+
+Windows 不渲染旗 emoji（显示字母对），且 emoji 覆盖不全（211 队中大量为 ⚽ 占位）。方案：本地 SVG。
+
+- `tools/fetch_flags.py`：解析 `f` emoji（区域指示符→alpha-2；tag 序列→gb-eng/gb-sct/gb-wls/gb-nir）+ FIFA→ISO2 兜底表，从本地 `D:/football/clubsvgnew/flag-icons-main/flags/4x3/`（lipis/flag-icons）复制 211 面 SVG 到 `assets/flags/n_<id>.svg`，并把 `img:'n_<id>'` 写回 NATS 条目。
+- `_crTm` 国家分支渲染 `<img class="cr-flag" src="assets/flags/<img>.svg">`，无 img 回退 emoji；`.cr-flag` 样式（1.05rem 宽、3:2 原比例、细描边）。
+- sw 缓存 v12，`src/natdata.js` 补进 CORE_ASSETS（此前离线首装 404）；国旗走图片懒缓存。

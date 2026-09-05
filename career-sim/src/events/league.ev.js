@@ -126,15 +126,15 @@ var EVT_league=[
 
 
 
+// ---- idx:309 | lg_liga_clasico | 第一次大赛考验 ----
 
-// ---- idx:309 | lg_liga_clasico | 第一次国家德比 ----
 
 
 
 
 {
   'id': "lg_liga_clasico",
-  'title': "第一次国家德比",
+  'title': "第一次大赛考验",
   'icon': '🔥',
   'weight': 0x52,
   'when': function(p){return "liga"===p["leagueId"]&&p["clubRep"]>=0x4;},
