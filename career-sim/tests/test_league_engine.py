@@ -87,7 +87,7 @@ def run():
     # 5) 洲际与杯赛产出存在（冠军历史被记录）
     d = run_block(mr, 'rma', 6, 888)
     st2 = json.loads(json.dumps(d['lastTables']))
-    harness.check(len(st2) == 18, 'lastTables leagues=%d != 18' % len(st2))
+    harness.check(len(st2) == 20, 'lastTables leagues=%d != 20' % len(st2))  # 18+墨超+加拿超
 
     print('PASS league_engine (determinism, points, sizes, dev bounds)')
 

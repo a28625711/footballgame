@@ -50,7 +50,8 @@ for(var yr=0; yr<%NS% && au.phase==='career'; yr++){
     for(var tg in st.contFx.data){var cd=st.contFx.data[tg];
       var ms=cd&&cd.group&&cd.group.matches||[];
       if(ms.length&&ms.length%4!==0)out.contBad=tg+':flat';
-      var noName=(cd.group.standings||[]).filter(function(r){return !r.n&&!r.name;}).length;
+      /* 世俱杯纯淘汰赛无小组赛 */
+      var noName=cd.group?(cd.group.standings||[]).filter(function(r){return !r.n&&!r.name;}).length:0;
       if(noName)out.contBad=tg+':names';
     }
   }
@@ -65,7 +66,7 @@ def run():
     res = json.loads(mr.eval(LOOP))
     harness.check('err' not in res, res.get('err', ''))
     fx = res['fx']
-    harness.check(len(fx) == 18, 'leagues with fx = %d != 18' % len(fx))
+    harness.check(len(fx) == 20, 'leagues with fx = %d != 20' % len(fx))  # 18+墨超+加拿超
 
     def rate(lg):
         a = fx[lg]

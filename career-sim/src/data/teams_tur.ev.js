@@ -1,7 +1,7 @@
 // window.DATA.TEAMS 中 league="tur" 的球队
 var TEAMS_tur = [
-{'id':"gala",'name':"加拉塔萨雷",'league':"tur",'rep':5,'color':"#FFD700"},
-{'id':"fene",'name':"费内巴切",'league':"tur",'rep':5,'color':"#003399"},
+{'id':"gala",'name':"加拉塔萨雷",'league':"tur",'rep':4,'color':"#FFD700"},
+{'id':"fene",'name':"费内巴切",'league':"tur",'rep':4,'color':"#003399"},
 {'id':"bjk",'name':"贝西克塔斯",'league':"tur",'rep':4,'color':"#000000"},
 {'id':"trab",'name':"特拉布宗体育",'league':"tur",'rep':3,'color':"#8B0000"},
 {'id':"basa",'name':"巴萨克赛尔",'league':"tur",'rep':3,'color':"#FF6600"},

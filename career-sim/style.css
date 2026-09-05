@@ -2188,3 +2188,6 @@ img.crest.plate {
            border-radius: 999px; padding: 2px 10px; font-size: 11px; cursor: pointer; }
 .sm-link:active { background: hsl(var(--accent)); color: hsl(var(--accent-on)); }
 .sm-round.me { border-color: hsl(var(--gold2) / .7); }
+
+/* 心仪选队：球队水平提示行 */
+.dream-team em.dream-hint { display: block; font-style: normal; font-size: .68rem; color: hsl(var(--faint)); line-height: 1.2; }

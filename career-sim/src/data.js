@@ -225,7 +225,7 @@ var leagues =[{'id':"csl",'name':'中超',
 'str':0x3d,'cn':!0x1,'cup':"天皇杯",'cont':'亚冠','leagueCup':null,'superCup':"日本超级杯"},{'id':'kl','name':"K联赛",'country':'KR','rep':0x2,'str':0x37,'cn':!0x1,'cup':"韩国杯",'cont':'亚冠',
 'leagueCup':null,'superCup':"韩国超级杯"},{'id':"spl",
 'name':"沙特联",'country':'SA','rep':0x3,'str':0x3f,'cn':!0x1,'cup':"沙特国王杯",'cont':'亚冠','leagueCup':null,'superCup':"沙特超级杯"},{'id':"mls",'name':"美职联",'country':'US','rep':0x2,
-'str':0x3b,'cn':!0x1,'cup':"公开杯",'cont':null,'leagueCup':null,'superCup':null},{'id':"tur",'name':'土超','country':'TR','rep':0x4,'str':0x45,'cn':!0x1,'cup':"土耳其杯",'cont':'欧冠','leagueCup':null,'superCup':"土耳其超级杯"},{'id':"ale",'name':'澳超','country':'AU','rep':0x2,'str':0x32,'cn':!0x1,'cup':"澳大利亚杯",'cont':'亚冠','leagueCup':null,'superCup':"澳大利亚超级杯"}];
+'str':0x3b,'cn':!0x1,'cup':"公开杯",'cont':null,'leagueCup':null,'superCup':null},{'id':'mx','name':'墨超','country':'MX','rep':0x3,'str':0x41,'cn':!0x1,'cup':"墨西哥杯",'cont':'中北美冠','leagueCup':null,'superCup':"墨西哥超级杯"},{'id':'cpl','name':'加拿超','country':'CA','rep':0x1,'str':0x31,'cn':!0x1,'cup':"加拿大锦标赛",'cont':'中北美冠','leagueCup':null,'superCup':null},{'id':"tur",'name':'土超','country':'TR','rep':0x4,'str':0x45,'cn':!0x1,'cup':"土耳其杯",'cont':'欧冠','leagueCup':null,'superCup':"土耳其超级杯"},{'id':"ale",'name':'澳超','country':'AU','rep':0x2,'str':0x32,'cn':!0x1,'cup':"澳大利亚杯",'cont':'亚冠','leagueCup':null,'superCup':"澳大利亚超级杯"}];
 // window.DATA 尾部配置块（除 AWARDS/ENDINGS 独立成模块）
 var config = {
 'TROPHIES':{'league':{'name':"联赛冠军",'p':[0x0,0.02,0.05,0.16,0.3,0.45]},
@@ -649,10 +649,42 @@ var TEAMS_mls = [
 {'id':"dc",'name':"华盛顿特区联",'league':"mls",'rep':1,'color':"#C8102E"},
 {'id':"sandi",'name':"圣迭戈",'league':"mls",'rep':1,'color':"#004197"}
 ];
+// window.DATA.TEAMS 中 league="mx" 的球队（Liga MX 2026-27）
+var TEAMS_mx = [
+{'id':"amr",'name':"美洲队",'league':"mx",'rep':4,'color':"#F2C300"},
+{'id':"crz",'name':"蓝十字",'league':"mx",'rep':4,'color':"#0033A0"},
+{'id':"mty",'name':"蒙特雷",'league':"mx",'rep':4,'color':"#0A2240"},
+{'id':"tgr",'name':"老虎大学",'league':"mx",'rep':4,'color':"#FFB81C"},
+{'id':"tlc",'name':"托卢卡",'league':"mx",'rep':3,'color':"#D22630"},
+{'id':"pms",'name':"美洲狮",'league':"mx",'rep':3,'color':"#00214E"},
+{'id':"chs",'name':"芝华士",'league':"mx",'rep':3,'color':"#E4002B"},
+{'id':"slg",'name':"桑托斯拉古纳",'league':"mx",'rep':3,'color':"#006F57"},
+{'id':"leo",'name':"莱昂",'league':"mx",'rep':3,'color':"#1B5E20"},
+{'id':"pch",'name':"帕丘卡",'league':"mx",'rep':3,'color':"#00539F"},
+{'id':"tjn",'name':"蒂华纳",'league':"mx",'rep':2,'color':"#B01E23"},
+{'id':"ncx",'name':"内卡萨",'league':"mx",'rep':2,'color':"#CE1126"},
+{'id':"ats",'name':"阿特拉斯",'league':"mx",'rep':2,'color':"#8C1D40"},
+{'id':"sls",'name':"圣路易斯",'league':"mx",'rep':2,'color':"#7B0041"},
+{'id':"jrz",'name':"华雷斯",'league':"mx",'rep':2,'color':"#00A650"},
+{'id':"pba",'name':"普埃布拉",'league':"mx",'rep':2,'color':"#1A3668"},
+{'id':"qro",'name':"克雷塔罗",'league':"mx",'rep':2,'color':"#0055A5"},
+{'id':"ate",'name':"亚特兰特",'league':"mx",'rep':1,'color':"#A6192E"}
+];
+// window.DATA.TEAMS 中 league="cpl" 的球队（Canadian Premier League 2026）
+var TEAMS_cpl = [
+{'id':"frg",'name':"锻造FC",'league':"cpl",'rep':3,'color':"#F26522"},
+{'id':"cvl",'name':"骑兵FC",'league':"cpl",'rep':3,'color':"#C8102E"},
+{'id':"otw",'name':"渥太华竞技",'league':"cpl",'rep':2,'color':"#A6192E"},
+{'id':"pfc",'name':"太平洋FC",'league':"cpl",'rep':2,'color':"#00A876"},
+{'id':"hfx",'name':"哈利法克斯流浪者",'league':"cpl",'rep':2,'color':"#006341"},
+{'id':"itr",'name':"多伦多国际",'league':"cpl",'rep':2,'color':"#1D428A"},
+{'id':"vcr",'name':"温哥华FC",'league':"cpl",'rep':1,'color':"#043927"},
+{'id':"spq",'name':"魁北克苏普拉",'league':"cpl",'rep':1,'color':"#0055A5"}
+];
 // window.DATA.TEAMS 中 league="tur" 的球队
 var TEAMS_tur = [
-{'id':"gala",'name':"加拉塔萨雷",'league':"tur",'rep':5,'color':"#FFD700"},
-{'id':"fene",'name':"费内巴切",'league':"tur",'rep':5,'color':"#003399"},
+{'id':"gala",'name':"加拉塔萨雷",'league':"tur",'rep':4,'color':"#FFD700"},
+{'id':"fene",'name':"费内巴切",'league':"tur",'rep':4,'color':"#003399"},
 {'id':"bjk",'name':"贝西克塔斯",'league':"tur",'rep':4,'color':"#000000"},
 {'id':"trab",'name':"特拉布宗体育",'league':"tur",'rep':3,'color':"#8B0000"},
 {'id':"basa",'name':"巴萨克赛尔",'league':"tur",'rep':3,'color':"#FF6600"},
@@ -688,5 +720,5 @@ var TEAMS_ale = [
 ];
 window["DATA"]={'endingView':function(c,d){var f=c&&c["pos"]&&c["pos"][d];
 return{'id':c['id'],'tier':c["tier"],'title':f&&f["title"]||c["title"],'desc':f&&f["desc"]||c["desc"]};
-},'POSITIONS':positions,'LEAGUES':leagues,'TEAMS':[].concat(TEAMS_csl,TEAMS_epl,TEAMS_liga,TEAMS_bund,TEAMS_seri,TEAMS_l1,TEAMS_ere,TEAMS_pri,TEAMS_jup,TEAMS_seg,TEAMS_b2,TEAMS_ch,TEAMS_jl,TEAMS_kl,TEAMS_spl,TEAMS_mls,TEAMS_tur,TEAMS_ale),'TROPHIES':config['TROPHIES'],'NATIONAL':config['NATIONAL'],'AWARDS':a,'ROLES':config['ROLES'],'ROLE_ORDER':config['ROLE_ORDER'],'YOUTH_ABROAD_FEE':config['YOUTH_ABROAD_FEE'],'INJURIES':config['INJURIES'],'GROWTH':config['GROWTH'],'VALUE_TABLE':config['VALUE_TABLE'],'ENDINGS':b};
+},'POSITIONS':positions,'LEAGUES':leagues,'TEAMS':[].concat(TEAMS_csl,TEAMS_epl,TEAMS_liga,TEAMS_bund,TEAMS_seri,TEAMS_l1,TEAMS_ere,TEAMS_pri,TEAMS_jup,TEAMS_seg,TEAMS_b2,TEAMS_ch,TEAMS_jl,TEAMS_kl,TEAMS_spl,TEAMS_mls,TEAMS_mx,TEAMS_cpl,TEAMS_tur,TEAMS_ale),'TROPHIES':config['TROPHIES'],'NATIONAL':config['NATIONAL'],'AWARDS':a,'ROLES':config['ROLES'],'ROLE_ORDER':config['ROLE_ORDER'],'YOUTH_ABROAD_FEE':config['YOUTH_ABROAD_FEE'],'INJURIES':config['INJURIES'],'GROWTH':config['GROWTH'],'VALUE_TABLE':config['VALUE_TABLE'],'ENDINGS':b};
 }()));

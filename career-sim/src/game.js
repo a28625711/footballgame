@@ -134,7 +134,7 @@ return "<button "+"class=\"l"+"g-tab"+(c1===c2['id']?" selecte"+'d':'')+("\" dat
 })["join"]('')+("</div><d"+"iv class"+"=\"dream-"+"grid\">")+a0["TEAMS"]["filter"](function(c2){
 return c2["league"]===c1;
 })["map"](function(c2){
-return "<button "+"class=\"d"+"ream-tea"+'m'+(av["dreamId"]===c2['id']?" selecte"+'d':'')+("\" data-d"+"ream=\"")+c2['id']+'\x22>'+aT(c2)+"<span>"+ax(c2["name"])+("</span><"+"/button>");
+return "<button "+"class=\"d"+"ream-tea"+'m'+(av["dreamId"]===c2['id']?" selecte"+'d':'')+("\" data-d"+"ream=\"")+c2['id']+'\x22>'+aT(c2)+"<span>"+ax(c2["name"])+"</span>"+'<em class="dream-hint">'+ax(["保级队","中下游","中游","争冠","豪门","顶级豪门"][c2["rep"]||0x0])+("</em><"+"/button>");
 })["join"]('')+"</div>";
 }else bX="<div cla"+"ss=\"jers"+"ey-wrap\""+'>'+aM(av["origin"],av["name"]||'球员',av["number"])+("</div><d"+"iv class"+"=\"form-r"+"ow\"><div"+"><span c"+"lass=\"fi"+"eld-labe"+"l\">姓名</s"+"pan><inp"+"ut class"+"=\"input\""+" id=\"in-"+"name\" ma"+"xlength="+"\"6\" plac"+"eholder="+"\"李亦非\" au"+"tocomple"+"te=\"off\""+" value=\"")+ax(av["name"])+("\"></div>"+"<div cla"+"ss=\"narr"+"ow\"><spa"+"n class="+"\"field-l"+"abel\">号码"+"</span><"+"input cl"+"ass=\"inp"+"ut\" id=\""+"in-numbe"+"r\" type="+"\"number\""+" min=\"1\""+" max=\"99"+"\" value="+'\x22')+av["number"]+("\"></div>"+"</div><d"+"iv style"+"=\"margin"+"-top:1.1"+"rem\"><sp"+"an class"+"=\"field-"+"label\">惯"+"用脚</span"+"><div cl"+"ass=\"seg"+"mented\" "+"id=\"foot"+"-seg\"><b"+"utton cl"+"ass=\"seg")+("left"===av["foot"]?" selecte"+'d':'')+("\" data-f"+"oot=\"lef"+"t\">左脚</b"+"utton><b"+"utton cl"+"ass=\"seg")+("right"===av["foot"]?" selecte"+'d':'')+("\" data-f"+"oot=\"rig"+"ht\">右脚</"+"button><"+"/div></d"+"iv>")+("<div st"+"yle=\"ma"+"rgin-to"+"p:.9re"+"m\"><bu"+"tton ty"+"pe=\"butt"+"on\" dat"+"a-rerol"+"l class"+"=\"seg\">"+"换个随机</"+"button><"+"span st"+"yle=\"ma"+"rgin-le"+"ft:.6re"+"m;font-"+"size:.7"+"2rem;o"+"pacity:.65\">"+"姓名、号"+"码、惯用"+"脚都会重"+"新随机</sp"+"an></di"+"v>")+(bU2(av["name"],
 av["number"])?"<div st"+"yle=\"ma"+"rgin-to"+"p:.8re"+"m;color"+":#34d39"+"3\">抽中"+"了球星"+bU2(av["name"],av["number"])+"，会有"+"一点点属"+"性加成</"+"div>":"");
@@ -657,7 +657,7 @@ return "<button "+"class=\"o"+'pt'+(au["dreamId"]===bX['id']?" dream":'')+("\" d
 
 
 
-"ucl"],[/欧联/,"uel"],[/亚冠/,"challeng"+'e'],[/世界杯冠军/,'wc'],[/打进世界杯/,"wcgold"],[/亚洲杯/,"asiancup"],[/亚洲足球先生/,"afcpoy"],
+"ucl"],[/欧联/,"uel"],[/亚冠|中北美冠/,"challeng"+'e'],[/世界杯冠军/,'wc'],[/打进世界杯/,"wcgold"],[/亚洲杯/,"asiancup"],[/亚洲足球先生/,"afcpoy"],
 [/中超冠军/,
 
 
@@ -667,12 +667,12 @@ return "<button "+"class=\"o"+'pt'+(au["dreamId"]===bX['id']?" dream":'')+("\" d
 
 [/英联杯/,
 
-"eflcup"],[/社区盾/,"community"],[/西班牙超级杯|德国超级杯|意大利超级杯|法国超级杯/,"supercup"],[/中国超级杯|日本超级杯|韩国超级杯|沙特超级杯|荷兰超级杯|葡萄牙超级杯|比利时超级杯/,
+"eflcup"],[/社区盾/,"community"],[/西班牙超级杯|德国超级杯|意大利超级杯|法国超级杯|墨西哥超级杯/,"supercup"],[/中国超级杯|日本超级杯|韩国超级杯|沙特超级杯|荷兰超级杯|葡萄牙超级杯|比利时超级杯/,
 
 "cn-super"],
 
 
-[/德国杯/,"dfb"],[/足总杯/,"facup"],[/意大利杯|法国杯|荷兰杯|葡萄牙杯|比利时杯|天皇杯|韩国杯|公开杯/,"pedestal"],[/冠军$/,"league"]];
+[/德国杯/,"dfb"],[/足总杯/,"facup"],[/意大利杯|法国杯|荷兰杯|葡萄牙杯|比利时杯|天皇杯|韩国杯|公开杯|墨西哥杯|加拿大锦标赛/,"pedestal"],[/冠军$/,"league"]];
 function bi(bW){
 for(var bX=String(bW||''),
 
