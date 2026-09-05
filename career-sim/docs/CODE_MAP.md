@@ -7,15 +7,16 @@
 
 > 更新：2026-08-31（目录整理：手写源进 `src/`，事件编译产物进 `build/`）
 
-- `src/game.js` — 主逻辑 / DOM 渲染
-- `src/sim.js` — 游戏引擎 / 纯逻辑
+- `src/game.js` — 主逻辑 / DOM 渲染（含时间线「世界」面板 bWorldHTML）
+- `src/sim.js` — 游戏引擎 / 纯逻辑（§7b 世界联赛引擎：真实联赛/杯赛/洲际模拟）
 - `build/events.js` — 事件数据（由 `src/events/` 编译生成）
-- `src/data.js` — 球队/联赛/位置/出身数据
+- `src/data.js` — 数据组装产物（AUTO-GENERATED，勿手改；由 `src/data/*.ev.js` 模块经 `py tools/build_data.py` 生成：18 个 `teams_*.ev.js` 按联赛一队一文件 + awards/endings/positions/leagues/config）
 - `src/crests.js` — 队徽映射
 - `src/qr.js` — 二维码
 - `src/supporters.js` — 支持者名单
 - `src/natdata.js` — 国家队数据
 - `src/events/` — 事件模块源（*.ev.js），编辑后用 `py tools/build_events.py` 编译到 `build/events.js`
+- `src/data/` — 数据模块源（*.ev.js），编辑后用 `py tools/build_data.py` 重新组装 `src/data.js`
 
 ## 重要函数索引（sim.deob.js）
 

@@ -163,9 +163,48 @@ return "<div cla"+"ss=\"bar\""+"><span c"+"lass=\"ba"+"r-l\">"+bW+("</span><"+"d
 return bW?a6["academyN"+"ame"](bW):'';
 }function b8(bW,bX,bY,bZ,c0,c1,c2,c3,c4,c5){
 return "<div cla"+"ss=\"tl-r"+"ow tl-co"+"ls "+bW+'\x22'+(c3!=null?' data-age="'+c3+'"':'')+((c4!=null&&c4!=c3)?' data-from="'+c4+'"':'')+(c5?' data-view="'+c5+'"':'')+">"+bX+bY+bZ+("<span cl"+"ass=\"tl-"+"n r\">")+c0+("</span><"+"span cla"+"ss=\"tl-n"+" r\">")+c1+("</span><"+"span cla"+"ss=\"tl-n"+" r hide-"+"xs\">")+c2+("</span><"+"/div>");
-}/* ── 世界面板：联赛/杯赛/洲际赛程与签表查询（数据走 SIM.world 只读接口，当季赛程仅本会话内可查） ── */
+}/* 小组赛折叠盒（战报弹层与世界面板共用，须在主作用域） */
+function _grpBox(title,st,ml,prow,pid){
+if(!st||!st["length"])return"";
+/* 瑞士轮积分榜字段是 n，国家队等是 name；统一回退解析 */
+function _gName(r){return r["name"]||r["n"]||(function(){var t2=r["i"]?ag(r["i"]):null;return t2?t2["name"]:"";})();}
+var me=prow>=0&&prow<st["length"]?st[prow]:null;
+var s=me?("第"+(prow+1)+"名 · "+ax(_gName(me))+" "+me["w"]+"胜"+me["d"]+"平"+me["l"]+"负 "+me["pts"]+"分"):title;
+var h="<div class=\"sm-grp\"><button type=\"button\" class=\"sm-grp-hd\" data-act=\"sm-grp\"><span class=\"sm-grp-t\">"+title+"</span><span class=\"sm-grp-s\">"+s+"</span><span class=\"sm-grp-c\">▸</span></button><div class=\"sm-grp-bd\"><div class=\"sm-tbl\"><div class=\"sm-tr sm-th\"><span>#</span><span>球队</span><span>胜/平/负</span><span>进/失</span><span>分</span></div>";
+for(var i=0;i<st["length"];i++){
+var r=st[i];
+h+="<div class=\"sm-tr"+(i===prow?" sm-me":"")+"\"><span>"+(i+1)+"</span><span>"+ax(_gName(r))+"</span><span>"+r["w"]+"-"+r["d"]+"-"+r["l"]+"</span><span>"+r["gf"]+":"+r["ga"]+"</span><span>"+r["pts"]+"</span></div>";
+}
+h+="</div>";
+if(ml&&ml["length"]){
+/* 赛程格式兼容：对象 {hid/homeId,...} 与扁平 [h,a,hg,ag,...]（洲际赛持久化紧凑格式） */
+var _flat=typeof ml[0]!=="object";
+var _cnt=_flat?Math.floor(ml["length"]/4):ml["length"];
+h+="<div class=\"sm-grp-ms\">";
+for(var j=0;j<_cnt;j++){
+var m=_flat?{"hid":ml[j*4],"aid":ml[j*4+1],"hg":ml[j*4+2],"ag":ml[j*4+3]}:ml[j];
+var _hT=m["hid"]?ag(m["hid"]):(m["homeId"]?ag(m["homeId"]):null);
+var _aT2=m["aid"]?ag(m["aid"]):(m["awayId"]?ag(m["awayId"]):null);
+var hn=_hT?_hT["name"]:(m["home"]||m["hn"]||""),an=_aT2?_aT2["name"]:(m["away"]||m["an"]||"");
+var _pid=pid||"";
+var _hid=m["hid"]||m["homeId"],_aid=m["aid"]||m["awayId"];
+var _cls="";
+if(_pid&&(_hid===_pid||_aid===_pid)){
+var _pg=_hid===_pid?m["hg"]:m["ag"];
+var _og=_hid===_pid?m["ag"]:m["hg"];
+_cls=_pg>_og?" won":(_pg<_og?" lost":" draw");
+}
+h+="<span class=\"sm-round"+_cls+"\">"+ax(hn)+" "+m["hg"]+"-"+m["ag"]+" "+ax(an)+"</span>";
+}
+h+="</div>";
+}
+h+="</div></div>";
+return h;
+}
 
-var _wl={'tab':'lg','lg':'epl','rd':0,'cup':'','cont':'ucl'};
+/* ── 世界面板：联赛/杯赛/洲际赛程与签表查询（数据走 SIM.world 只读接口，当季赛程仅本会话内可查） ── */
+
+var _wl={'tab':'lg','lg':'epl','rd':0,'cup':'','cont':'ucl','natAge':-1};
 function _wlTable(tb,meTid){
 if(!tb||!tb["length"])return'<div class="wl-empty">暂无积分榜数据</div>';
 var hasPts=tb[0]["pts"]!=null;
@@ -181,16 +220,26 @@ h+='<div class="wl-row'+(r["i"]===meTid?" me":"")+'">'
 });
 return h;
 }
+function _wlTm(id){var t2=ag(id);return t2?aT(t2)+ax(t2["name"]):ax(id);}
+/* 签表侧栏：有队徽就 队徽+队名，国家队等无注册队徽时回退到传入名 */
+function _wlSide(id,fb){var t2=id?ag(id):null;return t2?aT(t2)+ax(t2["name"]):ax(fb||id||'');}
+function _wlSeasonLab(n){if(!n)return'';var s2=(au&&au["seasons"]&&au["seasons"][n-1])||null;return'第'+n+'季'+(s2&&s2["age"]!=null?' · '+s2["age"]+'岁':'');}
 function _wlRounds(fx,meTid){
-if(!fx)return'<div class="wl-empty">本会话内暂无当季赛程（进入下一赛季后生成）</div>';
+if(!fx||!fx["length"])return'<div class="wl-empty">暂无当季赛程（完成首个赛季后生成）</div>';
 var rds=fx["length"];if(_wl["rd"]>=rds)_wl["rd"]=0;
 var chips='<div class="wl-sub">';
 for(var i=0;i<rds;i++)chips+='<button class="wl-chip'+(i===_wl["rd"]?" on":"")+'" data-wld="rd:'+i+'">第'+(i+1)+'轮</button>';
 chips+='</div><div class="sm-rounds">';
-(fx[_wl["rd"]]||[])["forEach"](function(m){
-var me=m["h"]===meTid||m["a"]===meTid;
-chips+='<span class="sm-round'+(me?' me':'')+'">'+ax(m["hn"])+' <b>'+m["hg"]+'-'+m["ag"]+'</b> '+ax(m["an"])+'</span>';
-});
+var rd=fx[_wl["rd"]]||[];
+/* 每轮格式兼容两种：[[h,a,hg,ag],..]（二维）与 [h,a,hg,ag,..]（扁平） */
+var ms=[];
+if(rd["length"]&&typeof rd[0]==="object"){for(var j3=0;j3<rd["length"];j3++)ms.push(rd[j3]);}
+else{for(var j4=0;j4+3<rd["length"];j4+=4)ms.push([rd[j4],rd[j4+1],rd[j4+2],rd[j4+3]]);}
+for(var j2=0;j2<ms["length"];j2++){
+var m=ms[j2];
+var me=m[0]===meTid||m[1]===meTid;
+chips+='<span class="sm-round'+(me?' me':'')+'">'+_wlTm(m[0])+' <b>'+m[2]+'-'+m[3]+'</b> '+_wlTm(m[1])+'</span>';
+}
 return chips+'</div>';
 }
 function _wlBracket(all,meTid,champId){
@@ -199,17 +248,29 @@ var h='<div class="wl-bracket">';
 all["forEach"](function(rd){
 h+='<div class="wl-bcol"><div class="wl-bhead">'+ax(rd["name"])+'</div>';
 rd["ties"]["forEach"](function(t){
-if(t["bye"]){h+='<div class="wl-tie"><div class="wl-tm win"><span>'+ax(t["hn"])+'</span><i>轮空</i></div></div>';return;}
-var pen=t["pk"]?'<i class="wl-pk">点球 '+t["pk"][0]+'-'+t["pk"][1]+'</i>':'';
+if(t["b"]){h+='<div class="wl-tie"><div class="wl-tm win"><span>'+_wlSide(t["h"],t["hn"])+'</span><i>轮空</i></div></div>';return;}
+var pen=t["p"]?'<i class="wl-pk">点球 '+t["p"][0]+'-'+t["p"][1]+'</i>':'';
+var sc=t["hg"]!=null?(t["hg"]+'-'+t["ag"]):(t["sa"]+'-'+t["sb"]);
+var hn=t["hn"]||(ag(t["h"])||{}).name||t["h"],an=t["an"]||(ag(t["a"])||{}).name||t["a"];
 h+='<div class="wl-tie">'
-+'<div class="wl-tm'+(t["win"]===t["h"]?" win":"")+(t["h"]===meTid?" me":"")+'"><span>'+ax(t["hn"])+'</span><i>'+(t["pending"]?'vs':(t["hg"]!=null?t["hg"]+'-'+t["ag"]:t["sa"]+'-'+t["sb"]))+'</i></div>'
-+'<div class="wl-tm'+(t["win"]===t["a"]?" win":"")+(t["a"]===meTid?" me":"")+'"><span>'+ax(t["an"])+'</span><i>'+(t["pending"]?'待定':pen)+'</i></div>'
++'<div class="wl-tm'+(t["w"]===t["h"]?" win":"")+(t["h"]===meTid?" me":"")+'"><span>'+_wlSide(t["h"],hn)+'</span><i>'+(t["pd"]?'vs':sc)+'</i></div>'
++'<div class="wl-tm'+(t["w"]===t["a"]?" win":"")+(t["a"]===meTid?" me":"")+'"><span>'+_wlSide(t["a"],an)+'</span><i>'+(t["pd"]?'待定':pen)+'</i></div>'
 +'</div>';
 });
 h+='</div>';
 });
-if(champId){var ct=ag(champId);h+='<div class="wl-bcol"><div class="wl-bhead">冠军</div><div class="wl-champ">'+(ct?aT(ct)+ax(ct["name"]):'')+' 🏆</div></div>';}
+if(champId){h+='<div class="wl-bcol"><div class="wl-bhead">冠军</div><div class="wl-champ">'+_wlSide(champId)+' 🏆</div></div>';}
 return h+'</div>';
+}
+function _wlNatBracket(rounds){
+if(!rounds||!rounds["length"])return'';
+var all=rounds["map"](function(rd){
+return{'name':rd["name"],'ties':(rd["matches"]||[])["map"](function(m){
+var w=m["pens"]?(m["pens"][0]>=m["pens"][1]?m["homeId"]:m["awayId"]):(m["hg"]>=m["ag"]?m["homeId"]:m["awayId"]);
+return{'h':m["homeId"],'a':m["awayId"],'hn':m["home"],'an':m["away"],'hg':m["hg"],'ag':m["ag"],'p':m["pens"]||null,'w':w};
+})};
+});
+return _wlBracket(all,'chn');
 }
 function bWorldHTML(){
 var meTid=au&&au["teamId"],h='<div class="wl-sub">';
@@ -223,7 +284,7 @@ h+='<div class="wl-sub">';
 ls["forEach"](function(l2){h+='<button class="wl-chip'+(_wl["lg"]===l2["id"]?" on":"")+'" data-wld="lg:'+l2["id"]+'">'+ax(l2["name"])+'</button>';});
 h+='</div>';
 var d1=window["SIM"]["world"]({'q':'lg','id':_wl["lg"]});
-h+='<div class="wl-title">'+ax(d1["name"])+'<span class="wl-note">'+(d1["fresh"]?'当季':'上季(仅名次)')+'</span></div>';
+h+='<div class="wl-title">'+ax(d1["name"])+'<span class="wl-note">'+(_wlSeasonLab(d1["fxSeason"])||(d1["table"]&&d1["table"][0]&&d1["table"][0]["pts"]==null?'仅名次':''))+'</span></div>';
 h+=_wlTable(d1["table"],meTid);
 h+='<div class="wl-title">赛程</div>';
 h+=_wlRounds(d1["rounds"],meTid);
@@ -234,8 +295,9 @@ h+='<div class="wl-sub">';
 cs["forEach"](function(c2){h+='<button class="wl-chip'+(_wl["cup"]===c2["name"]?" on":"")+'" data-wld="cup:'+c2["name"]+'">'+ax(c2["name"])+'</button>';});
 h+='</div>';
 var cur=null;for(var ci=0;ci<cs["length"];ci++)if(cs[ci]["name"]===_wl["cup"])cur=cs[ci];
-if(cur&&cur["champ"]){var ct2=ag(cur["champ"]);h+='<div class="wl-title">上季冠军 '+(ct2?aT(ct2)+ax(ct2["name"]):'')+'</div>';}
 var d2=window["SIM"]["world"]({'q':'cup','id':_wl["cup"]});
+h+='<div class="wl-title">'+ax(d2["name"])+'<span class="wl-note">'+_wlSeasonLab(d2["bracketSeason"])+'</span></div>';
+if(!d2["bracket"]&&cur&&cur["champ"]){var ct2=ag(cur["champ"]);h+='<div class="wl-title">上季冠军 '+(ct2?aT(ct2)+ax(ct2["name"]):'')+'</div>';}
 h+=_wlBracket(d2["bracket"]&&d2["bracket"]["all"],meTid,d2["bracket"]&&d2["bracket"]["champion"]);
 }else if(_wl["tab"]==='cont'){
 var cs2=window["SIM"]["world"]({'q':'conts'})["conts"];
@@ -244,21 +306,67 @@ cs2["forEach"](function(c3){h+='<button class="wl-chip'+(_wl["cont"]===c3["id"]?
 h+='</div>';
 var d3=window["SIM"]["world"]({'q':'cont','id':_wl["cont"]});
 if(d3["data"]){
-h+='<div class="wl-title">'+ax(d3["name"])+'</div>';
+h+='<div class="wl-title">'+ax(d3["name"])+'<span class="wl-note">'+_wlSeasonLab(d3["dataSeason"])+'</span></div>';
 if(d3["data"]["group"])h+=_grpBox('联赛阶段',d3["data"]["group"]["standings"],d3["data"]["group"]["matches"],-1,meTid);
 h+=_wlBracket(d3["data"]["rounds"],meTid,d3["data"]["champion"]);
 }else{
 var ch3='';if(d3["champ"]){var ct3=ag(d3["champ"]);ch3=ct3?' · 上届冠军 '+ax(ct3["name"]):'';}
-h+='<div class="wl-empty">本会话内暂无当季对阵'+ch3+'</div>';
+h+='<div class="wl-empty">暂无当季对阵'+ch3+'</div>';
 }
 }else{
-var rows='';
-(au["seasons"]||[])["forEach"](function(s){
-if((s["caps"]||0)>0||/世界杯冠军|亚洲杯冠军/["test"]((s["trophies"]||[])["join"](''))){
-rows+='<div class="tl-row done tl-cols" data-age="'+s["age"]+'" data-view="nat" style="cursor:pointer"><span class="age-chip">'+s["age"]+'</span><span class="tl-club"><span class="tl-club-name">国家队战报</span></span><span class="r"><span class="ovr-pill">'+(s["caps"]||0)+'场</span></span></div>';
+var nd=window["SIM"]["world"]({'q':'nat'});
+var ny=nd["natYears"]||[];
+var _ns=nd["natStats"]||{};
+var _caps=nd["caps"]||0;
+h+='<div class="wl-title">国家队总览</div>';
+h+='<div class="wl-champ">'+_caps+'场出场'+(_ns["goals"]?' · '+_ns["goals"]+'球':'')+(_ns["assists"]?' · '+_ns["assists"]+'助':'')+(_ns["cs"]?' · '+_ns["cs"]+'零封':'')+'</div>';
+var _ageMap={};
+ny["forEach"](function(nr){var ag2=nr["age"];if(!_ageMap[ag2])_ageMap[ag2]=[];_ageMap[ag2]["push"](nr);});
+var _ages=[];for(var _ak in _ageMap)_ages["push"](parseInt(_ak,10));_ages["sort"](function(a,b){return a-b;});
+if(_wl["natAge"]<0&&_ages["length"])_wl["natAge"]=_ages[_ages["length"]-0x1];
+if(_ages["length"]){
+h+='<div class="wl-sub">';
+_ages["forEach"](function(a2){h+='<button class="wl-chip'+(_wl["natAge"]===a2?" on":"")+'" data-wld="natAge:'+a2+'">'+a2+'岁</button>';});
+h+='</div>';
+var _sel=_ageMap[_wl["natAge"]]||[];
+_sel["forEach"](function(nr){
+h+='<div class="sm-nat-entry">';
+h+='<span class="sm-nat-comp">'+ax(nr["comp"]||"")+'</span>';
+if(nr["stage"])h+=' <span class="sm-nat-stage">\u2014 '+ax(nr["stage"])+'</span>';
+var _ns2="";if(nr["caps"])_ns2+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns2+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns2+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns2+=" \u00b7 "+nr["natCs"]+"零封";
+if(_ns2)h+='<span class="sm-nat-stats">'+_ns2+'</span>';
+if(nr["standings"]&&nr["standings"]["length"]){
+var _chp=-1;for(var _ch2=0;_ch2<nr["standings"]["length"];_ch2++)if(nr["standings"][_ch2]["i"]==="chn"){_chp=_ch2;break;}
+var _qset={};for(var qs2=0;qs2<nr["standings"]["length"];qs2++)_qset[nr["standings"][qs2]["i"]]=1;
+var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]])_qml["push"](_qm);}
+h+=_grpBox(nr["comp"]||"预选赛",nr["standings"],_qml,_chp,"chn");
 }
+if(nr["friendly"]&&nr["matches"]&&nr["matches"]["length"]){
+h+='<div class="sm-rounds">';
+for(var _fm=0;_fm<nr["matches"]["length"];_fm++){
+var _f=nr["matches"][_fm];
+var _fg=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["hg"]:_f["ag"];
+var _fa=(_f["homeId"]==="chn"||_f["hid"]==="chn")?_f["ag"]:_f["hg"];
+var _fcls=_fg>_fa?" won":(_fg<_fa?" lost":" draw");
+h+='<span class="sm-round'+_fcls+'">'+ax(_f["home"]||_f["hn"]||"")+" "+_f["hg"]+"-"+_f["ag"]+" "+ax(_f["away"]||_f["an"]||"")+'</span>';
+}
+h+='</div>';
+}
+if(nr["rounds"]&&nr["rounds"]["length"]){
+h+=_wlNatBracket(nr["rounds"]);
+}
+if(nr["path"]&&nr["path"]["length"]){
+h+='<div class="sm-rounds">';
+nr["path"]["forEach"](function(pr){
+h+='<span class="sm-round '+(pr["won"]?"won":"lost")+'">'+ax(pr["round"])+" vs "+ax(pr["opp"])+(pr["score"]?" <i>"+ax(pr["score"])+"</i>":"")+'</span>';
 });
-h+=rows||'<div class="wl-empty">还没有国家队记录</div>';
+h+='</div>';
+}
+h+='</div>';
+});
+}else{
+h+='<div class="wl-empty">还没有国家队记录</div>';
+}
 }
 return h;
 }
@@ -269,10 +377,12 @@ var v=el["getAttribute"]("data-wld"),i2=v["indexOf"](':');
 if(i2<0)return;
 var act=v["slice"](0,i2),val=v["slice"](i2+1);
 if(act==='tab')_wl["tab"]=val;
+else if(act==='nat'){var av=parseInt(val,10)||0;_wl["natAge"]=_wl["natAge"]===av?null:av;_wl["tab"]='nat';}
 else if(act==='lg'){_wl["lg"]=val;_wl["tab"]='lg';_wl["rd"]=0;}
 else if(act==='rd')_wl["rd"]=parseInt(val,10)||0;
 else if(act==='cup'){_wl["cup"]=val;_wl["tab"]='cup';}
 else if(act==='cont'){_wl["cont"]=val;_wl["tab"]='cont';}
+else if(act==='natAge'){_wl["natAge"]=parseInt(val,10)||-1;_wl["tab"]='nat';}
 else if(act==='open'){
 _wl["lg"]=val;_wl["tab"]='lg';_wl["rd"]=0;
 var wBtn=document["querySelector"]('.tl-tab[data-tab="world"]');
@@ -281,7 +391,7 @@ var _md2=document["getElementById"]("season-modal");
 if(_md2)_md2["classList"]["add"]("hidden");
 }
 var root=document["querySelector"]('[data-panel="world"] .wl-root');
-if(root)root["innerHTML"]=bWorldHTML();
+if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';}
 },true);
 
 function b9(bW){var bX=ah(au["pos"])["group"];
@@ -1636,37 +1746,13 @@ document["body"]["appendChild"](_md);
 }
 _md["addEventListener"]("click",function(e){
 if(e["target"]["closest"]&&e["target"]["closest"]("[data-act=\"sm-close\"]")||e["target"]["className"]==="sm-backdrop")_md["classList"]["add"]("hidden");
+});
+/* 小组赛折叠盒开合:全局委托(世界面板与战报弹层通用) */
+document["addEventListener"]("click",function(e){
 var _g=e["target"]["closest"]&&e["target"]["closest"]("[data-act=\"sm-grp\"]");
 if(_g){var _bx=_g["parentNode"];if(_bx&&_bx["classList"])_bx["classList"]["toggle"]("open");}
 });
-function _grpBox(title,st,ml,prow,pid){
-if(!st||!st["length"])return"";
-var me=prow>=0&&prow<st["length"]?st[prow]:null;
-var s=me?("\u7b2c"+(prow+1)+"\u540d \u00b7 "+ax(me["name"]||"")+" "+me["w"]+"\u80dc"+me["d"]+"\u5e73"+me["l"]+"\u8d1f "+me["pts"]+"\u5206"):title;
-var h="<div class=\"sm-grp\"><button type=\"button\" class=\"sm-grp-hd\" data-act=\"sm-grp\"><span class=\"sm-grp-t\">"+title+"</span><span class=\"sm-grp-s\">"+s+"</span><span class=\"sm-grp-c\">\u25b8</span></button><div class=\"sm-grp-bd\"><div class=\"sm-tbl\"><div class=\"sm-tr sm-th\"><span>#</span><span>\u7403\u961f</span><span>\u80dc/\u5e73/\u8d1f</span><span>\u8fdb/\u5931</span><span>\u5206</span></div>";
-for(var i=0;i<st["length"];i++){
-var r=st[i];
-h+="<div class=\"sm-tr"+(i===prow?" sm-me":"")+"\"><span>"+(i+1)+"</span><span>"+ax(r["name"]||"")+"</span><span>"+r["w"]+"-"+r["d"]+"-"+r["l"]+"</span><span>"+r["gf"]+":"+r["ga"]+"</span><span>"+r["pts"]+"</span></div>";
-}
-h+="</div>";
-if(ml&&ml["length"]){
-h+="<div class=\"sm-grp-ms\">";
-for(var j=0;j<ml["length"];j++){
-var m=ml[j];
-var hn=m["home"]||m["hn"]||"",an=m["away"]||m["an"]||"";
-var _cls="";
-if(pid&&(m["hid"]===pid||m["aid"]===pid||m["homeId"]===pid||m["awayId"]===pid)){
-var _pg=(m["hid"]===pid||m["homeId"]===pid)?m["hg"]:m["ag"];
-var _og=(m["hid"]===pid||m["homeId"]===pid)?m["ag"]:m["hg"];
-_cls=_pg>_og?" won":(_pg<_og?" lost":" draw");
-}
-h+="<span class=\"sm-round"+_cls+"\">"+ax(hn)+" "+m["hg"]+"-"+m["ag"]+" "+ax(an)+"</span>";
-}
-h+="</div>";
-}
-h+="</div></div>";
-return h;
-}
+
 
 document["addEventListener"]("click",function(e){
 var row=e["target"]["closest"]("[data-age]");

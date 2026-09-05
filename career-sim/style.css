@@ -2166,10 +2166,18 @@ img.crest.plate {
 .wl-tm i { font-style: normal; font-size: 11px; color: hsl(var(--faint)); }
 .wl-tm.me span { color: hsl(var(--gold1)); }
 .wl-pk { color: hsl(var(--info)); }
+/* 签表内队徽与文字同排（.crest 全局是 display:block，会单独成行把队名挤下去） */
+.wl-tm .crest, .wl-title .crest, .wl-champ .crest { display: inline-block; vertical-align: -.18em; }
+.wl-tm .crest { width: 1.05rem; height: 1.05rem; }
+.wl-tm .crest-pic { width: 1.05rem; height: 1.05rem; display: inline-block; }
+.wl-tm .crest-pic .crest { width: 100%; height: 100%; }
+.wl-title .crest, .wl-title .crest-pic { width: 1.05rem; height: 1.05rem; }
 .wl-champ { display: flex; align-items: center; gap: 6px; justify-content: center;
             border: 1px solid hsl(var(--gold2) / .6); border-radius: var(--r-row);
             padding: 8px; font-weight: 700; color: hsl(var(--gold1));
             background: hsl(var(--gold1) / .08); font-size: 12px; }
+.wl-champ .crest, .wl-champ .crest-pic { width: 1.05rem; height: 1.05rem; }
+.wl-champ .crest-pic { display: inline-flex; }
 .mini-badge.lnk { cursor: pointer; border-bottom: 1px dashed hsl(var(--gold2)); }
 .sm-link { margin-left: auto; border: 1px solid hsl(var(--border-strong));
            background: hsl(var(--btn-bg)); color: hsl(var(--text));
