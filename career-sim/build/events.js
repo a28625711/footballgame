@@ -10903,18 +10903,8 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    var cur=p["playerType"]!=null?p["playerType"]:11;
-    var adjByGrp={
-      'att':{0:[3,4],1:[2,5],2:[1,4],3:[0,2],4:[0,2],5:[1,2]},
-      'mid':{1:[5,6],2:[6,1],5:[1,6],6:[1,7],7:[6]},
-      'def':{2:[9,10],3:[8,9],8:[9],9:[8,10],10:[9]}
-    };
-    var adj=adjByGrp[p["posGroup"]];
-    if(!adj)return null;
-    var cands=adj[cur];
-    if(!cands||!cands.length)return null;
-    var tgt=cands[Math.floor(Math.random()*cands.length)];
-    p._shiftTarget=tgt;
+    /* 与 hint/apply 使用同一确定性取值：desc 的随机侧写在快照上会丢失 */
+    var tgt=safeTypeTgt(p,"_shiftTarget");
     return "训练结束后教练把你叫住：「你最近的表现让我觉得，你可能更适合踢"+TN[tgt]+"。」他摊开战术板，画了几个跑位路线。也许，是时候换个方式了。";
   },
 
@@ -10962,18 +10952,8 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    var cur=p["playerType"]!=null?p["playerType"]:11;
-    var evoByGrp={
-      'att':{0:[4,2],1:[5,2],2:[1,4],3:[2,0],4:[2,3],5:[1,3]},
-      'mid':{1:[6,5],2:[1,6],5:[1,7],6:[5,7],7:[6,5]},
-      'def':{2:[9,8],3:[8,10],8:[10,9],9:[8,10],10:[9,8]}
-    };
-    var evo=evoByGrp[p["posGroup"]];
-    if(!evo)return null;
-    var cands=evo[cur];
-    if(!cands||!cands.length)return null;
-    var tgt=cands[Math.floor(Math.random()*cands.length)];
-    p._evoTarget=tgt;
+    /* 与 hint/apply 使用同一确定性取值：desc 的随机侧写在快照上会丢失 */
+    var tgt=safeTypeTgt(p,"_evoTarget");
     return "队内训练赛，你被临时安排到一个不熟悉的位置。你本来只想应付了事，却发现自己在这个新位置上竟然踢出了不一样的东西。";
   },
 
@@ -11017,16 +10997,8 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 
   'desc': function(p){
     var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    var cur=p["playerType"]!=null?p["playerType"]:11;
-    var allByGrp={
-      'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]
-    };
-    var pool=allByGrp[p["posGroup"]];
-    if(!pool)return null;
-    var filtered=pool.filter(function(x){return x!==cur;});
-    if(!filtered.length)return null;
-    var tgt=filtered[Math.floor(Math.random()*filtered.length)];
-    p._lateTarget=tgt;
+    /* 与 hint/apply 使用同一确定性取值：desc 的随机侧写在快照上会丢失 */
+    var tgt=safeTypeTgt(p,"_lateTarget");
     return "离毕业考核只剩最后几个月。你偶然看到一线队的比赛录像，某个球员的踢法让你心动了——也许你也能那样踢。";
   },
 

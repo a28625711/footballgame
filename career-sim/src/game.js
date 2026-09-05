@@ -8,6 +8,7 @@ ao=(a6["snap"],a6["stageOf"],a6["interpol"+"ate"]),ap=(a6["pickRiva"+'l'],a6["pi
 a6["computeR"+"ole"],a6["posRates"],a6["starPowe"+'r'],a6["national"+"Odds"],a6["natBest"]),aq=(a6["runPerio"+'d'],a6["addAward"],
 a6["simulate"+"OneSeaso"+'n'],a6["doTransf"+'er'],a6["pickOffe"+'rs'],a6["offerOpt"+"ion"],a6["buildPro"+"file"]);
 var TYPE_NAMES=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+console.log('[足一把] build 20260906-b');
 function ar(){
 au&&("summary"===au["phase"]?bO():bN());
 au&&au["flags"]&&au["flags"]["_yInvLost"]&&(delete au["flags"]["_yInvLost"],bK("钱不够，青训投入停了一项"));
