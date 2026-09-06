@@ -1205,7 +1205,7 @@ return _av["length"];
 var _ok=au["money"]>=a6["staffPrice"](cf);
 return "<div class=\"team-row mk\"><span class=\"team-name\">"+ax(cf["name"])+"</span><span class=\"team-fx\">"+ax(cf["desc"])+"</span><span class=\"team-fee\">"+al(a6["staffPrice"](cf))+"</span>"+(_ok?"<button class=\"team-btn\" data-tact=\"hire:"+ax(cf['id'])+"\">签约</button>":"<span class=\"team-no\">钱不够</span>")+"</div>";
 })["join"](''):"<div class=\"team-empty\">"+(_mktCur?"本赛季没有合意的候选，赛季结束后再看":"候选名单赛季结束后更新")+"</div>"):'';
-c0+="<div class=\"staff-row\"><div class=\"staff-row-l\">团队<b>"+al(a6["staffFee"]())+" / 赛季</b>"+_warn+"<button class=\"team-tgl\" data-tact=\"tgl\" title=\"收起/展开\">"+(_teamOpen?"收起 ▴":"展开 ▾")+"</button></div>"+(_teamOpen&&(_owHtml||_mktHtml)?"<div class=\"team-list\">"+_owHtml+(_mktHtml?'<div class="team-mkt-t">可签</div>'+_mktHtml:'')+"</div>":"<div class=\"team-empty\">"+(_teamOpen?"还没有团队成员。每个赛季都会有人可以签。":'')+"</div>")+"</div>";
+c0+="<div class=\"staff-row\"><div class=\"staff-row-l\">团队"+(a6["staffFee"]()>0?"<b>"+al(a6["staffFee"]())+" / 赛季</b>":"")+_warn+"<button class=\"team-tgl\" data-tact=\"tgl\" title=\"收起/展开\">"+(_teamOpen?"收起 ▴":"展开 ▾")+"</button></div>"+(_teamOpen&&(_owHtml||_mktHtml)?"<div class=\"team-list\">"+_owHtml+(_mktHtml?'<div class="team-mkt-t">可签</div>'+_mktHtml:'')+"</div>":"<div class=\"team-empty\">"+(_teamOpen?"还没有团队成员。每个赛季都会有人可以签。":'')+"</div>")+"</div>";
 }
 var c3=(function(){var c4='',c5={},c6={};
 return au["trophies"]["forEach"](function(c7){
