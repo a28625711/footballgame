@@ -106,6 +106,23 @@ return p&&q[p["posGroup"]]||q["other"];
 
 
 
+/* ── 青训转向线路（固定链式） ── */
+var _youthChains={
+'att':{
+  0:{t:0x4,a:0x5},1:{t:0x5,a:0x2},2:{t:0x1,a:0x3},3:{t:0x0,a:0x2},4:{t:0x0,a:0x5},5:{t:0x1,a:0x0}},
+'mid':{
+  1:{t:0x7,a:0x2},2:{t:0x6,a:0x1},5:{t:0x1,a:0x7},6:{t:0x2,a:0x7},7:{t:0x6,a:0x2}},
+'def':{
+  2:{t:0x9,a:0x8},3:{t:0x8,a:0x10},8:{t:0x10,a:0x9},9:{t:0x10,a:0x8},10:{t:0x9,a:0x8}}
+};
+function youthTypeTgt(p){
+var cur=p["playerType"]!=null?p["playerType"]:0xb;
+if(typeof cur!=="number"||isNaN(cur))cur=0xb;
+var m=_youthChains[p["posGroup"]];
+if(m&&m[cur])return(p["age"]||0)>=17?m[cur]["a"]:m[cur]["t"];
+return cur;
+}
+
 /* 类型转型的组内安全回退：desc 侧写的 _xTarget 缺失时保持现类型，绝不允许跨位置组 */
 function safeTypeTgt(p,key){
 var cur=p["playerType"]!=null?p["playerType"]:0xb;
@@ -6042,6 +6059,10 @@ return{'clean':0x4,'fame':-0x6,'text':"你从头到尾没开过口。他出来�
   'icon': '📤',
   'weight': 0x34,
   'stage': "prime",
+  'when': function(p){
+    /* 主力/核心不会被动外租：轮换及以下才会触发 */
+    return p["roleRank"] <= 0x2;
+  },
   'desc': "俱乐部不打算用你，又不肯放你走。折中的方案：租给一支保级队，半年。",
 
 
@@ -7042,6 +7063,349 @@ return{'fame':0x12,'guanxi':-0xc,'text':"你一个人走到南看台前，鞠了
         'apply': function(){
 return{'fame':-0x5,'text':"走进球员通道时，你回头看了一眼。横幅还在，看台上的人少了一半。"};
 }
+    }
+  ]
+},
+
+
+
+
+
+
+
+// ==== 地区专属事件 ====
+
+{
+  'id': "origin_liaoning",
+  'title': "足球城的记忆",
+  'icon': '\u26bd',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="ln";
+},
+  'desc': "你们那条街，十个孩子九个踢球。从实德到辽足，从小看着比赛长大。街坊说你们这代人是足球城最后的希望。",
+  'options': [
+    {
+      'label': "在野球场练出真本事",
+      'hint': function(p,q){return g(q,"脚下生花","还是差了点");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x32,0x01]],0x30,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'guanxi':0x2,'text':"野球场上你过了个干净，围观的人里有个退休老教练，第二天就来找你爸谈了。"}:{'ovr':0x1,'text':"你练了一暑假，脚下确实利索了不少，但离真正的球员还差得远。"};}
+    },
+    {
+      'label': "去试试梯队选拔",
+      'hint': function(p,q){return g(q,"被看中了","没选上");},
+      'p': function(p){return f(0.5,[[p["talent"],0x1,0x3]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x2,'text':"选拔那天你拼了命，教练说你基本功差但敢拼\u2014\u2014留下了。"}:{'guanxi':-0x2,'text':"选了二十个人，你排第二十一。回家的路上你爸一句话没说。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_shandong",
+  'title': "体校那条路",
+  'icon': '\u{1f3eb}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="sd";
+},
+  'desc': "鲁能足校全省招生，你是最小的那个。教练说你基本功差但敢拼。体校这条路，走出来的少，走不出来的多。",
+  'options': [
+    {
+      'label': "拼了命也要留下来",
+      'hint': function(p,q){return g(q,"站稳了脚跟","差点被淘汰");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x2d,0x012]],0x30,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.05,'text':"每天最后一个离开训练场的人是你。三个月后，教练把你从替补提到了主力。"}:{'ovr':0x1,'guanxi':-0x3,'text':"你拼了命跟上节奏，但身体跟不上。教练说你再练半年试试\u2014\u2014那半年，你过得像在刀尖上。"};}
+    },
+    {
+      'label': "先把文化课考好再说",
+      'hint': "钱+5，关系+2",
+      'apply': function(){
+return{'money':0x5,'guanxi':0x2,'text':"你白天上课晚上训练，累是累但两条路都没断。教练说你脑子灵活，以后出路多。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_shanghai",
+  'title': "弄堂里的野球",
+  'icon': '\u{1f3df}\u{fe0f}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="sh";
+},
+  'desc': "弄堂太窄施展不开，但脚下技术就是这样练出来的。申花的球票是你攒零花钱买的，看台上人山人海，你心想：以后我也要站在这上面。",
+  'options': [
+    {
+      'label': "练技术，走脚下",
+      'hint': function(p,q){return g(q,"技术突飞猛进","进步一般");},
+      'p': function(p){return f(0.65,[[p["talent"],0x1,0x2]],0x35,0x9);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'talent':0.08,'text':"你在弄堂里练出了一脚细活，过人像穿针引线。隔壁弄堂的人都来看你踢球。"}:{'ovr':0x1,'talent':0.03,'text':"脚下是利索了，但对抗还是差点意思。教练说你得长身体。"};}
+    },
+    {
+      'label': "去试试申花梯队",
+      'hint': function(p,q){return g(q,"入选了","没过");},
+      'p': function(p){return f(0.45,[[p["ovr"],0x32,0x01]],0x2,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"选拔赛上你用脚下技术征服了教练\u2014\u2014申花梯队，你来了。"}:{'guanxi':-0x2,'text':"对手都比你壮一圈，你被撞得七荤八素。教练说你再练练。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_beijing",
+  'title': "工体的回声",
+  'icon': '\u{1f3df}\u{fe0f}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "prime",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="bj";
+},
+  'desc': "你第一次去工体看球，满场绿色，喊声震得耳朵疼。那种氛围一辈子忘不了。后来你在工体踢了第一场职业比赛，看台上有人举着你的名字。",
+  'options': [
+    {
+      'label': "这种氛围就是我的动力",
+      'hint': "声望+5，地位+1",
+      'apply': function(){
+return{'fame':0x5,'roleDelta':0x1,'text':"终场哨响，全场喊你的名字。你站在工体中央，觉得整个北京都在你脚下。"};}
+    },
+    {
+      'label': "压力太大，想换个环境",
+      'hint': "关系+3，金钱+8",
+      'apply': function(){
+return{'guanxi':0x3,'money':0x8,'text':"你跟经纪人说想出去看看。他说：行，正好有个机会。你知道离开北京不容易，但总得试试。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_guangdong",
+  'title': "早茶和转会",
+  'icon': '\u2708\ufe0f',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "prime",
+  'when': function(p){
+return p["originId"]==="gd"&&!p["inChina"];
+},
+  'desc': "广东球员出去的多，你不是第一个，也不会是最后一个。经纪人说有个机会去东南亚联赛试试。你爸妈说：去吧，反正你在外面也惯了。",
+  'options': [
+    {
+      'label': "先出去看看再说",
+      'hint': function(p,q){return g(q,"适应了","水土不服");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x37,0x008]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"你在东南亚联赛如鱼得水，语言通、气候近、饮食也习惯。教练说你是球队核心。"}:{'money':-0x8,'guanxi':-0x3,'text':"文化差异比你想象的大。语言不通，队友不熟，你每天晚上都想念广东的早茶。"};}
+    },
+    {
+      'label': "留在国内再拼一年",
+      'hint': function(p,q){return g(q,"证明了自己","原地踏步");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x32,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'money':0x5,'text':"你留在中超又踢了一个赛季，进球助攻数据都上去了。经纪人说：现在出去，价码不一样了。"}:{'ovr':0x1,'text':"又是一年，不好不坏。你知道该走了，但总想再等等。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_henan",
+  'title': "穷人家的孩子",
+  'icon': '\u{1f4aa}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="hn";
+},
+  'desc': "你们那儿出来的球员，脾气都硬。人多位置少，能冒头的都是狠角色。教练说你身体一般，但有一股子不服输的劲。",
+  'options': [
+    {
+      'label': "用脑子踢球",
+      'hint': function(p,q){return g(q,"开了窍","还是差点");},
+      'p': function(p){return f(0.6,[[p["talent"],0x1,0x2]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.06,'text':"你开始用脑子踢球\u2014\u2014跑位、预判、传球时机。教练说你比以前聪明多了。"}:{'ovr':0x1,'talent':0.02,'text':"你试着用脑子踢，但身体反应跟不上想法。慢慢来吧。"};}
+    },
+    {
+      'label': "拼身体，谁怕谁",
+      'hint': function(p,q){return g(q,"硬碰硬赢了","吃了亏");},
+      'p': function(p){return f(0.45,[[p["ovr"],0x2d,0x015]],0x2,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x2,'text':"你跟对手硬碰硬，撞翻了他。全场都在喊\u2014\u2014河南出来的，就是狠。"}:{'ovr':-0x1,'guanxi':-0x2,'text':"你被对手撞翻在地，教练吹了哨也没用。那天晚上你大腿青了一块。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_hebei",
+  'title': "挨着京津的日子",
+  'icon': '\u{1f5fa}\ufe0f',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="heb";
+},
+  'desc': "从小就被北京的球探盯着，但真正走的没几个。你爸说：去北京踢球？先把书念好。你说：我想试试。",
+  'options': [
+    {
+      'label': "去北京试训",
+      'hint': function(p,q){return g(q,"被选中了","没通过");},
+      'p': function(p){return f(0.5,[[p["ovr"],0x32,0x012]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"试训那天你发挥出色，教练说你基本功扎实。北京的门，为你开了一条缝。"}:{'guanxi':-0x3,'money':-0x5,'text':"对手都比你高一头，你被压着打。教练说你再练练\u2014\u2014你知道这话的意思。"};}
+    },
+    {
+      'label': "留在省队好好踢",
+      'hint': function(p,q){return g(q,"成了核心","还是替补");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x2d,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'guanxi':0x2,'text':"你在省队踢上了主力，教练说你是球队的未来。虽然地方小，但踏实。"}:{'ovr':0x1,'text':"你踢得不好不坏，教练说你还有潜力\u2014\u2014但潜力这东西，不兑现就没用。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_hunan",
+  'title': "霸得蛮",
+  'icon': '\u{1f525}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="hun";
+},
+  'desc': "湖南球员的特点：拼到最后一秒。教练说你技术粗糙但精神属性拉满。你们那儿出来的，没一个服输的。",
+  'options': [
+    {
+      'label': "练技术补短板",
+      'hint': function(p,q){return g(q,"技术涨了","还是糙");},
+      'p': function(p){return f(0.55,[[p["talent"],0x1,0x25]],0x25,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.08,'text':"你花了一个赛季练传控、练停球。虽然还是不如技术型球员，但至少不拖后腿了。"}:{'ovr':0x1,'talent':0.03,'text':"你练了很久，但肌肉记忆太顽固。进步是有的\u2014\u2014只是慢。"};}
+    },
+    {
+      'label': "把拼劲发挥到极致",
+      'hint': "能力+2，声望+2，人脉-1",
+      'apply': function(){
+return{'ovr':0x2,'fame':0x2,'guanxi':-0x1,'text':"你把每一次训练都当决赛踢。教练说你是最拼命的球员\u2014\u2014也是最让对手头疼的。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_xinjiang",
+  'title': "天生高一截",
+  'icon': '\u{1f4cf}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "kid",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="xj";
+},
+  'desc': "你比同龄人高半头，教练说这是老天爷赏饭吃。你们那儿出来的球员身体素质都好，但技术得自己练。",
+  'options': [
+    {
+      'label': "利用身体优势打中锋",
+      'hint': function(p,q){return g(q,"头球无敌","被看穿了");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x28,0x015]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.05,'text':"你在禁区里像座山，对手根本扛不住。头球、背身、支点\u2014\u2014你样样都行。"}:{'ovr':0x1,'text':"对手提前研究了你，专门派人贴身盯防。你发现光有身体还不够。"};}
+    },
+    {
+      'label': "练脚下技术走全面路线",
+      'hint': function(p,q){return g(q,"技术突飞猛进","进步有限");},
+      'p': function(p){return f(0.5,[[p["talent"],0x1,0x3]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'talent':0.1,'text':"你开始苦练脚下技术。半年后，你发现自己既能扛人也能过人\u2014\u2014这种前锋，最可怕。"}:{'ovr':0x1,'talent':0.03,'text':"脚下是灵活了，但对抗时总想着技术动作，反而不如以前果断。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_jiangzhe",
+  'title': "不务正业",
+  'icon': '\u{1f4da}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="js";
+},
+  'desc': "你们那儿读书才是正道，踢球的被叫野孩子。你爸说：踢球能当饭吃？你没回答，因为你自己也不确定。",
+  'options': [
+    {
+      'label': "踢球读书两不误",
+      'hint': function(p,q){return g(q,"两边都顾上了","两边都耽误了");},
+      'p': function(p){return f(0.5,[[p["talent"],0x1,0x2]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'money':0x5,'text':"你白天上课晚上训练，累是累但两条路都没断。期末考试你进了前二十，教练也满意。"}:{'ovr':0x1,'money':-0x3,'text':"两头兼顾比你想象的难。成绩掉了，训练也跟不上。你爸说：你看，我就说不行。"};}
+    },
+    {
+      'label': "专心踢球，赌一把",
+      'hint': function(p,q){return g(q,"踢出来了","没踢出来");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x32,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'fame':0x2,'text':"你跟家里摊牌了：我要踢球。你爸沉默了很久，最后说：那就踢出个名堂来。"}:{'guanxi':-0x3,'text':"你赌输了。成绩没保住，球也没踢出来。你爸说：我就说这条路走不通。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_bashu",
+  'title': "看台上全是人",
+  'icon': '\u{1f3ba}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="sc";
+},
+  'desc': "四川球迷全国最疯，但职业球员从这儿出来的太少。你在看台上长大，听着吼声踢球。教练说你有灵气，就是坐不住。",
+  'options': [
+    {
+      'label': "去成都试试梯队",
+      'hint': function(p,q){return g(q,"入选了","没选上");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x30,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"选拔赛上你用一脚世界波征服了教练。成都球迷知道后，已经在论坛上讨论你了。"}:{'guanxi':-0x2,'text':"你紧张了，发挥失常。教练说你有潜力，但心态得练\u2014\u2014四川出来的球员，不缺技术，缺稳定性。"};}
+    },
+    {
+      'label': "在野球场磨练",
+      'hint': function(p,q){return g(q,"脚下生花","还是差了点");},
+      'p': function(p){return f(0.6,[[p["talent"],0x1,0x2]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'talent':0.06,'text':"野球场上你如鱼得水，过人、传球、射门样样都行。有人拍了视频传到网上，评论区都在问你是谁。"}:{'ovr':0x1,'talent':0.02,'text':"野球场上踢得热闹，但跟真正的训练还是两码事。你知道自己还得更系统地练。"};}
     }
   ]
 },
@@ -10889,41 +11253,38 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 'desc':"这支法国梯队的更衣室里，塞内加尔语、葡语、阿拉伯语和法语各占一角。战术讲解要翻译三遍。你说不好这是混乱还是宝藏，只知道这里的每个天才背后都有一段漂泊的故事。",'options':[{'label':"把每种语言都学一句",'p':function(p){return f(0.7,[[p["talent"],1,0.3]],0.4,0.92);},'hint':function(p,q){return g(q,"团宠诞生","闹了笑话");},'apply':function(p,q,s){return d(q,s)?{'guanxi':0xa,'ovr':0x1,'text':"你学会了用四国语言喊「传给我」。训练场上笑声不断，但配合真的变好了。教练说：足球是最简单的世界语，而你是最好的翻译官。"}:{'guanxi':0x3,'text':"你的一句问候让整个更衣室笑翻了——后来才知道那是句玩笑话。不过没关系，笑完之后，大家记住了这个敢开口的东方人。"};}},{'label':"埋头苦练少说话",'hint':"稳",'apply':function(){return{'ovr':0x2,'text':"语言不通没关系，你的跑位就是语言。三场比赛五个进球之后，队友们开始主动找你配合。有些融入不需要开口。"};}}]},
 
 {
-  'id': "youth_type_shift",
-  'title': "位置感的觉醒",
-  'icon': '🔄',
+  'id': "youth_route_technique",
+  'title': "技术流转型",
+  'icon': '🎯',
   'weight': 0x38,
   'stage': "youth",
   'repeat': 1,
-
-  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
-
-
-
-
-  'desc': function(p){
-    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    /* 与 hint/apply 使用同一确定性取值：desc 的随机侧写在快照上会丢失 */
-    var tgt=safeTypeTgt(p,"_shiftTarget");
-    return "训练结束后教练把你叫住：「你最近的表现让我觉得，你可能更适合踢"+TN[tgt]+"。」他摊开战术板，画了几个跑位路线。也许，是时候换个方式了。";
+  'when': function(p){
+    if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;
+    return p["playerType"]===0x0||p["playerType"]===0x1;
   },
-
-
-
-
+  'desc': function(p){
+    if(p["playerType"]===0x0)return "你在禁区里一直用速度和跑位找机会，但教练把你叫住：「你的脚下技术比你以为的要好。试试背身拿球，做支点，让队友也参与进来。」他画了一套以你为轴心的进攻套路。";
+    return "你习惯在中场组织调度，但训练赛里教练突然把你推到前腰更靠前的位置：「你的传球视野不该只用在中场。往前走一步，用影锋的方式去连接中场和锋线。」";
+  },
   'options': [
     {
       'label': "试试看",
       'p': function(p){return f(0.55,[[p["talent"],1,0.25],[p["ovr"],40,0.005]],0.25,0.85);},
       'hint': function(p,q){
-        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=safeTypeTgt(p,"_shiftTarget");
+        var TN=['射手','组织核心','全能','速度型','支点','影锋'];
+        var tgt=p["playerType"]===0x0?0x4:0x5;
         return g(q,"转型成功→"+TN[tgt],"转型失败");
       },
       'apply': function(p,q,s){
-        var tgt=safeTypeTgt(p,"_shiftTarget");
-        return d(q,s)?{'playerType':tgt,'ovr':0x2,'_typeShiftDone':1,'text':"你试了教练的方案，发现那种跑位和思维方式竟然出奇地顺畅。几周后，你在训练赛里用新位置的方式打进一球——教练笑着点了点头。"}
-        :{'ovr':-0x1,'_typeShiftDone':1,'text':"你照着教练画的路线跑了两周，但身体总是往原来的位置上凑。教练说：也许时机不对，先放一放。"};
+        var tgt=p["playerType"]===0x0?0x4:0x5;
+        return d(q,s)
+          ? {'playerType':tgt,'ovr':0x2,'_typeShiftDone':1,'text':p["playerType"]===0x0
+            ?"你试了支点踢法，发现自己背身护球的能力出奇地好。几周后训练赛，你连续扛住两个后卫做球给队友，教练笑着点了点头。"
+            :"你往前挪了一步，用影锋的方式拿球、跑位、接应。那种介于前锋和中场之间的自由感，让你踢出了不一样的节奏。"}
+          : {'ovr':-0x1,'_typeShiftDone':1,'text':p["playerType"]===0x0
+            ?"你试着背身拿球，但身体总是习惯性转身面对球门。教练说：也许时机不对，先放一放。"
+            :"你在新位置上站了十分钟，却不知道该往前插还是往回接。教练说：没关系，知道自己不适合什么，也是一种进步。"};
       }
     },
     {
@@ -10935,95 +11296,89 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 },
 
 {
-  'id': "youth_type_evolve",
-  'title': "训练赛的意外发现",
-  'icon': '💡',
-  'weight': 0x35,
+  'id': "youth_route_speed",
+  'title': "速度型转型",
+  'icon': '⚡',
+  'weight': 0x38,
   'stage': "youth",
   'repeat': 1,
-
-
-
-
-  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<15)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
-
-
-
-
-  'desc': function(p){
-    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    /* 与 hint/apply 使用同一确定性取值：desc 的随机侧写在快照上会丢失 */
-    var tgt=safeTypeTgt(p,"_evoTarget");
-    return "队内训练赛，你被临时安排到一个不熟悉的位置。你本来只想应付了事，却发现自己在这个新位置上竟然踢出了不一样的东西。";
+  'when': function(p){
+    if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;
+    return p["playerType"]===0x3;
   },
-
-
-
-
+  'desc': function(p){
+    return "你一直靠速度生吃对手，但最近几场比赛后卫开始提前卡你身后的空间。教练找你聊：「速度是你的武器，但足球不只有一条路。你要不要试试把速度用在别的地方？」";
+  },
   'options': [
     {
-      'label': "认真研究这个位置",
-      'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["clean"],50,0.004]],0.20,0.82);},
-      'hint': function(p,q){
-        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=safeTypeTgt(p,"_evoTarget");
-        return g(q,"融会贯通→"+TN[tgt],"还是算了");
-      },
+      'label': "练射门，当终结者",
+      'p': function(p){return f(0.52,[[p["talent"],1,0.3],[p["clean"],50,0.004]],0.22,0.83);},
+      'hint': function(p,q){return g(q,"转型成功→射手","转型失败");},
       'apply': function(p,q,s){
-        var tgt=safeTypeTgt(p,"_evoTarget");
-        return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"你花了一周看录像、加练，渐渐摸到了那个位置的门道。教练赛后拍着你的肩说：你看，你的能力不止一种用法。"}
-        :{'ovr':0x1,'_typeShiftDone':1,'text':"你试了几次，但总觉得隔了一层。教练说：没关系，知道自己不适合什么，也是一种进步。"};
+        return d(q,s)
+          ? {'playerType':0x0,'ovr':0x2,'_typeShiftDone':1,'text':"你开始在训练里加练射门——正脚背、外脚背、凌空。一个月后的队内赛，你接到直塞后没有选择下底，而是内切抽射破门。教练在场边喊：这就对了！"}
+          : {'ovr':-0x1,'_typeShiftDone':1,'text':"你练了两周射门，但总是在该射门的时候本能地选择再带一步。教练说：速度型球员转型射门需要时间，也许以后再说。"};
       }
     },
     {
-      'label': "还是回到熟悉的位置",
-      'hint': "保险",
-      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你婉拒了：我现在的位置还没踢明白，不想分心。教练点点头，没再提。"};}
+      'label': "练全能，走技术路线",
+      'p': function(p){return f(0.48,[[p["talent"],1,0.25],[p["ovr"],45,0.004]],0.20,0.80);},
+      'hint': function(p,q){return g(q,"转型成功→全能","转型失败");},
+      'apply': function(p,q,s){
+        return d(q,s)
+          ? {'playerType':0x2,'ovr':0x3,'_typeShiftDone':1,'text':"你开始有意识地放慢节奏，练习在狭小空间里做技术动作。队友惊讶地发现你不只会冲刺了——你开始会用身体护球、用节奏变化过人。教练说：这才是真正的全面。"}
+          : {'ovr':0x0,'_typeShiftDone':1,'text':"你试了几次技术动作，但身体总是比脑子快。速度是你的本能，技术需要时间。教练说：先把速度优势发挥到极致，以后再考虑。"};
+      }
     }
   ]
 },
 
 {
-  'id': "youth_type_late",
-  'title': "最后一次机会",
-  'icon': '⏰',
-  'weight': 0x32,
+  'id': "youth_route_midfield",
+  'title': "中场转型",
+  'icon': '🔄',
+  'weight': 0x35,
   'stage': "youth",
   'repeat': 1,
-  'when': function(p){if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<17)return false;var _pool={'att':[0,1,2,3,4,5],'mid':[1,2,5,6,7],'def':[2,3,8,9,10]};var _p=_pool[p["posGroup"]];return _p&&_p["indexOf"](p["playerType"])>=0;},
-
-
-
-
-  'desc': function(p){
-    var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-    /* 与 hint/apply 使用同一确定性取值：desc 的随机侧写在快照上会丢失 */
-    var tgt=safeTypeTgt(p,"_lateTarget");
-    return "离毕业考核只剩最后几个月。你偶然看到一线队的比赛录像，某个球员的踢法让你心动了——也许你也能那样踢。";
+  'when': function(p){
+    if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;
+    if(p["playerType"]===0x1&&p["posGroup"]==="mid")return true;
+    if(p["playerType"]===0x6)return true;
+    if(p["playerType"]===0x2&&p["posGroup"]==="mid")return true;
+    return false;
   },
-
-
-
-
+  'desc': function(p){
+    if(p["playerType"]===0x1)return "你习惯在前场组织进攻，但教练觉得你的防守意识被浪费了：「你的阅读比赛能力很强，如果退后一步踢B2B，覆盖整个中场，你的价值会更大。」";
+    if(p["playerType"]===0x6)return "你满场飞奔覆盖两个禁区，但教练觉得你可以更专注：「与其到处补位，不如退一步当铁腰。把防守做到极致，让队友放心往前冲。」";
+    return "你在中场踢得四平八稳，但教练觉得你有更大的潜力：「你的能力很全面，但全面有时候意味着没有特点。试试组织核心，把你的视野和传球用到极致。」";
+  },
   'options': [
     {
-      'label': "大胆改变",
-      'p': function(p){return f(0.48,[[p["talent"],1,0.35],[p["age"],18,-0.04]],0.18,0.80);},
+      'label': "试试看",
+      'p': function(p){
+        var base=p["playerType"]===0x7?0.50:0.52;
+        return f(base,[[p["talent"],1,0.28],[p["ovr"],45,0.004]],0.22,0.84);
+      },
       'hint': function(p,q){
         var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
-        var tgt=safeTypeTgt(p,"_lateTarget");
-        return g(q,"涅槃重生→"+TN[tgt],"为时已晚");
+        var tgt=p["playerType"]===0x1?0x6:p["playerType"]===0x6?0x7:0x1;
+        return g(q,"转型成功→"+TN[tgt],"转型失败");
       },
       'apply': function(p,q,s){
-        var tgt=safeTypeTgt(p,"_lateTarget");
-        return d(q,s)?{'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"最后几个月你像变了个人，每天加练到最晚。毕业考核那天，你用全新的方式完成了一次教科书般的进球。教练在评估表上写下：此人上限不止于此。"}
-        :{'ovr':-0x2,'_typeShiftDone':1,'text':"改变来得太晚了。身体习惯已经定型，新学的东西和旧的互相打架。考核日你表现平平，教练叹了口气：可惜了，早点下决心就好了。"};
+        var tgt=p["playerType"]===0x1?0x6:p["playerType"]===0x6?0x7:0x1;
+        return d(q,s)
+          ? {'playerType':tgt,'ovr':0x2,'_typeShiftDone':1,'text':p["playerType"]===0x1
+            ?"你退后一步，开始用防守球员的方式思考。以前你只想着怎么传最后一传，现在你先想怎么断球再组织反击。几场比赛后，教练说：你让我想起了年轻时的皮尔洛。"
+            :p["playerType"]===0x6
+            ?"你站在后卫线前面，像一道屏障。以前你满场飞奔，现在你专注一件事：把球断下来，交给该交的人。三场比赛零失球，教练说：这才叫铁腰。"
+            :"你开始用组织核心的方式踢球——拿球、观察、分球。队友渐渐习惯了在你脚下等球，因为他们知道你能看到他们看不到的空当。"}
+          : {'ovr':-0x1,'_typeShiftDone':1,'text':"你试了新位置，但身体总是往原来的位置跑。教练说：也许时机不对，先放一放。"};
       }
     },
     {
-      'label': "留到职业赛场再说",
-      'hint': "以后再变",
-      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你把那个念头压了下去。也许等到了职业赛场，有了更好的教练和队友，再做改变也不迟。至少现在，先把基础打牢。"};}
+      'label': "坚持自己的风格",
+      'hint': "稳一点",
+      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你告诉教练：我现在的位置还没踢明白，不想分心。教练点点头，没再提。"};}
     }
   ]
 },
@@ -11721,6 +12076,49 @@ return{'ovr':0x2,'guanxi':-0x2,'_injuryChain':0x3,'text':"你开始更多地身�
 },
 
 {
+  'id': "youth_route_late",
+  'title': "最后机会",
+  'icon': '⏰',
+  'weight': 0x30,
+  'stage': "youth",
+  'repeat': 1,
+  'when': function(p){
+    if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11||p["age"]<17)return false;
+    var pool={'att':[0x0,0x1,0x2,0x3,0x4,0x5],'mid':[0x1,0x2,0x5,0x6,0x7],'def':[0x2,0x3,0x8,0x9,0xa]};
+    var pp=pool[p["posGroup"]];
+    return pp&&pp["indexOf"](p["playerType"])>=0;
+  },
+  'desc': function(p){
+    return "离毕业考核只剩最后几个月。你偶然看到一线队的比赛录像，某个球员的踢法让你心动了——也许你也能那样踢。";
+  },
+  'options': [
+    {
+      'label': "大胆改变",
+      'p': function(p){return f(0.45,[[p["talent"],1,0.35],[p["age"],18,-0.04]],0.18,0.80);},
+      'hint': function(p,q){
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var endgame={0x0:0x4,0x1:0x5,0x2:0x9,0x3:0x0,0x4:0x0,0x5:0x1,0x6:0x7,0x7:0x6,0x8:0xa,0x9:0xa,0xa:0x9};
+        var tgt=endgame[p["playerType"]];
+        return tgt!=null?g(q,"涅槃重生→"+TN[tgt],"为时已晚"):g(q,"涅槃重生","为时已晚");
+      },
+      'apply': function(p,q,s){
+        var endgame={0x0:0x4,0x1:0x5,0x2:0x9,0x3:0x0,0x4:0x0,0x5:0x1,0x6:0x7,0x7:0x6,0x8:0xa,0x9:0xa,0xa:0x9};
+        var tgt=endgame[p["playerType"]];
+        if(tgt==null)return{'ovr':0x1,'_typeShiftDone':1,'text':"你想改变，但不知道该往哪个方向走。最后几个月就这样过去了。"};
+        return d(q,s)
+          ? {'playerType':tgt,'ovr':0x3,'_typeShiftDone':1,'text':"最后几个月你像变了个人，每天加练到最晚。毕业考核那天，你用全新的方式完成了一次教科书般的进球/防守/组织。教练在评估表上写下：此人上限不止于此。"}
+          : {'ovr':-0x2,'_typeShiftDone':1,'text':"改变来得太晚了。身体习惯已经定型，新学的东西和旧的互相打架。考核日你表现平平，教练叹了口气：可惜了，早点下决心就好了。"};
+      }
+    },
+    {
+      'label': "留到职业赛场再说",
+      'hint': "以后再变",
+      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你把那个念头压了下去。也许等到了职业赛场，有了更好的教练和队友，再做改变也不迟。至少现在，先把基础打牢。"};}
+    }
+  ]
+},
+
+{
   'id': "youth_elite",
   'title': "顶级青训的洗礼",
   'icon': '🏆',
@@ -11872,6 +12270,353 @@ return p["inAcadem"+'y']&&p["clubRep"]<=1;
         'label': "加练个人技术",
         'hint': "天赋+",
         'apply': function(){return{'talent':0.04,'text':"每天训练结束后你对着墙练传球，虽然条件简陋，但你比任何人都珍惜每一脚球。"};}
+    }
+  ]
+},
+
+{
+  'id': "youth_route_defender",
+  'title': "防守线转型",
+  'icon': '🛡️',
+  'weight': 0x35,
+  'stage': "youth",
+  'repeat': 1,
+  'when': function(p){
+    if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;
+    return p["playerType"]===0x8||p["playerType"]===0x9||p["playerType"]===0x10||(p["playerType"]===0x3&&p["posGroup"]==="def");
+  },
+  'desc': function(p){
+    if(p["playerType"]===0x8)return "你在边路攻防两端都很活跃，但教练觉得你的身体条件更适合踢中卫：「你有速度、有对抗、有阅读比赛的能力。站到中间来，当一道墙。」";
+    if(p["playerType"]===0x9)return "你踢自由人习惯拖后扫荡，但教练觉得你可以更激进：「你有传球能力，为什么不试试铁卫？带球往前走，从后场组织进攻。」";
+    if(p["playerType"]===0x10)return "你是中卫线上最稳的一环，但教练觉得你可以换个思路：「你的位置感很好，但速度也不差。试试自由人，给自己更多自由。」";
+    return "你踢防守位置靠速度补位，但教练觉得你的全面性可以发挥在中卫：「边后卫是你的起点，但不是终点。到中间来，成为后防核心。」";
+  },
+  'options': [
+    {
+      'label': "试试看",
+      'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["ovr"],45,0.004]],0.20,0.82);},
+      'hint': function(p,q){
+        var TN=['射手','组织核心','全能','速度型','支点','影锋','B2B','铁腰','边后卫','自由人','铁卫','门将'];
+        var tgt=p["playerType"]===0x8?0x10:p["playerType"]===0x9?0x10:p["playerType"]===0x10?0x9:0x10;
+        return g(q,"转型成功→"+TN[tgt],"转型失败");
+      },
+      'apply': function(p,q,s){
+        var tgt=p["playerType"]===0x8?0x10:p["playerType"]===0x9?0x10:p["playerType"]===0x10?0x9:0x10;
+        return d(q,s)
+          ? {'playerType':tgt,'ovr':0x2,'_typeShiftDone':1,'text':p["playerType"]===0x8
+            ?"你站到了中卫的位置上，第一次感受到和边路完全不同的节奏——没有边线可以依靠，背后就是球门。但你很快适应了，用速度和对抗守护禁区。教练说：你天生就是踢中卫的料。"
+            :p["playerType"]===0x9
+            ?"你开始带球往前走，用自由人的视野组织后场进攻。第一次长传精准找到前锋脚下时，全场都安静了一秒——然后教练在场边鼓掌。"
+            :p["playerType"]===0x10
+            ?"你退后一步，站在后卫线最后面。以前你贴身盯人，现在你扫荡、预判、指挥。那种掌控全局的感觉，让你踢得比以前从容。"
+            :"你站到了中卫的位置，用速度弥补经验的不足。几次关键时刻的回追铲断，让教练对你刮目相看。"}
+          : {'ovr':-0x1,'_typeShiftDone':1,'text':"你试了新位置，但总是不自觉地跑到原来的位置上。教练说：也许时机不对，先放一放。"};
+      }
+    },
+    {
+      'label': "坚持自己的风格",
+      'hint': "稳一点",
+      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你告诉教练：我现在的位置还没踢明白，不想分心。教练点点头，没再提。"};}
+    }
+  ]
+},
+
+{
+  'id': "youth_route_playmaker",
+  'title': "组织核心深化",
+  'icon': '🧠',
+  'weight': 0x32,
+  'stage': "youth",
+  'repeat': 1,
+  'when': function(p){
+    if(!p["inAcademy"]||p["_typeShiftDone"]||p["playerType"]===11)return false;
+    return p["playerType"]===0x1&&p["posGroup"]==="att";
+  },
+  'desc': function(p){
+    return "你在前场组织进攻，但教练觉得你的射门能力被浪费了：「你的传球视野是一流的，但你站在影锋的位置上却不射门，等于浪费了一半的威胁。往前挪一步，学会在关键时刻自己来。」";
+  },
+  'options': [
+    {
+      'label': "练射门，当影锋",
+      'p': function(p){return f(0.52,[[p["talent"],1,0.28],[p["clean"],50,0.004]],0.22,0.83);},
+      'hint': function(p,q){return g(q,"转型成功→影锋","转型失败");},
+      'apply': function(p,q,s){
+        return d(q,s)
+          ? {'playerType':0x5,'ovr':0x3,'_typeShiftDone':1,'text':"你开始在训练里加练射门——禁区前沿的抽射、禁区里的抢点。几周后的比赛，你接到直塞后没有选择传球，而是晃过门将推射空门。教练在场边喊：这就是影锋！"}
+          : {'ovr':0x1,'_typeShiftDone':1,'text':"你试了几次射门，但总是在该射门的时候选择传球。教练说：射门需要本能，不是技术问题，是心态问题。也许以后再说。"};
+      }
+    },
+    {
+      'label': "坚持组织者角色",
+      'hint': "稳一点",
+      'apply': function(){return{'ovr':0x1,'_typeShiftDone':1,'text':"你告诉教练：我的价值在于传球，不是射门。教练说：好吧，那你把传球练到极致。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_tur_fans",
+  'title': "十二th人",
+  'icon': '🔥',
+  'weight': 0x50,
+  'when': function(p){return "tur"===p["leagueId"];},
+
+
+
+  'desc': "伊斯坦布尔的德比夜，看台上的烟火把球场照成了白昼。对手的球迷制造的声浪让传球都靠喊。队长塞给你一条围巾：系上，今晚你就是我们的人。",
+  'options': [
+    {
+        'label': "用表现回应声浪",
+        'p': function(p){return f(0.55,[[p["ovr"],0x46,0.008],[p["fame"],30,0.004]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"征服客场","被嘘到梦里");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0xa,'ovr':0x2,'text':"你在嘘声中打进一球，然后跑到客队看台前竖起食指。那一夜之后，土耳其媒体给了你一个当地绰号。"}:{'fame':-0x3,'guanxi':0x4,'text':"全场两万人对着你一个人嘘了九十分钟。你失误了三次，但队友拍着你肩膀说：在土耳其踢球，先要学会屏蔽噪音。"};}
+    },
+    {
+        'label': "把注意力放回足球",
+        'hint': "稳妥",
+        'apply': function(){return{'ovr':0x1,'text':"你闭上眼睛深呼吸，把噪音关在耳朵外面。专注比赛本身，反而踢出了不错的水准。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_birra",
+  'title': "桑巴脚下",
+  'icon': '⚽',
+  'weight': 0x50,
+  'when': function(p){return "bra"===p["leagueId"];},
+
+
+
+  'desc': "巴甲的节奏和你想象的不一样：不是缓慢的传控，而是快速的一脚出球和即兴发挥。队友在训练里颠球像杂技，你开始怀疑自己是不是走错了片场。",
+  'options': [
+    {
+        'label': "跟上他们的节奏",
+        'p': function(p){return f(0.52,[[p["talent"],1,0.3],[p["ovr"],0x44,0.006]],0.22,0.83);},
+        'hint': function(p,q){return g(q,"融入巴西足球","跟不上节奏");},
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.04,'ovr':0x2,'text':"你开始用脚底拉球、用身体假动作骗过对手。三个月后，你在禁区前沿的一脚搓射让全场站了起来——教练说：你开始像巴西人一样踢球了。"}:{'ovr':-0x1,'text':"你试着模仿他们的动作，但总差半拍。教练说：别急，先看懂他们在做什么，再想怎么做。"};}
+    },
+    {
+        'label': "用纪律性弥补技术差距",
+        'hint': "务实",
+        'apply': function(){return{'ovr':0x1,'guanxi':0x4,'text':"你跑得比谁都多，抢得比谁都凶。队友们开始信任你——虽然你脚下没那么花，但关键时刻你总在对的位置。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_arg_boca",
+  'title': "超级德比",
+  'icon': '🏆',
+  'weight': 0x50,
+  'when': function(p){return "arg"===p["leagueId"];},
+
+
+
+  'desc': "博卡对河床，全球最火爆的德比之一。赛前一周，整个布宜诺斯艾利斯分成了两半。出租车司机问你支持哪边，你说出队名的瞬间，他一脚油门踩到底——不知道是兴奋还是愤怒。",
+  'options': [
+    {
+        'label': "在糖果盒球场证明自己",
+        'p': function(p){return f(0.50,[[p["talent"],1,0.35],[p["ovr"],0x46,0.008]],0.20,0.82);},
+        'hint': function(p,q){return g(q,"成为传奇","被嘘声淹没");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0x10,'ovr':0x3,'text':"你在客场打进制胜球，然后跑到看台前脱下球衣挥舞。那一夜，你成了这座城市一半人的英雄、另一半人的敌人。报纸头版只有一个词：Héroe。"}:{'fame':-0x4,'text':"两万人的嘘声像实体一样压在你身上。你踢丢了两个机会，赛后更衣室里没人说话。队长说：在阿根廷，德比是另一种运动。"};}
+    },
+    {
+        'label': "保持冷静",
+        'hint': "稳一点",
+      'apply': function(){return{'ovr':0x1,'text':"你告诉自己这只是九十分钟。专注比赛，不受干扰。虽然没进球，但你完成了教练布置的每一个战术任务。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_mx_fiesta",
+  'title': "北美最大的派对",
+  'icon': '🎉',
+  'weight': 0x50,
+  'when': function(p){return "mx"===p["leagueId"];},
+
+
+
+  'desc': "墨西哥的足球不只是比赛——是节日。赛前有鼓乐队，赛中有烟花，赛后球迷能在球场外跳到天亮。你第一次在阿兹特克球场踢球，八万人的声浪让你的耳朵嗡了整整一天。",
+  'options': [
+    {
+        'label': "享受这个氛围",
+        'p': function(p){return f(0.55,[[p["fame"],20,0.005],[p["talent"],1,0.2]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"融入足球文化","被氛围分心");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0x8,'talent':0.03,'text':"你开始在进球后跳舞庆祝——虽然舞步很烂，但球迷爱死了。你的名字开始出现在墨西哥城的涂鸦墙上。"}:{'ovr':-0x1,'text':"你被球场的氛围震住了，注意力全在看台上。教练说：先把球踢好，派对结束后再庆祝。"};}
+    },
+    {
+        'label': "专注于比赛本身",
+      'apply': function(){return{'ovr':0x1,'text':"你戴上耳机屏蔽噪音，赛前只听战术布置。八万人的呐喊声中，你冷静地完成了每一次传球。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_cpl_cold",
+  'title': "冰与草皮",
+  'icon': '❄️',
+  'weight': 0x50,
+  'when': function(p){return "cpl"===p["leagueId"];},
+
+
+
+  'desc': "加拿大的赛季从四月开始、十月结束，中间有一半时间在零度以下踢球。人工草皮上滑铲像在溜冰，你的钉鞋根本抓不住地。队友笑着说：在这里踢球，先学会不摔跤。",
+  'options': [
+    {
+        'label': "换碎钉适应场地",
+      'p': function(p){return f(0.6,[[p["ovr"],0x42,0.006]],0.3,0.88);},
+        'hint': function(p,q){return g(q,"适应了","还是打滑");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"碎钉在人工草皮上抓地力刚好。你开始在别人打滑的时候加速过人，成了队里最稳的那一个。"}:{'ovr':-0x1,'text':"换了鞋还是不适应，你在一次滑铲中扭了脚踝。队医说：加拿大的冬天，对客场球员是另一种考验。"};}
+    },
+    {
+        'label': "多练室内训练",
+      'apply': function(){return{'ovr':0x1,'text':"你把训练挪到了室内——健身房、力量房、短传练习。虽然上场时间少了，但身体素质提升明显。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_pol_ultra",
+  'title': "极端球迷",
+  'icon': '🚩',
+  'weight': 0x50,
+  'when': function(p){return "pol"===p["leagueId"];},
+
+
+
+  'desc': "波兰的极端球迷组织是欧洲最狂热的之一。赛前他们放烟雾弹、打鼓、唱歌，整座球场像战场。你第一次走进华沙的球场时，烟雾浓到看不见对面的球门。",
+  'options': [
+    {
+        'label': "和球迷站在一起",
+      'p': function(p){return f(0.55,[[p["guanxi"],40,0.006]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"成为宠儿","惹上麻烦");},
+        'apply': function(p,q,s){return d(q,s)?{'guanxi':0xc,'fame':0x6,'text':"你在赛后走向看台，和他们一起唱歌。从那天起，你成了这座城市最受欢迎的球员——每次出场，全场起立鼓掌。"}:{'guanxi':0x4,'fame':-0x3,'text':"你被卷进了球迷的烟火表演，赛后被联盟罚款。教练说：支持者是球队的一部分，但你得知道界限在哪。"};}
+    },
+    {
+        'label': "保持距离",
+      'apply': function(){return{'ovr':0x1,'clean':0x4,'text':"你尊重球迷的热情，但选择保持职业距离。专注比赛，用表现说话。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_ale_heat",
+  'title': "烈日下的比赛",
+  'icon': '☀️',
+  'weight': 0x50,
+  'when': function(p){return "ale"===p["leagueId"];},
+
+
+
+  'desc': "澳大利亚的赛季在北半球的冬天进行——但这里的夏天能到四十度。你在烈日下跑了六十分钟，感觉鞋里的脚在蒸桑拿。队医递给你冰袋：先降体温，再想比赛。",
+  'options': [
+    {
+        'label': "提前适应高温",
+      'p': function(p){return f(0.55,[[p["ovr"],0x44,0.006],[p["talent"],1,0.2]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"耐热体质","中暑了");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"你开始在高温时段加练，身体逐渐适应了极端条件。当对手在七十分钟后集体抽筋时，你还能全速冲刺。"}:{'ovr':-0x2,'health':1.15,'text':"你在比赛中中暑倒地，被担架抬出场外。队医说：你对高温的适应能力还不够，需要循序渐进。"};}
+    },
+    {
+        'label': "多喝水多休息",
+      'apply': function(){return{'ovr':0x1,'text':"你学会了在死球时补水、在间歇时降温。虽然没有质的飞跃，但至少没有再倒下。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_l2_survival",
+  'title': "法乙生存法则",
+  'icon': '生存',
+  'weight': 0x50,
+  'when': function(p){return "l2"===p["leagueId"];},
+
+
+
+  'desc': "法乙是法国足球的炼钢厂：身体对抗激烈、赛程密集、客场多是人工草皮。没有聚光灯，没有转播镜头，只有泥泞的球场和对手的铲抢。你开始理解为什么法乙出来的球员都那么能扛。",
+  'options': [
+    {
+        'label': "把身体练硬",
+      'p': function(p){return f(0.55,[[p["ovr"],0x44,0.006]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"抗住了","被撞飞了");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'text':"你用三个月把自己练壮了五公斤。现在对手铲你的时候，你不但不倒，还能护住球转身。教练说：法乙教你的东西，一辈子受用。"}:{'ovr':-0x1,'text':"你被对方中卫撞飞了三次，连球都没碰到。教练说：法乙不是技术考试，是生存考试。"};}
+    },
+    {
+        'label': "用速度避开身体对抗",
+      'apply': function(){return{'ovr':0x1,'text':"你学会了提前出脚、提前跑位，用脑子避开蛮力。虽然身体吃亏，但你的决策速度提升了。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_serb_catenaccio",
+  'title': "意大利的另一面",
+  'icon': '🛡️',
+  'weight': 0x50,
+  'when': function(p){return "serb"===p["leagueId"];},
+
+
+
+  'desc': "意乙是意大利足球的另一面：没有意甲的华丽，只有防守反击和身体对抗。每场比赛都像在下棋——对手摆出五后卫，你得找到那条缝。你开始理解为什么意大利出那么多好中卫。",
+  'options': [
+    {
+        'label': "研究防守体系",
+      'p': function(p){return f(0.52,[[p["talent"],1,0.3],[p["ovr"],0x44,0.006]],0.22,0.83);},
+        'hint': function(p,q){return g(q,"读懂了","还是打不穿");},
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.04,'ovr':0x2,'text':"你花了一周研究对手的防守站位，发现五后卫体系的弱点在肋部。下一场比赛，你三次从肋部突破制造了进球机会。教练说：在意大利踢球，脑子比脚更重要。"}:{'ovr':-0x1,'text':"你试了各种办法，但对手的防线像铁桶一样。教练说：意乙的防守不是靠个人，是靠体系。你得比体系更聪明。"};}
+    },
+    {
+        'label': "提升身体对抗",
+      'apply': function(){return{'ovr':0x2,'text':"你把训练重心放在力量和对抗上。虽然技术没提升，但你现在能在禁区内站住位置了。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_csl_biangui",
+  'title': "京津德比的火药味",
+  'icon': '🔥',
+  'weight': 0x50,
+  'when': function(p){return "csl"===p["leagueId"]&&!p["inAcademy"];},
+
+
+
+  'desc': "京津德比日，工体外的街道被蓝色和绿色分割。赛前两队球迷在地铁里对骂，你坐在大巴上看着窗外——这座城市的另一半，今晚是你的敌人。",
+  'options': [
+    {
+        'label': "在客场拿出表现",
+      'p': function(p){return f(0.52,[[p["talent"],1,0.25],[p["ovr"],0x46,0.006]],0.22,0.83);},
+        'hint': function(p,q){return g(q,"征服工体","被嘘到退役");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0x8,'ovr':0x2,'text':"你在客场打进一球，然后跑到客队看台前庆祝。六万人的嘘声中，你的队友冲过来抱住你。那一夜，你成了全城最出名的人——一半人爱你，一半人恨你。"}:{'fame':-0x3,'text':"你在工体被嘘了九十分钟，失误了两次，赛后被媒体批评。教练说：德比不是普通的比赛，你的心理素质得再强一点。"};}
+    },
+    {
+        'label': "稳住心态",
+      'apply': function(){return{'ovr':0x1,'text':"你告诉自己这只是联赛中的一场。专注战术执行，不受干扰。虽然没进球，但你完成了防守任务。"};}
+    }
+  ]
+},
+
+{
+  'id': "lg_cl1_mengjin",
+  'title': "冲超之路",
+  'icon': '📈',
+  'weight': 0x50,
+  'when': function(p){return "cl1"===p["leagueId"]&&!p["inAcademy"];},
+
+
+
+  'desc': "中甲的竞争比你想的激烈：每个赛季都有三到四支球队在冲超，最后一轮还可能有三四队同时争夺一个升级名额。你在更衣室里看着积分榜——差两分，赢球就上去。",
+  'options': [
+    {
+        'label': "带队冲超",
+      'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["ovr"],0x48,0.008]],0.20,0.82);},
+        'hint': function(p,q){return g(q,"冲超成功","功亏一篑");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0xc,'ovr':0x2,'text':"最后一轮，你助攻绝杀。终场哨响时，队友们冲进场内抱成一团。下赛季，中超见。"}:{'ovr':-0x1,'text':"你踢丢了关键点球。终场哨响时，你蹲在草坪上很久没起来。教练说：中甲的冲超战，每年都是一部悲剧。"};}
+    },
+    {
+        'label': "稳扎稳打",
+      'apply': function(){return{'ovr':0x1,'text':"你没有给自己太大压力，专注每一场比赛。虽然最后差了一步，但你的表现被中超球队看在眼里。"};}
     }
   ]
 }

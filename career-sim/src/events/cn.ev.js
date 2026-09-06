@@ -2522,10 +2522,350 @@ return{'fame':-0x5,'text':"走进球员通道时，你回头看了一眼。横�
 }
     }
   ]
+},
+
+
+
+
+
+
+
+// ==== 地区专属事件 ====
+
+{
+  'id': "origin_liaoning",
+  'title': "足球城的记忆",
+  'icon': '\u26bd',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="ln";
+},
+  'desc': "你们那条街，十个孩子九个踢球。从实德到辽足，从小看着比赛长大。街坊说你们这代人是足球城最后的希望。",
+  'options': [
+    {
+      'label': "在野球场练出真本事",
+      'hint': function(p,q){return g(q,"脚下生花","还是差了点");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x32,0x01]],0x30,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'guanxi':0x2,'text':"野球场上你过了个干净，围观的人里有个退休老教练，第二天就来找你爸谈了。"}:{'ovr':0x1,'text':"你练了一暑假，脚下确实利索了不少，但离真正的球员还差得远。"};}
+    },
+    {
+      'label': "去试试梯队选拔",
+      'hint': function(p,q){return g(q,"被看中了","没选上");},
+      'p': function(p){return f(0.5,[[p["talent"],0x1,0x3]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x2,'text':"选拔那天你拼了命，教练说你基本功差但敢拼\u2014\u2014留下了。"}:{'guanxi':-0x2,'text':"选了二十个人，你排第二十一。回家的路上你爸一句话没说。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_shandong",
+  'title': "体校那条路",
+  'icon': '\u{1f3eb}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="sd";
+},
+  'desc': "鲁能足校全省招生，你是最小的那个。教练说你基本功差但敢拼。体校这条路，走出来的少，走不出来的多。",
+  'options': [
+    {
+      'label': "拼了命也要留下来",
+      'hint': function(p,q){return g(q,"站稳了脚跟","差点被淘汰");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x2d,0x012]],0x30,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.05,'text':"每天最后一个离开训练场的人是你。三个月后，教练把你从替补提到了主力。"}:{'ovr':0x1,'guanxi':-0x3,'text':"你拼了命跟上节奏，但身体跟不上。教练说你再练半年试试\u2014\u2014那半年，你过得像在刀尖上。"};}
+    },
+    {
+      'label': "先把文化课考好再说",
+      'hint': "钱+5，关系+2",
+      'apply': function(){
+return{'money':0x5,'guanxi':0x2,'text':"你白天上课晚上训练，累是累但两条路都没断。教练说你脑子灵活，以后出路多。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_shanghai",
+  'title': "弄堂里的野球",
+  'icon': '\u{1f3df}\u{fe0f}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="sh";
+},
+  'desc': "弄堂太窄施展不开，但脚下技术就是这样练出来的。申花的球票是你攒零花钱买的，看台上人山人海，你心想：以后我也要站在这上面。",
+  'options': [
+    {
+      'label': "练技术，走脚下",
+      'hint': function(p,q){return g(q,"技术突飞猛进","进步一般");},
+      'p': function(p){return f(0.65,[[p["talent"],0x1,0x2]],0x35,0x9);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'talent':0.08,'text':"你在弄堂里练出了一脚细活，过人像穿针引线。隔壁弄堂的人都来看你踢球。"}:{'ovr':0x1,'talent':0.03,'text':"脚下是利索了，但对抗还是差点意思。教练说你得长身体。"};}
+    },
+    {
+      'label': "去试试申花梯队",
+      'hint': function(p,q){return g(q,"入选了","没过");},
+      'p': function(p){return f(0.45,[[p["ovr"],0x32,0x01]],0x2,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"选拔赛上你用脚下技术征服了教练\u2014\u2014申花梯队，你来了。"}:{'guanxi':-0x2,'text':"对手都比你壮一圈，你被撞得七荤八素。教练说你再练练。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_beijing",
+  'title': "工体的回声",
+  'icon': '\u{1f3df}\u{fe0f}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "prime",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="bj";
+},
+  'desc': "你第一次去工体看球，满场绿色，喊声震得耳朵疼。那种氛围一辈子忘不了。后来你在工体踢了第一场职业比赛，看台上有人举着你的名字。",
+  'options': [
+    {
+      'label': "这种氛围就是我的动力",
+      'hint': "声望+5，地位+1",
+      'apply': function(){
+return{'fame':0x5,'roleDelta':0x1,'text':"终场哨响，全场喊你的名字。你站在工体中央，觉得整个北京都在你脚下。"};}
+    },
+    {
+      'label': "压力太大，想换个环境",
+      'hint': "关系+3，金钱+8",
+      'apply': function(){
+return{'guanxi':0x3,'money':0x8,'text':"你跟经纪人说想出去看看。他说：行，正好有个机会。你知道离开北京不容易，但总得试试。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_guangdong",
+  'title': "早茶和转会",
+  'icon': '\u2708\ufe0f',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "prime",
+  'when': function(p){
+return p["originId"]==="gd"&&!p["inChina"];
+},
+  'desc': "广东球员出去的多，你不是第一个，也不会是最后一个。经纪人说有个机会去东南亚联赛试试。你爸妈说：去吧，反正你在外面也惯了。",
+  'options': [
+    {
+      'label': "先出去看看再说",
+      'hint': function(p,q){return g(q,"适应了","水土不服");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x37,0x008]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"你在东南亚联赛如鱼得水，语言通、气候近、饮食也习惯。教练说你是球队核心。"}:{'money':-0x8,'guanxi':-0x3,'text':"文化差异比你想象的大。语言不通，队友不熟，你每天晚上都想念广东的早茶。"};}
+    },
+    {
+      'label': "留在国内再拼一年",
+      'hint': function(p,q){return g(q,"证明了自己","原地踏步");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x32,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'money':0x5,'text':"你留在中超又踢了一个赛季，进球助攻数据都上去了。经纪人说：现在出去，价码不一样了。"}:{'ovr':0x1,'text':"又是一年，不好不坏。你知道该走了，但总想再等等。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_henan",
+  'title': "穷人家的孩子",
+  'icon': '\u{1f4aa}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="hn";
+},
+  'desc': "你们那儿出来的球员，脾气都硬。人多位置少，能冒头的都是狠角色。教练说你身体一般，但有一股子不服输的劲。",
+  'options': [
+    {
+      'label': "用脑子踢球",
+      'hint': function(p,q){return g(q,"开了窍","还是差点");},
+      'p': function(p){return f(0.6,[[p["talent"],0x1,0x2]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.06,'text':"你开始用脑子踢球\u2014\u2014跑位、预判、传球时机。教练说你比以前聪明多了。"}:{'ovr':0x1,'talent':0.02,'text':"你试着用脑子踢，但身体反应跟不上想法。慢慢来吧。"};}
+    },
+    {
+      'label': "拼身体，谁怕谁",
+      'hint': function(p,q){return g(q,"硬碰硬赢了","吃了亏");},
+      'p': function(p){return f(0.45,[[p["ovr"],0x2d,0x015]],0x2,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x2,'text':"你跟对手硬碰硬，撞翻了他。全场都在喊\u2014\u2014河南出来的，就是狠。"}:{'ovr':-0x1,'guanxi':-0x2,'text':"你被对手撞翻在地，教练吹了哨也没用。那天晚上你大腿青了一块。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_hebei",
+  'title': "挨着京津的日子",
+  'icon': '\u{1f5fa}\ufe0f',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="heb";
+},
+  'desc': "从小就被北京的球探盯着，但真正走的没几个。你爸说：去北京踢球？先把书念好。你说：我想试试。",
+  'options': [
+    {
+      'label': "去北京试训",
+      'hint': function(p,q){return g(q,"被选中了","没通过");},
+      'p': function(p){return f(0.5,[[p["ovr"],0x32,0x012]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"试训那天你发挥出色，教练说你基本功扎实。北京的门，为你开了一条缝。"}:{'guanxi':-0x3,'money':-0x5,'text':"对手都比你高一头，你被压着打。教练说你再练练\u2014\u2014你知道这话的意思。"};}
+    },
+    {
+      'label': "留在省队好好踢",
+      'hint': function(p,q){return g(q,"成了核心","还是替补");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x2d,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'guanxi':0x2,'text':"你在省队踢上了主力，教练说你是球队的未来。虽然地方小，但踏实。"}:{'ovr':0x1,'text':"你踢得不好不坏，教练说你还有潜力\u2014\u2014但潜力这东西，不兑现就没用。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_hunan",
+  'title': "霸得蛮",
+  'icon': '\u{1f525}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="hun";
+},
+  'desc': "湖南球员的特点：拼到最后一秒。教练说你技术粗糙但精神属性拉满。你们那儿出来的，没一个服输的。",
+  'options': [
+    {
+      'label': "练技术补短板",
+      'hint': function(p,q){return g(q,"技术涨了","还是糙");},
+      'p': function(p){return f(0.55,[[p["talent"],0x1,0x25]],0x25,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.08,'text':"你花了一个赛季练传控、练停球。虽然还是不如技术型球员，但至少不拖后腿了。"}:{'ovr':0x1,'talent':0.03,'text':"你练了很久，但肌肉记忆太顽固。进步是有的\u2014\u2014只是慢。"};}
+    },
+    {
+      'label': "把拼劲发挥到极致",
+      'hint': "能力+2，声望+2，人脉-1",
+      'apply': function(){
+return{'ovr':0x2,'fame':0x2,'guanxi':-0x1,'text':"你把每一次训练都当决赛踢。教练说你是最拼命的球员\u2014\u2014也是最让对手头疼的。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_xinjiang",
+  'title': "天生高一截",
+  'icon': '\u{1f4cf}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "kid",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="xj";
+},
+  'desc': "你比同龄人高半头，教练说这是老天爷赏饭吃。你们那儿出来的球员身体素质都好，但技术得自己练。",
+  'options': [
+    {
+      'label': "利用身体优势打中锋",
+      'hint': function(p,q){return g(q,"头球无敌","被看穿了");},
+      'p': function(p){return f(0.6,[[p["ovr"],0x28,0x015]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.05,'text':"你在禁区里像座山，对手根本扛不住。头球、背身、支点\u2014\u2014你样样都行。"}:{'ovr':0x1,'text':"对手提前研究了你，专门派人贴身盯防。你发现光有身体还不够。"};}
+    },
+    {
+      'label': "练脚下技术走全面路线",
+      'hint': function(p,q){return g(q,"技术突飞猛进","进步有限");},
+      'p': function(p){return f(0.5,[[p["talent"],0x1,0x3]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'talent':0.1,'text':"你开始苦练脚下技术。半年后，你发现自己既能扛人也能过人\u2014\u2014这种前锋，最可怕。"}:{'ovr':0x1,'talent':0.03,'text':"脚下是灵活了，但对抗时总想着技术动作，反而不如以前果断。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_jiangzhe",
+  'title': "不务正业",
+  'icon': '\u{1f4da}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="js";
+},
+  'desc': "你们那儿读书才是正道，踢球的被叫野孩子。你爸说：踢球能当饭吃？你没回答，因为你自己也不确定。",
+  'options': [
+    {
+      'label': "踢球读书两不误",
+      'hint': function(p,q){return g(q,"两边都顾上了","两边都耽误了");},
+      'p': function(p){return f(0.5,[[p["talent"],0x1,0x2]],0x25,0x8);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'money':0x5,'text':"你白天上课晚上训练，累是累但两条路都没断。期末考试你进了前二十，教练也满意。"}:{'ovr':0x1,'money':-0x3,'text':"两头兼顾比你想象的难。成绩掉了，训练也跟不上。你爸说：你看，我就说不行。"};}
+    },
+    {
+      'label': "专心踢球，赌一把",
+      'hint': function(p,q){return g(q,"踢出来了","没踢出来");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x32,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'fame':0x2,'text':"你跟家里摊牌了：我要踢球。你爸沉默了很久，最后说：那就踢出个名堂来。"}:{'guanxi':-0x3,'text':"你赌输了。成绩没保住，球也没踢出来。你爸说：我就说这条路走不通。"};}
+    }
+  ]
+},
+
+
+
+{
+  'id': "origin_bashu",
+  'title': "看台上全是人",
+  'icon': '\u{1f3ba}',
+  'weight': 0x28,
+  'cn': !0x0,
+  'stage': "youth",
+  'when': function(p){
+return p["inChina"]&&p["originId"]==="sc";
+},
+  'desc': "四川球迷全国最疯，但职业球员从这儿出来的太少。你在看台上长大，听着吼声踢球。教练说你有灵气，就是坐不住。",
+  'options': [
+    {
+      'label': "去成都试试梯队",
+      'hint': function(p,q){return g(q,"入选了","没选上");},
+      'p': function(p){return f(0.55,[[p["ovr"],0x30,0x01]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'fame':0x3,'text':"选拔赛上你用一脚世界波征服了教练。成都球迷知道后，已经在论坛上讨论你了。"}:{'guanxi':-0x2,'text':"你紧张了，发挥失常。教练说你有潜力，但心态得练\u2014\u2014四川出来的球员，不缺技术，缺稳定性。"};}
+    },
+    {
+      'label': "在野球场磨练",
+      'hint': function(p,q){return g(q,"脚下生花","还是差了点");},
+      'p': function(p){return f(0.6,[[p["talent"],0x1,0x2]],0x3,0x85);},
+      'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x2,'talent':0.06,'text':"野球场上你如鱼得水，过人、传球、射门样样都行。有人拍了视频传到网上，评论区都在问你是谁。"}:{'ovr':0x1,'talent':0.02,'text':"野球场上踢得热闹，但跟真正的训练还是两码事。你知道自己还得更系统地练。"};}
+    }
+  ]
 }
 
+
 ];
-
-
-
-

@@ -225,7 +225,7 @@ var leagues =[{'id':"csl",'name':'中超',
 'str':0x3d,'cn':!0x1,'cup':"天皇杯",'cont':'亚冠','leagueCup':null,'superCup':"日本超级杯"},{'id':'kl','name':"K联赛",'country':'KR','rep':0x2,'str':0x37,'cn':!0x1,'cup':"韩国杯",'cont':'亚冠',
 'leagueCup':null,'superCup':"韩国超级杯"},{'id':"spl",
 'name':"沙特联",'country':'SA','rep':0x3,'str':0x3f,'cn':!0x1,'cup':"沙特国王杯",'cont':'亚冠','leagueCup':null,'superCup':"沙特超级杯"},{'id':"mls",'name':"美职联",'country':'US','rep':0x2,
-'str':0x3b,'cn':!0x1,'cup':"公开杯",'cont':null,'leagueCup':null,'superCup':null},{'id':'mx','name':'墨超','country':'MX','rep':0x3,'str':0x41,'cn':!0x1,'cup':"墨西哥杯",'cont':'中北美冠','leagueCup':null,'superCup':"墨西哥超级杯"},{'id':'cpl','name':'加拿超','country':'CA','rep':0x1,'str':0x31,'cn':!0x1,'cup':"加拿大锦标赛",'cont':'中北美冠','leagueCup':null,'superCup':null},{'id':"tur",'name':'土超','country':'TR','rep':0x4,'str':0x45,'cn':!0x1,'cup':"土耳其杯",'cont':'欧冠','leagueCup':null,'superCup':"土耳其超级杯"},{'id':"ale",'name':'澳超','country':'AU','rep':0x2,'str':0x32,'cn':!0x1,'cup':"澳大利亚杯",'cont':'亚冠','leagueCup':null,'superCup':"澳大利亚超级杯"}];
+'str':0x3b,'cn':!0x1,'cup':"公开杯",'cont':null,'leagueCup':null,'superCup':null},{'id':'mx','name':'墨超','country':'MX','rep':0x3,'str':0x41,'cn':!0x1,'cup':"墨西哥杯",'cont':'中北美冠','leagueCup':null,'superCup':"墨西哥超级杯"},{'id':'cpl','name':'加拿超','country':'CA','rep':0x1,'str':0x31,'cn':!0x1,'cup':"加拿大锦标赛",'cont':'中北美冠','leagueCup':null,'superCup':null},{'id':"tur",'name':'土超','country':'TR','rep':0x4,'str':0x45,'cn':!0x1,'cup':"土耳其杯",'cont':'欧冠','leagueCup':null,'superCup':"土耳其超级杯"},{'id':"ale",'name':'澳超','country':'AU','rep':0x2,'str':0x32,'cn':!0x1,'cup':"澳大利亚杯",'cont':'亚冠','leagueCup':null,'superCup':"澳大利亚超级杯"},{'id':'cl1','name':'中甲','country':'CN','rep':0x1,'str':0x2c,'cn':!0x0,'cup':"足协杯",'cont':null,'leagueCup':null,'superCup':null},{'id':'l2','name':'法乙','country':'FR','rep':0x2,'str':0x3d,'cn':!0x1,'cup':"法国杯",'cont':null,'leagueCup':null,'superCup':null},{'id':'serb','name':'意乙','country':'IT','rep':0x2,'str':0x3c,'cn':!0x1,'cup':"意大利杯",'cont':null,'leagueCup':null,'superCup':null},{'id':'pol','name':'波甲','country':'PL','rep':0x2,'str':0x3b,'cn':!0x1,'cup':"波兰杯",'cont':'欧联','leagueCup':null,'superCup':"波兰超级杯"},{'id':'bra','name':'巴甲','country':'BR','rep':0x3,'str':0x45,'cn':!0x1,'cup':"巴西杯",'cont':'解放者杯','leagueCup':null,'superCup':"巴西超级杯"},{'id':'arg','name':'阿甲','country':'AR','rep':0x3,'str':0x43,'cn':!0x1,'cup':"阿根廷杯",'cont':'解放者杯','leagueCup':null,'superCup':"阿根廷超级杯"}];
 // window.DATA 尾部配置块（除 AWARDS/ENDINGS 独立成模块）
 var config = {
 'TROPHIES':{'league':{'name':"联赛冠军",'p':[0x0,0.02,0.05,0.16,0.3,0.45]},
@@ -250,27 +250,41 @@ var config = {
 };
 // window.DATA.TEAMS 中 league="csl" 的球队
 var TEAMS_csl = [
-{'id':"cn-sh",'name':"上海海港",'league':"csl",'rep':3,'academy':"海港青训",'color':"#C8102E"},
-{'id':"cn-sd",'name':"山东泰山",'league':"csl",'rep':3,'academy':"鲁能足校",'color':"#F26522"},
-{'id':"cn-bj",'name':"北京国安",'league':"csl",
-'rep':3,'academy':"国安青训",'color':"#1F4E9C"},
-{'id':"cn-shh",'name':"上海申花",'league':"csl",'rep':2,'academy':"申花青训",'color':"#0057B8"},
 {'id':"cn-cd",'name':"成都蓉城",'league':"csl",'rep':2,'academy':"蓉城青训",'color':"#B71C1C"},
-{'id':"cn-wh",'name':"武汉三镇",'league':"csl",
-'rep':2,'academy':"三镇青训",'color':"#0F7B6C"},
-{'id':"cn-tj",'name':"天津津门虎",'league':"csl",'rep':2,'academy':"津门虎青训",'color':"#3F51B5"},
-{'id':"cn-zj",'name':"浙江队",'league':"csl",'rep':2,'academy':"浙江青训",'color':"#1565C0"},
-{'id':"cn-hn",'name':"河南队",'league':"csl",
-'rep':2,'academy':"河南青训",'color':"#C62828"},
-{'id':"cn-cc",'name':"长春亚泰",'league':"csl",'rep':1,'academy':"亚泰青训",'color':"#E64A19"},
-{'id':"cn-mz",'name':"梅州客家",'league':"csl",'rep':1,'academy':"梅州青训",'color':"#7B1FA2"},
-{'id':"cn-qdh",'name':"青岛海牛",'league':"csl",
-'rep':1,'academy':"海牛青训",'color':"#00838F"},
+{'id':"cn-sh",'name':"上海海港",'league':"csl",'rep':3,'academy':"海港青训",'color':"#C8102E"},
+{'id':"cn-shh",'name':"上海申花",'league':"csl",'rep':2,'academy':"申花青训",'color':"#0057B8"},
+{'id':"cn-sd",'name':"山东泰山",'league':"csl",'rep':3,'academy':"鲁能足校",'color':"#F26522"},
+{'id':"cn-bj",'name':"北京国安",'league':"csl",'rep':3,'academy':"国安青训",'color':"#1F4E9C"},
+{'id':"cqtll",'name':"重庆铜梁龙",'league':"csl",'rep':1,'color':"#D2001F"},
+{'id':"cn-dl",'name':"大连英博",'league':"csl",'rep':1,'academy':"英博青训",'color':"#43A047"},
+{'id':"cn-qdh",'name':"青岛海牛",'league':"csl",'rep':1,'academy':"海牛青训",'color':"#00838F"},
 {'id':"cn-qdw",'name':"青岛西海岸",'league':"csl",'rep':1,'academy':"西海岸青训",'color':"#0097A7"},
+{'id':"cn-zj",'name':"浙江队",'league':"csl",'rep':2,'academy':"浙江青训",'color':"#1565C0"},
+{'id':"cn-hn",'name':"河南队",'league':"csl",'rep':2,'academy':"河南青训",'color':"#C62828"},
 {'id':"cn-sz",'name':"深圳新鹏城",'league':"csl",'rep':1,'academy':"新鹏城青训",'color':"#E91E63"},
-{'id':"cn-dl",'name':"大连英博",'league':"csl",
-'rep':1,'academy':"英博青训",'color':"#43A047"},
-{'id':"cn-yn",'name':"云南玉昆",'league':"csl",'rep':1,'academy':"玉昆青训",'color':"#2E7D32"}
+{'id':"cn-wh",'name':"武汉三镇",'league':"csl",'rep':2,'academy':"三镇青训",'color':"#0F7B6C"},
+{'id':"cn-tj",'name':"天津津门虎",'league':"csl",'rep':2,'academy':"津门虎青训",'color':"#3F51B5"},
+{'id':"cn-yn",'name':"云南玉昆",'league':"csl",'rep':1,'academy':"玉昆青训",'color':"#2E7D32"},
+{'id':"lntf",'name':"辽宁铁人",'league':"csl",'rep':1,'color':"#B71C1C"}
+];
+// window.DATA.TEAMS 中 league="cl1" 的球队
+var TEAMS_cl1 = [
+{'id':"cn-mz",'name':"梅州客家",'league':"cl1",'rep':2,'academy':"梅州青训",'color':"#7B1FA2"},
+{'id':"cn-cc",'name':"长春亚泰",'league':"cl1",'rep':2,'academy':"亚泰青训",'color':"#E64A19"},
+{'id':"ybld",'name':"延边龙鼎",'league':"cl1",'rep':1,'color':"#00843D"},
+{'id':"sjzg",'name':"石家庄功夫",'league':"cl1",'rep':1,'color':"#1A1A1A"},
+{'id':"dngl",'name':"定南赣联",'league':"cl1",'rep':1,'color':"#D2001F"},
+{'id':"ntzy",'name':"南通支云",'league':"cl1",'rep':1,'color':"#1D71B8"},
+{'id':"dlkc",'name':"大连鲲城",'league':"cl1",'rep':1,'color':"#1B4E9B"},
+{'id':"sxcu",'name':"陕西长安联合",'league':"cl1",'rep':1,'color':"#C8102E"},
+{'id':"szdw",'name':"苏州东吴",'league':"cl1",'rep':1,'color':"#00693E"},
+{'id':"njcs",'name':"南京城市",'league':"cl1",'rep':1,'color':"#5E35B1"},
+{'id':"nbfc",'name':"宁波队",'league':"cl1",'rep':1,'color':"#0057B8"},
+{'id':"fsns",'name':"佛山南狮",'league':"cl1",'rep':1,'color':"#F58220"},
+{'id':"szqn",'name':"深圳青年人",'league':"cl1",'rep':1,'color':"#0097A7"},
+{'id':"gxhc",'name':"广西恒宸",'league':"cl1",'rep':1,'color':"#00843D"},
+{'id':"wxwg",'name':"无锡吴钩",'league':"cl1",'rep':1,'color':"#0057B8"},
+{'id':"gzpw",'name':"广东广州豹",'league':"cl1",'rep':1,'color':"#D2001F"}
 ];
 // window.DATA.TEAMS 中 league="epl" 的球队
 var TEAMS_epl = [
@@ -358,56 +372,91 @@ var TEAMS_bund = [
 ];
 // window.DATA.TEAMS 中 league="seri" 的球队
 var TEAMS_seri = [
-{'id':"int",'name':"国际米兰",'league':"seri",'rep':0x5,'academy':"国米青训营",'color':"#0068A8"},
-{'id':"acm",'name':"AC米兰",'league':"seri",
-'rep':0x4,'academy':"米兰内洛",'color':"#FB090B"},
-{'id':"juv",'name':"尤文图斯",'league':"seri",'rep':0x4,'academy':"尤文青训营",'color':"#000000"},
-{'id':"nap",'name':"那不勒斯",'league':"seri",'rep':0x4,'color':"#12A0D7"},
-{'id':"rom",'name':'罗马','league':"seri",'rep':0x3,'academy':"特里贡尼亚",
-'color':"#8E1F2F"},
-{'id':"ata",'name':"亚特兰大",'league':"seri",'rep':0x3,'academy':"扎宁盖拉",'color':"#1D71B8"},
-{'id':"laz",'name':"拉齐奥",
-'league':"seri",'rep':0x3,'color':"#87D8F7"},
-{'id':"tor",'name':'都灵','league':"seri",'rep':0x2,'color':"#881600"},
-{'id':"fio",
-'name':"佛罗伦萨",'league':"seri",'rep':0x3,'color':"#582C83"},
-{'id':"bol",'name':"博洛尼亚",'league':"seri",'rep':0x3,'color':"#9C2424"},
-{'id':"udi",'name':"乌迪内斯",'league':"seri",'rep':0x2,'color':"#1A1A1A"},
-{'id':"par",'name':"帕尔马",'league':"seri",'rep':2,'color':"#F5C400"},
-{'id':"gen",'name':"热那亚",'league':"seri",'rep':2,'color':"#C8102E"},
-{'id':"sam",'name':"桑普多利亚",'league':"seri",'rep':2,'color':"#004197"},
+{'id':"ata",'name':"亚特兰大",'league':"seri",'rep':4,'academy':"扎宁盖拉",'color':"#1D71B8"},
+{'id':"bol",'name':"博洛尼亚",'league':"seri",'rep':3,'color':"#9C2424"},
 {'id':"cag",'name':"卡利亚里",'league':"seri",'rep':1,'color':"#C8102E"},
-{'id':"ver",'name':"维罗纳",'league':"seri",'rep':1,'color':"#F5C400"},
+{'id':"com",'name':"科莫",'league':"seri",'rep':2,'color':"#0057B8"},
+{'id':"fio",'name':"佛罗伦萨",'league':"seri",'rep':3,'color':"#582C83"},
+{'id':"fro",'name':"弗罗西诺内",'league':"seri",'rep':1,'color':"#FFD200"},
+{'id':"gen",'name':"热那亚",'league':"seri",'rep':2,'color':"#C8102E"},
+{'id':"int",'name':"国际米兰",'league':"seri",'rep':5,'academy':"国米青训营",'color':"#0068A8"},
+{'id':"juv",'name':"尤文图斯",'league':"seri",'rep':4,'academy':"尤文青训营",'color':"#000000"},
+{'id':"laz",'name':"拉齐奥",'league':"seri",'rep':3,'color':"#87D8F7"},
 {'id':"lec",'name':"莱切",'league':"seri",'rep':1,'color':"#C8102E"},
-{'id':"emp",'name':"恩波利",'league':"seri",'rep':1,'color':"#004197"},
-{'id':"sas",'name':"萨索洛",'league':"seri",'rep':1,'color':"#006944"},
-{'id':"ven",'name':"威尼斯",'league':"seri",'rep':0,'color':"#FE6D00"}
+{'id':"acm",'name':"AC米兰",'league':"seri",'rep':4,'academy':"米兰内洛",'color':"#FB090B"},
+{'id':"monz",'name':"蒙扎",'league':"seri",'rep':1,'color':"#DA0A1E"},
+{'id':"nap",'name':"那不勒斯",'league':"seri",'rep':4,'color':"#12A0D7"},
+{'id':"par",'name':"帕尔马",'league':"seri",'rep':2,'color':"#F5C400"},
+{'id':"sas",'name':"萨索洛",'league':"seri",'rep':2,'color':"#006944"},
+{'id':"rom",'name':"罗马",'league':"seri",'rep':3,'academy':"特里贡尼亚",'color':"#8E1F2F"},
+{'id':"ven",'name':"威尼斯",'league':"seri",'rep':1,'color':"#FE6D00"},
+{'id':"tor",'name':"都灵",'league':"seri",'rep':2,'color':"#881600"},
+{'id':"udi",'name':"乌迪内斯",'league':"seri",'rep':2,'color':"#1A1A1A"}
+];
+// window.DATA.TEAMS 中 league="serb" 的球队
+var TEAMS_serb = [
+{'id':"arez",'name':"阿雷佐",'league':"serb",'rep':1,'color':"#C8102E"},
+{'id':"asc",'name':"阿斯科利",'league':"serb",'rep':1,'color':"#1A1A1A"},
+{'id':"ave",'name':"阿韦利诺",'league':"serb",'rep':1,'color':"#00843D"},
+{'id':"bene",'name':"贝内文托",'league':"serb",'rep':1,'color':"#E3A81C"},
+{'id':"carr",'name':"卡拉雷塞",'league':"serb",'rep':1,'color':"#4FA3D1"},
+{'id':"ctz",'name':"卡坦扎罗",'league':"serb",'rep':1,'color':"#E3A81C"},
+{'id':"ces",'name':"切塞纳",'league':"serb",'rep':1,'color':"#1A1A1A"},
+{'id':"crem",'name':"克雷莫纳",'league':"serb",'rep':1,'color':"#9E9E9E"},
+{'id':"emp",'name':"恩波利",'league':"serb",'rep':2,'color':"#004197"},
+{'id':"ver",'name':"维罗纳",'league':"serb",'rep':2,'color':"#F5C400"},
+{'id':"stab",'name':"尤维斯塔比亚",'league':"serb",'rep':1,'color':"#F2C300"},
+{'id':"mant",'name':"曼托瓦",'league':"serb",'rep':1,'color':"#B71C1C"},
+{'id':"mod",'name':"摩德纳",'league':"serb",'rep':1,'color':"#FFD200"},
+{'id':"pad",'name':"帕多瓦",'league':"serb",'rep':1,'color':"#1A1A1A"},
+{'id':"pal",'name':"巴勒莫",'league':"serb",'rep':2,'color':"#F1A9BE"},
+{'id':"pis",'name':"比萨",'league':"serb",'rep':2,'color':"#123B7A"},
+{'id':"sam",'name':"桑普多利亚",'league':"serb",'rep':2,'color':"#004197"},
+{'id':"sud",'name':"南蒂罗尔",'league':"serb",'rep':1,'color':"#DA291C"},
+{'id':"vic",'name':"维琴察",'league':"serb",'rep':2,'color':"#E30613"},
+{'id':"ent",'name':"恩特拉",'league':"serb",'rep':1,'color':"#3FA9F5"}
 ];
 // window.DATA.TEAMS 中 league="l1" 的球队
 var TEAMS_l1 = [
-{'id':"psg",'name':"巴黎圣日耳曼",'league':'l1','rep':0x5,
-'academy':"普瓦西训练营",'color':"#004170"},
-{'id':"mar",'name':'马赛','league':'l1','rep':0x3,'color':"#2FAEE0"},
-{'id':"lyo",'name':'里昂',
-'league':'l1','rep':0x3,'academy':"里昂青训营",'color':"#083D77"},
-{'id':"mon",'name':"摩纳哥",'league':'l1','rep':0x3,'academy':"摩纳哥学院",
-'color':"#E63312"},
-{'id':"lil",'name':'里尔','league':'l1','rep':0x3,'color':"#E01E13"},
-{'id':"ren",'name':'雷恩','league':'l1',
-'rep':0x2,'color':"#E23838"},
-{'id':"nic",'name':'尼斯','league':'l1','rep':0x3,'color':"#E01C3C"},
-{'id':"len",'name':'朗斯','league':'l1',
-'rep':0x3,'color':"#9C2424"},
-{'id':"rcs",'name':"斯特拉斯堡",'league':'l1','rep':0x2,'color':"#0C9CE4"},
-{'id':"bdx",'name':"波尔多",'league':"l1",'rep':2,'color':"#00295B"},
-{'id':"mpl",'name':"蒙彼利埃",'league':"l1",'rep':2,'color':"#E23B3B"},
-{'id':"tls",'name':"图卢兹",'league':"l1",'rep':2,'color':"#553B77"},
-{'id':"nts",'name':"南特",'league':"l1",'rep':2,'color':"#FCD100"},
-{'id':"set",'name':"圣埃蒂安",'league':"l1",'rep':2,'color':"#00855B"},
-{'id':"rei",'name':"兰斯",'league':"l1",'rep':2,'color':"#C8102E"},
-{'id':"aux",'name':"欧塞尔",'league':"l1",'rep':1,'color':"#004197"},
 {'id':"ang",'name':"昂热",'league':"l1",'rep':1,'color':"#E50016"},
-{'id':"bst",'name':"布雷斯特",'league':"l1",'rep':1,'color':"#E30613"}
+{'id':"aux",'name':"欧塞尔",'league':"l1",'rep':1,'color':"#004197"},
+{'id':"bst",'name':"布雷斯特",'league':"l1",'rep':1,'color':"#E30613"},
+{'id':"hav",'name':"勒阿弗尔",'league':"l1",'rep':2,'color':"#005CA9"},
+{'id':"lem",'name':"勒芒",'league':"l1",'rep':1,'color':"#0B4EA2"},
+{'id':"len",'name':"朗斯",'league':"l1",'rep':3,'color':"#9C2424"},
+{'id':"lil",'name':"里尔",'league':"l1",'rep':3,'color':"#E01E13"},
+{'id':"lor",'name':"洛里昂",'league':"l1",'rep':2,'color':"#F58220"},
+{'id':"lyo",'name':"里昂",'league':"l1",'rep':3,'academy':"里昂青训营",'color':"#083D77"},
+{'id':"mar",'name':"马赛",'league':"l1",'rep':3,'color':"#2FAEE0"},
+{'id':"mon",'name':"摩纳哥",'league':"l1",'rep':3,'academy':"摩纳哥学院",'color':"#E63312"},
+{'id':"nic",'name':"尼斯",'league':"l1",'rep':3,'color':"#E01C3C"},
+{'id':"parfc",'name':"巴黎FC",'league':"l1",'rep':2,'color':"#003A7F"},
+{'id':"psg",'name':"巴黎圣日耳曼",'league':"l1",'rep':5,'academy':"普瓦西训练营",'color':"#004170"},
+{'id':"ren",'name':"雷恩",'league':"l1",'rep':2,'color':"#E23838"},
+{'id':"rcs",'name':"斯特拉斯堡",'league':"l1",'rep':2,'color':"#0C9CE4"},
+{'id':"tls",'name':"图卢兹",'league':"l1",'rep':2,'color':"#553B77"},
+{'id':"try",'name':"特鲁瓦",'league':"l1",'rep':1,'color':"#004B87"}
+];
+// window.DATA.TEAMS 中 league="l2" 的球队
+var TEAMS_l2 = [
+{'id':"dij",'name':"第戎",'league':"l2",'rep':1,'color':"#D0021B"},
+{'id':"g38",'name':"格勒诺布尔",'league':"l2",'rep':1,'color':"#0F4C9C"},
+{'id':"gui",'name':"甘冈",'league':"l2",'rep':1,'color':"#E30613"},
+{'id':"mpl",'name':"蒙彼利埃",'league':"l2",'rep':2,'color':"#E23B3B"},
+{'id':"rei",'name':"兰斯",'league':"l2",'rep':2,'color':"#C8102E"},
+{'id':"nts",'name':"南特",'league':"l2",'rep':2,'color':"#FCD100"},
+{'id':"soc",'name':"索肖",'league':"l2",'rep':1,'color':"#C9A227"},
+{'id':"ann",'name':"安纳西",'league':"l2",'rep':1,'color':"#D0342C"},
+{'id':"bou",'name':"布洛涅",'league':"l2",'rep':1,'color':"#123B7A"},
+{'id':"cle",'name':"克莱蒙",'league':"l2",'rep':1,'color':"#1F4E9C"},
+{'id':"dun",'name':"敦刻尔克",'league':"l2",'rep':1,'color':"#199FE3"},
+{'id':"lav",'name':"拉瓦勒",'league':"l2",'rep':1,'color':"#E87722"},
+{'id':"met",'name':"梅斯",'league':"l2",'rep':2,'color':"#7A1F2B"},
+{'id':"paufc",'name':"波城",'league':"l2",'rep':1,'color':"#0F52A4"},
+{'id':"red",'name':"红星",'league':"l2",'rep':1,'color':"#00843D"},
+{'id':"rod",'name':"罗德兹",'league':"l2",'rep':1,'color':"#1A3668"},
+{'id':"set",'name':"圣埃蒂安",'league':"l2",'rep':2,'color':"#00855B"},
+{'id':"nancy",'name':"南锡",'league':"l2",'rep':1,'color':"#CE0E2D"}
 ];
 // window.DATA.TEAMS 中 league="ere" 的球队
 var TEAMS_ere = [
@@ -702,6 +751,27 @@ var TEAMS_tur = [
 {'id':"erzurum",'name':"埃尔祖鲁姆",'league':"tur",'rep':1,'color':"#C8102E"},
 {'id':"kasp",'name':"卡斯帕萨",'league':"tur",'rep':1,'color':"#C8102E"}
 ];
+// window.DATA.TEAMS 中 league="pol" 的球队
+var TEAMS_pol = [
+{'id':"kra",'name':"克拉科维亚",'league':"pol",'rep':2,'color':"#C8102E"},
+{'id':"kat",'name':"卡托维兹",'league':"pol",'rep':1,'color':"#1D71B8"},
+{'id':"gor",'name':"扎布热矿工",'league':"pol",'rep':2,'color':"#00843D"},
+{'id':"jag",'name':"亚盖隆尼亚",'league':"pol",'rep':2,'color':"#FFD200"},
+{'id':"korona",'name':"凯尔采王冠",'league':"pol",'rep':1,'color':"#FFD200"},
+{'id':"lech",'name':"波兹南莱赫",'league':"pol",'rep':3,'color':"#FFFFFF"},
+{'id':"legia",'name':"华沙莱吉亚",'league':"pol",'rep':3,'color':"#007A33"},
+{'id':"mot",'name':"卢布林引擎",'league':"pol",'rep':1,'color':"#FFD200"},
+{'id':"pia",'name':"格利维采皮亚斯特",'league':"pol",'rep':1,'color':"#D2001F"},
+{'id':"pog",'name':"什切青波贡",'league':"pol",'rep':2,'color':"#1D3E8F"},
+{'id':"rad",'name':"拉多姆",'league':"pol",'rep':1,'color':"#00843D"},
+{'id':"rak",'name':"拉科夫",'league':"pol",'rep':2,'color':"#C8102E"},
+{'id':"sla",'name':"弗罗茨瓦夫",'league':"pol",'rep':2,'color':"#007A33"},
+{'id':"wid",'name':"罗兹维德泽夫",'league':"pol",'rep':2,'color':"#E30613"},
+{'id':"wie",'name':"维切日斯特",'league':"pol",'rep':1,'color':"#1D71B8"},
+{'id':"wkr",'name':"克拉科夫维斯瓦",'league':"pol",'rep':2,'color':"#D2001F"},
+{'id':"wpl",'name':"普沃茨克维斯瓦",'league':"pol",'rep':1,'color':"#1B4E9B"},
+{'id':"zag",'name':"卢宾扎格勒",'league':"pol",'rep':2,'color':"#00693E"}
+];
 // window.DATA.TEAMS 中 league="ale" 的球队
 var TEAMS_ale = [
 {'id':"adl",'name':"阿德莱德联",'league':"ale",'rep':2,'color':"#C8102E"},
@@ -718,7 +788,63 @@ var TEAMS_ale = [
 {'id':"wel",'name':"惠灵顿凤凰",'league':"ale",'rep':1,'color':"#FFD700"},
 {'id':"auck",'name':"奥克兰FC",'league':"ale",'rep':2,'color':"#000000"}
 ];
+// window.DATA.TEAMS 中 league="bra" 的球队
+var TEAMS_bra = [
+{'id':"atpr",'name':"巴拉纳竞技",'league':"bra",'rep':2,'color':"#B71C1C"},
+{'id':"atmi",'name':"米内罗竞技",'league':"bra",'rep':3,'color':"#1A1A1A"},
+{'id':"bah",'name':"巴伊亚",'league':"bra",'rep':2,'color':"#1B5EA6"},
+{'id':"bot",'name':"博塔弗戈",'league':"bra",'rep':3,'color':"#1A1A1A"},
+{'id':"chap",'name':"沙佩科恩斯",'league':"bra",'rep':1,'color':"#00843D"},
+{'id':"cori",'name':"科林蒂安",'league':"bra",'rep':3,'color':"#1A1A1A"},
+{'id':"cfit",'name':"科里蒂巴",'league':"bra",'rep':2,'color':"#007A33"},
+{'id':"cru",'name':"克鲁塞罗",'league':"bra",'rep':3,'color':"#0057B8"},
+{'id':"fla",'name':"弗拉门戈",'league':"bra",'rep':4,'color':"#C8102E"},
+{'id':"flu",'name':"弗鲁米嫩塞",'league':"bra",'rep':3,'color':"#8B1A3A"},
+{'id':"gre",'name':"格雷米奥",'league':"bra",'rep':3,'color':"#0D80BF"},
+{'id':"inte",'name':"巴西国际",'league':"bra",'rep':3,'color':"#C8102E"},
+{'id':"mira",'name':"米拉索尔",'league':"bra",'rep':1,'color':"#FFD200"},
+{'id':"palm",'name':"帕尔梅拉斯",'league':"bra",'rep':4,'color':"#006944"},
+{'id':"brag",'name':"红牛布拉甘蒂诺",'league':"bra",'rep':2,'color':"#C8102E"},
+{'id':"rem",'name':"雷莫",'league':"bra",'rep':1,'color':"#1B4E9B"},
+{'id':"sant",'name':"桑托斯",'league':"bra",'rep':3,'color':"#1A1A1A"},
+{'id':"saop",'name':"圣保罗",'league':"bra",'rep':3,'color':"#DA291C"},
+{'id':"vas",'name':"瓦斯科达伽马",'league':"bra",'rep':2,'color':"#1A1A1A"},
+{'id':"vito",'name':"维多利亚",'league':"bra",'rep':1,'color':"#C8102E"}
+];
+// window.DATA.TEAMS 中 league="arg" 的球队
+var TEAMS_arg = [
+{'id':"boc",'name':"博卡青年",'league':"arg",'rep':4,'color':"#123B7A"},
+{'id':"riv",'name':"河床",'league':"arg",'rep':4,'color':"#E30613"},
+{'id':"ald",'name':"阿尔多西维",'league':"arg",'rep':1,'color':"#00843D"},
+{'id':"argj",'name':"阿根廷青年人",'league':"arg",'rep':2,'color':"#D2001F"},
+{'id':"tuc",'name':"图库曼竞技",'league':"arg",'rep':2,'color':"#7B1FA2"},
+{'id':"ban",'name':"班菲尔德",'league':"arg",'rep':2,'color':"#007A33"},
+{'id':"bce",'name':"巴拉卡斯中央",'league':"arg",'rep':1,'color':"#D2001F"},
+{'id':"bel",'name':"贝尔格拉诺",'league':"arg",'rep':2,'color':"#1D71B8"},
+{'id':"cco",'name':"中央科尔多瓦",'league':"arg",'rep':1,'color':"#FFD200"},
+{'id':"def",'name':"防卫者",'league':"arg",'rep':2,'color':"#00843D"},
+{'id':"rie",'name':"里斯特拉",'league':"arg",'rep':1,'color':"#B71C1C"},
+{'id':"est",'name':"拉普拉塔大学生",'league':"arg",'rep':3,'color':"#E30613"},
+{'id':"gimn",'name':"拉普拉塔体操",'league':"arg",'rep':2,'color':"#0D47A1"},
+{'id':"god",'name':"戈多伊克鲁兹",'league':"arg",'rep':2,'color':"#0D47A1"},
+{'id':"hur",'name':"飓风",'league':"arg",'rep':2,'color':"#E30613"},
+{'id':"ind",'name':"独立",'league':"arg",'rep':3,'color':"#E30613"},
+{'id':"inr",'name':"独立里瓦达维亚",'league':"arg",'rep':1,'color':"#FFD200"},
+{'id':"ins",'name':"因斯蒂图托",'league':"arg",'rep':2,'color':"#D2001F"},
+{'id':"lan",'name':"拉努斯",'league':"arg",'rep':2,'color':"#7A1F2B"},
+{'id':"newo",'name':"纽维尔老男孩",'league':"arg",'rep':2,'color':"#1A1A1A"},
+{'id':"pla",'name':"普拉滕塞",'league':"arg",'rep':2,'color':"#6D4C41"},
+{'id':"rac1",'name':"竞技俱乐部",'league':"arg",'rep':3,'color':"#6CB4E4"},
+{'id':"roc",'name':"罗萨里奥中央",'league':"arg",'rep':2,'color':"#FFD200"},
+{'id':"slo",'name':"圣洛伦索",'league':"arg",'rep':3,'color':"#1B4E9B"},
+{'id':"sma",'name':"圣马丁",'league':"arg",'rep':1,'color':"#007A33"},
+{'id':"sar",'name':"萨米恩托",'league':"arg",'rep':1,'color':"#007A33"},
+{'id':"tal",'name':"塔勒瑞斯",'league':"arg",'rep':2,'color':"#FFFFFF"},
+{'id':"tig",'name':"老虎竞技",'league':"arg",'rep':2,'color':"#0D47A1"},
+{'id':"uni",'name':"圣菲联合",'league':"arg",'rep':2,'color':"#E30613"},
+{'id':"vel",'name':"萨斯菲尔德",'league':"arg",'rep':3,'color':"#FFFFFF"}
+];
 window["DATA"]={'endingView':function(c,d){var f=c&&c["pos"]&&c["pos"][d];
 return{'id':c['id'],'tier':c["tier"],'title':f&&f["title"]||c["title"],'desc':f&&f["desc"]||c["desc"]};
-},'POSITIONS':positions,'LEAGUES':leagues,'TEAMS':[].concat(TEAMS_csl,TEAMS_epl,TEAMS_liga,TEAMS_bund,TEAMS_seri,TEAMS_l1,TEAMS_ere,TEAMS_pri,TEAMS_jup,TEAMS_seg,TEAMS_b2,TEAMS_ch,TEAMS_jl,TEAMS_kl,TEAMS_spl,TEAMS_mls,TEAMS_mx,TEAMS_cpl,TEAMS_tur,TEAMS_ale),'TROPHIES':config['TROPHIES'],'NATIONAL':config['NATIONAL'],'AWARDS':a,'ROLES':config['ROLES'],'ROLE_ORDER':config['ROLE_ORDER'],'YOUTH_ABROAD_FEE':config['YOUTH_ABROAD_FEE'],'INJURIES':config['INJURIES'],'GROWTH':config['GROWTH'],'VALUE_TABLE':config['VALUE_TABLE'],'ENDINGS':b};
+},'POSITIONS':positions,'LEAGUES':leagues,'TEAMS':[].concat(TEAMS_csl,TEAMS_cl1,TEAMS_epl,TEAMS_liga,TEAMS_bund,TEAMS_seri,TEAMS_serb,TEAMS_l1,TEAMS_l2,TEAMS_ere,TEAMS_pri,TEAMS_jup,TEAMS_seg,TEAMS_b2,TEAMS_ch,TEAMS_jl,TEAMS_kl,TEAMS_spl,TEAMS_mls,TEAMS_mx,TEAMS_cpl,TEAMS_tur,TEAMS_pol,TEAMS_ale,TEAMS_bra,TEAMS_arg),'TROPHIES':config['TROPHIES'],'NATIONAL':config['NATIONAL'],'AWARDS':a,'ROLES':config['ROLES'],'ROLE_ORDER':config['ROLE_ORDER'],'YOUTH_ABROAD_FEE':config['YOUTH_ABROAD_FEE'],'INJURIES':config['INJURIES'],'GROWTH':config['GROWTH'],'VALUE_TABLE':config['VALUE_TABLE'],'ENDINGS':b};
 }()));

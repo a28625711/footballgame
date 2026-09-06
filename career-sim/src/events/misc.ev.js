@@ -2455,6 +2455,10 @@ return{'clean':0x4,'fame':-0x6,'text':"你从头到尾没开过口。他出来�
   'icon': '📤',
   'weight': 0x34,
   'stage': "prime",
+  'when': function(p){
+    /* 主力/核心不会被动外租：轮换及以下才会触发 */
+    return p["roleRank"] <= 0x2;
+  },
   'desc': "俱乐部不打算用你，又不肯放你走。折中的方案：租给一支保级队，半年。",
 
 

@@ -104,6 +104,23 @@ return p&&q[p["posGroup"]]||q["other"];
 
 
 
+/* ── 青训转向线路（固定链式） ── */
+var _youthChains={
+'att':{
+  0:{t:0x4,a:0x5},1:{t:0x5,a:0x2},2:{t:0x1,a:0x3},3:{t:0x0,a:0x2},4:{t:0x0,a:0x5},5:{t:0x1,a:0x0}},
+'mid':{
+  1:{t:0x7,a:0x2},2:{t:0x6,a:0x1},5:{t:0x1,a:0x7},6:{t:0x2,a:0x7},7:{t:0x6,a:0x2}},
+'def':{
+  2:{t:0x9,a:0x8},3:{t:0x8,a:0x10},8:{t:0x10,a:0x9},9:{t:0x10,a:0x8},10:{t:0x9,a:0x8}}
+};
+function youthTypeTgt(p){
+var cur=p["playerType"]!=null?p["playerType"]:0xb;
+if(typeof cur!=="number"||isNaN(cur))cur=0xb;
+var m=_youthChains[p["posGroup"]];
+if(m&&m[cur])return(p["age"]||0)>=17?m[cur]["a"]:m[cur]["t"];
+return cur;
+}
+
 /* 类型转型的组内安全回退：desc 侧写的 _xTarget 缺失时保持现类型，绝不允许跨位置组 */
 function safeTypeTgt(p,key){
 var cur=p["playerType"]!=null?p["playerType"]:0xb;

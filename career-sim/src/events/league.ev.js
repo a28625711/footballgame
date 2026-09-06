@@ -741,10 +741,339 @@ var EVT_league=[
         'apply': function(){return{'ovr':0x1,'fame':0x4,'text':"大峡谷、芝加哥的风、纽约的雨夜机场。你把这些都记进了随行笔记。足球之外，这段漂泊成了你人生最特别的部分之一。"};}
     }
   ]
-}
+},
+
+// ---- idx:351 | lg_tur_fans | 十二th人 ----
+
+
+
+{
+  'id': "lg_tur_fans",
+  'title': "十二th人",
+  'icon': '🔥',
+  'weight': 0x50,
+  'when': function(p){return "tur"===p["leagueId"];},
+
+
+
+  'desc': "伊斯坦布尔的德比夜，看台上的烟火把球场照成了白昼。对手的球迷制造的声浪让传球都靠喊。队长塞给你一条围巾：系上，今晚你就是我们的人。",
+  'options': [
+    {
+        'label': "用表现回应声浪",
+        'p': function(p){return f(0.55,[[p["ovr"],0x46,0.008],[p["fame"],30,0.004]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"征服客场","被嘘到梦里");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0xa,'ovr':0x2,'text':"你在嘘声中打进一球，然后跑到客队看台前竖起食指。那一夜之后，土耳其媒体给了你一个当地绰号。"}:{'fame':-0x3,'guanxi':0x4,'text':"全场两万人对着你一个人嘘了九十分钟。你失误了三次，但队友拍着你肩膀说：在土耳其踢球，先要学会屏蔽噪音。"};}
+    },
+    {
+        'label': "把注意力放回足球",
+        'hint': "稳妥",
+        'apply': function(){return{'ovr':0x1,'text':"你闭上眼睛深呼吸，把噪音关在耳朵外面。专注比赛本身，反而踢出了不错的水准。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:352 | lg_birra | 桑巴脚下 ----
+
+
+
+{
+  'id': "lg_birra",
+  'title': "桑巴脚下",
+  'icon': '⚽',
+  'weight': 0x50,
+  'when': function(p){return "bra"===p["leagueId"];},
+
+
+
+  'desc': "巴甲的节奏和你想象的不一样：不是缓慢的传控，而是快速的一脚出球和即兴发挥。队友在训练里颠球像杂技，你开始怀疑自己是不是走错了片场。",
+  'options': [
+    {
+        'label': "跟上他们的节奏",
+        'p': function(p){return f(0.52,[[p["talent"],1,0.3],[p["ovr"],0x44,0.006]],0.22,0.83);},
+        'hint': function(p,q){return g(q,"融入巴西足球","跟不上节奏");},
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.04,'ovr':0x2,'text':"你开始用脚底拉球、用身体假动作骗过对手。三个月后，你在禁区前沿的一脚搓射让全场站了起来——教练说：你开始像巴西人一样踢球了。"}:{'ovr':-0x1,'text':"你试着模仿他们的动作，但总差半拍。教练说：别急，先看懂他们在做什么，再想怎么做。"};}
+    },
+    {
+        'label': "用纪律性弥补技术差距",
+        'hint': "务实",
+        'apply': function(){return{'ovr':0x1,'guanxi':0x4,'text':"你跑得比谁都多，抢得比谁都凶。队友们开始信任你——虽然你脚下没那么花，但关键时刻你总在对的位置。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:353 | lg_arg_boca | 纪律杯决赛 ----
+
+
+
+{
+  'id': "lg_arg_boca",
+  'title': "超级德比",
+  'icon': '🏆',
+  'weight': 0x50,
+  'when': function(p){return "arg"===p["leagueId"];},
+
+
+
+  'desc': "博卡对河床，全球最火爆的德比之一。赛前一周，整个布宜诺斯艾利斯分成了两半。出租车司机问你支持哪边，你说出队名的瞬间，他一脚油门踩到底——不知道是兴奋还是愤怒。",
+  'options': [
+    {
+        'label': "在糖果盒球场证明自己",
+        'p': function(p){return f(0.50,[[p["talent"],1,0.35],[p["ovr"],0x46,0.008]],0.20,0.82);},
+        'hint': function(p,q){return g(q,"成为传奇","被嘘声淹没");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0x10,'ovr':0x3,'text':"你在客场打进制胜球，然后跑到看台前脱下球衣挥舞。那一夜，你成了这座城市一半人的英雄、另一半人的敌人。报纸头版只有一个词：Héroe。"}:{'fame':-0x4,'text':"两万人的嘘声像实体一样压在你身上。你踢丢了两个机会，赛后更衣室里没人说话。队长说：在阿根廷，德比是另一种运动。"};}
+    },
+    {
+        'label': "保持冷静",
+        'hint': "稳一点",
+      'apply': function(){return{'ovr':0x1,'text':"你告诉自己这只是九十分钟。专注比赛，不受干扰。虽然没进球，但你完成了教练布置的每一个战术任务。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:354 | lg_mx_fiesta | 北美最大的派对 ----
+
+
+
+{
+  'id': "lg_mx_fiesta",
+  'title': "北美最大的派对",
+  'icon': '🎉',
+  'weight': 0x50,
+  'when': function(p){return "mx"===p["leagueId"];},
+
+
+
+  'desc': "墨西哥的足球不只是比赛——是节日。赛前有鼓乐队，赛中有烟花，赛后球迷能在球场外跳到天亮。你第一次在阿兹特克球场踢球，八万人的声浪让你的耳朵嗡了整整一天。",
+  'options': [
+    {
+        'label': "享受这个氛围",
+        'p': function(p){return f(0.55,[[p["fame"],20,0.005],[p["talent"],1,0.2]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"融入足球文化","被氛围分心");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0x8,'talent':0.03,'text':"你开始在进球后跳舞庆祝——虽然舞步很烂，但球迷爱死了。你的名字开始出现在墨西哥城的涂鸦墙上。"}:{'ovr':-0x1,'text':"你被球场的氛围震住了，注意力全在看台上。教练说：先把球踢好，派对结束后再庆祝。"};}
+    },
+    {
+        'label': "专注于比赛本身",
+      'apply': function(){return{'ovr':0x1,'text':"你戴上耳机屏蔽噪音，赛前只听战术布置。八万人的呐喊声中，你冷静地完成了每一次传球。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:355 | lg_cpl_cold | 冰与草皮 ----
+
+
+
+{
+  'id': "lg_cpl_cold",
+  'title': "冰与草皮",
+  'icon': '❄️',
+  'weight': 0x50,
+  'when': function(p){return "cpl"===p["leagueId"];},
+
+
+
+  'desc': "加拿大的赛季从四月开始、十月结束，中间有一半时间在零度以下踢球。人工草皮上滑铲像在溜冰，你的钉鞋根本抓不住地。队友笑着说：在这里踢球，先学会不摔跤。",
+  'options': [
+    {
+        'label': "换碎钉适应场地",
+      'p': function(p){return f(0.6,[[p["ovr"],0x42,0.006]],0.3,0.88);},
+        'hint': function(p,q){return g(q,"适应了","还是打滑");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"碎钉在人工草皮上抓地力刚好。你开始在别人打滑的时候加速过人，成了队里最稳的那一个。"}:{'ovr':-0x1,'text':"换了鞋还是不适应，你在一次滑铲中扭了脚踝。队医说：加拿大的冬天，对客场球员是另一种考验。"};}
+    },
+    {
+        'label': "多练室内训练",
+      'apply': function(){return{'ovr':0x1,'text':"你把训练挪到了室内——健身房、力量房、短传练习。虽然上场时间少了，但身体素质提升明显。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:356 | lg_pol_ultra | 极端球迷 ----
+
+
+
+{
+  'id': "lg_pol_ultra",
+  'title': "极端球迷",
+  'icon': '🚩',
+  'weight': 0x50,
+  'when': function(p){return "pol"===p["leagueId"];},
+
+
+
+  'desc': "波兰的极端球迷组织是欧洲最狂热的之一。赛前他们放烟雾弹、打鼓、唱歌，整座球场像战场。你第一次走进华沙的球场时，烟雾浓到看不见对面的球门。",
+  'options': [
+    {
+        'label': "和球迷站在一起",
+      'p': function(p){return f(0.55,[[p["guanxi"],40,0.006]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"成为宠儿","惹上麻烦");},
+        'apply': function(p,q,s){return d(q,s)?{'guanxi':0xc,'fame':0x6,'text':"你在赛后走向看台，和他们一起唱歌。从那天起，你成了这座城市最受欢迎的球员——每次出场，全场起立鼓掌。"}:{'guanxi':0x4,'fame':-0x3,'text':"你被卷进了球迷的烟火表演，赛后被联盟罚款。教练说：支持者是球队的一部分，但你得知道界限在哪。"};}
+    },
+    {
+        'label': "保持距离",
+      'apply': function(){return{'ovr':0x1,'clean':0x4,'text':"你尊重球迷的热情，但选择保持职业距离。专注比赛，用表现说话。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:357 | lg_ale_heat | 烈日下的比赛 ----
+
+
+
+{
+  'id': "lg_ale_heat",
+  'title': "烈日下的比赛",
+  'icon': '☀️',
+  'weight': 0x50,
+  'when': function(p){return "ale"===p["leagueId"];},
+
+
+
+  'desc': "澳大利亚的赛季在北半球的冬天进行——但这里的夏天能到四十度。你在烈日下跑了六十分钟，感觉鞋里的脚在蒸桑拿。队医递给你冰袋：先降体温，再想比赛。",
+  'options': [
+    {
+        'label': "提前适应高温",
+      'p': function(p){return f(0.55,[[p["ovr"],0x44,0.006],[p["talent"],1,0.2]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"耐热体质","中暑了");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'text':"你开始在高温时段加练，身体逐渐适应了极端条件。当对手在七十分钟后集体抽筋时，你还能全速冲刺。"}:{'ovr':-0x2,'health':1.15,'text':"你在比赛中中暑倒地，被担架抬出场外。队医说：你对高温的适应能力还不够，需要循序渐进。"};}
+    },
+    {
+        'label': "多喝水多休息",
+      'apply': function(){return{'ovr':0x1,'text':"你学会了在死球时补水、在间歇时降温。虽然没有质的飞跃，但至少没有再倒下。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:358 | lg_l2_survival | 法乙生存法则 ----
+
+
+
+{
+  'id': "lg_l2_survival",
+  'title': "法乙生存法则",
+  'icon': '生存',
+  'weight': 0x50,
+  'when': function(p){return "l2"===p["leagueId"];},
+
+
+
+  'desc': "法乙是法国足球的炼钢厂：身体对抗激烈、赛程密集、客场多是人工草皮。没有聚光灯，没有转播镜头，只有泥泞的球场和对手的铲抢。你开始理解为什么法乙出来的球员都那么能扛。",
+  'options': [
+    {
+        'label': "把身体练硬",
+      'p': function(p){return f(0.55,[[p["ovr"],0x44,0.006]],0.25,0.85);},
+        'hint': function(p,q){return g(q,"抗住了","被撞飞了");},
+        'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'text':"你用三个月把自己练壮了五公斤。现在对手铲你的时候，你不但不倒，还能护住球转身。教练说：法乙教你的东西，一辈子受用。"}:{'ovr':-0x1,'text':"你被对方中卫撞飞了三次，连球都没碰到。教练说：法乙不是技术考试，是生存考试。"};}
+    },
+    {
+        'label': "用速度避开身体对抗",
+      'apply': function(){return{'ovr':0x1,'text':"你学会了提前出脚、提前跑位，用脑子避开蛮力。虽然身体吃亏，但你的决策速度提升了。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:359 | lg_serb_catenaccio | 意大利的另一面 ----
+
+
+
+{
+  'id': "lg_serb_catenaccio",
+  'title': "意大利的另一面",
+  'icon': '🛡️',
+  'weight': 0x50,
+  'when': function(p){return "serb"===p["leagueId"];},
+
+
+
+  'desc': "意乙是意大利足球的另一面：没有意甲的华丽，只有防守反击和身体对抗。每场比赛都像在下棋——对手摆出五后卫，你得找到那条缝。你开始理解为什么意大利出那么多好中卫。",
+  'options': [
+    {
+        'label': "研究防守体系",
+      'p': function(p){return f(0.52,[[p["talent"],1,0.3],[p["ovr"],0x44,0.006]],0.22,0.83);},
+        'hint': function(p,q){return g(q,"读懂了","还是打不穿");},
+        'apply': function(p,q,s){return d(q,s)?{'talent':0.04,'ovr':0x2,'text':"你花了一周研究对手的防守站位，发现五后卫体系的弱点在肋部。下一场比赛，你三次从肋部突破制造了进球机会。教练说：在意大利踢球，脑子比脚更重要。"}:{'ovr':-0x1,'text':"你试了各种办法，但对手的防线像铁桶一样。教练说：意乙的防守不是靠个人，是靠体系。你得比体系更聪明。"};}
+    },
+    {
+        'label': "提升身体对抗",
+      'apply': function(){return{'ovr':0x2,'text':"你把训练重心放在力量和对抗上。虽然技术没提升，但你现在能在禁区内站住位置了。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:360 | lg_csl_biangui | 国安恒大的那些年 ----
+
+
+
+{
+  'id': "lg_csl_biangui",
+  'title': "京津德比的火药味",
+  'icon': '🔥',
+  'weight': 0x50,
+  'when': function(p){return "csl"===p["leagueId"]&&!p["inAcademy"];},
+
+
+
+  'desc': "京津德比日，工体外的街道被蓝色和绿色分割。赛前两队球迷在地铁里对骂，你坐在大巴上看着窗外——这座城市的另一半，今晚是你的敌人。",
+  'options': [
+    {
+        'label': "在客场拿出表现",
+      'p': function(p){return f(0.52,[[p["talent"],1,0.25],[p["ovr"],0x46,0.006]],0.22,0.83);},
+        'hint': function(p,q){return g(q,"征服工体","被嘘到退役");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0x8,'ovr':0x2,'text':"你在客场打进一球，然后跑到客队看台前庆祝。六万人的嘘声中，你的队友冲过来抱住你。那一夜，你成了全城最出名的人——一半人爱你，一半人恨你。"}:{'fame':-0x3,'text':"你在工体被嘘了九十分钟，失误了两次，赛后被媒体批评。教练说：德比不是普通的比赛，你的心理素质得再强一点。"};}
+    },
+    {
+        'label': "稳住心态",
+      'apply': function(){return{'ovr':0x1,'text':"你告诉自己这只是联赛中的一场。专注战术执行，不受干扰。虽然没进球，但你完成了防守任务。"};}
+    }
+  ]
+},
+
+
+
+// ---- idx:361 | lg_cl1_mengjin | 中甲冲超路 ----
+
+
+
+{
+  'id': "lg_cl1_mengjin",
+  'title': "冲超之路",
+  'icon': '📈',
+  'weight': 0x50,
+  'when': function(p){return "cl1"===p["leagueId"]&&!p["inAcademy"];},
+
+
+
+  'desc': "中甲的竞争比你想的激烈：每个赛季都有三到四支球队在冲超，最后一轮还可能有三四队同时争夺一个升级名额。你在更衣室里看着积分榜——差两分，赢球就上去。",
+  'options': [
+    {
+        'label': "带队冲超",
+      'p': function(p){return f(0.50,[[p["talent"],1,0.3],[p["ovr"],0x48,0.008]],0.20,0.82);},
+        'hint': function(p,q){return g(q,"冲超成功","功亏一篑");},
+        'apply': function(p,q,s){return d(q,s)?{'fame':0xc,'ovr':0x2,'text':"最后一轮，你助攻绝杀。终场哨响时，队友们冲进场内抱成一团。下赛季，中超见。"}:{'ovr':-0x1,'text':"你踢丢了关键点球。终场哨响时，你蹲在草坪上很久没起来。教练说：中甲的冲超战，每年都是一部悲剧。"};}
+    },
+    {
+        'label': "稳扎稳打",
+      'apply': function(){return{'ovr':0x1,'text':"你没有给自己太大压力，专注每一场比赛。虽然最后差了一步，但你的表现被中超球队看在眼里。"};}
+    }
+  ]
+},
 
 ];
-
-
 
 

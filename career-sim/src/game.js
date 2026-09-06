@@ -131,11 +131,11 @@ return c5["length"]?"<div style=\"margin-top:.55rem;display:flex;flex-wrap:wrap;
 }(c3["bonus"])+"</div>";
 }(0x0);
 }else{if(0x3===aX){var bZ=av["dreamId"]?ag(av["dreamId"]):null,c0=bZ?a6["leagueOf"+"Team"](bZ):null,c1=aZ||(bZ?bZ["league"]:"csl");
-bX="<button "+"class=\"d"+"ream-non"+'e'+(bZ?'':" selecte"+'d')+("\" data-d"+"ream=\"\">"+"<span cl"+"ass=\"dre"+"am-none-"+"t\">随缘</s"+"pan><spa"+"n class="+"\"dream-n"+"one-d\">")+(bZ?"现在指定的是 "+ax(bZ["name"])+'（'+ax(c0?c0["name"]:'')+'）'+(c0&&!c0['cn']?" · 12 岁送"+"出国要花 "+[12,20,35,55,80,100][bZ["rep"]||0x1]+(" 万，家底不够就"+"是欠债去的"):''):"不指定，报价单照"+"旧全凭运气")+("</span><"+"/button>"+"<div cla"+"ss=\"lg-t"+"abs\">")+a0["LEAGUES"]["map"](function(c2){
+bX="<button "+"class=\"d"+"ream-non"+'e'+(bZ?'':" selecte"+'d')+("\" data-d"+"ream=\"\">"+"<span cl"+"ass=\"dre"+"am-none-"+"t\">随缘</s"+"pan><spa"+"n class="+"\"dream-n"+"one-d\">")+(bZ?"现在指定的是 "+ax(bZ["name"])+'（'+ax(c0?c0["name"]:'')+'）'+(c0&&!c0['cn']?" · 12 岁送"+"出国要花 "+[12,20,35,55,80,100][bZ["rep"]||0x1]+(" 万，家底不够就"+"是欠债去的"):''):"不指定，报价单照"+"旧全凭运气")+("</span><"+"/button>"+"<div cla"+"ss=\"lg-t"+"abs\">")+a0["LEAGUES"]["slice"]()["sort"](function(ca,cb){return(cb["str"]||0x0)-(ca["str"]||0x0)||(cb["rep"]||0x0)-(ca["rep"]||0x0)||(ca['id']<cb['id']?-0x1:0x1);})["map"](function(c2){
 return "<button "+"class=\"l"+"g-tab"+(c1===c2['id']?" selecte"+'d':'')+("\" data-d"+"reamlg=\"")+c2['id']+'\x22>'+ax(c2["name"])+("</button"+'>');
 })["join"]('')+("</div><d"+"iv class"+"=\"dream-"+"grid\">")+a0["TEAMS"]["filter"](function(c2){
 return c2["league"]===c1;
-})["map"](function(c2){
+})["sort"](function(ca,cb){return(cb["rep"]||0x0)-(ca["rep"]||0x0)||(ca['id']<cb['id']?-0x1:0x1);})["map"](function(c2){
 return "<button "+"class=\"d"+"ream-tea"+'m'+(av["dreamId"]===c2['id']?" selecte"+'d':'')+("\" data-d"+"ream=\"")+c2['id']+'\x22>'+aT(c2)+"<span>"+ax(c2["name"])+"</span>"+'<em class="dream-hint">'+ax(["保级队","中下游","中游","争冠","豪门","顶级豪门"][c2["rep"]||0x0])+("</em><"+"/button>");
 })["join"]('')+"</div>";
 }else bX="<div cla"+"ss=\"jers"+"ey-wrap\""+'>'+aM(av["origin"],av["name"]||'球员',av["number"])+("</div><d"+"iv class"+"=\"form-r"+"ow\"><div"+"><span c"+"lass=\"fi"+"eld-labe"+"l\">姓名</s"+"pan><inp"+"ut class"+"=\"input\""+" id=\"in-"+"name\" ma"+"xlength="+"\"6\" plac"+"eholder="+"\"李亦非\" au"+"tocomple"+"te=\"off\""+" value=\"")+ax(av["name"])+("\"></div>"+"<div cla"+"ss=\"narr"+"ow\"><spa"+"n class="+"\"field-l"+"abel\">号码"+"</span><"+"input cl"+"ass=\"inp"+"ut\" id=\""+"in-numbe"+"r\" type="+"\"number\""+" min=\"1\""+" max=\"99"+"\" value="+'\x22')+av["number"]+("\"></div>"+"</div><d"+"iv style"+"=\"margin"+"-top:1.1"+"rem\"><sp"+"an class"+"=\"field-"+"label\">惯"+"用脚</span"+"><div cl"+"ass=\"seg"+"mented\" "+"id=\"foot"+"-seg\"><b"+"utton cl"+"ass=\"seg")+("left"===av["foot"]?" selecte"+'d':'')+("\" data-f"+"oot=\"lef"+"t\">左脚</b"+"utton><b"+"utton cl"+"ass=\"seg")+("right"===av["foot"]?" selecte"+'d':'')+("\" data-f"+"oot=\"rig"+"ht\">右脚</"+"button><"+"/div></d"+"iv>")+("<div st"+"yle=\"ma"+"rgin-to"+"p:.9re"+"m\"><bu"+"tton ty"+"pe=\"butt"+"on\" dat"+"a-rerol"+"l class"+"=\"seg\">"+"换个随机</"+"button><"+"span st"+"yle=\"ma"+"rgin-le"+"ft:.6re"+"m;font-"+"size:.7"+"2rem;o"+"pacity:.65\">"+"姓名、号"+"码、惯用"+"脚都会重"+"新随机</sp"+"an></di"+"v>")+(bU2(av["name"],
@@ -212,14 +212,21 @@ return h;
 /* ── 世界面板：联赛/杯赛/洲际赛程与签表查询（数据走 SIM.world 只读接口，当季赛程仅本会话内可查） ── */
 
 var _wl={'tab':'lg','lg':'epl','rd':0,'cup':'','cont':'ucl','natAge':-1,'fxSeason':null,'natT':''};
-function _wlTable(tb,meTid){
+/* 升降级标记：该赛季结束时升降（lgMoves 由 _moveTeam 写入，s=该队当打赛季标签） */
+function _wlMoveTag(tid,season){
+var mv=au&&au["lgMoves"];
+if(!mv||season==null)return'';
+for(var i=0;i<mv["length"];i++)if(mv[i]["tid"]===tid&&mv[i]["s"]===season)return'<span class="mv-tag '+(mv[i]["dir"]==="up"?"up":"down")+'">'+(mv[i]["dir"]==="up"?"升级":"降级")+'</span>';
+return'';
+}
+function _wlTable(tb,meTid,season){
 if(!tb||!tb["length"])return'<div class="wl-empty">暂无积分榜数据</div>';
 var hasPts=tb[0]["pts"]!=null;
 var h='<div class="wl-row wl-head"><span class="age-chip">#</span><span class="tl-club"><span class="tl-club-name">球队</span></span><span class="r">胜</span><span class="r">平</span><span class="r">负</span><span class="r hide-xs">进</span><span class="r hide-xs">失</span>'+(hasPts?'<span class="r">分</span>':'')+'</div>';
 tb["forEach"](function(r){
 h+='<div class="wl-row'+(r["i"]===meTid?" me":"")+'">'
 +'<span class="age-chip">'+r["pos"]+'</span>'
-+'<span class="tl-club">'+aT(ag(r["i"]))+'<span class="tl-club-name">'+ax(r["n"]||"")+'</span></span>'
++'<span class="tl-club">'+aT(ag(r["i"]))+'<span class="tl-club-name">'+ax(r["n"]||"")+'</span>'+_wlMoveTag(r["i"],season)+'</span>'
 +'<span class="r">'+r["w"]+'</span><span class="r">'+r["d"]+'</span><span class="r">'+r["l"]+'</span>'
 +'<span class="r hide-xs">'+r["gf"]+'</span><span class="r hide-xs">'+r["ga"]+'</span>'
 +(hasPts?'<span class="r"><span class="wl-pts">'+r["pts"]+'</span></span>':'')
@@ -329,7 +336,7 @@ h+='</div>';
 var d1=window["SIM"]["world"]({'q':'lg','id':_wl["lg"],'season':_wl["fxSeason"]});
 h+=_wlSeasonSel(d1);
 h+='<div class="wl-title">'+ax(d1["name"])+'<span class="wl-note">'+(_wlSeasonLab(d1["fxSeason"])||(d1["table"]&&d1["table"][0]&&d1["table"][0]["pts"]==null?'仅名次':''))+'</span></div>';
-h+=_wlTable(d1["table"],meTid);
+h+=_wlTable(d1["table"],meTid,d1["fxSeason"]);
 h+='<div class="wl-title">赛程</div>';
 h+=_wlRounds(d1["rounds"],meTid);
 }else if(_wl["tab"]==='cup'){
@@ -1177,27 +1184,32 @@ c0+="<div cla"+"ss=\"stat"+"us-row\">"+"<div cla"+"ss=\"st-c"+"ell\"><sp"+"an cl
 "hsl(var("+"--accent"+'))')+b6('名气',au["fame"],"hsl(var("+"--warnin"+"g))")+("</div></"+"div>");c0+='<div class="status-row"><div class="st-cell"><span class="st-l">'+(au["money"]<0x0?"家里的欠债":"个人财富")+'</span><span class="st-v'+(au["money"]<0x0?" neg":"")+'">'+al(au["money"])+'</span></div><div class="st-cell"><span class="st-l">当前薪资</span><span class="st-v">'+(au["teamId"]&&au["contractLeft"]>0x0?al((function(t,lg){return t&&lg?Math.round(a6["wageAt"](t,lg,au["ovr"])*((au["wageMult"]||1)*(a0["ROLES"][au["role"]]["rank"]>=2?1:0.55))):(au["seasonWage"]||0)})(ai(),aj()))+" / 赛季":"无合同")+'</span></div></div>';
 var c2=a6["STAFF"]["filter"](function(c4){
 return au["staff"]&&au["staff"][c4['id']];
+})["map"](function(c4){
+var _t=(au["staff"][c4['id']]&&au["staff"][c4['id']]["tier"])||0x1;
+return a6["staffById"](_t===0x1?c4['id']:c4['id']+_t)||c4;
 });
 if("youth"===au["phase"]&&au["youthTeamId"]){
-var _iv=au["yInv"]||{},_yRows=[["train","加练专项","10万 · 成长 +18%"],["fit","私人体能","8万 · 淘汰风险 -30%"],["nut","营养跟进","6万 · 成长保底"],["gx","走动关系","6万 · 关系 +6"]],_yHtml='';
+var _iv=au["yInv"]||{},_yRows=[["train","加练专项","18万 · 成长 +18%"],["fit","私人体能","14万 · 淘汰风险 -30%"],["nut","营养跟进","10万 · 成长保底"],["gx","走动关系","10万 · 关系 +6"]],_yHtml='';
 _yHtml=_yRows["map"](function(c4){
 var _on=_iv[c4[0x0]]!=null;
 return "<label class=\"team-row yk"+(_on?" on":"")+"\"><input type=\"checkbox\" data-yopt=\""+c4[0x0]+"\""+(_on?" checked":"")+"><span class=\"team-name\">"+ax(c4[1])+"</span><span class=\"team-fx\">"+ax(c4[2])+"</span></label>";
 })["join"]('');
 c0+="<div class=\"staff-row\"><div class=\"staff-row-l\">青训投入<b>"+al(au["money"])+"</b>"+(function(){var _ys=0,_yk2;
-for(_yk2 in _iv)_ys+=({'train':10,'fit':8,'nut':6,'gx':6}[_yk2]||0);
+for(_yk2 in _iv)_ys+=({'train':18,'fit':14,'nut':10,'gx':10}[_yk2]||0);
 return _ys>0?"<i class=\"team-year\">年费 "+_ys+" 万</i>":'';
 }())+"<button class=\"team-tgl\" data-tact=\"tgl\" title=\"收起/展开\">"+(_teamOpen?"收起 ▴":"展开 ▾")+"</button></div>"+(_teamOpen?"<div class=\"team-list\">"+_yHtml+"<div class=\"team-row mk\"><span class=\"team-name\">报名试训</span><span class=\"team-fx\">冲一下更高一级的青训营，看能力、天赋和当前队伍档次</span><span class=\"team-fee\">18万</span>"+(au["money"]>=18?"<button class=\"team-btn\" data-tact=\"trial\">报名</button>":"<span class=\"team-no\">钱不够</span>")+"</div><div class=\"team-empty\">打勾的项目按年扣费，不取消就一直有效。</div></div>":"")+"</div>";
 }
 if(c2["length"]||"career"===au["phase"]){
 var _mkt=au["staffMkt"]&&au["staffMkt"]["ids"]||[],_mktCur=au["staffMkt"]&&au["staffMkt"]["season"]===au["seasons"]["length"]+1,_mktHtml='',_owHtml='',_warn=(a6["staffFee"]()>0&&au["money"]<a6["staffFee"]())?'<span class="st-warn">⚠ 钱不够付团队工资</span>':'';
 _owHtml=c2["map"](function(c4){
-var _ten=a6["staffTen"](c4['id']),_sy=((c4['id']==="chef"&&au["staff"]&&au["staff"]["nutrition"])||(c4['id']==="rehab"&&au["staff"]&&au["staff"]["fitness"]))?'<span class="st-sy">协同</span>':'';
+var _ten=a6["staffTen"](c4['id']),_sy=(c4['id']==="rehab"&&au["staff"]&&au["staff"]["fitness"])?'<span class="st-sy">协同</span>':'';
 return "<div class=\"team-row\"><span class=\"team-name\">"+ax(c4["name"])+(_ten>0?"<i>"+_ten+" 年</i>":'')+_sy+"</span><span class=\"team-fx\">"+ax(c4["desc"])+"</span><span class=\"team-fee\">"+al(a6["staffPrice"](c4))+"</span><button class=\"team-btn fire\" data-tact=\"fire:"+ax(c4['id'])+"\" title=\"违约金 "+al(a6["staffPrice"](c4))+"\">辞退</button></div>";
 })["join"]('');
 _mktHtml="career"===au["phase"]?(_mktCur&&(function(){
 var _av=[];
-_mkt["forEach"](function(c4){if(!(au["staff"]&&au["staff"][c4]))_av["push"](c4);});
+_mkt["forEach"](function(c4){var cf=a6["staffById"](c4);
+if(cf&&au["staff"]&&au["staff"][cf.type]&&((au["staff"][cf.type]["tier"]||1)>=(cf.tier||1)))return;
+_av["push"](c4);});
 au["staffMkt"]["ids"]=_av;
 _mkt=_av;
 return _av["length"];
@@ -1272,7 +1284,7 @@ c6+"</div>";
 '决策',c7?"租借期满，回到 "+c7["name"]:bZ["fired"]?"俱乐部不续约了":bZ["mustLeav"+'e']?"话已经说出口了":"转会窗",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">")+(c7?"你回来了。这一年"+"在外面踢的每一场"+"，这边都看在眼里"+" —— 接下来是"+"留是走，重新谈一"+'次。':bZ["fired"]?"你的出场时间已经"+"少到写不进总结。"+"合同到期，俱乐部"+"没有再谈的意思。":bZ["mustLeav"+'e']?"走这件事已经定了"+"，回头路没有了。"+"剩下的问题只是去"+"哪儿。":"合同到期了。这几"+"家来问过，也可以"+"留下。")+"</div>";
 c8+=bb(bZ["offers"]["map"](function(ce,cf){
 return bg(cf,ag(ce),ag(ce)["name"],'加盟',!0x0);
-})),bZ["loans"]&&bZ["loans"]["length"]&&(c8+="<div cla"+"ss=\"opts"+"-note\">在"+"这儿排不上号的话"+"，还可以租出去踢"+"一年</div>",c8+=bb(bZ["loans"]["map"](function(ce,
+})),bZ["rerolls"]>0&&(c8+=bb([ba("agentcall","让经纪人再打一轮电话","名单换一批"+(bZ["rerolls"]>0x1?" · 还剩 "+bZ["rerolls"]+" 次":" · 最后一次"))],"opts-alt")),bZ["loans"]&&bZ["loans"]["length"]&&(c8+="<div cla"+"ss=\"opts"+"-note\">在"+"这儿排不上号的话"+"，还可以租出去踢"+"一年</div>",c8+=bb(bZ["loans"]["map"](function(ce,
 cf){
 return bg("loan"+cf,ag(ce),ag(ce)["name"],'租借',!0x0);
 })));
@@ -1294,11 +1306,14 @@ return ba(ce["key"],ce["label"],ce["hint"]);
 })),cb+"</div>";
 }if("staff"===bZ["type"]){var cc=a6["STAFF"]["filter"](function(ce){
 return au["staff"]&&au["staff"][ce['id']];
+})["map"](function(ce){
+var _t=(au["staff"][ce['id']]&&au["staff"][ce['id']]["tier"])||0x1;
+return a6["staffById"](_t===0x1?ce['id']:ce['id']+_t)||ce;
 }),cd="<div cla"+"ss=\"even"+"t\">"+b1('🤝','决策',bZ["star"]?"有人主动找上门":"有人想跟你签约",!0x0)+"<div cla"+"ss=\"ev-d"+"esc'>"+(bZ["star"]?"你的名字开始被圈子里的"+"人记住"+(function(){var cs=a6["staffById"](bZ["offers"]&&bZ["offers"][0x0]);
 return cs?"，"+ax(cs["name"])+"听说了你上赛季的表"+"现，托人带话，想"+"跟你碰一面。":"。";
-}()):(bZ["star"]?'':'经纪公司列了几个人。都是按赛季付钱，签了就每年从你账上走。'))+"</div>"+(cc["length"]?"<div cla"+"ss=\"staf"+"f-cur\">现"+"在养着："+cc["map"](function(ce){
-return "<span cl"+"ass=\"chi"+"p\">"+ax(ce["name"])+"</span>";
-})["join"]('')+"<b>"+al(a6["staffFee"]())+(" / 赛季</b"+"></div>"):'');
+}()):(bZ["star"]?'':'经纪公司列了几个人。都是按赛季付钱，签了就每年从你账上走。'))+"</div>"+(cc["length"]?"<div cla"+"ss=\"staf"+"f-cur\">现"+"在养着："+ax(cc["map"](function(ce){
+return ce["name"];
+})["join"]("、"))+ax(" · ")+al(a6["staffFee"]())+(" / 赛季</div>"):'');
 return cd+=bb(bZ["offers"]["map"](function(ce){var cf=a6["staffByI"+'d'](ce);if(!cf)return'';
 return "<button "+"class=\"o"+"pt staff"+"-opt\" da"+"ta-opt=\""+ax(ce)+("\"><span "+"class=\"o"+"pt-label"+'\x22>')+ax(cf["name"])+("</span><"+"span cla"+"ss=\"staf"+"f-fee\">")+al(a6["staffPri"+'ce'](cf))+(" / 赛季</s"+"pan><spa"+"n class="+"\"opt-hin"+"t\">")+ax(cf["desc"])+("</span><"+"span cla"+"ss=\"staf"+"f-note\">")+ax(cf["note"])+("</span><"+"/button>");
 })),(cd+=bb([ba("skip","先不请","钱留着")],"opts-alt"))+"</div>";
@@ -1533,6 +1548,9 @@ a6["commitEv"+"ent"](bW),
 
 aA(),bN();
 }function bQ(bW){var bX=au["pending"];
+if("agentcall"===bW){var _rr=a6["transferReroll"]();
+_rr["ok"]?bO():bK(_rr["txt"]||'经纪人打不通了');
+return;}
 if(bX){if("random"===bX["type"]){if(bX["result"]||bf)return;
 var bY=a6["resolveE"+"vent"](bW);
 if(null===bY)return as();

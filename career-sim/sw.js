@@ -1,6 +1,6 @@
 /* 足一把-生涯模拟器 Service Worker
    缓存所有游戏资源，支持离线游玩和"添加到主屏幕" */
-const CACHE_NAME = 'zuyiba-v15';
+const CACHE_NAME = 'zuyiba-v16';
 const CORE_ASSETS = [
   './',
   './index.html',

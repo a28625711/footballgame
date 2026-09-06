@@ -1,11 +1,14 @@
 {
  "order": [
   "csl",
+  "cl1",
   "epl",
   "liga",
   "bund",
   "seri",
+  "serb",
   "l1",
+  "l2",
   "ere",
   "pri",
   "jup",
@@ -19,6 +22,9 @@
   "mx",
   "cpl",
   "tur",
-  "ale"
+  "pol",
+  "ale",
+  "bra",
+  "arg"
  ]
 }

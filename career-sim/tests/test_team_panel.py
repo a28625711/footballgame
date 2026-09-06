@@ -31,6 +31,7 @@ while(au.pending&&guard++<30){
 }
 var mkt=window.SIM.staffMkt();
 if(!mkt||!mkt.ids) return JSON.stringify({fail:'no staff market after season'});
+function stType(id){var m=/^(.*?)([123])$/.exec(id);return m&&['rehab','fitness','analyst','agent','pr','lawyer','chef'].indexOf(m[1])>=0?m[1]:id;}
 var bad=mkt.ids.some(function(id){return !window.SIM.staffById(id);});
 if(bad) return JSON.stringify({fail:'market contains unknown staff id'});
 var hired=[];
@@ -41,16 +42,16 @@ for(var i=0;i<mkt.ids.length;){
   if(window.SIM.staffMkt().ids.indexOf(id)>=0) return JSON.stringify({fail:'hired id still in market: '+id});
   i=0;
   hired.push(id);
-  if(!(au.staff[id]&&typeof au.staff[id]==='object')) return JSON.stringify({fail:'staff entry not object'});
+  if(!(au.staff[stType(id)]&&typeof au.staff[stType(id)]==='object')) return JSON.stringify({fail:'staff entry not object for '+id});
 }
 if(!hired.length) return JSON.stringify({fail:'no candidates to hire'});
 if(window.SIM.staffFee()<=0) return JSON.stringify({fail:'staffFee not charged'});
 var fid=hired[0], before=au.money;
 var fn=window.SIM.teamFire(fid);
 if(!fn) return JSON.stringify({fail:'teamFire failed'});
-if(au.staff[fid]) return JSON.stringify({fail:'staff entry still present after fire'});
+if(au.staff[stType(fid)]) return JSON.stringify({fail:'staff entry still present after fire'});
 if(au.money>=before) return JSON.stringify({fail:'severance not deducted'});
-var outsider=['rehab','fitness','analyst','agent','nutrition','pr','lawyer','chef'].filter(function(id){return !au.staff[id]&&mkt.ids.indexOf(id)<0;})[0];
+var outsider=['rehab','fitness','analyst','agent','pr','lawyer','chef'].filter(function(id){return !au.staff[id]&&mkt.ids.indexOf(id)<0;})[0];
 if(outsider&&window.SIM.teamHire(outsider)) return JSON.stringify({fail:'hired outside market'});
 if(mkt.season!==au.seasons.length+1) return JSON.stringify({fail:'market season off-by-one: '+mkt.season+' vs '+(au.seasons.length+1)});
 // even a broke player must see candidates (affordability is UI-side)
@@ -86,29 +87,43 @@ return JSON.stringify({ok:1,hired:hired.length,mktN:mkt.ids.length,mktBroke:mkt2
 (function(){
 var au=window.__SIMTEST.start('normal',%NEW%,701);
 au.phase='youth'; au.youthTeamId='cn-sd'; au.teamId='cn-sd';
-au.age=13; au.ovr=46; au.maxOvr=52; au.money=40; au.talent=1.1;
+au.age=13; au.ovr=46; au.maxOvr=52; au.money=200; au.talent=1.1;
 au.flags={}; au.usedEvents={}; au.forceQ=[]; au.pending=null; au.youthLog=[];
 if(!window.SIM.youthInvest) return JSON.stringify({fail:'no youthInvest export'});
 if(!window.SIM.youthInvest('train',true)) return JSON.stringify({fail:'invest train refused'});
-if(au.money!==40) return JSON.stringify({fail:'money changed at check time: '+au.money});
+if(au.money!==200) return JSON.stringify({fail:'money changed at check time: '+au.money});
 if(au.yInv.train==null) return JSON.stringify({fail:'yInv entry not set'});
 if(!window.SIM.youthInvest('fit',true)) return JSON.stringify({fail:'invest fit refused'});
 // uncheck before the year ticks: no cost at all
 if(!window.SIM.youthInvest('fit',false)) return JSON.stringify({fail:'uncheck refused'});
 if(!window.SIM.youthInvest('train',false)) return JSON.stringify({fail:'uncheck refused'});
-if(au.money!==40) return JSON.stringify({fail:'uncheck changed money'});
-// standing invest: charge happens at each growth tick
+if(au.money!==200) return JSON.stringify({fail:'uncheck changed money'});
+// standing invest: charge happens at each growth tick.
+// Per-step exact check: every nextStep that advances the age must deduct
+// 10*years on the spot, BEFORE the pending event's money effect applies.
+// (Absolute end-state money is fragile: youth random events can grant/spend
+// money, and any world-state change reshuffles which events fire.)
 if(!window.SIM.youthInvest('train',true)) return JSON.stringify({fail:'re-invest refused'});
-var o0=au.ovr, guard=0;
-try{ window.SIM.nextStep(); }catch(e){ return JSON.stringify({fail:'nextStep: '+String(e).slice(0,150)}); }
-while(au.pending&&guard++<40){
+var o0=au.ovr, guard=0, chargeErr=null, steps=0;
+function stepChk(){
+  var mb=au.money, ab=au.age;
+  try{ window.SIM.nextStep(); }catch(e){ return JSON.stringify({fail:'nextStep: '+String(e).slice(0,150)}); }
+  var dAge=au.age-ab;
+  if(dAge>0&&au.yInv.train!=null&&au.money!==mb-18*dAge&&chargeErr==null)
+    chargeErr='tick@'+au.age+': '+mb+'->'+au.money+' dAge='+dAge;
+  steps++;
+  return null;
+}
+var err=stepChk(); if(err) return err;
+while(au.pending&&guard++<60){
   var p=au.pending;
   if(p.type==='youthSpend') return JSON.stringify({fail:'youthSpend popup still exists'});
   if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
-  else { window.SIM.nextStep(); }
+  else { var e2=stepChk(); if(e2) return e2; }
 }
 var years=au.age-13;
-if(au.money!==40-10*years) return JSON.stringify({fail:'tick charge wrong: money='+au.money+' years='+years});
+if(chargeErr) return JSON.stringify({fail:'tick charge wrong: '+chargeErr+' years='+years});
+if(years<2) return JSON.stringify({fail:'too few years advanced: '+years+' steps='+steps});
 if(au.yInv.train==null) return JSON.stringify({fail:'standing invest did not continue'});
 if(!(au.ovr>o0)) return JSON.stringify({fail:'no growth while standing'});
 return JSON.stringify({ok:1,money:au.money,age:au.age,years:years,dOvr:Math.round(au.ovr-o0)});

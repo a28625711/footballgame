@@ -66,7 +66,7 @@ def run():
     res = json.loads(mr.eval(LOOP))
     harness.check('err' not in res, res.get('err', ''))
     fx = res['fx']
-    harness.check(len(fx) == 20, 'leagues with fx = %d != 20' % len(fx))  # 18+墨超+加拿超
+    harness.check(len(fx) == 26, 'leagues with fx = %d != 26' % len(fx))  # 20+墨超+加拿超+6 新联赛
 
     def rate(lg):
         a = fx[lg]
