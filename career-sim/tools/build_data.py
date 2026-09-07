@@ -21,7 +21,12 @@ def var_decl(filename):
 # 固定模块（a/b 保留原名，结局闭包引用 a）
 modules = [var_decl('awards.ev.js'), var_decl('endings.ev.js'),
            var_decl('positions.ev.js'), var_decl('leagues.ev.js'),
-           var_decl('config.ev.js')]
+           var_decl('config.ev.js'), var_decl('academy_patch.ev.js')]
+
+# 青训营补丁：按 id 把 ACADEMY_PATCH 写回各队（须在 window.DATA 建立后执行）
+ACADEMY_RUN = ('(function(){var _apm=ACADEMY_PATCH,_atv=window["DATA"]["TEAMS"];'
+               'for(var _ati=0;_ati<_atv["length"];_ati++){var _ata=_atv[_ati]["id"];'
+               'if(_apm[_ata])_atv[_ati]["academy"]=_apm[_ata];}})();')
 
 team_decls = []
 for lg in team_order:
@@ -62,7 +67,7 @@ for k in cfg_keys2:
     literal_parts.append("'%s':config['%s']" % (k, k))
 literal_parts.append("'ENDINGS':b")
 
-body = NL.join(modules + team_decls + ['window["DATA"]={' + ','.join(literal_parts) + '};'])
+body = NL.join(modules + team_decls + ['window["DATA"]={' + ','.join(literal_parts) + '};', ACADEMY_RUN])
 built = NL.join([
     HEADER,
     "(0x0,!(function(){'use strict';",

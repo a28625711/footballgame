@@ -340,6 +340,7 @@ return{'clean':0x6,'fame':-0x4,'text':"最后一场哨响，你自己走到中�
   'icon': '⬇️',
   'weight': 0x32,
   'stage': "vet",
+  'when': function(p){return p["roleRank"]<0x2;},
   'desc': "{league}已经没有球队要你了。往低走一级，倒有两支队伍，愿意给你主力位置。",
 
 
