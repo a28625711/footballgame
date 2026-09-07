@@ -50,6 +50,18 @@ if(!au)return;
 var _had=!1;try{_had=null!==localStorage["getItem"](a2+"world");}catch(bW){_had=!1;}
 _whSeas=_whNewest();
 if(!_had){_whWrite();_whSeas=_whNewest();}
+_tblMig();
+}
+/* 旧档迁移：旧代码把「第S季最终榜」存到了 S-1 标签下（lgTblArch 整体错位一年），
+   升级后把每一条的标签 +1 对齐到真实赛季（lgMoves/lgFx 的标签一直是真实赛季号）。
+   一次性迁移，以 _tblAlign 标记（新代码写榜时也会打上）。 */
+function _tblMig(){
+if(!au||au["_tblAlign"]||!au["lgTblArch"])return;
+var _arr=au["lgTblArch"],_m={};
+for(var _i=0;_i<_arr["length"];_i++){var _f=_arr[_i];if(_f&&null!=_f["season"]&&_m[_f["season"]+1]==null)_m[_f["season"]+1]=_f;}
+var _out=[];for(var _k in _m){var _e=_m[_k];_e["season"]=Number(_k);_out["push"](_e);}
+_out["sort"](function(a,b){return a["season"]-b["season"];});
+au["lgTblArch"]=_out;au["_tblAlign"]=1;
 }
 function aw(bW){
 return document["getEleme"+"ntById"](bW);

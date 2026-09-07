@@ -1905,17 +1905,22 @@ orders[lg["id"]]=o;
 }
 a2["lastTables"]=orders;
 a2["lgTables"]=world;
-(function(){
-/* 往期联赛归档：赛程打包（近 30 季，体积大头）+ 最终积分榜打包（全量保留） */
-if(!a2["lgFx"]||!a2["lgFx"]["data"])return;
-var _pk={},_tb={};
-for(var _k in a2["lgFx"]["data"]){var _dd=a2["lgFx"]["data"][_k];if(!_dd)continue;
-_pk[_k]=_dd.map(function(rd){return rd.map(function(m){return m.join(",");}).join(";");}).join("|");}
-var _lt=a2["lgTables"];
-if(_lt)for(var _k2 in _lt)if(_lt[_k2])_tb[_k2]=_pkTblArr(_lt[_k2]);
-_archPush("lgTblArch",a2["lgFx"]["season"],_tb);
-_archPush("lgFxArch",a2["lgFx"]["season"],_pk,30);
-})();a2["lgFx"]={'season':_fxSeasonLab(),'data':_fxAll};
+ (function(){
+ /* 往期联赛归档：赛程打包（近 30 季，体积大头）+ 最终积分榜打包（全量保留）。
+    标签语义：第 S 季 → lgFxArch[S]=S 季赛程、lgTblArch[S]=S 季最终榜、lgMoves s=S=S 季末升降。
+    注意 lgTblArch 必须用「当季」标签 _fxSeasonLab()（而非上一季 lgFx.season），否则历史榜整体错位一年。 */
+ var _lab=_fxSeasonLab();a2["_fxLab"]=_lab;
+ if(a2["lgFx"]&&a2["lgFx"]["data"]){
+ var _pk={};
+ for(var _k in a2["lgFx"]["data"]){var _dd=a2["lgFx"]["data"][_k];if(!_dd)continue;
+ _pk[_k]=_dd.map(function(rd){return rd.map(function(m){return m.join(",");}).join(";");}).join("|");}
+ _archPush("lgFxArch",a2["lgFx"]["season"],_pk,30);
+ }
+ var _tb={},_lt=a2["lgTables"];
+ if(_lt)for(var _k2 in _lt)if(_lt[_k2])_tb[_k2]=_pkTblArr(_lt[_k2]);
+ _archPush("lgTblArch",_lab,_tb);
+ a2["_tblAlign"]=1;
+ })();a2["lgFx"]={'season':_fxSeasonLab(),'data':_fxAll};
 return world;
 }
 
@@ -2499,8 +2504,9 @@ a2["repOf"]=a2["repOf"]||{};
 a2["repOf"][tid]=up?(idx===0?1:0):(idx===0?5:4);
 /* 降班不再额外扣 dev（rep 掉档已是足够惩罚，双重惩罚会螺旋下坠）；升班保留 +1 */
 if(up)_devAdd(tid,1);
-/* 记录升降级（供世界面板在对应赛季积分榜上打 升级/降级 标） */
-if(a2["lgFx"]&&a2["lgFx"]["season"]!=null){a2["lgMoves"]=a2["lgMoves"]||[];a2["lgMoves"]["push"]({'s':a2["lgFx"]["season"],'tid':tid,'dir':up?'up':'down'});}
+/* 记录升降级（供世界面板在对应赛季积分榜上打 升级/降级 标）。s 用该次积分榜所属世界的
+   赛季标签 _fxLab（_lgAll 写入），而不是当前 lgFx.season——大场面推迟 _promoReleg 时后者已前移一年 */
+if(a2["lgFx"]&&a2["lgFx"]["season"]!=null){a2["lgMoves"]=a2["lgMoves"]||[];a2["lgMoves"]["push"]({'s':a2["_fxLab"]!=null?a2["_fxLab"]:a2["lgFx"]["season"],'tid':tid,'dir':up?'up':'down'});}
 }
 function _promoReleg(bz,
 bx,by){
