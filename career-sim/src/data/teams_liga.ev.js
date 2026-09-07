@@ -10,12 +10,12 @@ var TEAMS_liga = [
 {'id':"rso",'name':"皇家社会",'league':"liga",'rep':0x3,'color':"#0067B1"},
 {'id':"vil",'name':"比利亚雷亚尔",'league':"liga",
 'rep':0x3,'color':"#FFE667"},
-{'id':"bet",'name':"皇家贝蒂斯",'league':"liga",'rep':0x2,'color':"#00954C"},
+{'id':"bet",'name':"皇家贝蒂斯",'league':"liga",'rep':0x3,'color':"#00954C"},
 {'id':"sev",'name':"塞维利亚",
-'league':"liga",'rep':0x2,'color':"#D8112B"},
-{'id':"gir",'name':"赫罗纳",'league':"liga",'rep':0x2,'color':"#CD2534"},
+'league':"liga",'rep':0x3,'color':"#D8112B"},
+{'id':"gir",'name':"赫罗纳",'league':"liga",'rep':0x3,'color':"#CD2534"},
 {'id':"val",
-'name':"瓦伦西亚",'league':"liga",'rep':0x3,'color':"#F18E00"},
+'name':"瓦伦西亚",'league':"liga",'rep':0x2,'color':"#F18E00"},
 {'id':"cel",'name':"塞尔塔",'league':"liga",'rep':0x2,'color':"#8AC3EE"},
 {'id':"osa",'name':"奥萨苏纳",'league':"liga",'rep':0x2,'color':"#CC0C0C"},
 {'id':"mao",'name':"马洛卡",'league':"liga",'rep':2,'color':"#E11B22"},
@@ -24,6 +24,6 @@ var TEAMS_liga = [
 {'id':"alv",'name':"阿拉维斯",'league':"liga",'rep':1,'color':"#004A98"},
 {'id':"cad",'name':"加的斯",'league':"liga",'rep':1,'color':"#F9C716"},
 {'id':"lpa",'name':"拉斯帕尔马斯",'league':"liga",'rep':1,'color':"#F5D617"},
-{'id':"esp",'name':"西班牙人",'league':"liga",'rep':1,'color':"#007FC8"},
-{'id':"grd",'name':"格拉纳达",'league':"liga",'rep':0,'color':"#E64415"}
+{'id':"esp",'name':"西班牙人",'league':"liga",'rep':2,'color':"#007FC8"},
+{'id':"grd",'name':"格拉纳达",'league':"liga",'rep':1,'color':"#E64415"}
 ];

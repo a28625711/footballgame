@@ -1,9 +1,9 @@
 // window.DATA.TEAMS 中 league="ch" 的球队
 var TEAMS_ch = [
-{'id':"lee",'name':"利兹联",'league':'ch','rep':0x1,'color':"#FFCD00"},
-{'id':"sou",'name':"南安普顿",'league':'ch','rep':0x1,'color':"#D71920"},
-{'id':"sto",'name':"斯托克城",'league':'ch','rep':0x0,'color':"#E03A3E"},
-{'id':"sun",'name':"桑德兰",'league':'ch','rep':0x1,'color':"#E40C24"},
+{'id':"lee",'name':"利兹联",'league':'ch','rep':0x2,'color':"#FFCD00"},
+{'id':"sou",'name':"南安普顿",'league':'ch','rep':0x2,'color':"#D71920"},
+{'id':"sto",'name':"斯托克城",'league':'ch','rep':0x1,'color':"#E03A3E"},
+{'id':"sun",'name':"桑德兰",'league':'ch','rep':0x2,'color':"#E40C24"},
 {'id':"mid",'name':"米德尔斯堡",'league':'ch','rep':0x1,'color':"#CC0C3C"},
 {'id':"wba",'name':"西布罗姆维奇",'league':'ch','rep':0x1,
 'color':"#122F67"},
@@ -17,12 +17,12 @@ var TEAMS_ch = [
 {'id':"pre",'name':"普雷斯顿",'league':"ch",'rep':0,'color':"#004197"},
 {'id':"hul",'name':"赫尔城",'league':"ch",'rep':0,'color':"#F7A600"},
 {'id':"rdg",'name':"雷丁",'league':"ch",'rep':0,'color':"#004197"},
-{'id':"bla",'name':"布莱克本",'league':"ch",'rep':2,'color':"#004197"},
+{'id':"bla",'name':"布莱克本",'league':"ch",'rep':1,'color':"#004197"},
 {'id':"bri",'name':"布里斯托尔城",'league':"ch",'rep':1,'color':"#C8102E"},
 {'id':"der",'name':"德比郡",'league':"ch",'rep':2,'color':"#004197"},
-{'id':"birmingham",'name':"伯明翰",'league':"ch",'rep':2,'color':"#004197"},
+{'id':"birmingham",'name':"伯明翰",'league':"ch",'rep':1,'color':"#004197"},
 {'id':"mil2",'name':"米尔沃尔",'league':"ch",'rep':1,'color':"#004197"},
-{'id':"oxf",'name':"牛津联",'league':"ch",'rep':1,'color':"#004197"},
+{'id':"oxf",'name':"牛津联",'league':"ch",'rep':0,'color':"#004197"},
 {'id':"portsmouth",'name':"朴茨茅斯",'league':"ch",'rep':1,'color':"#004197"},
 {'id':"bolto",'name':"博尔顿",'league':"ch",'rep':1,'color':"#C8102E"}
 ];
