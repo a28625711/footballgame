@@ -6274,6 +6274,7 @@ return d(q,s)?{'leave':!0x0,'ovr':0x1,'fame':0x6,'text':"低一级的球队递�
   'icon': '🪑',
   'weight': 0x34,
   'stage': "vet",
+  'when': function(p){return p["roleRank"] < 2;},
   'desc': "一个赛季你只上场四次，全在补时。汗还没出，哨就响了。",
 
 
