@@ -1013,9 +1013,8 @@ return{'name':_natFxNames[tag],'raw':1,'champion':_champ,'rounds':ko.rounds,
 'groups':groups.map(function(g2,gi){return{'name':'第'+(gi+1)+'组','standings':g2.sim.standings,'matches':_flatMs(g2.sim.matches)};})};
 }
 /* natFx 每季推进：归档上一届→重置→按"当前季序"决定本季模拟哪项大赛。
-   职业期季序=seasons.length（与球员预选赛/参赛同源，不改原逻辑）；
-   青训期 seasons 未计数，用 age-100 与 natFx 的季标签(_fxSeasonLab)同源，
-   使世界杯/亚洲杯等四大赛在每个青训年也照常演化，世界面板不再冻结。 */
+   四大赛周期计数器必须跨阶段连续：age 在青训每岁与职业每季各 +1（1:1），
+   故以 age 为唯一计数器；青训/职业共用同一公式，转职业不再"重新开始计数"。 */
 function _natChinaWorld(comp){
 /* AI 中国队正常走预选赛：出线 → 正赛签表含中国（结构同玩家参赛版）；
    未出线 → 退化为"正赛无中国"的中立签表（中国队缺席=预选赛出局） */
@@ -1026,10 +1025,11 @@ var _c=_runNatComp(comp,_pt);
 return{'name':_natFxNames[comp],'raw':1,'rounds':_c["rounds"],
 'groups':(_c["allGroups"]||[]).map(function(st,gi){return{'name':'第'+(gi+1)+'组','standings':st};})};
 }
+function _natYr(){return((a2["age"]-100)%4+4)%4;}
 function _natTick(_natTourn,_cnElim,_forceChamp){
 _fxArch("natFxArch",a2["natFx"]);
 a2["natFx"]={'season':_fxSeasonLab(),'data':{}};
-var _nyr=a2["phase"]==="youth"?((a2["age"]-100)%4+4)%4:a2["seasons"]["length"]%4;
+var _nyr=_natYr();
 var _natTgt=_nyr===0x1?'wc':_nyr===0x3?'asia':_nyr===0x0?'euro':'copa';
 if(_forceChamp&&_forceChamp===_natTgt){
 /* 作弊直接夺冠：世界面板也要与世界纪录一致，中国队即冠军 */
@@ -2403,7 +2403,7 @@ _runClubWC(bz,
 bx);
 }
 function _runClubWC(bz,bx){
-if(a2["seasons"]["length"]%4!==0x2)return;
+if(_natYr()!==0x2)return;
 var pick={},cards=[],ucl=[],i;
 for(i=a2["contHist"]["length"]-1;i>=0&&ucl.length<4;i--)if(a2["contHist"][i]["comp"]==='ucl'&&ucl.indexOf(a2["contHist"][i]["tid"])<0)ucl.push(a2["contHist"][i]["tid"]);
 function add(tid){if(!pick[tid]&&aj(tid)){pick[tid]=1;cards.push(_cardById(tid));}}
@@ -2776,7 +2776,7 @@ bZ=a0["ROLES"][a2["role"]]["rank"],c0=ac(bY*(bZ>=0x3?0x1:bZ>=0x2?0.6:0.2)*(by["r
 
 0x0,0.9);
 bX=a2["cheat"]||ad()<c0;
-}if(bX){var c2=aL(),c3=a2["seasons"]["length"]%0x4;
+}if(bX){var c2=aL(),c3=_natYr();
 var _natMatches=[],_natFr=[],_natQual=null,
 
 

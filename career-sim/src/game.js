@@ -15,6 +15,42 @@ au&&au["flags"]&&au["flags"]["_yInvLost"]&&(delete au["flags"]["_yInvLost"],bK("
 }function as(){
 a6["nextStep"](),aA(),ar();
 }var au=null,av=null,_teamOpen=!0x0;
+/* 世界历史归档与主档分离：主档 gyrs_save 只存玩家+当季状态(小)，历史体积大头
+   (联赛/杯赛/洲际/国家队逐季归档) 单独存 gyrs_world，写不进去时自动裁剪最老赛季 */
+var WH_KEYS=['lgTblArch','lgFxArch','contFxArch','cupFxArch','natFxArch'],_whSeas=null,_whWarned=!1,_whFail=!1;
+function _whNewest(){
+var s=null;
+for(var i=0;i<WH_KEYS["length"]&&null==s;i++){var a=au&&au[WH_KEYS[i]];if(a&&a["length"]&&a[a["length"]-0x1]&&null!=a[a["length"]-0x1]["season"])s=a[a["length"]-0x1]["season"];}
+return s;
+}function _whTrim(){
+for(var i=0;i<WH_KEYS["length"];i++){var a=au&&au[WH_KEYS[i]];if(a&&a["length"]>0x1){a["shift"]();return!0x0;}}
+return!1;
+}function _whWrite(){
+if(!au)return;
+for(var t=0;t<0x40;t++){var h={},ok=!0;
+for(var i=0;i<WH_KEYS["length"];i++)if(au[WH_KEYS[i]]!=null)h[WH_KEYS[i]]=au[WH_KEYS[i]];
+try{localStorage["setItem"](a2+"world",JSON["stringify"](h));ok=!0;}catch(bW){ok=!1;}
+if(ok)return;
+if(!_whTrim())break;
+}
+_whFail=!0;
+try{console["error"]("[gyrs] world history exceeds storage even after trimming; older world seasons dropped/stopped");}catch(_e){}
+if(!_whWarned){_whWarned=!0;try{console["warn"]("[gyrs] 世界历史(往届赛程/杯赛)超过浏览器存储上限，最老的赛季已不再保留，你的生涯进度不受影响");}catch(_e2){}}
+}
+function aA(){
+if(!au)return;
+var _cur=_whNewest();
+if(_cur!==_whSeas){_whWrite();_whSeas=_cur;}
+var _r={},_k;
+for(_k in au)if(WH_KEYS["indexOf"](_k)<0x0)_r[_k]=au[_k];
+if(!az("save",_r)&&!_whFail){_whFail=!0;try{console["error"]("[gyrs] main save failed");}catch(_e){}}
+}
+function _whInit(){
+if(!au)return;
+var _had=!1;try{_had=null!==localStorage["getItem"](a2+"world");}catch(bW){_had=!1;}
+_whSeas=_whNewest();
+if(!_had){_whWrite();_whSeas=_whNewest();}
+}
 function aw(bW){
 return document["getEleme"+"ntById"](bW);
 }function ax(bW){
@@ -25,10 +61,7 @@ try{var bY=localStorage["getItem"](a2+bW);
 return null===bY?bX:JSON["parse"](bY);
 }catch(bZ){return bX;
 }}function az(bW,bX){
-try{localStorage["setItem"](a2+bW,JSON["stringif"+'y'](bX));
-}catch(bY){}}function aA(){
-au&&az("save",au);
-}function aB(){
+try{localStorage["setItem"](a2+bW,JSON["stringif"+'y'](bX));return!0x0;}catch(bY){return!1;}}function aB(){
 return a6["normLega"+'cy'](ay("legacy",null));
 }function aC(bW){
 az("legacy",bW);
@@ -53,13 +86,15 @@ bp(c2)["forEach"](function(c3){bX[c3]=0x1;
 var c0=0x0;
 for(var c1 in bX)Object["prototyp"+'e']["hasOwnPr"+"operty"]["call"](bX,c1)&&c0++;
 return{'lives':bZ,'best':bY,'endings':c0,'total':a0["ENDINGS"]["length"]};
-}function aI(){var bW=ay("save",null);
+}function aI(){var bW=ay("save",null),bH=ay("world",null);
+if(bW&&bH)for(var _wi=0;_wi<WH_KEYS["length"];_wi++){var _wk=WH_KEYS[_wi];if(null!=bH[_wk]&&null==bW[_wk])bW[_wk]=bH[_wk];}
 return bW&&bW["ver"]===a7?(bW["natRuns"]||(bW["natRuns"]=[]),null==bW["banGames"]&&(bW["banGames"]=0x0),bW["choices"]||(bW["choices"]=[],bW["rid"]=null),null==bW["wageMul"+'t']&&(bW["wageMul"+'t']=0x1),
 bW["pending"]&&"staff"===bW["pending"]["type"]&&bW["pending"]["offers"]&&(bW["pending"]["offers"]=bW["pending"]["offers"]["filter"](function(bX){return!!a6["staffBy"+'Id'](bX);}),bW["pending"]["offers"]["length"]||(bW["pending"]=null)),
 void 0x0===bW["rid"]&&(bW["rid"]=null),bW):null;
 }function aJ(){
 try{localStorage["removeIt"+'em'](a2+"save");
-}catch(bW){}}function aK(bW){var bX=String(bW)["replace"]('#','');
+}catch(bW){}try{localStorage["removeIt"+'em'](a2+"world");
+}catch(bW){}_whSeas=null;}function aK(bW){var bX=String(bW)["replace"]('#','');
 return 0x3===bX["length"]&&(bX=bX[0x0]+bX[0x0]+bX[0x1]+bX[0x1]+bX[0x2]+bX[0x2]),(0x12b*parseInt(bX["slice"](0x0,0x2),0x10)+0x24b*parseInt(bX["slice"](0x2,0x4),0x10)+0x72*parseInt(bX["slice"](0x4,0x6),0x10))/0x3e8>0x96;
 }function aL(bW,bX){var bY="assets/j"+"ersey/"+bW['id'];
 return function(bZ){var c0=aV('jg');
@@ -461,7 +496,7 @@ if(!_sel)return;
 var _v=_sel["value"];
 _wl["fxSeason"]=_v?parseInt(_v,10):null;_wl["rd"]=0;
 var root=document["querySelector"]('[data-panel="world"] .wl-root');
-if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';}
+if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';try{console["error"](_e);}catch(_e2){}}
 });
 document["addEventListener"]("click",function(e){
 var el=e["target"]["closest"]("[data-wld]");
@@ -486,7 +521,7 @@ var _md2=document["getElementById"]("season-modal");
 if(_md2)_md2["classList"]["add"]("hidden");
 }
 var root=document["querySelector"]('[data-panel="world"] .wl-root');
-if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';}
+if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';try{console["error"](_e);}catch(_e2){}}
 },true);
 
 function b9(bW){var bX=ah(au["pos"])["group"];
@@ -1789,7 +1824,7 @@ Array["prototyp"+'e']["forEach"]["call"](aw("mode-seg")["children"],function(c9)
 c9["classLis"+'t']["toggle"]("selected",c9["getAttri"+"bute"]("data-mod"+'e')===c5);
 }),aw("seg-note")["textCont"+"ent"]=bV[c5]||bV["normal"],aw("btn-star"+'t')["addEvent"+"Listener"]("click",function(){var c9=aI();
 if(c9&&"summary"!==c9["phase"]&&c9["seasons"]&&c9["seasons"]["length"]){if(confirm("检测到上次的存档"+'（'+c9["name"]+'，'+c9["age"]+(" 岁），继续吗？"+"\n取消则重新开始"+'。')))return au=c9,
-a6["attach"](au),void bO();
+a6["attach"](au),void(_whInit(),bO());
 aJ();
 }bU();
 }),aw("btn-back")["addEvent"+"Listener"]("click",function(){
@@ -2002,7 +2037,7 @@ if(c2["note"]&&!au["eventLog"]["some"](function(c5){return c5["age"]===c2["age"]
 
 
 
-a6["attach"](au),function(){try{bO()}catch(_e){console.error("bO failed:",_e);bM("view-int"+'ro');}}()):bM("view-int"+'ro'),
+a6["attach"](au),function(){try{_whInit();bO();}catch(_e){console.error("bO failed:",_e);bM("view-int"+'ro');}}()):bM("view-int"+'ro'),
 
 
 
