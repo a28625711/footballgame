@@ -485,6 +485,10 @@ h+='<div class="wl-empty">还没有国家队记录</div>';
 }
 return h;
 }
+function _wlRender(){var _roots=document["querySelectorAll"]('[data-panel="world"] .wl-root');
+if(!_roots||!_roots["length"])return;
+for(var _i=0;_i<_roots["length"];_i++)try{_roots[_i]["innerHTML"]=bWorldHTML();}catch(_e){_roots[_i]["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';try{console["error"](_e);}catch(_e2){}}
+}
 document["addEventListener"]("change",function(e){
 if(e["target"]&&e["target"]["getAttribute"]&&e["target"]["getAttribute"]("data-yopt")!=null){
 var _yk=e["target"]["getAttribute"]("data-yopt"),_yc=e["target"]["checked"];
@@ -495,8 +499,7 @@ var _sel=e["target"]&&e["target"]["closest"]?e["target"]["closest"]("[data-wlsel
 if(!_sel)return;
 var _v=_sel["value"];
 _wl["fxSeason"]=_v?parseInt(_v,10):null;_wl["rd"]=0;
-var root=document["querySelector"]('[data-panel="world"] .wl-root');
-if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';try{console["error"](_e);}catch(_e2){}}
+_wlRender();
 });
 document["addEventListener"]("click",function(e){
 var el=e["target"]["closest"]("[data-wld]");
@@ -520,8 +523,7 @@ if(wBtn)wBtn["click"]();
 var _md2=document["getElementById"]("season-modal");
 if(_md2)_md2["classList"]["add"]("hidden");
 }
-var root=document["querySelector"]('[data-panel="world"] .wl-root');
-if(root)try{root["innerHTML"]=bWorldHTML();}catch(_e){root["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';try{console["error"](_e);}catch(_e2){}}
+_wlRender();
 },true);
 
 function b9(bW){var bX=ah(au["pos"])["group"];
