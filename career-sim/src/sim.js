@@ -4287,15 +4287,20 @@ if("youth"!==a2["phase"]||!a2["youthTea"+"mId"])return{'ok':!0x1,'txt':'现在�
 if(a2["money"]<0x12)return{'ok':!0x1,'txt':'家里拿不出 18 万报名费'};
 a2["money"]-=0x12;
 var _cur=bg(),_curRep=_cur?_cur["rep"]:1,_pool=[],_pi,_pt,_p=_yTrialP();
-/* 成功后优先锁定五大联赛更强的青训营：按档次从高到低取前 3 随机挑一 */
+/* 候选=五大联赛里所有比当前青训营更强的队（且学费付得起）。
+   按 rep 加权随机挑一：高档次更常见，但不再被 sort+slice 锁死成英超三家顶豪 */
 var _BIG5={'epl':1,'liga':1,'seri':1,'bund':1,'l1':1},_top=[];
 for(_pi=0x0;_pi<a0["TEAMS"]["length"];_pi++){_pt=a0["TEAMS"][_pi];
 if(_pt['id']===(a2["youthTeamId"]||''))continue;
 if(_BIG5[aq(_pt)['id']]&&_pt["rep"]>_curRep&&a2["money"]>=_youthFee(_pt["rep"]))_top.push(_pt);
 }
 if(_top["length"]){
-_top.sort(function(x,y){return y["rep"]-x["rep"];});
-_pool=_top.slice(0x0,0x3);
+var _wS=0x0,_wI,_wR;
+for(_wI=0x0;_wI<_top["length"];_wI++)_wS+=(_top[_wI]["rep"]||0x1);
+_wR=ad()*_wS;
+_pool=[];
+for(_wI=0x0;_wI<_top["length"];_wI++){_wR-=(_top[_wI]["rep"]||0x1);if(_wR<0x0){_pool["push"](_top[_wI]);break;}}
+if(!_pool["length"])_pool["push"](_top[_top["length"]-0x1]);
 }else{
 for(_pi=0x0;_pi<a0["TEAMS"]["length"];_pi++){_pt=a0["TEAMS"][_pi];
 if(_pt['id']===(a2["youthTeamId"]||''))continue;
