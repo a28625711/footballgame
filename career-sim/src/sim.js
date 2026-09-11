@@ -3192,7 +3192,14 @@ var fit=1/(1+Math["exp"](-rel/6));
 if(a2["age"]<0x16&&a2["maxOvr"]>a2["ovr"])fit=Math["min"](1,fit+Math["min"]((a2["maxOvr"]-a2["ovr"])*0.06,0.22));
 var ageW=Math["exp"](-Math["pow"](Math["max"](0,a2["age"]-24)/8,1.6));
 return Math["max"](1,Math["min"](5,Math["round"](1+4.2*fit*ageW+(ad()-0.5)*0.9)));
-}function bf(bx,
+}
+/* 联赛权重：按"边缘程度/趣味度"而非纯强度排——对中国球员，中超/沙特/美职联都是现实且有故事的落脚点；
+   数值可随时调整，未列出的联赛默认 0.6 */
+var _LGW={'epl':2.2,'liga':2.2,'seri':1.9,'bund':1.9,'l1':1.7,'csl':1.4,'spl':1.3,'mls':1.2,'pri':0.9,'ere':0.8,'tur':0.7,'bra':0.7,'jup':0.6,'mx':0.6,'jl':0.6,'arg':0.6,'kl':0.45,'pol':0.35,'ch':0.3,'seg':0.3,'b2':0.3,'l2':0.3,'serb':0.3,'ale':0.25,'cl1':0.25,'cpl':0.2};
+function _lgW(bx){var bL=aq(bx);return bL&&_LGW[bL['id']]||0.6;}
+/* 统一工资口径：报价/状态栏/实发都用此式 = 基础工资×合同系数×角色系数×年龄系数 */
+function _wageOf(bx,by,bz){var bR=aI(bx);return Math["round"](aJ(bx,by,a2["ovr"])*(bz||0x1)*(a0["ROLES"][bR]["rank"]>=0x2?0x1:0.55)*bAge());}
+function bf(bx,
 
 
 
@@ -3212,9 +3219,8 @@ function bE(bK){
 return a0["TEAMS"]["filter"](function(bL){
 if(bA&&bL['id']===bA['id'])return!0x1;
 var bM=aq(bL),bN=bc(bL);
-if(!bM['cn']){if(by["forceAbr"+"oad"]);
-else{if(a2["lockAbro"+'ad']>0x0)return!0x1;
-}bN+=a2["seasonsA"+"broad"]>0x0?0x3:0x5,a6("agent")&&(bN-=Math["round"](0x3*_stEff(_stT("agent"))*_stM("agent")));
+if(!bM['cn']){if(!by["forceAbr"+"oad"]&&!by["ignoreLock"]&&a2["lockAbro"+'ad']>0x0)return!0x1;
+bN+=a2["seasonsA"+"broad"]>0x0?0x3:0x5,a6("agent")&&(bN-=Math["round"](0x3*_stEff(_stT("agent"))*_stM("agent")));
 }return!(by["forceAbr"+"oad"]&&bM['cn']||by["chinaOnl"+'y']&&!bM['cn']||null!=by["maxRep"]&&bL["rep"]>by["maxRep"]||bL["rep"]>=0x3&&a2["ovr"]<0x3e+0x4*bL["rep"]||bM["rep"]>bC+bK||!(bd(bL)>=bN-0x5)||!(bz<=bN+0x1a));
 });
 }var bF=bE(bD);
@@ -3226,7 +3232,7 @@ bF["length"]||(bF=bE(0x9)),!bF["length"])return[];
 for(var bG=[],bH={},bI=0x0;
 bI<0x4*bx&&bG["length"]<bx;
 bI++){var bJ=ah(bF,function(bK){var bL=bc(bK);
-return 0x1/(0x1+0.35*Math["abs"](bz-bL));
+return _lgW(bK)/(0x1+0.35*Math["abs"](bz-bL));
 });
 bJ&&!bH[bJ['id']]&&(bH[bJ['id']]=0x1,bG["push"](bJ));
 }return at(bG,
@@ -3558,7 +3564,7 @@ function _trTerms(bG){var bH=aJ(bG,
 aq(bG),
 a2["ovr"]),bI=be(bG),bJ=0.9+0.2*ad(),bK=0x1;
 bK=bI<=0x1?1.3:0x2===bI?1.15:0x3===bI?0x1:0x4===bI?0.9:0.82;
-return a2["_offerTerms"][bG['id']]={'wage':Math["round"](bH*bJ*bK),
+return a2["_offerTerms"][bG['id']]={'wage':_wageOf(bG,aq(bG),bJ*bK),
 
 
 
@@ -3571,7 +3577,7 @@ function bO(bG){var bH=aJ(bG,
 aq(bG),
 a2["ovr"]),bI=be(bG),bJ=0.9+0.2*ad(),bK=0x1;
 bK=bI<=0x1?1.3:0x2===bI?1.15:0x3===bI?0x1:0x4===bI?0.9:0.82;
-return a2["_offerTerms"][bG['id']]={'wage':Math["round"](bH*bJ*bK),
+return a2["_offerTerms"][bG['id']]={'wage':_wageOf(bG,aq(bG),bJ*bK),
 
 
 
@@ -3598,7 +3604,7 @@ bA["forEach"](bO),void(a2["pending"]={'type':"transfer",'fired':!0x1,'offers':bA
 
 
 'canStay':!au()&&!!ar()&&(ar()["rep"]>=bB||aq(ar())["rep"]>=0x4),'canRetire':a2["age"]>=0x1e});
-}var bC=bf(0x4+(a6("analyst")?(_stT("analyst")===1?1:2):0)),
+}var bC=bf(0x4+(a6("analyst")?(_stT("analyst")===1?1:2):0),by?{'ignoreLock':!0x0}:null),
 
 
 
@@ -3637,13 +3643,13 @@ return ag(bJ),
 
 
 bJ["slice"](0x0,0x2);
-}())),bC["length"]||bE?(a2["pending"]={'type':"transfer",'fired':!!bx,'mustLeave':!!by,'offers':bC["map"](function(bG){return bG['id'];
+}())),bC["length"]||bE||by?(a2["pending"]={'type':"transfer",'fired':!!bx,'mustLeave':!!by&&bC["length"]>0x0,'offers':bC["map"](function(bG){return bG['id'];
 }),'rerolls':0x1+(a6("analyst")&&_stT("analyst")>=0x3?0x1:0),
 
 
 
 'loans':bF["map"](function(bG){return bG['id'];
-}),'backFrom':a2["flags"]["_loanBac"+'k']||null,'canStay':!!bE,'canRetire':a2["age"]>=0x1e},
+}),'backFrom':a2["flags"]["_loanBac"+'k']||null,'canStay':!!(bE||by&&!bC["length"]),'canRetire':a2["age"]>=0x1e},
 
 
 
@@ -4368,7 +4374,7 @@ if(!bC){var bD=aJ(by,bz,a2["ovr"]),bE=be(),bF=0.9+0.2*ad(),
 
 bG=0x1;
 bG=bE<=0x1?1.3:0x2===bE?1.15:0x3===bE?0x1:0x4===bE?0.9:0.82;
-bC={'wage':Math["round"](bD*bF*bG*bAge()),
+bC={'wage':_wageOf(by,bz,bF*bG),
 
 'years':bE,
 
@@ -4378,7 +4384,7 @@ bC={'wage':Math["round"](bD*bF*bG*bAge()),
 
 
 
-'wageAt':aJ,'academyName':function(bx){
+'wageAt':aJ,'annualWage':_wageOf,'leagueWeight':_lgW,'leagueWeights':_LGW,'academyName':function(bx){
 return bx?bx["academy"]||bx["name"]+" 梯队":"青训队";
 },'YOUTH_ADULT_OVR':0x2a,'bigOpponent':aU,
 
