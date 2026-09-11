@@ -193,7 +193,8 @@ return ac(0.3+0.04*_df+0.2*((a2["talent"]-0.7)/0.78),0.05,0.8);
 
 function ab(bx,by){var bz=a9[bx];
 return!!bz&&bz["indexOf"](by)>=0x0;
-}function ac(bx,by,bz){
+}/* 家乡球队：region 与开局省份一致的中超/中甲队，可多个（如上海=海港+申花） */
+function _homeTeams(){var bz=a2["originId"],bA=[];if(!bz)return bA;for(var i=0x0;i<a0["TEAMS"]["length"];i++){var t=a0["TEAMS"][i];if(t&&t["region"]===bz)bA.push(t);}return bA;}function ac(bx,by,bz){
 return Math["max"](by,Math["min"](bz,bx));
 }/* rngState 局部镜像：ad 是全引擎最热的函数（每季数十万次调用），
    不再每次读写状态对象；公共 API 返回前统一刷回 a2.rngState（存档安全），序列位级不变 */
@@ -3327,9 +3328,9 @@ bS>0x0&&bR["length"]&&bT++<0x3c;
 ){var bU=af(bR);
 bJ[bU['id']]||(bJ[bU['id']]=0x1,bI["push"](bU),bS--);
 }return bS;
-}var bL=(aa[a2["originId"]]||[])["map"](aj)["filter"](Boolean),
+}var bL=_homeTeams(),_homes=ag(bL["slice"](0x0))["slice"](0x0,0x3),
 bQ0=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];}),
-bG=bQ0["filter"](function(bR){return !(bL["length"]&&bR['id']===bL[0]['id']);}),
+bG=bQ0["filter"](function(bR){return bL["indexOf"](bR)<0x0;}),
 bH=a0["TEAMS"]["filter"](function(bR){return !aq(bR)['cn'];}),
 nTv=(a2["talent"]-0.7)/0.78,nOv=(a2["ovr"]-40)/30,
 QQ=Math["max"](0,Math["min"](1,0.55*nTv+0.45*nOv)),
@@ -3348,7 +3349,7 @@ function pickBand(pool,n){for(var w=0;w<3&&n>0;w++){
 var cand=pool["filter"](function(bR){return !bJ[bR['id']]&&bR["rep"]>=loR-w&&bR["rep"]<=loR+1+w});
 while(n>0&&cand["length"]){var cX=cand[Math["floor"](ad()*cand["length"])];
 if(pU(cX)){n--;}cand.splice(cand.indexOf(cX),1);}}}
-if(bL["length"])pU(bL[0]);
+for(var _hh=0x0;_hh<_homes["length"];_hh++)pU(_homes[_hh]);
 pickBand(bG,
 
 
@@ -3375,7 +3376,7 @@ while(bI["length"]>6){var lastK=bI[bI.length-1],
 
 
 
-isProt=(bL["length"]&&lastK['id']===bL[0]['id'])||lastK['id']===a2["dreamId"];
+isProt=(bL["length"]&&bL["indexOf"](lastK)>=0x0)||lastK['id']===a2["dreamId"];
 if(isProt)bI.splice(bI.length-2,1);else bI.pop();}
 at(bI,
 
@@ -3534,17 +3535,9 @@ bB[bP['id']]||(bB[bP['id']]=0x1,
 
 bA["push"](bP),bN--);
 }return bN;
-}if(!bC){var bH=(aa[a2["originId"]]||[])["map"](aj)["filter"](Boolean);
-if(bH["length"]){var bI=af(bH);
-if(a2["dreamId"]){for(var bJ=0x0;
-bJ<bH["length"];
-bJ++)bH[bJ]['id']===a2["dreamId"]&&(bI=bH[bJ]);
-}bB[bI['id']]||(bB[bI['id']]=0x1,
-
-
-
-bA["push"](bI));
-}var bK=bG(bE,0x6-bA["length"]-0x1);
+}if(!bC){var bH=_homeTeams(),_homes=ag(bH["slice"](0x0))["slice"](0x0,0x2),_h2;
+for(_h2=0x0;_h2<_homes["length"];_h2++){var _ht=_homes[_h2];bB[_ht['id']]||(bB[_ht['id']]=0x1,bA["push"](_ht));}
+var bK=bG(bE,0x6-bA["length"]-0x1);
 bG(bF,0x1+bK);
 }bA["length"]<0x6&&bG(bE["concat"](bF),0x6-bA["length"]);
 var bL=bz&&bA["length"]&&bA[0x0]['id']===bz['id']?bA["shift"]():null;

@@ -16,19 +16,62 @@ team_order = manifest['order']
 
 # 著名青训基地/别称覆盖（只对这些"有名"的用特色名，其余用 队名+青训营）
 OVERRIDES = {
+    # ── England ──
     'eve': '芬奇农场',          # Everton Finch Farm
     'whu': '西汉姆学院',        # West Ham "Academy of Football"
     'sou': '斯台普尔伍德',      # Southampton Staplewood
     'avl': '博德莫尔',          # Aston Villa Bodymoor Heath
+    'new': '纽卡斯尔学院',      # Newcastle United Academy
+    'lee': '利兹学院',          # Leeds United Academy (Thorp Arch)
+    'bha': '布莱顿青训',        # Brighton Academy (Lancing)
+    'lct': '莱斯特学院',        # Leicester City Academy
+    # ── Spain ──
     'rso': '苏比埃塔',          # Real Sociedad Zubieta
-    'emp': '恩波利学院',        # Empoli 著名青训
-    'ren': '雷恩青训学院',      # Rennes 法国著名青训大户
-    'nts': '若内莱尔',          # Nantes La Jonelière
-    'and': '安德莱赫特学院',    # Anderlecht
-    'gnk': '亨克学院',          # Genk 著名青训
-    's04': '沙尔克矿工学院',    # Schalke "Knappenschmiede"
+    'vil': '陶瓷青训',          # Villarreal "La Cerámica" academy
+    'val': '巴伦西亚学院',      # Valencia Academy (Paterna)
+    # ── Germany ──
+    'lev': '勒沃库森青训',      # Bayer Leverkusen academy
+    'rbl': '莱比锡青训',        # RB Leipzig academy (Trainingszentrum)
+    'sge': '法兰克福青训',      # Eintracht Frankfurt academy
+    'vfb': '斯图加特青训',      # VfB Stuttgart academy (Filder)
+    'svw': '不莱梅学院',        # Werder Bremen academy
+    'bmg': '门兴青训',          # Borussia Mönchengladbach academy
+    # ── Italy ──
+    'laz': '拉齐奥青训',        # Lazio youth sector
+    'nap': '那不勒斯青训',      # Napoli academy
+    'fio': '佛罗伦萨学院',      # Fiorentina academy (Viola Park)
+    # ── France ──
+    'mar': '马赛青训',          # Olympique Marseille academy
+    'lil': '里尔青训',          # Lille academy (Pôle Espoirs)
+    'nic': '尼斯青训',          # OGC Nice academy
+    'len': '朗斯青训',          # RC Lens academy
+    # ── Netherlands ──
+    # aja/psv/fey already inline
+    # ── Portugal ──
+    # ben/por/spo already inline
+    # ── Belgium ──
+    'and': '安德莱赫特学院',    # Anderlecht Neerpede
+    'gnk': '亨克学院',          # Genk academy
+    # ── Turkey ──
+    'gala': '加拉塔萨雷青训',   # Galatasaray academy
+    'fene': '费内巴切青训',     # Fenerbahçe academy
+    # ── Saudi Arabia ──
+    'hil': '利雅得新月青训营',
+    'nsr2': '利雅得胜利青训',   # Al-Nassr academy
+    'ahl': '吉达联合青训',      # Al-Ittihad academy
+    # ── Japan ──
+    'kaw': '川崎青训',          # Kawasaki Frontale academy
+    'yok': '横滨青训',          # Yokohama F. Marinos academy
+    'urw': '浦和青训',          # Urawa Reds academy
+    # ── Korea ──
     'poh': '浦项青训营',        # Pohang 韩国传奇青训
-    'ksm': '鹿岛青训学院',      # Kashima
+    'ulh': '蔚山青训',          # Ulsan HD academy
+    'jbh': '全北青训',          # Jeonbuk Motors academy
+    'ksm': '鹿岛青训学院',      # Kashima Antlers academy
+    # ── China ──
+    'lntf': '辽宁青训',         # 辽宁足球传统青训重镇
+    'dlkc': '大连青训',         # 大连足球城传统
+    # ── Brazil ──
     'boc': '博卡青训营',        # Boca Juniors
     'riv': '河床青训营',        # River Plate
     'fla': '弗拉门戈青训营',    # Flamengo Ninho do Urubu
@@ -38,7 +81,9 @@ OVERRIDES = {
     'cori': '科林蒂安青训营',
     'gre': '格雷米奥青训营',
     'cru': '克鲁塞罗青训营',
-    'hil': '利雅得新月青训营',
+    'emp': '恩波利学院',        # Empoli 著名青训
+    'ren': '雷恩青训学院',      # Rennes 法国著名青训大户
+    'nts': '若内莱尔',          # Nantes La Jonelière
 }
 
 pat_obj = re.compile(r"\{[^{}]*\}", re.S)
