@@ -711,7 +711,8 @@ var _nT=ax(n5.t);
 if(n5.tid){var _ntm=ag(n5.tid);
 if(_ntm){var _nCr=aT(_ntm);if(_nCr)_nT=_nT.replace(ax(_ntm.name),_nCr+'<span class="n-tname">'+ax(_ntm.name)+'</span>');}}
 if(n5.nid){var _nn=null;(window.NATS||[]).forEach(function(q){if(q.i===n5.nid)_nn=q;});
-if(_nn&&_nn.f){_nT=_nT.replace(ax(_nn.n),'<span class="n-flag">'+_nn.f+'</span><span class="n-tname">'+ax(_nn.n)+'</span>');}}
+if(_nn){var _fs=_nn.img?((window["_FLAG_DATA"]&&window["_FLAG_DATA"][_nn.img])||'assets/flags/'+_nn.img+".svg"):null;
+_nT=_nT.replace(ax(_nn.n),(_fs?'<img class="n-flag" src="'+_fs+'" alt="">':(_nn.f?_nn.f+' ':''))+'<span class="n-tname">'+ax(_nn.n)+'</span>');}}
 return '<div class="news-row '+n5.k+(n5.bad?' bad':'')+'"><span class="n-ico">'+_nIco+'</span><span class="n-txt">'+_nT+'</span></div>';
 }).join('');
 newsBody+=_nRows;

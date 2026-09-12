@@ -2269,6 +2269,7 @@ img.crest.plate {
 .news-row .crest, .news-row .crest-pic { display: inline-block; width: 15px; height: 15px; vertical-align: -3px; margin-right: 2px; border-radius: 3px; }
 .news-row .crest-pic img { width: 15px; height: 15px; display: inline-block; vertical-align: -3px; }
 .news-row .n-flag { margin-right: 2px; font-size: .8em; }
+.news-row img.n-flag { width: 17px; height: 12px; vertical-align: -1px; object-fit: cover; border-radius: 2px; }
 .news-row .n-tname { font-weight: 600; }
 
 /* 生涯页右栏顶条：奖杯chips(空则不渲染) + 从头来过角落小钮 */
