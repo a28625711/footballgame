@@ -8016,7 +8016,7 @@ return{'ovr':0x1,'guanxi':0x8,'text':"你回撤了很多，跑了十一公里，
   'icon': '⚡',
   'weight': 0x96,
   'when': function(p){
-return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"def"===p["posGroup"];
 },
 
 
@@ -8053,7 +8053,7 @@ return{'fame':0x2,'guanxi':0x6,'text':"你只贴他两步，第三步就回中�
   'icon': '🛡️',
   'weight': 0x96,
   'when': function(p){
-return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"];
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"def"===p["posGroup"];
 },
 
 
