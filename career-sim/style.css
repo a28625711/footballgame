@@ -2275,3 +2275,10 @@ img.crest.plate {
 .news-row .crest, .news-row .crest-pic img { width: 15px !important; height: 15px !important; vertical-align: -3px; margin-right: 2px; border-radius: 3px; }
 .news-row .n-flag { margin-right: 2px; font-size: .8em; }
 .news-row .n-tname { font-weight: 600; }
+
+/* 生涯页右栏顶条：奖杯chips(空则不渲染) + 从头来过角落小钮 */
+.tl-topbar { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.trophy-strip { display: flex; gap: .35rem; flex-wrap: wrap; align-items: center; min-width: 0; }
+.trophy-strip .chip { white-space: nowrap; font-size: .68rem; padding: .16rem .5rem; }
+.tl-topbar .restart-mini { margin-left: auto; flex: none; font-size: .68rem; padding: .25rem .55rem; opacity: .7; }
+.tl-topbar .restart-mini:hover { opacity: 1; }

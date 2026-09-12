@@ -1327,7 +1327,7 @@ c4+="<span cl"+"ass=\"chi"+"p\">🏆 "+ax(c7)+(c5[c7]>0x1?'\x20×'+c5[c7]:'')+"<
 c4+="<span cl"+"ass=\"chi"+"p award\""+">🥇 "+ax(c7)+(c6[c7]>0x1?'\x20×'+c6[c7]:'')+"</span>";
 }),c4;
 }());
-return "<div cla"+"ss=\"trop"+"hy-block"+(c3?'':" empty")+'\x22>'+(c3?"<div cla"+"ss=\"shel"+"f\">"+c3+"</div>":"<div cla"+"ss=\"empt"+"y-case\">"+"<div cla"+"ss=\"empt"+"y-case-i"+"con\">🏆</"+"div><div"+" class=\""+"empty-ca"+"se-t\">奖杯"+"柜是空的</di"+"v></div>")+"</div>"+("<div cla"+"ss=\"rest"+"art-row\""+"><button"+" class=\""+"mini-btn"+"\" data-a"+"ct=\"rest"+"art\">从头来"+"过</butto"+"n><span>"+"重新选出身，开一"+"局新的</spa"+"n></div>");
+return "<div cla"+"ss=\"tl-t"+"opbar\">"+(c3?"<div cla"+"ss=\"trop"+"hy-strip\">"+c3+"</div>":'')+"<button"+" class=\""+"mini-btn re"+"start-mini"+"\" data-a"+"ct=\"rest"+"art\">从头来"+"过</button></div>";
 }())+b9()+("</div><d"+"iv class"+"=\"col-c\""+'>')+(function(){var bX,bY,bZ=au["pending"];
 if(!bZ)return'';
 if("random"===bZ["type"]){for(var c0=null,c1=0x0;
