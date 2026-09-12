@@ -702,11 +702,7 @@ persBody+='</div></div>';
 var worldBody='<div class="tl-panel'+(_tlTab==='world'?'':' hidden')+'" data-panel="world"><div class="wl-root">'+bWorldHTML()+'</div></div>';
 /* 新闻面板：纯浏览零交互；只显示当季一批（每季整体替换），无按年折叠 */
 var newsBody='<div class="tl-panel'+(_tlTab==='news'?'':' hidden')+'" data-panel="news"><div class="news-root">';
-/* 按类型固定顺序展示：实况头条在前，主角/国足次之，再按转会/换帅/伤病…趣味收尾；同类保持生成顺序 */
-var _NCOrd={'slam':0,'champ':1,'upset':2,'releg':3,'you':4,'natc':5,'nat':6,'transfer':7,'coach':8,'injury':9,'money':10,'youth':11,'lg':12,'club':13,'form':14,'gossip':15,'world':16,'cnfun':17,'home':18,'abroad':19,'fun':20};
-var _newsList=((au&&au["news"])||[]).map(function(n6,i6){return{p:_NCOrd[n6.c]!=null?_NCOrd[n6.c]:50,i:i6,n:n6};}).sort(function(a6,b6){return a6.p-b6.p||a6.i-b6.i;}).map(function(x6){return x6.n;});
-if(_newsList.length){
-var _nRows=_newsList.map(function(n5){
+var _nRow=function(n5){
 if(n5.bad&&au["staff"]&&au["staff"]["pr"])return '';
 var _nm=(window["NEWSMETA"]||{})[n5.c];
 var _nIco=_nm?_nm.e:(n5.k==='mj'?'📰':n5.k==='mn'?'📄':'☕');
@@ -721,7 +717,15 @@ if(n5.nid){var _nn=null;(window.NATS||[]).forEach(function(q){if(q.i===n5.nid)_n
 if(_nn){var _fs=_nn.img?((window["_FLAG_DATA"]&&window["_FLAG_DATA"][_nn.img])||'assets/flags/'+_nn.img+".svg"):null;
 _nT=_nT.replace(ax(_nn.n),(_fs?'<img class="n-flag" src="'+_fs+'" alt="">':(_nn.f?_nn.f+' ':''))+'<span class="n-tname">'+ax(_nn.n)+'</span>');}}
 return '<div class="news-row '+n5.k+(n5.bad?' bad':'')+'"><span class="n-ico">'+_nIco+'</span><span class="n-txt">'+_nT+'</span></div>';
-}).join('');
+};
+/* 赛场实况：独立空位，决赛落定后追加，不受常规批次刷新影响 */
+var _liveList=((au&&au["newsLive"])||[]).slice();
+if(_liveList.length){newsBody+='<div class="news-live-t">⚡ 赛场实况</div>'+_liveList.map(_nRow).join('')+'<div class="news-live-t">📰 本季新闻</div>';}
+/* 按类型固定顺序展示：实况头条在前，主角/国足次之，再按转会/换帅/伤病…趣味收尾；同类保持生成顺序 */
+var _NCOrd={'slam':0,'champ':1,'upset':2,'releg':3,'you':4,'natc':5,'nat':6,'transfer':7,'coach':8,'injury':9,'money':10,'youth':11,'lg':12,'club':13,'form':14,'gossip':15,'world':16,'cnfun':17,'home':18,'abroad':19,'fun':20};
+var _newsList=((au&&au["news"])||[]).map(function(n6,i6){return{p:_NCOrd[n6.c]!=null?_NCOrd[n6.c]:50,i:i6,n:n6};}).sort(function(a6,b6){return a6.p-b6.p||a6.i-b6.i;}).map(function(x6){return x6.n;});
+if(_newsList.length){
+var _nRows=_newsList.map(_nRow).join('');
 newsBody+=_nRows;
 }else newsBody+='<div class="news-empty">还没有任何新闻。</div>';
 newsBody+='</div></div>';

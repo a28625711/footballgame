@@ -793,20 +793,20 @@ function genFacts(a2, facts, youth) {
     return out;
 }
 
-window.NEWSGEN = function (a2, youth, facts) {
+window.NEWSGEN = function (a2, youth) {
     a2._newsTids = a2._newsTids || [];
-    var fe = genFacts(a2, facts, youth), items;
-    if (youth) {
-        items = fe.length ? [fe[0]] : genMajorYouth(a2);
-        items = items.concat(genMinor(a2, true), genFlavor(a2, true));
-    } else {
-        var mjF = fe.filter(function (e) { return e.k === 'mj'; });
-        var exF = fe.filter(function (e) { return e.k === 'mn'; });
-        var gm = 2 - mjF.length > 0 ? genMajor(a2).slice(0, 2 - mjF.length) : [];
-        items = mjF.concat(gm, exF, genMinor(a2).slice(0, 6 - exF.length), genFlavor(a2));
-    }
+    var items = youth ? genMajorYouth(a2) : genMajor(a2);
+    items = items.concat(genMinor(a2, youth), genFlavor(a2, youth));
     var age = a2.age != null ? a2.age : 0;
     for (var i = 0; i < items.length; i++) items[i].age = age;
     return items;
+};
+/* 赛场实况：由 sim.js 在结算/决赛落定时调用，独立于常规批次 */
+window.NEWSFACTS = function (a2, facts) {
+    a2._newsTids = a2._newsTids || [];
+    var es = genFacts(a2, _slamDetect(a2, facts || []), false);
+    var age = a2.age != null ? a2.age : 0;
+    for (var i = 0; i < es.length; i++) es[i].age = age;
+    return es;
 };
 })();

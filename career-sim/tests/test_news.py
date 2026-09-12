@@ -92,32 +92,27 @@ var facts=[
  {t:'cont',tid:'mci',comp:'欧冠',tag:'ucl'},
  {t:'promo',tid:'cn-cd',from:'csl2',to:'csl'}
 ];
-var items=window.NEWSGEN(a2,0,facts);
-var mj=0,mn=0;
+var items=window.NEWSFACTS(a2,facts);
 for(var i=0;i<items.length;i++){var n=items[i];
   if(/\{\w+\}/.test(n.t))out.tokLeak=n.t;
-  if(n.k==='mj')mj++;if(n.k==='mn')mn++;
   if((n.id==='ft_lgchamp_rma'||n.t.indexOf('皇家马德里')>=0)&&(n.c==='champ'||n.c==='upset'))out.champ++;
   if(n.c==='releg'&&n.t.indexOf('降')>=0)out.releg++;
   if(n.c==='natc')out.chn++;}
-if(mj<1||mj>2){out.err='fact mj '+mj;return JSON.stringify(out);}
-if(mn<4||mn>6){out.err='fact mn '+mn;return JSON.stringify(out);}
 if(!out.champ){out.err='no champion news';return JSON.stringify(out);}
 if(!out.releg){out.err='no relegation news';return JSON.stringify(out);}
 if(!out.chn){out.err='no china wc news';return JSON.stringify(out);}
 /* 数量封顶：10条事实只取3条 */
 var many=[];for(var j=0;j<10;j++)many.push({t:'lgchamp',tid:'rma',lg:'liga'});
-var items2=window.NEWSGEN(a2,0,many);
-var f2=items2.filter(function(n){return n.id&&n.id.indexOf('ft_')===0;});
-if(f2.length>3){out.err='fact cap '+f2.length;return JSON.stringify(out);}
+var items2=window.NEWSFACTS(a2,many);
+if(items2.length>3){out.err='fact cap '+items2.length;return JSON.stringify(out);}
 /* 青训国内外池判定：国内青训不得出留洋风味(fv_ab)，国外青训会出 */
 var y1={name:'p',teamId:'cn-cd',youthTeamId:'cn-cd',leagueId:null,country:null,_newsTids:[],_newsWhen:{},age:13,ovr:44,flags:{},fame:2,role:'sub'};
 var ab1=0;
-for(var k1=0;k1<25;k1++){y1.age=13+k1;window.NEWSGEN(y1,1,[]).forEach(function(n){if((n.id||'').indexOf('fv_ab_')===0)ab1++;});}
+for(var k1=0;k1<25;k1++){y1.age=13+k1;window.NEWSGEN(y1,1).forEach(function(n){if((n.id||'').indexOf('fv_ab_')===0)ab1++;});}
 if(ab1>0){out.err='domestic youth fired abroad flavor x'+ab1;return JSON.stringify(out);}
 var y2={name:'p',teamId:'rma',youthTeamId:'rma',leagueId:null,country:null,_newsTids:[],_newsWhen:{},age:13,ovr:44,flags:{},fame:2,role:'sub'};
 var ab2=0;
-for(var k2=0;k2<25;k2++){y2.age=13+k2;window.NEWSGEN(y2,1,[]).forEach(function(n){if((n.id||'').indexOf('fv_ab_')===0)ab2++;});}
+for(var k2=0;k2<25;k2++){y2.age=13+k2;window.NEWSGEN(y2,1).forEach(function(n){if((n.id||'').indexOf('fv_ab_')===0)ab2++;});}
 if(ab2===0){out.err='abroad youth never fired abroad flavor';return JSON.stringify(out);}
 return JSON.stringify(out);
 })()
@@ -152,6 +147,43 @@ def run_facts():
     print('ok facts: champ=%d releg=%d chn=%d' % (r['champ'], r['releg'], r['chn']))
 
 
+JS_LIVE = r"""
+(function(){
+var out={err:null,before:null,after:null,liveBefore:0,liveAfter:0,newsUnchanged:false};
+var a2={name:'p',teamId:'cn-sh',leagueId:'csl',country:'CN',age:24,flags:{},fame:30,role:'star',
+  _newsQ:[],_newsTids:[],_newsWhen:{},news:[],newsLive:[],
+  natFx:{data:{asia:{name:'亚洲杯',rounds:[{name:'决赛',matches:[{home:'中国队',away:'日本',homeId:'n_chn',awayId:'n_jpn',hg:1,ag:0}]}]}}}};
+window.SIM.attach(a2);
+/* 决赛待打：_natAsia 存在 → 常规批次生成，实况栏不应有大赛冠军 */
+a2._natAsia={stage:''};
+window.SIM.newsTick(0);
+out.before=(a2.news||[]).map(function(n){return n.c+':'+n.t.slice(0,18);});
+out.liveBefore=(a2.newsLive||[]).length;
+/* 决赛踢完：中国夺冠落定 */
+delete a2._natAsia;
+a2.natFx.data.asia.champion='n_chn';
+window.SIM.newsLiveTick();
+out.after=(a2.news||[]).map(function(n){return n.c+':'+n.t.slice(0,18);});
+out.liveAfter=(a2.newsLive||[]).length;
+out.newsUnchanged=JSON.stringify(out.before)===JSON.stringify(out.after);
+out.liveTop=(a2.newsLive||[])[0]?(a2.newsLive[0].c+':'+a2.newsLive[0].t.slice(0,24)):'(empty)';
+if(out.liveAfter<=out.liveBefore){out.err='live slot did not grow';return JSON.stringify(out);}
+if(!out.newsUnchanged){out.err='regular batch changed after final';return JSON.stringify(out);}
+return JSON.stringify(out);
+})()
+"""
+
+def run_live():
+    mr = harness.new_engine()
+    r = json.loads(mr.eval(JS_LIVE))
+    if r.get('err'):
+        raise harness.Fail(r['err'])
+    print('before(%d): %s' % (len(r['before']), ' | '.join(r['before'][:5])))
+    print('after (%d): %s' % (len(r['after']), ' | '.join(r['after'][:5])))
+    print('live: %d -> %d, top=%s' % (r['liveBefore'], r['liveAfter'], r['liveTop']))
+
+
 if __name__ == '__main__':
     harness.main(run)
     harness.main(run_facts)
+    harness.main(run_live)

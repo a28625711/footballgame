@@ -2307,3 +2307,5 @@ img.crest.plate {
 .sb-dn { color: #e5484d; font-weight: 700; font-style: normal; }
 .sb-tro.aw { color: hsl(var(--text)); }
 @media (min-width: 560px) { .sb-card .sb-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.news-live-t { font-size: .66rem; font-weight: 700; letter-spacing: .1em; color: hsl(var(--gold1)); padding: 8px 12px 2px; }
+.news-live-t + .news-row { border-top: 0; }
