@@ -2266,6 +2266,13 @@ for(i=0;i<items["length"];i++){e=items[i];
 if(merge&&!(e["id"]&&String(e["id"])["indexOf"]('ft_')===0x0))continue;
 if(e["fx"]){if(fxCnt>=0x2||_newsFxNeg(e["fx"])&&negCnt>=0x1){delete e["fx"];}else{fxCnt++;if(_newsFxNeg(e["fx"]))negCnt++;_newsFx(e["fx"]);delete e["fx"];}}
 kept.push(e);}
+if(merge){
+/* 实况条目置顶，其余保持原序；总量超上限时从最旧的普通条目裁起 */
+var _nft=[],_ord=[];
+for(i=0;i<kept["length"];i++){e=kept[i];if(e["id"]&&String(e["id"])["indexOf"]('ft_')===0x0)_nft.push(e);else _ord.push(e);}
+kept=_nft.concat(_ord);
+while(kept["length"]>0xc)kept["pop"]();
+}
 a2["news"]=kept;
 }
 function _newsFxNeg(o){
