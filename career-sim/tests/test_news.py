@@ -97,7 +97,7 @@ var mj=0,mn=0;
 for(var i=0;i<items.length;i++){var n=items[i];
   if(/\{\w+\}/.test(n.t))out.tokLeak=n.t;
   if(n.k==='mj')mj++;if(n.k==='mn')mn++;
-  if(n.t.indexOf('皇家马德里')>=0&&(n.c==='champ'||n.c==='upset'))out.champ++;
+  if((n.id==='ft_lgchamp_rma'||n.t.indexOf('皇家马德里')>=0)&&(n.c==='champ'||n.c==='upset'))out.champ++;
   if(n.c==='releg'&&n.t.indexOf('降')>=0)out.releg++;
   if(n.c==='natc')out.chn++;}
 if(mj<1||mj>2){out.err='fact mj '+mj;return JSON.stringify(out);}

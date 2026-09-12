@@ -2247,8 +2247,13 @@ if((_nk3==='wc'&&a2["_natWC"])||(_nk3==='asia'&&a2["_natAsia"]))continue;
 var _nch2=_nd3?_nd3["champion"]:null;
 if(!_nch2&&_nd3&&_nd3["rounds"]&&_nd3["rounds"]["length"]){var _fm3=_nd3["rounds"][_nd3["rounds"]["length"]-0x1]["matches"];
 if(_fm3&&_fm3["length"]){var _m3=_fm3[0x0];_nch2=(_m3["pens"]&&_m3["pens"]["length"]>=0x2)?(_m3["pens"][0x0]>=_m3["pens"][0x1]?_m3["homeId"]:_m3["awayId"]):(_m3["hg"]>=_m3["ag"]?_m3["homeId"]:_m3["awayId"]);}}
-if(_nch2)_fq["push"]({'t':'nat','nid':_nch2,'tag':_nk3});}
-if(a2["contFx"]&&a2["contFx"]["data"])for(var _ck4 in a2["contFx"]["data"]){var _cd4=a2["contFx"]["data"][_ck4];if(_cd4&&_cd4["champion"])_fq["push"]({'t':'cont','tid':_cd4["champion"],'comp':_cd4["name"],'tag':_ck4});}
+var _nru=null;if(_nd3&&_nd3["rounds"]&&_nd3["rounds"]["length"]){var _fm4=_nd3["rounds"][_nd3["rounds"]["length"]-0x1]["matches"];
+if(_fm4&&_fm4["length"]){var _m4=_fm4[0x0];_nru=_m4["homeId"]===_nch2?_m4["awayId"]:_m4["homeId"];}}
+if(_nch2)_fq["push"]({'t':'nat','nid':_nch2,'nid2':_nru,'tag':_nk3});}
+if(a2["contFx"]&&a2["contFx"]["data"])for(var _ck4 in a2["contFx"]["data"]){var _cd4=a2["contFx"]["data"][_ck4];
+var _cru=null;if(_cd4&&_cd4["rounds"]&&_cd4["rounds"]["length"]){var _ct2=_cd4["rounds"][_cd4["rounds"]["length"]-0x1]["ties"];
+if(_ct2&&_ct2["length"]&&_ct2[0x0]["w"]===_cd4["champion"])_cru=_ct2[0x0]["h"]===_cd4["champion"]?_ct2[0x0]["a"]:_ct2[0x0]["h"];}
+if(_cd4&&_cd4["champion"])_fq["push"]({'t':'cont','tid':_cd4["champion"],'tid2':_cru,'comp':_cd4["name"],'tag':_ck4});}
 }catch(e){}
 var _facts=_fq["splice"](0x0,_fq["length"]);
 var items=null;
@@ -3175,7 +3180,7 @@ if(a2["teamId"]===wC.i&&bz)bz["move"]='升上'+ak(to2)["name"];
 }
 }
 var _nqL,_nqO,_nqSeen={};
-for(_nqL in _relegZone){_nqO=orders[_nqL];if(_nqO&&_nqO["length"]){_nqSeen[_nqL]=0x1;a2["_newsQ"]["push"]({'t':'lgchamp','tid':_nqO[0x0],'lg':_nqL});}}
+for(_nqL in _relegZone){_nqO=orders[_nqL];if(_nqO&&_nqO["length"]){_nqSeen[_nqL]=0x1;a2["_newsQ"]["push"]({'t':'lgchamp','tid':_nqO[0x0],'lg':_nqL,'tid2':_nqO["length"]>0x1?_nqO[0x1]:null});}}
 if(a2["leagueId"]&&!_nqSeen[a2["leagueId"]]&&orders[a2["leagueId"]]&&orders[a2["leagueId"]]["length"])a2["_newsQ"]["push"]({'t':'lgchamp','tid':orders[a2["leagueId"]][0x0],'lg':a2["leagueId"]});
 }
 function _poOne(x,
