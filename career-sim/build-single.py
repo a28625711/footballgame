@@ -67,6 +67,7 @@ js_blocks = {
     'crests.js': new_crests,
     'qr.js': read_js('qr.js'),
     'natdata.js': read_js('natdata.js'),
+    'news.js': read_js('news.js'),
     'sim.js': read_js('sim.js'),
     'game.js': game_js,
 }
