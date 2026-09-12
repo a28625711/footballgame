@@ -110,6 +110,15 @@ var many=[];for(var j=0;j<10;j++)many.push({t:'lgchamp',tid:'rma',lg:'liga'});
 var items2=window.NEWSGEN(a2,0,many);
 var f2=items2.filter(function(n){return n.id&&n.id.indexOf('ft_')===0;});
 if(f2.length>3){out.err='fact cap '+f2.length;return JSON.stringify(out);}
+/* 青训国内外池判定：国内青训不得出留洋风味(fv_ab)，国外青训会出 */
+var y1={name:'p',teamId:'cn-cd',youthTeamId:'cn-cd',leagueId:null,country:null,_newsTids:[],_newsWhen:{},age:13,ovr:44,flags:{},fame:2,role:'sub'};
+var ab1=0;
+for(var k1=0;k1<25;k1++){y1.age=13+k1;window.NEWSGEN(y1,1,[]).forEach(function(n){if((n.id||'').indexOf('fv_ab_')===0)ab1++;});}
+if(ab1>0){out.err='domestic youth fired abroad flavor x'+ab1;return JSON.stringify(out);}
+var y2={name:'p',teamId:'rma',youthTeamId:'rma',leagueId:null,country:null,_newsTids:[],_newsWhen:{},age:13,ovr:44,flags:{},fame:2,role:'sub'};
+var ab2=0;
+for(var k2=0;k2<25;k2++){y2.age=13+k2;window.NEWSGEN(y2,1,[]).forEach(function(n){if((n.id||'').indexOf('fv_ab_')===0)ab2++;});}
+if(ab2===0){out.err='abroad youth never fired abroad flavor';return JSON.stringify(out);}
 return JSON.stringify(out);
 })()
 """
