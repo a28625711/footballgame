@@ -2499,13 +2499,16 @@ for(i=0;i<rows["length"];i++)if(rows[i]!==myRow&&rows[i]["pos"]>=zone[0])cand.pu
 if(cand["length"]){pick=cand[Math["floor"](ad()*cand["length"])];oppId=pick["i"];comp='保级大战';}
 }
 }
-/* 德比：主力以上 + 真实赛程里有对死敌的比赛（_dby 按 leagueOf 动态过滤，支持跨级消失） */
+/* 德比：主力以上 + 真实赛程里有对死敌的比赛（_dby 按 leagueOf 动态过滤，支持跨级消失）；
+   多个死敌同榜时随机挑一场（修复列表序偏置：皇马永远先抽巴萨、抽不到马竞） */
 if(!pick&&rank>=0x3&&_dby[me]){
 var dM=_dby[me]["filter"](function(dW){return aj(dW[0])&&ap(aj(dW[0]))===lg;});
+var dCands=[];
 for(i=0;i<dM["length"];i++){
 var hit=_fxHit(fx,me,dM[i][0]);
-if(hit){pick={'i':dM[i][0]};oppId=dM[i][0];comp=dM[i][1];break;}
+if(hit)dCands["push"]({'i':dM[i][0],'comp':dM[i][0x1]});
 }
+if(dCands["length"]){var dc=dCands[Math["floor"](ad()*dCands["length"])];pick={'i':dc["i"]};oppId=dc["i"];comp=dc["comp"];}
 }
 if(!pick)return;
 var hit2=_fxHit(fx,me,oppId);
@@ -4729,6 +4732,7 @@ return _v&&typeof _v==="object"?_v["y"]||0x0:0x0;},
   return aV(bx,0.6,{'comp':_y["comp"],'opp':(_y["pool"]||["选拔队"])[0x0],'oppStr':Math.round(a2["ovr"]+0x8),'_quick':_y["quick"]||0x0});},
 'pushPri':function(bx,by,bz){return _aVPri(bx,by,bz);},
 'dbyDump':function(){var o={};for(var k in _dby)o[k]=_dby[k]["map"](function(e){return e[0x0]+':'+e[0x1]+':'+_dbyType(e[0x1]);});return o;},
+'bmIntro':function(bx,by,bz){return _bmIntro({'kind':bx,'comp':by,'opp':bz,'team':'皇家马德里'});},
 'teamHire':function(bx){
 var _r=_stById(bx);
 if(!_r||!a2["staffMkt"]||a2["staffMkt"]["ids"]["indexOf"](bx)<0x0)return null;
