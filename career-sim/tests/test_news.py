@@ -163,6 +163,7 @@ out.liveBefore=(a2.newsLive||[]).length;
 delete a2._natAsia;
 a2.natFx.data.asia.champion='n_chn';
 window.SIM.newsLiveTick();
+window.SIM.newsLiveTick(); /* 重复收集(结算+drain各一次)不得产生重复条目 */
 out.after=(a2.news||[]).map(function(n){return n.c+':'+n.t.slice(0,18);});
 out.liveAfter=(a2.newsLive||[]).length;
 out.newsUnchanged=JSON.stringify(out.before)===JSON.stringify(out.after);
