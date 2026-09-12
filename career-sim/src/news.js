@@ -514,13 +514,13 @@ var FACT_T = {
            '{T}夺得{COMP}！这座城市一夜之间多出了十万件印着星星的球衣。',
            '{COMP}属于{T}。决赛后的新闻发布会，冠军主帅只说了四个字：「我们值得。」',
            '{T}赢下{COMP}！颁奖台还没搭好，球迷已经开始在广场上用手机灯摆奖杯的形状。'],
-    natHi: ['世界杯落幕：{N}捧起大力神杯，决赛制胜球被做成了城市广场的雕像小样。',
-            '{N}登顶世界之巅，该国航空公司连夜宣布加开「冠军纪念航班」。',
-            '{N}夺得世界杯！夺冠游行的花车用掉了全国库存的一半彩带。',
-            '一届属于{N}的世界杯：从揭幕战到决赛，他们把「冠军相」三个字写满了三十天。'],
-    natLow: ['世界杯史上最大冷门：{N}夺得冠军！赛前不被任何人看好的球队，最后把奖杯扛回了家。',
-             '谁敢相信？{N}站上了世界杯最高领奖台，赛前他们自己定的目标只是「小组出线」。',
-             '{N}的世界杯童话：一路的质疑声里，他们用一座真金白银的奖杯作了回答。'],
+    natHi: ['{COMP}落幕：{N}捧起冠军奖杯，决赛制胜球被做成了城市广场的雕像小样。',
+            '{N}登顶{COMP}，该国航空公司连夜宣布加开「冠军纪念航班」。',
+            '{N}夺得{COMP}！夺冠游行的花车用掉了全国库存的一半彩带。',
+            '一届属于{N}的{COMP}：从揭幕战到决赛，他们把「冠军相」三个字写满了整届赛事。'],
+    natLow: ['{COMP}史上最大冷门：{N}夺得冠军！赛前不被任何人看好的球队，最后把奖杯扛回了家。',
+             '谁敢相信？{N}站上了{COMP}最高领奖台，赛前他们自己定的目标只是「小组出线」。',
+             '{N}的{COMP}童话：一路的质疑声里，他们用一座真金白银的奖杯作了回答。'],
     natChnWc: ['历史性一夜：中国队夺得世界杯！从「留给中国队的时间不多了」到「中国队是世界冠军」，一代人等到了这一天。',
                '中国队站上世界之巅！电视机前多少已过而立的老球迷哭得像当年逃课看球的高中生。'],
     natChnAsia: ['中国队亚洲杯登顶！终场哨响的那一刻，无数个客厅里的泡面被欢呼掀翻在地。',
@@ -591,11 +591,21 @@ function factEntry(a2, f) {
         e.tid = t4.id;
     } else if (f.t === 'nat') {
         var nn = null, ns = natList();
-        for (var i = 0; i < ns.length; i++) if (ns[i].i === f.nid) nn = ns[i];
+        for (var i = 0; i < ns.length; i++) {
+            if (ns[i].i === f.nid) { nn = ns[i]; break; }
+            /* 兼容历史数据：个别路径 champion 存的是队名而非 id */
+            if (ns[i].n === f.nid) { nn = ns[i]; break; }
+        }
         if (!nn) return null;
         ctx.N = nn.n;
-        if (f.nid === 'n_chn') { e.c = 'natc'; e.t = fill(pick(f.tag === 'wc' ? FACT_T.natChnWc : FACT_T.natChnAsia), ctx); }
-        else { e.c = nn.s >= 85 ? 'champ' : 'upset'; e.t = fill(pick(nn.s >= 85 ? FACT_T.natHi : FACT_T.natLow), ctx); }
+        ctx.COMP = ({ 'wc': '世界杯', 'asia': '亚洲杯', 'euro': '欧洲杯', 'copa': '美洲杯' })[f.tag] || '大赛';
+        if (f.nid === 'n_chn' || nn.i === 'n_chn') { e.c = 'natc'; e.t = fill(pick(f.tag === 'wc' ? FACT_T.natChnWc : FACT_T.natChnAsia), ctx); }
+        else {
+            /* 冷门判定按赛事分档：亚洲杯头部队(日韩伊)夺冠是常态，世界杯欧洲杯门槛高 */
+            var _strongS = { 'wc': 85, 'euro': 85, 'copa': 82, 'asia': 75 }[f.tag] || 85;
+            e.c = nn.s >= _strongS ? 'champ' : 'upset';
+            e.t = fill(pick(nn.s >= _strongS ? FACT_T.natHi : FACT_T.natLow), ctx);
+        }
         e.nid = nn.i;
     } else return null;
     return e;
