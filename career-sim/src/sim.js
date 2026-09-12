@@ -2274,6 +2274,9 @@ function _newsLiveTick(){_newsLiveAdd(_newsFactCollect());}
 function _newsTick(yth){
 /* 常规批次每季整体替换；实况事实走独立的 newsLive 栏，互不影响 */
 if(!window["NEWSGEN"])return;
+/* 实况栏只保留本赛季条目：上一季的冠军消息随赛季翻页清掉（每年实时最新） */
+var _curAge=(a2["seasons"]&&a2["seasons"]["length"])?a2["seasons"][a2["seasons"]["length"]-0x1]["age"]:(a2["age"]!=null?a2["age"]:0);
+a2["newsLive"]=(a2["newsLive"]||[]).filter(function(x){return x["age"]===_curAge;});
 _newsLiveAdd(_newsFactCollect());
 var items=null;
 try{items=window["NEWSGEN"](a2,yth||0x0);}catch(e){a2["_newsErr"]=String(e)["slice"](0x0,0xc8);return;}

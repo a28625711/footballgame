@@ -805,7 +805,8 @@ window.NEWSGEN = function (a2, youth) {
 window.NEWSFACTS = function (a2, facts) {
     a2._newsTids = a2._newsTids || [];
     var es = genFacts(a2, _slamDetect(a2, facts || []), false);
-    var age = a2.age != null ? a2.age : 0;
+    /* 条目归属"赛季年龄"：结算链内 age 会+1，用最后一条赛季记录的年龄，保证 settle 与 drain 落在同一季 */
+    var age = (a2.seasons && a2.seasons.length) ? a2.seasons[a2.seasons.length - 1].age : (a2.age != null ? a2.age : 0);
     for (var i = 0; i < es.length; i++) es[i].age = age;
     return es;
 };
