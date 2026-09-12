@@ -2228,23 +2228,17 @@ a2["_natStrMap"][o["nat"]["nid"]]=Math.round(a2["_natStrMap"][o["nat"]["nid"]]+o
 if(o["fame"])a2["fame"]=Math.max(0,Math.min(0x64,(a2["fame"]||0)+o["fame"]));
 if(o["gx"])a2["guanxi"]=Math.max(0,Math.min(0x64,(a2["guanxi"]||0)+o["gx"]));
 }
-function _newsTick(bz){
+function _newsTick(yth){
+/* 每季整体替换不保留历史：新闻只展示当季最新一批，不塞满存档 */
 if(!window["NEWSGEN"])return;
-if(!a2["news"])a2["news"]=[];
 var items=null;
-try{items=window["NEWSGEN"](a2);}catch(e){a2["_newsErr"]=String(e)["slice"](0x0,0xc8);return;}
+try{items=window["NEWSGEN"](a2,yth||0x0);}catch(e){a2["_newsErr"]=String(e)["slice"](0x0,0xc8);return;}
 if(!items||!items["length"])return;
-var fxCnt=0,negCnt=0,i,e;
+var kept=[],fxCnt=0,negCnt=0,i,e;
 for(i=0;i<items["length"];i++){e=items[i];
 if(e["fx"]){if(fxCnt>=0x2||_newsFxNeg(e["fx"])&&negCnt>=0x1){delete e["fx"];}else{fxCnt++;if(_newsFxNeg(e["fx"]))negCnt++;_newsFx(e["fx"]);}}
-a2["news"]["push"](e);}
-/* 超上限时按整赛季裁剪（从最老赛季整组删除），避免截出残缺赛季 */
-if(a2["news"]["length"]>0xc8){
-var _nAges={};for(i=0;i<a2["news"]["length"];i++){var _ng=a2["news"][i]["age"];_nAges[_ng]=(_nAges[_ng]||0)+1;}
-while(a2["news"]["length"]>0xc8&&Object.keys(_nAges).length>0x1){
-var _nMin=null;for(var _nk in _nAges)if(_nMin===null||+_nk<_nMin)_nMin=+_nk;
-delete _nAges[_nMin];a2["news"]=a2["news"].filter(function(x){return x["age"]!==_nMin;});
-}}
+kept.push(e);}
+a2["news"]=kept;
 }
 function _newsFxNeg(o){
 if(o["wage"]<0x0||o["fame"]<0x0||o["gx"]<0x0)return!0x0;
@@ -3442,7 +3436,7 @@ _natTick(_natTourn,!!(_natQual&&!_natTourn&&bX&&!a2["cheat"]),_natFxForce);
 if(bx&&by){_ntCareerHook();_bigHooks(bz);if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;a2["_promoDue"]=!0x0;}else{_lgFinalRefresh(bz);bAw(bz);}}return a2["_promoDue"]?0:_promoReleg(bz,
 bx,by),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz["ovrEnd"]=Math["round"](a2["ovr"]),a2["seasons"]["push"](bz),
 
-_newsTick(bz),
+_newsTick(0x0),
 
 a2["age"]++,
 
@@ -3699,7 +3693,7 @@ return bH?0.45+0.06*bH["rep"]:0x1;
 }(a2["age"]);
 delete a2["flags"]["_yFit"];
 return a2["youthLog"]["push"]({'age':a2["age"],'teamId':a2["youthTea"+"mId"],'ovr':Math["round"](a2["ovr"]),'cut':bC}),bC?(a2["youthCut"]=a2["age"],
-!0x0):(a2["age"]++,!0x1);
+!0x0):(_newsTick(0x1),a2["age"]++,!0x1);
 }()))return br("青训淘汰");
 if(a2["age"]>=0x15&&!bi())return a2["youthCut"]=a2["age"],
 

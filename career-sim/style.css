@@ -2272,3 +2272,6 @@ img.crest.plate {
 .news-row.mj .n-txt { font-weight: 500; }
 .news-row.bad .n-txt { color: hsl(var(--faint)); }
 .news-empty { padding: 18px 0; text-align: center; font-size: .78rem; color: hsl(var(--faint)); }
+.news-row .crest, .news-row .crest-pic img { width: 15px !important; height: 15px !important; vertical-align: -3px; margin-right: 2px; border-radius: 3px; }
+.news-row .n-flag { margin-right: 2px; font-size: .8em; }
+.news-row .n-tname { font-weight: 600; }

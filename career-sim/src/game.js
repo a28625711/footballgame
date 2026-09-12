@@ -706,13 +706,19 @@ if(_newsList.length){
 var _nByAge={},_nAges=[];
 _newsList.forEach(function(n5){if(!_nByAge[n5.age]){_nByAge[n5.age]=[];_nAges.push(n5.age);}_nByAge[n5.age].push(n5);});
 _nAges.sort(function(a5,b5){return b5-a5;});
-_nAges.forEach(function(ag,i5){
-var _nRows=_nByAge[ag].map(function(n5){
+_nAges.forEach(function(nag,i5){
+var _nRows=_nByAge[nag].map(function(n5){
 if(n5.bad&&au["staff"]&&au["staff"]["pr"])return '';
-var _nIco=n5.k==='mj'?'📰':n5.k==='mn'?'📄':'☕';
-return '<div class="news-row '+n5.k+(n5.bad?' bad':'')+'"><span class="n-ico">'+_nIco+'</span><span class="n-txt">'+ax(n5.t)+'</span></div>';
+var _nm=(window["NEWSMETA"]||{})[n5.c];
+var _nIco=_nm?_nm.e:(n5.k==='mj'?'📰':n5.k==='mn'?'📄':'☕');
+var _nT=ax(n5.t);
+if(n5.tid){var _ntm=ag(n5.tid);
+if(_ntm){var _nCr=aT(_ntm);if(_nCr)_nT=_nT.replace(ax(_ntm.name),_nCr+'<span class="n-tname">'+ax(_ntm.name)+'</span>');}}
+if(n5.nid){var _nn=null;(window.NATS||[]).forEach(function(q){if(q.i===n5.nid)_nn=q;});
+if(_nn&&_nn.f){_nT=_nT.replace(ax(_nn.n),'<span class="n-flag">'+_nn.f+'</span><span class="n-tname">'+ax(_nn.n)+'</span>');}}
+return '<div class="news-row '+n5.k+(n5.bad?' bad':'')+'"><span class="n-ico">'+_nIco+'</span><span class="n-txt">'+_nT+'</span></div>';
 }).join('');
-newsBody+='<details class="news-grp'+(i5===0?' open':'')+'"><summary>'+ag+'岁<span class="n-cnt">'+_nByAge[ag].length+'条</span></summary>'+_nRows+'</details>';
+newsBody+='<details class="news-grp'+(i5===0?' open':'')+'"><summary>'+nag+'岁<span class="n-cnt">'+_nByAge[nag].length+'条</span></summary>'+_nRows+'</details>';
 });
 }else newsBody+='<div class="news-empty">还没有任何新闻。</div>';
 newsBody+='</div></div>';
