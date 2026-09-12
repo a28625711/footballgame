@@ -3132,7 +3132,8 @@ var up=_promoAuto[sl],to=am[sl],order2=orders[sl];
 if(!to||!order2)continue;
 for(var p2=0;p2<up.length&&p2<order2.length;p2++){
 _moveTeam(order2[p2],to,true,p2);
-a2["_newsQ"]["push"]({'t':'promo','tid':order2[p2],'from':sl,'to':up});
+/* 升级新闻只挑重点：主角队 / 升入五大顶级联赛 / 弱队(Rep<=1)奇迹升入Rep>=4联赛 */
+if(a2["teamId"]===order2[p2]||ak(to)["rep"]>=0x5||((aj(order2[p2])||{"rep":9})["rep"])<=0x1&&ak(to)["rep"]>=0x4)a2["_newsQ"]["push"]({'t':'promo','tid':order2[p2],'from':sl,'to':to});
 if(a2["teamId"]===order2[p2]&&bz)bz["move"]='升上'+ak(to)["name"];
 }
 }
@@ -3153,7 +3154,7 @@ done=true;
 if(!done){
 var wC=_poOne(f1,f2,true);
 _moveTeam(wC.i,to2,true,2);
-a2["_newsQ"]["push"]({'t':'promo','tid':wC.i,'from':sl2,'to':to2});
+if(a2["teamId"]===wC.i||ak(to2)["rep"]>=0x5||((aj(wC.i)||{"rep":9})["rep"])<=0x1&&ak(to2)["rep"]>=0x4)a2["_newsQ"]["push"]({'t':'promo','tid':wC.i,'from':sl2,'to':to2});
 if(a2["teamId"]===wC.i&&bz)bz["move"]='升上'+ak(to2)["name"];
 }
 }
