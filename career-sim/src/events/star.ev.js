@@ -822,6 +822,112 @@ return d(q,s)?{'ovr':0x3,'fame':0x14,'roleDelta':0x1,'text':h(p,{'gk':"你把他
         'apply': function(){return{'ovr':0x1,'text':"特训之外你自己加了五十脚。他路过看了几眼，没说话，只在临走时留下一句话：射门是练不完的，但脑子得先到位。"};}
     }
   ]
+},
+
+// ---- idx:365 | star_pen_taker | 第一个主罚的人 ----
+{
+  'id': "star_pen_"+"taker",
+  'title': "第一个主罚的人",
+  'icon': '⚽',
+  'weight': 0x96,
+  'when': function(p){
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"]&&p["roleRank"]>=0x3;
+},
+  'desc': "训练赛里你把点球打进了死角，主教练在旁边看见了。三天后的联赛获得一个点球，赛前他把球塞进你手里：今晚，你来。",
+  'options': [
+    {
+        'label': "抱起球就走",
+        'p': function(p){
+return f(0.4,[[p["ovr"],0x4e,0.016],[p["roleRank"],0x3,0.05]],0.1,0.75);
+},
+        'hint': function(p,q){
+return g(q,"稳稳命中,主罚权到手","被扑了,全场嘘声");
+},
+        'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'fame':0x14,'guanxi':0x6,'text':"你放好球，退了四步，等裁判哨响。球进的那一刻你没庆祝，只是指了指被犯规的那个队友。第二天，主教练在会上宣布：以后点球是你的。"}:{'ovr':-0x2,
+'guanxi':-0x4,'text':"你选了一个自己练了一百遍的角，门将偏偏扑了另一边。看台的嘘声不算响，但老队长走过来拍你后背的那一下，比嘘声重多了。"};
+}
+    },
+    {
+        'label': "把球塞回给队长",
+        'hint': "稳，人情也稳",
+        'apply': function(){
+return{'guanxi':0x8,'fame':0x2,'text':"你说：还是您来，我还没到那个份上。队长笑了笑没推辞，稳稳罚进。更衣室里大家都说这孩子懂事——但那天晚上，你一个人留在基地加练了二十个点球。"};
+}
+    }
+  ]
+},
+
+
+
+// ---- idx:366 | star_boot | 射手榜上那个名字 ----
+{
+  'id': "star_boot",
+  'title': "射手榜上那个名字",
+  'icon': '🥇',
+  'weight': 0x96,
+  'when': function(p){
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"att"===p["posGroup"]&&p["ovr"]>=0x50;
+},
+  'desc': "联赛还剩六轮，射手榜第一的名字只比你多两球。媒体已经开始炒这场对决了——下一轮，你们直接碰面。",
+  'options': [
+    {
+        'label': "这场我必须进球",
+        'p': function(p){
+return f(0.35,[[p["ovr"],0x50,0.016],[p["roleRank"],0x3,0.04]],0.1,0.72);
+},
+        'hint': function(p,q){
+return g(q,"你赢了对话也赢了榜","被他冻结,输球又输人");
+},
+        'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'fame':0x1c,'roleDelta':0x1,'text':"你比他多跑了整整一公里，终于在一个二点球上抢先出脚。终场哨响时你冲他摊了摊手，他摇着头笑了。第二天榜单上，你们之间只差一球。"}:{'ovr':-0x1,
+'roleDelta':-0x1,'fame':0x6,'text':"他打进一球，助攻一次。你全场最好的机会把球打在了边网外。回程大巴上你把他的进球集锦看了四遍——不是为了学习，是不甘心。"};
+}
+    },
+    {
+        'label': "赢球比赢他重要",
+        'hint': "团队优先,也有机会",
+        'apply': function(){
+return{'guanxi':0x8,'ovr':0x1,'text':"你把注意力放在跑动和做球上，助攻了制胜球。他没进球，你也没进。赛季结束你排在榜单第二——但队内评分第一。有些账，记在另一种榜上。"};
+}
+    }
+  ]
+},
+
+
+
+// ---- idx:367 | star_def_space | 身后那片空当 ----
+{
+  'id': "star_def_"+"space",
+  'title': "身后那片空当",
+  'icon': '🛡️',
+  'weight': 0x96,
+  'when': function(p){
+return!p["inChina"]&&p["leagueRe"+'p']>=0x4&&"def"===p["posGroup"];
+},
+  'desc': "对手的球探报告写得明明白白：这个中卫转身慢，多打他身后。这三轮，每一脚过顶球都往你的背后砸。",
+  'options': [
+    {
+        'label': "改造自己的站位",
+        'p': function(p){
+return f(0.45,[[p["ovr"],0x4c,0.012],[p["guanxi"],45,0.006]],0.15,0.8);
+},
+        'hint': function(p,q){
+return g(q,"从弱点练成特点","改了,但还没改好");
+},
+        'apply': function(p,q,s){
+return d(q,s)?{'ovr':0x3,'talent':0.04,'text':"你把站位退后了三米，把重心从脚尖挪到脚跟。第四轮，同一套长传砸过来，你头球点给了后腰——全场第一次为一次解围鼓掌。分析师把这一幕剪进了周报。"}:{'ovr':-0x1,
+'text':"新站位让你别扭了整整一个月，丢球反而多了。教练拍了拍你：改是可以改，但得给你点时间。你开始每天留下来看半小时录像。"};
+}
+    },
+    {
+        'label': "要求队友协同保护",
+        'hint': "稳，但要看人脸色",
+        'apply': function(){
+return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好各自的补位路线。此后身后的长传一次也没再变成失球。没人知道这中间你做对了什么——除了你的门将。"};
+}
+    }
+  ]
 }
 
 ];
