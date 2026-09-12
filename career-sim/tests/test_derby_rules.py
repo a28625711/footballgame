@@ -103,6 +103,35 @@ def run():
         raise harness.Fail('wc 未驱逐在队的 cont: %s' % r['picks'])
     if not r['picks']['contSettled']:
         raise harness.Fail('被驱逐的洲际决赛未走 AI 结算（_contRun/cupRuns/contFx champion）: %s' % r['picks'])
+    # 5) 德比映射表：双向对称（标签一致）+ 分类快照（地理/命名正确性防回归）
+    dby = json.loads(str(mr.eval('JSON.stringify(window.SIM.dbyDump())')))
+    sym = {}
+    for a, lst in dby.items():
+        for e in lst:
+            tid, lab = e.split(':', 1)[0], e.split(':', 1)[1]
+            sym.setdefault(frozenset((a, tid)), set()).add(lab)
+    for pair, labs in sym.items():
+        if len(labs) > 1:
+            raise harness.Fail('德比标签双向不一致 %s: %s' % (sorted(pair), labs))
+    expect = {
+        ('rma', 'bar'): 'n', ('rma', 'atm'): 'c', ('mun', 'liv'): 'r',
+        ('liv', 'eve'): 'c', ('ars', 'tot'): 'c', ('che', 'tot'): 'c',
+        ('int', 'acm'): 'c', ('int', 'juv'): 'n', ('nap', 'rom'): 'r',
+        ('bay', 'bvb'): 'n', ('psg', 'mar'): 'n', ('aja', 'fey'): 'n',
+        ('psv', 'fey'): 'r', ('por', 'spo'): 'n', ('spo', 'ben'): 'c',
+        ('hsv', 'pau'): 'c', ('cn-sh', 'cn-shh'): 'c', ('cn-sh', 'cn-bj'): 'n',
+        ('cn-bj', 'cn-sd'): 'r', ('gmb', 'cre'): 'c', ('nyc', 'nyr'): 'c',
+        ('clb', 'and'): 'n',
+    }
+    for (a, b), want in expect.items():
+        got = [e.split(':')[2] for e in dby.get(a, []) if e.split(':')[0] == b]
+        if not got:
+            raise harness.Fail('缺少德比配对 %s-%s' % (a, b))
+        if got[0] != want:
+            raise harness.Fail('%s-%s 分类应为 %s 实际 %s' % (a, b, want, got[0]))
+    for gone in (('fio', 'bol'), ):
+        if dby.get(gone[0]):
+            raise harness.Fail('%s 不应有德比配对: %s' % (gone[0], dby[gone[0]]))
     print('DERBY RULES PASS')
 
 harness.main(run)
