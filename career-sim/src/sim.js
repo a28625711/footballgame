@@ -2261,10 +2261,12 @@ var es=null;
 try{es=window["NEWSFACTS"](a2,facts);}catch(e){return;}
 if(!es||!es["length"])return;
 a2["newsLive"]=a2["newsLive"]||[];
+/* 去重键用赛季序号(结算到决赛drain期间不变；age在settle链内会+1导致误判) */
+var _lks=a2["_liveKeys"]=a2["_liveKeys"]||{},_lsn=(a2["seasons"]||[])["length"];
 for(var i=0;i<es["length"];i++){
-/* 去重：同一事实(同id同赛季)只进一次实况栏——结算与决赛落定的重复收集在此拦截 */
-var _dup=!0x1;for(var j=0;j<a2["newsLive"]["length"];j++)if(a2["newsLive"][j]["id"]===es[i]["id"]&&a2["newsLive"][j]["age"]===a2["age"]){_dup=!0x0;break;}
-if(_dup)continue;
+var _lk=es[i]["id"]+"@"+_lsn;
+if(_lks[_lk])continue;
+_lks[_lk]=1;
 a2["newsLive"]["unshift"](es[i]);}
 while(a2["newsLive"]["length"]>0x8)a2["newsLive"]["pop"]();
 }
