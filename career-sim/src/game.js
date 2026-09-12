@@ -14,7 +14,7 @@ au&&("summary"===au["phase"]?bO():bN());
 au&&au["flags"]&&au["flags"]["_yInvLost"]&&(delete au["flags"]["_yInvLost"],bK("钱不够，青训投入停了一项"));
 }function as(){
 a6["nextStep"](),aA(),ar();
-}var au=null,av=null,_teamOpen=!0x0,_statOpen=!0x0;
+}var au=null,av=null,_teamOpen=!0x0,_statOpen=!0x0,_tlTab='club';
 /* 世界历史归档与主档分离：主档 gyrs_save 只存玩家+当季状态(小)，历史体积大头
    (联赛/杯赛/洲际/国家队逐季归档) 单独存 gyrs_world，写不进去时自动裁剪最老赛季 */
 var WH_KEYS=['lgTblArch','lgFxArch','contFxArch','cupFxArch','natFxArch'],_whSeas=null,_whWarned=!1,_whFail=!1;
@@ -570,7 +570,8 @@ c5=c8,(++c6>=c2||c9===au["seasons"]["length"]-0x1)&&c7();
 
 
 
-bY+='<div class="tl-tabs"><button class="tl-tab on" data-tab="club">俱乐部</button><button class="tl-tab" data-tab="nat">国家队</button><button class="tl-tab" data-tab="award">奖项</button><button class="tl-tab" data-tab="pers">个人</button><button class="tl-tab'+(((au["news"]||[]).length>(au["_newsSeen"]||0))?" has-unread":"")+'" data-tab="news">新闻</button><button class="tl-tab" data-tab="world">世界</button></div>';
+var _tabBtn=function(k,lab,extra){return '<button class="tl-tab'+(_tlTab===k?' on':'')+(extra||'')+'" data-tab="'+k+'">'+lab+'</button>';};
+bY+='<div class="tl-tabs">'+_tabBtn('club','俱乐部')+_tabBtn('nat','国家队')+_tabBtn('award','奖项')+_tabBtn('pers','个人')+_tabBtn('news','新闻',((au["news"]||[]).length>(au["_newsSeen"]||0))?' has-unread':'')+_tabBtn('world','世界')+'</div>';
 
 
 
@@ -580,7 +581,7 @@ bY+='<div class="tl-tabs"><button class="tl-tab on" data-tab="club">俱乐部</b
 
 
 
-var clubBody='<div class="tl-panel" data-panel="club"><div class="tl-head tl-cols"><span>年龄</span><span>俱乐部</span><span class="r">能力</span><span class="r">'+b4["apps"]+'</span><span class="r">'+('gk'===bX?b4['cs']:b4["goals"])+'</span><span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span></div><div class="tl-scroll">';
+var clubBody='<div class="tl-panel'+(_tlTab==='club'?'':' hidden')+'" data-panel="club"><div class="tl-head tl-cols"><span>年龄</span><span>俱乐部</span><span class="r">能力</span><span class="r">'+b4["apps"]+'</span><span class="r">'+('gk'===bX?b4['cs']:b4["goals"])+'</span><span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span></div><div class="tl-scroll">';
 (au["youthLog"]||[])["forEach"](function(c2){var c3=ag(c2["teamId"]);
 clubBody+=b8("done you"+'th','<span class="age-chip">'+c2["age"]+'</span>','<span class="tl-club">'+(c3?aT(c3):'')+('<span class="tl-club-name">')+(c3?ax(a6["academyN"+"ame"](c3)):'青训')+'</span>'+(c2["cut"]?'<span class="tl-badges"><span class="mini-badge bad">被刷下来</span></span>':'')+'</span>',
 '<span class="r"><span class="ovr-pill '+b5(c2["ovr"])+'">'+c2["ovr"]+'</span></span>','','','');
@@ -625,7 +626,7 @@ clubBody+='</div></div>';
 
 
 
-var natBody='<div class="tl-panel hidden" data-panel="nat"><div class="tl-head tl-cols"><span>年龄</span><span>国家队</span><span class="r">能力</span><span class="r">'+b4["apps"]+'</span><span class="r">'+('gk'===bX?b4['cs']:b4["goals"])+'</span><span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span></div><div class="tl-scroll">';
+var natBody='<div class="tl-panel'+(_tlTab==='nat'?'':' hidden')+'" data-panel="nat"><div class="tl-head tl-cols"><span>年龄</span><span>国家队</span><span class="r">能力</span><span class="r">'+b4["apps"]+'</span><span class="r">'+('gk'===bX?b4['cs']:b4["goals"])+'</span><span class="r hide-xs">'+('gk'===bX?b4['ga']:b4["ast"])+'</span></div><div class="tl-scroll">';
 var natRows=0x0;
 agg["forEach"](function(c2){
 if(c2["caps"]||(c2["nats"]||[])["length"]){natRows++;
@@ -649,7 +650,7 @@ natBody+='</div></div>';
 
 
 
-var awardBody='<div class="tl-panel hidden" data-panel="award"><div class="tl-head tl-cols award"><span>年龄</span><span>俱乐部奖项</span><span>国家队奖项</span><span>个人奖项</span></div><div class="tl-scroll">';
+var awardBody='<div class="tl-panel'+(_tlTab==='award'?'':' hidden')+'" data-panel="award"><div class="tl-head tl-cols award"><span>年龄</span><span>俱乐部奖项</span><span>国家队奖项</span><span>个人奖项</span></div><div class="tl-scroll">';
 var awardAny=!0x1;
 (au["seasons"]||[])["forEach"](function(c2){
 var cClubs=[],cNats=[],cAwards=[];
@@ -679,7 +680,7 @@ awardBody+='</div></div>';
 
 
 
-var persBody='<div class="tl-panel hidden" data-panel="pers"><div class="tl-head tl-cols award"><span>年龄</span><span>事件</span><span>伤病</span><span>能力</span></div><div class="tl-scroll">';
+var persBody='<div class="tl-panel'+(_tlTab==='pers'?'':' hidden')+'" data-panel="pers"><div class="tl-head tl-cols award"><span>年龄</span><span>事件</span><span>伤病</span><span>能力</span></div><div class="tl-scroll">';
 var persEv=(au["eventLog"]||[]);
 var persSeasons=(au["seasons"]||[]).map(function(c2){return{'age':c2["age"],'note':c2["note"]||(c2["injur"]?'伤病':''),'ovr':c2["ovrEnd"]||c2["ovr"]};});
 (au["youthLog"]||[])["forEach"](function(c2){persSeasons["push"]({'age':c2["age"],'note':c2["cut"]?'青训淘汰':'', 'ovr':c2["ovr"]});});
@@ -698,9 +699,9 @@ persBody+='<div class="tl-row done tl-cols award"><span class="age-chip">'+c2+'<
 });}
 if(!persAny)persBody+='<div class="tl-row done tl-cols award"><span class="age-chip"></span><span class="tl-club-name" style="grid-column:2/5">还没有任何记录</span></div>';
 persBody+='</div></div>';
-var worldBody='<div class="tl-panel hidden" data-panel="world"><div class="wl-root">'+bWorldHTML()+'</div></div>';
+var worldBody='<div class="tl-panel'+(_tlTab==='world'?'':' hidden')+'" data-panel="world"><div class="wl-root">'+bWorldHTML()+'</div></div>';
 /* 新闻面板：纯浏览零交互；只显示当季一批（每季整体替换），无按年折叠 */
-var newsBody='<div class="tl-panel hidden" data-panel="news"><div class="news-root">';
+var newsBody='<div class="tl-panel'+(_tlTab==='news'?'':' hidden')+'" data-panel="news"><div class="news-root">';
 var _newsList=(au&&au["news"])||[];
 if(_newsList.length){
 var _nRows=_newsList.map(function(n5){
@@ -1391,6 +1392,17 @@ var _dOvr=(ce["ovrEnd"]!=null&&ce["ovr"]!=null)?ce["ovrEnd"]-Math.round(ce["ovr"
 function _fill(s){return s.replace(/\{G\}/g,_g).replace(/\{CS\}/g,_cs).replace(/\{A\}/g,_as2).replace(/\{D\}/g,_dOvr).replace(/\{AGE\}/g,ce["age"]).replace(/\{NATG\}/g,ce["natGoals"]||0).replace(/\{L\}/g,ce["league"]||'联赛').replace(/\{TP\}/g,tp[0]||'').replace(/\{AW\}/g,aw[0]||'');}
 function _pick(key,arr){_hlStr=_fill(arr[(ce["age"]*7+key["length"]*3)%arr["length"]]);}
 if(ce["move"]){_pick('md',['降级，跌落的一年','降级之夜，更衣室无人说话','咽下降级，来年讨回来']);return;}
+/* 大满贯：联赛+国内杯赛(全)=国内大满贯；再加洲际冠军=超级大满贯 */
+var _slamDom=null,_slamSup=false;
+if(ce["leaguePos"]===1&&ce["teamId"]&&ag(ce["teamId"])){
+var _lgO=a6["leagueOf"+"Team"](ag(ce["teamId"]));
+if(_lgO){var _tph=ce["trophies"]||[];
+var _hasT=function(n){for(var hi=0;hi<_tph.length;hi++)if(_tph[hi]===n)return true;return false;};
+_slamDom=_hasT(_lgO["cup"]+'冠军')&&(!_lgO["leagueCup"]||_hasT(_lgO["leagueCup"]+'冠军'));
+if(_slamDom&&(au["cupRuns"]||[]).some(function(r){return r["age"]===ce["age"]&&r["result"]==='冠军'&&r["comp"]===_lgO["cont"];}))_slamSup=true;
+}}
+if(_slamSup){_pick('ss',['超级大满贯：三冠王！','史诗三冠，王朝加冕']);return;}
+if(_slamDom){_pick('sd',['国内大满贯！','联赛杯赛全包揽','统治本国足坛的一年']);return;}
 if(ce["leaguePos"]===1){_pick('lc',(!_gk&&_g>=10)?['{G}球加冕{L}冠军','以{G}球捧起{L}奖杯','{L}冠军，实至名归','城市之王的加冕夜']:['问鼎{L}冠军','{L}冠军到手','{L}之巅的赛季']);return;}
 for(var ai2=0;ai2<aw.length;ai2++){
 if(/金靴/.test(aw[ai2])){_pick('gb',['{G}球加冕金靴','金靴到手，门将服了','射手榜一骑绝尘']);return;}
@@ -1987,6 +1999,7 @@ ca&&(ca["innerHTM"+'L']=aM(av["origin"],av["name"],av["number"]));
 }}),aw("app")["addEvent"+"Listener"]("click",function(c9){var ca=c9["target"]["closest"]("[data-tab]");
 if(ca){var cTab=ca["getAttri"+"bute"]("data-tab"),cBtns=document["querySel"+"ectorAll"](".tl-tab"),cPans=document["querySel"+"ectorAll"](".tl-panel");
 if(cTab==="news"&&au){au["_newsSeen"]=(au["news"]||[]).length;ca.classList["remove"]("has-unread");}
+_tlTab=cTab;
 for(var cI=0x0;cI<cBtns["length"];cI++)cBtns[cI]["classLis"+'t']["toggle"]("on",cBtns[cI]===ca);
 for(var cJ=0x0;cJ<cPans["length"];cJ++){var cK=cPans[cJ]["getAttri"+"bute"]("data-panel");
 cK===cTab?cPans[cJ]["classLis"+'t']["remove"]("hidden"):cPans[cJ]["classLis"+'t']["add"]("hidden");

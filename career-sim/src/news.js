@@ -22,7 +22,7 @@ window.NEWSMETA = {
     'nat': { e: '⚔️', n: '列强' }, 'lg': { e: '📅', n: '联赛' }, 'you': { e: '⭐', n: '主角' },
     'world': { e: '🌍', n: '国际' }, 'home': { e: '🏠', n: '生活' }, 'abroad': { e: '✈️', n: '留洋' },
     'fun': { e: '🎪', n: '趣闻' }, 'champ': { e: '🏆', n: '夺冠' }, 'releg': { e: '⬇️', n: '降级' },
-    'upset': { e: '✨', n: '黑马' }
+    'upset': { e: '✨', n: '黑马' }, 'slam': { e: '👑', n: '大满贯' }
 };
 
 /* 门控辅助 */
@@ -524,7 +524,15 @@ var FACT_T = {
     natChnWc: ['历史性一夜：中国队夺得世界杯！从「留给中国队的时间不多了」到「中国队是世界冠军」，一代人等到了这一天。',
                '中国队站上世界之巅！电视机前多少已过而立的老球迷哭得像当年逃课看球的高中生。'],
     natChnAsia: ['中国队亚洲杯登顶！终场哨响的那一刻，无数个客厅里的泡面被欢呼掀翻在地。',
-                 '亚洲之巅，五星红旗！中国队这座亚洲杯奖杯，让街头巷尾的烧烤摊免费续了一整夜的串。']
+                 '亚洲之巅，五星红旗！中国队这座亚洲杯奖杯，让街头巷尾的烧烤摊免费续了一整夜的串。'],
+    slam: {
+        dom: ['国内大满贯！{T}把联赛和杯赛全包揽了，统治本国足坛。',
+              '{T}的本国赛季无可挑剔：联赛冠军+杯赛冠军一个不留。',
+              '包揽国内全部荣誉，{T}的王朝之年来了。'],
+        super: ['三冠王！{T}包揽联赛、杯赛和{COMP}，名字写进历史书。',
+                '超级大满贯：{T}让整片大陆臣服，{COMP}只是最后一块拼图。',
+                '史诗赛季：{T}国内全收，再把{COMP}一起扛回家。']
+    }
 };
 
 function factScore(a2, f) {
@@ -551,11 +559,48 @@ function factScore(a2, f) {
         if (!f.tid) return -1;
         s += 55;
         if (f.tid === a2.teamId) s += 60;
+    } else if (f.t === 'slam') {
+        if (!teamById(f.tid)) return -1;
+        s += f.tier === 'super' ? 120 : 85;
+        if (f.tid === a2.teamId) s += 100;
     } else if (f.t === 'nat') {
         s += f.tag === 'wc' ? 80 : (f.tag === 'asia' ? 65 : 50);
         if (f.nid === 'n_chn') s += 90;
     }
     return s;
+}
+
+/* 大满贯检测：联赛冠军+国内全部杯赛=国内大满贯；再加洲际杯=超级大满贯。
+   命中时用一条 slam 事实替换掉该队的联赛冠军与洲际冠军事实。 */
+function _slamDetect(a2, facts) {
+    var cupD = (a2.cupFx && a2.cupFx.data) || {};
+    var out = [], usedCont = {}, usedLg = {};
+    var i, f;
+    for (i = 0; i < facts.length; i++) {
+        f = facts[i];
+        if (f.t === 'lgchamp' && !usedLg[f.lg]) {
+            var L = lgOfId(f.lg), t = teamById(f.tid);
+            if (L && t) {
+                var cups = [];
+                if (L.cup) cups.push(L.cup);
+                if (L.leagueCup) cups.push(L.leagueCup);
+                var wonAll = cups.length > 0 && cups.every(function (cn) { return cupD[cn] && cupD[cn].champion === f.tid; });
+                if (wonAll) {
+                    var contWin = null;
+                    for (var j = 0; j < facts.length; j++) {
+                        var cf2 = facts[j];
+                        if (cf2.t === 'cont' && cf2.tid === f.tid && !usedCont[cf2.tid]) { contWin = cf2; break; }
+                    }
+                    usedLg[f.lg] = 1;
+                    if (contWin) { usedCont[f.tid] = 1; out.push({ t: 'slam', tid: f.tid, lg: f.lg, comp: contWin.comp, tier: 'super' }); }
+                    else out.push({ t: 'slam', tid: f.tid, lg: f.lg, tier: 'dom' });
+                    continue;
+                }
+            }
+        }
+        out.push(f);
+    }
+    return out.filter(function (x) { return !(x.t === 'cont' && usedCont[x.tid]); });
 }
 
 function factEntry(a2, f) {
@@ -589,6 +634,13 @@ function factEntry(a2, f) {
         e.c = 'champ';
         e.t = fill(pick(FACT_T.cont), ctx);
         e.tid = t4.id;
+    } else if (f.t === 'slam') {
+        var t5 = teamById(f.tid), lg5 = lgOfId(f.lg);
+        if (!t5) return null;
+        ctx.T = t5.name; ctx.LG = lg5 ? lg5.name : ''; ctx.COMP = f.comp || '洲际杯';
+        e.c = 'slam';
+        e.t = fill(pick(f.tier === 'super' ? FACT_T.slam.super : FACT_T.slam.dom), ctx);
+        e.tid = t5.id;
     } else if (f.t === 'nat') {
         var nn = null, ns = natList();
         for (var i = 0; i < ns.length; i++) {
@@ -613,6 +665,8 @@ function factEntry(a2, f) {
 
 function genFacts(a2, facts, youth) {
     if (!facts || !facts.length) return [];
+    facts = _slamDetect(a2, facts);
+    if (!facts.length) return [];
     var scored = facts.map(function (f) { return { f: f, s: factScore(a2, f) }; })
         .filter(function (x) { return x.s > 0; });
     scored.sort(function (a, b) { return b.s - a.s; });
