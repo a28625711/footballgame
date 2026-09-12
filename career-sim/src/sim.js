@@ -2241,6 +2241,8 @@ if(!window["NEWSGEN"])return;
 var _fq=a2["_newsQ"]=a2["_newsQ"]||[];
 try{
 if(a2["natFx"]&&a2["natFx"]["data"])for(var _nk3 in a2["natFx"]["data"]){var _nd3=a2["natFx"]["data"][_nk3];
+/* 交互决赛未打时跳过：签表里的决赛比分只是AI预演，冠军要等真打完 */
+if((_nk3==='wc'&&a2["_natWC"])||(_nk3==='asia'&&a2["_natAsia"]))continue;
 var _nch2=_nd3?_nd3["champion"]:null;
 if(!_nch2&&_nd3&&_nd3["rounds"]&&_nd3["rounds"]["length"]){var _fm3=_nd3["rounds"][_nd3["rounds"]["length"]-0x1]["matches"];
 if(_fm3&&_fm3["length"]){var _m3=_fm3[0x0];_nch2=(_m3["pens"]&&_m3["pens"]["length"]>=0x2)?(_m3["pens"][0x0]>=_m3["pens"][0x1]?_m3["homeId"]:_m3["awayId"]):(_m3["hg"]>=_m3["ag"]?_m3["homeId"]:_m3["awayId"]);}}
