@@ -713,6 +713,8 @@ if(_cnn&&_cnn.img){_nIco='<img class="n-flag" src="'+((window["_FLAG_DATA"]&&win
 var _nT=ax(n5.t);
 if(n5.tid){var _ntm=ag(n5.tid);
 if(_ntm){var _nCr=aT(_ntm);if(_nCr)_nT=_nT.replace(ax(_ntm.name),_nCr+'<span class="n-tname">'+ax(_ntm.name)+'</span>');}}
+if(n5.t2id&&n5.t2id!==n5.tid){var _nt2=ag(n5.t2id);
+if(_nt2){var _nCr2=aT(_nt2);if(_nCr2)_nT=_nT.replace(ax(_nt2.name),_nCr2+'<span class="n-tname">'+ax(_nt2.name)+'</span>');}}
 if(n5.nid){var _nn=null;(window.NATS||[]).forEach(function(q){if(q.i===n5.nid)_nn=q;});
 if(_nn){var _fs=_nn.img?((window["_FLAG_DATA"]&&window["_FLAG_DATA"][_nn.img])||'assets/flags/'+_nn.img+".svg"):null;
 _nT=_nT.replace(ax(_nn.n),(_fs?'<img class="n-flag" src="'+_fs+'" alt="">':(_nn.f?_nn.f+' ':''))+'<span class="n-tname">'+ax(_nn.n)+'</span>');}}
@@ -1393,7 +1395,7 @@ var _rank=ce["role"]&&a0["ROLES"][ce["role"]]?a0["ROLES"][ce["role"]]["rank"]:0;
 var _dOvr=(ce["ovrEnd"]!=null&&ce["ovr"]!=null)?ce["ovrEnd"]-Math.round(ce["ovr"]):0;
 function _fill(s){return s.replace(/\{G\}/g,_g).replace(/\{CS\}/g,_cs).replace(/\{A\}/g,_as2).replace(/\{D\}/g,_dOvr).replace(/\{AGE\}/g,ce["age"]).replace(/\{NATG\}/g,ce["natGoals"]||0).replace(/\{L\}/g,ce["league"]||'联赛').replace(/\{TP\}/g,tp[0]||'').replace(/\{AW\}/g,aw[0]||'');}
 function _pick(key,arr){_hlStr=_fill(arr[(ce["age"]*7+key["length"]*3)%arr["length"]]);}
-if(ce["move"]){_pick('md',['降级，跌落的一年','降级之夜，更衣室无人说话','咽下降级，来年讨回来']);return;}
+if(ce["move"]){var _dn=/降/.test(ce["move"]);_pick(_dn?'md':'mu',_dn?['降级，跌落的一年','降级之夜，更衣室无人说话','咽下降级，来年讨回来']:['升级成功，新的开始','升级！这一级等了太久','更衣室的香槟开了一整晚']);return;}
 /* 大满贯：联赛+国内杯赛(全)=国内大满贯；再加洲际冠军=超级大满贯 */
 var _slamDom=null,_slamSup=false;
 if(ce["leaguePos"]===1&&ce["teamId"]&&ag(ce["teamId"])){

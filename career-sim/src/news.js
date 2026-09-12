@@ -445,7 +445,7 @@ function build(a2, item, sub) {
     } else if (sub === 'team2') {
         var e1 = wpick(teamPool(a2)), e2 = wpick(team2Pool(a2, e1.t.id));
         ctx.T = e1.t.name; ctx.T2 = e2.t.name; ctx.LG = lgName(e1.t.league); ctx.LG2 = lgName(e2.t.league);
-        subData = { team: e1.t };
+        subData = { team: e1.t, team2: e2.t };
         noteTid(a2, e1.t.id);
     } else if (sub === 'lg') {
         var le = wpick(lgPool(a2));
@@ -464,6 +464,7 @@ function build(a2, item, sub) {
     }
     var entry = { k: 'mj', id: item.id, c: item.c || 'club', t: fill(item.t, ctx) };
     if (subData && subData.team) entry.tid = subData.team.id;
+    if (subData && subData.team2) entry.t2id = subData.team2.id;
     if (subData && subData.nat) entry.nid = subData.nat.i;
     if (item.bad) entry.bad = 1;
     if (item.fx) entry.fx = resolveFx(item.fx, subData);
