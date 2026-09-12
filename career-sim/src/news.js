@@ -1,0 +1,444 @@
+/* news.js — 世界新闻模块（纯风味广播，零交互零弹窗）
+   每季结算时由 sim.js 调用 NEWSGEN(a2, bz) 生成一批条目；
+   主要新闻带微量 fx（限幅由 sim.js 执行），次要/风味一律 0 效果。
+   权重曲线复用引擎两套设计：联赛用 _LGW 表，球队用 rep 曲线。 */
+(function () {
+'use strict';
+
+var DATA = window.DATA;
+var TEAMS = DATA.TEAMS;
+var LGS = DATA.LEAGUES;
+
+/* 联赛权重：与 sim.js _LGW 保持一致 */
+var LGW = { 'epl': 2.2, 'liga': 2.2, 'seri': 1.9, 'bund': 1.9, 'l1': 1.7, 'csl': 1.4, 'spl': 1.3, 'mls': 1.2, 'pri': 0.9, 'ere': 0.8, 'tur': 0.7, 'bra': 0.7, 'jup': 0.6, 'mx': 0.6, 'jl': 0.6, 'arg': 0.6, 'kl': 0.45, 'pol': 0.35, 'ch': 0.3, 'seg': 0.3, 'b2': 0.3, 'l2': 0.3, 'serb': 0.3, 'ale': 0.25, 'cl1': 0.25, 'cpl': 0.2 };
+/* 球队权重曲线：rep5 高、rep4 中高、rep3 小概率、rep2 以下近乎为零（同杯赛对手曲线思路） */
+var REPW = { 5: 8, 4: 5, 3: 2.5, 2: 1, 1: 0.4, 0: 0.2 };
+
+function rnd() { return Math.random(); }
+function pick(arr) { return arr[Math.floor(rnd() * arr.length)]; }
+/* 按权重抽一个 {w:..} 元素 */
+function wpick(list) {
+    if (!list || !list.length) return null;
+    var tot = 0, i;
+    for (i = 0; i < list.length; i++) tot += list[i].w;
+    var r = rnd() * tot;
+    for (i = 0; i < list.length; i++) { r -= list[i].w; if (r <= 0) return list[i]; }
+    return list[list.length - 1];
+}
+function lgOf(t) { for (var i = 0; i < LGS.length; i++) if (LGS[i].id === t.league) return LGS[i]; return null; }
+function lgName(id) { var l = lgOfId(id); return l ? l.name : id; }
+function lgOfId(id) { for (var i = 0; i < LGS.length; i++) if (LGS[i].id === id) return LGS[i]; return null; }
+
+/* ── 主题池抽取 ─────────────────────────────────────────── */
+
+/* 近 3 季上过头条的队降权，避免连年同一队刷屏 */
+function recentPenalty(a2, tid) {
+    var r = a2._newsTids || [], i;
+    for (i = 0; i < r.length; i++) if (r[i] === tid) return 0.25;
+    return 1;
+}
+function teamPool(a2) {
+    var pool = [], i, t, w;
+    for (i = 0; i < TEAMS.length; i++) {
+        t = TEAMS[i];
+        w = (REPW[t.rep] || 0.2) * (LGW[t.league] || 0.6) * recentPenalty(a2, t.id);
+        if (t.id === a2.teamId) w *= 6;
+        else if (t.league === a2.leagueId) w *= 3;
+        if (w > 0.01) pool.push({ t: t, w: w });
+    }
+    return pool;
+}
+function team2Pool(a2, not) {
+    var pool = [], i, e;
+    var all = teamPool(a2);
+    for (i = 0; i < all.length; i++) { e = all[i]; if (e.t.id !== not) pool.push(e); }
+    return pool;
+}
+function lgPool(a2) {
+    var pool = [], i, l;
+    for (i = 0; i < LGS.length; i++) {
+        l = LGS[i];
+        var w = LGW[l.id] || 0.6;
+        if (l.id === a2.leagueId) w *= 4;
+        pool.push({ l: l, w: w });
+    }
+    return pool;
+}
+/* 国家队：中国队高权重，世界强队中权重，其余点缀 */
+function natList() {
+    var ns = window.NATS;
+    if (!ns && typeof NATS !== 'undefined') ns = NATS;
+    return ns || [];
+}
+function natPool() {
+    var pool = [], i, n, ns = natList();
+    for (i = 0; i < ns.length; i++) {
+        n = ns[i];
+        var w = n.i === 'n_chn' ? 10 : (n.s >= 85 ? 4 : (n.s >= 78 ? 2 : 0.5));
+        pool.push({ n: n, w: w });
+    }
+    return pool;
+}
+
+/* 记录上过头条的队 id（近3条），供降权 */
+function noteTid(a2, tid) {
+    a2._newsTids = a2._newsTids || [];
+    a2._newsTids.push(tid);
+    while (a2._newsTids.length > 3) a2._newsTids.shift();
+}
+
+/* 池条目防重复：2季硬冷却，2~4季内软惩罚（按赛季时间戳判定） */
+function useW(a2, id, w) {
+    var when = (a2._newsWhen = a2._newsWhen || {})[id];
+    var gap = when == null ? 99 : a2.age - when;
+    if (gap < 2) return 0;
+    if (gap < 4) return w * 0.4;
+    return w;
+}
+function markUsed(a2, id) { (a2._newsWhen = a2._newsWhen || {})[id] = a2.age; }
+
+/* 文本占位符解析 */
+function fill(s, ctx) {
+    return s.replace(/\{(\w+)\}/g, function (m, k) { return ctx[k] != null ? ctx[k] : m; });
+}
+
+/* ── 内容池 ─────────────────────────────────────────────── */
+/* 条目格式: {id, t:模板, w:权重, bad:1黑料, fx:{dev/lgDev/wage/fame/gx/nat}}
+   主体: s:'team'|'team2'|'lg'|'nat'|'you'|'none'
+   token: {T}{T2}球队 {LG}{LG2}联赛 {N}国家队 {YOU}主角 {YT}主角队 {YL}主角联赛 */
+
+var MAJOR_CLUB = [
+    { id: 'mj_cl_takeover', t: '财团完成对{T}的收购，新老板在发布会上承诺三年投入创队史纪录，球迷半喜半忧。', w: 10, fx: { dev: 1 } },
+    { id: 'mj_cl_injury', t: '{T}中场核心训练中重伤，确诊赛季报销，队医办公室的灯亮到了凌晨。', w: 10, fx: { dev: -0.5 } },
+    { id: 'mj_cl_coach', t: '{T}官宣换帅，新教练首秀发布会只讲防守，记者席有人当场睡着。', w: 9, fx: { dev: 0.5 } },
+    { id: 'mj_cl_dressing', t: '{T}更衣室争吵视频外流，主角是谁双方各执一词，俱乐部连夜买热搜。', w: 7, bad: 1 },
+    { id: 'mj_cl_academy', t: '{T}青训营井喷，三名U18同季入选国字号梯队，梯队教练的手机被打爆。', w: 8, fx: { dev: 0.5 } },
+    { id: 'mj_cl_stadium', t: '{T}主场扩建方案获批，新增看台正对客队替补席，官网用词是「氛围升级」。', w: 7 },
+    { id: 'mj_cl_debt', t: '{T}被曝财政危机，冬窗被迫出售主力套现，球迷在门口挂出「还我球队」横幅。', w: 7, fx: { dev: -0.5 }, bad: 1 },
+    { id: 'mj_cl_sponsor', t: '{T}签下队史最大赞助合同，球衣胸前广告从本地水产换成了某新能源品牌。', w: 8 },
+    { id: 'mj_cl_legend', t: '{T}传奇队长宣布退役，俱乐部宣布下季为其立雕像，选址就在他骂过裁判的那个角旗区。', w: 7 },
+    { id: 'mj_cl_ban', t: '{T}因球迷投掷杂物被罚空场一轮，俱乐部呼吁：「请把激情留在嗓子。」', w: 6, bad: 1 },
+    { id: 'mj_cl_streak', t: '{T}开局{LG}七连胜，当地报纸头版标题只用了一个词：疯了。', w: 7 },
+    { id: 'mj_cl_flood', t: '暴雨突袭{T}所在城市，主场草皮下半年长出三种蘑菇，园艺师成了全队最忙的人。', w: 6 },
+    { id: 'mj_cl_crowd', t: '{T}球迷众筹买人项目上线，目标金额一小时达成，附加留言：「就当是我们全体的转会费。」', w: 8, fx: { dev: 0.5 } },
+    { id: 'mj_cl_ghost', t: '{T}训练基地被曝「闹鬼」，多名球员称夜里听到传球声，俱乐部回应「是自动洒水器」，但换了保安公司。', w: 6 },
+    { id: 'mj_cl_dog', t: '{T}官宣队宠拉布拉多退役，它担任球童八年零失误，退役仪式上全队为它让出了正中间的位置。', w: 7 },
+    { id: 'mj_cl_light', t: '雷击导致{T}主场断电四十分钟，全场球迷用手机灯把看台点亮，俱乐部决定给每位到场者送一盏小夜灯。', w: 6 },
+    { id: 'mj_cl_vote', t: '{T}主席竞选落幕，候选人以「每场免费热狗」的承诺高票当选，上任第一件事是扩建热狗档。', w: 6 },
+    { id: 'mj_cl_ac', t: '{T}更衣室空调故障，全队光膀子训练的照片走红，运动品牌连夜送来新款背心，广告位都没要钱。', w: 5 },
+    { id: 'mj_cl_num', t: '{T}爆发球衣号码之争：两名新援都要9号，最终解决方案是石头剪刀布，三局两胜。', w: 6 },
+    { id: 'mj_cl_roar', t: '{T}申请在主场加装「声浪收集装置」，把球迷吼声转化成电费，据说一个赛季能省下全部照明钱。', w: 6 }
+];
+
+var MAJOR_NAT = [
+    { id: 'mj_nt_cn_coach', t: '国足新帅亮相：归化与青训双轨并行，发布会金句是「我们缺的不是天才，是十一条统一的脑子」。', w: 10, s: 'none' },
+    { id: 'mj_nt_cn_camp', t: '中国队海外拉练名单公布，教练组带上了三箱辣酱和一套按摩枪，随队记者说这叫「战斗力保障」。', w: 9, s: 'none' },
+    { id: 'mj_nt_cn_youth', t: '中国青训选材新规出台：12岁以下不许头球，14岁以下不许谈「 出线」两个字。', w: 8, s: 'none' },
+    { id: 'mj_nt_natural', t: '又一名归化球员完成入籍手续，新护照照片里他穿着国家队围巾，评论区吵了两万楼。', w: 8, s: 'none', fx: { nat: 1 } },
+    { id: 'mj_nt_w_boot', t: '{N}当家射手训练中受伤，队医称「问题不大」，该国球迷表示这话他们听过八次。', w: 8 },
+    { id: 'mj_nt_w_coach', t: '{N}足协宣布换帅，新帅上任第一天把训练量翻倍，媒体用「炼狱」形容首堂训练课。', w: 8 },
+    { id: 'mj_nt_w_league', t: '{N}本国联赛宣布扩军到20队，足协主席称「要让每个城市都有球看」，转播商连夜重排价目表。', w: 6 },
+    { id: 'mj_nt_w_legend', t: '{N}功勋队长退役仪式上万人合唱，他抱着奖杯说了三分钟，最后一句是「别学我踢点球」。', w: 6 },
+    { id: 'mj_nt_w_form', t: '{N}近期七场不败，FIFA排名飙升，该国球迷开始讨论「是不是该提前订机票」。', w: 7, fx: { nat: 1 } },
+    { id: 'mj_nt_w_slump', t: '{N}热身赛三连败，主帅在发布会上反问记者「你行你上」，该片段播放量破千万。', w: 6, fx: { nat: -1 }, bad: 1 },
+    { id: 'mj_nt_cn_logo', t: '中国队新队徽投票开启，候选方案泄露后网友连夜做了一百多版，足协表示「参考，都参考」。', w: 8, s: 'none' },
+    { id: 'mj_nt_cn_grass', t: '国足主场草坪升级为混合草，草种据说「被决赛级球场验证过」，老球迷表示先赢球再说。', w: 7, s: 'none' },
+    { id: 'mj_nt_w_school', t: '{N}宣布全国校园联赛改革，冠军队伍可与国家队踢一场表演赛，报名学校挤爆了服务器。', w: 7 },
+    { id: 'mj_nt_w_capt', t: '{N}队长受访谈压力：「我们背着全国的期望，所以鞋带都系两遍。」', w: 6 },
+    { id: 'mj_nt_w_gk', t: '{N}门将因扑点前「跟对方前锋聊天气」被写成专题报道，那位前锋承认「确实被聊慌了」。', w: 6 },
+    { id: 'mj_nt_cn_u21', t: '中国队征召名单新增三名U21小将，教练组的说法是「年轻人上来喘口气，老队员别紧张」。', w: 7, s: 'none' },
+    { id: 'mj_nt_w_open', t: '{N}备战期间开放一堂公开训练课，门票三分钟抢空，主办方首次启用实名制抽签。', w: 6 }
+];
+
+var MAJOR_YOU = [
+    { id: 'mj_you_best', t: '{YOU}当选{YL}月最佳球员，颁奖视频里你把奖杯举反了，网友夸你「实力强到不需要看奖杯」。', w: 10, fx: { fame: 1 } },
+    { id: 'mj_you_scout', t: '豪门球探被拍到坐在{YT}看台上记笔记，镜头扫过时他慌忙把本子扣在了腿上。', w: 9, fx: { fame: 1 } },
+    { id: 'mj_you_doc', t: '以你为主角的纪录片上线，播放量破亿，最火的片段是你替补席上打哈欠。', w: 7, fx: { fame: 1 } },
+    { id: 'mj_you_cele', t: '你的庆祝动作成了全网模仿对象，连你妈都录了一条，配文「这动作是他三岁时摔出来的」。', w: 7, fx: { fame: 1 } },
+    { id: 'mj_you_deal', t: '你与运动品牌签下个人代言，首款联名球鞋预售三秒售罄，黄牛价炒到原价四倍。', w: 7, fx: { fame: 1 } },
+    { id: 'mj_you_night', t: '{YOU}深夜现身某会所的照片登上头条，团队回应「只是聚餐」，评论区并不买账。', w: 6, bad: 1, fx: { fame: -1 } },
+    { id: 'mj_you_agent', t: '{YOU}与前经纪人的佣金纠纷开庭，媒体标题起了个花活：「进球容易，算账难。」', w: 5, bad: 1 },
+    { id: 'mj_you_cover', t: '你登上时尚杂志封面，造型师给你设计的新发型被球迷称作「犯规级灾难」，你自己倒挺满意。', w: 6 },
+    { id: 'mj_you_math', t: '你被小学生数学试卷引用了：「{YOU}本赛季进了25球，比去年多8球，问……」你的数学水平被全网担忧。', w: 8, fx: { fame: 1 } },
+    { id: 'mj_you_meme', t: '你的进球庆祝被做成了表情包，使用场景包括但不限于抢到外卖红包和期末及格。', w: 7, fx: { fame: 1 } },
+    { id: 'mj_you_figure', t: '你的官方手办开启预售，首批十万只售罄，头球姿势被还原到「连表情都是狠的」。', w: 6, fx: { fame: 1 } },
+    { id: 'mj_you_quote', t: '你的赛后采访金句上了热搜：「赢球的方法很简单，就是把球踢进去。」热门评论：「听君一席话。」', w: 7, fx: { fame: 1 } },
+    { id: 'mj_you_game', t: '你在游戏里的能力值公布，粉丝对你的「头球」评分提出严正抗议，官方回复「敬请赛季末再看」。', w: 6, fx: { fame: 1 } },
+    { id: 'mj_you_market', t: '{YOU}被拍到在超市亲自买菜挑西瓜，网友：「原来巨星的生活里也有生活的部分。」', w: 5 },
+    { id: 'mj_you_live', t: '你的亲戚开直播讲你小时候的事，讲到第三天你本人下场连麦，直播间人数瞬间翻了十倍。', w: 6 }
+];
+
+var MAJOR_LG = [
+    { id: 'mj_lg_tv', t: '{LG}新转播合同刷新纪录，各家分成普涨，中游球队经理笑称「终于敢看房价了」。', w: 10, fx: { wage: 0.02 } },
+    { id: 'mj_lg_capup', t: '{LG}官方上调薪资帽，经纪人圈当晚集体加班，咖啡销量环比涨了四成。', w: 8, fx: { wage: 0.02 } },
+    { id: 'mj_lg_capdown', t: '{LG}出台财政紧缩新政，薪资帽下调，多家俱乐部连夜开会研究「怎么跟球员开口」。', w: 7, fx: { wage: -0.02 } },
+    { id: 'mj_lg_fraud', t: '{LG}某队因财务造假被扣分罚款，官方公告用了「深表遗憾」四个字，球迷用了别的字。', w: 8, fx: { lgDev: -0.5 }, bad: 1 },
+    { id: 'mj_lg_tech', t: '{LG}全面引入门线与半自动越位技术，首轮误判归零，但「体毛越位」成了新流行语。', w: 7 },
+    { id: 'mj_lg_attend', t: '{LG}上座率创历史新高，官方把功劳归给草皮、裁判和天气，唯独没提球票打折。', w: 6 },
+    { id: 'mj_lg_overseas', t: '{LG}宣布在海外举办一轮联赛，机票酒店全面涨价，客场球迷协会发表了一封公开信。', w: 6 },
+    { id: 'mj_lg_rule', t: '{LG}宣布下季试行「加时赛缩短到两分钟」的表演赛新规，评论员表示「先解决裁判的体能吧」。', w: 6 },
+    { id: 'mj_lg_ref', t: '{LG}公布裁判体测报告：场均跑动首次超过除门将外的所有球员，官方海报配字是「他也是人」。', w: 6 },
+    { id: 'mj_lg_green', t: '{LG}启动「绿茵计划」：每家俱乐部必须配一块社区免费球场，偏远地区的球场自带屋顶看台。', w: 6 },
+    { id: 'mj_lg_game', t: '{LG}与游戏厂商达成数据授权，下季起游戏里的球员数值每两周按真实表现更新一次。', w: 7 }
+];
+
+var MINOR_RUMOR = [
+    { id: 'mn_ru_bid', t: '传闻{T}报价{T2}中场核心，两家俱乐部都拒绝回应，记者已经在机场蹲了三天。', w: 10 },
+    { id: 'mn_ru_swap', t: '坊间盛传{T}与{T2}酝酿球员互换，双方球迷都在网上给自己的球员写挽留信。', w: 9 },
+    { id: 'mn_ru_free', t: '{T}被曝接触一名自由身老将，理由是「更衣室需要一个会讲笑话的人」。', w: 8 },
+    { id: 'mn_ru_wage', t: '{T}与队内头号球星的续约谈判卡在「肖像权分成」上，据悉差距不到一顿饭钱。', w: 8 },
+    { id: 'mn_ru_loan', t: '{T}小将收到三家{LG}球队的租借邀请，经纪人建议他「先学会自己洗衣服」。', w: 7 },
+    { id: 'mn_ru_gk', t: '曝{T}有意{T2}的替补门将，理由是「他扑点球前会跟对方聊天气」，心理战价值无法估量。', w: 8 },
+    { id: 'mn_ru_city', t: '传闻{T}将跟{T2}争抢同一名自由球员，两家球迷已经就「谁的城市更好住」吵了五百楼。', w: 8 },
+    { id: 'mn_ru_bbq', t: '{T}被曝为{T2}射手准备了「无法拒绝的报价」：除了钱，还有主场看台的一块专属烧烤位。', w: 7 },
+    { id: 'mn_ru_cat', t: '消息人士称{T}对{T2}中场志在必得，但该中场的最新动态是晒出在{T2}养的四只猫。', w: 7 }
+];
+
+var MINOR_WORLD = [
+    { id: 'mn_wo_sacked', t: '{LG}又一位主帅下课，本季下课人数来到两位数，教练员工会考虑开个心理热线。', w: 9 },
+    { id: 'mn_wo_pitch', t: '{LG}某队主场草皮被评联赛最差，客队门将形容扑救时「像摔在了一堆行李箱上」。', w: 8 },
+    { id: 'mn_wo_ref', t: '{LG}裁判委员会承认上轮出现明显误判，声明称「裁判也是人」，球迷回复「球员也是人也没这么吹」。', w: 8 },
+    { id: 'mn_wo_weather', t: '冰雹突袭{LG}一轮比赛，球员冒雨罚角球，看台上卖的雨衣十分钟售罄。', w: 7 },
+    { id: 'mn_wo_protest', t: '{T}球迷在第八十九分钟集体背对球场抗议票价，转播镜头很配合地切了特写。', w: 7 },
+    { id: 'mn_wo_mascot', t: '{T}吉祥物在比赛间隙表演后空翻失败，跌进广告牌后爬起来比了个耶，视频播放量破千万。', w: 7 },
+    { id: 'mn_wo_streak', t: '{T}门将连续四场零封，他接受采访时把功劳全给了新买的门线手套和队里的厨师。', w: 7 },
+    { id: 'mn_wo_injury', t: '{T}队医公开叫苦：本季肌肉伤病比上赛季多三成，怀疑与新款紧身衣有关。', w: 6 },
+    { id: 'mn_wo_fan', t: '{T}一位八旬老球迷连续看球六十年，俱乐部送他终身季票，他回赠了自己绣的围巾。', w: 6 },
+    { id: 'mn_wo_transfer', t: '{LG}冬窗总投入创同期纪录，评论员感叹「中卫的身价已经超过我一辈子工资」。', w: 6 },
+    { id: 'mn_wo_award', t: '{LG}公布赛季公平竞赛奖候选，排名第一的球队上周刚因围攻裁判吃过三张红牌。', w: 6 },
+    { id: 'mn_wo_pitch2', t: '{T}主场草皮突然冒出一片三叶草，俱乐部决定留着它，「毕竟这片场地缺了点运气」。', w: 5 },
+    { id: 'mn_wo_sleep', t: '{T}客场航班延误到凌晨三点，全队在候机厅睡了五小时，次日依然赢了球。', w: 6 },
+    { id: 'mn_wo_kit', t: '{T}发布下季客场球衣，配色灵感据称是「城市的黄昏」，球迷觉得更像没洗干净。', w: 6 },
+    { id: 'mn_wo_bottle', t: '{T}替补席上的水壶被拍卖出四位数高价，俱乐部表示「这是传统艺能，不解释」。', w: 7 },
+    { id: 'mn_wo_pigeon', t: '{LG}某场比赛因场上出现三只鸽子被暂停七分钟，鸽子在禁区散步的镜头当选周最佳画面。', w: 8 },
+    { id: 'mn_wo_shirt', t: '{T}新援首秀进球后激动脱衣庆祝，两黄变一红，赛后他为此道歉了三轮。', w: 7 },
+    { id: 'mn_wo_tactic', t: '{LG}官方盘点本季最离谱战术：某队角球战术需要七个人背对球门，产出是零进球和一段爆红视频。', w: 7 },
+    { id: 'mn_wo_pundit', t: '{T}老门将客串解说，评价自己当年的扑救失误「那球我屁股都知道该往哪边」，收视率应声上涨。', w: 7 },
+    { id: 'mn_wo_bus', t: '{LG}某队大巴司机是退役球员，全程给球队讲当年轶事，队员表示比战术课有意思。', w: 6 },
+    { id: 'mn_wo_noon', t: '{T}因暴雨推迟的比赛改在工作日中午开球，到场球迷大多请了假，老板们在看台上互相认了亲。', w: 6 },
+    { id: 'mn_wo_save', t: '{LG}本周最佳扑救评选出现争议：第一名是门将扑出了自己队友的回传。', w: 6 },
+    { id: 'mn_wo_rule', t: '{T}更衣室挂出新的队规标语，第一条是「输了可以，别输给天气」，寓意不明但士气不错。', w: 6 },
+    { id: 'mn_wo_db', t: '{LG}某队主场看台装了测分贝大屏，球迷冲到一百二十分贝，大屏当场黑屏，被视为胜利。', w: 6 },
+    { id: 'mn_wo_mom', t: '{T}青年队小将被提拔进一线队，他妈妈比他先到更衣室，帮全队把柜子都整理了。', w: 6 },
+    { id: 'mn_wo_price', t: '{LG}冬窗标王接受采访：「我不好看很贵，我好用很贵。」语法有误，但全网点赞。', w: 6 }
+];
+
+/* ── 风味池：与足球无关的有趣国际新闻 + 生活糖 ── */
+var FLAVOR_INTL = [
+    { id: 'fv_in_term', t: '国际新闻：某大国总统宣布寻求第三任期，竞选口号被网友改成「让足球再次伟大」。', w: 9 },
+    { id: 'fv_in_star', t: '国际新闻：某名媛被拍到与{LG}当红前锋共进晚餐，该前锋随后三场不进球，网友劝他「这顿不能约第二次」。', w: 9 },
+    { id: 'fv_in_mars', t: '国际新闻：某富豪宣布筹办火星联赛，首批球员招募要求是「能忍受八个月航程和没有草皮」。', w: 8 },
+    { id: 'fv_in_ai', t: '国际新闻：AI裁判试验赛把主帅红牌罚下，官方理由是「声纹分析显示语气过激」，教练协会强烈抗议。', w: 8 },
+    { id: 'fv_in_parl', t: '国际新闻：某国议会为「大赛期间是否全国放假」辩论三天，最终决定不放假，但据说没人敢批请假条。', w: 7 },
+    { id: 'fv_in_astro', t: '国际新闻：天文台把新发现的小行星命名为「金球奖」，理由是「它也绕着一个球转」。', w: 7 },
+    { id: 'fv_in_moon', t: '国际新闻：某富豪买下一座小岛改私人训练基地，中介称岛上「只有海风和信号塔，适合专注」。', w: 7 },
+    { id: 'fv_in_lottery', t: '国际新闻：某球迷彩票中奖后当场辞职看球，三个月后重新应聘原公司，面试官是他前下属。', w: 7 },
+    { id: 'fv_in_propose', t: '国际新闻：某球迷在球场大屏幕求婚被拒，全场齐喊「换一个」，当事人表示「已经换了，这是第三个」。', w: 7 },
+    { id: 'fv_in_nfifa', t: '国际新闻：某足协宣布退出国际足联，三天后又申请重新加入，官方解释是「忘了交会费」。', w: 7 },
+    { id: 'fv_in_antarctica', t: '国际新闻：南极科考站举办雪地足球赛，零下四十度，门将赛后总结：「球是硬的，手是麻的，心是热的。」', w: 6 },
+    { id: 'fv_in_stamp', t: '国际新闻：某国邮局推出球星纪念邮票，首发当天购票网站崩溃，黄牛开始倒卖「排队资格」。', w: 6 },
+    { id: 'fv_in_qigong', t: '国际新闻：某「意念训练大师」宣称能远程影响点球，被某俱乐部聘为顾问后球队三连败，现已被礼貌送走。', w: 6 },
+    { id: 'fv_in_cat', t: '国际新闻：一只猫闯入低级别联赛球场，叼走边裁的旗子后被聘为「荣誉球童」，现拥有个人社媒账号。', w: 6 },
+    { id: 'fv_in_music', t: '国际新闻：某传奇球衣退役号被邻国歌手写进歌单，歌词是「他职业生涯的进球比我的销量少一点」。', w: 5 },
+    { id: 'fv_in_ufo', t: '国际新闻：某地球迷集体目击UFO悬停球场上空，天文台回应是探空气球，当地旅行社已推出「外星球场」一日游。', w: 6 },
+    { id: 'fv_in_robot', t: '国际新闻：机器人足球赛决赛因「双方都太怂」0比0收场，主办方表示下届要教它们「勇敢」。', w: 6 },
+    { id: 'fv_in_bank', t: '国际新闻：某银行推出「球迷存款」业务，利率与主队战绩挂钩，监管机构连夜叫停。', w: 5 },
+    { id: 'fv_in_movie', t: '国际新闻：以真实丑闻改编的足球电影上映，当事人发律师函，片方回应「我们已经更离谱了」。', w: 5 },
+    { id: 'fv_in_summit', t: '国际新闻：全球气候峰会现场空调故障，代表们在三十度里达成共识：「这比点球大战煎熬。」', w: 5 },
+    { id: 'fv_in_nobel', t: '国际新闻：诺贝尔委员会把和平奖颁给一位低级别联赛裁判，颁奖词：「他让两座城市没有打起来。」', w: 8 },
+    { id: 'fv_in_holiday', t: '国际新闻：某国通过法案把大赛决赛日定为法定假日，反对派质问「那预选赛怎么办」，议会沉默了三秒。', w: 8 },
+    { id: 'fv_in_meta', t: '国际新闻：某科技巨头推出元宇宙球场，首场虚拟比赛因服务器过热推迟，现实中的草皮松了一口气。', w: 7 },
+    { id: 'fv_in_challenge', t: '国际新闻：某网红挑战「连续观看一百场球」，进行到第七场时被拍到在沙发上有节奏地呼吸。', w: 7 },
+    { id: 'fv_in_camel', t: '国际新闻：一只骆驼闯入沙漠杯决赛现场，保安追了十分钟，最后是它自己决定留在中圈的。', w: 8 },
+    { id: 'fv_in_latte', t: '国际新闻：世界拉花大赛冠军作品是一颗足球，评委含泪打分：「舍不得喝。」', w: 7 },
+    { id: 'fv_in_stamp2', t: '国际新闻：某国邮政发行「历届点球失误」纪念邮票，该国前国脚回应：「感谢国家还记得。」', w: 7 },
+    { id: 'fv_in_space', t: '国际新闻：空间站宇航员完成失重颠球，地面控制中心给出的官方计时是：一次。', w: 7 },
+    { id: 'fv_in_bid', t: '国际新闻：某富豪直播竞价购买小球会，喊价到一半睡着，醒来发现成交了，他表示「不亏」。', w: 7 },
+    { id: 'fv_in_happy', t: '国际新闻：全球幸福指数报告显示，刚夺冠的城市幸福值飙升两百分，刚降级的城市拒绝接受采访。', w: 7 },
+    { id: 'fv_in_film', t: '国际新闻：某电影节最佳纪录片颁给一支村庄球队的保级之路，全体主创穿着队服上台领奖。', w: 6 },
+    { id: 'fv_in_mv', t: '国际新闻：某歌手新歌 MV 里穿错了球衣号码，被球迷逐帧分析，连夜道歉并改词重录。', w: 6 },
+    { id: 'fv_in_shout', t: '国际新闻：一项研究表明看球时大喊有利于心肺健康，全球球迷的妻子们表示「早就发现了」。', w: 8 },
+    { id: 'fv_in_couple', t: '国际新闻：某国开办「球迷伴侣心理班」，第一课：「他不是不爱你，他只是在看球。」', w: 7 },
+    { id: 'fv_in_plane', t: '国际新闻：某国总统专机绕道看了一场决赛，发言人回应「顺路」，地图显示绕了四百公里。', w: 7 },
+    { id: 'fv_in_turf', t: '国际新闻：某拍卖行拍出一块「幸运草皮」，成交价等于一辆豪车，买家受访时只说了三个字：「我信这个。」', w: 6 },
+    { id: 'fv_in_coin', t: '国际新闻：某人工智能全季预测联赛冠军全中，开发者领奖时承认「其实是抛硬币，只是硬币比较贵」。', w: 7 },
+    { id: 'fv_in_taxi', t: '国际新闻：某国出租车司机大赛期间不按计价器收费，改为「进球抽奖」，政府罕见地没有反对。', w: 6 },
+    { id: 'fv_in_letter', t: '国际新闻：三十年前的「给未来的信」在球场墙缝里被发现，写信的小球迷如今是对面球队的主教练。', w: 7 },
+    { id: 'fv_in_ad', t: '国际新闻：某国电视台球赛插播广告遭投诉，广告商集体道歉并承包了下一场的全部转播费。', w: 6 },
+    { id: 'fv_in_sad', t: '国际新闻：「最惨球迷协会」年度聚会照常举行，入会条件是支持一支三十年无冠的球队，今年新人爆满。', w: 7 },
+    { id: 'fv_in_air', t: '国际新闻：某航空公司推出球迷专机，机上广播用主队解说腔播报：「飞机正在进入巡航——好球！」', w: 6 }
+];
+
+var FLAVOR_HOME = [
+    { id: 'fv_hm_eat', t: '你常点的那家苍蝇馆子上了必吃榜，老板在门口贴了张你和队友的合影，写着「球星同款牛肉面」。', w: 9 },
+    { id: 'fv_hm_pitch', t: '家乡那块水泥地球场翻新成了人工草皮，社区群里你二舅发言：「这片出了个职业球员。」', w: 8 },
+    { id: 'fv_hm_exam', t: '表弟高考出分，全家饭桌上他问「哥，落选了还能上学吗」，你说他这问题很专业。', w: 7 },
+    { id: 'fv_hm_hot', t: '电竞战队夺冠冲上热搜第一，你队友拿着手机问你：「他们踢得好吗？」', w: 7 },
+    { id: 'fv_hm_market', t: '小区门口菜市场阿姨现在管你叫「那个踢球的娃」，每次多塞一把葱。', w: 7 },
+    { id: 'fv_hm_drama', t: '以你为原型的短剧开拍，主演比你高比你帅，你妈看完说「演得不像，你小时候更皮」。', w: 6 },
+    { id: 'fv_hm_train', t: '地铁广告牌换成了你的巨幅海报，你爸每天路过都要假装没看见，回家再偷偷拍一张。', w: 6 },
+    { id: 'fv_hm_sms', t: '小学班主任给你发消息：「学校想挂你的照片激励学生，放你戴红领巾那张行吗？」', w: 6 },
+    { id: 'fv_hm_chess', t: '你大爷在公园棋摊用「足球阵型」分析象棋残局，围观群众表示虽然不懂但是很震撼。', w: 8 },
+    { id: 'fv_hm_aunt', t: '亲戚聚餐，三姑问你「一年挣几百万啊」，你爸替你挡了：「问点别的，他进球了吗都。」', w: 8 },
+    { id: 'fv_hm_essay', t: '你小学作文《我的梦想》被老师翻出来发到班级群，当年写的是「想有一双自己的球鞋」。', w: 7 },
+    { id: 'fv_hm_wall', t: '家乡高中把你的名字写上了操场文化墙，旁边配的字是「体·育·课·不·要·占」。', w: 7 },
+    { id: 'fv_hm_video', t: '你妈学会了发短视频，第一条内容是「我儿子小时候在这里摔的跤」，播放量比你的集锦高。', w: 7 },
+    { id: 'fv_hm_village', t: '村口球场正式挂牌了，村长说等你夺冠，就把牌上的「村」字换成你的名字。', w: 6 },
+    { id: 'fv_hm_cny', t: '过年回家，你被安排和刚会走路的侄子踢点球，全场观众是全家老小和一条狗。', w: 7 },
+    { id: 'fv_hm_group', t: '小学同学群里最活跃的话题是分析你的跑位，他们管这叫「云执教」，队长是你同桌。', w: 6 },
+    { id: 'fv_hm_shop', t: '你家楼下小卖部挂出了你的海报，老板说自从挂了海报，来买运动饮料的学生多了三倍。', w: 7 },
+    { id: 'fv_hm_dinner', t: '你爸把你的比赛日固定为家庭聚餐日，理由是「赢了庆祝，输了安慰，反正都要吃饭」。', w: 7 }
+];
+
+var FLAVOR_ABROAD = [
+    { id: 'fv_ab_sauce', t: '家人寄的一箱辣酱被海关扣了，你写了三页英文申诉信，最后工作人员想找你要食谱。', w: 9 },
+    { id: 'fv_ab_eat', t: '你常去的唐人街小馆上了本地美食榜，老板娘现在管你叫「大明星」，上菜多给一勺辣油。', w: 8 },
+    { id: 'fv_ab_jet', t: '时差终于倒过来了——代价是你半夜三点自然醒，躺在床上把下轮对手的录像又看了一遍。', w: 8 },
+    { id: 'fv_ab_lang', t: '你的外语突飞猛进，最新掌握的十句全是球场用语，语言老师看了课程表沉默良久。', w: 7 },
+    { id: 'fv_ab_home', t: '房东老太太开始看你所在联赛的转播，还学会了你的名字发音，就是重音永远不对。', w: 7 },
+    { id: 'fv_ab_winter', t: '人生第一次在雪里踢球，你裹了三层，队友只穿短袖，说「这就是北方的浪漫」。', w: 6 },
+    { id: 'fv_ab_cny', t: '春节你在客场过的，队友陪你吃了顿年夜饭外卖，饺子是他包的，形状很有创造力。', w: 6 },
+    { id: 'fv_ab_bus', t: '你在公交车上被小球迷认出来，他没要签名，只问你「吃辣吗」，然后塞给你一颗糖。', w: 6 },
+    { id: 'fv_ab_cook', t: '你跟队里厨师学了一道家乡菜，做成之后他自己吃了大半，评价是「下次少放点乡愁」。', w: 8 },
+    { id: 'fv_ab_learn', t: '队友开始跟你学中文，第一句学会了「传球」，第二句是「别传给我」。', w: 8 },
+    { id: 'fv_ab_xmas', t: '圣诞集市上你买了顶毛线帽，第二天全队人手一顶，教练说这叫「团队建设」。', w: 7 },
+    { id: 'fv_ab_road', t: '客场大巴要坐七个小时，你数了数，全队睡了六个半小时，剩半小时在服务区。', w: 7 },
+    { id: 'fv_ab_shirt', t: '你寄回家的签名球衣被亲戚们一分为四，你妈留了最大的那块——球衣本体。', w: 7 },
+    { id: 'fv_ab_lost', t: '当地媒体夸你「适应力惊人」，只有你自己知道这个月你迷路了三次。', w: 7 },
+    { id: 'fv_ab_turkey', t: '感恩节队友全家邀请你做客，你带去了火锅底料，他们家从此有了新传统。', w: 7 },
+    { id: 'fv_ab_board', t: '你把训练换下来的旧护腿板寄给了家乡梯队，教练回了张照片：上面签满了二十多个小孩子的名字。', w: 7 }
+];
+
+/* ── 生成入口 ───────────────────────────────────────────── */
+
+function genMajor(a2, ctx) {
+    var out = [], i, n = rnd() < 0.35 ? 2 : 1, tries = 0;
+    var cats = [];
+    /* 类别分布：俱乐部45% 国家25% 主角20% 联赛10% */
+    while (out.length < n && tries++ < 40) {
+        var r = rnd();
+        if (r < 0.45) cats = ['club'];
+        else if (r < 0.7) cats = ['nat'];
+        else if (r < 0.9) cats = ['you'];
+        else cats = ['lg'];
+        var pool = cats[0] === 'club' ? MAJOR_CLUB : cats[0] === 'nat' ? MAJOR_NAT : cats[0] === 'you' ? MAJOR_YOU : MAJOR_LG;
+        var item = pickWeighted(a2, pool);
+        if (!item) continue;
+        if (out.some(function (o) { return o.id === item.id; })) continue;
+        var sub = cats[0] === 'nat' ? (item.s === 'none' ? 'natcn' : 'natw') : cats[0];
+        out.push(build(a2, item, sub));
+    }
+    return out;
+}
+function pickWeighted(a2, pool) {
+    var list = [], i;
+    for (i = 0; i < pool.length; i++) {
+        var w = useW(a2, pool[i].id, pool[i].w);
+        if (w > 0) list.push({ item: pool[i], w: w });
+    }
+    if (!list.length) return null;
+    return wpick(list).item;
+}
+
+function build(a2, item, sub) {
+    var ctx = {}, subData = null;
+    if (sub === 'club') {
+        var e = wpick(teamPool(a2));
+        ctx.T = e.t.name; ctx.LG = lgName(e.t.league);
+        subData = { team: e.t };
+        noteTid(a2, e.t.id);
+    } else if (sub === 'team2') {
+        var e1 = wpick(teamPool(a2)), e2 = wpick(team2Pool(a2, e1.t.id));
+        ctx.T = e1.t.name; ctx.T2 = e2.t.name; ctx.LG = lgName(e1.t.league); ctx.LG2 = lgName(e2.t.league);
+        subData = { team: e1.t };
+        noteTid(a2, e1.t.id);
+    } else if (sub === 'lg') {
+        var le = wpick(lgPool(a2));
+        ctx.LG = le.l.name;
+        subData = { lg: le.l };
+    } else if (sub === 'natw') {
+        var ne = wpick(natPool()) || { n: { i: 'n_chn', n: '中国队' } };
+        ctx.N = ne.n.n;
+        subData = { nat: ne.n };
+    } else if (sub === 'natcn') {
+        ctx.N = '中国队';
+        subData = { nat: { i: 'n_chn', n: '中国队' } };
+    } else if (sub === 'you') {
+        ctx.YOU = a2.name || '你'; ctx.YT = teamNameOf(a2); ctx.YL = leagueNameOf(a2);
+        subData = { you: 1 };
+    }
+    var entry = { k: 'mj', id: item.id, t: fill(item.t, ctx) };
+    if (item.bad) entry.bad = 1;
+    if (item.fx) entry.fx = resolveFx(item.fx, subData);
+    markUsed(a2, item.id);
+    return entry;
+}
+
+function teamNameOf(a2) { var t = teamById(a2.teamId); return t ? t.name : ''; }
+function leagueNameOf(a2) { return a2.leagueId ? lgName(a2.leagueId) : ''; }
+function teamById(tid) { for (var i = 0; i < TEAMS.length; i++) if (TEAMS[i].id === tid) return TEAMS[i]; return null; }
+
+/* 把 fx 解析成可执行载荷（sim.js 执行） */
+function resolveFx(fx, sub) {
+    var o = {};
+    if (fx.dev && sub && sub.team) o.dev = { tid: sub.team.id, v: fx.dev };
+    if (fx.nat && sub && sub.nat) o.nat = { nid: sub.nat.i, v: fx.nat };
+    if (fx.nat && sub && sub.you) o.nat = { nid: 'n_chn', v: fx.nat };
+    if (fx.wage) o.wage = fx.wage;
+    if (fx.fame) o.fame = fx.fame;
+    if (fx.gx) o.gx = fx.gx;
+    if (fx.lgDev && sub && sub.lg) {
+        var ts = [], i, t;
+        for (i = 0; i < TEAMS.length; i++) { t = TEAMS[i]; if (t.league === sub.lg.id) ts.push(t.id); }
+        var picks = [];
+        while (picks.length < 2 && ts.length) picks.push(ts.splice(Math.floor(rnd() * ts.length), 1)[0]);
+        o.devList = picks.map(function (tid) { return { tid: tid, v: fx.lgDev }; });
+    }
+    return o;
+}
+
+function genMinor(a2) {
+    var n = 4 + Math.floor(rnd() * 3), out = [], tries = 0;
+    var pools = [MINOR_RUMOR, MINOR_WORLD];
+    while (out.length < n && tries++ < 60) {
+        var pool = pools[rnd() < 0.4 ? 0 : 1];
+        var item = pickWeighted(a2, pool);
+        if (!item) continue;
+        if (out.some(function (o) { return o.id === item.id; })) continue;
+        var sub = pool === MINOR_RUMOR ? 'team2' : 'club';
+        var e = build(a2, item, sub);
+        e.k = 'mn';
+        out.push(e);
+    }
+    return out;
+}
+
+function genFlavor(a2) {
+    var inCN = a2.country === 'CN';
+    var n = 2 + Math.floor(rnd() * 2), out = [], tries = 0;
+    var mixed = [];
+    var i;
+    for (i = 0; i < FLAVOR_INTL.length; i++) mixed.push({ item: FLAVOR_INTL[i], sub: 'lg', w: 3 });
+    for (i = 0; i < FLAVOR_HOME.length; i++) if (inCN) mixed.push({ item: FLAVOR_HOME[i], sub: 'you', w: 4 });
+    for (i = 0; i < FLAVOR_ABROAD.length; i++) if (!inCN) mixed.push({ item: FLAVOR_ABROAD[i], sub: 'you', w: 4 });
+    while (out.length < n && tries++ < 40) {
+        var item = pickWeighted(a2, mixed.map(function (m) { return { id: m.item.id, w: m.w, ref: m }; }));
+        if (!item) continue;
+        var ref = item.ref || item;
+        var subKind = ref.sub === 'lg' ? 'lg' : 'you';
+        var e = build(a2, ref.item, subKind);
+        e.k = 'fv';
+        delete e.fx;
+        out.push(e);
+    }
+    return out;
+}
+
+window.NEWSGEN = function (a2) {
+    a2._newsTids = a2._newsTids || [];
+    var items = genMajor(a2).concat(genMinor(a2), genFlavor(a2));
+    var age = a2.age != null ? a2.age : 0;
+    for (var i = 0; i < items.length; i++) items[i].age = age;
+    return items;
+};
+})();

@@ -20,6 +20,7 @@ FILES = [
     'crests.js',
     'qr.js',
     'natdata.js',
+    'news.js',
     'sim.js',
     'game.js',
 ]

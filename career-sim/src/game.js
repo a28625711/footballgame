@@ -570,7 +570,7 @@ c5=c8,(++c6>=c2||c9===au["seasons"]["length"]-0x1)&&c7();
 
 
 
-bY+='<div class="tl-tabs"><button class="tl-tab on" data-tab="club">俱乐部</button><button class="tl-tab" data-tab="nat">国家队</button><button class="tl-tab" data-tab="award">奖项</button><button class="tl-tab" data-tab="pers">个人</button><button class="tl-tab" data-tab="world">世界</button></div>';
+bY+='<div class="tl-tabs"><button class="tl-tab on" data-tab="club">俱乐部</button><button class="tl-tab" data-tab="nat">国家队</button><button class="tl-tab" data-tab="award">奖项</button><button class="tl-tab" data-tab="pers">个人</button><button class="tl-tab'+(((au["news"]||[]).length>(au["_newsSeen"]||0))?" has-unread":"")+'" data-tab="news">新闻</button><button class="tl-tab" data-tab="world">世界</button></div>';
 
 
 
@@ -699,6 +699,23 @@ persBody+='<div class="tl-row done tl-cols award"><span class="age-chip">'+c2+'<
 if(!persAny)persBody+='<div class="tl-row done tl-cols award"><span class="age-chip"></span><span class="tl-club-name" style="grid-column:2/5">还没有任何记录</span></div>';
 persBody+='</div></div>';
 var worldBody='<div class="tl-panel hidden" data-panel="world"><div class="wl-root">'+bWorldHTML()+'</div></div>';
+/* 新闻面板：纯浏览零交互；按赛季分组，最近一季展开、历史收起；公关团队入职后黑料不再显示 */
+var newsBody='<div class="tl-panel hidden" data-panel="news"><div class="news-root">';
+var _newsList=(au&&au["news"])||[];
+if(_newsList.length){
+var _nByAge={},_nAges=[];
+_newsList.forEach(function(n5){if(!_nByAge[n5.age]){_nByAge[n5.age]=[];_nAges.push(n5.age);}_nByAge[n5.age].push(n5);});
+_nAges.sort(function(a5,b5){return b5-a5;});
+_nAges.forEach(function(ag,i5){
+var _nRows=_nByAge[ag].map(function(n5){
+if(n5.bad&&au["staff"]&&au["staff"]["pr"])return '';
+var _nIco=n5.k==='mj'?'📰':n5.k==='mn'?'📄':'☕';
+return '<div class="news-row '+n5.k+(n5.bad?' bad':'')+'"><span class="n-ico">'+_nIco+'</span><span class="n-txt">'+ax(n5.t)+'</span></div>';
+}).join('');
+newsBody+='<details class="news-grp'+(i5===0?' open':'')+'"><summary>'+ag+'岁<span class="n-cnt">'+_nByAge[ag].length+'条</span></summary>'+_nRows+'</details>';
+});
+}else newsBody+='<div class="news-empty">还没有任何新闻。</div>';
+newsBody+='</div></div>';
 
 
 
@@ -709,7 +726,7 @@ var worldBody='<div class="tl-panel hidden" data-panel="world"><div class="wl-ro
 
 
 
-return '<div class="timeline">'+bY+clubBody+natBody+awardBody+persBody+worldBody+'</div>';
+return '<div class="timeline">'+bY+clubBody+natBody+awardBody+persBody+newsBody+worldBody+'</div>';
 }function ba(bW,bX,bY,bZ){
 return "<button "+"class=\"o"+"pt\" data"+"-opt=\""+bW+("\"><span "+"class=\"o"+"pt-label"+'\x22>')+ax(bX)+"</span>"+(bZ?aT(bZ):'')+(bY?"<span cl"+"ass=\"opt"+"-hint\">"+ax(bY)+"</span>":'')+("</button"+'>');
 }function bb(bW,
@@ -1885,6 +1902,7 @@ var ca=aw("step-bod"+'y')["querySel"+"ector"](".jersey-"+"wrap");
 ca&&(ca["innerHTM"+'L']=aM(av["origin"],av["name"],av["number"]));
 }}),aw("app")["addEvent"+"Listener"]("click",function(c9){var ca=c9["target"]["closest"]("[data-tab]");
 if(ca){var cTab=ca["getAttri"+"bute"]("data-tab"),cBtns=document["querySel"+"ectorAll"](".tl-tab"),cPans=document["querySel"+"ectorAll"](".tl-panel");
+if(cTab==="news"&&au){au["_newsSeen"]=(au["news"]||[]).length;ca.classList["remove"]("has-unread");}
 for(var cI=0x0;cI<cBtns["length"];cI++)cBtns[cI]["classLis"+'t']["toggle"]("on",cBtns[cI]===ca);
 for(var cJ=0x0;cJ<cPans["length"];cJ++){var cK=cPans[cJ]["getAttri"+"bute"]("data-panel");
 cK===cTab?cPans[cJ]["classLis"+'t']["remove"]("hidden"):cPans[cJ]["classLis"+'t']["add"]("hidden");
