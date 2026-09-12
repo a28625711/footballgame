@@ -1199,7 +1199,9 @@ var aQ={'预选赛出局':0x0,
 
 
 
-'cont':{'icon':'⭐','side':null},'promo':{'icon':'🏟','side':null},'drop':{'icon':'🚨','side':null},'derby':{'icon':'🔥','side':null}},
+'cont':{'icon':'⭐','side':null},'promo':{'icon':'🏟','side':null},'drop':{'icon':'🚨','side':null},'derby':{'icon':'🔥','side':null},
+/* 国字号梯队（U系列）：与 wc/asia 共用大场面交互管线，记账走 _yCaps */
+'u13':{'icon':'⚽','side':"中国U13"},'u15':{'icon':'⚽','side':"中国U15"},'u17':{'icon':'🏅','side':"中国U17"},'u19':{'icon':'🥇','side':"中国U19"},'u23':{'icon':'🏟','side':"中国U23"}},
 
 
 
@@ -1470,6 +1472,8 @@ g=al(a2["pos"])["group"]||"att",t=bx["t"]||0x0;
     [m(0x1,0xf)+"，边路下底传中，禁区内头球攻门稍稍偏出。",null],
     ["裁判出示一张黄牌，给了一次战术犯规。",null]
   ];
+  /* 青年赛专属事件池：替换成年场通用事件（VAR/补水等成年语境不适用），含递进 flag 事件 */
+  if(_yKind(k))common=_yBmCommon(bx,m);
   var posCommon="gk"===g?[
     [m(0x1,0xf)+"，对方一脚冷射直奔死角，你飞身单掌将球托出横梁！",null],
     ["角球开出，你果断出击双拳将球击出危险区。",null],
@@ -1611,6 +1615,27 @@ g=al(a2["pos"])["group"]||"att",t=bx["t"]||0x0;
   }
   return pool;
 }
+/* 青年赛（U系列）比赛事件池：家长看台/球探/青训氛围 + 递进 flag 差分 */
+function _yBmCommon(bx,m){
+  var p=[
+    ["看台上你的父母举着自制的横幅，你妈比你还紧张。",null],
+    ["青训总监坐在看台角落做笔记——他的本子上出现过的名字，后来大多踢上了职业。",null],
+    ["U字号赛场没有视频回放，边裁举旗的手就是最终判决。",null],
+    ["替补席上有人紧张得把矿泉水瓶捏得咯咯响。",null],
+    [m(0x1,0xf)+"，对面的小胖中锋用身体把你拱开了两步，这个年纪的发育差距就是这么不讲理。",null],
+    ["队医蹲在场边给中卫缠绷带，这个年纪的孩子，膝盖比脚法更需要保护。",null],
+    ["看台上的助威声是成年球场没有的那种干净，什么广告牌都挡不住。",null],
+    ["教练在边线喊：抬眼！你这才想起找空当。",null],
+    [m(0x1,0xf)+"，双方在青年级别的草皮上打起了对攻，节奏快得吓人。",null],
+    ["看台上有几个欧洲面孔的球探，笔记本从头记到尾。",null],
+    ["中圈开球前，队长把所有人拢在一起吼了一声——这是这支青年队的老规矩。",null],
+    ["国际足联的颁奖习惯是赛后马上挂奖牌，赛前没人愿意想这个。",null]
+  ];
+  if(bx["kind"]==='u17'&&a2["flags"]['_ntU15']&&!a2["flags"]['_ntU15core'])p["push"](["看台上有个熟人——两年前把你从U15名单上划掉的顾问。今天他坐得离你很近。",null]);
+  if(a2["flags"]['_ntU17core'])p["push"](["边裁都认得你了，开球前冲你笑了笑。",null]);
+  if(a2["flags"]['_ntBought']&&bx["kind"]==='u23')p["push"](["看台上有个中年人朝你点了点头。你认得他，也认得那通电话的味道。",null]);
+  return p;
+}
 function _bmOpts(bx,
 
 
@@ -1686,6 +1711,30 @@ opp=bx["opp"]||"对手",side=bx["team"]||"你们";
     "赛前队长把大家叫到一起：我不管外面怎么写我们，今天只要拿出命来踢，结局就不会太难看。所有人把手叠在一起，喊了一声。",
     "对方只需要一分就能保级，而你们必须赢。这意味着你们要压上、要冒险、要面对他们每一次反击的威胁。但别无选择。"
   ]);
+  if(k==="u17")return _yIntroHead(bx)+_pick([
+    "一路从预选赛踢到亚少赛决赛。你还没满十八岁，但国少队这批人已经把整片亚洲的青年军都掀了一遍。今天对面的"+opp+"，是最后一道坎。",
+    "亚少赛决赛。你从小看着电视里国字号输球的画面长大，今天你自己穿上了这件球衣。"+opp+"很强，但你们走到这里也不是靠运气。",
+    "决赛日。看台上稀稀拉拉但很执着的中国球迷喊着你的名字。教练在通道里说：别怕，对手也是十七岁的孩子。你点点头，把拳头攥紧了。",
+    "赛前联席会开了一个钟头，"+opp+"的领队一直在争取更好的更衣室。你在门外听着，忽然意识到这种事以后还会有很多次——但今天是你们孩子的战场。",
+    "热身时你注意到看台上有几个欧洲面孔，手里的本子记个不停。球探不看不出身，只看这九十分钟。你的机会和这批队友的，都在这九十分钟里。",
+    "决赛前一晚查房，教练把你们几个主力的手机收走了。黑暗里有人小声问：明天会赢吗？没人回答，但也没人睡着。"
+  ])+_yOppLine(opp);
+  if(k==="u19")return _yIntroHead(bx)+_pick([
+    "亚青赛决赛。这个年龄的亚洲赛场，是所有天才的第一块试金石。"+opp+"的青年队名满亚洲，但你们也有自己的武器。",
+    "从小组赛跌跌撞撞到一路连胜，U19国青站到了决赛的草皮上。赢了这场，明年的世青赛就有你们的位置——如果你还在的话。",
+    "决赛前夜，队里没人睡得着。十八九岁，这是最容易做梦也最容易碎掉的时候。"+opp+"在等着，把梦守住。",
+    "半决赛后你的名字第一次出现在了转会传闻里。经纪人打电话让你别分心，教练什么都没说，只把首发名单拍在了你面前。",
+    "这批人里有几个从U13就在一起踢——那时候你们抢一个馒头都能打起来。今天可能是这个班底的最后一场。",
+    "上一次中国队站在这个赛事的决赛，队里老队员说是很多年前了。历史这种东西，听着远，踢起来就九十分钟。"
+  ])+_yOppLine(opp);
+  if(k==="u23")return _yIntroHead(bx)+_pick([
+    "U23亚洲杯决赛，也是奥运会的门票。职业联赛磨了几年，你和这批同年龄的伙伴再一次为国字号站上决赛场。"+opp+"，老对手了。",
+    "国奥队的更衣室里贴着一张纸：距离奥运会，还有九十分钟。你抬头看了一眼，把球衣塞进裤子里，走进了通道。",
+    "这是你在年龄梯队的最后一届大赛——过了这年，就再没有U23了。"+opp+"也一样年轻，也一样输不起。",
+    "俱乐部放人的时候提了条件：别受伤。但到了这种决赛，谁收缩着踢谁是孙子。你要在安全和历史之间选一个。",
+    "赛前发布会，记者问他『这批球员和欧洲同龄人的差距』，教练把你推到了话筒前。你听见自己说：九十分钟后你们自己看。",
+    "看台上坐着一半的职业球探，一半的家长。你爸妈托人从国内带了横幅，挂在客队看台的角落，字很土，但你热身时看了三次。"
+  ])+_yOppLine(opp);
   return _pick([
     "关键一战。你所在的"+side+"迎战"+opp+"，全场球迷的呐喊已经响彻球场。",
     "这是一场谁也输不起的比赛。"+opp+"已经做好了准备，而你们的更衣室里，空气几乎凝固。",
@@ -1774,7 +1823,9 @@ function _bmAdvance(bx){
     if(bx["done"])return;
     if(bx["dec"])return;
     var seg=bx["seg"]||0x0;
-    if(seg===0x0){bx["seg"]=0x1;bx["dec"]="intro";bx["opts"]=[{'key':"start",'label':"开始比赛",'hint':"走上球场，全场球迷都在等你"}];return;}
+    if(seg===0x0){bx["seg"]=0x1;bx["dec"]="intro";
+      /* U系列：intro 即赛前选拔态度决策（影响本场胜率与递进 flag） */
+      bx["opts"]=_yKind(bx["kind"])?_ntSelOpts(bx):[{'key':"start",'label':"开始比赛",'hint':"走上球场，全场球迷都在等你"}];return;}
     if(seg===0x1){bx["seg"]=0x2;bx["dec"]="kickoff";bx["opts"]=_bmOpts(bx,"kickoff");return;}
     if(seg===0x5){bx["seg"]=0x6;bx["dec"]="halftime";bx["opts"]=_bmOpts(bx,"halftime");return;}
     if(seg===0x9){
@@ -1860,7 +1911,13 @@ bs=_bmOppStr(bI);
   bI["_injured"]&&bP["push"]("你被换下后坐在替补席上看完了剩下的比赛，伤处还在隐隐作痛。");
   'derby'===bI["kind"]&&bP["push"](bM?"终场哨响的那一刻"+"，属于你的那半边"+"看台炸了。有人抱"+"着你哭。":"对面看台的歌声一"+"直唱到终场，像刀"+"子一样扎进耳朵。"+"\u8fd9就是德比。");
   var bY=bV+'\x20'+bN+" 比 "+bO+(bS?"，点球 "+bS[0x0]+" 比 "+bS[0x1]:'')+'。';
+  if(_yKind(bI["kind"])){
+    var _fy=bM?(bS?_yFin["pw"]:_yFin["w"]):(bS?_yFin["pl"]:_yFin["l"]);
+    bP["push"](_fy[Math["floor"](ad()*_fy["length"])]["replace"]("{s}",bY));
+    if(bI["kind"]==='u23'&&a2["flags"]["_ntBought"])bP["push"](bM?"颁奖时你把金牌咬了一下。没有想象中甜——你想起的仍是那个把钱转出去的下午。":"赛后有记者问起你少年时代的事。你答得很快，快得像排练过。");
+  }else{
   bP["push"](bM?"终场哨响。"+bY+(bS?"点球大战赢下来的"+"那种赢法，腿是软"+'的。':"很多年以后你还会"+"梦到这一刻。"):bY+(bS?"点球大战输掉的球"+"，最难过去。":"你在草皮上坐了很"+"久，没人来拉你。"));
+  }
   var bZ=a2["seasons"][bI["recIdx"]]||null,
 
 
@@ -1899,7 +1956,16 @@ c0=[];
       }
     }
   }
-  var c1=bM?'derby'===bI["kind"]?0xc:'wc'===bI["kind"]?0x1e:"asia"===bI["kind"]?0x12:0x10:'derby'===bI["kind"]?0x2:'wc'===bI["kind"]?0xa:0x4,
+  /* U系列梯队记账：出场/进球进 _yCaps/_yGoals，夺冠写递进 flag 与奖杯（国家队大赛/俱乐部逻辑均不适用） */
+  var _yk=_yKind(bI["kind"]);
+  if(_yk){
+    a2["_yCaps"]=a2["_yCaps"]||{};a2["_yGoals"]=a2["_yGoals"]||{};
+    a2["_yCaps"][bI["kind"]]=(a2["_yCaps"][bI["kind"]]||0x0)+0x1;
+    a2["_yGoals"][bI["kind"]]=(a2["_yGoals"][bI["kind"]]||0x0)+_meG;
+    if(bM){a2["flags"][_yNT[_yk]["flag"]+"core"]=0x1;
+      a2["trophies"]["push"]({'name':_yNT[_yk]["comp"]+'冠军','age':bI["age"],'team':_yNT[_yk]["band"]});}
+  }
+  var c1=bM?_yk?_yNT[_yk]["win"]:'derby'===bI["kind"]?0xc:'wc'===bI["kind"]?0x1e:"asia"===bI["kind"]?0x12:0x10:_yk?_yNT[_yk]["lose"]:'derby'===bI["kind"]?0x2:'wc'===bI["kind"]?0xa:0x4,
 
 
 
@@ -1921,6 +1987,28 @@ a2["_awardDue"]&&(a2["_awardDue"]=!0x1,_lgFinalRefresh(a2["seasons"][bI["recIdx"
   a2["bigQ"]=[],a2["_promoDue"]&&(a2["_promoDue"]=!0x1,_promoReleg(a2["seasons"][bI["recIdx"]],null,null)),!0x0;
 }
 function aW(){var bx=a2["bigQ"][0x0];
+/* U13/U15 选拔营：不进交互比赛，直接按能力结算名单结果 */
+if(bx&&bx["_quick"]){var _y=_yNT[bx["kind"]],_ok,_l=[],
+  _pb=0.5+(_ntPrevCore(bx["kind"])?0.12:0x0)+(a2["ovr"]-0x28)/0x190,
+  _pg=al(a2["pos"])["group"]||"att",
+  _pickY=function(a){return a[Math["floor"](ad()*a["length"])]};
+  _ok=ad()<ac(_pb,0.15,0.9);
+  a2["_yCaps"]=a2["_yCaps"]||{};a2["_yGoals"]=a2["_yGoals"]||{};
+  var _fd;
+  if(_ok){a2["_yCaps"][bx["kind"]]=(a2["_yCaps"][bx["kind"]]||0x0)+0x2;a2["flags"][_y["flag"]+"core"]=0x1;
+    a2["fame"]=ac(a2["fame"]+0x4,0x0,0x64);_fd=[{'cls':'up','text':"名气+4"}];
+    _y["posW"]&&_y["posW"][_pg]&&_l["push"](_pickY(_y["posW"][_pg]));
+    _l["push"](_pickY(_y["winLog"]));}
+  else{a2["fame"]=ac(a2["fame"]-0x2,0x0,0x64);_fd=[{'cls':'down','text':"名气-2"}];
+    _y["posL"]&&_y["posL"][_pg]&&_l["push"](_pickY(_y["posL"][_pg]));
+    _l["push"](_pickY(_y["loseLog"]));}
+  /* 递进线：U15 参照 U13 的结果 */
+  if(bx["kind"]==='u15'&&a2["flags"]['_ntU13'])_l["push"](a2["flags"]['_ntU13core']?"教练组的本子上还留着上一期你的名字——这次他们想看你长成什么样。":"两年前公告栏前没有你的名字。这一次，你不想再看别人领队服了。");
+  a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':_y["comp"],'text':(_ok?'入选':'落选')+'：'+_y["band"]});
+  a2["bigQ"]=[];
+  a2["pending"]={'type':"bigmatch",'kind':bx["kind"],'comp':_y["comp"],'age':bx["age"],'icon':aR[bx["kind"]]["icon"],'side':_y["band"],'quick':!0x0,
+    'opp':bx["opp"],'score':null,'log':[],'done':!0x0,'result':{'won':_ok,'log':_l,'deltas':_fd,'score':null,'pens':null}};
+  return!0x0;}
 bx["score"]=[0x0,0x0];bx["log"]=[];
 bx["seg"]=0x0;bx["dec"]=null;bx["opts"]=null;bx["done"]=!0x1;bx["t"]=0x0;
 bx["_lastEv"]=null;bx["_injured"]=!0x1;bx["_evHist"]=[];bx["_intro"]=_bmIntro(bx);
@@ -2169,6 +2257,144 @@ rows.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;if((y.gf-y.ga)!==(x.
 for(var i=0;i<rows.length;i++)rows[i]["pos"]=i+1;
 var o=[];for(i=0;i<rows.length;i++)o.push(rows[i]["i"]);
 a2["lastTables"][lg]=o;
+}
+/* ── 国字号梯队（U系列）──
+   U13/U15 为选拔营 quick 结算（不进交互比赛）；U17/U19/U23 复用大场面交互管线，
+   选拔态度作为赛前 intro 决策点。全部经 bigQ 定时槽触发，不占用每年随机事件名额。 */
+var _yNT={'u13':{'flag':'_ntU13','comp':'U13国少选拔营','band':"中国U13",'quick':0x1,'win':0x4,'lose':0x1,
+  'winLog':["集训营一周，你把同年龄最好的几个全比了一遍。","名单公布，U13国少的号码有你的名字。","你的名字被教练用红笔圈了出来，圈了两道。","走的时候教练塞给你一张训练计划表：回去照着练。"],
+  'loseLog':["你拼了命想让人记住，但同年龄里高手太多了。","名单公布，没有你。教练说你还年轻，下次还有机会。","名单贴出来那天你从头看到尾，又从尾看到头。","回家的车上你爸没提这事，只说晚上想吃什么。"],
+  'posW':{'gk':["第三天的点球测试，你把对面主力的三粒点球扑出去两个。","高球、地滚球、单刀，四项测试你拿了三项第一。"],
+    'def':["对抗测试里你把比你还高半头的盯到没脾气。","分组赛你三次关键拦截，看台上的球探笔记本翻得飞快。"],
+    'mid':["分组赛你一个人串起了整条中场，传出的球队友接得舒服极了。","最后一堂训练课教练让你主罚所有定位球，你罚进了三个。"],
+    'att':["教学赛你一个人进了四个，对面教练走过来问你的年龄。","折返跑、绕杆、射门，每一样你都是最快的那一个。"]},
+  'posL':{'gk':["第三天的点球测试你一个都没扑对方向，手套都被汗水浸透了。","你扑到了第一脚，第二脚和第三脚只能看着球进。"],
+    'def':["分组赛你被对面的矮个子连过了三次，速度上的差距补不回来。","你的解围踢上了看台，教练在场边把本子合上了。"],
+    'mid':["你的传球总是慢半拍，等你出球，接应点已经被封死了。","分组赛你丢了两次球权，两次都直接变成了对面的进球。"],
+    'att':["教学赛你打了三次门框范围内的射门，全被那个高个子门将没收了。","全场你摸到球的机会不到十次，一次都没踢正过门框。"]}},
+'u15':{'flag':'_ntU15','comp':'U15国少选拔赛','band':"中国U15",'quick':0x1,'win':0x6,'lose':0x2,
+  'winLog':["选拔赛上你一场比一场稳，教练组的本子上你的名字被圈了两道。","名单公布，U15国少有你。","决赛那天你下场的时刻，看台上有人喊了你的名字。","体校食堂那天中午加了鸡腿，打饭的阿姨说是给你贺的。"],
+  'loseLog':["选拔赛最后一场你打了门柱，也没能再进下一个。","名单公布，没有你。回家的路上你把球鞋擦了很多遍。","落选的那天晚上你把选拔赛每一场都回想了一遍，想到凌晨。","教练私下来找你：别停下，两年后还有国青。"],
+  'posW':{'gk':["半决赛的点球大战你连扑两个，全场都在喊你的名字。","三场比赛你只丢了一个球，那个球还是折射。"],
+    'def':["淘汰赛阶段你一场没下，三次门线解围全进了集锦。","对面最快的那个边锋，下半场换了边——不敢再从你这走了。"],
+    'mid':["半决赛你两脚助攻，一脚是四十米的长传，落点踩得死死的。","教练说你是这批人里唯一『用眼睛先踢球』的。"],
+    'att':["五场比赛七个球，最佳射手奖杯比你手臂还长。","决赛的绝杀你进了之后脱了球衣，黄牌也值了。"]},
+  'posL':{'gk':["点球大战你猜错了三次方向，球队止步的时候你坐在草皮上没起来。","第二个失球之后你就乱了，出击时机全错。"],
+    'def':["淘汰赛你送的点球成了转折，之后每一场你都踢得缩手缩脚。","对面那个前锋过了你四次，第五次你自己都闭眼了。"],
+    'mid':["关键的淘汰赛你半场就被换下，传球成功率低得刺眼。","你的直塞被断了两回，一回就丢了一球。"],
+    'att':["三场比赛零进球，你最好的机会打在了门将脸上。","坐在替补席看队友踢完最后一场，球鞋在手里攥变形了。"]}},
+'u17':{'flag':'_ntU17','comp':'亚少赛决赛','band':"中国U17",'win':0x8,'lose':0x2,
+  'pool':["日本U17","韩国U17","伊朗U17","沙特U17","澳大利亚U17","乌兹别克斯坦U17","泰国U17","越南U17"]},
+'u19':{'flag':'_ntU19','comp':'亚青赛决赛','band':"中国U19",'win':0x9,'lose':0x2,
+  'pool':["日本U19","韩国U19","伊朗U19","沙特U19","澳大利亚U19","伊拉克U19","卡塔尔U19","约旦U19"]},
+'u23':{'flag':'_ntU23','comp':'U23亚洲杯决赛','band':"中国U23",'win':0xb,'lose':0x3,
+  'pool':["日本U23","韩国U23","伊朗U23","沙特U23","澳大利亚U23","卡塔尔U23","阿联酋U23","印尼U23"]}};
+/* 对手特色句（按国名前缀匹配，拼进 intro） */
+var _yOpp={'日本':"他们从小踢的是另一种足球，停球转身不带一丝犹豫——跟他们耗脚下，不如先跑死他们。",
+  '韩国':"韩国青年队的体能是出了名的，据说他们集训时一天一个一万米。别跟他们拼跑，拼脑子。",
+  '伊朗':"对面几个的身体条件不像这个年龄段的，对抗别硬顶，学会用转身卸力。",
+  '沙特':"他们踢得慢悠悠的，但慢不代表松——别被节奏带进他们的套路里。",
+  '澳大利亚':"高球和第二落点是他们的招牌，全队都得练头球，门将别站在门线上。",
+  '乌兹别克斯坦':"中亚孩子的脚下活被人低估了，他们的10号据说已经进了国奥名单。",
+  '泰国':"小快灵，专克转身慢的后卫，中场别粘球。",
+  '越南':"这几年他们的青训进步吓人，别拿老眼光看人。",
+  '伊拉克':"战火里练出来的那股狠劲，比战术更难对付。",
+  '卡塔尔':"他们的青训营是拿石油堆出来的，归化了好几个非洲苗子。",
+  '阿联酋':"富得流油的青训体系，但大赛心理素质是他们的老毛病。",
+  '印尼':"主场球迷能把客场队骂到失眠——好在这次不在雅加达。",
+  '约旦':"防守反击踢得扎扎实实，先丢球的那个多半要埋单。"};
+/* 青年赛终场文案（win/lose/penWin/penLose 各一池） */
+var _yFin={'w':["终场哨响，{s}。你被队友压在最底下，球衣被人扯得变了形——这个年纪的冠军，就该这么庆祝。",
+  "终场哨响，{s}。替补席全部冲进了场内，教练举着矿泉水瓶当香槟喷。回程大巴上一路都是歌。",
+  "终场哨响，{s}。你把奖杯举过头顶的那一刻，看台上那面巨大的国旗展开了。你在人堆里找到了你爸妈的位置。",
+  "终场哨响，{s}。颁奖台的台阶有点晃，你捧着奖杯往下看，忽然想起十二岁那年在公告栏前找自己名字的下午。"],
+  'l':["终场哨响，{s}。回程大巴上没人说话，教练也没责怪谁。你们都知道差在哪，而这条路还没走完。",
+  "终场哨响，{s}。对面在场地中央庆祝，你在草皮上躺了很久。十五六岁的失利不会上头条，但你会记很多年。",
+  "终场哨响，{s}。更衣室里有人哭了，有人把球鞋摔进了桶里。你什么都没做，只是把奖牌摘下来塞进了包底。",
+  "终场哨响，{s}。发布会上有记者问『中国足球的希望在哪』，你听着这句话走出通道，觉得它比比分更重。"],
+  'pw':["点球大战，{s}。最后一罚进门的那一秒，你身后所有的人都疯了。你蹲在草皮上，忽然手抖得站不起来。",
+  "点球大战，{s}。你是第五个走上点的，也最后一脚——球进的那一刻，整个替补席从你身后扑了过来。"],
+  'pl':["点球大战，{s}。轮到对手的第五罚时，你背过了身。你听见了那一声闷响，和看台炸开的声音。",
+  "点球大战，{s}。你的那一脚被扑了出来。教练搂着你的头说抬起走，你抬起来了，眼泪没忍住。"]};
+function _yKind(bx){return _yNT[bx]?bx:null;}
+function _ntPrevCore(k){
+  var _prev={'u15':'_ntU13core','u17':'_ntU15core','u19':'_ntU17core','u23':'_ntU19core'}[k];
+  return _prev?!!a2["flags"][_prev]:!0x1;
+}
+/* 青训年结束（年龄已++）时调用：按年龄窗推入对应梯队的选拔/决赛，成功入队即置 flag 防重推 */
+function _ntYouthCheck(){
+  if(!au())return;
+  if(a2["bigQ"]&&a2["bigQ"]["length"])return;
+  var ag=a2["age"],k=null,
+    _ws={'u13':[0xd,0xe],'u15':[0xf,0x10],'u17':[0x10,0x11],'u19':[0x12,0x14]};
+  for(var _k in _ws){if(ag>=_ws[_k][0x0]&&ag<=_ws[_k][0x1]&&!a2["flags"][_yNT[_k]["flag"]]){k=_k;break;}}
+  if(!k)return;
+  var _y=_yNT[k];
+  if(a2["flags"][_y["flag"]])return;
+  var _opp=_y["pool"]?_y["pool"][Math["floor"](ad()*_y["pool"]["length"])]:'';
+  var _oppStr=Math.round(a2["ovr"]+(k==='u17'?0x4:0x8)+ad()*0x14);
+  if(_ntPrevCore(k))_oppStr-=0x4;
+  if(aV(k,0.6,{'comp':_y["comp"],'opp':_opp,'oppStr':Math.max(0x14,_oppStr),'_quick':_y["quick"]||0x0}))a2["flags"][_y["flag"]]=0x1;
+}
+/* 职业期 U23 国奥：结算季末钩子（与 _bigHooks 同层，bigQ 被占则顺延到窗内下一年） */
+function _ntCareerHook(){
+  if(!au())return;
+  if(a2["flags"]["_ntU23"])return;
+  if(a2["bigQ"]&&a2["bigQ"]["length"])return;
+  var ag=a2["age"];
+  if(ag<0x15||ag>0x17)return;
+  var _y=_yNT['u23'];
+  var _opp=_y["pool"][Math["floor"](ad()*_y["pool"]["length"])];
+  var _oppStr=Math.round(a2["ovr"]+0x8+ad()*0x14);
+  if(_ntPrevCore('u23'))_oppStr-=0x4;
+  if(aV('u23',0.6,{'comp':_y["comp"],'opp':_opp,'oppStr':Math.max(0x14,_oppStr)}))a2["flags"]["_ntU23"]=0x1;
+}
+/* 递进前缀：上一档 core/落选、买名额旧事重提（u23） */
+function _yIntroHead(bx){
+  var k=bx["kind"],_s='';
+  if(k==='u17'){if(a2["flags"]['_ntU15'])_s=a2["flags"]['_ntU15core']?"教练组里有几张面孔，是两年前U15选拔时就见过你的。":"两年前你在U15落选过——公告栏前的那个下午，你记得比谁都清楚。";}
+  else if(k==='u19'){if(a2["flags"]['_ntU17'])_s=a2["flags"]['_ntU17core']?"从亚少赛到亚青赛，教练组把你当成了这批人的骨架。":"亚少赛那次失利之后，有人在名单讨论时提过你的名字——这一次你自己站了回来。";}
+  else if(k==='u23'&&a2["flags"]['_ntBought'])_s="有人还记得你U17那年那通电话。这一次，你只想干干净净地赢。";
+  return _s?_s+'':'';
+}
+function _yOppLine(opp){
+  if(!opp)return'';
+  for(var k in _yOpp)if(opp["indexOf"](k)===0x0)return'\x20'+_yOpp[k];
+  return'';
+}
+/* 赛前选拔态度（U系列交互场的 intro 决策）：影响本场胜率与递进 flag */
+function _ntSelOpts(bx){
+  var _o=[{'key':"allin",'label':"豁出去，把这场当成一辈子只有一次的机会",'hint':"全力以赴，赢面最大"},
+    {'key':"steady",'label':"按教练的布置稳稳打",'hint':"稳，教练组会记住你的纪律性"},
+    {'key':"enjoy",'label':"当普通一场球去踢",'hint':"平常心，不背包袱"}];
+  if(bx["kind"]==='u17')_o.push({'key':"agent",'label':"找中间人运作一个主力位置",'hint':"花一笔钱，清白受损，但位置稳"});
+  return _o;
+}
+function _ntApplySel(bI,key,_p){
+  var _b=0,_l='',
+    _pickY=function(a){return a[Math["floor"](ad()*a["length"])]},
+    _fb={allin:["赛前热身你练得比谁都狠，对抗时把自家中卫都撞翻了。教练看了你一眼，没说话，但把你的名字写进了首发。",
+      "你第一个走进通道，又最后一个走出去——每一次折返跑都在告诉教练组：这场的火，我来带头点。",
+      "训练服湿透了三件。队友说你疯了，只有你自己知道，这种机会一辈子可能就这一次。"],
+    steady:["你按教练的布置一项一项做，没有惊喜，也没有失误。赛前会上，教练的笔在你的名字底下画了条横线。",
+      "录像课你把"+(bI["opp"]||'对手')+"的每一条跑位线都抄进了本子。教练翻了两页，什么都没说，把本子还给了你。",
+      "你把更衣室里该喊的话喊了，该钉的人钉了。有人笑你装成熟，但热身时大家都跟着你的节奏。"],
+    agent:["赛前有人拍了拍你的肩膀：放心踢，位置给你留好了。你没细想那通电话的价钱。",
+      "名单公布前你收到了那条短信，只有四个字：已打好招呼。你把手机扣在枕头底下，睡得比平时差。",
+      "中间人的钱是走你母亲的账转出去的。这件事家里没有人再提，但它像一颗石子沉在每个人心里。"],
+    enjoy:["你深吸一口气，把它当成一场普通的球。倒计时牌翻到零的时候，你的心率比热身时还低。",
+      "你戴上耳机听完了一首歌，把紧张和期待一起关在了门外面。走上球场时，你的脸上什么都没有。",
+      "赛前你在球员通道里看着对面系鞋带，忽然觉得他们也在紧张。这么一想，你反而笑了。"]};
+  if(key==="allin"){_b=0.18;}
+  else if(key==="steady"){_b=0.08;}
+  else if(key==="agent"){_b=0.12;
+    a2["money"]=ac(Math.round(a2["money"]-0x14),-0x320,0x895440);a2["clean"]=ac(a2["clean"]-0xc,0x0,0x64);a2["flags"]["_ntBought"]=0x1;}
+  else{_b=0.02;}
+  _l=_fb[key]||_fb["enjoy"];
+  _l=_pickY(_l);
+  bI["_selB"]=_b;
+  if(bI["oppStr"])bI["oppStr"]=Math.max(0x14,Math.round(bI["oppStr"]*(0x1-_b)));
+  _l&&bI["log"]&&bI["log"]["push"](_l);
 }
 function _bigHooks(bz){
 var me=a2["teamId"],tm=me?aj(me):null;
@@ -2677,7 +2903,7 @@ var res=_cupBracket(cards,
 a2["teamId"]);
 if(pIn){
 var run={'comp':'世俱杯','rounds':res["path"],'age':a2["age"]};
-if(res["path"].length&&res["path"][res["path"].length-1]["won"]){run["result"]='冠军';bz["trophies"].push('世俱杯冠军');a2["trophies"].push({'name':'世俱杯冠军','age':a2["age"],'team':bx["name"]});}
+if(res["path"].length&&res["path"][res["path"].length-1]["won"]){run["result"]='冠军';bz&&bz["trophies"]&&bz["trophies"].push('世俱杯冠军');a2["trophies"].push({'name':'世俱杯冠军','age':a2["age"],'team':(aj(a2["teamId"])||{"name":''})["name"]});}
 else if(res["path"].length)run["result"]='止步'+res["path"][res["path"].length-1]["round"];
 else run["result"]='止步三十二强';
 a2["cupRuns"].push(run);
@@ -3090,7 +3316,7 @@ if(_natQual&&!_natTourn&&c3===0x3){aZ(bz,
 /* 中立国家队赛事：每季归档上一届，本届按四年周期模拟（玩家参赛版直接引用原数据，决赛大场面改分可同步） */
 /* _cnElim：本季玩家队(中国)打了预选赛却出局 → 中立签表强制排除中国；_natFxForce：作弊直接夺冠 → 世界面板记录中国队冠军 */
 _natTick(_natTourn,!!(_natQual&&!_natTourn&&bX&&!a2["cheat"]),_natFxForce);
-if(bx&&by){_bigHooks(bz);if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;a2["_promoDue"]=!0x0;}else{_lgFinalRefresh(bz);bAw(bz);}}return a2["_promoDue"]?0:_promoReleg(bz,
+if(bx&&by){_ntCareerHook();_bigHooks(bz);if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;a2["_promoDue"]=!0x0;}else{_lgFinalRefresh(bz);bAw(bz);}}return a2["_promoDue"]?0:_promoReleg(bz,
 bx,by),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz["ovrEnd"]=Math["round"](a2["ovr"]),a2["seasons"]["push"](bz),
 
 a2["age"]++,
@@ -3355,10 +3581,14 @@ if(a2["age"]>=0x15&&!bi())return a2["youthCut"]=a2["age"],
 
 
 br("青训淘汰");
+_ntYouthCheck();
+/* 本年梯队决赛已入队时毕业顺延一年：先踢完国字号再升学 */
+if(a2["bigQ"]&&a2["bigQ"]["length"]&&bi()&&!(a2["flags"]["_gradCd"]>0x0))a2["flags"]["_gradCd"]=0x1;
 if(bi()){if(a2["flags"]["_gradCd"]>0x0)a2["flags"]["_gradCd"]--;
 else return a2["phase"]="career",bm();
-}var bx=aE();
-if(!bx)return;
+}
+var bx=aE();
+if(!bx)return a2["bigQ"]&&a2["bigQ"]["length"]?aW():void 0x0;
 a2["usedEven"+'ts'][bx['id']]=(a2["usedEven"+'ts'][bx['id']]||0x0)+0x1,
 a2["flags"]["_evCount"]=(a2["flags"]["_evCount"]||0x0)+0x1,
 bx['cn']&&(a2["flags"]["_cnCount"]=(a2["flags"]["_cnCount"]||0x0)+0x1),
@@ -4205,7 +4435,7 @@ return{'ver':0x6,'seed':bD,'rngState':ai(String(bD)),'mode':bB,'phase':"youth",'
 'seasonsAbroad':0x0,'clubsPlayed':[],'contractLeft':0x0,'loanFrom':null,'lowSpell':0x0,'banLeft':0x0,'banGames':0x0,'banned':!0x1,
 'lockAbroad':0x0,'pendingMult':null,'stagnate':!0x1,'youthTeamId':null,'youthLog':[],'youthCut':0x0,'caps':0x0,'natStats':{'goals':0x0,'assists':0x0,'cs':0x0},
 'totals':{'apps':0x0,'goals':0x0,'assists':0x0,'cs':0x0,'ga':0x0},'seasons':[],'trophies':[],'awards':[],'natRuns':[],'tournaments':[],'cupRuns':[],'forceQ':[],
-'life':{'partner':null,'married':0x0,'kids':[],'splits':0x0},'natForm':{'wc':0x0,'asia':0x0},'flags':{},'staff':{},'pending':null,'_awardDue':!0x1,'usedEvents':{},'choices':[],'eventLog':[],
+'life':{'partner':null,'married':0x0,'kids':[],'splits':0x0},'natForm':{'wc':0x0,'asia':0x0},'flags':{},'staff':{},'pending':null,'_awardDue':!0x1,'_yCaps':{},'_yGoals':{},'usedEvents':{},'choices':[],'eventLog':[],
 'rid':null,'achBonus':bAch||null,'playerType':0xb};
 }(bx,by,bz,bA,bAch),a2["playerType"]=calcPlayerType(),a2;
 },
@@ -4247,12 +4477,13 @@ var _dec=_p["dec"]||"kickoff";
 
 
 
-/* 决策点: 开场介绍 —— 单一"开始比赛"按钮 */
+/* 决策点: 开场介绍 —— 单一"开始比赛"按钮；U系列为赛前选拔态度选项 */
 
 
 
 
 if(_dec==="intro"){
+  bG&&"start"!==bG&&_yKind(bI["kind"])&&_ntApplySel(bI,bG,_p);
   _p["dec"]=null;_p["opts"]=null;bI["dec"]=null;bI["opts"]=null;
   _bmAdvance(bI);
   _p["score"]=bI["score"];_p["seg"]=bI["seg"];_p["dec"]=bI["dec"];_p["opts"]=bI["opts"];_p["done"]=bI["done"];_p["log"]=bI["log"];_p["t"]=bI["t"];
@@ -4317,20 +4548,18 @@ br("无人问津"),!0x0);
 if(bx){if("report"===bx["type"]||("random"===bx["type"]||"bigmatch"===bx["type"])&&bx["result"]){if("random"===bx["type"]&&bx["result"]){if(a2["pending"]=null,!a2["flags"]["_double"]&&ad()<0.35){var by=aE();
 if(by)return a2["usedEven"+'ts'][by['id']]=(a2["usedEven"+'ts'][by['id']]||0x0)+0x1,a2["flags"]["_evCount"]=(a2["flags"]["_evCount"]||0x0)+0x1,
 by['cn']&&(a2["flags"]["_cnCount"]=(a2["flags"]["_cnCount"]||0x0)+0x1),a2["flags"]["_double"]=!0x0,void(a2["pending"]={'type':"random",'eventId':by['id']});
-}return "youth"===a2["phase"]?void bk():void bl();
+}return "youth"===a2["phase"]?void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk()):void bl();
 }if("report"===bx["type"])return a2["pending"]=null,
 
 
 
-void bk();
-if("bigmatch"===bx["type"]&&bx["result"]){if(a2["pending"]=null,a2["period"]){var bz=b7();
+void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
+if("bigmatch"===bx["type"]&&bx["result"]){if(a2["pending"]=null,a2["bigQ"]&&a2["bigQ"]["length"])return void aW();if(a2["period"]){var bz=b7();
 return void(bz&&(a2["pending"]={'type':"report",'recs':bz}));
 }bk();
 }else a2["pending"]=null,
 
-
-
-bk();
+void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
 }}else bk();
 },'resolveEvent':bs,'commitEvent':bw,'goSummary':br,'optHint':function(bx,by){var bz=bx&&bx["options"]&&bx["options"][by];
 if(!bz)return'';
@@ -4411,6 +4640,11 @@ return{'ok':!0x0,'offers':_ids,'left':_p["rerolls"]};
 },
 'staffTen':function(bx){var _v=a2["staff"]&&a2["staff"][bx];
 return _v&&typeof _v==="object"?_v["y"]||0x0:0x0;},
+'yCaps':function(){return a2["_yCaps"]||{};},
+'yGoals':function(){return a2["_yGoals"]||{};},
+'flagGet':function(bx){return a2["flags"][bx];},
+'pushBig':function(bx){var _y=_yNT[bx];if(!_y)return!0x1;
+  return aV(bx,0.6,{'comp':_y["comp"],'opp':(_y["pool"]||["选拔队"])[0x0],'oppStr':Math.round(a2["ovr"]+0x8),'_quick':_y["quick"]||0x0});},
 'teamHire':function(bx){
 var _r=_stById(bx);
 if(!_r||!a2["staffMkt"]||a2["staffMkt"]["ids"]["indexOf"](bx)<0x0)return null;

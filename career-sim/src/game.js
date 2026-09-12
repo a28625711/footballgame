@@ -447,6 +447,11 @@ var _ns=nd["natStats"]||{};
 var _caps=nd["caps"]||0;
 h+='<div class="wl-title">国家队总览</div>';
 h+='<div class="wl-champ">'+_caps+'场出场'+(_ns["goals"]?' · '+_ns["goals"]+'球':'')+(_ns["assists"]?' · '+_ns["assists"]+'助':'')+(_ns["cs"]?' · '+_ns["cs"]+'零封':'')+'</div>';
+/* 国字号梯队履历（U13→U23 出场记账，_yCaps） */
+(function(){var _yc=a6["yCaps"]?a6["yCaps"]():{},_yg=a6["yGoals"]?a6["yGoals"]():{},
+_yo=[['u13',"U13国少"],['u15',"U15国少"],['u17',"U17国少"],['u19',"U19国青"],['u23',"U23国奥"]],_p=[];
+_yo["forEach"](function(o2){var c2=_yc[o2[0x0]];if(c2)_p["push"](o2[0x1]+" "+c2+"场"+((_yg[o2[0x0]]||0x0)>0x0?" "+_yg[o2[0x0]]+"球":""));});
+if(_p["length"])h+='<div class="wl-champ wl-ladder">'+ax("国字号梯队："+_p["join"](" → "))+'</div>';})();
 var _ageMap={};
 ny["forEach"](function(nr){var ag2=nr["age"];if(!_ageMap[ag2])_ageMap[ag2]=[];_ageMap[ag2]["push"](nr);});
 var _ages=[];for(var _ak in _ageMap)_ages["push"](parseInt(_ak,10));_ages["sort"](function(a,b){return a-b;});
@@ -1351,7 +1356,11 @@ c9["push"](ba("stay","留在 "+ai()["name"],"续约，一切照旧 "+'·\x20'+al
 }return bZ["canRetir"+'e']&&c9["push"](ba("retire",'挂靴',"就到这里")),bZ["offers"]["length"]||bZ["canStay"]||(c8+="<div cla"+"ss=\"empt"+"y\">没有任何报"+"价。</div>",
 c9["length"]||c9["push"](ba("retire",'挂靴',"只剩这一个选项"))),c8+bb(c9,"opts-alt")+"</div>";
 }if("bigmatch"===bZ["type"]){var cb="<div cla"+"ss=\"even"+"t bigmat"+'ch'+(bZ["result"]?bZ["result"]["won"]?" won":" lost":'')+'\x22>'+b1(bZ["icon"]||'🏆',
-"关键战",bZ["comp"],!0x0)+("<div cla"+"ss=\"bm-v"+"s\"><span"+" class=\""+"bm-side\""+'>')+ax(bZ["side"])+("</span><"+"span cla"+"ss=\"bm-s"+"core\">")+(bZ["result"]?bZ["result"]["score"][0x0]+" : "+bZ["result"]["score"][0x1]:bZ["score"]?bZ["score"][0x0]+" : "+bZ["score"][0x1]:bZ["half"]?bZ["half"][0x0]+" : "+bZ["half"][0x1]:"0 : 0")+("</span><"+"span cla"+"ss=\"bm-s"+"ide\">")+ax(bZ["opp"])+("</span><"+"/div>")+(bZ["result"]&&bZ["result"]["pens"]?"<div cla"+"ss=\"bm-p"+"ens\">点球 "+bZ["result"]["pens"][0x0]+" : "+bZ["result"]["pens"][0x1]+"</div>":(bZ["dec"]==="pen"?"<div cla"+"ss=\"bm-p"+"ens\">加时结束，点球大战！</div>":bZ["dec"]==="intro"?"<div cla"+"ss=\"bm-p"+"ens\">赛前热身，你已准备就绪</div>":"<div cla"+"ss=\"bm-p"+"ens\">"+(bZ["result"]?'全场':bZ["dec"]?"进行中":"半场")+"</div>"))+(bZ["dec"]==="intro"?"<div cla"+"ss=\"bm-in"+"tro\">"+ax(bZ["_intro"]||"")+"</div>":"")+("<div cla"+"ss=\"bm-l"+"og\">")+(bZ["log"]||[])["map"](function(ce){
+bZ["quick"]?"国字号":"关键战",bZ["comp"],!0x0);
+/* U13/U15 选拔营：没有比赛，不渲染比分/状态框架 */
+if(!bZ["quick"]){cb+=("<div cla"+"ss=\"bm-v"+"s\"><span"+" class=\""+"bm-side\""+'>')+ax(bZ["side"])+("</span><"+"span cla"+"ss=\"bm-s"+"core\">")+(bZ["result"]?(bZ["result"]["score"]?bZ["result"]["score"][0x0]+" : "+bZ["result"]["score"][0x1]:"—"):bZ["score"]?bZ["score"][0x0]+" : "+bZ["score"][0x1]:bZ["half"]?bZ["half"][0x0]+" : "+bZ["half"][0x1]:"0 : 0")+("</span><"+"span cla"+"ss=\"bm-s"+"ide\">")+ax(bZ["opp"])+("</span><"+"/div>")
++(bZ["result"]&&bZ["result"]["pens"]?"<div cla"+"ss=\"bm-p"+"ens\">点球 "+bZ["result"]["pens"][0x0]+" : "+bZ["result"]["pens"][0x1]+"</div>":(bZ["dec"]==="pen"?"<div cla"+"ss=\"bm-p"+"ens\">加时结束，点球大战！</div>":bZ["dec"]==="intro"?"<div cla"+"ss=\"bm-p"+"ens\">赛前热身，你已准备就绪</div>":"<div cla"+"ss=\"bm-p"+"ens\">"+(bZ["result"]?'全场':bZ["dec"]?"进行中":"半场")+"</div>"));}
+cb+=(bZ["dec"]==="intro"?"<div cla"+"ss=\"bm-in"+"tro\">"+ax(bZ["_intro"]||"")+"</div>":"")+("<div cla"+"ss=\"bm-l"+"og\">")+(bZ["log"]||[])["map"](function(ce){
 return "<div cla"+"ss=\"bm-l"+"ine\">"+ax(ce)+"</div>";
 })["join"]('')+"</div>";
 return bZ["result"]?(cb+="<div cla"+"ss=\"bm-l"+"og secon"+"d\">"+bZ["result"]["log"]["map"](function(ce){

@@ -2241,6 +2241,9 @@ img.crest.plate {
             background: hsl(var(--gold1) / .08); font-size: 12px; }
 .wl-champ .crest, .wl-champ .crest-pic { width: 1.05rem; height: 1.05rem; }
 .wl-champ .crest-pic { display: inline-flex; }
+/* 国字号梯队履历行：弱化的金色，不与冠军行抢视觉 */
+.wl-champ.wl-ladder { border-style: dashed; border-color: hsl(var(--gold2) / .35);
+                      color: hsl(var(--gold1) / .85); font-weight: 500; justify-content: center; }
 .mini-badge.lnk { cursor: pointer; border-bottom: 1px dashed hsl(var(--gold2)); }
 .sm-link { margin-left: auto; border: 1px solid hsl(var(--border-strong));
            background: hsl(var(--btn-bg)); color: hsl(var(--text));

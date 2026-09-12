@@ -119,6 +119,7 @@ while(au.pending&&guard++<60){
   var p=au.pending;
   if(p.type==='youthSpend') return JSON.stringify({fail:'youthSpend popup still exists'});
   if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
+  else if(p.type==='bigmatch'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(p.quick?'start':'push');} }
   else { var e2=stepChk(); if(e2) return e2; }
 }
 var years=au.age-13;

@@ -37,6 +37,7 @@ var localStorage={getItem:function(){return null;},setItem:function(){},removeIt
 var navigator={userAgent:'test',canShare:false}; var location={href:''}; var screen={}; var Image=function(){};
 var console={log:function(m){window.__L.push(String(m).slice(0,250))},warn:function(){}};
 var matchMedia=function(){return {matches:false};}; var requestAnimationFrame=function(f){return 0;};
+var setTimeout=function(f){return 0;}; var clearTimeout=function(f){return 0;};
 var confirm=function(){return true;}; var alert=function(){};
 '''
 
