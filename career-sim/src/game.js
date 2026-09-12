@@ -708,6 +708,8 @@ var _nRows=_newsList.map(function(n5){
 if(n5.bad&&au["staff"]&&au["staff"]["pr"])return '';
 var _nm=(window["NEWSMETA"]||{})[n5.c];
 var _nIco=_nm?_nm.e:(n5.k==='mj'?'📰':n5.k==='mn'?'📄':'☕');
+if(n5.c==='natc'){var _cnn=null;(window.NATS||[]).forEach(function(q){if(q.i==='n_chn')_cnn=q;});
+if(_cnn&&_cnn.img){_nIco='<img class="n-flag" src="'+((window["_FLAG_DATA"]&&window["_FLAG_DATA"][_cnn.img])||'assets/flags/'+_cnn.img+".svg")+'" alt="">';}}
 var _nT=ax(n5.t);
 if(n5.tid){var _ntm=ag(n5.tid);
 if(_ntm){var _nCr=aT(_ntm);if(_nCr)_nT=_nT.replace(ax(_ntm.name),_nCr+'<span class="n-tname">'+ax(_ntm.name)+'</span>');}}

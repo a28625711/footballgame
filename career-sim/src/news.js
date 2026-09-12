@@ -373,7 +373,9 @@ function pickWeighted(a2, pool) {
 
 function build(a2, item, sub) {
     var ctx = {}, subData = null;
-    if (sub === 'club') {
+    if (sub === 'none') {
+        subData = null;
+    } else if (sub === 'club') {
         var e = wpick(teamPool(a2));
         ctx.T = e.t.name; ctx.LG = lgName(e.t.league);
         subData = { team: e.t };
@@ -481,13 +483,14 @@ function genFlavor(a2, youth) {
     var mixed = [];
     var i;
     for (i = 0; i < FLAVOR_INTL.length; i++) mixed.push({ item: FLAVOR_INTL[i], sub: 'lg', w: 3, cat: 'world' });
+    for (i = 0; i < FLAVOR_CNFUN.length; i++) if (inCN) mixed.push({ item: FLAVOR_CNFUN[i], sub: 'none', w: 4, cat: 'cnfun' });
     for (i = 0; i < FLAVOR_HOME.length; i++) if (inCN) mixed.push({ item: FLAVOR_HOME[i], sub: 'you', w: 4, cat: 'home' });
     for (i = 0; i < FLAVOR_ABROAD.length; i++) if (!inCN) mixed.push({ item: FLAVOR_ABROAD[i], sub: 'you', w: 4, cat: 'abroad' });
     while (out.length < n && tries++ < 40) {
         var item = pickWeighted(a2, mixed.map(function (m) { return { id: m.item.id, w: m.w, ref: m, req: m.item.req }; }));
         if (!item) continue;
         var ref = item.ref || item;
-        var subKind = ref.sub === 'lg' ? 'lg' : 'you';
+        var subKind = ref.sub === 'lg' ? 'lg' : (ref.sub === 'none' ? 'none' : 'you');
         var e = build(a2, ref.item, subKind);
         e.k = 'fv'; e.c = ref.cat;
         delete e.fx;
