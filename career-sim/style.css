@@ -2257,17 +2257,11 @@ img.crest.plate {
 /* 世界面板：往期赛季下拉选择 */
 .wl-season { background: hsl(var(--panel2, 0 0% 14%)); color: hsl(var(--text)); border: 1px solid hsl(var(--border) / .8); border-radius: var(--r-row, 8px); font-size: .72rem; padding: 3px 6px; margin-left: auto; max-width: 7.5rem; }
 
-/* ── 新闻面板 ── */
+/* ── 新闻面板（当季平铺） ── */
 .tl-tab.has-unread::after { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #e5484d; margin-left: 4px; vertical-align: 2px; }
-.news-root { display: flex; flex-direction: column; gap: 6px; padding: 4px 0 24px; }
-.news-grp { border: 1px solid hsl(var(--border) / .7); border-radius: var(--r-row, 8px); overflow: hidden; background: hsl(var(--panel2, 0 0% 14%) / .5); }
-.news-grp summary { cursor: pointer; padding: 7px 10px; font-size: .78rem; font-weight: 600; color: hsl(var(--text)); user-select: none; list-style: none; display: flex; align-items: center; }
-.news-grp summary::-webkit-details-marker { display: none; }
-.news-grp summary::before { content: '▸'; margin-right: 6px; transition: transform .15s; color: hsl(var(--faint)); font-size: .7rem; }
-.news-grp[open] summary::before { transform: rotate(90deg); }
-.news-grp:not([open]) summary { color: hsl(var(--faint)); font-weight: 500; }
-.n-cnt { margin-left: auto; font-size: .66rem; font-weight: 400; color: hsl(var(--faint)); }
+.news-root { display: flex; flex-direction: column; padding: 4px 0 24px; }
 .news-row { display: flex; gap: 8px; padding: 7px 12px; font-size: .78rem; line-height: 1.55; color: hsl(var(--text)); border-top: 1px solid hsl(var(--border) / .4); }
+.news-row:first-child { border-top: 0; }
 .news-row .n-ico { flex: none; font-size: .82rem; }
 .news-row.mj .n-txt { font-weight: 500; }
 .news-row.bad .n-txt { color: hsl(var(--faint)); }

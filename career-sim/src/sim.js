@@ -2231,8 +2231,15 @@ if(o["gx"])a2["guanxi"]=Math.max(0,Math.min(0x64,(a2["guanxi"]||0)+o["gx"]));
 function _newsTick(yth){
 /* 每季整体替换不保留历史：新闻只展示当季最新一批，不塞满存档 */
 if(!window["NEWSGEN"])return;
+/* 实况素材：大赛/洲际杯冠军(本季 natFx/contFx) + 联赛冠军升降(_promoReleg 收集于 _newsQ) */
+var _fq=a2["_newsQ"]=a2["_newsQ"]||[];
+try{
+if(a2["natFx"]&&a2["natFx"]["data"])for(var _nk3 in a2["natFx"]["data"]){var _nd3=a2["natFx"]["data"][_nk3];if(_nd3&&_nd3["champion"])_fq["push"]({'t':'nat','nid':_nd3["champion"],'tag':_nk3});}
+if(a2["contFx"]&&a2["contFx"]["data"])for(var _ck4 in a2["contFx"]["data"]){var _cd4=a2["contFx"]["data"][_ck4];if(_cd4&&_cd4["champion"])_fq["push"]({'t':'cont','tid':_cd4["champion"],'comp':_cd4["name"],'tag':_ck4});}
+}catch(e){}
+var _facts=_fq["splice"](0x0,_fq["length"]);
 var items=null;
-try{items=window["NEWSGEN"](a2,yth||0x0);}catch(e){a2["_newsErr"]=String(e)["slice"](0x0,0xc8);return;}
+try{items=window["NEWSGEN"](a2,yth||0x0,_facts);}catch(e){a2["_newsErr"]=String(e)["slice"](0x0,0xc8);return;}
 if(!items||!items["length"])return;
 var kept=[],fxCnt=0,negCnt=0,i,e;
 for(i=0;i<items["length"];i++){e=items[i];
@@ -3110,11 +3117,13 @@ if(!a2["_worldRan"])return;
 a2["_worldRan"]=false;
 var orders=a2["lastTables"];
 if(!orders)return;
+a2["_newsQ"]=a2["_newsQ"]||[];
 for(var tl in _relegZone){
 var z=_relegZone[tl],down=ao[tl],order=orders[tl];
 if(!down||!order)continue;
 for(var p=z[0];p<=z[1]&&p<=order.length;p++){
 _moveTeam(order[p-1],down,false,p-z[0]);
+a2["_newsQ"]["push"]({'t':'releg','tid':order[p-0x1],'from':tl,'to':down});
 if(a2["teamId"]===order[p-1]&&bz)bz["move"]='降入'+ak(down)["name"];
 }
 }
@@ -3123,6 +3132,7 @@ var up=_promoAuto[sl],to=am[sl],order2=orders[sl];
 if(!to||!order2)continue;
 for(var p2=0;p2<up.length&&p2<order2.length;p2++){
 _moveTeam(order2[p2],to,true,p2);
+a2["_newsQ"]["push"]({'t':'promo','tid':order2[p2],'from':sl,'to':up});
 if(a2["teamId"]===order2[p2]&&bz)bz["move"]='升上'+ak(to)["name"];
 }
 }
@@ -3143,9 +3153,13 @@ done=true;
 if(!done){
 var wC=_poOne(f1,f2,true);
 _moveTeam(wC.i,to2,true,2);
+a2["_newsQ"]["push"]({'t':'promo','tid':wC.i,'from':sl2,'to':to2});
 if(a2["teamId"]===wC.i&&bz)bz["move"]='升上'+ak(to2)["name"];
 }
 }
+var _nqL,_nqO,_nqSeen={};
+for(_nqL in _relegZone){_nqO=orders[_nqL];if(_nqO&&_nqO["length"]){_nqSeen[_nqL]=0x1;a2["_newsQ"]["push"]({'t':'lgchamp','tid':_nqO[0x0],'lg':_nqL});}}
+if(a2["leagueId"]&&!_nqSeen[a2["leagueId"]]&&orders[a2["leagueId"]]&&orders[a2["leagueId"]]["length"])a2["_newsQ"]["push"]({'t':'lgchamp','tid':orders[a2["leagueId"]][0x0],'lg':a2["leagueId"]});
 }
 function _poOne(x,
 y,neu){

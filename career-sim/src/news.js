@@ -21,7 +21,8 @@ window.NEWSMETA = {
     'form': { e: '🏆', n: '战绩' }, 'gossip': { e: '🍉', n: '八卦' }, 'natc': { e: '🇨🇳', n: '国足' },
     'nat': { e: '⚔️', n: '列强' }, 'lg': { e: '📅', n: '联赛' }, 'you': { e: '⭐', n: '主角' },
     'world': { e: '🌍', n: '国际' }, 'home': { e: '🏠', n: '生活' }, 'abroad': { e: '✈️', n: '留洋' },
-    'fun': { e: '🎪', n: '趣闻' }
+    'fun': { e: '🎪', n: '趣闻' }, 'champ': { e: '🏆', n: '夺冠' }, 'releg': { e: '⬇️', n: '降级' },
+    'upset': { e: '✨', n: '黑马' }
 };
 
 /* 门控辅助 */
@@ -471,10 +472,139 @@ function genFlavor(a2, youth) {
     return out;
 }
 
-window.NEWSGEN = function (a2, youth) {
+/* ── 实况新闻：引擎结算事实(联赛冠军/降级/升级/洲际杯/大赛)的播报模板，fx 一律为 0 ── */
+var FACT_T = {
+    lgchamp: {
+        hi: ['{LG}大结局：{T}加冕冠军，颁奖台上的彩带落了满地，这是他们应得的夜晚。',
+             '{T}捧起{LG}奖杯，合影里每个人都在笑，除了揉着膝盖的老队长——他把香槟留给了更衣室。'],
+        mid: ['{T}问鼎{LG}，主帅赛后把功劳分给了更衣室每一个人，除了自己。',
+              '{LG}冠军：{T}。没有超级巨星，只有十一个互相信任的名字。'],
+        upset: ['奇迹！{T}夺得{LG}冠军——赛季前博彩公司给他们的赔率是1赔500，今晚全城彻夜未眠。',
+                '童话成真：{T}加冕{LG}。市长宣布全城放假一天，理由是「这样的夜晚一辈子只有一次」。']
+    },
+    releg: {
+        giant: ['{T}从{LG}降级！看台上有人烧了季票，也有人哭着唱完了整首歌。',
+                '地震：{T}确认降级，{LG}失去了一支豪门。主席的声明里道歉了七次。'],
+        norm: ['{T}黯然降入{LG2}，最后一个主场比赛日，球迷把看台拼成了「我们还会回来」。',
+               '{T}的{LG}之旅画上句号，降级名单公布的那一刻，客场更衣室安静得能听见球鞋落地。']
+    },
+    promo: ['升班马童话：{T}升入{LG2}，更衣室的香槟是队长用自己工资买的。',
+            '{T}重返{LG2}！升级决定球进的那一刻，替补席冲进场内的速度比进球还快。'],
+    cont: ['{T}加冕{COMP}！颁奖时队长把奖杯让给了队里最年轻的人。',
+           '{COMP}决赛落下帷幕：{T}登顶，全队把金牌挂在了没进大名单的老门将脖子上。'],
+    natHi: ['世界杯落幕：{N}捧起大力神杯，决赛制胜球被做成了城市广场的雕像小样。',
+            '{N}登顶世界之巅，该国航空公司连夜宣布加开「冠军纪念航班」。'],
+    natLow: ['世界杯史上最大冷门：{N}夺得冠军！这个人口小国的国庆日从此多了一个理由。',
+             '谁敢相信？{N}站上了世界杯最高领奖台，赛前他们的目标只是「进一球」。'],
+    natChnWc: ['历史性一夜：中国队夺得世界杯！从「留给中国队的时间不多了」到「中国队是世界冠军」，一代人等到了这一天。'],
+    natChnAsia: ['中国队亚洲杯登顶！终场哨响的那一刻，无数个客厅里的泡面被欢呼掀翻在地。']
+};
+
+function factScore(a2, f) {
+    var s = 0, t = f.tid ? teamById(f.tid) : null;
+    if (f.t === 'lgchamp') {
+        var lg = lgOfId(f.lg);
+        if (!t || !lg) return -1;
+        if (f.tid === a2.teamId) s += 100;
+        if (f.lg === a2.leagueId) s += 80;
+        if (t.rep >= 5) s += 60;
+        if (t.rep <= 2) s += 70;
+    } else if (f.t === 'releg') {
+        if (!t) return -1;
+        if (f.tid === a2.teamId) s += 100;
+        if (t.rep >= 4) s += 70;
+        if (t.rep <= 2) s += 10;
+    } else if (f.t === 'promo') {
+        var to = lgOfId(f.to);
+        if (!t || !to) return -1;
+        if (f.tid === a2.teamId) s += 95;
+        if (to.rep >= 4) s += 45;
+        if (t.rep <= 2) s += 15;
+    } else if (f.t === 'cont') {
+        if (!f.tid) return -1;
+        s += 55;
+        if (f.tid === a2.teamId) s += 60;
+    } else if (f.t === 'nat') {
+        s += f.tag === 'wc' ? 80 : (f.tag === 'asia' ? 65 : 50);
+        if (f.nid === 'n_chn') s += 90;
+    }
+    return s;
+}
+
+function factEntry(a2, f) {
+    var ctx = {}, e = { id: 'ft_' + f.t + '_' + (f.tid || f.nid || f.tag || '') };
+    if (f.t === 'lgchamp') {
+        var t = teamById(f.tid), lg = lgOfId(f.lg);
+        if (!t || !lg) return null;
+        ctx.T = t.name; ctx.LG = lg.name;
+        var tier = t.rep >= 5 ? 'hi' : (t.rep >= 3 ? 'mid' : 'upset');
+        e.c = t.rep >= 3 ? 'champ' : 'upset';
+        e.t = fill(pick(FACT_T.lgchamp[tier]), ctx);
+        e.tid = t.id;
+    } else if (f.t === 'releg') {
+        var t2 = teamById(f.tid);
+        if (!t2) return null;
+        ctx.T = t2.name; ctx.LG = lgName(f.from); ctx.LG2 = lgName(f.to);
+        e.c = 'releg';
+        e.t = fill(pick(FACT_T.releg[t2.rep >= 4 ? 'giant' : 'norm']), ctx);
+        e.tid = t2.id;
+    } else if (f.t === 'promo') {
+        var t3 = teamById(f.tid);
+        if (!t3) return null;
+        ctx.T = t3.name; ctx.LG = lgName(f.from); ctx.LG2 = lgName(f.to);
+        e.c = 'upset';
+        e.t = fill(pick(FACT_T.promo), ctx);
+        e.tid = t3.id;
+    } else if (f.t === 'cont') {
+        var t4 = teamById(f.tid);
+        if (!t4 || !f.comp) return null;
+        ctx.T = t4.name; ctx.COMP = f.comp;
+        e.c = 'champ';
+        e.t = fill(pick(FACT_T.cont), ctx);
+        e.tid = t4.id;
+    } else if (f.t === 'nat') {
+        var nn = null, ns = natList();
+        for (var i = 0; i < ns.length; i++) if (ns[i].i === f.nid) nn = ns[i];
+        if (!nn) return null;
+        ctx.N = nn.n;
+        if (f.nid === 'n_chn') { e.c = 'natc'; e.t = fill(pick(f.tag === 'wc' ? FACT_T.natChnWc : FACT_T.natChnAsia), ctx); }
+        else { e.c = nn.s >= 85 ? 'champ' : 'upset'; e.t = fill(pick(nn.s >= 85 ? FACT_T.natHi : FACT_T.natLow), ctx); }
+        e.nid = nn.i;
+    } else return null;
+    return e;
+}
+
+function genFacts(a2, facts, youth) {
+    if (!facts || !facts.length) return [];
+    var scored = facts.map(function (f) { return { f: f, s: factScore(a2, f) }; })
+        .filter(function (x) { return x.s > 0; });
+    scored.sort(function (a, b) { return b.s - a.s; });
+    var cap = youth ? 1 : 3, out = [], seen = {};
+    for (var i = 0; i < scored.length && out.length < cap; i++) {
+        var f = scored[i].f;
+        var key = f.t + '|' + (f.tid || f.nid || '');
+        if (seen[key]) continue;
+        seen[key] = 1;
+        var e = factEntry(a2, f);
+        if (!e) continue;
+        e.k = out.length < 2 ? 'mj' : 'mn';
+        out.push(e);
+    }
+    return out;
+}
+
+window.NEWSGEN = function (a2, youth, facts) {
     a2._newsTids = a2._newsTids || [];
-    var items = youth ? genMajorYouth(a2) : genMajor(a2);
-    items = items.concat(genMinor(a2, youth), genFlavor(a2, youth));
+    var fe = genFacts(a2, facts, youth), items;
+    if (youth) {
+        items = fe.length ? [fe[0]] : genMajorYouth(a2);
+        items = items.concat(genMinor(a2, true), genFlavor(a2, true));
+    } else {
+        var mjF = fe.filter(function (e) { return e.k === 'mj'; });
+        var exF = fe.filter(function (e) { return e.k === 'mn'; });
+        var gm = 2 - mjF.length > 0 ? genMajor(a2).slice(0, 2 - mjF.length) : [];
+        items = mjF.concat(gm, exF, genMinor(a2).slice(0, 6 - exF.length), genFlavor(a2));
+    }
     var age = a2.age != null ? a2.age : 0;
     for (var i = 0; i < items.length; i++) items[i].age = age;
     return items;

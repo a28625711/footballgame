@@ -4,7 +4,7 @@
 - 每季整体替换（不保留历史，news 只存当季最新一批）
 - fx 限幅：单季至多 2 条带 fx，至多 1 条负面向；_wageMul 钳制 0.95~1.05
 - 门控：主角池条目带 fame/roleRank 条件（月最佳等门槛）
-- 渲染：年表「新闻」面板、类别 emoji(NEWSMETA)、队徽/国旗前缀(n-tname)
+- 渲染：年表「新闻」面板直接平铺当季新闻、类别 emoji(NEWSMETA)、队徽/国旗前缀(n-tname)
 """
 import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -74,8 +74,42 @@ try{
   html=Object.keys(window.__ELS).map(function(k){return String(window.__ELS[k].innerHTML);}).join('\\n');
 }catch(e){out.err='render:'+String(e).slice(0,150);return JSON.stringify(out);}
 out.renderPanel=html.indexOf('data-panel="news"')>=0;
-out.renderRows=html.indexOf('news-row')>=0&&html.indexOf('news-grp')>=0;
+out.renderRows=html.indexOf('news-row')>=0&&html.indexOf('news-empty')<0;
 out.renderCrest=html.indexOf('n-tname')>=0||html.indexOf('n-flag')>=0;
+return JSON.stringify(out);
+})()
+"""
+
+JS_FACTS = r"""
+(function(){
+var out={err:null,champ:0,releg:0,chn:0,cap:0,tokLeak:null};
+var a2={name:'p',teamId:'rma',leagueId:'liga',country:'ES',_newsTids:[],_newsWhen:{},age:24,flags:{},fame:30,role:'star'};
+var bcn=null;window.DATA.TEAMS.forEach(function(t){if(!bcn&&t.rep>=5&&t.id!=='rma'&&t.league==='liga')bcn=t.id;});
+var facts=[
+ {t:'lgchamp',tid:'rma',lg:'liga'},
+ {t:'releg',tid:bcn,from:'liga',to:'seg'},
+ {t:'nat',nid:'n_chn',tag:'wc'},
+ {t:'cont',tid:'mci',comp:'欧冠',tag:'ucl'},
+ {t:'promo',tid:'cn-cd',from:'csl2',to:'csl'}
+];
+var items=window.NEWSGEN(a2,0,facts);
+var mj=0,mn=0;
+for(var i=0;i<items.length;i++){var n=items[i];
+  if(/\{\w+\}/.test(n.t))out.tokLeak=n.t;
+  if(n.k==='mj')mj++;if(n.k==='mn')mn++;
+  if(n.t.indexOf('皇家马德里')>=0&&(n.c==='champ'||n.c==='upset'))out.champ++;
+  if(n.c==='releg'&&n.t.indexOf('降')>=0)out.releg++;
+  if(n.c==='natc')out.chn++;}
+if(mj<1||mj>2){out.err='fact mj '+mj;return JSON.stringify(out);}
+if(mn<4||mn>6){out.err='fact mn '+mn;return JSON.stringify(out);}
+if(!out.champ){out.err='no champion news';return JSON.stringify(out);}
+if(!out.releg){out.err='no relegation news';return JSON.stringify(out);}
+if(!out.chn){out.err='no china wc news';return JSON.stringify(out);}
+/* 数量封顶：10条事实只取3条 */
+var many=[];for(var j=0;j<10;j++)many.push({t:'lgchamp',tid:'rma',lg:'liga'});
+var items2=window.NEWSGEN(a2,0,many);
+var f2=items2.filter(function(n){return n.id&&n.id.indexOf('ft_')===0;});
+if(f2.length>3){out.err='fact cap '+f2.length;return JSON.stringify(out);}
 return JSON.stringify(out);
 })()
 """
@@ -99,5 +133,16 @@ def run():
           % (r['youthNewsLen'], r['proNewsLen'], r['mj'], r['mn'], r['fv'], r['fx'], r['wageMul']))
 
 
+def run_facts():
+    mr = harness.new_engine()
+    r = json.loads(mr.eval(JS_FACTS))
+    if r.get('err'):
+        raise harness.Fail(r['err'])
+    if r.get('tokLeak'):
+        raise harness.Fail('token leak: %s' % r['tokLeak'])
+    print('ok facts: champ=%d releg=%d chn=%d' % (r['champ'], r['releg'], r['chn']))
+
+
 if __name__ == '__main__':
     harness.main(run)
+    harness.main(run_facts)

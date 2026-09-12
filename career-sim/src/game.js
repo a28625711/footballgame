@@ -699,15 +699,11 @@ persBody+='<div class="tl-row done tl-cols award"><span class="age-chip">'+c2+'<
 if(!persAny)persBody+='<div class="tl-row done tl-cols award"><span class="age-chip"></span><span class="tl-club-name" style="grid-column:2/5">还没有任何记录</span></div>';
 persBody+='</div></div>';
 var worldBody='<div class="tl-panel hidden" data-panel="world"><div class="wl-root">'+bWorldHTML()+'</div></div>';
-/* 新闻面板：纯浏览零交互；按赛季分组，最近一季展开、历史收起；公关团队入职后黑料不再显示 */
+/* 新闻面板：纯浏览零交互；只显示当季一批（每季整体替换），无按年折叠 */
 var newsBody='<div class="tl-panel hidden" data-panel="news"><div class="news-root">';
 var _newsList=(au&&au["news"])||[];
 if(_newsList.length){
-var _nByAge={},_nAges=[];
-_newsList.forEach(function(n5){if(!_nByAge[n5.age]){_nByAge[n5.age]=[];_nAges.push(n5.age);}_nByAge[n5.age].push(n5);});
-_nAges.sort(function(a5,b5){return b5-a5;});
-_nAges.forEach(function(nag,i5){
-var _nRows=_nByAge[nag].map(function(n5){
+var _nRows=_newsList.map(function(n5){
 if(n5.bad&&au["staff"]&&au["staff"]["pr"])return '';
 var _nm=(window["NEWSMETA"]||{})[n5.c];
 var _nIco=_nm?_nm.e:(n5.k==='mj'?'📰':n5.k==='mn'?'📄':'☕');
@@ -718,8 +714,7 @@ if(n5.nid){var _nn=null;(window.NATS||[]).forEach(function(q){if(q.i===n5.nid)_n
 if(_nn&&_nn.f){_nT=_nT.replace(ax(_nn.n),'<span class="n-flag">'+_nn.f+'</span><span class="n-tname">'+ax(_nn.n)+'</span>');}}
 return '<div class="news-row '+n5.k+(n5.bad?' bad':'')+'"><span class="n-ico">'+_nIco+'</span><span class="n-txt">'+_nT+'</span></div>';
 }).join('');
-newsBody+='<details class="news-grp'+(i5===0?' open':'')+'"><summary>'+nag+'岁<span class="n-cnt">'+_nByAge[nag].length+'条</span></summary>'+_nRows+'</details>';
-});
+newsBody+=_nRows;
 }else newsBody+='<div class="news-empty">还没有任何新闻。</div>';
 newsBody+='</div></div>';
 
