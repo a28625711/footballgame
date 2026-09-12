@@ -3448,7 +3448,11 @@ if(_natQual&&!_natTourn&&c3===0x3){aZ(bz,
 /* _cnElim：本季玩家队(中国)打了预选赛却出局 → 中立签表强制排除中国；_natFxForce：作弊直接夺冠 → 世界面板记录中国队冠军 */
 _natTick(_natTourn,!!(_natQual&&!_natTourn&&bX&&!a2["cheat"]),_natFxForce);
 if(bx&&by){_ntCareerHook();_bigHooks(bz);if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;a2["_promoDue"]=!0x0;}else{_lgFinalRefresh(bz);bAw(bz);}}return a2["_promoDue"]?0:_promoReleg(bz,
-bx,by),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz["ovrEnd"]=Math["round"](a2["ovr"]),a2["seasons"]["push"](bz),
+bx,by),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz["ovrEnd"]=Math["round"](a2["ovr"]),
+bz["wage"]=(a2["_offerTerms"]&&a2["_offerTerms"][a2["teamId"]])?a2["_offerTerms"][a2["teamId"]]["wage"]:null,
+bz["cLeft"]=a2["contractLeft"]||0x0,
+bz["awardN"]=(a2["awards"]||[]).filter(function(x){return x["age"]===bz["age"];})["map"](function(x){return x["name"];}),
+a2["seasons"]["push"](bz),
 
 _newsTick(0x0),
 

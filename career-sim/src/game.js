@@ -1354,14 +1354,73 @@ ch[cg]=ch[ci],ch[ci]=cj;
 }(bX["length"],bY)["map"](function(ce){return bX[ce];
 })))),c2+"</div>";
 }if("report"===bZ["type"]){var c3=bZ["recs"][0x0]["age"],c4=bZ["recs"][bZ["recs"]["length"]-0x1]["age"];
-return "<div cla"+"ss=\"even"+"t\">"+b1('📋','战报',c3===c4?c3+'\x20岁':c3+'–'+c4+'\x20岁')+("<div cla"+"ss=\"seas"+"on-mini\""+'>')+bZ["recs"]["map"](function(ce){var cg='gk'===ah(au["pos"])["group"],cf=cg?ce["apps"]+" 场 / "+ce['cs']+" 零封 / 失"+ce['ga']+'球':ce["apps"]+" 场 / "+ce["goals"]+" 球 / "+ce["assists"]+'\x20助',crole=ce["role"]&&a0["ROLES"][ce["role"]]?a0["ROLES"][ce["role"]]["name"]:'';
-ce["caps"]&&(cg="国家队 "+ce["caps"]+'\x20场','gk'===ah(au["pos"])["group"]?ce["natCs"]&&(cg+=" · "+ce["natCs"]+" 零封"):(ce["natGoals"]&&(cg+=" · "+ce["natGoals"]+'\x20球'),ce["natAssis"+'ts']&&(cg+=" · "+ce["natAssis"+'ts']+'\x20助')));
-var cgp=(ce["leaguePos"]?ce["league"]+(null!=ce["leaguePos"]&&ce["leaguePos"]>0?" 第"+ce["leaguePos"]+"名":"")+(null!=ce["leagueW"]?' · '+ce["leagueW"]+'-'+ce["leagueD"]+'-'+ce["leagueL"]+' · '+ce["leaguePts"]+'分':''):'');
+return "<div cla"+"ss=\"even"+"t\">"+b1('📋','战报',c3===c4?c3+'\x20岁':c3+'–'+c4+'\x20岁')+("<div cla"+"ss=\"seas"+"on-mini\""+'>')+bZ["recs"]["map"](function(ce){
+var _gk='gk'===ah(au["pos"])["group"];
+var crole=ce["role"]&&a0["ROLES"][ce["role"]]?a0["ROLES"][ce["role"]]["name"]:'';
+/* 定位本季与上季记录（对比用） */
+var _idx=-1;(au["seasons"]||[]).forEach(function(s,i){if(s["age"]===ce["age"])_idx=i;});
+var _prev=_idx>0?au["seasons"][_idx-0x1]:null;
+var _tA=0,_tG=0,_sn=au["seasons"]||[];
+for(var _ti=0;_ti<=_idx&&_ti<_sn.length;_ti++){_tA+=(_sn[_ti]["apps"]||0);_tG+=(_sn[_ti]["goals"]||0);}
+var _pA=_tA-(ce["apps"]||0),_pG=_tG-(ce["goals"]||0);
+/* 联赛 tile */
 var cgpCls=1===ce["leaguePos"]?" won":null!=ce["leaguePos"]&&ce["leaguePos"]>=0x10?" lost":'';
-var cCups='';if(au["cupRuns"]){for(var _ci2=0;_ci2<au["cupRuns"]["length"];_ci2++){var _c2=au["cupRuns"][_ci2];if(_c2["age"]===ce["age"]){var _cr=_c2["result"]||'';cCups+='<span class="sb-cup'+(0===_cr["indexOf"]('冠军')?" win":_cr?"":" dim")+'\x22>'+ax(_c2["comp"])+(_cr?' '+ax(_cr):'')+'</span>';}}}
-var ch=(cg?"<span cl"+"ass=\"mi"+"ni-badge"+" nat\">"+ax(cg)+"</span>":'')+(ce["note"]?"<span cl"+"ass=\"mi"+"ni-badge"+" bad\">"+ax(ce["note"])+"</span>":'')+(ce["nat"]?"<span cl"+"ass=\"mi"+"ni-badge"+" nat\">"+ax(ce["nat"])+"</span>":'')+(ce["move"]?"<span cl"+"ass=\"mi"+"ni-badge"+'\x20'+(0x0===ce["move"]["indexOf"]('升')?'up':"bad")+'\x22>'+ax(ce["move"])+"</span>":'')+(ce["staffGon"+'e']?"<span cl"+"ass=\"mi"+"ni-badge"+" bad\">"+ax(ce["staffGon"+'e'])+("走了</span"+'>'):'');
+var _lgTile='';if(ce["leaguePos"]){_lgTile='<span class="sb-pos'+(cgpCls?' '+cgpCls:'')+'">'+ax(ce["league"]||'')+' 第'+ce["leaguePos"]+'名</span>'+(null!=ce["leagueW"]?'<span class="sb-rec">'+ce["leagueW"]+'-'+ce["leagueD"]+'-'+ce["leagueL"]+' · '+ce["leaguePts"]+'分</span>':'');}
+/* 杯赛/洲际拆分 */
+var _cupN={'欧冠':1,'欧联':1,'欧协联':1,'亚冠':1,'解放者杯':1,'南美杯':1,'世俱杯':1,'中北美冠军杯':1};
+var _cups='',_conts='';
+if(au["cupRuns"])for(var _ci2=0;_ci2<au["cupRuns"]["length"];_ci2++){var _c2=au["cupRuns"][_ci2];if(_c2["age"]!==ce["age"])continue;var _cr=_c2["result"]||'';var _ctag='<span class="sb-cup'+(0===_cr.indexOf('冠军')?" win":_cr?"":" dim")+'">'+ax(_c2["comp"])+(_cr?' '+ax(_cr):'')+'</span>';if(_cupN[_c2["comp"]])_conts+=_ctag;else _cups+=_ctag;}
+/* 国家队 tile */
+var _nat='';
+if(ce["caps"]){_nat='<span class="sb-nat-line">'+'国家队 '+ce["caps"]+' 场'+(_gk?(ce["natCs"]?' · '+ce["natCs"]+' 零封':''):((ce["natGoals"]?' · '+ce["natGoals"]+' 球':'')+(ce["natAssists"]?' · '+ce["natAssists"]+' 助':'')))+'</span>'+(ce["nat"]?'<span class="sb-cup">'+ax(ce["nat"])+'</span>':'');}
+/* 数据对比行 */
+function _cmp(lab,cur,prv){if(cur==null)return'';var d=(prv!=null&&prv!=null)?cur-prv:null;var arr=d==null?'':(d>0?' <b class="sb-up">↑'+d+'</b>':d<0?' <b class="sb-dn">↓'+(-d)+'</b>':'');return'<span class="sb-cmp">'+lab+' '+cur+arr+'</span>';}
+var _cmpRow=_gk?_cmp('出场',ce["apps"],_prev&&_prev["apps"])+_cmp('零封',ce["cs"],_prev&&_prev["cs"])+_cmp('丢球',ce["ga"],_prev&&_prev["ga"]):_cmp('出场',ce["apps"],_prev&&_prev["apps"])+_cmp('进球',ce["goals"],_prev&&_prev["goals"])+_cmp('助攻',ce["assists"],_prev&&_prev["assists"]);
+try{var _vNow=ce["ovrEnd"]!=null?an(ce["ovrEnd"],ce["age"]+1):null,_vPrev=(_prev&&_prev["ovrEnd"]!=null)?an(_prev["ovrEnd"],_prev["age"]+1):null;
+if(_vNow!=null){var _vArr=(_vPrev!=null&&_vNow!==_vPrev)?(_vNow>_vPrev?' <b class="sb-up">↑</b>':' <b class="sb-dn">↓</b>'):'';
+_cmpRow+='<span class="sb-cmp">身价 '+ax(am(_vNow))+_vArr+'</span>';}}catch(e){}
+if(ce["wage"])_cmpRow+='<span class="sb-cmp">年薪 '+ax(al(ce["wage"]))+'</span>';
+if(ce["cLeft"])_cmpRow+='<span class="sb-cmp">合同 '+ce["cLeft"]+' 年</span>';
+/* 一句话高光 */
+var _hlStr='';
+(function(){
+var tp=ce["trophies"]||[],aw=ce["awardN"]||[],_g=ce["goals"]||0;
+if(ce["move"]){_hlStr=/降/.test(ce["move"])?ax(ce["move"])+'，跌落的一年':ax(ce["move"])+'，新的开始';return;}
+if(ce["leaguePos"]===1){_hlStr=(_g>=10&&!_gk?_g+'球加冕':'问鼎')+(ce["league"]?ax(ce["league"]):'联赛')+'冠军';return;}
+for(var ai2=0;ai2<aw.length;ai2++){if(/金靴/.test(aw[ai2])){_hlStr=(!_gk&&_g>0?_g+'球':'')+'当选'+ax(aw[ai2]);return;}if(/金球|世界足球先生|最佳/.test(aw[ai2])){_hlStr='当选'+ax(aw[ai2]);return;}}
+if(tp.length){_hlStr='捧起'+ax(tp[0])+(tp.length>1?'等'+tp.length+'冠':'');return;}
+var _ms=[[100,'生涯百球'],[200,'生涯200球'],[300,'生涯300球']];if(!_gk)for(var mi=0;mi<_ms.length;mi++){if(_pG<_ms[mi][0]&&_tG>=_ms[mi][0]){_hlStr=_ms[mi][1]+'达成';return;}}
+var _msA=[[100,'生涯百场'],[300,'生涯300场'],[500,'生涯500场']];for(var mi2=0;mi2<_msA.length;mi2++){if(_pA<_msA[mi2][0]&&_tA>=_msA[mi2][0]){_hlStr=_msA[mi2][1]+'达成';return;}}
+if(!_gk&&_g>=25){_hlStr=_g+'球的爆发赛季';return;}
+if(_gk&&(ce["cs"]||0)>=15){_hlStr=(ce["cs"])+'场零封的坚实赛季';return;}
+if(!_gk&&(ce["assists"]||0)>=12){_hlStr=(ce["assists"])+'助攻的组织核心赛季';return;}
+var _dOvr=(ce["ovrEnd"]!=null&&ce["ovr"]!=null)?ce["ovrEnd"]-Math.round(ce["ovr"]):0;
+if(_dOvr>=3){_hlStr='能力暴涨的一年（+'+_dOvr+'）';return;}
+var _rank=ce["role"]&&a0["ROLES"][ce["role"]]?a0["ROLES"][ce["role"]]["rank"]:0;
+if(_rank>=3&&(ce["apps"]||0)>=25){_hlStr='铁打主力的稳定一年';return;}
+if((ce["apps"]||0)<10){_hlStr='等待机会的一年';return;}
+})();
+/* 奖杯与个人奖项 chips */
 var ct='';if(ce["trophies"]["length"]){var _tl=ce["trophies"],_tn=_tl["length"]>0x4?_tl["slice"](0x0,0x4):_tl;ct=_tn["map"](function(_t){return'<span class="sb-tro">'+ax(_t)+'</span>';})["join"]('');if(_tl["length"]>0x4)ct+='<span class="sb-tro-more">+'+( _tl["length"]-0x4)+'</span>';}
-return "<div cla"+"ss=\"sb-row"+'\x22'+'>'+"<div cla"+"ss=\"sb-hd\""+'>'+"<span cl"+"ass=\"age"+"-chip\">"+ce["age"]+("</span><"+"span cla"+"ss=\"sb-t"+"eam\">")+ax(ce["teamName"])+(crole?'<span class="sb-role">'+ax(crole)+'</span>':'')+("<span cl"+"ass=\"sb-o"+"vr\">")+(null!=ce["ovr"]?Math["round"](ce["ovr"]):'')+"→"+(null!=ce["ovrEnd"]?ce["ovrEnd"]:'')+("</span></"+"div>")+(cgp?'<div class="sb-lg"><span class="sb-lg-t'+(cgpCls?cgpCls:'')+'">'+ax(cgp)+'</span></div>':'')+(cCups?'<div class="sb-cups">'+cCups+'</div>':'')+("<div cla"+"ss=\"sb-st"+'\x22>')+cf+('</div>')+((ct||ch)?'<div class="sb-badges">'+ct+ch+'</div>':'')+("</div>");
+var _awC='';if(ce["awardN"]&&ce["awardN"]["length"])_awC=ce["awardN"]["map"](function(_t){return'<span class="sb-tro aw">🥇 '+ax(_t)+'</span>';})["join"]('');
+var ch=(ce["note"]?"<span cl"+"ass=\"mi"+"ni-badge"+" bad\">"+ax(ce["note"])+"</span>":'')+(ce["nat"]?"<span cl"+"ass=\"mi"+"ni-badge"+" nat\">"+ax(ce["nat"])+"</span>":'')+(ce["move"]?"<span cl"+"ass=\"mi"+"ni-badge"+'\x20'+(0x0===ce["move"]["indexOf"]('升')?'up':"bad")+'\x22>'+ax(ce["move"])+"</span>":'')+(ce["staffGon"+'e']?"<span cl"+"ass=\"mi"+"ni-badge"+" bad\">"+ax(ce["staffGon"+'e'])+("走了</span"+'>'):'');
+var dOvr=(ce["ovrEnd"]!=null&&ce["ovr"]!=null)?ce["ovrEnd"]-Math.round(ce["ovr"]):null;
+return '<div class="sb-card">'
++'<div class="sb-hd"><span class="age-chip">'+ce["age"]+'</span>'
++(ce["teamId"]&&ag(ce["teamId"])?aT(ag(ce["teamId"])):'')
++'<span class="sb-team">'+ax(ce["teamName"]||'')+'</span>'
++(crole?'<span class="sb-role">'+ax(crole)+'</span>':'')
++'<span class="sb-ovr'+(dOvr!=null&&dOvr>0?' up':dOvr!=null&&dOvr<0?' dn':'')+'">'+(ce["ovr"]!=null?Math.round(ce["ovr"]):'')+'<i>→</i>'+(ce["ovrEnd"]!=null?ce["ovrEnd"]:'')+'</span></div>'
++(_hlStr?'<div class="sb-hl">⚡ '+_hlStr+'</div>':'')
++((_lgTile||_cups||_conts||_nat)?'<div class="sb-tiles">'
++(_lgTile?'<div class="sb-tile"><div class="sb-tile-t">联赛</div>'+_lgTile+'</div>':'')
++(_cups?'<div class="sb-tile"><div class="sb-tile-t">杯赛</div>'+_cups+'</div>':'')
++(_conts?'<div class="sb-tile"><div class="sb-tile-t">洲际</div>'+_conts+'</div>':'')
++(_nat?'<div class="sb-tile"><div class="sb-tile-t">国家队</div>'+_nat+'</div>':'')
++'</div>':'')
++'<div class="sb-cmps">'+_cmpRow+'</div>'
++((ct||_awC||ch)?'<div class="sb-badges">'+ct+_awC+ch+'</div>':'')
++'</div>';
 })["join"]('')+"</div>"+bb(["<button "+"class=\"b"+"tn btn-p"+"rimary\" "+"data-act"+"=\"contin"+"ue\">继续</"+"button>"])+"</div>";
 }if("youth_pa"+'th'===bZ["type"])return "<div cla"+"ss=\"even"+"t\">"+b1('🧒',"十二岁","去哪儿练",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">同龄的"+"孩子里，你踢得算"+"好的那几个。接下"+"来几年在哪家青训"+"营，家里得拿个主"+"意 —— 好队伍"+"练得快，也刷得狠"+"。出国都要学费，"+"贵多少看队伍档"+"次。</div>")+bb(bZ["offers"]["map"](function(ce,cf){var cg=ag(ce),ch=a6["leagueOf"+"Team"](cg),ci=!ch['cn'];
 return "<button "+"class=\"o"+"pt youth"+"-opt\" da"+"ta-opt=\""+cf+("\"><span "+"class=\"o"+"pt-lead\""+'>')+(ci?"送出国踢":ac(au["originId"],ce)?'本省':ab(au["originId"],ce)?'邻近':'外地')+"</span>"+aT(cg)+("<span cl"+"ass=\"opt"+"-label\">")+ax(a6["academyN"+"ame"](cg))+("</span><"+"span cla"+"ss=\"opt-"+"hint\">")+ax(ch["name"]+" · "+["保级队","中下游",'中游','争冠','豪门',"顶级豪门"][cg["rep"]])+("</span><"+"span cla"+"ss=\"yout"+"h-trade\""+'>')+["清静，练得慢",

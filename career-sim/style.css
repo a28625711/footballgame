@@ -2277,3 +2277,32 @@ img.crest.plate {
 .trophy-strip .chip { white-space: nowrap; font-size: .68rem; padding: .16rem .5rem; }
 .tl-topbar .restart-mini { margin-left: auto; flex: none; font-size: .68rem; padding: .25rem .55rem; opacity: .7; }
 .tl-topbar .restart-mini:hover { opacity: 1; }
+
+/* ================= 结算卡片 sb-card =================
+   替代单行 sb-row：头部(队徽+OVR涨跌) → 一句话高光 → 四格tiles(联赛/杯赛/洲际/国家队)
+   → 数据对比行(与上季比) → 奖杯/个人奖项chips。手机 tiles 自动两列。 */
+.sb-card { border: 1px solid hsl(var(--border) / .7); border-radius: 10px; padding: .6rem .7rem; background: hsl(var(--panel2, 0 0% 14%) / .45); display: flex; flex-direction: column; gap: .45rem; }
+.sb-card .sb-hd { display: flex; align-items: center; gap: .45rem; min-width: 0; }
+.sb-card .crest, .sb-card .crest-pic { width: 1.25rem; height: 1.25rem; flex: none; }
+.sb-card .crest-pic .crest { width: 100%; height: 100%; }
+.sb-card .sb-team { font-weight: 700; font-size: .86rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sb-card .sb-role { flex: none; font-size: .66rem; color: hsl(var(--muted)); border: 1px solid hsl(var(--border) / .6); border-radius: 2rem; padding: .04rem .45rem; white-space: nowrap; }
+.sb-card .sb-ovr { margin-left: auto; flex: none; font-size: .86rem; font-weight: 750; color: hsl(var(--gold1)); white-space: nowrap; }
+.sb-card .sb-ovr i { font-style: normal; font-size: .68rem; color: hsl(var(--faint)); margin: 0 .12rem; }
+.sb-card .sb-ovr.up { color: hsl(var(--accent)); }
+.sb-card .sb-ovr.dn { color: #e5484d; }
+.sb-hl { font-size: .78rem; font-weight: 650; color: hsl(var(--text)); background: hsl(var(--accent) / .08); border: 1px solid hsl(var(--accent) / .25); border-radius: 7px; padding: .3rem .55rem; }
+.sb-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; }
+.sb-tile { border: 1px solid hsl(var(--border) / .5); border-radius: 8px; padding: .4rem .5rem; display: flex; flex-direction: column; gap: .25rem; min-width: 0; }
+.sb-tile-t { font-size: .6rem; font-weight: 700; letter-spacing: .08em; color: hsl(var(--faint)); text-transform: uppercase; }
+.sb-pos { font-size: .78rem; font-weight: 750; color: hsl(var(--text)); }
+.sb-pos.won { color: hsl(var(--gold1)); }
+.sb-pos.lost { color: #e5484d; }
+.sb-rec { font-size: .68rem; color: hsl(var(--muted)); }
+.sb-nat-line { font-size: .74rem; color: hsl(var(--text)); }
+.sb-cmps { display: flex; flex-wrap: wrap; gap: .3rem .8rem; }
+.sb-cmp { font-size: .72rem; color: hsl(var(--muted)); white-space: nowrap; }
+.sb-up { color: hsl(var(--accent)); font-weight: 700; font-style: normal; }
+.sb-dn { color: #e5484d; font-weight: 700; font-style: normal; }
+.sb-tro.aw { color: hsl(var(--text)); }
+@media (min-width: 560px) { .sb-card .sb-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
