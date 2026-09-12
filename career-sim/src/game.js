@@ -1381,24 +1381,35 @@ if(_vNow!=null){var _vArr=(_vPrev!=null&&_vNow!==_vPrev)?(_vNow>_vPrev?' <b clas
 _cmpRow+='<span class="sb-cmp">身价 '+ax(am(_vNow))+_vArr+'</span>';}}catch(e){}
 if(ce["wage"])_cmpRow+='<span class="sb-cmp">年薪 '+ax(al(ce["wage"]))+'</span>';
 if(ce["cLeft"])_cmpRow+='<span class="sb-cmp">合同 '+ce["cLeft"]+' 年</span>';
-/* 一句话高光 */
+/* 一句话高光：触发器→短文案池(≤14字)，按年龄取变体（同季稳定、跨季不同） */
 var _hlStr='';
 (function(){
-var tp=ce["trophies"]||[],aw=ce["awardN"]||[],_g=ce["goals"]||0;
-if(ce["move"]){_hlStr=/降/.test(ce["move"])?ax(ce["move"])+'，跌落的一年':ax(ce["move"])+'，新的开始';return;}
-if(ce["leaguePos"]===1){_hlStr=(_g>=10&&!_gk?_g+'球加冕':'问鼎')+(ce["league"]?ax(ce["league"]):'联赛')+'冠军';return;}
-for(var ai2=0;ai2<aw.length;ai2++){if(/金靴/.test(aw[ai2])){_hlStr=(!_gk&&_g>0?_g+'球':'')+'当选'+ax(aw[ai2]);return;}if(/金球|世界足球先生|最佳/.test(aw[ai2])){_hlStr='当选'+ax(aw[ai2]);return;}}
-if(tp.length){_hlStr='捧起'+ax(tp[0])+(tp.length>1?'等'+tp.length+'冠':'');return;}
-var _ms=[[100,'生涯百球'],[200,'生涯200球'],[300,'生涯300球']];if(!_gk)for(var mi=0;mi<_ms.length;mi++){if(_pG<_ms[mi][0]&&_tG>=_ms[mi][0]){_hlStr=_ms[mi][1]+'达成';return;}}
-var _msA=[[100,'生涯百场'],[300,'生涯300场'],[500,'生涯500场']];for(var mi2=0;mi2<_msA.length;mi2++){if(_pA<_msA[mi2][0]&&_tA>=_msA[mi2][0]){_hlStr=_msA[mi2][1]+'达成';return;}}
-if(!_gk&&_g>=25){_hlStr=_g+'球的爆发赛季';return;}
-if(_gk&&(ce["cs"]||0)>=15){_hlStr=(ce["cs"])+'场零封的坚实赛季';return;}
-if(!_gk&&(ce["assists"]||0)>=12){_hlStr=(ce["assists"])+'助攻的组织核心赛季';return;}
-var _dOvr=(ce["ovrEnd"]!=null&&ce["ovr"]!=null)?ce["ovrEnd"]-Math.round(ce["ovr"]):0;
-if(_dOvr>=3){_hlStr='能力暴涨的一年（+'+_dOvr+'）';return;}
+var tp=ce["trophies"]||[],aw=ce["awardN"]||[],_g=ce["goals"]||0,_cs=ce["cs"]||0,_as2=ce["assists"]||0,_ap=ce["apps"]||0;
 var _rank=ce["role"]&&a0["ROLES"][ce["role"]]?a0["ROLES"][ce["role"]]["rank"]:0;
-if(_rank>=3&&(ce["apps"]||0)>=25){_hlStr='铁打主力的稳定一年';return;}
-if((ce["apps"]||0)<10){_hlStr='等待机会的一年';return;}
+var _dOvr=(ce["ovrEnd"]!=null&&ce["ovr"]!=null)?ce["ovrEnd"]-Math.round(ce["ovr"]):0;
+function _fill(s){return s.replace(/\{G\}/g,_g).replace(/\{CS\}/g,_cs).replace(/\{A\}/g,_as2).replace(/\{D\}/g,_dOvr).replace(/\{AGE\}/g,ce["age"]).replace(/\{NATG\}/g,ce["natGoals"]||0).replace(/\{L\}/g,ce["league"]||'联赛').replace(/\{TP\}/g,tp[0]||'').replace(/\{AW\}/g,aw[0]||'');}
+function _pick(key,arr){_hlStr=_fill(arr[(ce["age"]*7+key["length"]*3)%arr["length"]]);}
+if(ce["move"]){_pick('md',['降级，跌落的一年','降级之夜，更衣室无人说话','咽下降级，来年讨回来']);return;}
+if(ce["leaguePos"]===1){_pick('lc',(!_gk&&_g>=10)?['{G}球加冕{L}冠军','以{G}球捧起{L}奖杯','{L}冠军，实至名归','城市之王的加冕夜']:['问鼎{L}冠军','{L}冠军到手','{L}之巅的赛季']);return;}
+for(var ai2=0;ai2<aw.length;ai2++){
+if(/金靴/.test(aw[ai2])){_pick('gb',['{G}球加冕金靴','金靴到手，门将服了','射手榜一骑绝尘']);return;}
+if(/金球|世界足球先生|最佳/.test(aw[ai2])){_pick('ba',['当选{AW}，实至名归','{AW}到手，一夜封神']);return;}}
+if(tp.length){_pick('tp',['捧起{TP}','{TP}到手，奖杯柜+1','又一座{TP}入账']);return;}
+var _ms=[[100,'生涯百球达成','百球里程碑，巨星足迹','进球上百，从梦想到履历'],[200,'生涯200球，历史留名'],[300,'生涯300球，活传奇']];
+if(!_gk)for(var mi=0;mi<_ms.length;mi++){if(_pG<_ms[mi][0]&&_tG>=_ms[mi][0]){_pick('mg'+mi,_ms[mi]["slice"](1));return;}}
+var _msA=[[100,'生涯百场达成','百场里程碑，值得铭记'],[300,'生涯300场，铁人认证'],[500,'生涯500场，活着的传奇']];
+for(var mi2=0;mi2<_msA.length;mi2++){if(_pA<_msA[mi2][0]&&_tA>=_msA[mi2][0]){_pick('ma'+mi2,_msA[mi2]["slice"](1));return;}}
+if((ce["ovrEnd"]||0)>=90&&(ce["ovr"]||0)<90){_pick('c90',['跻身90俱乐部','90俱乐部新成员','巨星认证：能力破90']);return;}
+if(ce["caps"]>=8&&(ce["natGoals"]||0)>=5){_pick('nc',['国家队大腿：{NATG}球','国际赛场火力全开']);return;}
+if(!_gk&&_g>=25){_pick('bu',['{G}球的爆发赛季','单季{G}球，火力全开','射手榜常客的一季']);return;}
+if(_gk&&_cs>=15){_pick('gw',['{CS}场零封的赛季','一堵墙，{CS}次零封','零封机器上线']);return;}
+if(!_gk&&_as2>=12){_pick('oc',['{A}次助攻，中场大脑','助攻上双，火力输送机','{A}次助攻的组织核心']);return;}
+if(_dOvr>=3){_pick('oj',['能力暴涨（{D}）','身体里换了台发动机','一日千里，{D}']);return;}
+if(ce["age"]>=33&&_rank>=3&&_ap>=20){_pick('vt',['{AGE}岁，宝刀不老','老将压阵，岁月无痕','年龄只是数字']);return;}
+if(ce["age"]<=20&&_ap>=15){_pick('yo',['新秀赛季站稳脚跟','少年老成，未来可期']);return;}
+if(_rank<=1&&_g>=8){_pick('ss',['超级替补，登场即改变','替补王牌，刀刀见血']);return;}
+if(_rank>=3&&_ap>=25){_pick('ir',['铁打主力的稳定一年','全勤铁人，教练的信任','主力位置焊死']);return;}
+if(_ap<10){_pick('bn',['等待机会的一年','冷板凳上磨刀','机会还在路上']);return;}
 })();
 /* 奖杯与个人奖项 chips */
 var ct='';if(ce["trophies"]["length"]){var _tl=ce["trophies"],_tn=_tl["length"]>0x4?_tl["slice"](0x0,0x4):_tl;ct=_tn["map"](function(_t){return'<span class="sb-tro">'+ax(_t)+'</span>';})["join"]('');if(_tl["length"]>0x4)ct+='<span class="sb-tro-more">+'+( _tl["length"]-0x4)+'</span>';}
@@ -1411,7 +1422,7 @@ return '<div class="sb-card">'
 +'<span class="sb-team">'+ax(ce["teamName"]||'')+'</span>'
 +(crole?'<span class="sb-role">'+ax(crole)+'</span>':'')
 +'<span class="sb-ovr'+(dOvr!=null&&dOvr>0?' up':dOvr!=null&&dOvr<0?' dn':'')+'">'+(ce["ovr"]!=null?Math.round(ce["ovr"]):'')+'<i>→</i>'+(ce["ovrEnd"]!=null?ce["ovrEnd"]:'')+'</span></div>'
-+(_hlStr?'<div class="sb-hl">⚡ '+_hlStr+'</div>':'')
++(_hlStr?'<div class="sb-hl">⚡ '+ax(_hlStr)+'</div>':'')
 +((_lgTile||_cups||_conts||_nat)?'<div class="sb-tiles">'
 +(_lgTile?'<div class="sb-tile"><div class="sb-tile-t">联赛</div>'+_lgTile+'</div>':'')
 +(_cups?'<div class="sb-tile"><div class="sb-tile-t">杯赛</div>'+_cups+'</div>':'')
