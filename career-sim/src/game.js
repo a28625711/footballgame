@@ -702,7 +702,9 @@ persBody+='</div></div>';
 var worldBody='<div class="tl-panel'+(_tlTab==='world'?'':' hidden')+'" data-panel="world"><div class="wl-root">'+bWorldHTML()+'</div></div>';
 /* 新闻面板：纯浏览零交互；只显示当季一批（每季整体替换），无按年折叠 */
 var newsBody='<div class="tl-panel'+(_tlTab==='news'?'':' hidden')+'" data-panel="news"><div class="news-root">';
-var _newsList=(au&&au["news"])||[];
+/* 按类型固定顺序展示：实况头条在前，主角/国足次之，再按转会/换帅/伤病…趣味收尾；同类保持生成顺序 */
+var _NCOrd={'slam':0,'champ':1,'upset':2,'releg':3,'you':4,'natc':5,'nat':6,'transfer':7,'coach':8,'injury':9,'money':10,'youth':11,'lg':12,'club':13,'form':14,'gossip':15,'world':16,'cnfun':17,'home':18,'abroad':19,'fun':20};
+var _newsList=((au&&au["news"])||[]).map(function(n6,i6){return{p:_NCOrd[n6.c]!=null?_NCOrd[n6.c]:50,i:i6,n:n6};}).sort(function(a6,b6){return a6.p-b6.p||a6.i-b6.i;}).map(function(x6){return x6.n;});
 if(_newsList.length){
 var _nRows=_newsList.map(function(n5){
 if(n5.bad&&au["staff"]&&au["staff"]["pr"])return '';
