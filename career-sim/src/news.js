@@ -483,7 +483,7 @@ function genFlavor(a2, youth) {
     var mixed = [];
     var i;
     for (i = 0; i < FLAVOR_INTL.length; i++) mixed.push({ item: FLAVOR_INTL[i], sub: 'lg', w: 3, cat: 'world' });
-    for (i = 0; i < FLAVOR_CNFUN.length; i++) if (inCN) mixed.push({ item: FLAVOR_CNFUN[i], sub: 'none', w: 4, cat: 'cnfun' });
+    for (i = 0; i < FLAVOR_CNFUN.length; i++) if (inCN) mixed.push({ item: FLAVOR_CNFUN[i], sub: 'none', w: 6, cat: 'cnfun' });
     for (i = 0; i < FLAVOR_HOME.length; i++) if (inCN) mixed.push({ item: FLAVOR_HOME[i], sub: 'you', w: 4, cat: 'home' });
     for (i = 0; i < FLAVOR_ABROAD.length; i++) if (!inCN) mixed.push({ item: FLAVOR_ABROAD[i], sub: 'you', w: 4, cat: 'abroad' });
     while (out.length < n && tries++ < 40) {
