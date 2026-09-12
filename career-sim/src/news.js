@@ -669,7 +669,8 @@ function _slamDetect(a2, facts) {
                     var contWin = null;
                     for (var j = 0; j < facts.length; j++) {
                         var cf2 = facts[j];
-                        if (cf2.t === 'cont' && cf2.tid === f.tid && !usedCont[cf2.tid]) { contWin = cf2; break; }
+                        /* 只有该国顶级洲际杯(欧冠/亚冠/解放者杯)才算超级大满贯，欧联/欧协联不算 */
+                        if (cf2.t === 'cont' && cf2.tid === f.tid && !usedCont[cf2.tid] && cf2.comp === L.cont) { contWin = cf2; break; }
                     }
                     usedLg[f.lg] = 1;
                     if (contWin) { usedCont[f.tid] = 1; out.push({ t: 'slam', tid: f.tid, lg: f.lg, comp: contWin.comp, tier: 'super' }); }

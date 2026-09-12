@@ -2070,7 +2070,7 @@ a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bI["comp"],'text
 
 
 a2["_awardDue"]&&(a2["_awardDue"]=!0x1,_lgFinalRefresh(a2["seasons"][bI["recIdx"]]),bAw(a2["seasons"][bI["recIdx"]])),
-  a2["bigQ"]=[],a2["_promoDue"]&&(a2["_promoDue"]=!0x1,_promoReleg(a2["seasons"][bI["recIdx"]],null,null),a2["news"]&&window["NEWSGEN"]&&_newsTick(0x0)),!0x0;
+  a2["bigQ"]=[],a2["_promoDue"]&&(a2["_promoDue"]=!0x1,_promoReleg(a2["seasons"][bI["recIdx"]],null,null),a2["news"]&&window["NEWSGEN"]&&_newsTick(0x0,0x1)),!0x0;
 }
 function aW(){var bx=a2["bigQ"][0x0];
 /* U13/U15 选拔营：不进交互比赛，直接按能力结算名单结果 */
@@ -2234,8 +2234,9 @@ a2["_natStrMap"][o["nat"]["nid"]]=Math.round(a2["_natStrMap"][o["nat"]["nid"]]+o
 if(o["fame"])a2["fame"]=Math.max(0,Math.min(0x64,(a2["fame"]||0)+o["fame"]));
 if(o["gx"])a2["guanxi"]=Math.max(0,Math.min(0x64,(a2["guanxi"]||0)+o["gx"]));
 }
-function _newsTick(yth){
-/* 每季整体替换不保留历史：新闻只展示当季最新一批，不塞满存档 */
+function _newsTick(yth,merge){
+/* 每季整体替换不保留历史：新闻只展示当季最新一批，不塞满存档。
+   merge=1（大场面延迟结算后）：保留原有条目，只替换实况条目，避免整栏刷新 */
 if(!window["NEWSGEN"])return;
 /* 实况素材：大赛/洲际杯冠军(本季 natFx/contFx) + 联赛冠军升降(_promoReleg 收集于 _newsQ) */
 var _fq=a2["_newsQ"]=a2["_newsQ"]||[];
@@ -2254,8 +2255,11 @@ var items=null;
 try{items=window["NEWSGEN"](a2,yth||0x0,_facts);}catch(e){a2["_newsErr"]=String(e)["slice"](0x0,0xc8);return;}
 if(!items||!items["length"])return;
 var kept=[],fxCnt=0,negCnt=0,i,e;
+/* 合并模式：保留旧批次的普通条目，只让新的实况条目进入 */
+if(merge&&a2["news"]&&a2["news"]["length"]){for(i=0;i<a2["news"]["length"];i++){e=a2["news"][i];if(!(e["id"]&&String(e["id"])["indexOf"]('ft_')===0x0))kept.push(e);}}
 for(i=0;i<items["length"];i++){e=items[i];
-if(e["fx"]){if(fxCnt>=0x2||_newsFxNeg(e["fx"])&&negCnt>=0x1){delete e["fx"];}else{fxCnt++;if(_newsFxNeg(e["fx"]))negCnt++;_newsFx(e["fx"]);}}
+if(merge&&!(e["id"]&&String(e["id"])["indexOf"]('ft_')===0x0))continue;
+if(e["fx"]){if(fxCnt>=0x2||_newsFxNeg(e["fx"])&&negCnt>=0x1){delete e["fx"];}else{fxCnt++;if(_newsFxNeg(e["fx"]))negCnt++;_newsFx(e["fx"]);delete e["fx"];}}
 kept.push(e);}
 a2["news"]=kept;
 }
