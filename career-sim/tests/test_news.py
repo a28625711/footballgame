@@ -156,6 +156,10 @@ var a2={name:'p',teamId:'cn-sh',leagueId:'csl',country:'CN',age:24,flags:{},fame
 window.SIM.attach(a2);
 /* 决赛待打：_natAsia 存在 → 常规批次生成，实况栏不应有大赛冠军 */
 a2._natAsia={stage:''};
+/* 模拟结算期已收集的实况：两个联赛冠军+一个AI定冠的洲际杯 */
+a2._newsQ.push({t:'lgchamp',tid:'cn-sh',lg:'csl',tid2:'cn-shh'});
+a2._newsQ.push({t:'lgchamp',tid:'mci',lg:'epl',tid2:'liv'});
+a2._newsQ.push({t:'cont',tid:'liv',comp:'欧联',tag:'uel'});
 window.SIM.newsTick(0);
 out.before=(a2.news||[]).map(function(n){return n.c+':'+n.t.slice(0,18);});
 out.liveBefore=(a2.newsLive||[]).length;
@@ -170,6 +174,16 @@ out.newsUnchanged=JSON.stringify(out.before)===JSON.stringify(out.after);
 out.liveTop=(a2.newsLive||[])[0]?(a2.newsLive[0].c+':'+a2.newsLive[0].t.slice(0,24)):'(empty)';
 if(out.liveAfter<=out.liveBefore){out.err='live slot did not grow';return JSON.stringify(out);}
 if(!out.newsUnchanged){out.err='regular batch changed after final';return JSON.stringify(out);}
+/* 顺序稳定性：决赛前已存在的实况条目，相对顺序必须保持不变 */
+var _preOrder=[];for(var li=0;li<out.liveBefore;li++)_preOrder.push(a2.newsLive[li].id);
+for(var lj=1;lj<_preOrder.length;lj++){
+  var pi=-1,pj=-1;
+  for(var lk=0;lk<a2.newsLive.length;lk++){
+    if(a2.newsLive[lk].id===_preOrder[lj-1]&&pi<0)pi=lk;
+    if(a2.newsLive[lk].id===_preOrder[lj]&&pj<0)pj=lk;
+  }
+  if(pi>=0&&pj>=0&&pi>pj){out.err='live order changed: '+_preOrder[lj-1]+' pi='+pi+' '+_preOrder[lj]+' pj='+pj;return JSON.stringify(out);}
+}
 return JSON.stringify(out);
 })()
 """
