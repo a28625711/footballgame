@@ -719,6 +719,111 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
         'apply': function(){return{'guanxi':0x6,'roleDelta':-0x1,'fame':0x2,'text':"你开始以过来人的身份教他：怎么盯人，什么时候该上抢。他进步很快，教练说，队里需要你这种老将。"};}
     }
   ]
+},
+
+// ---- idx:362 | vet_home_call | 老家的电话 ----
+
+
+{
+  'id': "vet_home_call",
+  'title': "老家的电话",
+  'icon': '🏠',
+  'weight': 0x40,
+  'stage': "vet",
+  'when': function(p){
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("home")["length"]>0x0;
+},
+
+  'desc': "电话那头是熟悉的口音。老家的球队想让你回去，踢完最后几年——那座球场离你小时候住的地方，只有两条街。",
+  'options': [
+    {
+        'label': "回去踢完最后一程",
+        'hint': "合同到期后加盟家乡球队，关系+",
+        'apply': function(){
+var _pool=window["SIM"]["vetInvitePool"]("home");
+if(!_pool["length"])return{'_vetInviteDone':!0x0,'text':"电话那头沉默了一下，说改天再聊。"};
+var _t=window["SIM"]["rpick"](_pool);
+return{'_vetInviteDone':!0x0,'_vetInviteTeam':_t['id'],'guanxi':0x6,'fame':0x4,'text':"你答应了"+_t["name"]+"。等这份合同走完，你就回去。"};
+}
+    },
+    {
+        'label': "再等等，我还不想走",
+        'hint': "留在原地，地位+",
+        'apply': function(){
+return{'_vetInviteDone':!0x0,'roleDelta':0x1,'text':"你说再等等。挂了电话，你在阳台上站了很久。"};
+}
+    }
+  ]
+},
+
+// ---- idx:363 | vet_academy_call | 梦开始的地方 ----
+
+
+{
+  'id': "vet_academy_call",
+  'title': "梦开始的地方",
+  'icon': '🎓',
+  'weight': 0x3c,
+  'stage': "vet",
+  'when': function(p){
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("youth")["length"]>0x0;
+},
+
+  'desc': "当年把你从泥地里捡起来的青训营打来电话：回来吧，带带孩子们，顺便把球员生涯在这块场地上收个尾。",
+  'options': [
+    {
+        'label': "回青训营",
+        'hint': "合同到期后加盟青训母队，关系+",
+        'apply': function(){
+var _pool=window["SIM"]["vetInvitePool"]("youth");
+if(!_pool["length"])return{'_vetInviteDone':!0x0,'text':"电话那头笑了笑，说位置一直给你留着。"};
+var _t=window["SIM"]["rpick"](_pool);
+return{'_vetInviteDone':!0x0,'_vetInviteTeam':_t['id'],'guanxi':0x8,'fame':0x3,'text':"你答应了。等这份合同走完，你会回到"+_t["name"]+"——梦开始的地方。"};
+}
+    },
+    {
+        'label': "还不是时候",
+        'hint': "暂不回去",
+        'apply': function(){
+return{'_vetInviteDone':!0x0,'text':"你说，再踢两年吧。对方说，门一直开着。"};
+}
+    }
+  ]
+},
+
+// ---- idx:364 | vet_first_club_call | 最初的球衣 ----
+
+
+{
+  'id': "vet_first_club_call",
+  'title': "最初的球衣",
+  'icon': '🏟️',
+  'weight': 0x3a,
+  'stage': "vet",
+  'when': function(p){
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("first")["length"]>0x0;
+},
+
+  'desc': "你职业生涯的第一家俱乐部找上门来。他们说，希望你的最后一场比赛，穿回那件最初的球衣。",
+  'options': [
+    {
+        'label': "落叶归根",
+        'hint': "合同到期后加盟首队，名气+",
+        'apply': function(){
+var _pool=window["SIM"]["vetInvitePool"]("first");
+if(!_pool["length"])return{'_vetInviteDone':!0x0,'text':"你笑了笑，没接话。"};
+var _t=window["SIM"]["rpick"](_pool);
+return{'_vetInviteDone':!0x0,'_vetInviteTeam':_t['id'],'fame':0x6,'text':"你说，落叶总要归根。等这份合同走完，你回到"+_t["name"]+"。"};
+}
+    },
+    {
+        'label': "我的故事还没写完",
+        'hint': "留在原地，地位+",
+        'apply': function(){
+return{'_vetInviteDone':!0x0,'roleDelta':0x1,'text':"你说，你的故事还没写完。"};
+}
+    }
+  ]
 }
 
 ];

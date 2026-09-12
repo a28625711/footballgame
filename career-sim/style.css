@@ -554,6 +554,7 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
 
 /* 三格总数据 */
 .stat-row {
+  position: relative;
   display: grid; grid-template-columns: repeat(3, 1fr);
   margin-top: .8rem; padding: .7rem 0;
   border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border));
@@ -562,6 +563,22 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
 .stat-cell + .stat-cell { border-left: 1px solid hsl(var(--border)); }
 .stat-l { font-size: .6rem; font-weight: 700; letter-spacing: .14em; color: hsl(var(--faint)); }
 .stat-v { font-size: 1.15rem; font-weight: 750; font-variant-numeric: tabular-nums; margin-top: .1rem; }
+
+/* 数据/属性折叠：展开是原来的三格 + 进度条，收起是两栏纯文字 */
+.stat-collapse { cursor: pointer; }
+.stat-caret { position: absolute; top: .2rem; right: 0; font-size: .58rem; line-height: 1;
+  color: hsl(var(--faint)); }
+.stat-collapse:hover .stat-caret { color: hsl(var(--fg)); }
+.stat-mini {
+  position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: .25rem 1.2rem;
+  margin-top: .8rem; padding: .7rem 0;
+  border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border));
+}
+.stat-mini-col { display: flex; flex-direction: column; gap: .22rem; min-width: 0; }
+.stat-mini-i { display: flex; align-items: baseline; justify-content: space-between; gap: .4rem;
+  font-size: .74rem; }
+.stat-mini-i i { font-style: normal; color: hsl(var(--faint)); }
+.stat-mini-i b { font-weight: 750; color: hsl(var(--text)); font-variant-numeric: tabular-nums; }
 
 /* 四条属性 */
 .bars { display: grid; gap: .45rem; margin-top: .85rem; }
@@ -1603,6 +1620,10 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
   }
   .player-card .stat-l { font-size: .56rem; letter-spacing: .1em; }
   .player-card .stat-v { font-size: 1rem; }
+  .player-card .stat-mini {
+    margin-top: .45rem; padding: .4rem 0 0; border-bottom: 0;
+  }
+  .player-card .stat-mini-i { font-size: .7rem; }
 
   /* 三条属性横过来铺，一行装下：标签和数值一排，条压在下面。
      竖着三行要 80px，横过来 34px —— 省下来的正好够决策区多一行说明。 */
