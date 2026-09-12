@@ -2070,7 +2070,7 @@ a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bI["comp"],'text
 
 
 a2["_awardDue"]&&(a2["_awardDue"]=!0x1,_lgFinalRefresh(a2["seasons"][bI["recIdx"]]),bAw(a2["seasons"][bI["recIdx"]])),
-  a2["bigQ"]=[],a2["_promoDue"]&&(a2["_promoDue"]=!0x1,_promoReleg(a2["seasons"][bI["recIdx"]],null,null),a2["news"]&&window["NEWSGEN"]&&_newsTick(0x0,0x1)),!0x0;
+  a2["bigQ"]=[],a2["_promoDue"]&&(a2["_promoDue"]=!0x1,_promoReleg(a2["seasons"][bI["recIdx"]],null,null)),a2["_newsDue"]&&(a2["_newsDue"]=!0x1,window["NEWSGEN"]&&_newsTick(0x0)),!0x0;
 }
 function aW(){var bx=a2["bigQ"][0x0];
 /* U13/U15 选拔营：不进交互比赛，直接按能力结算名单结果 */
@@ -2260,10 +2260,7 @@ var items=null;
 try{items=window["NEWSGEN"](a2,yth||0x0,_facts);}catch(e){a2["_newsErr"]=String(e)["slice"](0x0,0xc8);return;}
 if(!items||!items["length"])return;
 var kept=[],fxCnt=0,negCnt=0,i,e;
-/* 合并模式：保留旧批次的普通条目，只让新的实况条目进入 */
-if(merge&&a2["news"]&&a2["news"]["length"]){for(i=0;i<a2["news"]["length"];i++){e=a2["news"][i];if(!(e["id"]&&String(e["id"])["indexOf"]('ft_')===0x0))kept.push(e);}}
 for(i=0;i<items["length"];i++){e=items[i];
-if(merge&&!(e["id"]&&String(e["id"])["indexOf"]('ft_')===0x0))continue;
 if(e["fx"]){if(fxCnt>=0x2||_newsFxNeg(e["fx"])&&negCnt>=0x1){delete e["fx"];}else{fxCnt++;if(_newsFxNeg(e["fx"]))negCnt++;_newsFx(e["fx"]);delete e["fx"];}}
 kept.push(e);}
 a2["news"]=kept;
@@ -3476,7 +3473,7 @@ bz["cLeft"]=a2["contractLeft"]||0x0,
 bz["awardN"]=(a2["awards"]||[]).filter(function(x){return x["age"]===bz["age"];})["map"](function(x){return x["name"];}),
 a2["seasons"]["push"](bz),
 
-_newsTick(0x0),
+(a2["bigQ"]&&a2["bigQ"]["length"]?a2["_newsDue"]=0x1:_newsTick(0x0)),
 
 a2["age"]++,
 
