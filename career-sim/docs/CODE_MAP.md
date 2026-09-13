@@ -226,6 +226,32 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 - 现有 youth 事件均无 youthAbroad 判断，国内外通用
 - 计划新增专属国外青训事件（属性为主）
 
+## 报名试训事件化（2026-09-13）
+
+「报名试训」不再是即时 toast，而是排队的内联事件（方案 A）：
+- `trialSignup()`（SIM 导出）：青训期 + 有青训营 + 钱≥18 万 + 当年未报名；扣 18 万（不退）、
+  写 `flags._trialAge=age`（每年限一次，按钮据此显示「已报名」）、挑 1–2 个比当前营更高档且付得起的青训营，
+  挂 `pending={type:'random',eventId:'__trial__',offers:[ids]}`；已有 pending 则存 `_trialQueued`，由 `bk()` 顶部钩子弹出。
+- `pendingEvent()`（SIM 导出）：把 `__trial__` 还原成内联事件对象（选项带 `team`，渲染走转会窗同款球队卡片 `bg()`）。
+- `_trialResolve()`：轮盘按 `_trialDifficulty()`（`_yTrialP()` 减去 0.09×(目标rep-当前rep)，越好的营越难）判定；
+  通过返回 `{_trialTo:id}`，由 `aF()` 在 commit 阶段换营（留洋另扣 `_youthFee`），`apply` 保持纯判定避免作弊模式双结算。
+- `EV_ROLL` 增 `set`/`forced`（helpers.js）；轮盘动画/结果/存档全复用 `random` 管线，`pending` 只存 id 故存档安全。
+- 旧 `youthTrial()` 保留为测试用的一次性封装。
+
+## 球员球队强度加成（2026-09-13）
+
+`_playerStr(base,ovr,rank)`（sim.js:708，供国家队 `_natStr`）：旧式
+- `share`：核心 0.55 / 主力 0.47 / 轮换 0.38 / 替补 0.27 / 边缘 0.16
+- `boost = share*d*(1+0.15*d/36)`，`d=min(ovr-base,36)`，上限 17
+
+`_clubBoost` / `_teamStrRaw` / `_teamAbs`（sim.js:2386，供俱乐部）：
+- 边际效益饱和曲线：`boost = share*16*d/(d+15)`（边际 `share*16*15/(d+15)²` 递减，无平段）；`d<0` 时 `share*d*0.15`
+- 基准 `ref = base + min(dev,5)`：正 dev 最多把门槛抬 5 点，负 dev 全额
+- 主角贡献 `0.6*boost`；`OVR≥95` 保底 +0.5；`OVR≥名义 base` 时贡献不为负（不因 dev 变拖累）
+- 非主角队 = `base+dev`；`_devTick` 预期名次用 `_teamStrRaw`（含主角），dev 衡量"去掉主角后的队伍质量"
+- OVR 硬上限 99（`ac(...,0x63)`）
+- 探针：`SIM.teamAbs(tid)` / `SIM.clubBoost(base,ovr,rank)` / `SIM.playerStr(base,ovr,rank)`
+
 ## 新增国外青训事件（2026-08-15）
 
 插入位置：事件数组 `var j=[`（182707）末尾，`]` 前

@@ -1289,7 +1289,7 @@ return "<label class=\"team-row yk"+(_on?" on":"")+"\"><input type=\"checkbox\" 
 c0+="<div class=\"staff-row\"><div class=\"staff-row-l\">青训投入<b>"+al(au["money"])+"</b>"+(function(){var _ys=0,_yk2;
 for(_yk2 in _iv)_ys+=({'train':18,'fit':14,'nut':10,'gx':10}[_yk2]||0);
 return _ys>0?"<i class=\"team-year\">年费 "+_ys+" 万</i>":'';
-}())+"<button class=\"team-tgl\" data-tact=\"tgl\" title=\"收起/展开\">"+(_teamOpen?"收起 ▴":"展开 ▾")+"</button></div>"+(_teamOpen?"<div class=\"team-list\">"+_yHtml+"<div class=\"team-row mk\"><span class=\"team-name\">报名试训</span><span class=\"team-fx\">冲一下更高一级的青训营，看能力、天赋和当前队伍档次</span><span class=\"team-fee\">18万</span>"+(au["money"]>=18?"<button class=\"team-btn\" data-tact=\"trial\">报名</button>":"<span class=\"team-no\">钱不够</span>")+"</div><div class=\"team-empty\">打勾的项目按年扣费，不取消就一直有效。</div></div>":"")+"</div>";
+}())+"<button class=\"team-tgl\" data-tact=\"tgl\" title=\"收起/展开\">"+(_teamOpen?"收起 ▴":"展开 ▾")+"</button></div>"+(_teamOpen?"<div class=\"team-list\">"+_yHtml+"<div class=\"team-row mk\"><span class=\"team-name\">报名试训</span><span class=\"team-fx\">去更高一档的青训营试训</span><span class=\"team-fee\">18万</span>"+((au["flags"]&&au["flags"]["_trialAge"]===au["age"])?"<span class=\"team-no\">已报名</span>":au["money"]>=18?"<button class=\"team-btn\" data-tact=\"trial\">报名</button>":"<span class=\"team-no\">钱不够</span>")+"</div><div class=\"team-empty\">打勾的项目按年扣费，不取消就一直有效。</div></div>":"")+"</div>";
 }
 if(c2["length"]||"career"===au["phase"]){
 var _mkt=au["staffMkt"]&&au["staffMkt"]["ids"]||[],_mktCur=au["staffMkt"]&&au["staffMkt"]["season"]===au["seasons"]["length"]+1,_mktHtml='',_owHtml='',_warn=(a6["staffFee"]()>0&&au["money"]<a6["staffFee"]())?'<span class="st-warn">⚠ 钱不够付团队工资</span>':'';
@@ -1340,6 +1340,7 @@ if(!bZ)return'';
 if("random"===bZ["type"]){for(var c0=null,c1=0x0;
 c1<a1["length"];
 c1++)a1[c1]['id']===bZ["eventId"]&&(c0=a1[c1]);
+if(!c0&&a6["pendingEvent"])c0=a6["pendingEvent"]();
 if(!c0)return'';
 var c2="<div cla"+"ss=\"even"+"t\">"+b1(c0["icon"]||'⚽',c0['cn']?"国内 · 事件":'事件',ao(c0["title"]))+("<div cla"+"ss=\"ev-d"+"esc\">")+ax(ao("function"===typeof c0["desc"]?c0["desc"](a6["snap"]()):c0["desc"]))+"</div>";
 return bZ["roll"]&&(c2+=function(ce){var cf=Math["round"](0x64*ce['p']);
@@ -1349,22 +1350,19 @@ return ce["spinning"]||(ck+='a'===ch==!!ce['ok']?" win":" lose"),"<div cla"+"ss=
 0x64-cf,ce['b'])+"</div>";
 }(bZ["roll"])),bZ["result"]?(c2+="<div cla"+"ss=\"resu"+"lt\">"+ax(bZ["result"]["text"])+"</div>",bZ["result"]["deltas"]&&bZ["result"]["deltas"]["length"]&&(c2+="<div cla"+"ss=\"delt"+"as\">"+bZ["result"]["deltas"]["map"](function(ce){
 return "<span cl"+"ass=\"del"+"ta "+ce["cls"]+'\x22>'+ax(ce["text"])+"</span>";
-})["join"]('')+"</div>"),c2+=bb(["<button "+"class=\"b"+"tn btn-p"+"rimary\" "+"data-act"+"=\"contin"+"ue\">继续</"+"button>"])):bZ["roll"]||(c2+=bb((bX=c0["options"]["map"](function(ce,
-cf){
-return ba(cf,ao(ce["label"]),ao(a6["optHint"](c0,cf)));
-}),bY="ev:"+c0['id']+':'+au["choices"]["length"],function(ce,cf){
+})["join"]('')+"</div>"),c2+=bb(["<button "+"class=\"b"+"tn btn-p"+"rimary\" "+"data-act"+"=\"contin"+"ue\">继续</"+"button>"])):bZ["roll"]||(c2+=function(){
+var _ord=function(ce,cf){
 if(bc["key"]!==cf||!bc["ord"]||bc["ord"]["length"]!==ce){var cg,ch=[];
-for(cg=0x0;
-cg<ce;
-cg++)ch["push"](cg);
-for(cg=ce-0x1;
-cg>0x0;
-cg--){var ci=Math["floor"](Math["random"]()*(cg+0x1)),cj=ch[cg];
-ch[cg]=ch[ci],ch[ci]=cj;
-}bc={'key':cf,'ord':ch};
+for(cg=0x0;cg<ce;cg++)ch["push"](cg);
+for(cg=ce-0x1;cg>0x0;cg--){var ci=Math["floor"](Math["random"]()*(cg+0x1)),cj=ch[cg];ch[cg]=ch[ci],ch[ci]=cj;}
+bc={'key':cf,'ord':ch};
 }return bc["ord"];
-}(bX["length"],bY)["map"](function(ce){return bX[ce];
-})))),c2+"</div>";
+}(c0["options"]["length"],"ev:"+c0['id']+':'+au["choices"]["length"]);
+var _mk=function(ce){var _o=c0["options"][ce];return _o["team"]?bg(ce,_o["team"],ao(_o["label"]),ao(_o["lead"]||''),!0x1):ba(ce,ao(_o["label"]),ao(a6["optHint"](c0,ce)));};
+var _th=[],_ah=[],_i,_x;
+for(_i=0x0;_i<_ord["length"];_i++){_x=_ord[_i];if(c0["options"][_x]["team"])_th.push(_mk(_x));else _ah.push(_mk(_x));}
+return _th["length"]?bb(_th)+bb(_ah,"opts-alt"):bb(_ah);
+}()),c2+"</div>";
 }if("report"===bZ["type"]){var c3=bZ["recs"][0x0]["age"],c4=bZ["recs"][bZ["recs"]["length"]-0x1]["age"];
 return "<div cla"+"ss=\"even"+"t\">"+b1('📋','战报',c3===c4?c3+'\x20岁':c3+'–'+c4+'\x20岁')+("<div cla"+"ss=\"seas"+"on-mini\""+'>')+bZ["recs"]["map"](function(ce){
 var _gk='gk'===ah(au["pos"])["group"];
@@ -2005,7 +2003,7 @@ var ct2=c9["target"]["closest"]("[data-tac"+'t]');
 if(ct2){var _ta=ct2["getAttri"+"bute"]("data-tact")["split"](':'),_tn=null;
 if(_ta[0x0]==="tgl"){_teamOpen=!_teamOpen;return ar(),!0x1;}
 if(_ta[0x0]==="tglstat"){_statOpen=!_statOpen;return ar(),!0x1;}
-if(_ta[0x0]==="trial"){var _tr=a6["youthTrial"]();
+if(_ta[0x0]==="trial"){var _tr=a6["trialSignup"]();
 bK(_tr["txt"]);
 if(_tr["ok"]){aA(),ar();}
 return!0x1;}

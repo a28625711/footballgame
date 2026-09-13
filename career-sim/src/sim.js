@@ -155,7 +155,90 @@ return ag(_ids),a2["staffMkt"]={'season':a2["seasons"]["length"]+0x2,'ids':_ids[
 function _yTrialP(){
 var _df=a2["ovr"]-bh(a2["age"],bg());
 return ac(0.3+0.04*_df+0.2*((a2["talent"]-0.7)/0.78),0.05,0.8);
-}var a9={'ln':["cn-dl","cn-cc","cn-bj","cn-tj","cn-shh","cn-sd"],
+}
+/* ── 报名试训（可触发事件）───────────────────────────────────────
+   点报名：扣 18 万报名费(不退)、每年限一次、挑两个比当前营更高档的青训营，
+   挂 random pending；当前事件结算后由 bk() 弹出，二选一 → 轮盘 → 结果。
+   球队移动/留洋学费放 aF(commit)，apply 只做纯判定，避免作弊模式双结算。 */
+function _wPickTrial(_list,_ex){
+var _wS=0x0,_i,_c=[];
+for(_i=0x0;_i<_list["length"];_i++){if(_ex["indexOf"](_list[_i]['id'])>=0x0)continue;_c.push(_list[_i]);_wS+=(_list[_i]["rep"]||0x1);}
+if(_wS<=0x0)return null;
+var _r=ad()*_wS;
+for(_i=0x0;_i<_c["length"];_i++){_r-=(_c[_i]["rep"]||0x1);if(_r<0x0)return _c[_i];}
+return _c[_c["length"]-0x1];
+}
+function _trialOffers(){
+var _cur=bg(),_curRep=_cur?_cur["rep"]:1,_pool=[],_pi,_pt,_BIG5={'epl':1,'liga':1,'seri':1,'bund':1,'l1':1};
+for(_pi=0x0;_pi<a0["TEAMS"]["length"];_pi++){_pt=a0["TEAMS"][_pi];
+if(_pt['id']===(a2["youthTeamId"]||''))continue;
+if(_BIG5[aq(_pt)['id']]&&_pt["rep"]>_curRep&&a2["money"]>=_youthFee(_pt["rep"]))_pool.push(_pt);
+}
+if(!_pool["length"]){
+for(_pi=0x0;_pi<a0["TEAMS"]["length"];_pi++){_pt=a0["TEAMS"][_pi];
+if(_pt['id']===(a2["youthTeamId"]||''))continue;
+if(aq(_pt)['cn']&&_pt["rep"]>_curRep&&_pt["rep"]<=_curRep+1)_pool.push(_pt);
+}
+for(_pi=0x0;_pi<a0["TEAMS"]["length"];_pi++){_pt=a0["TEAMS"][_pi];
+if(_pt['id']===(a2["youthTeamId"]||''))continue;
+if(!aq(_pt)['cn']&&_pt["rep"]>=0x3&&a2["money"]>=_youthFee(_pt["rep"]))_pool.push(_pt);
+}
+}
+if(!_pool["length"])return[];
+var _out=[],_a=_wPickTrial(_pool,_out);
+if(!_a)return[];
+_out.push(_a['id']);
+var _b=_wPickTrial(_pool["filter"](function(t){return t["rep"]!==_a["rep"];}),_out)||_wPickTrial(_pool,_out);
+_b&&_out.push(_b['id']);
+return _out;
+}
+function _trialDifficulty(_team){
+var _cur=bg(),_curRep=_cur?_cur["rep"]:1;
+return ac(_yTrialP()-0.09*((_team["rep"]||0x1)-_curRep),0.05,0.8);
+}
+function _trialSignup(){
+if("youth"!==a2["phase"]||!a2["youthTea"+"mId"])return{'ok':!0x1,'txt':'现在不是青训期'};
+if(a2["flags"]["_trialAge"]===a2["age"])return{'ok':!0x1,'txt':'今年已经报过名了'};
+if(a2["money"]<0x12)return{'ok':!0x1,'txt':'家里拿不出 18 万报名费'};
+var _offers=_trialOffers();
+if(!_offers["length"])return{'ok':!0x1,'txt':'暂时没有更高级别的青训营愿意接收'};
+a2["money"]-=0x12;
+a2["flags"]["_trialAge"]=a2["age"];
+if(a2["pending"])a2["_trialQueued"]={'offers':_offers};
+else a2["pending"]={'type':"random",'eventId':"__trial__",'offers':_offers};
+return{'ok':!0x0,'txt':'报名成功，试训安排上了'};
+}
+function _trialEvent(_offers){
+var _opts=[],_i;
+for(_i=0x0;_i<_offers["length"];_i++){
+(function(_tid){
+var _t=aj(_tid);if(!_t)return;
+_opts.push({'label':_t["name"],'team':_t,'lead':'录取 '+Math["round"](0x64*_trialDifficulty(_t))+'%',
+'p':function(){return _trialDifficulty(_t);},
+'hint':function(p,q){var v=Math["round"](0x64*(q||0x0));return v+'%\x20录取 / '+(0x64-v)+'%\x20落选';},
+'apply':function(p,q,s){return _trialResolve(_tid,s,q);}});
+})(_offers[_i]);
+}
+_opts.push({'label':"不去了",'hint':"18 万报名费不退",
+'apply':function(){return{'text':"你把名额让了出去。那 18 万报名费，就当交了个学费。"};}});
+return{'id':"__trial__",'title':"报名试训",'icon':'🎫',
+'desc':"报名费交了，对方教练让你过去练一堂课。一次分组对抗，一场教学赛，够不够格当天就有数。",
+'options':_opts};
+}
+function _pendingEvent(){
+var _p=a2["pending"];
+if(!_p||_p["eventId"]!=="__trial__")return null;
+return _trialEvent(_p["offers"]||[]);
+}
+function _trialResolve(_tid,_prob,_q){
+var _t=aj(_tid),_p=null!=_prob?_prob:_trialDifficulty(_t||{'rep':1}),_ok=null;
+var _forced=window["EV_ROLL"]&&window["EV_ROLL"]["forced"]?window["EV_ROLL"]["forced"]():null;
+if(null!=_forced)_ok=_forced;else _ok=_q()<_p;
+window["EV_ROLL"]&&window["EV_ROLL"]["set"]&&window["EV_ROLL"]["set"](_p,_ok);
+if(_t&&_ok)return{'text':"试训通过，进了 "+_t["name"]+" 的青训营"+(!aq(_t)['cn']?"，家里把学费也凑上了":''),'up':!0x0,'_trialTo':_tid};
+return{'text':"试训没成。对方教练客客气气把你送出门，说下年再来。",'up':!0x1};
+}
+var a9={'ln':["cn-dl","cn-cc","cn-bj","cn-tj","cn-shh","cn-sd"],
 
 
 
@@ -419,7 +502,10 @@ return aq(bI)['cn']&&bI["rep"]>=0x2;
 bG&&b8(bG['id'],!0x0);
 }if(bx["goAbroad"]){var bH=bf(0x1,{'forceAbroad':!0x0})[0x0];
 bH&&b8(bH['id'],!0x0);
-}bx["captain"]&&(a2["flags"]["_captain"]=a2["teamId"],(a2["capDone"]||(a2["capDone"]=[]))["indexOf"](a2["teamId"])<0x0&&a2["capDone"]["push"](a2["teamId"])),
+}bx["_trialTo"]&&function(){var _tt=aj(bx["_trialTo"]);if(!_tt)return;
+a2["youthTea"+"mId"]=_tt['id'],a2["teamId"]=_tt['id'];
+if(!aq(_tt)['cn']){var _fee=_youthFee(_tt["rep"]);a2["money"]=ac(a2["money"]-_fee,-0x320,0x895440),a2["flags"]["youthAbro"+"ad"]=!0x0,by["push"]({'cls':'down','text':'-'+av(_fee)});}
+}(),bx["captain"]&&(a2["flags"]["_captain"]=a2["teamId"],(a2["capDone"]||(a2["capDone"]=[]))["indexOf"](a2["teamId"])<0x0&&a2["capDone"]["push"](a2["teamId"])),
 
 
 
@@ -624,12 +710,12 @@ function _playerStr(base,
 
 
 ovr,rank){
-var share=rank>=0x4?0.5:rank>=0x3?0.45:rank>=0x2?0.35:rank>=0x1?0.25:0.15;
+var share=rank>=0x4?0.55:rank>=0x3?0.47:rank>=0x2?0.38:rank>=0x1?0.27:0.16;
 var delta=ovr-base;
 var boost;
 if(delta>=0){
-var d=Math.min(delta,0x20);
-boost=share*d*(0x1+0.15*d/0x20);
+var d=Math.min(delta,0x24);
+boost=share*d*(0x1+0.15*d/0x24);
 boost=Math.min(boost,0x11);
 }else{
 boost=share*delta*0.15;
@@ -2295,18 +2381,31 @@ if(o["devList"])for(var i=0;i<o["devList"]["length"];i++)if(o["devList"][i]["v"]
 return!0x1;
 }
 
-/* 球队绝对强度 = 联赛基准 + 联赛内档次 + dev；球员所在队注入球员加成（联赛份额=杯赛的 0.6） */
-
-function _teamAbs(t){
-var lg=aq(t),base=(lg&&lg["str"]||60)+(_er(t)-2)*0x3;
-var dev=_tDev(t["id"]);
+/* 球队绝对强度 = 联赛基准 + 联赛内档次 + dev；球员所在队注入球员加成。
+   主角边际效益用饱和曲线 boost=16*d/(d+15)（边际 16*15/(d+15)^2 递减，无平段）：
+   每个 base 落在曲线不同位置，弱联赛不再顶格、强联赛也有感。
+   基准 ref = base + min(dev,5)：正 dev 最多把门槛抬 5 点，负 dev 全额（低迷队被抬更多）。
+   _teamStrRaw 返回未取整值，_devTick 的"预期名次"也用它，dev 因而衡量"去掉主角后的队伍质量"。 */
+function _clubBoost(base,ovr,rank){
+var share=rank>=0x4?0.55:rank>=0x3?0.47:rank>=0x2?0.38:rank>=0x1?0.27:0.16;
+var d=ovr-base;
+if(d<0)return share*d*0.15;
+return share*0x25*d/(d+0xf);
+}
+function _teamStrRaw(t){
+var lg=aq(t),base=(lg&&lg["str"]||60)+(_er(t)-2)*0x3,dev=_tDev(t["id"]);
 if(t["id"]===a2["teamId"]){
 var role=a0["ROLES"][a2["role"]]?a0["ROLES"][a2["role"]]["rank"]:0;
-var str=_playerStr(base,a2["ovr"],role);
-return Math.round(base+(str-base)*0.6+dev);
+var _ref=base+Math["min"](dev,0x5),_c=_clubBoost(_ref,a2["ovr"],role);
+/* 主角不因球队 dev 高而变成"拖后腿"：OVR 高于名义 base 时贡献不为负；低于 base 时负值也只按名义 base 计 */
+if(_c<0)_c=a2["ovr"]>=base?0:Math["max"](_c,_clubBoost(base,a2["ovr"],role));
+var _v=_c*0.6;
+if(a2["ovr"]>=0x5f&&_v<0.5)_v=0.5;   /* 精英保底：95+ 在任何队至少 +0.5 */
+return base+dev+_v;
 }
-return Math.round(base+dev);
+return base+dev;
 }
+function _teamAbs(t){return Math.round(_teamStrRaw(t));}
 function _cardById(tid){var t=aj(tid);return{'i':tid,'n':t?t["name"]:tid,'s':t?_teamAbs(t):50,'lg':t?ap(t):null};}
 function _cards(tms){var r=[];for(var i=0;i<tms.length;i++)r.push(_cardById(tms[i]["id"]));return r;}
 function _lgTeamsOf(lgId){var r=[];for(var i=0;i<a0["TEAMS"]["length"];i++){var t=a0["TEAMS"][i];if(ap(t)===lgId)r.push(t);}return r;}
@@ -2667,10 +2766,7 @@ for(i=0;i<a0["TEAMS"]["length"];i++){t=a0["TEAMS"][i];var lgi=ap(t);(byLg[lgi]=b
 /* 预期名次用含 dev 的自洽强度：表现修正衡量"运气"，超预期会把自身预期抬上去而自我收敛，防止弱队爆冷后被钉在 dev 上限的棘轮 */
 
 for(var lgId in byLg)byLg[lgId].sort(function(x,y){
-var lx=ak(x["league"])||{},ly=ak(y["league"])||{};
-var sx=((lx["str"]||60)+(_er(x)-2)*0x3+(a2["teamDev"][x["id"]]||0));
-var sy=((ly["str"]||60)+(_er(y)-2)*0x3+(a2["teamDev"][y["id"]]||0));
-return sy-sx;
+return _teamStrRaw(y)-_teamStrRaw(x);
 });
 for(i=0;i<a0["TEAMS"]["length"];i++){
 t=a0["TEAMS"][i];
@@ -3786,6 +3882,7 @@ var _base=[12,20,35,55,80,100];
 return _base[rep]||_base[0x1];
 }
 function bk(){
+if(a2["_trialQueued"]){var _tq=a2["_trialQueued"];a2["_trialQueued"]=null;return void(a2["pending"]={'type':"random",'eventId':"__trial__",'offers':_tq["offers"]});}
 if(a2["step"]++,"youth"===a2["phase"])return a2["youthTea"+"mId"]?bj():(function(){var bF=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];
 }),bG=bF["filter"](function(bR){
 return ab(a2["originId"],bR['id']);
@@ -4335,6 +4432,7 @@ for(var bz=null,
 bA=0x0;
 bA<a1["length"];
 bA++)a1[bA]['id']===by["eventId"]&&(bz=a1[bA]);
+if(!bz)bz=_pendingEvent();
 if(!bz)return null;
 var bB=bz["options"]||(bz["pool"]&&function(){var bH={};for(var bI in bz)bH[bI]=bz[bI];var bJ=ag(bz["pool"]["slice"]());bH["options"]=bJ["slice"](0x0,(bz["rndPick"]||0x3))["concat"](bz["single"]?[bz["single"]]:[]);for(var bN=0x0;bN<a1["length"];bN++)a1[bN]===bz&&(a1[bN]=bH);return bH["options"];}())||[];bB=bB[Number(bx)];if(!bB)return!0x1;
 var bR4=function(bG2){a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bG2&&bG2["title"]||"事件",'text':bG2&&bG2["text"]||''});};
@@ -4763,6 +4861,7 @@ if(by){a2["yInv"][bx]=0x1;return!0x0;}
 delete a2["yInv"][bx];return!0x0;
 },
 'youthTrialP':function(){return _yTrialP();},
+'trialSignup':_trialSignup,'pendingEvent':_pendingEvent,
 'youthTrial':function(){
 if("youth"!==a2["phase"]||!a2["youthTea"+"mId"])return{'ok':!0x1,'txt':'现在不是青训期'};
 if(a2["money"]<0x12)return{'ok':!0x1,'txt':'家里拿不出 18 万报名费'};
@@ -4978,6 +5077,9 @@ return bx["banned"]?{'gen':by,
 'simWorld':function(bz,bx,by){return _runWorld(bz,bx,by);},
 'promoReleg':function(bz,bx,by){return _promoReleg(bz,bx,by);},
 'devOf':function(tid){return _tDev(tid);},
+'teamAbs':function(tid){var t=aj(tid);return t?_teamStrRaw(t):null;},
+'playerStr':function(base,ovr,rank){return _playerStr(base,ovr,rank);},
+'clubBoost':function(base,ovr,rank){return _clubBoost(base,ovr,rank);},
 'titleStreak':function(tid){return a2["titleStreak"]&&a2["titleStreak"][tid]||0;},
 'lastTables':function(){return a2["lastTables"]||null;}};
 /* API 边界同步镜像：每次调用返回前把 _rs 刷回 a2.rngState（存档随时可能序列化 a2）；

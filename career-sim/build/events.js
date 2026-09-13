@@ -178,6 +178,8 @@ return m[cur];
 
 window["EV_ROLL"]={'reset':function(){b=null;
 },'last':function(){return b;
+},'set':function(p,ok){b={'p':p,'ok':ok};
+},'forced':function(){return c;
 },'force':function(p){c=!0x0===p||!0x1===p?p:null;
 }};
 
