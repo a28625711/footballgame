@@ -2655,6 +2655,8 @@ function _lgFinalRefresh(bz){
 
 function _devTick(){
 a2["teamDev"]=a2["teamDev"]||{};
+/* repOf 缓慢回归 base：升/降班的档位偏移随年头淡化(每年12%)，不越过 base，回到 base 即移除覆盖 */
+if(a2["repOf"])for(var _rr in a2["repOf"]){var _rt=null;for(var _ri=0x0;_ri<a0["TEAMS"]["length"];_ri++)if(a0["TEAMS"][_ri]["id"]===_rr){_rt=a0["TEAMS"][_ri];break;}if(!_rt)continue;var _rb=_rt["rep"],_rc=a2["repOf"][_rr],_rn=_rc+(_rb-_rc)*0.12;_rn=_rb>=_rc?Math["min"](_rb,_rn):Math["max"](_rb,_rn);if(Math["abs"](_rb-_rn)<0.05)delete a2["repOf"][_rr];else a2["repOf"][_rr]=_rn;}
 var prev=a2["lastTables"],bonus=a2["_devBonus"]||{};
 /* 上季倒数三名 +0.6 重建补偿（直接并入本季 bonus） */
 if(prev)for(var pb in prev){var tb=prev[pb];for(var pi=tb.length-3;pi<tb.length;pi++)if(pi>=0)bonus[tb[pi]]=(bonus[tb[pi]]||0)+0.6;}
@@ -3641,9 +3643,9 @@ return!!bx&&a2["youthTea"+"mId"]===bx['id']&&a2["age"]<=0x17;
 return a2["ovr"]+Math["min"](0xa,0.08*a2["fame"])+Math["min"](0xc,0.8*a2["trophies"]["length"])-bb(a2["age"]);
 }function bb(bx){return bx<=0x1d?0x0:bx<=0x21?0x2*(bx-0x1d):0x8+4.5*(bx-0x21);
 }function bc(bx){
-return 0x30+7.5*bx["rep"];
+return 0x30+7.5*_er(bx);
 }function bd(bx){return ba()+function(by){
-return Math["max"](0x0,0x3-by["rep"])*bb(a2["age"])*0.12;
+return Math["max"](0x0,0x3-_er(by))*bb(a2["age"])*0.12;
 }(bx);
 }var APPT=(function(){var f=[],a;for(a=0;a<60;a++)f[a]=a<=0x13?0.5:(a===20?0.78:(a<=24?1:(a<=36?0.92:(a<=38?0.82:(a<=40?0.7:(a<=42?0.58:0.45))))));var g=f.slice();g[0]=f[0];for(a=1;a<59;a++)g[a]=0.25*f[a-1]+0.5*f[a]+0.25*f[a+1];g[59]=f[59];return g;})();
 function APPS_F(bx){return APPT[Math["max"](0,Math["min"](59,bx))]}
@@ -3688,7 +3690,7 @@ if(bA&&bL['id']===bA['id'])return!0x1;
 var bM=aq(bL),bN=bc(bL);
 if(!bM['cn']){if(!by["forceAbr"+"oad"]&&!by["ignoreLock"]&&a2["lockAbro"+'ad']>0x0)return!0x1;
 bN+=a2["seasonsA"+"broad"]>0x0?0x3:0x5,a6("agent")&&(bN-=Math["round"](0x3*_stEff(_stT("agent"))*_stM("agent")));
-}return!(by["forceAbr"+"oad"]&&bM['cn']||by["chinaOnl"+'y']&&!bM['cn']||null!=by["maxRep"]&&bL["rep"]>by["maxRep"]||bL["rep"]>=0x3&&a2["ovr"]<0x3e+0x4*bL["rep"]||bM["rep"]>bC+bK||!(bd(bL)>=bN-0x5)||!(bz<=bN+0x1a));
+}return!(by["forceAbr"+"oad"]&&bM['cn']||by["chinaOnl"+'y']&&!bM['cn']||null!=by["maxRep"]&&_er(bL)>by["maxRep"]||_er(bL)>=0x3&&a2["ovr"]<0x3e+0x4*_er(bL)||bM["rep"]>bC+bK||!(bd(bL)>=bN-0x5)||!(bz<=bN+0x1a));
 });
 }var bF=bE(bD);
 if(bF["length"]||(bF=bE(bD+0x1)),
