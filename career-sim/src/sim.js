@@ -1580,8 +1580,9 @@ _lr["won"]=meW;_lr["score"]=ko["hg"]+'-'+ko["ag"]+(ko["pk"]?' (点球 '+ko["pk"]
 _cr["result"]=meW?'冠军':'止步决赛';
 a2["cupRuns"]["push"](_cr);delete a2["_contRun"];
 if(meW){
-/* AI 代结夺冠同样要发奖杯：写进当季赛季记录与生涯奖杯柜（与交互路径一致） */
-var _cz2=a2["seasons"][a2["seasons"]["length"]-0x1];
+/* AI 代结夺冠同样要发奖杯：写进当季赛季记录与生涯奖杯柜（与交互路径一致）。
+   必须用 _curBz：被让位时本季赛季记录还没 push 进 seasons，取 length-1 会写到上一季。 */
+var _cz2=a2["_curBz"]||a2["seasons"][a2["seasons"]["length"]-0x1];
 if(_cz2){_cz2["trophies"]=_cz2["trophies"]||[];if(_cz2["trophies"]["indexOf"](_cr["comp"]+'冠军')<0x0)_cz2["trophies"]["push"](_cr["comp"]+'冠军');}
 a2["trophies"]["push"]({'name':_cr["comp"]+'冠军','age':a2["age"],'team':(aj(a2["teamId"])||{"name":''})["name"]});
 }

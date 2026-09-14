@@ -638,10 +638,13 @@ function factScore(a2, f) {
     if (f.t === 'lgchamp') {
         var lg = lgOfId(f.lg);
         if (!t || !lg) return -1;
-        if (f.tid === a2.teamId) s += 100;
-        if (f.lg === a2.leagueId) s += 80;
+        /* 联赛重要度直接用转会窗的联赛权重 _LGW（五大联赛最高，中超/沙特/美职联次之，边缘联赛最低） */
+        var _lw = (window.SIM && window.SIM.leagueWeights && window.SIM.leagueWeights[f.lg]) || 0.6;
+        s += 20 + Math.round(18 * _lw);
+        if (f.tid === a2.teamId) s += 100;         /* 玩家所在队 */
+        if (f.lg === a2.leagueId) s += 80;         /* 玩家所在联赛再给加成 */
         if (t.rep >= 5) s += 60;
-        if (t.rep <= 2) s += 70;
+        if (t.rep <= 2) s += 70;                   /* 弱队夺冠=冷门 */
     } else if (f.t === 'releg') {
         if (!t) return -1;
         if (f.tid === a2.teamId) s += 100;
@@ -655,14 +658,17 @@ function factScore(a2, f) {
         if (t.rep <= 2) s += 15;
     } else if (f.t === 'cont') {
         if (!f.tid) return -1;
-        s += 55;
+        /* 洲际杯按重要性分档：欧冠 > 世俱杯 > 亚冠 > 欧联 > 欧协联（其余 40） */
+        s += ({ '欧冠': 80, '世俱杯': 60, '亚冠': 50, '欧联': 42, '欧协联': 30 })[f.comp] || 40;
         if (f.tid === a2.teamId) s += 60;
     } else if (f.t === 'slam') {
         if (!teamById(f.tid)) return -1;
         s += f.tier === 'super' ? 120 : 85;
         if (f.tid === a2.teamId) s += 100;
     } else if (f.t === 'nat') {
-        s += f.tag === 'wc' ? 80 : (f.tag === 'asia' ? 65 : 50);
+        /* 大赛权重：世界杯>欧洲杯>美洲杯>亚洲杯。世界杯必出现（genFacts 保证）。
+           euro/copa 原本=50，低于 cont(55) 与各联赛冠军(60+)，会永远被挤掉。 */
+        s += f.tag === 'wc' ? 100 : (f.tag === 'euro' ? 72 : (f.tag === 'copa' ? 68 : 65));
         if (f.nid === 'n_chn') s += 90;
     }
     return s;
@@ -778,17 +784,30 @@ function genFacts(a2, facts, youth) {
     if (!facts.length) return [];
     var scored = facts.map(function (f) { return { f: f, s: factScore(a2, f) }; })
         .filter(function (x) { return x.s > 0; });
-    scored.sort(function (a, b) { return b.s - a.s; });
     var cap = youth ? 1 : 3, out = [], seen = {};
-    for (var i = 0; i < scored.length && out.length < cap; i++) {
-        var f = scored[i].f;
+    function push(f) {
+        if (!f) return;
         var key = f.t + '|' + (f.tid || f.nid || '');
-        if (seen[key]) continue;
-        seen[key] = 1;
+        if (seen[key]) return;
         var e = factEntry(a2, f);
-        if (!e) continue;
+        if (!e) return;
+        seen[key] = 1;
         e.k = out.length < 2 ? 'mj' : 'mn';
         out.push(e);
+    }
+    var pool = scored.slice(), i;
+    /* 世界杯必出现：先占一个名额 */
+    for (i = 0; i < pool.length && out.length < cap; i++) {
+        if (pool[i].f.t === 'nat' && pool[i].f.tag === 'wc') { push(pool[i].f); pool.splice(i, 1); break; }
+    }
+    /* 其余按重要度加权随机（无放回）：越重要越可能出现，低重要度保留小概率 */
+    while (out.length < cap && pool.length) {
+        var tot = 0;
+        for (i = 0; i < pool.length; i++) tot += pool[i].s;
+        if (tot <= 0) break;
+        var r = rnd() * tot, acc = 0, idx = pool.length - 1;
+        for (i = 0; i < pool.length; i++) { acc += pool[i].s; if (r <= acc) { idx = i; break; } }
+        push(pool[idx].f); pool.splice(idx, 1);
     }
     return out;
 }

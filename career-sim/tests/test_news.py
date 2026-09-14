@@ -82,9 +82,29 @@ return JSON.stringify(out);
 
 JS_FACTS = r"""
 (function(){
-var out={err:null,champ:0,releg:0,chn:0,cap:0,tokLeak:null};
+var out={err:null,champ:0,releg:0,chn:0,cont:0,cap:0,tokLeak:null};
 var a2={name:'p',teamId:'rma',leagueId:'liga',country:'ES',_newsTids:[],_newsWhen:{},age:24,flags:{},fame:30,role:'star'};
 var bcn=null;window.DATA.TEAMS.forEach(function(t){if(!bcn&&t.rep>=5&&t.id!=='rma'&&t.league==='liga')bcn=t.id;});
+function one(f){return window.NEWSFACTS(a2,[f])||[];}
+function scan(items){
+  for(var i=0;i<items.length;i++){var n=items[i];
+    if(/\{\w+\}/.test(n.t))out.tokLeak=n.t;
+    if((n.id==='ft_lgchamp_rma'||n.t.indexOf('皇家马德里')>=0)&&(n.c==='champ'||n.c==='upset'))out.champ++;
+    if(n.c==='releg'&&n.t.indexOf('降')>=0)out.releg++;
+    if(n.c==='natc')out.chn++;
+    if(n.c==='champ'&&n.tid==='mci')out.cont++;}
+}
+/* 各类型事实逐条转换（避开随机选择），保证每类都能产出 */
+scan(one({t:'lgchamp',tid:'rma',lg:'liga'}));
+scan(one({t:'releg',tid:bcn,from:'liga',to:'seg'}));
+scan(one({t:'nat',nid:'n_chn',tag:'wc'}));
+scan(one({t:'cont',tid:'mci',comp:'欧冠',tag:'ucl'}));
+scan(one({t:'promo',tid:'cn-cd',from:'csl2',to:'csl'}));
+if(!out.champ){out.err='no champion news';return JSON.stringify(out);}
+if(!out.releg){out.err='no relegation news';return JSON.stringify(out);}
+if(!out.chn){out.err='no china wc news';return JSON.stringify(out);}
+if(!out.cont){out.err='no continental news';return JSON.stringify(out);}
+/* 多事实加权随机：每轮封顶 3 条；60 轮采样后冠军/降级/中国世界杯都应出现过 */
 var facts=[
  {t:'lgchamp',tid:'rma',lg:'liga'},
  {t:'releg',tid:bcn,from:'liga',to:'seg'},
@@ -92,19 +112,14 @@ var facts=[
  {t:'cont',tid:'mci',comp:'欧冠',tag:'ucl'},
  {t:'promo',tid:'cn-cd',from:'csl2',to:'csl'}
 ];
-var items=window.NEWSFACTS(a2,facts);
-for(var i=0;i<items.length;i++){var n=items[i];
-  if(/\{\w+\}/.test(n.t))out.tokLeak=n.t;
-  if((n.id==='ft_lgchamp_rma'||n.t.indexOf('皇家马德里')>=0)&&(n.c==='champ'||n.c==='upset'))out.champ++;
-  if(n.c==='releg'&&n.t.indexOf('降')>=0)out.releg++;
-  if(n.c==='natc')out.chn++;}
-if(!out.champ){out.err='no champion news';return JSON.stringify(out);}
-if(!out.releg){out.err='no relegation news';return JSON.stringify(out);}
-if(!out.chn){out.err='no china wc news';return JSON.stringify(out);}
-/* 数量封顶：10条事实只取3条 */
-var many=[];for(var j=0;j<10;j++)many.push({t:'lgchamp',tid:'rma',lg:'liga'});
-var items2=window.NEWSFACTS(a2,many);
-if(items2.length>3){out.err='fact cap '+items2.length;return JSON.stringify(out);}
+var seen={};
+for(var r=0;r<60;r++){
+  var it=window.NEWSFACTS(a2,facts)||[];
+  if(it.length>3){out.err='fact cap '+it.length;return JSON.stringify(out);}
+  for(var j=0;j<it.length;j++)seen[it[j].c]=1;
+}
+if(!seen['releg'])out.err='releg never surfaced in 60 weighted draws';
+if(!seen['natc'])out.err='china wc never surfaced in 60 weighted draws';
 /* 青训国内外池判定：国内青训不得出留洋风味(fv_ab)，国外青训会出 */
 var y1={name:'p',teamId:'cn-cd',youthTeamId:'cn-cd',leagueId:null,country:null,_newsTids:[],_newsWhen:{},age:13,ovr:44,flags:{},fame:2,role:'sub'};
 var ab1=0;
