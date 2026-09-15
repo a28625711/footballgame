@@ -66,7 +66,10 @@ while(guard++<1200){
   /* wc(优先级4) 应驱逐在队的 cont(3)：旧 cont 走 AI 结算，wc 顶替入队 */
   var r1=window.SIM.pushPri('wc',0.55,{'comp':'世界杯','opp':'巴西'});
   var st2=window.SIM.state();
-  var contSettled=!au2._contRun&&au2.cupRuns&&au2.cupRuns.length===0x1&&au2.contFx.data.ucl.champion!=null;
+  var _utie=au2.contFx.data.ucl.rounds[0].ties[0];
+  /* 让位 AI 结算后：冠军/比分回填且必须清掉 pd（否则世界面板签表永远显示 vs/待定） */
+  var contSettled=!au2._contRun&&au2.cupRuns&&au2.cupRuns.length===0x1&&au2.contFx.data.ucl.champion!=null
+    &&!_utie.pd&&_utie.sa!=null&&_utie.sb!=null&&_utie.w===au2.contFx.data.ucl.champion;
   out.picks={'wcEvict':!!r1&&st2.bigQ[0x0]["kind"]==='wc',contSettled:contSettled,
     topKind:st2.bigQ[0x0]["kind"]};
 })();
