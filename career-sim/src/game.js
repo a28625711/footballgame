@@ -1960,7 +1960,7 @@ var c5=ay("mode","normal");
 Array["prototyp"+'e']["forEach"]["call"](aw("mode-seg")["children"],function(c9){
 c9["classLis"+'t']["toggle"]("selected",c9["getAttri"+"bute"]("data-mod"+'e')===c5);
 }),aw("seg-note")["textCont"+"ent"]=bV[c5]||bV["normal"],aw("btn-star"+'t')["addEvent"+"Listener"]("click",function(){var c9=aI();
-if(c9&&"summary"!==c9["phase"]&&c9["seasons"]&&c9["seasons"]["length"]){if(confirm("检测到上次的存档"+'（'+c9["name"]+'，'+c9["age"]+(" 岁），继续吗？"+"\n取消则重新开始"+'。')))return au=c9,
+if(c9&&"summary"!==c9["phase"]&&(c9["seasons"]&&c9["seasons"]["length"]||"youth"===c9["phase"])){if(confirm("检测到上次的存档"+'（'+c9["name"]+'，'+c9["age"]+(" 岁），继续吗？"+"\n取消则重新开始"+'。')))return au=c9,
 a6["attach"](au),void(_whInit(),bO());
 aJ();
 }bU();
@@ -2166,7 +2166,7 @@ _md["classList"]["remove"]("hidden");
 }());
 }());
 var bW=aI();
-bW&&bW["seasons"]&&bW["seasons"]["length"]?(au=bW,
+bW&&(bW["seasons"]&&bW["seasons"]["length"]||"youth"===bW["phase"])?(au=bW,
 
 
 

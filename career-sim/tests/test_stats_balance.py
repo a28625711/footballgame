@@ -32,7 +32,11 @@ var out={
   cam90:avg(90,'CAM',1),
   cm90:avg(90,'CM',6),
   cdm90:avg(90,'CDM',7),
-  cb90:avg(90,'CB',10)
+  cb90:avg(90,'CB',10),
+  /* 同类型、不同位置：验证位置份额生效（att > mid > def），防止 'fwd' 键名错位回归 */
+  st2:avg(90,'ST',2),
+  cam2:avg(90,'CAM',2),
+  cb2:avg(90,'CB',2)
 };
 return JSON.stringify(out);
 })()
@@ -60,8 +64,13 @@ def run():
     for k, v in r.items():
         if v['lgG'] > v['g'] + 0.5:
             raise harness.Fail('%s league goals > all-comp goals' % k)
-    print('PASS stats_balance (ST90=%.1f ST95=%.1f CB90=%.1f CAM90.A=%.1f)'
-          % (st90['g'], st95['g'], r['cb90']['g'], r['cam90']['a']))
+    # 位置份额：同类型下 att > mid > def（修复 'fwd' 键名错位后位置必须生效）
+    if not (r['st2']['g'] > r['cam2']['g'] > r['cb2']['g']):
+        raise harness.Fail('position share not effective (same type 全能): ST=%.1f CAM=%.1f CB=%.1f'
+                           % (r['st2']['g'], r['cam2']['g'], r['cb2']['g']))
+    print('PASS stats_balance (ST90=%.1f ST95=%.1f CB90=%.1f CAM90.A=%.1f | pos att/mid/def=%.1f/%.1f/%.1f)'
+          % (st90['g'], st95['g'], r['cb90']['g'], r['cam90']['a'],
+             r['st2']['g'], r['cam2']['g'], r['cb2']['g']))
 
 
 if __name__ == '__main__':

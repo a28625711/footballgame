@@ -553,11 +553,11 @@ return [p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];}
 
 
 
-var TYPE_MODS=[{'g':1.50,'a':0.50},{'g':0.70,'a':1.50},{'g':1.10,'a':1.10},{'g':1.15,'a':0.85},{'g':1.28,'a':0.65},{'g':1.70,'a':0.75},
+var TYPE_MODS=[{'g':1.30,'a':0.60},{'g':0.85,'a':1.45},{'g':1.10,'a':1.10},{'g':1.08,'a':0.95},{'g':1.18,'a':0.70},{'g':1.45,'a':0.80},
 
 
 
-{'g':0.78,'a':1.05},{'g':0.35,'a':0.65},{'g':1.15,'a':1.55},{'g':1.00,'a':1.25},{'g':0.45,'a':0.45},{'g':1.00,'a':1.00}];
+{'g':0.95,'a':1.05},{'g':0.40,'a':0.70},{'g':1.00,'a':1.60},{'g':0.90,'a':1.15},{'g':0.55,'a':0.50},{'g':1.00,'a':1.00}];
 function calcPlayerType(){var p=a2["pos"],
 
 
@@ -772,7 +772,7 @@ return Math.max(0.12,Math.min(0.93,c0+_msCfg["k"]*sd+_msCfg["k2"]*sd*Math["abs"]
 function _pMatchContrib(tg,og,oppStr,ownStr,grp,boost){
 var f=(0.55+0.55*(a2["ovr"]-0x32)/0x32)*(a2["ovr"]>=0x58?1.10+0.03*(a2["ovr"]-0x58):0x1)*(boost||1);if(a2["cheat"])f*=1.25;
 var diff=(oppStr!=null&&ownStr!=null)?ac((oppStr-ownStr)/0x1e,-1,1):0;
-var sh={'fwd':[0.34,0.12],'mid':[0.20,0.20],'def':[0.09,0.07],'gk':[0,0]}[grp]||[0.20,0.20];
+var sh={'att':[0.24,0.11],'mid':[0.15,0.19],'def':[0.07,0.045],'gk':[0,0]}[grp]||[0.15,0.15];
 var ps=ac(sh[0]*f*(1-0.25*diff),0.01,0.6);
 var pa=ac(sh[1]*f*(1-0.1*diff),0.01,0.5);
 var g=0,a2v=0;
@@ -3661,10 +3661,10 @@ return!0x1;
 }())&&a0["ROLES"][bz["role"]]["rank"]>=0x3&&bz["apps"]>=0x13&&bz["ovr"]>=0x55&&(!function(c9){
 for(var cC=0x0;cC<a2["awards"]["length"];cC++)if(a2["awards"][cC]["name"]===c9)return!0x0;
 return!0x1;
-}(a0["AWARDS"]["ballon"])||ad()<0.35)&&b5(a0["AWARDS"]["ballon"],age0),bz["apps"]>=0x13&&bz["ovr"]>=0x54&&ad()<0.35&&b5(a0["AWARDS"]["afcpoy"],age0),"att"===c7&&bz["apps"]>=0x13&&bz["lgGoals"]>=_leagueTopTarget(by['id'],age0)&&b5(by["name"]+"金靴",age0),by["rep"]>=0x4&&"att"===c7&&bz["apps"]>=0x13&&bz["ovr"]>=0x55&&bz["lgGoals"]>=_euroTopTarget(age0)&&b5(a0["AWARDS"]["boot"],age0),bz["apps"]>=0x1e&&a0["ROLES"][bz["role"]]["rank"]>=0x3&&bz["ovr"]>=0x4a&&ad()<0.35&&b5(by["name"]+"最佳球员",age0),bz["apps"]>=0x13&&by["rep"]>=0x3&&'gk'===c7&&bz["ovr"]>=0x55&&ad()<0.45&&b5(a0["AWARDS"]["glove"],age0);
+}(a0["AWARDS"]["ballon"])||ad()<0.35)&&b5(a0["AWARDS"]["ballon"],age0),bz["apps"]>=0x13&&bz["ovr"]>=0x54&&ad()<0.35&&b5(a0["AWARDS"]["afcpoy"],age0),bz["apps"]>=0x13&&bz["lgGoals"]>=_leagueTopTarget(by['id'],age0)&&b5(by["name"]+"金靴",age0),by["rep"]>=0x4&&bz["apps"]>=0x13&&bz["ovr"]>=0x55&&bz["lgGoals"]>=_euroTopTarget(age0)&&b5(a0["AWARDS"]["boot"],age0),bz["apps"]>=0x1e&&a0["ROLES"][bz["role"]]["rank"]>=0x3&&bz["ovr"]>=0x4a&&ad()<0.35&&b5(by["name"]+"最佳球员",age0),bz["apps"]>=0x13&&by["rep"]>=0x3&&'gk'===c7&&bz["ovr"]>=0x55&&ad()<0.45&&b5(a0["AWARDS"]["glove"],age0);
 }else{var c8=(0.06+0.24*aL())*('gk'===c7?0.25:0x1),c9t=0,c9i;
 for(c9i=0;c9i<a2["trophies"]["length"];c9i++)if(a2["trophies"][c9i]["age"]===age0)c9t++;
-if(c9t>0){"att"===c7&&bz["apps"]>=0x13&&bz["lgGoals"]>=_leagueTopTarget(by['id'],age0)&&b5(by["name"]+"金靴",age0),by["rep"]>=0x4&&"att"===c7&&bz["apps"]>=0x13&&bz["lgGoals"]>=_euroTopTarget(age0)&&(function(c9){var has=!0x1;
+if(c9t>0){bz["apps"]>=0x13&&bz["lgGoals"]>=_leagueTopTarget(by['id'],age0)&&b5(by["name"]+"金靴",age0),by["rep"]>=0x4&&bz["apps"]>=0x13&&bz["lgGoals"]>=_euroTopTarget(age0)&&(function(c9){var has=!0x1;
 for(var cD=0x0;cD<a2["awards"]["length"];cD++)if(a2["awards"][cD]["name"]===c9&&a2["awards"][cD]["age"]===age0)has=!0x0;
 if(!has)b5(c9,age0);
 return!0x0;
