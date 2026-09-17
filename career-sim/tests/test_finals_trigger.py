@@ -13,7 +13,7 @@ import json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import harness
 
-N = 6
+N = 14
 JS = r"""
 (function(){
 var errs=[], natTrig={}, contSettle={}, violations=[], contFinal=0, natFinal=0, promoSeen=0;

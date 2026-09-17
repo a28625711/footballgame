@@ -7,7 +7,7 @@ import harness
 SEASON = r'''
 (function(){
 var au=window.__SIMTEST.start('normal',{name:'w',origin:'sd',pos:'ST',nation:'cn',talent:1.1,number:9,foot:'r'},4242);
-au.ovr=80;au.maxOvr=90;au.money=2000;au.age=22;au.phase='career';
+au.ovr=86;au.maxOvr=92;au.money=2000;au.age=22;au.phase='career';
 au.teamId='rma';au.role='starter';au.contractLeft=2;au.seasonsAtClub=2;
 au.roleAdjust=0;au.guanxi=50;au.youthTeamId=null;
 au.flags={};au.usedEvents={};au.forceQ=[];au.pending=null;

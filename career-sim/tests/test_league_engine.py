@@ -40,7 +40,12 @@ for(var lg in st.lastTables){
   for(var i=0;i<o.length;i++){if(seen[o[i]])tblValid=false,dupMsg=lg+':'+o[i];seen[o[i]]=1;}
 }
 var devBad=null;
-for(var tid in (st.teamDev||{}))if(Math.abs(st.teamDev[tid])>8)devBad=tid;
+for(var tid in (st.teamDev||{})){
+  if(Math.abs((st.teamEra&&st.teamEra[tid])||0)>8)devBad='era:'+tid;
+  if(Math.abs((st.teamForm&&st.teamForm[tid])||0)>3)devBad='form:'+tid;
+  var _hg=(st.teamHang&&st.teamHang[tid])||0;if(_hg<0||_hg>8)devBad='hang:'+tid;
+  if(Math.abs(st.teamDev[tid])>14)devBad='dev:'+tid;
+}
 return JSON.stringify({rows:rows,lgCount:lgCount,lastTables:st.lastTables,teamDev:st.teamDev,tblValid:tblValid,dupMsg:dupMsg,devBad:devBad,seasons:au.seasons.length});
 })()
 '''
@@ -81,8 +86,8 @@ def run():
                       '%s size %s != %s' % (lg, c['lgCount'].get(lg), n))
     harness.check(c['tblValid'], 'lastTables invalid %s' % c.get('dupMsg'))
 
-    # 4) teamDev 上下限
-    harness.check(c['devBad'] is None, 'teamDev out of ±8: %s' % c['devBad'])
+    # 4) 三层实力上下限（era ±8 / form ±3 / hang 0..8 / dev ±14）
+    harness.check(c['devBad'] is None, 'strength component out of range: %s' % c['devBad'])
 
     # 5) 洲际与杯赛产出存在（冠军历史被记录）
     d = run_block(mr, 'rma', 6, 888)

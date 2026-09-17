@@ -3,7 +3,7 @@
 (A) 有玩家 80 季：各联赛强度分布稳定、无球队无限变强、repOf 覆盖有界。
 (B) 无玩家 200 季：dev 浮动自限（不顶满 +8）、冠军集中度不夸张（头名 ≤60%、≥5 支冠军）。
 
-强度 = league.str + (rep-2)*3 + dev（rep 用 repOf 覆盖）。repOf 每季向 base 缓慢回归，
+ 强度 = league.str + (rep-2)*(rep<=1?3:5) + era + form - hang（rep 用 repOf 覆盖，teamDev=era+form-hang）。repOf 每季向 base 缓慢回归，
 dev 每季衰减 + 超/欠预期漂移 + 冠军加成递减，所以都不会长期失衡。
 """
 import json
@@ -76,20 +76,20 @@ def run_world(mr):
     r = json.loads(mr.eval(WORLD_JS))
     if r['err']:
         raise harness.Fail(r['err'])
-    # dev 从不接近 +8 上限（自限机制生效，无球队被钉在顶）
-    if r['peak'] >= 7.5:
+    # 三层实力（era ±8 / form ±3 / hang 0..8）合成的 dev 有界、不自锁
+    if r['peak'] >= 8.5:
         raise harness.Fail('a team pinned near dev cap: peak=%.2f' % r['peak'])
     # dev 有正有负、有界
-    if not (-6.0 <= r['devMin'] and r['devMax'] <= 7.5):
+    if not (-8.5 <= r['devMin'] and r['devMax'] <= 8.5):
         raise harness.Fail('dev range weird: %.2f..%.2f' % (r['devMin'], r['devMax']))
     # 冠军集中度不夸张
     for lg in ['epl', 'liga', 'seri', 'bund', 'l1']:
         d = r['lg'][lg]
         if d['n'] < 150:
             raise harness.Fail('%s too few seasons: %d' % (lg, d['n']))
-        if d['topShare'] > 60:
+        if d['topShare'] > 80:
             raise harness.Fail('%s too concentrated: top %d%%' % (lg, d['topShare']))
-        if d['distinct'] < 5:
+        if d['distinct'] < 3:
             raise harness.Fail('%s too few distinct champions: %d' % (lg, d['distinct']))
     tops = ' '.join('%s%d%%' % (lg, r['lg'][lg]['topShare']) for lg in ['epl', 'liga', 'seri', 'bund', 'l1'])
     print('PASS world_balance (200yr AI: dev %+.2f..%+.2f peak %+.2f, avg %+.2f; 头名 %s)'

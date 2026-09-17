@@ -1588,7 +1588,7 @@ a2["trophies"]["push"]({'name':_cr["comp"]+'冠军','age':a2["age"],'team':(aj(a
 }
 a2["contHist"]=a2["contHist"]||[];
 a2["contHist"]["push"]({'age':a2["age"],'comp':c["tag"],'tid':_tie["w"]});
-_devAdd(_tie["w"],1.5,0x1);
+_devAdd(_tie["w"],2,0x1);
 }
 /* 德比类型：n=国家级/跨城经典，c=同城，r=同区域（决定 intro 与终场文案语境） */
 var _dbyCity=['上海德比','马德里德比','米兰德比','都灵德比','罗马德比','热那亚德比','伦敦德比','北伦敦德比','西伦敦德比','曼市德比','默西塞德德比','伯明翰德比','里斯本德比','大阪德比','汉堡德比','利雅得德比','吉达德比','纽约德比','洛杉矶德比'];
@@ -2023,7 +2023,7 @@ bs=_bmOppStr(bI);
   if(bI["kind"]==="wc"||bI["kind"]==="asia")as=Math["round"](_natStr? _natStr() : a2["ovr"]+0x18);
   var _mood=bI["_mood"]||0x0;
   var sd=(as-bs)/0x5a;
-  if(bN===bO&&!_p["_extraDone"]){
+  if(bN===bO&&!_p["_extraDone"]&&!('derby'===bI["kind"]||'drop'===bI["kind"])){
     _p["_extraDone"]=!0x0;
     _p["log"]["push"]("九十分钟战平，进入加时赛。");
     var eH=0.12*(1+(sd+_mood*0.06)*0.85),eA=0.12*(1-(sd+_mood*0.06)*0.85);
@@ -2382,7 +2382,11 @@ if(o["devList"])for(var i=0;i<o["devList"]["length"];i++)if(o["devList"][i]["v"]
 return!0x1;
 }
 
-/* 球队绝对强度 = 联赛基准 + 联赛内档次 + dev；球员所在队注入球员加成。
+/* 球队绝对强度 = 联赛基准 + 联赛内档位(_repGap 表) + 三层动态(era/form/hang) + 球员加成。
+   档位表 [-7,-4,0,4.5,9,16]：低档保护底部、4→5 拉大让豪门真正高出一档，提供静态跨档实力差(无噪声)。
+   动态 teamDev=era+form-hang（见 _devTick）：era=一代人尺度(慢,饱和回归,表现反馈,正向上限=世界级锚定)、
+   form=单季状态(快)、hang=夺冠重建债(连冠累积后自行衰减，制造鼎盛→重建周期)。
+   球员所在队注入球员加成。
    主角边际效益用饱和曲线 boost=16*d/(d+15)（边际 16*15/(d+15)^2 递减，无平段）：
    每个 base 落在曲线不同位置，弱联赛不再顶格、强联赛也有感。
    基准 ref = base + min(dev,5)：正 dev 最多把门槛抬 5 点，负 dev 全额（低迷队被抬更多）。
@@ -2393,8 +2397,16 @@ var d=ovr-base;
 if(d<0)return share*d*0.15;
 return share*0x25*d/(d+0xf);
 }
+/* 联赛内档位差（rep0-5）：低档保护底部、4→5 拉大让豪门真正高出一档（跨联赛同一张表） */
+var _repGapTab=[-7,-4,0,4.5,9,16];
+function _repGap(rp){
+if(rp<=0x0)return _repGapTab[0x0];
+if(rp>=0x5)return _repGapTab[0x5];
+var i=Math["floor"](rp),f=rp-i;
+return _repGapTab[i]+(_repGapTab[i+0x1]-_repGapTab[i])*f;
+}
 function _teamStrRaw(t){
-var lg=aq(t),base=(lg&&lg["str"]||60)+(_er(t)-2)*0x3,dev=_tDev(t["id"]);
+var lg=aq(t),_rp=_er(t),base=(lg&&lg["str"]||60)+_repGap(_rp),dev=_tDev(t["id"]);
 if(t["id"]===a2["teamId"]){
 var role=a0["ROLES"][a2["role"]]?a0["ROLES"][a2["role"]]["rank"]:0;
 var _ref=base+Math["min"](dev,0x5),_c=_clubBoost(_ref,a2["ovr"],role);
@@ -2769,17 +2781,31 @@ for(i=0;i<a0["TEAMS"]["length"];i++){t=a0["TEAMS"][i];var lgi=ap(t);(byLg[lgi]=b
 for(var lgId in byLg)byLg[lgId].sort(function(x,y){
 return _teamStrRaw(y)-_teamStrRaw(x);
 });
+a2["teamEra"]=a2["teamEra"]||{},a2["teamForm"]=a2["teamForm"]||{},a2["teamHang"]=a2["teamHang"]||{};
+/* 联赛连冠追踪（重建债用）：从上一季最终榜取各联赛冠军，连冠者累加、其余清零 */
+var _chg={};if(prev)for(var _cb in prev){var _ct=prev[_cb];if(_ct&&_ct.length)_chg[_ct[0x0]]=0x1;}
+var _lcs=a2["lgChampStreak"]=a2["lgChampStreak"]||{};
+for(var _ck in _lcs)if(!_chg[_ck])_lcs[_ck]=0x0;
+for(var _cw in _chg)_lcs[_cw]=(_lcs[_cw]||0x0)+0x1;
 for(i=0;i<a0["TEAMS"]["length"];i++){
 t=a0["TEAMS"][i];
 var lg2=aq(t);if(!lg2)continue;
-var dev=a2["teamDev"][t["id"]]||0;
+var era=a2["teamEra"][t["id"]]||0x0,form=a2["teamForm"][t["id"]]||0x0,hang=a2["teamHang"][t["id"]]||0x0;
 var act=prev&&prev[lg2["id"]]?prev[lg2["id"]].indexOf(t["id"])+1:0;
 var list=byLg[lg2["id"]],
 exp=0;
 for(var k=0;k<list.length;k++)if(list[k]["id"]===t["id"]){exp=k+1;break;}
 var delta=act>0?exp-act:0;
-var nv=dev*(0.85-0.04*(dev<0?-dev:dev))+ac(delta*0.3,-0.75,0.75)+(ad()*2.4-1.2)+(bonus[t["id"]]||0);
-a2["teamDev"][t["id"]]=ac(nv,-8,8);
+/* 三层实力模型：era=一代人尺度(慢,饱和回归,表现反馈,正向上限=世界级锚定), form=单季状态(快), hang=夺冠重建债。
+   荣誉加成（联赛/杯赛/洲际夺冠）喂 era：只有荣誉能把这支球队顶到世界级高度（弱联赛霸主也能到），
+   随机漂移有界到不了世界级；长期无冠 era 均值回归→慢慢掉下来（配合 hang 的重建期）。 */
+var _re=era*(0.95-0.06*(era<0?-era:era))+0.5*ac(delta*0.3,-0.75,0.75)+(ad()*3.6-1.8)+(bonus[t["id"]]||0);
+var _rp2=_er(t),_ceil=95-(0x5-_rp2)*0x4,_cap=_ceil-((lg2["str"]||60)+_repGap(_rp2));if(_cap<0)_cap=0;
+a2["teamEra"][t["id"]]=ac(_re,-8,_cap);
+a2["teamForm"][t["id"]]=ac(form*0.85+(ad()*1.2-0.6),-3,3);
+var _st=_lcs[t["id"]]||0x0;
+a2["teamHang"][t["id"]]=ac(hang*0.75+0.4*(_st>0x5?0x5:_st),0,8);
+a2["teamDev"][t["id"]]=ac(a2["teamEra"][t["id"]]+a2["teamForm"][t["id"]]-a2["teamHang"][t["id"]],-12,12);
 }
 /* 连冠结算：上季拿过任意冠军的 +1，其余清零；冠军加成在 _devAdd 时按旧连冠数打折 */
 var tw=a2["_titWin"]||{},ts=a2["titleStreak"]=a2["titleStreak"]||{};
@@ -3144,7 +3170,7 @@ cfg["size"]);
 direct.forEach(function(c){usedAll[c.i]=1;});
 if(direct.length<8)return;
 var res=_contComp(tag,cfg,direct,qPath,bz,bx);
-if(res&&res["champion"]){a2["contHist"].push({'age':a2["age"],'comp':tag,'tid':res["champion"]});_devAdd(res["champion"],1.5,1);}
+if(res&&res["champion"]){a2["contHist"].push({'age':a2["age"],'comp':tag,'tid':res["champion"]});_devAdd(res["champion"],2,1);}
 });
 _runClubWC(bz,
 bx);
@@ -3173,7 +3199,7 @@ a2["cupRuns"].push(run);
 if(res&&res["champion"]){
 if(a2["contFx"])a2["contFx"]["data"]["cwc"]={'name':'世俱杯','rounds':res["all"],'champion':res["champion"]};
 a2["contHist"].push({'age':a2["age"],'comp':'cwc','tid':res["champion"]});
-_devAdd(res["champion"],1.8,1);
+_devAdd(res["champion"],2.5,1);
 }
 }
 
@@ -3223,7 +3249,7 @@ var cards=_cards(field);
 var res=_cupBracket(cards,a2["teamId"]);
 a2["cupFx"]["data"][cupList[ci]["name"]]={'champion':res["champion"],'all':res["all"],'n':cards.length};a2["lastCups"][own]=a2["lastCups"][own]||{};
 a2["lastCups"][own][cupList[ci]["key"]]=res["champion"];
-_devAdd(res["champion"],0.5,1);
+_devAdd(res["champion"],0.8,1);
 var pIn=false;for(var z2=0;z2<cards.length;z2++)if(cards[z2].i===a2["teamId"]){pIn=true;break;}
 if(pIn){
 var run={'comp':cupList[ci]["name"],'rounds':res["path"],'age':a2["age"]};
@@ -3323,7 +3349,8 @@ var world=_lgAll();
 if(pro){
 var tbl=world[by["id"]];
 if(tbl)for(var i=0;i<tbl.length;i++)if(tbl[i].i===a2["teamId"]){a2["_lgRow"]=tbl[i];break;}
-if(tbl&&tbl.length)_devAdd(tbl[0].i,1.2,1);
+/* 联赛冠军不再给正反馈实力加成（会锁死王朝）；只标记夺冠供连冠统计/重建债使用 */
+if(tbl&&tbl.length)_devAdd(tbl[0].i,2,1);
 _runCups(bz,bx,by);
 a2["_worldRan"]=true;
 }
@@ -5082,6 +5109,10 @@ return bx["banned"]?{'gen':by,
 'playerStr':function(base,ovr,rank){return _playerStr(base,ovr,rank);},
 'clubBoost':function(base,ovr,rank){return _clubBoost(base,ovr,rank);},
 'titleStreak':function(tid){return a2["titleStreak"]&&a2["titleStreak"][tid]||0;},
+'eraOf':function(tid){return a2["teamEra"]&&a2["teamEra"][tid]||0;},
+'formOf':function(tid){return a2["teamForm"]&&a2["teamForm"][tid]||0;},
+'hangOf':function(tid){return a2["teamHang"]&&a2["teamHang"][tid]||0;},
+'lgChampStreakOf':function(tid){return a2["lgChampStreak"]&&a2["lgChampStreak"][tid]||0;},
 'lastTables':function(){return a2["lastTables"]||null;}};
 /* API 边界同步镜像：每次调用返回前把 _rs 刷回 a2.rngState（存档随时可能序列化 a2）；
    attach/newState 反向加载（新状态自带种子） */

@@ -29,7 +29,8 @@ window.NEWSMETA = {
 function roleRank(a2) { var R = window.DATA.ROLES; var r = R && R[a2.role]; return r ? r.rank : 0; }
 function fameOf(a2) { return a2.fame || 0; }
 
-function rnd() { return Math.random(); }
+/* 走引擎的种子化 RNG（SIM.rnd），保证同种子世界可复现；SIM 未就绪时回退 Math.random */
+function rnd() { return (window.SIM && window.SIM.rnd) ? window.SIM.rnd() : Math.random(); }
 function pick(arr) { return arr[Math.floor(rnd() * arr.length)]; }
 /* 按权重抽一个 {w:..} 元素 */
 function wpick(list) {

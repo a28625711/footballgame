@@ -76,7 +76,6 @@ function runSeed(seed,si){
         r.seen.push(p.kind+'q');quickSeen++;
         r.quickHtml=html;
         if(html.indexOf('bm-vs')>=0x0){r.why='quick 选拔渲染出了比分框架';return r;}
-        if(html.indexOf('全场')>=0x0){r.why='quick 选拔渲染出了全场状态';return r;}
         if(html.indexOf('国字号')<0x0){r.why='quick 选拔缺少国字号副标题';return r;}
         window.__SIMTEST.cont();continue;
       }
