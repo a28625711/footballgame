@@ -210,11 +210,11 @@ var positions =[{'id':'GK','name':'门将','group':'gk'},{'id':'CB','name':"中�
 ﻿// 由 tools/build_data.py 生成模块——修改后运行 tools/build_data.py 重建
 // 定义: window.DATA.LEAGUES
 var leagues =[{'id':"csl",'name':'中超',
-'country':'CN','rep':0x2,'str':0x31,'cn':!0x0,'cup':"足协杯",'cont':'亚冠','leagueCup':null,'superCup':"中国超级杯"},{'id':"epl",'name':'英超','country':'EN','rep':0x5,'str':0x4a,'cn':!0x1,'cup':"足总杯",
-'cont':'欧冠','leagueCup':"英联杯",'superCup':"社区盾"},{'id':"liga",'name':'西甲','country':'ES','rep':0x5,'str':77,'cn':!0x1,'cup':"国王杯",'cont':'欧冠','leagueCup':null,'superCup':"西班牙超级杯"},
+'country':'CN','rep':0x2,'str':0x31,'cn':!0x0,'cup':"足协杯",'cont':'亚冠','leagueCup':null,'superCup':"中国超级杯"},{'id':"epl",'name':'英超','country':'EN','rep':0x5,'str':74,'cn':!0x1,'cup':"足总杯",
+'cont':'欧冠','leagueCup':"英联杯",'superCup':"社区盾"},{'id':"liga",'name':'西甲','country':'ES','rep':0x5,'str':76,'cn':!0x1,'cup':"国王杯",'cont':'欧冠','leagueCup':null,'superCup':"西班牙超级杯"},
 {'id':"bund",'name':'德甲',
 'country':'DE','rep':0x4,'str':74.5,'cn':!0x1,'cup':"德国杯",'cont':'欧冠','leagueCup':null,'superCup':"德国超级杯"},{'id':"seri",'name':'意甲','country':'IT','rep':0x4,'str':0x48,'cn':!0x1,'cup':"意大利杯",
-'cont':'欧冠','leagueCup':null,'superCup':"意大利超级杯"},{'id':'l1','name':'法甲','country':'FR','rep':0x4,'str':75,'cn':!0x1,'cup':"法国杯",'cont':'欧冠','leagueCup':null,'superCup':"法国超级杯"},
+'cont':'欧冠','leagueCup':null,'superCup':"意大利超级杯"},{'id':'l1','name':'法甲','country':'FR','rep':0x4,'str':74.5,'cn':!0x1,'cup':"法国杯",'cont':'欧冠','leagueCup':null,'superCup':"法国超级杯"},
 {'id':"ere",'name':'荷甲','country':'NL',
 'rep':0x3,'str':0x3d,'cn':!0x1,'cup':"荷兰杯",'cont':'欧联','leagueCup':null,'superCup':"荷兰超级杯"},{'id':"pri",'name':'葡超','country':'PT','rep':0x3,'str':0x3f,'cn':!0x1,'cup':"葡萄牙杯",'cont':'欧联',
 'leagueCup':null,'superCup':"葡萄牙超级杯"},
