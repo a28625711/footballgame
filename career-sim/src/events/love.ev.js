@@ -741,6 +741,147 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
 }
     }
   ]
+},
+
+
+// ==== 连续事件链：青训早恋（国内 / 国外 → 成年后重逢） ====
+
+{
+  'id': "youth_cru"+"sh_cn",
+  'title': "晚自习后的操场",
+  'icon': '💌',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){
+return p["inAcademy"]&&p["inChina"]&&!p["_crush"];
+},
+  'desc': "晚自习下课，同校的女生在操场边等你。她递过来一封信，说：等你踢进一线队，再拆。",
+  'options': [
+    {
+        'label': "现在就拆开",
+        'hint': "有个人了，能力-1",
+        'apply': function(){
+return{'partner':"初恋·同校女生",'guanxi':0x4,'ovr':-0x1,'_crush':0x1,'text':"信上只有一句话：我看过你每一场校队比赛。那天晚上你没睡着，第二天训练被教练骂了两次。"};
+}
+    },
+    {
+        'label': "锁进柜子，先踢球",
+        'hint': "能力+2，天赋+",
+        'apply': function(){
+return{'ovr':0x2,'talent':0.02,'_crush':0x1,'text':"你把信压在球鞋底下。那年冬训你跑得最多，教练说你眼神变了。"};
+}
+    },
+    {
+        'label': "把信还回去",
+        'hint': "能力+1，清白+",
+        'apply': function(){
+return{'ovr':0x1,'clean':0x4,'_crush':0x1,'text':"你说，等我踢出来再说。她点了点头，转身走了。后来你听说，她考去了外地。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "youth_cru"+"sh_abroad",
+  'title': "语言班的同桌",
+  'icon': '🌍',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){
+return p["inAcademy"]&&!p["inChina"]&&!p["_crush"];
+},
+  'desc': "青训基地的语言课上，同桌是个本地女孩。她每天帮你抄战术板上的生词，抄了整整一个冬天。",
+  'options': [
+    {
+        'label': "请她看一场你的训练",
+        'hint': "有个人了，能力+1",
+        'apply': function(){
+return{'partner':"初恋·语言课同桌",'ovr':0x1,'talent':0.02,'_crush':0x2,'text':"她站在场边看完了整堂训练。结束后她说：你踢球的时候，一点都不像那个连点餐都要比划的人。"};
+}
+    },
+    {
+        'label': "把生词本背完再说",
+        'hint': "能力+2，天赋+",
+        'apply': function(){
+return{'ovr':0x2,'talent':0.02,'_crush':0x2,'text':"你把她抄的生词全背了下来。半年后你在更衣室里，第一次听懂了教练骂人的整句话。"};
+}
+    },
+    {
+        'label': "保持距离，先留下",
+        'hint': "能力+2",
+        'apply': function(){
+return{'ovr':0x2,'_crush':0x2,'text':"你知道自己随时可能被淘汰。那个冬天，你把所有时间都给了训练场和录像室。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "first_lo"+"ve_cn",
+  'title': "老同学聚会",
+  'icon': '🍶',
+  'stage': "prime",
+  'when': function(p){
+return p["_crush"]===0x1&&p["age"]>=0x15;
+},
+  'desc': "回老家过年，同学聚会上又见到她。她现在在银行上班，听说你还在踢球，愣了一下。",
+  'options': [
+    {
+        'label': "把当年那封信说开",
+        'hint': "看缘分",
+        'apply': function(p,q,s){
+return p["hasPartner"]?{'guanxi':0x8,'fame':0x4,'text':"你讲了那封信。她笑着说，其实那时候全班都知道。你俩碰了杯，像两个老朋友。"}:{'partner':"重逢的初恋",'guanxi':0x6,'ovr':0x1,'text':"你讲了那封信。她沉默了一会儿，说：那句话，现在还作数吗。散场时，你们一起走了很长的路。"};
+}
+    },
+    {
+        'label': "只聊现在，不提从前",
+        'hint': "能力+2",
+        'apply': function(){
+return{'ovr':0x2,'guanxi':0x4,'text':"你们聊了房价、工作、老同学的八卦。走的时候她说：你还是老样子，什么都不肯说。"};
+}
+    },
+    {
+        'label': "请她去看你一场球",
+        'hint': "名气+，破费",
+        'apply': function(){
+return{'fame':0x8,'money':-0xf,'guanxi':0x4,'text':"第二周她真的来了，还带了个朋友。赛后你在通道口见到她，她说：原来你在场上，是这个样子的。"};
+}
+    }
+  ]
+},
+
+{
+  'id': "first_lo"+"ve_abroad",
+  'title': "回到那座小城",
+  'icon': '✈️',
+  'stage': "prime",
+  'when': function(p){
+return p["_crush"]===0x2&&p["age"]>=0x15;
+},
+  'desc': "欧战客场，你回到了当年青训的那座小城。赛前踩场，看台角落里坐着一个熟悉的人。",
+  'options': [
+    {
+        'label': "赛后去见她",
+        'hint': "看缘分",
+        'apply': function(p,q,s){
+return p["hasPartner"]?{'guanxi':0x8,'fame':0x4,'text':"她在球员通道外等了一个多小时。你们聊了二十分钟，大部分时间都在笑。临走她说：我就知道你会有今天。"}:{'partner':"重逢的初恋",'guanxi':0x6,'ovr':0x1,'text':"她在球员通道外等了一个多小时。你说：这次我不走了。她没说话，只是把手里的旧围巾递给了你。"};
+}
+    },
+    {
+        'label': "把注意力留在比赛上",
+        'hint': "能力+3",
+        'apply': function(){
+return{'ovr':0x3,'text':"你把那一眼收进心里，然后专注于眼前的九十分钟。那场比赛，你踢出了赛季最好的状态。"};
+}
+    },
+    {
+        'label': "让人送一张球票过去",
+        'hint': "名气+，破费",
+        'apply': function(){
+return{'fame':0x8,'money':-0xf,'guanxi':0x4,'text':"她坐在最好的位置看完了整场。赛后你只来得及挥手，但你知道，她看见了。"};
+}
+    }
+  ]
 }
 
 ];

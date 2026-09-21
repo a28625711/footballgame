@@ -419,7 +419,8 @@ by=as(),bz={'age':a2["age"],'ovr':a2["ovr"],'talent':a2["talent"],'guanxi':a2["g
 'partnerYears':a2["life"]&&a2["life"]["partner"]?a2["age"]-a2["life"]["partner"]["since"]:0x0,'married':!(!a2["life"]||!a2["life"]["married"]),
 'kids':a2["life"]&&a2["life"]["kids"]["length"]||0x0,'seasonsAtClub':a2["seasonsA"+"tClub"],'seasonsAbroad':a2["seasonsA"+"broad"],'contractLeft':a2["contract"+"Left"],'contractFinal':(a2["contract"+"Left"]||0x0)<=0x1,
 'clubRep':bx?bx["rep"]:0x0,'leagueId':by?by['id']:null,'country':by?by["country"]:null,'leagueRep':by?by["rep"]:0x0,'hasCont':!(!by||!by["cont"]),
-'rivalId':aC()&&aC()['id'],'teamId':a2["teamId"],'isCaptain':a2["flags"]["_captain"]===a2["teamId"],'capDone':a2["capDone"]||[]};
+'rivalId':aC()&&aC()['id'],'teamId':a2["teamId"],'isCaptain':a2["flags"]["_captain"]===a2["teamId"],'capDone':a2["capDone"]||[],
+'foot':a2["foot"],'number':a2["number"],'youthTeamId':a2["youthTea"+"mId"]||'','clubsCount':(a2["clubsPla"+"yed"]||[])["length"]};
 for(var bA in a2["flags"])a2["flags"]["hasOwnPr"+"operty"](bA)&&(bz[bA]=a2["flags"][bA]);
 return bz;
 }function aB(bx){
@@ -518,7 +519,7 @@ bx["capDecline"]&&((a2["capDone"]||(a2["capDone"]=[]))["indexOf"](a2["teamId"])<
 
 
 bx["ntCaptain"]&&(a2["flags"]["_ntCaptain"]=!0x0);
-return["ageFraud","yinyang","fixed","gambled","degree","coachCer"+'t',"academy","bianzhi","assistan"+'t',"scout","_friend","_fan","_mentor","_rival","_sponsor","_injuryChain","_vetInviteDone","_vetInviteTeam"]["forEach"](function(bI){
+return["ageFraud","yinyang","fixed","gambled","degree","coachCer"+'t',"academy","bianzhi","assistan"+'t',"scout","_friend","_fan","_mentor","_rival","_sponsor","_injuryChain","_vetInviteDone","_vetInviteTeam","_crush","_metStar","_footDone","_footPath","_bloom","_numDone","_echoHome"]["forEach"](function(bI){
 bx[bI]&&(a2["flags"][bI]=bx[bI]);
 }),
 
@@ -3398,10 +3399,14 @@ var _chainNext={
 'mentor_find':{'id':'mentor_grow','y':0x3},'mentor_grow':{'id':'mentor_pass','y':0x4},
 'rival_youth':{'id':'rival_pro','y':0x4},'rival_pro':{'id':'rival_clash','y':0x2},'rival_clash':{'id':'rival_end','y':0x3},
 'sponsor_deal':{'id':'sponsor_conflict','y':0x3},'sponsor_conflict':{'id':'sponsor_end','y':0x3},
-'injury_chain_bad':{'id':'injury_chain_comeback','y':0x1},'injury_chain_comeback':{'id':'injury_chain_philosophy','y':0x2}};
+'injury_chain_bad':{'id':'injury_chain_comeback','y':0x1},'injury_chain_comeback':{'id':'injury_chain_philosophy','y':0x2},
+'youth_crush_cn':{'id':'first_love_cn','y':0x7},'youth_crush_abroad':{'id':'first_love_abroad','y':0x7},
+'youth_meet_star':{'id':'meet_star_again','y':0x4},
+'foot_left':{'id':'foot_reckoning','y':0x8},'foot_right':{'id':'foot_reckoning','y':0x8}};
 var _chainFollower={'friend_part':1,'friend_reunion':1,'friend_end':1,'fan_match':1,'fan_social':1,'fan_pro':1,
 'mentor_grow':1,'mentor_pass':1,'rival_pro':1,'rival_clash':1,'rival_end':1,
-'sponsor_conflict':1,'sponsor_end':1,'injury_chain_comeback':1,'injury_chain_philosophy':1};
+'sponsor_conflict':1,'sponsor_end':1,'injury_chain_comeback':1,'injury_chain_philosophy':1,
+'first_love_cn':1,'first_love_abroad':1,'meet_star_again':1,'foot_reckoning':1};
 function _scheduleEvent(bx,by){a2["forceLater"]=a2["forceLater"]||[];a2["forceLater"]["push"]({'id':bx,'due':(a2["age"]||0x0)+(by||0x0)});}
 function _chainAdvance(bx){var _n=_chainNext[bx];if(_n)_scheduleEvent(_n["id"],_n["y"]);}
 /* 到期扫描：满足 when/stage 才入 forceQ，否则顺延；过期超过 15 年丢弃 */

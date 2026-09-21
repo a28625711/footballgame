@@ -209,6 +209,195 @@ var EVT_club=[
     {'label': "用态度赢回尊重", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x8,'ovr':0x2,'text':"你每天第一个到、最后一个走。三个月后，那个说过风凉话的老将，把队长袖标塞给你保管。"};}},
     {'label': "憋着这股气，只练不交朋友", 'p': function(p){return f(0.5,[[p["talent"],1,0.3]],0.22,0.85);}, 'hint': function(p,q){return g(q,"练出了东西","越练越孤");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'talent':0.04,'guanxi':-0x4,'text':"你把所有委屈都砸进了训练。赛季末，你的数据让所有人闭嘴。只是更衣室里，依然没人叫你一起吃饭。"}:{'ovr':-0x1,'guanxi':-0x6,'text':"你越练越闷，越想越苦。技术在长，人却在缩。教练说：你这样踢不长久。"};}}
   ]
+},
+
+
+// ---- idx:374 | youth_meet_star | 训练场边的背影 ----
+{
+  'id': "youth_meet_star",
+  'title': "训练场边的背影",
+  'icon': '🌟',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&p["teamId"]&&!p["_metStar"];},
+  'desc': "一线队来梯队打教学赛。终场后，那个你在电视上看过无数次的背影，从你身边走过去。",
+  'options': [
+    {'label': "追上去要个签名", 'hint': "人脉+2，名气+3", 'apply': function(p){return{'guanxi':0x2,'fame':0x3,'_metStar':p["teamId"],'text':"他签完名，回头看了你一眼：「梯队的小孩？脚下别急，先把身体练出来。」"};}},
+    {'label': "问一个战术问题", 'hint': "能力+1，天赋+", 'apply': function(p){return{'ovr':0x1,'talent':0.02,'_metStar':p["teamId"],'text':"你问他为什么总在接球前回头看。他愣了一下，说：因为球不会自己来找你。这句话你记了很多年。"};}},
+    {'label': "站在原地，什么也没说", 'hint': "能力+1", 'apply': function(p){return{'ovr':0x1,'_metStar':p["teamId"],'text':"你只是看着。那天晚上你在日记本上写：总有一天，我也要站在那块场地上。"};}}
+  ]
+},
+
+
+// ---- idx:375 | meet_star_again | 更衣柜挨着 ----
+{
+  'id': "meet_star_again",
+  'title': "更衣柜挨着",
+  'icon': '👕',
+  'weight': 0x2e,
+  'when': function(p){return p["_metStar"]&&p["_metStar"]===p["teamId"]&&!p["inAcademy"]&&p["age"]>=0x13;},
+  'desc': "更衣室里，你的柜子挨着那个名字。他比你大十二岁，跑不动了，但每次训练结束都会多留二十分钟。",
+  'options': [
+    {'label': "留下来陪他加练", 'hint': "能力+2，关系+4", 'apply': function(){return{'ovr':0x2,'talent':0.02,'guanxi':0x4,'text':"他没教你什么技术，只是让你陪他一遍遍练那脚定位球。三个月后，你发现自己的停球稳了一档。"};}},
+    {'label': "问他当年是怎么踢出来的", 'hint': "关系+6，名气+3", 'apply': function(){return{'guanxi':0x6,'fame':0x3,'ovr':0x1,'text':"他从十六岁讲起，讲了一个下午。临走他说：别学我，我年轻时太急了。"};}},
+    {'label': "把他的位置抢过来", 'hint': "能力+3，关系-4", 'apply': function(){return{'ovr':0x3,'guanxi':-0x4,'text':"训练里你一次次过他。教练看在眼里。他什么也没说，只是把柜子里的东西，慢慢搬走了。"};}}
+  ]
+},
+
+
+// ---- idx:376 | foot_left | 那只左脚 ----
+{
+  'id': "foot_left",
+  'title': "那只左脚",
+  'icon': '🦶',
+  'weight': 0x32,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&p["foot"]==="left"&&!p["_footDone"];},
+  'desc': "青年队教练第一次看你训练，盯着你的左脚看了很久。他说：这种球，别人两只脚都踢不出来。可下一句是——所以你只有一条路。",
+  'options': [
+    {'label': "把左脚练成招牌", 'p': function(p){return f(0.62,[[p["talent"],1,0.3]],0.25,0.9);}, 'hint': function(p,q){return g(q,"左脚成名","一条腿走不远");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'talent':0.05,'fame':0x4,'_footDone':0x1,'_footPath':0x2,'text':"你把所有加练时间都给了左脚。半年后，队里最刁的任意球，主罚的人变成了你。"}:{'ovr':0x1,'_footDone':0x1,'_footPath':0x2,'text':"你练得很苦，但对手很快摸清了：不让你左脚起球，你就没了办法。"};}},
+    {'label': "逼自己练右脚", 'p': function(p){return f(0.5,[[p["talent"],1,0.35]],0.2,0.85);}, 'hint': function(p,q){return g(q,"双脚均衡","别扭了一整年");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'talent':0.03,'_footDone':0x1,'_footPath':0x1,'text':"最开始你连停球都别扭。两年后，教练在战术板上写：他可以左右开弓。"}:{'ovr':-0x1,'_footDone':0x1,'_footPath':0x1,'text':"你花了整整一年，还是习惯性地把球往左边拨。教练叹了口气，没再提这件事。"};}}
+  ]
+},
+
+
+// ---- idx:377 | foot_right | 只会一只脚 ----
+{
+  'id': "foot_right",
+  'title': "只会一只脚",
+  'icon': '🦶',
+  'weight': 0x32,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&p["foot"]==="right"&&!p["_footDone"];},
+  'desc': "你右脚很顺。教练把录像停在一次进攻上，指着屏幕说：看，这里明明有更好的选择，但你不敢用左脚。",
+  'options': [
+    {'label': "苦练逆足", 'p': function(p){return f(0.45,[[p["talent"],1,0.35]],0.18,0.82);}, 'hint': function(p,q){return g(q,"左右开弓","白练一年");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'talent':0.03,'_footDone':0x1,'_footPath':0x1,'text':"你从最基础的触球开始重练。一个赛季后，左脚虽然不如右脚，但已经能骗过防守球员。"}:{'ovr':-0x1,'_footDone':0x1,'_footPath':0x1,'text':"逆足这东西，练了整整一年，比赛里你还是不敢用。教练说：算了，那就把右脚练成怪物。"};}},
+    {'label': "把右脚练到极致", 'p': function(p){return f(0.6,[[p["talent"],1,0.3]],0.25,0.9);}, 'hint': function(p,q){return g(q,"一脚绝活","平平无奇");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'talent':0.04,'fame':0x3,'_footDone':0x1,'_footPath':0x2,'text':"你把右脚练到队里没人敢跟你比。教练摇头说：可惜，你只有一只脚。可那只脚，够用了。"}:{'ovr':0x1,'_footDone':0x1,'_footPath':0x2,'text':"你练了很多，但没有一样练到顶尖。成年以后你才明白，天赋的差距，有时候练不出来。"};}}
+  ]
+},
+
+
+// ---- idx:378 | foot_reckoning | 两只脚的账 ----
+{
+  'id': "foot_reckoning",
+  'title': "两只脚的账",
+  'icon': '🧾',
+  'stage': "prime",
+  'when': function(p){return p["_footPath"]&&p["age"]>=0x15;},
+  'desc': "理疗师把一份体测报告推到你面前：惯用脚使用率、变向次数、旧伤位置。他说，三十岁以后，这些数字会一个一个找回来。",
+  'options': [
+    {'label': "从现在开始补弱侧", 'p': function(p){return f(p["_footPath"]===0x1?0.66:0.5,[[p["talent"],1,0.3]],0.25,0.9);}, 'hint': function(p,q){return g(q,"踢到了三十七岁","伤病找上门");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'talent':0.02,'text':"你把弱侧补到了能用的程度。后来那些本该断裂的韧带，多撑了整整四个赛季。"}:{'ovr':-0x1,'health':1.1,'text':"你补得太晚了。膝盖和脚踝开始轮流报警，理疗室的椅子，你比谁都熟。"};}},
+    {'label': "把强项练到别人追不上", 'p': function(p){return f(0.55,[[p["ovr"],70,0.006]],0.22,0.88);}, 'hint': function(p,q){return g(q,"招牌依旧","被研究透了");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x5,'text':"你的那只脚还是没人挡得住。解说员说：明知道他要干什么，就是防不住。"}:{'ovr':-0x1,'roleDelta':-0x1,'text':"对手把你的录像看烂了。同一个动作，你做了十年，终于有一天，它不灵了。"};}}
+  ]
+},
+
+
+// ---- idx:379 | num_10 | 10号 ----
+{
+  'id': "num_10",
+  'title': "10号",
+  'icon': '🔟',
+  'weight': 0x2e,
+  'stage': "prime",
+  'when': function(p){return p["number"]===0xa&&!p["_numDone"];},
+  'desc': "更衣室的柜子上，10 号。墙上还留着前辈写的那句话：这个号码不是荣誉，是账单。",
+  'options': [
+    {'label': "把全队扛在肩上", 'p': function(p){return f(0.5,[[p["talent"],1,0.3],[p["ovr"],70,0.006]],0.2,0.88);}, 'hint': function(p,q){return g(q,"成了核心","背不动了");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'guanxi':0x8,'fame':0x8,'_numDone':0x1,'text':"你开始主动要球，主动担责。输球后的发布会，你站在最前面。一个赛季后，没有人再质疑这个号码。"}:{'ovr':-0x2,'fame':-0x5,'_numDone':0x1,'text':"你什么都想管，结果什么都没管好。看台上开始有人喊：10 号该换人了。"};}},
+    {'label': "只做自己该做的", 'p': function(p){return f(0.62,[[p["ovr"],65,0.006]],0.3,0.9);}, 'hint': function(p,q){return g(q,"稳定输出","缺乏存在感");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'_numDone':0x1,'text':"你不再强求每场都当英雄。数据不华丽，但教练说：有你在，全队都轻松。"}:{'fame':-0x3,'_numDone':0x1,'text':"你踢得很稳，稳到没人记得你。10 号穿在身上，像一件借来的衣服。"};}}
+  ]
+},
+
+
+// ---- idx:380 | num_9 | 9号 ----
+{
+  'id': "num_9",
+  'title': "9号",
+  'icon': '9️⃣',
+  'weight': 0x2e,
+  'stage': "prime",
+  'when': function(p){return p["number"]===0x9&&!p["_numDone"];},
+  'desc': "9 号。球迷只看进球数，别的一律不算。你已经连续三轮没进球了，看台上开始有人念别人的名字。",
+  'options': [
+    {'label': "顶着骂声继续抢点", 'p': function(p){return f(0.5,[[p["ovr"],68,0.007]],0.2,0.88);}, 'hint': function(p,q){return g(q,"打破球荒","越踢越急");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'fame':0x8,'_numDone':0x1,'text':"第四轮，你在门前三米把球捅了进去。看台安静了半秒，然后炸开。中锋的活，就是等这一刻。"}:{'ovr':-0x2,'fame':-0x6,'_numDone':0x1,'text':"你越急越打不进。教练把你换下时，你听见了整座球场的嘘声。"};}},
+    {'label': "后撤做球，先帮队友进", 'p': function(p){return f(0.58,[[p["guanxi"],50,0.006]],0.28,0.9);}, 'hint': function(p,q){return g(q,"成了支点","进球数难看");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x1,'guanxi':0x8,'_numDone':0x1,'text':"你不再只盯着球门。三场比赛你送出四次助攻，队友开始主动找你配合。"}:{'ovr':-0x1,'roleDelta':-0x1,'_numDone':0x1,'text':"你做了很多脏活，可赛季结束时，合同上写的还是进球数。没人给你加分。"};}}
+  ]
+},
+
+
+// ---- idx:381 | num_7 | 7号 ----
+{
+  'id': "num_7",
+  'title': "7号",
+  'icon': '7️⃣',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["number"]===0x7&&!p["_numDone"];},
+  'desc': "7 号，边路的号码。教练要你每次都过人，哪怕过完之后传球烂得一塌糊涂。",
+  'options': [
+    {'label': "一场过十次", 'p': function(p){return f(0.5,[[p["talent"],1,0.3]],0.2,0.88);}, 'hint': function(p,q){return g(q,"成了边路杀器","过不去就只能挨铲");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'fame':0x8,'_numDone':0x1,'text':"你成了联赛里被犯规最多的球员。每次拿球，对面都要派两个人。"}:{'ovr':-0x1,'health':1.1,'_numDone':0x1,'text':"你一次次往里冲，一次次被铲翻。赛季过半，脚踝已经不听话了。"};}},
+    {'label': "先保证传中质量", 'p': function(p){return f(0.6,[[p["ovr"],65,0.006]],0.3,0.9);}, 'hint': function(p,q){return g(q,"助攻上双","被说没胆量");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'guanxi':0x6,'_numDone':0x1,'text':"你的传中成了球队最稳定的进攻手段。数据不好看，但教练知道你的价值。"}:{'fame':-0x4,'_numDone':0x1,'text':"你踢得太规矩了。球迷要的是过人，不是你安全地把球回敲给后卫。"};}}
+  ]
+},
+
+
+// ---- idx:382 | num_1 | 1号 ----
+{
+  'id': "num_1",
+  'title': "1号",
+  'icon': '1️⃣',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["number"]===0x1&&p["posGroup"]==="gk"&&!p["_numDone"];},
+  'desc': "1 号。这个号码只有一个位置能穿。你站在门线前，回头看了一眼身后的空门——这是全队唯一没有替补帮忙的地方。",
+  'options': [
+    {'label': "把出击范围拉到最大", 'p': function(p){return f(0.5,[[p["ovr"],68,0.007]],0.2,0.88);}, 'hint': function(p,q){return g(q,"成了清道夫门将","被打身后");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x6,'_numDone':0x1,'text':"你把自己当成半个后卫。对手的长传冲吊，在你这里变成了笑话。"}:{'ovr':-0x2,'fame':-0x6,'_numDone':0x1,'text':"一次冒失的出击，你身后是空门。那个球，成了当晚所有集锦的第一个镜头。"};}},
+    {'label': "老老实实守门线", 'p': function(p){return f(0.62,[[p["ovr"],65,0.006]],0.3,0.9);}, 'hint': function(p,q){return g(q,"稳如磐石","被说太保守");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'guanxi':0x5,'_numDone':0x1,'text':"你很少出击，但该扑的一个没漏。后防线说：站在他前面，心里踏实。"}:{'fame':-0x4,'_numDone':0x1,'text':"你守得很稳，稳到没人夸你。只有丢球的时候，镜头才会切到你脸上。"};}}
+  ]
+},
+
+
+// ---- idx:383 | echo_home | 回到出道的地方 ----
+{
+  'id': "echo_home",
+  'title': "回到出道的地方",
+  'icon': '🏟️',
+  'weight': 0x2e,
+  'when': function(p){return p["youthTeamId"]&&p["teamId"]===p["youthTeamId"]&&!p["inAcademy"]&&p["clubsCount"]>=0x2&&!p["_echoHome"];},
+  'desc': "你回到了当年出道的球队。更衣室的柜子还在老位置，只是上面的名字换过好几拨。看台上有人举起一块牌子：欢迎回家。",
+  'options': [
+    {'label': "把这里当成最后一站", 'p': function(p){return f(0.6,[[p["ovr"],70,0.006]],0.3,0.9);}, 'hint': function(p,q){return g(q,"成了队魂","被说养老");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x1,'guanxi':0xa,'fame':0x6,'_echoHome':0x1,'text':"你在这里踢到退役。后来那块看台上的牌子，被挂进了俱乐部的荣誉室。"}:{'ovr':-0x1,'roleDelta':-0x1,'_echoHome':0x1,'text':"你想安稳收尾，可球队没打算给你位置。看台上的牌子，第二个月就摘了。"};}},
+    {'label': "证明他们当年不该放你走", 'p': function(p){return f(0.5,[[p["ovr"],72,0.007]],0.2,0.88);}, 'hint': function(p,q){return g(q,"打脸老东家","成了笑话");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x8,'_echoHome':0x1,'text':"对阵老东家的那场，你梅开二度。进球后你没有庆祝，只是抬头看了看那块看台。"}:{'ovr':-0x1,'fame':-0x5,'_echoHome':0x1,'text':"你太想证明什么了。整场比赛都在单干，最后被换下时，主队球迷鼓了掌。"};}}
+  ]
+},
+
+
+// ---- idx:384 | early_bloom | 同龄人还在梯队 ----
+{
+  'id': "early_bloom",
+  'title': "同龄人还在梯队",
+  'icon': '🚀',
+  'weight': 0x2c,
+  'when': function(p){return p["age"]<=0x12&&p["ovr"]>=0x3a&&!p["_bloom"];},
+  'desc': "十八岁，你已经被一线队叫去合练了。同期的人还在梯队打热身赛。有人在你背后说：这孩子，是不是太早了。",
+  'options': [
+    {'label': "趁现在能踢就多踢", 'p': function(p){return f(0.52,[[p["ovr"],50,0.008]],0.22,0.88);}, 'hint': function(p,q){return g(q,"一飞冲天","被用废了");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x4,'fame':0xa,'_bloom':0x1,'text':"你一个赛季踢了三十多场。身体没有垮，反而长得比谁都快。"}:{'ovr':-0x2,'health':1.15,'_bloom':0x1,'text':"密集的赛程压垮了你。医生在报告上写了两个字：过劳。"};}},
+    {'label': "压着节奏，别透支", 'p': function(p){return f(0.62,[[p["talent"],1,0.25]],0.32,0.9);}, 'hint': function(p,q){return g(q,"长得更扎实","错过窗口");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'talent':0.03,'_bloom':0x1,'text':"你主动要求减少出场。教练不理解，但两年后，你的身体比同批人都结实。"}:{'ovr':0x1,'fame':-0x5,'_bloom':0x1,'text':"你压得太久了。等你想踢的时候，位置上已经站了别人。"};}}
+  ]
+},
+
+
+// ---- idx:385 | late_bloom | 还没兑现 ----
+{
+  'id': "late_bloom",
+  'title': "还没兑现",
+  'icon': '⏳',
+  'weight': 0x2c,
+  'when': function(p){return p["age"]>=0x16&&p["age"]<=0x1b&&p["roleRank"]<=0x2&&p["talent"]>=1.25&&!p["_bloom"];},
+  'desc': "同期的人一个个踢上了主力。你的天赋报告还在教练组的抽屉里，纸已经发黄。有球探说：他要是再不开窍，就来不及了。",
+  'options': [
+    {'label': "留下来死磕", 'p': function(p){return f(0.5,[[p["talent"],1.3,0.35]],0.22,0.88);}, 'hint': function(p,q){return g(q,"大器晚成","熬到合同到期");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x4,'talent':0.05,'_bloom':0x1,'text':"二十五岁那年，你终于开窍了。那些年被浪费的天赋，在一个赛季里全部兑现。"}:{'ovr':0x1,'roleDelta':-0x1,'_bloom':0x1,'text':"你留了下来，又坐了两年板凳。合同到期那天，俱乐部没有续约的意思。"};}},
+    {'label': "换个环境试试", 'p': function(p){return f(0.55,[[p["talent"],1.3,0.3]],0.25,0.9);}, 'hint': function(p,q){return g(q,"换了个人","越换越差");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x4,'_bloom':0x1,'text':"一支小球队给了你首发。第一个赛季你就进了两位数。有时候差的，只是一个愿意等你的人。"}:{'ovr':-0x1,'_bloom':0x1,'text':"你换了三家俱乐部，每家都只待半年。天赋还在，可没人愿意再赌你了。"};}}
+  ]
 }
 
 
