@@ -469,7 +469,7 @@ return p["inAcadem"+'y'];
         'label': "签字",
         'hint': "钱少，位置稳",
         'apply': function(){
-return{'money':0x1e,'roleDelta':0x1,'text':"你爸妈坐在旁边，一直点头。你后来才知道，那个违约金意味着什么。"};
+return{'money':0x1e,'roleDelta':0x1,'contract':{'years':0x5,'wage':0.5,'lock':0x4},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那个违约金意味着什么。"};
 }
     },
     {
@@ -479,7 +479,7 @@ return{'money':0x1e,'roleDelta':0x1,'text':"你爸妈坐在旁边，一直点头
         'hint': function(p,q){return g(q,'改好了','俱乐部翻脸');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'money':0x3c,'clean':0x4,'text':"违约金砍掉一半，年限缩到三年。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
+return d(q,s)?{'money':0x3c,'clean':0x4,'contract':{'years':0x3,'wage':0.7,'lock':0x2},'text':"违约金砍掉一半，年限缩到三年。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
 }
     }
   ]

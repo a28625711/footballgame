@@ -17,7 +17,7 @@ au.roleAdjust=0; au.guanxi=50; au.fame=60; au.clean=80;
 au.flags={}; au.usedEvents={}; au.forceQ=[]; au.pending=null;
 window.SIM.attach(au);
 function drain(){var g=0;while(au.pending&&g++<60){var p=au.pending;
-if(p.type==='random'){if(p.result){window.__SIMTEST.cont();}else{window.SIM.choose(1);}}
+if((p.type==='random'||p.type==='forced')){if(p.result){window.__SIMTEST.cont();}else{window.SIM.choose(1);}}
 else if(p.type==='report'){window.SIM.nextStep();}
 else if(p.type==='transfer'){window.SIM.choose('stay');}
 else if(p.type==='staff'){window.SIM.choose('skip');}

@@ -25,7 +25,7 @@ js = r"""
     for(var i=0;i<30;i++){
       p=st.pending;
       if(!p) break;
-      if(p.type==='random'){ if(p.result) window.SIM.cont(); else window.SIM.option(0); continue; }
+      if((p.type==='random'||p.type==='forced')){ if(p.result) window.SIM.cont(); else window.SIM.option(0); continue; }
       if(p.type==='report'){ window.SIM.cont(); continue; }
       if(p.type==='academy'){ window.SIM.option(0); continue; }
       if(p.type==='youth_path'){ window.SIM.option(0); continue; }

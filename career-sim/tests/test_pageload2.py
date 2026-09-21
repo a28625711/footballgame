@@ -20,7 +20,7 @@ js = r"""
       if(!p) break;
       if(p.type==='youth_path'){ window.__SIMTEST.option(0); continue; }
       if(p.type==='academy'){ window.__SIMTEST.option(0); continue; }
-      if(p.type==='random'){ if(p.result) window.__SIMTEST.cont(); else window.__SIMTEST.option(0); continue; }
+      if((p.type==='random'||p.type==='forced')){ if(p.result) window.__SIMTEST.cont(); else window.__SIMTEST.option(0); continue; }
       if(p.type==='report'){ window.__SIMTEST.cont(); continue; }
       if(p.type==='bigmatch'){ if(!p.result) window.__SIMTEST.option('push'); else window.__SIMTEST.cont(); continue; }
       if(p.type==='staff'){ window.__SIMTEST.option(0); continue; }
@@ -94,7 +94,7 @@ js = r"""
       if(!p) break;
       if(p.type==='youth_path'){ window.__SIMTEST.option(0); continue; }
       if(p.type==='academy'){ window.__SIMTEST.option(0); continue; }
-      if(p.type==='random'){ if(p.result) window.__SIMTEST.cont(); else window.__SIMTEST.option(0); continue; }
+      if((p.type==='random'||p.type==='forced')){ if(p.result) window.__SIMTEST.cont(); else window.__SIMTEST.option(0); continue; }
       if(p.type==='report'){ window.__SIMTEST.cont(); continue; }
       if(p.type==='bigmatch'){ if(!p.result) window.__SIMTEST.option('push'); else window.__SIMTEST.cont(); continue; }
       if(p.type==='staff'){ window.__SIMTEST.option(0); continue; }

@@ -315,7 +315,7 @@ return p["inChina"]&&p["ovr"]>=0x44;
         'label': "签字",
         'hint': "巨额收入，锁死留"+'洋',
         'apply': function(){
-return{'money':0x384,'lockAbroad':0x5,'roleDelta':0x1,'ovr':-0x1,'text':"你签了。那一年，你成了亚洲身价最高的中国球员——也是最后一次，有人这么形容你。"};
+return{'money':0x384,'lockAbroad':0x5,'roleDelta':0x1,'ovr':-0x1,'openContract':{'wage':0x3,'years':0x5},'text':"你签了。那一年，你成了亚洲身价最高的中国球员——也是最后一次，有人这么形容你。"};
 }
     },
     {

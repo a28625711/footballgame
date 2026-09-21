@@ -24,7 +24,7 @@ function career(seed, pos){
       var p=au.pending;
       try{
         if(p.type==='bigmatch'){ big++; if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(['left','right','top','push','hold','run','solo','wall'][Math.floor(Math.random()*8)]);} }
-        else if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
+        else if((p.type==='random'||p.type==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
         else if(p.type==='report'){ window.SIM.nextStep(); }
         else if(p.type==='staff'){ window.SIM.choose('skip'); }
         else if(p.type==='transfer'){ window.SIM.choose('stay'); }

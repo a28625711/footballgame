@@ -24,7 +24,7 @@ while(guard++<1200){
   if(!p){ if(au.phase==='summary'||au.phase==='done')break; window.SIM.nextStep(); continue; }
   var t=p.type;
   if(au.teamId==='rma'){au.role='star';au.roleAdjust=6;} /* 德比门槛=主力以上，角色回落会让样本失真 */
-  if(t==='random'){ if(p.result){window.__SIMTEST.cont();}else{window.__SIMTEST.option(0x0);} continue; }
+  if((t==='random'||t==='forced')){ if(p.result){window.__SIMTEST.cont();}else{window.__SIMTEST.option(0x0);} continue; }
   if(t==='report'){ window.__SIMTEST.cont(); continue; }
   if(t==='staff'){ window.__SIMTEST.option(p.offers[0x0]); continue; }
   if(t==='transfer'){ window.__SIMTEST.option(p.canStay?'stay':'retire'); continue; }
@@ -166,7 +166,7 @@ while(guard++<900){
   if(!p){ if(au.phase==='summary'||au.phase==='done')break; window.SIM.nextStep(); continue; }
   var t=p.type;
   if(au.teamId==='rma'){au.role='star';au.roleAdjust=6;}
-  if(t==='random'){ if(p.result){window.__SIMTEST.cont();}else{window.__SIMTEST.option(0);} continue; }
+  if((t==='random'||t==='forced')){ if(p.result){window.__SIMTEST.cont();}else{window.__SIMTEST.option(0);} continue; }
   if(t==='report'){ window.__SIMTEST.cont(); continue; }
   if(t==='staff'){ window.__SIMTEST.option(p.offers[0]); continue; }
   if(t==='transfer'){ window.__SIMTEST.option(p.canStay?'stay':'retire'); continue; }

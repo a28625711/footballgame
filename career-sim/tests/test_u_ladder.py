@@ -58,7 +58,7 @@ function runSeed(seed,si){
     var p=au.pending;
     if(!p){window.SIM.nextStep();continue;}
     var t=p.type;
-    if(t==='random'){ if(au.phase==='youth')r.youthRandom++;
+    if((t==='random'||t==='forced')){ if(au.phase==='youth')r.youthRandom++;
       if(p.result){window.__SIMTEST.cont();}else{window.__SIMTEST.option(0x0);} continue; }
     if(t==='report'){ window.__SIMTEST.cont(); continue; }
     if(t==='youth_path'){ window.__SIMTEST.option(0x0);

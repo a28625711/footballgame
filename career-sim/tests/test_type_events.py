@@ -22,7 +22,7 @@ js = r"""
       if(p.type==='youth_path'){window.__SIMTEST.option(0);continue;}
       if(p.type==='academy'){if(p.canStayYouth)window.__SIMTEST.option('youth');else window.__SIMTEST.option(0);continue;}
       if(p.type==='report'){window.__SIMTEST.cont();continue;}
-      if(p.type==='random'){
+      if((p.type==='random'||p.type==='forced')){
         if(p.result) window.__SIMTEST.cont();
         else window.__SIMTEST.option(0);
         continue;

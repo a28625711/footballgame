@@ -41,7 +41,7 @@ while(guard++<40000&&proSeasons<12){
     continue;
   }
   var t=p.type;
-  if(t==='random'){ if(p.result){window.__SIMTEST.cont();}else{window.__SIMTEST.option(0);} continue; }
+  if((t==='random'||t==='forced')){ if(p.result){window.__SIMTEST.cont();}else{window.__SIMTEST.option(0);} continue; }
   if(t==='report'){ window.__SIMTEST.cont(); continue; }
   if(t==='bigmatch'){ if(!p.result){window.SIM.choose('push');}else{window.__SIMTEST.cont();} continue; }
   if(t==='staff'){ window.__SIMTEST.option(p.offers[0]); continue; }

@@ -13,7 +13,7 @@ JS = """
 var out={err:null, careers:[]};
 function resolve(p){
   var t=p.type;
-  if(t==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} return; }
+  if((t==='random'||t==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} return; }
   if(t==='report'){ window.__SIMTEST.cont(); return; }
   if(t==='bigmatch'){ if(!p.result){ window.SIM.choose('push'); } else { window.__SIMTEST.cont(); } return; }
   if(t==='staff'){ window.__SIMTEST.option(p.offers[0]); return; }
@@ -41,7 +41,7 @@ function career(seed){
       window.SIM.nextStep();
       continue;
     }
-    if(p.type==='random' && !p.result && st.phase==='youth') seq.push(p.eventId);
+    if((p.type==='random'||p.type==='forced') && !p.result && st.phase==='youth') seq.push(p.eventId);
     try{ resolve(p); }catch(e){ out.err='seed='+seed+' '+p.type+': '+String(e).slice(0,150); return; }
     if(st.phase==='summary'||st.phase==='done'){ st.pending=null; break; }
   }

@@ -36,7 +36,7 @@ while(g++<20000){
   var p=st.pending;
   if(!p){ if(st.phase==='summary'||st.phase==='done')break; window.SIM.nextStep(); continue; }
   if(p.type===last&&++rep>400)break; if(p.type!==last){last=p.type;rep=0;}
-  if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} }
+  if((p.type==='random'||p.type==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} }
   else if(p.type==='report'){ window.__SIMTEST.cont(); }
   else if(p.type==='bigmatch'){ if(!p.result){window.SIM.choose('push');} else {window.__SIMTEST.cont();} }
   else if(p.type==='staff'){ window.__SIMTEST.option(p.offers[0]); }
@@ -71,7 +71,7 @@ while(g++<20000){
   if(!p){ if(st.phase==='summary'||st.phase==='done')break; try{window.SIM.nextStep();}catch(e){errs.push('next:'+String(e).slice(0,120));break;} continue; }
   if(p.type===last&&++rep>400){errs.push('stuck:'+p.type);break;} if(p.type!==last){last=p.type;rep=0;}
   try{
-    if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} }
+    if((p.type==='random'||p.type==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} }
     else if(p.type==='report'){ window.__SIMTEST.cont(); }
     else if(p.type==='bigmatch'){ if(!p.result){window.SIM.choose('push');} else {window.__SIMTEST.cont();} }
     else if(p.type==='staff'){ window.__SIMTEST.option(p.offers[0]); }

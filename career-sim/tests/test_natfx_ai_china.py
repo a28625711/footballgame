@@ -30,7 +30,7 @@ for(var s=60001;s<60001+%SEEDS%;s++){
   while(g++<400 && au.phase==='youth' && au.age<18){
     var p=au.pending;
     if(!p){ var a0=au.age; window.SIM.nextStep(); cap(a0); continue; }
-    if(p.type==='random'){
+    if((p.type==='random'||p.type==='forced')){
       try{
         if(p.result){ var a1=au.age; window.__SIMTEST.cont(); cap(a1); }
         else{ window.SIM.choose(0); }

@@ -1337,12 +1337,12 @@ c4+="<span cl"+"ass=\"chi"+"p award\""+">🥇 "+ax(c7)+(c6[c7]>0x1?'\x20×'+c6[c
 return "<div cla"+"ss=\"tl-t"+"opbar\">"+(c3?"<div cla"+"ss=\"trop"+"hy-strip\">"+c3+"</div>":'')+"<button"+" class=\""+"mini-btn re"+"start-mini"+"\" data-a"+"ct=\"rest"+"art\">从头来"+"过</button></div>";
 }())+b9()+("</div><d"+"iv class"+"=\"col-c\""+'>')+(function(){var bX,bY,bZ=au["pending"];
 if(!bZ)return'';
-if("random"===bZ["type"]){for(var c0=null,c1=0x0;
+if("random"===bZ["type"]||"forced"===bZ["type"]){for(var c0=null,c1=0x0;
 c1<a1["length"];
 c1++)a1[c1]['id']===bZ["eventId"]&&(c0=a1[c1]);
 if(!c0&&a6["pendingEvent"])c0=a6["pendingEvent"]();
 if(!c0)return'';
-var c2="<div cla"+"ss=\"even"+"t\">"+b1(c0["icon"]||'⚽',c0['cn']?"国内 · 事件":'事件',ao(c0["title"]))+("<div cla"+"ss=\"ev-d"+"esc\">")+ax(ao("function"===typeof c0["desc"]?c0["desc"](a6["snap"]()):c0["desc"]))+"</div>";
+var c2="<div cla"+"ss=\"even"+"t\">"+b1(c0["icon"]||'⚽',c0['cn']?"国内 · 事件":'事件',ao(c0["title"]))+("<div cla"+"ss=\"ev-d"+"esc\">")+ax(ao(null!=bZ["descText"]?bZ["descText"]:("function"===typeof c0["desc"]?c0["desc"](a6["snap"]()):c0["desc"])))+"</div>";
 return bZ["roll"]&&(c2+=function(ce){var cf=Math["round"](0x64*ce['p']);
 function cg(ch,ci,cj){var ck="slot";
 return ce["spinning"]||(ck+='a'===ch==!!ce['ok']?" win":" lose"),"<div cla"+"ss=\""+ck+("\" data-s"+"ide=\"")+ch+("\"><span "+"class=\"s"+"lot-pct\""+'>')+ci+("%</span>"+"<span cl"+"ass=\"slo"+"t-lab\">")+ax(cj)+("</span><"+"/div>");
@@ -1351,16 +1351,17 @@ return ce["spinning"]||(ck+='a'===ch==!!ce['ok']?" win":" lose"),"<div cla"+"ss=
 }(bZ["roll"])),bZ["result"]?(c2+="<div cla"+"ss=\"resu"+"lt\">"+ax(bZ["result"]["text"])+"</div>",bZ["result"]["deltas"]&&bZ["result"]["deltas"]["length"]&&(c2+="<div cla"+"ss=\"delt"+"as\">"+bZ["result"]["deltas"]["map"](function(ce){
 return "<span cl"+"ass=\"del"+"ta "+ce["cls"]+'\x22>'+ax(ce["text"])+"</span>";
 })["join"]('')+"</div>"),c2+=bb(["<button "+"class=\"b"+"tn btn-p"+"rimary\" "+"data-act"+"=\"contin"+"ue\">继续</"+"button>"])):bZ["roll"]||(c2+=function(){
+var _op=a6["evOpts"](c0['id'])||c0["options"]||[];
 var _ord=function(ce,cf){
 if(bc["key"]!==cf||!bc["ord"]||bc["ord"]["length"]!==ce){var cg,ch=[];
 for(cg=0x0;cg<ce;cg++)ch["push"](cg);
 for(cg=ce-0x1;cg>0x0;cg--){var ci=Math["floor"](Math["random"]()*(cg+0x1)),cj=ch[cg];ch[cg]=ch[ci],ch[ci]=cj;}
 bc={'key':cf,'ord':ch};
 }return bc["ord"];
-}(c0["options"]["length"],"ev:"+c0['id']+':'+au["choices"]["length"]);
-var _mk=function(ce){var _o=c0["options"][ce];return _o["team"]?bg(ce,_o["team"],ao(_o["label"]),ao(_o["lead"]||''),!0x1):ba(ce,ao(_o["label"]),ao(a6["optHint"](c0,ce)));};
+}(_op["length"],"ev:"+c0['id']+':'+au["choices"]["length"]);
+var _mk=function(ce){var _o=_op[ce];return _o["team"]?bg(ce,_o["team"],ao(_o["label"]),ao(_o["lead"]||''),!0x1):ba(ce,ao(_o["label"]),ao(a6["optHint"](c0,ce)));};
 var _th=[],_ah=[],_i,_x;
-for(_i=0x0;_i<_ord["length"];_i++){_x=_ord[_i];if(c0["options"][_x]["team"])_th.push(_mk(_x));else _ah.push(_mk(_x));}
+for(_i=0x0;_i<_ord["length"];_i++){_x=_ord[_i];if(_op[_x]["team"])_th.push(_mk(_x));else _ah.push(_mk(_x));}
 return _th["length"]?bb(_th)+bb(_ah,"opts-alt"):bb(_ah);
 }()),c2+"</div>";
 }if("report"===bZ["type"]){var c3=bZ["recs"][0x0]["age"],c4=bZ["recs"][bZ["recs"]["length"]-0x1]["age"];
@@ -1463,7 +1464,7 @@ return bg(cf,ag(ce),ag(ce)["name"],ce===bZ["homeId"]?"自家一线队":'加盟',
 }));
 return bZ["canStayY"+"outh"]&&(c6+=bb([ba("youth",'再在'+(c5?ax(a6["academyN"+"ame"](c5)):'梯队')+"练一年","不签成年队。梯队"+"练得更快，但明年"+"还要过一次选材那"+'一关')],"opts-alt")),
 c6+"</div>";
-}if("transfer"===bZ["type"]){var c7=bZ["backFrom"]?ag(bZ["backFrom"]):null,c8="<div cla"+"ss=\"even"+"t\">"+b1(c7?'🔙':bZ["fired"]?'🚪':bZ["mustLeav"+'e']?'🧳':'🔁',
+}if("transfer"===bZ["type"]){if(bZ["renewOnly"]){var _rb=a6["offerBrief"](ai()['id']),_rh="<div cla"+"ss=\"even"+"t\">"+b1('✍️','决策','续约谈判',!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">")+"合同快到期了。俱乐部给出的续约条件：每周 "+al(_rb["wage"])+"，为期 "+_rb["years"]+" 年，角色 "+ax(_rb["roleName"])+"。"+"</div>"+bb([ba("stay","续约","签下新合同"),ba("decline","暂不续约","合同到期再谈"),ba("leave","递交转会申请","赛季末挂牌")],"opts-alt")+"</div>";return _rh;}var c7=bZ["backFrom"]?ag(bZ["backFrom"]):null,c8="<div cla"+"ss=\"even"+"t\">"+b1(c7?'🔙':bZ["fired"]?'🚪':bZ["mustLeav"+'e']?'🧳':'🔁',
 '决策',c7?"租借期满，回到 "+c7["name"]:bZ["fired"]?"俱乐部不续约了":bZ["mustLeav"+'e']?"话已经说出口了":"转会窗",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">")+(c7?"你回来了。这一年"+"在外面踢的每一场"+"，这边都看在眼里"+" —— 接下来是"+"留是走，重新谈一"+'次。':bZ["fired"]?"你的出场时间已经"+"少到写不进总结。"+"合同到期，俱乐部"+"没有再谈的意思。":bZ["mustLeav"+'e']?"走这件事已经定了"+"，回头路没有了。"+"剩下的问题只是去"+"哪儿。":"合同到期了。这几"+"家来问过，也可以"+"留下。")+"</div>";
 c8+=bb(bZ["offers"]["map"](function(ce,cf){
 return bg(cf,ag(ce),ag(ce)["name"],'加盟',!0x0);
@@ -1738,7 +1739,7 @@ aA(),bN();
 if("agentcall"===bW){var _rr=a6["transferReroll"]();
 _rr["ok"]?bO():bK(_rr["txt"]||'经纪人打不通了');
 return;}
-if(bX){if("random"===bX["type"]){if(bX["result"]||bf)return;
+if(bX){if("random"===bX["type"]||"forced"===bX["type"]){if(bX["result"]||bf)return;
 var bY=a6["resolveE"+"vent"](bW);
 if(null===bY)return as();
 if(!bY)return;

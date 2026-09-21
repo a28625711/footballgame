@@ -661,7 +661,7 @@ return{'leave':!0x0,'fame':-0x8,'text':"「这样的球队配不上他」。这�
   'weight': 0x32,
   'stage': "prime",
   'when': function(p){
-return p["seasonsA"+"tClub"]>=0x3;
+return p["contractFinal"]&&p["seasonsA"+"tClub"]>=0x1;
 },
 
 
@@ -673,7 +673,7 @@ return p["seasonsA"+"tClub"]>=0x3;
         'label': "签字",
         'hint': "地位稳固，收入一"+'般',
         'apply': function(p){
-return{'money':0x64+0x4*p["ovr"],'roleDelta':0x1,'text':"你签了。数字不好看，但你不用再想住哪儿，孩子上哪所学校。"};
+return{'roleDelta':0x1,'openContract':!0x0,'text':"你把续约的事交给了合同本身——经纪人去谈数字，你只管踢球。"};
 }
     },
     {
@@ -1246,7 +1246,7 @@ return p["inChina"]&&p["ovr"]>=0x44;
         'label': "签字",
         'hint': "巨额收入，锁死留"+'洋',
         'apply': function(){
-return{'money':0x384,'lockAbroad':0x5,'roleDelta':0x1,'ovr':-0x1,'text':"你签了。那一年，你成了亚洲身价最高的中国球员——也是最后一次，有人这么形容你。"};
+return{'money':0x384,'lockAbroad':0x5,'roleDelta':0x1,'ovr':-0x1,'openContract':{'wage':0x3,'years':0x5},'text':"你签了。那一年，你成了亚洲身价最高的中国球员——也是最后一次，有人这么形容你。"};
 }
     },
     {
@@ -5180,7 +5180,7 @@ return p["inAcadem"+'y'];
         'label': "签字",
         'hint': "钱少，位置稳",
         'apply': function(){
-return{'money':0x1e,'roleDelta':0x1,'text':"你爸妈坐在旁边，一直点头。你后来才知道，那个违约金意味着什么。"};
+return{'money':0x1e,'roleDelta':0x1,'contract':{'years':0x5,'wage':0.5,'lock':0x4},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那个违约金意味着什么。"};
 }
     },
     {
@@ -5190,7 +5190,7 @@ return{'money':0x1e,'roleDelta':0x1,'text':"你爸妈坐在旁边，一直点头
         'hint': function(p,q){return g(q,'改好了','俱乐部翻脸');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'money':0x3c,'clean':0x4,'text':"违约金砍掉一半，年限缩到三年。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
+return d(q,s)?{'money':0x3c,'clean':0x4,'contract':{'years':0x3,'wage':0.7,'lock':0x2},'text':"违约金砍掉一半，年限缩到三年。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
 }
     }
   ]
@@ -6100,6 +6100,9 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"冬窗一开，队里走了两�
   'weight': 0x30,
   'stage': "prime",
   'repeat': 0x2,
+  'when': function(p){
+return p["contractFinal"];
+},
 
 
   'desc': "整个冬窗，你要走的传闻没断过。训练场上，有人开始绕着你走。",
@@ -6253,7 +6256,7 @@ return d(q,s)?{'roleDelta':0x1,'guanxi':-0x8,'text':"一个电话打上去，你
         'label': "签字",
         'hint': "钱少，踢得久",
         'apply': function(){
-return{'money':0x1e,'guanxi':0xc,'roleDelta':-0x1,'text':"更衣室里，你说的话越来越有分量；工资单上，你的名字却越来越靠下。"};
+return{'guanxi':0xc,'roleDelta':-0x1,'openContract':{'wage':0.4,'years':0x1},'text':"更衣室里，你说的话越来越有分量；工资单上，你的名字却越来越靠下。"};
 }
     },
     {
@@ -10561,15 +10564,14 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
   'desc': "你在这支球队待了五年，看台上的横幅换了一茬又一茬，你的号码，一次都没换过。",
   'options': [
     {
-        'label': "续约，把根扎下来",
-        'p': function(p){return f(0.7,[[p["guanxi"],50,0.008]],0.3,0.9);},
-        'hint': function(p,q){return g(q,"地位稳固","薪水难谈");},
-        'apply': function(p,q,s){return d(q,s)?{'guanxi':0x8,'roleDelta':0x1,'text':"续约谈得很顺利。签字那天，主席说，你是队里「压舱石」——他知道这个词你还得想一下。"}:{'guanxi':0x2,'text':"合同年限卡住了，最后各让一步。你留下，但心里记下了这回事。"};}
+        'label': "把这座城当成家",
+        'hint': "关系+，地位+",
+        'apply': function(){return{'guanxi':0x8,'roleDelta':0x1,'text':"训练基地门口的保安能叫出你家每个人的名字。五年了，你分不清是球队收留了你，还是你留住了球队。"};}
     },
     {
-        'label': "再看看别的机会",
-        'hint': "可能离队",
-        'apply': function(){return{'leave':!0x0,'text':"你让经纪人把报价递过来。球迷论坛炸了，有帖子问：连他都想走，这队还有救吗。"};}
+        'label': "在球迷面前许个愿",
+        'hint': "名气+",
+        'apply': function(){return{'fame':0xa,'text':"五周年那天你走进球场，看台上一整面墙写着你的名字。你对着话筒说：还想在这儿，再待一个五年。"};}
     }
   ]
 },
@@ -10621,7 +10623,7 @@ return{'ovr':0x3,'text':"你说，等踢不动了自然就知道了。她没再�
         'label': "冠军是唯一想要的礼物",
         'p': function(p){return f(0.55,[[p["ovr"],70,0.006]],0.25,0.85);},
         'hint': function(p,q){return g(q,"如愿以偿","差一口气");},
-        'apply': function(p,q,s){return d(q,s)?{'fame':0x10,'text':"那赛季你拼下了队史一座重量级奖杯。颁奖时队长把奖杯递给你，说，这是给你十年的。"}:{'fame':0x4,'text':"最后一场功亏一篑。你在更衣室坐了很久，十年，就差这一步。"};}
+'apply': function(p,q,s){return d(q,s)?{'fame':0x10,'text':"那赛季你拼下了队史一座重量级奖杯。颁奖时队长把奖杯递给你，说，这是给你十年的。"}:{'fame':0x4,'text':"最后一场功亏一篑。你在更衣室坐了很久，十年，就差这一步。"};}
     }
   ]
 },
@@ -12817,6 +12819,87 @@ return d(q,s)?{'ovr':0x3,'talent':0.04,'text':"你把站位退后了三米，把
 return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好各自的补位路线。此后身后的长传一次也没再变成失球。没人知道这中间你做对了什么——除了你的门将。"};
 }
     }
+  ]
+},
+
+{
+  'id': "youth_gift_hi",
+  'title': "天赋报告",
+  'icon': '⭐',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&p["talent"]>=1.35;},
+  'desc': "青训总监把评估报告放在你面前。这一批里，只有你被标了「A」。他没多说什么，只问了一句——你打算怎么用它。",
+  'options': [
+    {'label': "把天赋当起点，不是资本", 'hint': "稳，能力+，关系+", 'apply': function(){return{'ovr':0x2,'guanxi':0x4,'text':"你把报告折起来塞进柜子。那天之后，你还是最后一个离开训练场的人。总监在走廊里看了你一眼，记下了。"};}},
+    {'label': "既然是天选，就该被特殊对待", 'p': function(p){return f(0.5,[[p["talent"],1,0.3]],0.2,0.85);}, 'hint': function(p,q){return g(q,"提前进入一队视野","被贴上骄纵标签");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x8,'roleDelta':0x1,'text':"教练组破例让你和一队合练。你用两个进球回应了质疑。天赋用对了，就是通行证。"}:{'ovr':-0x1,'guanxi':-0x8,'text':"你开始挑剔训练安排，队里有人看不惯。天赋没变，但更衣室里的位置，悄悄退了一格。"};}}
+  ]
+},
+
+{
+  'id': "youth_gift_mid",
+  'title': "评估报告",
+  'icon': '📋',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&p["talent"]>=1&&p["talent"]<1.35;},
+  'desc': "青训总监把评估报告递给你：各项都在平均线以上，但没有一项冒尖。他说，这种球员教练最喜欢，也最容易忘记。",
+  'options': [
+    {'label': "把每一项都补到平均线以上", 'hint': "能力+", 'apply': function(){return{'ovr':0x2,'text':"你不追求某一项突出，只求没有短板。半年后，梯队教练排兵时，第一个写下的名字总是你。"};}},
+    {'label': "赌一项，练到冒尖", 'p': function(p){return f(0.5,[[p["talent"],1,0.3]],0.22,0.85);}, 'hint': function(p,q){return g(q,"练出了一手绝活","偏科被针对");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x1,'talent':0.05,'fame':0x6,'text':"你把一项技术练到了同龄人里的第一。教练开始围绕你设计套路。有绝活的人，总会被记住。"}:{'ovr':-0x1,'text':"你把时间全砸在一项上，别的落下一截。对手研究透你之后，你只剩一招。"};}}
+  ]
+},
+
+{
+  'id': "youth_gift_lo",
+  'title': "差一点",
+  'icon': '📉',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&p["talent"]<1;},
+  'desc': "评估报告上，你的天赋一栏被圈了出来，旁边写着：上限有限。教练拍你肩膀：天赋改不了，但有些东西，是练出来的。",
+  'options': [
+    {'label': "那就用训练量补", 'hint': "能力+，天赋微涨", 'apply': function(){return{'ovr':0x2,'talent':0.04,'text':"你把每天的训练加到别人两倍。教练说这种练法撑不了几年——但你撑过了最关键的那两年。"};}},
+    {'label': "认了，先把人处好", 'hint': "关系+", 'apply': function(){return{'guanxi':0x6,'text':"你和梯队里每个人都处得不错。教练知道你不会成大器，但把你留在了名单里——队里总要有人陪练。"};}}
+  ]
+},
+
+{
+  'id': "pro_gift_hi",
+  'title': "天才的代价",
+  'icon': '🎯',
+  'weight': 0x2e,
+  'when': function(p){return !p["inAcademy"]&&p["age"]>=0x12&&p["age"]<=0x18&&p["talent"]>=1.35;},
+  'desc': "媒体开始用「天才」称呼你。主教练在更衣室敲了敲白板：所有人都在等你证明他们没看错。压力，从这一刻开始。",
+  'options': [
+    {'label': "把压力变成燃料", 'p': function(p){return f(0.55,[[p["talent"],1,0.3]],0.25,0.88);}, 'hint': function(p,q){return g(q,"一飞冲天","被压垮");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0xa,'text':"你在关键战里打进两球。第二天，报纸头版是你的名字。天才这个词，从那天起不再是负担。"}:{'ovr':-0x2,'guanxi':-0x5,'text':"你太想证明自己，反而踢得缩手缩脚。看台上的嘘声第一次冲着你来。"};}},
+    {'label': "先低调，把基本功打牢", 'hint': "稳，能力+", 'apply': function(){return{'ovr':0x2,'text':"你拒绝了所有采访，把时间花在健身房和录像室。半年后，你比同批的年轻人更扎实。"};}}
+  ]
+},
+
+{
+  'id': "pro_gift_mid",
+  'title': "稳定的年轻人",
+  'icon': '🔧',
+  'weight': 0x2e,
+  'when': function(p){return !p["inAcademy"]&&p["age"]>=0x12&&p["age"]<=0x18&&p["talent"]>=1&&p["talent"]<1.35;},
+  'desc': "你不是头条上的名字，但教练每场都把你写进首发。有记者问：你的上限在哪？教练说，有些人的价值，不在上限。",
+  'options': [
+    {'label': "把稳定做到极致", 'hint': "能力+，关系+", 'apply': function(){return{'ovr':0x2,'guanxi':0x4,'text':"你成了队里最让人放心的年轻人。教练说：有你在，我不用操心。这句话比任何夸奖都重。"};}},
+    {'label': "不甘平庸，搏一次高光", 'p': function(p){return f(0.45,[[p["talent"],1,0.3]],0.2,0.8);}, 'hint': function(p,q){return g(q,"踢出了身价","高不成低不就");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'fame':0xa,'text':"你在一场全国直播里梅开二度。转会传闻第一次出现了你的名字。"}:{'ovr':-0x1,'text':"你冒险前插，防线被打穿丢了球。教练把你按回了板凳。"};}}
+  ]
+},
+
+{
+  'id': "pro_gift_lo",
+  'title': "不被看好",
+  'icon': '🧱',
+  'weight': 0x2e,
+  'when': function(p){return !p["inAcademy"]&&p["age"]>=0x12&&p["age"]<=0x18&&p["talent"]<1;},
+  'desc': "更衣室里没人把你当回事。训练赛你被安排去踢最不擅长的位置。有人当着你的面说：这种人，能混上职业合同已经是奇迹。",
+  'options': [
+    {'label': "用态度赢回尊重", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x8,'ovr':0x2,'text':"你每天第一个到、最后一个走。三个月后，那个说过风凉话的老将，把队长袖标塞给你保管。"};}},
+    {'label': "憋着这股气，只练不交朋友", 'p': function(p){return f(0.5,[[p["talent"],1,0.3]],0.22,0.85);}, 'hint': function(p,q){return g(q,"练出了东西","越练越孤");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'talent':0.04,'guanxi':-0x4,'text':"你把所有委屈都砸进了训练。赛季末，你的数据让所有人闭嘴。只是更衣室里，依然没人叫你一起吃饭。"}:{'ovr':-0x1,'guanxi':-0x6,'text':"你越练越闷，越想越苦。技术在长，人却在缩。教练说：你这样踢不长久。"};}}
   ]
 }
 ];

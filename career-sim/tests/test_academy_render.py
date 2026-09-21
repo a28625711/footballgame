@@ -33,7 +33,7 @@ def stage1_js(seed):
         "    return JSON.stringify({ok:true, offers:p.offers, canStayYouth:!!p.canStayYouth,\n"
         "      age:au.age, youthTeamId:au.youthTeamId});\n"
         "  }\n"
-        "  if(p.type==='random'){\n"
+        "  if((p.type==='random'||p.type==='forced')){\n"
         "    try{\n"
         "      if(p.result){ window.__SIMTEST.cont(); }\n"
         "      else{ window.__SIMTEST.option(0); }\n"

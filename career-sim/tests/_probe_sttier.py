@@ -15,7 +15,7 @@ function snap(tag){window.__LOG.push(tag+': '+JSON.stringify(au.staff)+' money='
 snap('start');
 function drain(){var g=0;while(au.pending&&g++<60){var p=au.pending;
 snap('pending:'+p.type);
-if(p.type==='random'){if(p.result){window.__SIMTEST.cont();}else{window.SIM.choose(0);}}
+if((p.type==='random'||p.type==='forced')){if(p.result){window.__SIMTEST.cont();}else{window.SIM.choose(0);}}
 else if(p.type==='report'){window.SIM.nextStep();}
 else if(p.type==='transfer'){window.SIM.choose('stay');}
 else if(p.type==='staff'){window.SIM.choose('skip');}

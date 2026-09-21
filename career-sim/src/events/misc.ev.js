@@ -614,7 +614,7 @@ return{'leave':!0x0,'fame':-0x8,'text':"「这样的球队配不上他」。这�
   'weight': 0x32,
   'stage': "prime",
   'when': function(p){
-return p["seasonsA"+"tClub"]>=0x3;
+return p["contractFinal"]&&p["seasonsA"+"tClub"]>=0x1;
 },
 
 
@@ -626,7 +626,7 @@ return p["seasonsA"+"tClub"]>=0x3;
         'label': "签字",
         'hint': "地位稳固，收入一"+'般',
         'apply': function(p){
-return{'money':0x64+0x4*p["ovr"],'roleDelta':0x1,'text':"你签了。数字不好看，但你不用再想住哪儿，孩子上哪所学校。"};
+return{'roleDelta':0x1,'openContract':!0x0,'text':"你把续约的事交给了合同本身——经纪人去谈数字，你只管踢球。"};
 }
     },
     {
@@ -2507,6 +2507,9 @@ return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"冬窗一开，队里走了两�
   'weight': 0x30,
   'stage': "prime",
   'repeat': 0x2,
+  'when': function(p){
+return p["contractFinal"];
+},
 
 
   'desc': "整个冬窗，你要走的传闻没断过。训练场上，有人开始绕着你走。",

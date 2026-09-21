@@ -25,7 +25,7 @@ while(au.pending&&guard++<30){
   var p=au.pending;
   if(p.type==='bigmatch'){ if(p.result){window.__SIMTEST.cont();continue;} window.SIM.choose('push'); }
   else if(p.type==='report'){ window.SIM.nextStep(); }
-  else if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
+  else if((p.type==='random'||p.type==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
   else if(p.type==='transfer'){ window.SIM.choose('stay'); }
   else { window.SIM.nextStep(); }
 }
@@ -66,7 +66,7 @@ while(au2.pending&&g3++<30){
   var q=au2.pending;
   if(q.type==='bigmatch'){ if(q.result){window.__SIMTEST.cont();continue;} window.SIM.choose('push'); }
   else if(q.type==='report'){ window.SIM.nextStep(); }
-  else if(q.type==='random'){ if(q.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
+  else if((q.type==='random'||q.type==='forced')){ if(q.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
   else if(q.type==='transfer'){ window.SIM.choose('stay'); }
   else { window.SIM.nextStep(); }
 }
@@ -118,7 +118,7 @@ var err=stepChk(); if(err) return err;
 while(au.pending&&guard++<60){
   var p=au.pending;
   if(p.type==='youthSpend') return JSON.stringify({fail:'youthSpend popup still exists'});
-  if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
+  if((p.type==='random'||p.type==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
   else if(p.type==='bigmatch'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(p.quick?'start':'push');} }
   else { var e2=stepChk(); if(e2) return e2; }
 }
@@ -154,7 +154,7 @@ while(au.phase==='youth'&&guard++<40){
   var g2=0;
   while(au.pending&&g2++<20){
     var p=au.pending;
-    if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
+    if((p.type==='random'||p.type==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
     else if(p.type==='academy'){ window.SIM.choose('youth'); break; }
     else { window.SIM.nextStep(); }
   }

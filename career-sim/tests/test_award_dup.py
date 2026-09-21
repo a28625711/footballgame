@@ -35,7 +35,7 @@ for(var yr=0; yr<%SEASONS% && au.phase==='career'; yr++){
         window.SIM.choose(keys[Math.floor(rnd()*keys.length)]);
       }
       else if(p.type==='report'){ window.SIM.nextStep(); }
-      else if(p.type==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
+      else if((p.type==='random'||p.type==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.SIM.choose(0);} }
       else if(p.type==='staff'){ window.SIM.choose('skip'); }
       else if(p.type==='transfer'){
         if(nTransfers<3&&p.offers&&p.offers.length){ nTransfers++; window.SIM.choose('0'); }

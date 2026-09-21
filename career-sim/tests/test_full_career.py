@@ -5,16 +5,16 @@ import json
 
 import harness
 
-KNOWN_TYPES = ['random', 'report', 'bigmatch', 'staff', 'transfer',
+KNOWN_TYPES = ['random', 'forced', 'report', 'bigmatch', 'staff', 'transfer',
                'academy', 'youth_path', 'retire_forced']
 
 JS = """
 (function(){
-var KNOWN={random:1,report:1,bigmatch:1,staff:1,transfer:1,academy:1,youth_path:1,retire_forced:1};
+var KNOWN={random:1,forced:1,report:1,bigmatch:1,staff:1,transfer:1,academy:1,youth_path:1,retire_forced:1};
 var out={careers:[],unknown:[],renderErrs:0,err:null};
 function resolve(p){
   var t=p.type;
-  if(t==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} return; }
+  if((t==='random'||t==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} return; }
   if(t==='report'){ window.__SIMTEST.cont(); return; }
   if(t==='bigmatch'){ if(!p.result){ window.SIM.choose('push'); } else { window.__SIMTEST.cont(); } return; }
   if(t==='staff'){ window.__SIMTEST.option(p.offers[0]); return; }

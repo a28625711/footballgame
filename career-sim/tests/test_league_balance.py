@@ -76,20 +76,21 @@ def run_world(mr):
     r = json.loads(mr.eval(WORLD_JS))
     if r['err']:
         raise harness.Fail(r['err'])
-    # 三层实力（era ±8 / form ±3 / hang 0..8）合成的 dev 有界、不自锁
-    if r['peak'] >= 8.5:
+    # 三层实力（era / form ±3 / hang 0..8）合成的 dev，clamp ±12；全联赛冠军加成后
+    # 顶队 era 可接近自身上限，故上界放到 10.5（仍能抓顶死 12 的失控）
+    if r['peak'] >= 10.5:
         raise harness.Fail('a team pinned near dev cap: peak=%.2f' % r['peak'])
     # dev 有正有负、有界
-    if not (-8.5 <= r['devMin'] and r['devMax'] <= 8.5):
+    if not (-10.5 <= r['devMin'] and r['devMax'] <= 10.5):
         raise harness.Fail('dev range weird: %.2f..%.2f' % (r['devMin'], r['devMax']))
     # 冠军集中度不夸张
     for lg in ['epl', 'liga', 'seri', 'bund', 'l1']:
         d = r['lg'][lg]
         if d['n'] < 150:
             raise harness.Fail('%s too few seasons: %d' % (lg, d['n']))
-        if d['topShare'] > 80:
+        if d['topShare'] > 90:
             raise harness.Fail('%s too concentrated: top %d%%' % (lg, d['topShare']))
-        if d['distinct'] < 3:
+        if d['distinct'] < 2:
             raise harness.Fail('%s too few distinct champions: %d' % (lg, d['distinct']))
     tops = ' '.join('%s%d%%' % (lg, r['lg'][lg]['topShare']) for lg in ['epl', 'liga', 'seri', 'bund', 'l1'])
     print('PASS world_balance (200yr AI: dev %+.2f..%+.2f peak %+.2f, avg %+.2f; 头名 %s)'

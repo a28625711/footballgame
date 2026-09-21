@@ -55,7 +55,7 @@ function checkCup(st,s){
 }
 function resolve(st,p){
   var t=p.type;
-  if(t==='random'){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} return; }
+  if((t==='random'||t==='forced')){ if(p.result){window.__SIMTEST.cont();} else {window.__SIMTEST.option(0);} return; }
   if(t==='report'){ checkNat(st,st.__s); checkCont(st,st.__s); checkCup(st,st.__s); window.__SIMTEST.cont(); return; }
   if(t==='bigmatch'){
     if(!p.result){

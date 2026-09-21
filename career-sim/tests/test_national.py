@@ -30,7 +30,7 @@ function sim(seed){
       if(a.phase==='done') break;
       window.SIM.nextStep(); continue;
     }
-    if(p.type==='random'){
+    if((p.type==='random'||p.type==='forced')){
       if(p.result){ window.__SIMTEST.cont(); continue; }
       var id=p.eventId||'';
       if(id.indexOf('nat_firstcall')===0) cnt.call++;

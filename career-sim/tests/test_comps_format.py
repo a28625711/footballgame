@@ -32,7 +32,7 @@ for(var s=0;s<%N%;s++){
       continue;
     }
     try{
-      if(p.type==='random'){if(p.result){window.__SIMTEST.cont();}else{window.SIM.choose(0);}}
+      if((p.type==='random'||p.type==='forced')){if(p.result){window.__SIMTEST.cont();}else{window.SIM.choose(0);}}
       else if(p.type==='report'){window.__SIMTEST.cont();}
       else if(p.type==='bigmatch'){if(!p.result){window.SIM.choose('push');}else{window.__SIMTEST.cont();}}
       else if(p.type==='staff'){window.SIM.choose('skip');}

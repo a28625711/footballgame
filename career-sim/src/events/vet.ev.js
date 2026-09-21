@@ -79,7 +79,7 @@ return d(q,s)?{'ovr':0x1,'fame':0x6,'text':"你用两个赛季证明了自己还
         'label': "签字",
         'hint': "钱少，踢得久",
         'apply': function(){
-return{'money':0x1e,'guanxi':0xc,'roleDelta':-0x1,'text':"更衣室里，你说的话越来越有分量；工资单上，你的名字却越来越靠下。"};
+return{'guanxi':0xc,'roleDelta':-0x1,'openContract':{'wage':0.4,'years':0x1},'text':"更衣室里，你说的话越来越有分量；工资单上，你的名字却越来越靠下。"};
 }
     },
     {
