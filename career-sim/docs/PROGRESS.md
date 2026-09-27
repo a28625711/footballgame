@@ -3,7 +3,118 @@
 > 站点：https://career-sim.pages.dev/（纯前端静态站，Cloudflare Pages 托管）
 > 记录日期：2026-08-15（持续更新）
 
-## 最新进度：Bug修复 + 杯赛门槛 + 真实化 + 真实国家队（进行中）
+## 世界杯小组赛生死战 + 一年两次大场面（2026-09-27）
+
+1. **小组赛生死战**：`_runNatComp` 拆为「小组阶段 / 淘汰赛阶段」。世界杯中国队末轮为生死战（`_natDecider`：末轮前未锁定小组前二、且末轮结果会改变）时延后淘汰赛，弹交互大场面（kind='wc'，`_grpWC`+`_drawOk`，**允许平局**）；结算时回填末轮比分 → `_natResolveComp` 重算小组积分与淘汰赛签表。
+2. **一年两次大场面**：生死战结算后若中国队仍在签表且进决赛，`_natGrpToFinal` 在 `_bmFinish` 清空 `bigQ` 之后再压入决赛——单槽队列靠串行即可「先生死战、后决赛」。
+3. **修复 `_simGroup4` 强度丢失**：积分行只存 `ovr`，而 NATS 用 `s`；世预赛第2轮榜喂给第3轮时强度丢失 → 全部 0-0 平局（中国永远出不了线）。改为存 `ovr||s` 与 `n||name`。
+4. **修复 `_wcQual` 用错中国队**：原 `hasP` 命中 NATS 里固定的 `n_chn`(s=62)，玩家版（ovr=国家队强度）从未进池。改为用玩家版替换同名中国，出线率随 ovr 单调（90→~97%、70→~37%）。
+5. **测试**：新增 `tests/test_wc_group_decider.py`（生死战触发 / 允许平局 / 无错误）。
+
+
+## 世界杯新赛制（48 队）+ 亚洲区预选赛改版（2026-09-27）
+
+1. **世界杯 32→48 队**：`_natPool('wc')` 配额改为 `UEFA16/CAF9/AFC8/CONCACAF6/CONMEBOL6/OFC1` 补齐 48；`_natDraw` 自动 12 组×4。
+2. **淘汰赛 32 强**：`_natBracket` 改为「小组第一/第二交叉配对（沿用旧式 f_i vs s_{i+1}）+ 8 个最佳第三名补足到 2 的幂」；新增 `_natKoBracket`（固定签表，仿现实杯赛），退役旧 `knockoutStage`；轮名走现成 `_bracketNames`（含"三十二强"）。世界杯签表：三十二强→十六强→八强→四强→决赛（5 轮）。
+3. **阶段/排名**：`_natStage` 以"是否出现在淘汰赛签表"判定晋级（第三名也可能出线），并新增"止步三十二强"；`_natFormVal`/`aQ`/`NAT_SHORT` 同步新增 32 强档位。
+4. **亚洲区预选赛**：新增 `_seedInto`/`_wcQual`——第2轮 9 组×4 → 每组前2(18) → 第3轮 3 组×6 → 每组前2(6) + 最佳 2 个第三名 = 8 个正赛名额。
+5. **决赛协同核对**：国家队决赛事件在"冠军/亚军"两种结算下都会触发并回填 natFx（已验证：预选-正赛-决赛链路一致、contFx 决赛结算、无回写违例）。新赛制下碾压强度使"模拟阶段直接判负"变少，"亚军"更多由交互决赛产生，故 `test_finals_trigger` 改为在**交互决赛结算后**读取阶段以覆盖该分支。
+6. **测试**：新增 `tests/test_world_cup_format.py`（48 队/12 组/32 强 5 轮）；`test_league_engine` 增加一次预热运行——引擎存在"首个 start() 与后续 start()"的模块级懒初始化差异（旧代码同引擎换种子亦会复现，如 seed=1234）。
+## 最新进度：续约界面 + 比分主客顺序（2026-09-25）
+
+1. **续约界面不美观 / 换行不一致 / 薪资标签怪** —— 续约原来把条款塞进 `.ev-desc` 纯文本（"每周 X，为期 Y 年，角色 Z"），既没有报价卡结构，也**用错时间标签**（值是年薪却写"每周"）。改为**复用转会窗的报价卡** `bg("stay",当前队,…,"续约",true)`：显示队徽、联赛·档次、以及 `.opt-offer` 徽章（`<b>薪资</b>/赛季` + 角色彩色标签），与转会窗完全同款；三个动作（续约/暂不续约/递交转会申请）拆成 `.opts` 单卡 + `.opts-alt` 双按钮两排。修掉"每周"错标签。`game.js:1474`。
+2. **比分主客顺序：点球 8:9 却算赢** —— 杯赛/洲际/超级杯在主客翻转（玩家是第二方 B）时，只把进球 `X-Y` 颠倒，**点球 `(点球 a-b)` 原样照抄**，于是出现"点球 8-9 却 won=true"。新增 `_revScore(sc)` 统一翻转（进球与点球一起颠倒），替换 4 处：`_scoreTxt`、`_cupBracket`、`_contComp`、`_runSuperCup`。（`_natPath` 本来就一起翻，所以国家队路径没这个 bug。）`sim.js`。
+
+**新增回归**：`tests/test_renewal_ui_score.py`（724 场点球全部与胜负一致；续约卡含 `.opt-offer` + `/赛季`）。已验证该测试在还原旧代码时会失败（可捕获 `点球 3-4 won=true`）。
+
+### 四项线上反馈修复（2026-09-25）
+
+用户反馈四个问题，均已定位并修复（另修好一个顺带发现的确定性回归）：
+
+1. **硬核模式"连续多年不触发事件"** —— 排查后**没有模式级 bug**：硬核只把槽1概率降到 0.85、并把决策周期缩到 1 年；实测 20 个硬核生涯事件逐年都有（最多空 2 年）。连年空白是概率运气（每决策周期约 10% 空档，4 连空≈0.01%）。既然期望"几乎不可能"，加**保底**：`flags._dry` 记连续无事件周期，≥2 就无视概率强制抽一个（`bk()`）。
+2. **决赛加时进球无播报、比分平白 +3** —— `_bmFinish` 的加时块用 Poisson 一次性 `bN+=_eh` / `bO+=_ea`，但解说**只写一行**（且最多记一次个人进球）。改为**逐球循环**（与 `_bmSeg` 同口径），每个加时球一行文案 + 各自的球员归属。回归 `test_event_fixes`：13 场加时全部"解说行数==加时进球数"。
+3. **国家队页不显示世界杯冠军** —— `game.js` 聚合 `nats` 时 `"世界杯冠军"===cN||"亚洲杯冠军"===cN&&push(cN)` 优先级写错：`&&` 先算，`||` 短路，于是"世界杯冠军"永远不 push。加括号修正：`("世界杯冠军"===cN||"亚洲杯冠军"===cN)&&push(cN)`。（奖项页用的三元表达式本来就对，所以只在国家队页缺失。）
+4. **青训期世界面板缺杯赛统计** —— `_runCups()` 只在 `_runWorld` 的 `if(pro){...}` 内调用，青训期（`pro=false`）从不产出 `cupFx`/`lastCups`。改为**无条件调用**，并给 `_runCups` 的生涯奖杯/杯赛历程写入加 `bz&&bx` 守卫（青训期只产出签表与冠军，不记入生涯）。
+
+**顺带修复：世界引擎首跑不确定（`test_league_engine` 确定性断言）** —— 定位到 `_bmEvents()`（大场面解说池）用 `ae()`（**主** `ad()` RNG）随机化"第 N 分钟"，而它现在每段都会被调用；这违反"叙述不消耗主 RNG"的设计，使解说反过来扰动比分随机流，产生"首次运行 vs 后续运行"分叉。改为让 `_bmEvents`/`_pick` 的解说随机走大场面专用流 `_bmRnd()`；并把 `_bmSeed` 的种子从（调用结束才回写的）陈旧 `a2.rngState` 改为实时 `_rs`。`test_league_engine` 恢复 PASS。
+
+**新增回归**：`tests/test_event_fixes.py`（青训杯赛 / 加时逐球播报一致 / 国家队世界杯冠军）。
+
+### 潜藏属性 + 家庭系统（2026-09-22）
+
+**新增三个潜藏属性**（`newState` 初始化 + `aF` 结果字段 + `aA()` 暴露）：
+- `partnerType`（伴侣人设）：标签→类型兜底表 `_ptMap`，9 类（sweetheart/firstlove/physio/medic/streamer/ultra/reporter/sister/gamer），`other` 兜底。
+- `bond`（妻子满意度 0–100）：设伴侣时按人设给初值（`_pbond`）；每季 `_bondDrift`（正常 +1、留洋/异地 −2、`_neglect` 标记 −3）；事件用新结果字段 `bond:±N` 增减。
+- `agentType`（经纪人类型）：`pro/greedy/family/shady`，由事件结果字段写入。
+
+**满意度门控**：`bond>=55` 出日常（`love_date`）；`bond<=40` 出冷战（`love_cold`）；`bond<=35` 出挽回（`love_mend`）；`bond<=12` 出强制分手（`love_break`）；`love_split` 的 `when` 加了 `bond<=55`。
+
+**家庭事件**：现有 16 个恋爱事件全部补 `bond` 增减（27 处）；新增 8 人设 × 2 = 16 个婚后差分事件（买房 / 恢复表 / 直播 / 看台 / 独家 / 更衣室亲戚 / 双排 / 体检…）+ 日常/冷战/挽回/分手 4 个。
+
+**回归**：`tests/test_life_bond.py`（20 事件 + 字段/归类/增减/夹取/门控/漂移）。
+
+### 更衣室 / 教练 / 经纪人 / 合同 差分事件（2026-09-22）
+
+- **教练更迭**（原只有 `coach_change` 且仅 1 选项）：重写 `coach_change` 为 3 选项（适应 / 私下谈 / 观望）+ 新增 `coach_tactics`（战术改造，吃 `talent/age`）、`coach_favorite`（嫡系，关系 vs 地位）、`coach_bring`（主帅带你走 → `leave`）。
+- **更衣室**（避开已饱和的队长线）：`locker_faction`（本土/外援派系）、`locker_vet_young`（年轻人抢位）、`locker_sell`（队友被卖）、`locker_rookie`（带新人）。
+- **经纪人**：`agentType` 人设化；`youth_agent`/`agent_switch` 写入类型；新增 `agent_pitch`（画大饼）、`agent_cut`（吃回扣）、`agent_loyal`（家人型挡烂合同）。
+- **合同**：新增 `contract_clause`（签字费 / 肖像权 / 解约金三选一）；`renew` 增加"让经纪人去谈"（成功率随 `agentType`）。
+
+**回归**：`tests/test_locker_coach_agent.py`。事件总数 422 → 453。
+
+### 性能优化（2026-09-22）
+
+**实测（V8，生涯期 age27，26 联赛/每季 8323 场）**：单季 `simulateOneSeason` ~24ms（其中 `_runWorld` ~16ms）、`render` 生涯 HTML 47KB、世界归档 `gyrs_world` 1.56MB、主档 `gyrs_save` 388KB。
+
+**改动**：
+- **世界面板按需渲染 + 签名缓存**（`game.js`）：`bWorldHTML()` 只在 `_tlTab==='world'` 时构建，并用 `age|seasons|_tlTab|_wl...` 签名缓存（`_wHtml`）；切到 world 标签时补渲染（标签切换只切显隐、不重建时间线）。生涯 HTML 47KB → **32KB（-32%）**。
+- **赛程归档压缩**（`sim.js` `_pkFxLeague`/`_unpkFx`）：每联赛只存一次队伍名册 + 36 进制索引/比分，省掉逐场重复队名。`lgFxArch` 单季 106KB → **68KB（-36%）**，世界归档 1.56MB → **1.14MB（-27%）**；保留 30 季不变。
+- **`_lgSeason` 微优化**：联赛级 `tot`/`pd` 缓存 + 内联 `_matchSim`（去掉每场对象分配与重复计算）。
+- **修既有崩溃**：asia/wc 决赛写 `natFx.data[tag].champion` 时只判了 `_foA`/`_foW`，未判 `natFx.data[tag]` 是否存在 → 亚洲杯决赛在特定状态下抛 `Cannot set property 'champion' of undefined`。已补守卫。
+
+**未做**：
+- 主档保存节流/异步 —— `test_save_resume` 在 eval 内即读 `gyrs_save`，微任务延迟会让测试读不到；且微任务在 paint 前，对帧预算无益（需 `setTimeout`/`requestIdleCallback` 并同步改测试）。
+- 首屏分帧 —— 实测首个 period 仅 ~33ms（早前 793ms 是探针写法造成的假象），无需处理。
+
+### 大场面（决赛）与常规比赛模型对齐（2026-09-22）
+
+**背景**：玩家参与的大场面（决赛/德比/保级战）走独立交互模型 `_bmSeg`+`_bmEvents`，与常规 `_matchSim`+`_pMatchContrib` 在四处不一致：总进球不吃联赛节奏、强弱系数口径不同、球员数据不吃 OVR、决策 `dp`/`glory` 是死字段。
+
+**对齐**（`sim.js`）：
+- **比分/胜率**：新增 `_bmStrPair`/`_bmGl`/`_bmShare`。强度改用真实球队绝对强度（`_meS` 优先，否则 `_teamAbs`），不再用 `ovr+24`；节奏用联赛风格几何平均 `_glOf`；份额复用 `_msShare`（含主场/中立）+ 决策 `dp`。每段 `λ = 2·base·gl·share/6`，加时 `λ = 0.33·2·base·gl·share`（与 `_etSim` 同源）。
+- **球员数据**：新增 `_bmPlayerProb`，复用 `_pMatchContrib` 公式（位置份额 × OVR × 对手强度），按本段球队进球逐球归属；`goalMe/assistMe/goalOpp` 事件池降级为**纯文案**（不再"事件即得分"）；`glory` 提高个人进攻倾向。
+- **决策生效**：`choose` 累加选中项的 `dp`/`glory` → `_dp` 调赢面份额、`_glory` 调个人倾向（此前 `aY` 里声明却从未读取）。
+- **随机流隔离**：新增大场面专用随机流 `_bmRnd`/`_bmSeed`，叙述/事件/归属都不消耗主 RNG——否则球员 OVR 高→叙述行多→随机流分叉，会反过来影响胜负。
+
+**验证**：新增 `tests/test_bigmatch_model.py`——弱对手胜率 0.95 / 强对手 0.25；同队强度下 ovr60 与 ovr95 胜率一致（无 OVR 泄漏）；球员数据随 OVR 缩放（0.64→0.95）；`push` 胜率 0.76 > `hold` 0.63 且个人数据最高。
+
+### 生涯总进球一致性修复（2026-09-22）
+
+**问题**：生涯总进球 > 各俱乐部进球之和。
+**根因**：互动大赛结算（`sim.js:2160` 附近）与赛季末（`sim.js:3601`）的封顶(cap)只改赛季记录 `bz.goals`，未同步 `a2.totals`；而 `bz` 会被 push 进 `seasons`（俱乐部面板的数据源）。
+**修复**：两处 cap 后按差值同步扣回 `totals`。新增 `tests/test_goals_consistency.py`（多生涯逐步断言 `totals == Σseasons`）。
+
+### 强制续约/强制转会的区域语义修复（2026-09-22）
+
+**问题**：老将回归邀请（`_vetInviteTeam`）无条件 `unshift` 进报价，绕过了区域/锁洋判断——海外队"强制续约"后点"递交转会申请"，仍会冒出中超队（借邀请回国）。
+**修复**：跨区邀请只在**普通转会窗**出现；**强制续约/强制离队**时不得借邀请跨区（海外→不注入中国邀请，国内→不注入海外邀请）。`test_transfer_renew` 新增 `vetRegion/vetRegion2` 断言。
+
+### 青训事件链 + 天赋/维度差分事件（2026-09-21）
+
+- **青训早恋链**：国内/国外两个起点（`youth_crush_cn`/`youth_crush_abroad`）→ 成年后重逢（`first_love_cn`/`first_love_abroad`），后续按 `hasPartner` 分支（单身设伴侣 / 有伴侣不覆盖）。
+- **见到队内球星链**：`youth_meet_star`（青训，记 `_metStar=当前球队`）→ `meet_star_again`（加入同一队后触发）。
+- **4 组差分事件**：惯用脚（`foot_left`/`foot_right` → `foot_reckoning`）、球衣号码（`num_10/9/7/1`）、回到出道地（`echo_home`）、早熟/晚熟（`early_bloom`/`late_bloom`）。均带概率成败分支。
+- `aA()` 暴露 `foot`/`number`/`youthTeamId`/`clubsCount`。
+- **修复**：`aF` 的 flag 白名单漏了自定义标记（`_crush`/`_metStar`/`_footPath`/`_bloom`/…），导致事件 `apply` 的标记不落库、后续 `when` 永不成立。补齐并加 `flag_write` 防回归断言。
+
+### 事件系统扩展 + 合同/队内地位重做（2026-09-21）
+
+- **事件系统**：新增 `forced` 类型（独立强制事件槽，每季 ≤2 事件=槽1随机→槽2强制）；事件链延迟触发（`forceLater`/`_chainAdvance`/`_drainScheduled`）；`descText` 快照（结算后文案不再随 `playerType` 跳变）；池事件选项改侧表 `_evOpts`/`_matOpts`（不再改写全局 `EVENTS`）。
+- **天赋差分事件** 6 个（青训营 / 正式生涯早期 × 高·中·低天赋）。
+- **队内地位**：`roleAdjust` 加 ±4 上限；衰减由每季减半改为线性每季 -1。
+- **征召**：去掉 0.9 上限，`ovr≥90` 保底必被征召。
+- **联赛**：`_devChampM` 调参 + hang 曲线 + `_runWorld` 全联赛冠军加成；str 校准 epl 74.6 / liga 76 / bund 74.4 / seri 72 / l1 74.0。
+- **转会/续约**：纯续约窗 `_openRenewal`；`openContract` 支持事件指定待遇（默认不低于现合同）；新增合同结果字段 `contract{years,wage,lock}` 实装"第一份职业合同"；`lockAbroad` 解锁/老将回归/强制离队修正。
 
 ### 洲际赛淘汰赛排除已淘汰对手（2026-08-30）
 
@@ -263,6 +374,8 @@ restart/replay 现在也调用 `aC(legacyFrom(aq()))` 继承上一世遗产（�
 
 | 提交 | 内容 |
 |------|------|
+| `1be9401` | 青训早恋链 + 见到队内球星链 + 4 组维度差分事件（惯用脚/号码/出道地/早熟晚熟）；修 flag 白名单 |
+| `782cb82` | forced 事件类型 + 事件链延迟触发 + descText 快照 + 池事件侧表；合同/队内地位重做；天赋差分事件 |
 | `4c08889` | 洲际赛淘汰赛排除小组赛对手，避免已淘汰球队重复出现 |
 | `59b9017` | bigmatch渲染map括号修复，确保bZ log正确闭合 |
 | `cea8a64` | 国家队决赛bigmatch结果同步到path，详情页胜负颜色与真实结果一致 |
@@ -321,9 +434,9 @@ restart/replay 现在也调用 `aC(legacyFrom(aq()))` 继承上一世遗产（�
 
 ### 待做
 
-1. **Bigmatch 时间段重构** — `aW()` 改为时间段推进引擎，`choose()` 改为薄调度器，动态1-3决策点
-2. **更多洲际赛事** — 欧联杯/欧会杯独立追踪，欧洲杯/美洲杯/非洲杯等
-3. **事件文本多样性** — 给大赛事件池添加更多叙事文本
+1. **更多洲际赛事** — 欧联杯/欧会杯独立追踪，欧洲杯/美洲杯/非洲杯等
+2. **事件文本多样性** — 给大赛事件池添加更多叙事文本
+3. **大场面叙述去重** — 同一场里 `goalMe/assistMe` 文案可能重复（未接入 `_evHist` 去重）
 
 ---
 

@@ -521,7 +521,7 @@ return p["inChina"];
         'hint': function(p,q){return g(q,'真有门路','被套牢');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'ovr':0x2,'fame':0x8,'text':"他确实带你去了两次海外试训。虽然没成，可你知道了差距在哪里。"}:{'money':-0x28,'roleDelta':-0x1,'text':"五年里，他只做了一件事：拦下所有别人递给你的机会。"};
+return d(q,s)?{'ovr':0x2,'fame':0x8,'agentType':'pro','text':"他确实带你去了两次海外试训。虽然没成，可你知道了差距在哪里。"}:{'money':-0x28,'roleDelta':-0x1,'agentType':'shady','text':"五年里，他只做了一件事：拦下所有别人递给你的机会。"};
 }
     },
     {

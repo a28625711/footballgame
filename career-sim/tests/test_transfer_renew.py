@@ -57,6 +57,14 @@ try{
   var lgs=offerLeagues();
   out.checks.vetLock = lgs.indexOf('liga')<0 && lgs.indexOf('csl')>=0;
 
+  /* 7b) 强制转会窗不注入跨区邀请：海外队不注入中国邀请，国内队不注入海外邀请 */
+  au=mk(3); au.teamId='rma'; au.flags._vetInviteTeam='cn-sh';
+  window.SIM.makeTransfer(false,true);
+  out.checks.vetRegion = offerLeagues().indexOf('csl')<0;
+  au=mk(3); au.flags._vetInviteTeam='rma';
+  window.SIM.makeTransfer(false,true);
+  out.checks.vetRegion2 = offerLeagues().indexOf('liga')<0;
+
   /* 8) 锁洋挡得住"强制离队"（不再 ignoreLock） */
   au=mk(3); au.lockAbroad=5; au.flags._forceLeave=true;
   window.SIM.makeTransfer(false,true);
@@ -108,8 +116,8 @@ return JSON.stringify(out);
 """.replace('%NEW_PLAYER%', harness.NEW_PLAYER)
 
 KEYS = ('flag', 'win', 'stay', 'decline', 'ui', 'clearLock', 'vetLock',
-        'lockForce', 'renewLeave', 'evOpts', 'optHint', 'contract',
-        'renewFloor', 'renewCut', 'renewRaise', 'renewNum')
+        'vetRegion', 'vetRegion2', 'lockForce', 'renewLeave', 'evOpts', 'optHint',
+        'contract', 'renewFloor', 'renewCut', 'renewRaise', 'renewNum')
 
 
 def run():

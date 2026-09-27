@@ -451,7 +451,24 @@ return{'capDecline':!0x0,'text':"你说，还是专心踢球吧。教练点点�
         'hint': function(p,q){return g(q,'地位提升','下降');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"新体系反而更适合你。发布会上，新帅当众点了你的名字，夸的是你的跑动。"}:{'roleDelta':-0x1,'text':"你不在他的计划里"+"。他甚至叫不全你"+"的名字。"};
+return d(q,s)?{'roleDelta':0x1,'ovr':0x1,'text':"新体系反而更适合你。发布会上，新帅当众点了你的名字，夸的是你的跑动。"}:{'roleDelta':-0x1,'text':"你不在他的计划里。他甚至叫不全你的名字。"};
+}
+    },
+    {
+        'p': function(p){return f(0.55,[[p["guanxi"],45,0.008]],0.22,0.9);
+},
+        'label': "私下找他谈一次",
+        'hint': function(p,q){return g(q,'他记住了你','碰了一鼻子灰');
+},
+        'apply': function(p,q,s){
+return d(q,s)?{'roleDelta':0x1,'guanxi':0x5,'text':"你敲了办公室的门，说了二十分钟自己的想法。他听完只说了一句：下一场，你首发。"}:{'roleDelta':-0x1,'guanxi':-0x4,'text':"他打断了你：先把球踢好。你退出来，门在身后轻轻关上。"};
+}
+    },
+    {
+        'label': "先观望一季",
+        'hint': "能力+2",
+        'apply': function(){
+return{'ovr':0x2,'text':"你什么都没做，只是把训练做得更细。半个赛季后，他自己找上了你。"};
 }
     }
   ]
@@ -627,6 +644,16 @@ return p["contractFinal"]&&p["seasonsA"+"tClub"]>=0x1;
         'hint': "地位稳固，收入一"+'般',
         'apply': function(p){
 return{'roleDelta':0x1,'openContract':!0x0,'text':"你把续约的事交给了合同本身——经纪人去谈数字，你只管踢球。"};
+}
+    },
+    {
+        'label': "让经纪人去谈",
+        'p': function(p){return f(p["agentType"]==='pro'?0.72:(p["agentType"]==='family'?0.6:0.45),[[p["guanxi"],45,0.006]],0.2,0.9);
+},
+        'hint': function(p,q){return g(q,'谈下来一份好合同','被经纪人摆了一道');
+},
+        'apply': function(p,q,s){
+return d(q,s)?{'roleDelta':0x1,'money':0x64,'openContract':{'wage':0x2,'years':0x3},'text':"经纪人把条款一条条抠了下来。签字那天，俱乐部的人脸色不太好看。"}:{'money':-0x32,'roleDelta':-0x1,'openContract':!0x0,'text':"你全权交给了他，结果他连你上一份合同里的奖金条款都没争回来。"};
 }
     },
     {
@@ -1405,14 +1432,14 @@ return{'roleDelta':0x1,'fame':0x4,'ovr':-0x1,'text':"你留下了，那几场也
         'label': '换',
         'hint': "转会机会+，赔违"+'约金',
         'apply': function(p){
-return{'money':-Math["max"](0x3c,0.12*p["money"]|0x0),'fame':0xa,'text':"违约金掏得肉疼。新公司能力确实更强——同时也代理着二十个，跟你抢位置的人。"};
+return{'money':-Math["max"](0x3c,0.12*p["money"]|0x0),'fame':0xa,'agentType':'pro','text':"违约金掏得肉疼。新公司能力确实更强——同时也代理着二十个，跟你抢位置的人。"};
 }
     },
     {
         'label': '不换',
         'hint': "关系+",
         'apply': function(){
-return{'guanxi':0x8,'fame':-0x3,'text':"老经纪人，是你十六岁那年就跟的。能力一般，可从没骗过你。"};
+return{'guanxi':0x8,'fame':-0x3,'agentType':'family','text':"老经纪人，是你十六岁那年就跟的。能力一般，可从没骗过你。"};
 }
     }
   ]
@@ -3902,6 +3929,171 @@ return{'ovr':0x3,'roleDelta':0x1,'_injuryChain':0x3,'text':"你开始比以前�
 return{'ovr':0x2,'guanxi':-0x2,'_injuryChain':0x3,'text':"你开始更多地身体对抗、拼抢、铲球。对手开始怕你——不是因为技术，是因为你不要命。代价是黄牌多了，关系差了。"};
 }
     }
+  ]
+},
+
+
+// ==== 教练更迭扩展（2026-09） ====
+
+{
+  'id': "coach_tactics",
+  'title': "他的踢法",
+  'icon': '♟️',
+  'weight': 0x32,
+  'stage': "prime",
+  'when': function(p){return p["roleRank"]>=0x2;},
+  'desc': "新帅要求全队改打三中卫。你的位置，被他往前推了十米——那是你没踢过的区域。",
+  'options': [
+    {'label': "重新学一遍", 'p': function(p){return f(0.55,[[p["talent"],1,0.3],[p["age"],28,-0.03]],0.2,0.88);}, 'hint': function(p,q){return g(q,"多了一个位置","踢得四不像");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'roleDelta':0x1,'text':"你花了半个赛季适应新区域。等到赛季末，你已经能在这个位置踢得比原来的位置还好。"}:{'ovr':-0x2,'roleDelta':-0x1,'text':"新的没学会，老的也生疏了。教练开始把你放在替补席上。"};}},
+    {'label': "申请踢回原位", 'p': function(p){return f(0.5,[[p["ovr"],65,0.007]],0.2,0.85);}, 'hint': function(p,q){return g(q,"他让步了","被贴上不配合");}, 'apply': function(p,q,s){return d(q,s)?{'roleDelta':0x1,'text':"他把你的想法记在了本子上。第二天训练，你回到了熟悉的位置。"}:{'roleDelta':-0x2,'text':"他说：战术不是为你一个人定的。那之后，你成了他名单上的第二个选择。"};}}
+  ]
+},
+
+{
+  'id': "coach_favorite",
+  'title': "他偏爱你",
+  'icon': '🎯',
+  'weight': 0x2e,
+  'stage': "prime",
+  'when': function(p){return p["roleRank"]>=0x3;},
+  'desc': "新帅公开夸了你两次，训练里总把你留在最后单独讲。队友看你的眼神，变了。",
+  'options': [
+    {'label': "把功劳分给队友", 'hint': "关系+", 'apply': function(){return{'guanxi':0xa,'fame':-0x3,'roleDelta':0x1,'text':"发布会上你说是全队踢得好。更衣室里，有人拍了拍你的肩膀。"};}},
+    {'label': "享受这份偏爱", 'hint': "能力+，队内孤-", 'apply': function(){return{'ovr':0x3,'guanxi':-0x8,'text':"你成了他战术板上第一个名字。可训练里给你传球的人，慢慢少了。"};}}
+  ]
+},
+
+{
+  'id': "coach_bring",
+  'title': "带你一起走",
+  'icon': '🧳',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["roleRank"]>=0x2&&p["seasonsA"+"tClub"]>=0x2;},
+  'desc': "主帅被豪门挖走了。走之前他给你打了个电话：那边的位置，我给你留了一个。",
+  'options': [
+    {'label': "跟他走", 'p': function(p){return f(0.6,[[p["ovr"],68,0.006]],0.3,0.9);}, 'hint': function(p,q){return g(q,"跟对了人","新东家不认你");}, 'apply': function(p,q,s){return d(q,s)?{'leave':!0x0,'ovr':0x2,'guanxi':0x6,'text':"你成了他上任后的第一笔引援。发布会上他说：这个孩子，我看了两年。"}:{'leave':!0x0,'roleDelta':-0x2,'text':"你跟着去了，可新东家的更衣室不认这份关系。他下课那天，你也上了转会名单。"};}},
+    {'label': "留下来", 'hint': "地位+", 'apply': function(){return{'roleDelta':0x1,'guanxi':0x4,'text':"你说，想在这里踢出来。他在电话那头沉默了两秒，说，好，那别后悔。"};}}
+  ]
+},
+
+
+// ==== 更衣室生态（2026-09） ====
+
+{
+  'id': "locker_faction",
+  'title': "更衣室的两个圈子",
+  'icon': '🪑',
+  'weight': 0x30,
+  'repeat': 0x2,
+  'when': function(p){return p["seasonsA"+"broad"]>=0x1||p["clubsCount"]>=0x2;},
+  'desc': "队里慢慢分成了两拨：一拨是本土的老兄弟，一拨是这两年进来的外援。训练分组的时候，两拨人自动分开站。",
+  'options': [
+    {'label': "两边都不站", 'hint': "关系+，地位-", 'apply': function(){return{'guanxi':0x8,'roleDelta':-0x1,'text':"你谁那边都不掺和，训练里跟谁都能配合。可到了关键时候，两拨人都没把你当自己人。"};}},
+    {'label': "站本土那一边", 'hint': "地位+，关系-", 'apply': function(){return{'roleDelta':0x1,'guanxi':-0x6,'ovr':0x1,'text':"你进了本土帮。战术板上你的名字往前挪了，可更衣室另一头，再没人跟你说话。"};}},
+    {'label': "当那个和事佬", 'p': function(p){return f(0.55,[[p["guanxi"],50,0.008]],0.2,0.9);}, 'hint': function(p,q){return g(q,"两边都服你","里外不是人");}, 'apply': function(p,q,s){return d(q,s)?{'guanxi':0xa,'fame':0x5,'text':"你把两拨人拉到一起吃了顿饭。那之后，训练分组的时候，没人再自动分边了。"}:{'guanxi':-0x8,'text':"你想两边讨好，结果两边都觉得你靠不住。"};}}
+  ]
+},
+
+{
+  'id': "locker_vet_young",
+  'title': "年轻人要抢你的位置",
+  'icon': '⏳',
+  'weight': 0x2e,
+  'when': function(p){return p["age"]>=0x1e&&p["roleRank"]>=0x2;},
+  'desc': "梯队上来的那个小孩，这个月的训练数据全队第一。教练开始把他放在你旁边练。",
+  'options': [
+    {'label': "把位置让出来一半", 'hint': "关系+，地位-", 'apply': function(){return{'guanxi':0x8,'roleDelta':-0x1,'text':"你开始主动带他，把一些出场时间让给他。赛季末他说：没有你，我熬不过第一年。"};}},
+    {'label': "用经验压住他", 'hint': "地位+", 'apply': function(){return{'roleDelta':0x1,'ovr':0x1,'text':"你在对抗赛里把他连着断了几次。教练看在眼里，那个位置，暂时还是你的。"};}},
+    {'label': "教他，也盯着他", 'p': function(p){return f(0.55,[[p["guanxi"],45,0.008]],0.25,0.9);}, 'hint': function(p,q){return g(q,"带出了接班人","养虎为患");}, 'apply': function(p,q,s){return d(q,s)?{'guanxi':0xa,'ovr':0x2,'fame':0x4,'text':"你把自己这些年的东西一样样教给他。他成长得很快，也一直记着是谁教的他。"}:{'roleDelta':-0x2,'ovr':-0x1,'text':"你倾囊相授，半年后他在同一个位置上，踢得比你更抢眼。"};}}
+  ]
+},
+
+{
+  'id': "locker_sell",
+  'title': "他被卖了",
+  'icon': '💔',
+  'weight': 0x2e,
+  'when': function(p){return p["seasonsA"+"tClub"]>=0x2;},
+  'desc': "跟你在更衣室挨着坐了几年的人，被俱乐部卖去了保级队。通知下来那天，他还在帮你收着落下的护腿板。",
+  'options': [
+    {'label': "公开为他说话", 'hint': "关系+，地位-", 'apply': function(){return{'guanxi':0xa,'roleDelta':-0x1,'fame':0x5,'text':"你在采访里说了句「他不该走」。俱乐部不高兴，但更衣室里，所有人记住了这句话。"};}},
+    {'label': "沉默", 'hint': "地位+，关系-", 'apply': function(){return{'roleDelta':0x1,'guanxi':-0x6,'text':"你什么都没说。他走的那天跟你握了手，说，理解，这行就这样。"};}},
+    {'label': "请他吃最后一顿饭", 'hint': "关系+", 'apply': function(){return{'guanxi':0x6,'text':"你们在基地后面的小馆子坐到打烊。他说，以后你被卖的时候，记得也找个人吃饭。"};}}
+  ]
+},
+
+{
+  'id': "locker_rookie",
+  'title': "新来的那个孩子",
+  'icon': '🧒',
+  'weight': 0x2c,
+  'when': function(p){return p["age"]>=0x1b&&p["roleRank"]>=0x3;},
+  'desc': "梯队提上来一个孩子，第一次进一线队更衣室，坐在角落里不敢说话。你当年也是这么坐过来的。",
+  'options': [
+    {'label': "把他拉到身边", 'hint': "关系+，名气+", 'apply': function(){return{'guanxi':0xa,'fame':0x4,'text':"你让他坐到你旁边，训练里多给他传几脚球。他后来在采访里说：是那个人让我觉得自己属于这里。"};}},
+    {'label': "让他自己熬", 'hint': "能力+", 'apply': function(){return{'ovr':0x2,'text':"你什么都没做。更衣室这关，谁都得自己过——你当年也是一个人扛过来的。"};}}
+  ]
+},
+
+
+// ==== 经纪人 & 合同（2026-09，吃 agentType 人设） ====
+
+{
+  'id': "agent_pitch",
+  'title': "经纪人画的大饼",
+  'icon': '📈',
+  'weight': 0x30,
+  'repeat': 0x2,
+  'stage': "prime",
+  'when': function(p){return p["agentType"]==='greedy'||p["agentType"]==='shady'||p["agentType"]==='pro';},
+  'desc': "经纪人拿着一份名单来找你，说有三家俱乐部在问价，其中一家开的条件好得不像真的。",
+  'options': [
+    {'label': "信他，让他去谈", 'p': function(p){return f(p["agentType"]==='pro'?0.65:(p["agentType"]==='greedy'?0.5:0.35),[[p["guanxi"],45,0.006]],0.2,0.9);}, 'hint': function(p,q){return g(q,"真有豪门","一场空");}, 'apply': function(p,q,s){return d(q,s)?{'fame':0x8,'money':0x64,'text':"报价是真的。他没吹牛，还替你多要了一笔签字费。"}:{'fame':-0x4,'roleDelta':-0x1,'text':"你等了一个冬天，那三家一家都没来。他后来说，行情变了。"};}},
+    {'label': "自己打电话核实", 'hint': "清白+", 'apply': function(){return{'clean':0x4,'text':"你绕过经纪人，直接给其中一家打了电话。对方说：我们没报过价。"};}}
+  ]
+},
+
+{
+  'id': "agent_cut",
+  'title': "抽成",
+  'icon': '💸',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["agentType"]==='shady'||p["agentType"]==='greedy';},
+  'desc': "一份赞助合同的流水被你看懂了：俱乐部付了全款，到你手里的，少了三成。中间那三成，进了谁的口袋。",
+  'options': [
+    {'label': "当面问他", 'p': function(p){return f(0.5,[[p["guanxi"],45,0.008]],0.2,0.9);}, 'hint': function(p,q){return g(q,"他认了，退了钱","翻脸");}, 'apply': function(p,q,s){return d(q,s)?{'money':0xc8,'clean':0x4,'text':"他把钱退了一半，说下次不敢了。你留下了他，也留了个心眼。"}:{'money':-0x64,'clean':0x5,'agentType':'pro','text':"他翻脸了。你换了个经纪人，追讨那笔钱花了大半年。"};}},
+    {'label': "先记着", 'hint': "关系+，钱没了", 'apply': function(){return{'guanxi':0x5,'text':"你什么都没说，只是把那张流水单拍了照。以后每一份合同，你都自己看一遍。"};}}
+  ]
+},
+
+{
+  'id': "agent_loyal",
+  'title': "他替你挡了下来",
+  'icon': '🛡️',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["agentType"]==='family';},
+  'desc': "一家俱乐部递来一份合同，数字很高，但有一条：五年内不得转会海外。他看完直接给你打了电话，说这单不能签。",
+  'options': [
+    {'label': "听他的", 'hint': "关系+，钱少", 'apply': function(){return{'guanxi':0xa,'money':-0x32,'text':"他替你回绝了那份合同。三年后你才明白，那条「五年不得转会海外」，会把你钉死在原地。"};}},
+    {'label': "钱要紧，签", 'hint': "钱+，关系-", 'apply': function(){return{'money':0x1f4,'lockAbroad':0x3,'guanxi':-0xa,'text':"你签了。他没再说什么，只是那份独家协议到期后，没有续。"};}}
+  ]
+},
+
+{
+  'id': "contract_clause",
+  'title': "谈条款",
+  'icon': '📝',
+  'weight': 0x30,
+  'stage': "prime",
+  'when': function(p){return p["contractFinal"];},
+  'desc': "续约谈到了最后一条。俱乐部说，签字费、肖像权、解约金，只能给你加一样。",
+  'options': [
+    {'label': "要签字费", 'hint': "钱+", 'apply': function(){return{'money':0x12c,'text':"签字费当场到账。至于以后能不能走，你没多想。"};}},
+    {'label': "要肖像权", 'hint': "长期收入+", 'apply': function(){return{'money':0x96,'fame':0x4,'text':"你把肖像权拿了回来。几年后，那笔分成比工资还多。"};}},
+    {'label': "要解约金条款", 'hint': "将来好走", 'apply': function(){return{'lockAbroad':0x0,'roleDelta':-0x1,'money':-0x32,'text':"你把解约金压到了一个不高的数字。俱乐部答应了，条件是工资少一截。"};}}
   ]
 }
 

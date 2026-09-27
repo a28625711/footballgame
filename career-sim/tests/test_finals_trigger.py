@@ -59,15 +59,17 @@ function resolve(st,p){
   if(t==='report'){ checkNat(st,st.__s); checkCont(st,st.__s); checkCup(st,st.__s); window.__SIMTEST.cont(); return; }
   if(t==='bigmatch'){
     if(!p.result){
-      if(p.kind==='wc'||p.kind==='asia'){
-        var want=p.kind==='wc'?'世界杯':'亚洲杯',found=null;
+      var isNat=(p.kind==='wc'||p.kind==='asia');
+      var want=p.kind==='wc'?'世界杯':'亚洲杯',found=null;
+      if(isNat){
         for(var i=(st.tournaments||[]).length-1;i>=0;i--){var nt=st.tournaments[i];
           if(nt.comp===want&&nt.age===p.age){found=nt;break;}}
-        var stg=found?found.stage:'NO_TOURN';
-        natTrig[p.kind+':'+stg]=(natTrig[p.kind+':'+stg]||0)+1;
         if(!found)violations.push('nat_no_tourn:'+st.__s+':'+p.kind);
       }
       window.SIM.choose('push');
+      /* 交互决赛结算后再读阶段：玩家在决赛被判负 → 阶段回写为「亚军」，
+         正是本测试要覆盖的「进决赛但 AI 判负」分支（读选择前的模拟阶段会漏掉）。 */
+      if(isNat&&found){var stg=found.stage||'';natTrig[p.kind+':'+stg]=(natTrig[p.kind+':'+stg]||0)+1;}
     } else { window.__SIMTEST.cont(); }
     return;
   }

@@ -503,9 +503,16 @@ h+='<div class="wl-empty">还没有国家队记录</div>';
 }
 return h;
 }
+/* 世界面板按需渲染 + 状态签名缓存：避免每次 render 都全量重算（world 标签隐藏时根本不构建） */
+var _wCache=null,_wSig=null;
+function _wHtml(){
+var _s=au?((au["age"]||0x0)+'|'+((au["seasons"]||[])["length"])+'|'+(_tlTab||'')+'|'+(_wl["tab"]||'')+'|'+(_wl["lg"]||'')+'|'+(_wl["cup"]||'')+'|'+(_wl["cont"]||'')+'|'+(_wl["rd"]||0x0)+'|'+(_wl["fxSeason"]==null?'':_wl["fxSeason"])+'|'+(_wl["natAge"]==null?'':_wl["natAge"])+'|'+(_wl["natT"]||'')):'x';
+if(_s!==_wSig){_wSig=_s;_wCache=bWorldHTML();}
+return _wCache;
+}
 function _wlRender(){var _roots=document["querySelectorAll"]('[data-panel="world"] .wl-root');
 if(!_roots||!_roots["length"])return;
-for(var _i=0;_i<_roots["length"];_i++)try{_roots[_i]["innerHTML"]=bWorldHTML();}catch(_e){_roots[_i]["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';try{console["error"](_e);}catch(_e2){}}
+for(var _i=0;_i<_roots["length"];_i++)try{_roots[_i]["innerHTML"]=_wHtml();}catch(_e){_roots[_i]["innerHTML"]='<div class="wl-empty">渲染出错: '+ax(String(_e["message"]||_e))+'</div>';try{console["error"](_e);}catch(_e2){}}
 }
 document["addEventListener"]("change",function(e){
 if(e["target"]&&e["target"]["getAttribute"]&&e["target"]["getAttribute"]("data-yopt")!=null){
@@ -556,7 +563,7 @@ c4["apps"]+=c8["apps"],c4["goals"]+=c8["goals"],c4["assists"]+=c8["assists"],c4[
 c4["natGoals"]+=c8["natGoals"]||0x0,c4["natAssis"+'ts']+=c8["natAssis"+'ts']||0x0,c4["natCs"]+=c8["natCs"]||0x0,c8["trophies"]["length"]&&(c4["trophies"]=c4["trophies"]["concat"](c8["trophies"])),
 c8["note"]&&c4["notes"]["push"](c8["note"]),c8["nat"]&&c4["nats"]["push"](c8["nat"]),c8["move"]&&c4["moves"]["push"](c8["move"]),
 (c8["trophies"]||[])["forEach"](function(cN){
-"世界杯冠军"===cN||"亚洲杯冠军"===cN&&c4["nats"]["push"](cN);
+("世界杯冠军"===cN||"亚洲杯冠军"===cN)&&c4["nats"]["push"](cN);
 }),
 c5=c8,(++c6>=c2||c9===au["seasons"]["length"]-0x1)&&c7();
 }),c3;
@@ -699,7 +706,7 @@ persBody+='<div class="tl-row done tl-cols award"><span class="age-chip">'+c2+'<
 });}
 if(!persAny)persBody+='<div class="tl-row done tl-cols award"><span class="age-chip"></span><span class="tl-club-name" style="grid-column:2/5">还没有任何记录</span></div>';
 persBody+='</div></div>';
-var worldBody='<div class="tl-panel'+(_tlTab==='world'?'':' hidden')+'" data-panel="world"><div class="wl-root">'+bWorldHTML()+'</div></div>';
+var worldBody='<div class="tl-panel'+(_tlTab==='world'?'':' hidden')+'" data-panel="world"><div class="wl-root">'+(_tlTab==='world'?_wHtml():'')+'</div></div>';
 /* 新闻面板：纯浏览零交互；只显示当季一批（每季整体替换），无按年折叠 */
 var newsBody='<div class="tl-panel'+(_tlTab==='news'?'':' hidden')+'" data-panel="news"><div class="news-root">';
 var _nRow=function(n5){
@@ -1464,7 +1471,7 @@ return bg(cf,ag(ce),ag(ce)["name"],ce===bZ["homeId"]?"自家一线队":'加盟',
 }));
 return bZ["canStayY"+"outh"]&&(c6+=bb([ba("youth",'再在'+(c5?ax(a6["academyN"+"ame"](c5)):'梯队')+"练一年","不签成年队。梯队"+"练得更快，但明年"+"还要过一次选材那"+'一关')],"opts-alt")),
 c6+"</div>";
-}if("transfer"===bZ["type"]){if(bZ["renewOnly"]){var _rb=a6["offerBrief"](ai()['id']),_rh="<div cla"+"ss=\"even"+"t\">"+b1('✍️','决策','续约谈判',!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">")+"合同快到期了。俱乐部给出的续约条件：每周 "+al(_rb["wage"])+"，为期 "+_rb["years"]+" 年，角色 "+ax(_rb["roleName"])+"。"+"</div>"+bb([ba("stay","续约","签下新合同"),ba("decline","暂不续约","合同到期再谈"),ba("leave","递交转会申请","赛季末挂牌")],"opts-alt")+"</div>";return _rh;}var c7=bZ["backFrom"]?ag(bZ["backFrom"]):null,c8="<div cla"+"ss=\"even"+"t\">"+b1(c7?'🔙':bZ["fired"]?'🚪':bZ["mustLeav"+'e']?'🧳':'🔁',
+}if("transfer"===bZ["type"]){if(bZ["renewOnly"]){var _me=ai(),_rh="<div cla"+"ss=\"even"+"t\">"+b1('✍️','决策','续约谈判',!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">")+"合同快到期了。俱乐部开出的续约条件："+"</div>"+bb([bg("stay",_me,_me["name"],"续约",!0x0)])+bb([ba("decline","暂不续约","合同到期再谈"),ba("leave","递交转会申请","赛季末挂牌")],"opts-alt")+"</div>";return _rh;}var c7=bZ["backFrom"]?ag(bZ["backFrom"]):null,c8="<div cla"+"ss=\"even"+"t\">"+b1(c7?'🔙':bZ["fired"]?'🚪':bZ["mustLeav"+'e']?'🧳':'🔁',
 '决策',c7?"租借期满，回到 "+c7["name"]:bZ["fired"]?"俱乐部不续约了":bZ["mustLeav"+'e']?"话已经说出口了":"转会窗",!0x0)+("<div cla"+"ss=\"ev-d"+"esc\">")+(c7?"你回来了。这一年"+"在外面踢的每一场"+"，这边都看在眼里"+" —— 接下来是"+"留是走，重新谈一"+'次。':bZ["fired"]?"你的出场时间已经"+"少到写不进总结。"+"合同到期，俱乐部"+"没有再谈的意思。":bZ["mustLeav"+'e']?"走这件事已经定了"+"，回头路没有了。"+"剩下的问题只是去"+"哪儿。":"合同到期了。这几"+"家来问过，也可以"+"留下。")+"</div>";
 c8+=bb(bZ["offers"]["map"](function(ce,cf){
 return bg(cf,ag(ce),ag(ce)["name"],'加盟',!0x0);
@@ -1998,6 +2005,7 @@ for(var cI=0x0;cI<cBtns["length"];cI++)cBtns[cI]["classLis"+'t']["toggle"]("on",
 for(var cJ=0x0;cJ<cPans["length"];cJ++){var cK=cPans[cJ]["getAttri"+"bute"]("data-panel");
 cK===cTab?cPans[cJ]["classLis"+'t']["remove"]("hidden"):cPans[cJ]["classLis"+'t']["add"]("hidden");
 }
+cTab==='world'&&_wlRender();
 return!0x1;}var ca=c9["target"]["closest"]("[data-op"+'t]');
 if(ca)return bQ(ca["getAttri"+"bute"]("data-opt"));
 var ct2=c9["target"]["closest"]("[data-tac"+'t]');

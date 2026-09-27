@@ -147,10 +147,13 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - [x] 新增国外青训事件（stage:youth + when 含 p.youthAbroad）
 
 ## 比赛事件（bigmatch）系统
-- `aX()` 生成半场文案（含进球方式/激烈度随机）
-- `aY` 战术选择：hold/push/run 3 种
-- `choose` bigmatch 分支处理下半场+点球+胜负
-- `aU()` 生成对手
+- **时间分段引擎**：`aW()` 建 pending → `_bmAdvance()` 按 15 分钟段推进（seg 0=intro / 1=kickoff / 2-4=上半场 3 段 / 5=halftime / 6-8=下半场 / 9=终场；平局进加时→点球），`_bmSeg()` 出每段比分与叙述，`_bmFinish()` 收尾结算。
+- **战术选择** `aY`：hold/push/run/solo/wall 5 种，`_bmOpts()` 按场面/比分裁剪；选中项累加 `dp`（赢面份额）与 `glory`（个人进攻倾向），在 `choose` 内生效。
+- **比分模型**（2026-09-22 起与常规 `_matchSim` 同口径）：`_bmStrPair()` 取双方真实强度（`_meS`/`oppStr`，不再用 `ovr+24`）、`_bmGl()` 取联赛节奏几何平均、`_bmShare()` 复用 `_msShare`（含主场/中立）+ `dp`；每段 `λ = 2·base·gl·share/6`，加时同 `_etSim`。
+- **球员数据**（同上）：`_bmPlayerProb()` 复用 `_pMatchContrib`（位置份额 × OVR × 对手），按本段球队进球**逐球归属**；`goalMe/assistMe/goalOpp` 事件池只提供文案（不再"事件即得分"）。
+- **随机流**：大场面用专用 `_bmRnd()`/`_bmSeed()`，叙述/事件/归属都不消耗主 RNG，避免球员 OVR 经随机流反过来影响胜负。
+- `aU()` 生成对手；`aX()` 生成半场文案（含进球方式/激烈度随机）。
+- 一致性回归：`tests/test_bigmatch_model.py`（强度驱动胜率 / 无 OVR 泄漏 / 球员数据随 OVR / dp·glory 生效）。
 
 ### 生涯事件记录（eventLog，2026-08-19 新增）
 - `a2["eventLog"]`：`{age, title, text}` 数组，newState 初始化 `[]`
@@ -173,8 +176,20 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - **国家队决赛触发**（`b2` 国家队块）：AI 判定玩家队打进决赛但未夺冠（`_natStage==="亚军"`）也要弹交互决赛——修复前只认 `"冠军"`，玩家进决赛却看不到决赛事件。触发条件改为 `_ntStage==="冠军"||_ntStage==="亚军"`。
 - **contHist 口径统一**：交互夺冠与 AI 结算夺冠都要写 `contHist`（世俱杯名额 `_runClubWC`、世界面板上届冠军回退）并 `_devAdd(tid,1.5,1)`。
 - **回归**：`tests/test_finals_trigger.py`（跑多生涯断言国家队决赛（含亚军）触发 + contFx/natFx/cupFx 决赛数据完整）；`tests/test_derby_rules.py` 让位用例追加 `pd` 清除/比分/冠军一致断言。
+### 世界杯新赛制（48 队）与预选赛（2026-09-27）
+- **正赛规模**：`_natPool('wc')` 配额 `UEFA16/CAF9/AFC8/CONCACAF6/CONMEBOL6/OFC1` 补齐 48；`_natDraw` 自动 12 组×4。
+- **淘汰赛**：`_natBracket`（小组第一/第二交叉 `f_i vs s_{i+1}` + 8 个最佳第三名补足 2 的幂）→ `_natKoBracket`（固定签表，仿现实杯赛：首轮相邻配对、之后相邻胜者晋级；轮名 `_bracketNames`）。旧 `knockoutStage` 已并入 `_natKoBracket`。世界杯签表 5 轮：三十二强→十六强→八强→四强→决赛。
+- **阶段/排名**：`_natStage` 以"是否出现在淘汰赛签表"判定晋级（第三名可晋级），新增"止步三十二强"；`_natFormVal`/`aQ`/`NAT_SHORT` 同步新增 32 强档位。
+- **亚洲区预选赛**：`_seedInto`+`_wcQual`——第2轮 9 组×4(前2=18) → 第3轮 3 组×6(前2=6) + 最佳 2 个第三名 = 8 名额。
+- **测试**：`tests/test_world_cup_format.py`（12 组/32 强 5 轮）；`test_finals_trigger` 改为交互决赛结算后读阶段以覆盖"亚军"分支；`test_league_engine` 加预热运行。
+- **小组赛生死战（2026-09-27）**：`_runNatComp` 拆分「小组/淘汰赛」两阶段；`_natDecider` 判定末轮生死战；`_natResolveComp` 由小组积分重算签表；`_natGroupScore` 回填末轮。生死战 kind='wc'（`_grpWC`/`_drawOk`，平局合法）；进决赛时 `_natGrpToFinal` 在 `_bmFinish` 末尾补压决赛大场面。
+- **修复**：`_simGroup4` 积分行改存 `ovr||s`（原只存 ovr，世预赛跨轮强度丢失→全平局）；`_wcQual` 用玩家版中国替换 NATS 固定 `n_chn`。
+- **测试**：`tests/test_wc_group_decider.py`。
 
-### 半场比分（aW，2026-08-15 增强）
+
+
+### 半场比分（旧版 aW，2026-08-15）— 已废弃
+> 2026-08-30 起改为 `_bmAdvance` 时间分段引擎；比分由 `_bmSeg` 按 `_matchSim` 口径逐段生成（见上）。以下仅作历史记录。
 ```js
 k = clamp((ovr-70)/30, -0.5, 1)
 我方进球: 0球 38%-25%k / 1球 35% / 2球 20%+15%k / 3球 7%+10%k
@@ -188,7 +203,8 @@ k = clamp((ovr-70)/30, -0.5, 1)
 
 ## 平衡性调整（2026-08-15）
 
-### 比赛胜率公式（`choose` bigmatch 分支）
+### 比赛胜率公式（旧版 `choose` bigmatch 分支）— 已废弃
+> 2026-08-30 起改为 `_bmSeg` 逐段 Poisson；2026-09-22 起与常规 `_matchSim` 同口径（`_bmShare` + 决策 `dp`）。以下仅作历史记录。
 ```js
 // 旧: bK = clamp((ovr-70)/30, -0.5, 1)   ← ovr<70 时负数，拉低胜率
 //     bL = clamp(p-0.095+dp+bK×(risk?0.14:0.07), 0.04, 0.93)  ← 没考虑比分
@@ -198,6 +214,17 @@ k = clamp((ovr-70)/30, -0.5, 1)
 ```
 - 比分差修正：0:3 → 8.5%、0:1 → 38.5%、0:0 → 53.5%、3:0 → 93%
 - ovr 50-70 胜率固定（不拉低），ovr 95 push 约 60%（高 ovr 温和）
+
+### 现役大场面胜率（2026-09-22）
+```js
+// 强度：myStr = bx._meS ?? _teamAbs(ar())；oppStr = bx.oppStr ?? _bmOppStr(bx)
+// 节奏：gl = sqrt(_lgStyle[myLeague] * _lgStyle[oppLeague])
+// 份额：share = _msShare(myStr,oppStr,neu)（主场按 _fx.meHome，杯赛/决赛中立）+ Σ决策dp
+//       dp：hold .06 / push .13 / run .09 / solo .02 / wall .12（每个决策点各加一次）
+// 每段：λ_me = 2*1.40*gl*share/6，λ_opp = 2*1.40*gl*(1-share)/6
+// 加时：λ = 0.33*2*1.40*gl*share（同 _etSim）
+// 球员：ps/pa 复用 _pMatchContrib（位置份额×OVR×对手），glory 放大 ps
+```
 
 ### 联赛/杯赛夺冠（`ca`）
 ```js
@@ -275,7 +302,8 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 - **era（慢，一代人）**：`era*(0.95-0.06*|era|) + 0.5*clamp(delta*0.3,-0.75,0.75) + U(-1.8,1.8) + 荣誉加成`，**正向上限=世界级锚定** `95-(5-rep)*4 - (联赛str+档位)`（下限 −8）。只有荣誉能把球队顶到世界级（弱联赛霸主也能），随机漂移到不了；长期无冠则均值回归回落 → 鼎盛/重建周期（自相关 ~0.9）。
 - **荣誉加成（喂 era）**：联赛冠军 +2、国内杯赛 +0.8、洲际冠军 +2、世俱杯 +2.5、升级 +1；末三名 +0.6 喂 form。
 - **form（快，单季）**：`form*0.85 + U(-0.6,0.6)`，钳 ±3。
-- **hang（夺冠重建债）**：`hang*0.75 + 0.4*min(连冠数,5)`，钳 0..8。连冠期累积、结束后自行衰减（半衰期 ~2.4 年）→ 王朝终结后 3-4 年重建期，防止永久强者恒强。
+- **hang（夺冠重建债）**：`hang*0.75 + 0.05*min(连冠数,10)²`，钳 0..8（2026-09 由线性 `0.4*min(连冠数,5)` 改为平方项，王朝越久重建债越陡）。连冠期累积、结束后自行衰减（半衰期 ~2.4 年）→ 王朝终结后 3-4 年重建期，防止永久强者恒强。
+- **全联赛冠军加成**（`_runWorld`）：每季对**每个**联赛的冠军都 `_devAdd(t[0].i, 2, 1)`（早期只给玩家所在联赛，导致 Bayern/PSG 被系统性压制）。
 - `teamDev = era + form - hang`（`_devTick` 结算，`_tDev` 读取，`_teamStrRaw` 用）；末三名 +0.6 缓冲保留。
 - **联赛冠军恢复加成**（`_devAdd(champ,2,1)`）——喂 era 的荣誉累积；世界级上限 + 均值回归约束，不会 25 连冠。
 - **跨联赛调参（全局平移）**：各联赛 `str` 整体 −5（`str` 是联赛内常数偏移，比赛只用强度差 → 国内积分榜/头尾差/欧冠分布完全不变；世界级上限同步 100→95，保证"离世界级还差多少"不变）。关键：epl 84→74、liga 83→78、bund 78→75.3、l1 74→73.2。目的：把绝对刻度整体下移，恢复玩家加成 headroom（顶队 base 从 95~99 回到 89~94，ovr95 球星重新 +1~+6）。无玩家 400 季欧冠：西甲 47.5%、英超 24.5%、意甲 13.5%、德甲 9.5%、法甲 5.0%；rep5 夺冠 ~88%。
