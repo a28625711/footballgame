@@ -1383,7 +1383,7 @@ return d(q,s)?{'money':0x64,'fame':0xc,'guanxi':-0xf,'text':"仲裁支持了你�
   'cn': !0x0,
   'repeat': 0x2,
   'when': function(p){
-return p["inChina"]&&'gk'!==p["posGroup"]&&p["roleRank"]<=0x3;
+return p["inChina"]&&'gk'!==p["posGroup"]&&p["roleRank"]<=0x3&&p["posMoves"]["length"];
 },
 
 
@@ -1395,7 +1395,7 @@ return p["inChina"]&&'gk'!==p["posGroup"]&&p["roleRank"]<=0x3;
         'label': "改踢别的位置",
         'hint': "有球踢，能力-2",
         'apply': function(){
-return{'ovr':-0x2,'roleDelta':0x1,'text':"你去踢了边路。两年后才回到原位置，回来时，原来那些动作已经生疏了。"};
+return{'ovr':-0x2,'roleDelta':0x1,'posAny':!0x0,'text':"你去踢了边路。两年后才回到原位置，回来时，原来那些动作已经生疏了。"};
 }
     },
     {

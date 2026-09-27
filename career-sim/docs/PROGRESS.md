@@ -3,6 +3,15 @@
 > 站点：https://career-sim.pages.dev/（纯前端静态站，Cloudflare Pages 托管）
 > 记录日期：2026-08-15（持续更新）
 
+## 位置迁移 + 换号码 实装（2026-09-27）
+
+1. **引擎**：事件结算器新增 `pos`（指定位置）/ `posAny`（随机合法迁移）/ `posBack`（后撤一条线）与 `number` 效果键（`sim.js` aF）。改位置后 `posGroup` 自动跟随（读时求值）；未显式给 `playerType` 时按新位置重算 `calcPlayerType()`；号码写入 `a2.number`。
+2. **合理路径 + 防一路迁移到底**：新增相邻位置表 `_POSADJ` 与 `_GRPIDX`（gk<def<mid<att）。规则＝目标须为当前位置的合法相邻，且距“起始战线”（`flags._posOrigin`，首次迁移前锁定）不超过 1 档。故「前场内多次 / 前场→中场」允许，「前场→中场→后场」被拦截（起始 att，mid→def 距离 2）。非法迁移静默跳过。
+3. **位置事件接线**：`att_dropdeep`→CAM、`mid_deep`→CDM、`def_pace`→CB、`vet_dropback`→posBack、`cn_waiyuan` / `position_change`→posAny；其 `when` 由上下文 `posMoves` / `posBackMoves` 门控。`att_number9`→换穿 9 号（`_numDone` 防重复）。
+4. **号码规则**：`light_number`（十号球衣）改为**仅队长**触发；`num_10`（10号身份事件）收紧为**主力及以上**（roleRank≥3）；新增 **`num_demote`（十号不是给你的）**：轮换及以下（roleRank≤2）穿 10 号时**强制换号**，并纳入 `forceQ` 强制事件调度。
+5. **测试**：新增 `tests/test_position_number.py`（引擎守卫 + 事件定义 + 强制触发）。
+
+
 ## 世界杯小组赛生死战 + 一年两次大场面（2026-09-27）
 
 1. **小组赛生死战**：`_runNatComp` 拆为「小组阶段 / 淘汰赛阶段」。世界杯中国队末轮为生死战（`_natDecider`：末轮前未锁定小组前二、且末轮结果会改变）时延后淘汰赛，弹交互大场面（kind='wc'，`_grpWC`+`_drawOk`，**允许平局**）；结算时回填末轮比分 → `_natResolveComp` 重算小组积分与淘汰赛签表。

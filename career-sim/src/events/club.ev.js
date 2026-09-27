@@ -299,7 +299,7 @@ var EVT_club=[
   'icon': '🔟',
   'weight': 0x2e,
   'stage': "prime",
-  'when': function(p){return p["number"]===0xa&&!p["_numDone"];},
+  'when': function(p){return p["number"]===0xa&&p["roleRank"]>=0x3&&!p["_numDone"];},
   'desc': "更衣室的柜子上，10 号。墙上还留着前辈写的那句话：这个号码不是荣誉，是账单。",
   'options': [
     {'label': "把全队扛在肩上", 'p': function(p){return f(0.5,[[p["talent"],1,0.3],[p["ovr"],70,0.006]],0.2,0.88);}, 'hint': function(p,q){return g(q,"成了核心","背不动了");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x2,'guanxi':0x8,'fame':0x8,'_numDone':0x1,'text':"你开始主动要球，主动担责。输球后的发布会，你站在最前面。一个赛季后，没有人再质疑这个号码。"}:{'ovr':-0x2,'fame':-0x5,'_numDone':0x1,'text':"你什么都想管，结果什么都没管好。看台上开始有人喊：10 号该换人了。"};}},
@@ -399,6 +399,21 @@ var EVT_club=[
     {'label': "换个环境试试", 'p': function(p){return f(0.55,[[p["talent"],1.3,0.3]],0.25,0.9);}, 'hint': function(p,q){return g(q,"换了个人","越换越差");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x3,'fame':0x4,'_bloom':0x1,'text':"一支小球队给了你首发。第一个赛季你就进了两位数。有时候差的，只是一个愿意等你的人。"}:{'ovr':-0x1,'_bloom':0x1,'text':"你换了三家俱乐部，每家都只待半年。天赋还在，可没人愿意再赌你了。"};}}
   ]
 }
+
+
+// ---- idx:386 | num_demote | 十号不是给你的 ----
+{
+  'id': "num_demote",
+  'title': "十号不是给你的",
+  'icon': '👕',
+  'weight': 0x2e,
+  'when': function(p){return 0xa===p["number"]&&p["roleRank"]<=0x2&&!p["_numDone"];},
+  'desc': "新赛季的号码表下来了。装备经理把你叫到一边：十号，要给新来的那个核心。你，得换一个。",
+  'options': [
+    {'label': "痛快换掉", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'fame':-0x2,'guanxi':0x4,'_numDone':!0x0,'text':"你说，号码而已。第二天你换了新号，走进更衣室时，那件十号已经挂在了别人的柜子上。"};}},
+    {'label': "不情愿地换", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'roleDelta':-0x1,'fame':-0x4,'guanxi':-0x2,'_numDone':!0x0,'text':"你争了几句，最后还是把号码交了出去。更衣室里没人接话，只有柜门关上的声音。"};}}
+  ]
+},
 
 
 ];

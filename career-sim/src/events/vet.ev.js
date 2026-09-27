@@ -22,7 +22,7 @@ var EVT_vet=[
   'weight': 0x32,
   'stage': "vet",
   'when': function(p){
-return "att"===p["posGroup"]||"mid"===p["posGroup"];
+return ("att"===p["posGroup"]||"mid"===p["posGroup"])&&p["posBackMoves"]["length"];
 },
 
 
@@ -34,7 +34,7 @@ return "att"===p["posGroup"]||"mid"===p["posGroup"];
         'label': "往后撤",
         'hint': "能力+3，地位回"+'升',
         'apply': function(){
-return{'ovr':0x3,'roleDelta':0x1,'text':"你从抢点的人变成"+"了传球的人。数据"+"不好看了，球队赢"+"球多了。"};
+return{'ovr':0x3,'roleDelta':0x1,'posBack':!0x0,'text':"你从抢点的人变成"+"了传球的人。数据"+"不好看了，球队赢"+"球多了。"};
 }
     },
     {

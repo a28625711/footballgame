@@ -420,7 +420,7 @@ by=as(),bz={'age':a2["age"],'ovr':a2["ovr"],'talent':a2["talent"],'guanxi':a2["g
 'kids':a2["life"]&&a2["life"]["kids"]["length"]||0x0,'seasonsAtClub':a2["seasonsA"+"tClub"],'seasonsAbroad':a2["seasonsA"+"broad"],'contractLeft':a2["contract"+"Left"],'contractFinal':(a2["contract"+"Left"]||0x0)<=0x1,
 'clubRep':bx?bx["rep"]:0x0,'leagueId':by?by['id']:null,'country':by?by["country"]:null,'leagueRep':by?by["rep"]:0x0,'hasCont':!(!by||!by["cont"]),
 'rivalId':aC()&&aC()['id'],'teamId':a2["teamId"],'isCaptain':a2["flags"]["_captain"]===a2["teamId"],'capDone':a2["capDone"]||[],
-'foot':a2["foot"],'number':a2["number"],'youthTeamId':a2["youthTea"+"mId"]||'','clubsCount':(a2["clubsPla"+"yed"]||[])["length"],
+'foot':a2["foot"],'number':a2["number"],'youthTeamId':a2["youthTea"+"mId"]||'','clubsCount':(a2["clubsPla"+"yed"]||[])["length"],'posMoves':_posMoves(a2["pos"]),'posBackMoves':_posMoves(a2["pos"],!0x0),
 'partnerType':a2["life"]&&a2["life"]["partner"]?a2["life"]["partner"]["type"]:null,'bond':a2["life"]&&a2["life"]["partner"]?(a2["life"]["partner"]["bond"]||0x0):0x0,'agentType':a2["agentType"]||null};
 for(var bA in a2["flags"])a2["flags"]["hasOwnPr"+"operty"](bA)&&(bz[bA]=a2["flags"][bA]);
 return bz;
@@ -507,6 +507,9 @@ bx["kid"]&&(a2["life"]["kids"]["push"]({'born':a2["age"]}),by["push"]({'cls':'up
 bx["split"]&&a2["life"]["partner"]&&(a2["life"]["partner"]=null,a2["life"]["married"]=0x0,a2["life"]["splits"]++,by["push"]({'cls':"down",'text':"分开了"}))),
 bx["bond"]&&a2["life"]&&a2["life"]["partner"]&&(a2["life"]["partner"]["bond"]=ac((a2["life"]["partner"]["bond"]||0x0)+bx["bond"],0x0,0x64),by["push"]({'cls':bx["bond"]>0x0?'up':"down",'text':bx["bond"]>0x0?"关系升温":"闹别扭"})),bx["agentType"]&&(a2["agentType"]=bx["agentType"]),
 bx["roleDelt"+'a']&&(a2["roleAdju"+'st']=Math["max"](-0x4,Math["min"](0x4,a2["roleAdju"+'st']+bx["roleDelt"+'a'])),by["push"]({'cls':bx["roleDelt"+'a']>0x0?'up':"down",'text':bx["roleDelt"+'a']>0x0?"队内地位↑":"队内地位↓"})),
+bx["pos"]&&bx["pos"]!==a2["pos"]&&_posMoveOk(a2["pos"],bx["pos"])&&(a2["flags"]["_posOrigin"]||(a2["flags"]["_posOrigin"]=al(a2["pos"])["group"]),a2["pos"]=bx["pos"],bx["playerType"]==null&&(a2["playerType"]=calcPlayerType()),by["push"]({'cls':'up','text':"位置→"+al(a2["pos"])["name"]})),
+(bx["posAny"]||bx["posBack"])&&function(){var _ms=_posMoves(a2["pos"],bx["posBack"]?!0x0:!0x1),_t=_ms["length"]?_ms[Math["floor"](ad()*_ms["length"])]:null;_t&&(a2["flags"]["_posOrigin"]||(a2["flags"]["_posOrigin"]=al(a2["pos"])["group"]),a2["pos"]=_t,bx["playerType"]==null&&(a2["playerType"]=calcPlayerType()),by["push"]({'cls':'up','text':"位置→"+al(a2["pos"])["name"]}));}(),
+bx["number"]&&(a2["number"]=Math["max"](0x1,Math["min"](0x63,Math["round"](bx["number"]))),by["push"]({'cls':'up','text':"改穿 "+a2["number"]+" 号"})),
 bx["playerType"]!=null&&bx["playerType"]>=0x0&&bx["playerType"]<=0xb&&(a2["playerType"]=bx["playerType"],by["push"]({'cls':'up','text':"类型变更"})),
 bx["banGames"]&&(a2["banGames"]+=bx["banGames"],by["push"]({'cls':"down",'text':"停赛 "+bx["banGames"]+'\x20场'})),bx["ban"]&&(a2["banLeft"]+=bx["ban"],
 by["push"]({'cls':"down",'text':"禁赛 "+bx["ban"]+" 个赛季"})),bx["banned"]&&(a2["banned"]=!0x0,by["push"]({'cls':"down",'text':"终身禁足"})),
@@ -595,6 +598,17 @@ if(p==="CAM")return t>=1.25?0x2:(t>=1.15?0x1:(o>=50?0x1:0x5));
 if(p==="CDM")return t>=1.25?0x1:(t>=1.15?0x6:0x7);
 if(p==="CB")return t>=1.2?0x9:(t>=1.05?0x2:0xa);
 return t>=1.2?0x9:(t>=1.05?0x8:(a<=0x16?0x3:0x8));}
+/* 位置迁移：只允许合理相邻路径，且不得从起始战线一路前/后迁移到底
+   例：前场内多次/前锋→中场 允许；前场→中场→后场 禁止（以起始 group 为准，距离≤1） */
+var _POSADJ={'GK':[],'CB':['LB','RB','CDM'],'LB':['CB','LM','CM','LW'],'RB':['CB','RM','CM','RW'],
+'CDM':['CM','CB'],'CM':['CDM','CAM','LM','RM'],'CAM':['CM','LM','RM','LW','RW','ST'],
+'LM':['CM','LB','LW','CAM'],'RM':['CM','RB','RW','CAM'],'LW':['LM','ST','CAM','RW'],
+'RW':['RM','ST','CAM','LW'],'ST':['CAM','LW','RW']};
+var _GRPIDX={'gk':0x0,'def':0x1,'mid':0x2,'att':0x3};
+function _posOriginGrp(p){return a2["flags"]&&a2["flags"]["_posOrigin"]||al(p||a2["pos"])["group"];}
+function _posMoves(p,back){var o=_POSADJ[p]||[],oi=_GRPIDX[_posOriginGrp(p)],cur=_GRPIDX[al(p)["group"]],out=[];
+for(var i=0x0;i<o["length"];i++){var t=o[i],gi=_GRPIDX[al(t)["group"]];if(Math["abs"](gi-oi)>0x1)continue;if(back&&!(gi<cur))continue;out["push"](t);}return out;}
+function _posMoveOk(from,to){return (_POSADJ[from]||[]).indexOf(to)>=0x0&&Math["abs"](_GRPIDX[al(to)["group"]]-_GRPIDX[_posOriginGrp(from)])<=0x1;}
 
 
 
@@ -4313,7 +4327,7 @@ a2["forceQ"].indexOf("club_10"+"yrs")<0x0&&a2["forceQ"].push("club_10"+"yrs")),a
 
 
 
-a2["forceQ"].indexOf("club_10yrs"+"_way")<0x0&&a2["forceQ"].push("club_10yrs"+"_way"));
+a2["forceQ"].indexOf("club_10yrs"+"_way")<0x0&&a2["forceQ"].push("club_10yrs"+"_way")),a2["number"]===0xa&&a0["ROLES"][a2["role"]]["rank"]<=0x2&&!a2["usedEven"+"ts"]["num_demote"]&&(a2["forceQ"]||(a2["forceQ"]=[]),a2["forceQ"].indexOf("num_demote")<0x0&&a2["forceQ"].push("num_demote"));
 /* 长期异地：连续留洋 ≥3 年且还没把伴侣接过来 → 强制触发"时差"抉择（避免满意度每季 −2 无限下滑）。
    若拖到 ≥6 年仍未解决，强制触发"最后通牒"，只能接她过来或分开。 */
 (a2["life"]&&a2["life"]["partner"]&&!(a2["flags"]&&a2["flags"]["_together"])&&a2["seasonsA"+"broad"]>=0x3&&!a2["usedEven"+'ts']["love_lon"+"gdistanc"+'e'])&&(a2["forceQ"]||(a2["forceQ"]=[]),a2["forceQ"]["indexOf"]("love_lon"+"gdistanc"+'e')<0x0&&a2["forceQ"]["push"]("love_lon"+"gdistanc"+'e'));

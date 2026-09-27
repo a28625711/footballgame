@@ -210,7 +210,7 @@ return{'guanxi':0xa,'text':"你说谁罚都行，进了就好。更衣室里，�
   'icon': "9️⃣",
   'weight': 0x2d,
   'when': function(p){
-return "att"===p["posGroup"];
+return "att"===p["posGroup"]&&0x9!==p["number"]&&!p["_numDone"];
 },
 
 
@@ -225,7 +225,7 @@ return "att"===p["posGroup"];
         'hint': "名气大涨，压力也"+'大',
         'odds': ["扛住了","压垮了"],
         'apply': function(p,q,s){
-return d(q,s)?{'fame':0x16,'ovr':0x2,'text':"你穿着它进了二十个。已经有小孩，在球衣背后印你的名字。"}:{'fame':-0xc,'ovr':-0x2,'roleDelta':-0x1,'text':"半个赛季，七个球。看台上开始有人喊：「把九号还回来。」"};
+return d(q,s)?{'fame':0x16,'ovr':0x2,'number':0x9,'_numDone':!0x0,'text':"你穿着它进了二十个。已经有小孩，在球衣背后印你的名字。"}:{'fame':-0xc,'ovr':-0x2,'roleDelta':-0x1,'number':0x9,'_numDone':!0x0,'text':"半个赛季，七个球。看台上开始有人喊：「把九号还回来。」"};
 }
     },
     {
@@ -257,7 +257,7 @@ return{'text':"你说号码不重要。那件九号，在队里空了三年，�
   'icon': '🔄',
   'weight': 0x2d,
   'when': function(p){
-return "att"===p["posGroup"];
+return "att"===p["posGroup"]&&p["posMoves"].indexOf("CAM")>=0x0;
 },
 
 
@@ -269,7 +269,7 @@ return "att"===p["posGroup"];
         'label': "退到中场",
         'hint': "能力+4，进球少"+'一半',
         'apply': function(){
-return{'ovr':0x4,'fame':-0x8,'text':"你成了球队的出球点，也成了不进球的中锋。教练很满意，记者不满意。"};
+return{'ovr':0x4,'fame':-0x8,'pos':"CAM",'text':"你成了球队的出球点，也成了不进球的中锋。教练很满意，记者不满意。"};
 }
     },
     {

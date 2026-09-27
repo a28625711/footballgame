@@ -186,6 +186,13 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - **修复**：`_simGroup4` 积分行改存 `ovr||s`（原只存 ovr，世预赛跨轮强度丢失→全平局）；`_wcQual` 用玩家版中国替换 NATS 固定 `n_chn`。
 - **测试**：`tests/test_wc_group_decider.py`。
 
+## 位置迁移 / 换号码（2026-09-27）
+
+- **引擎（sim.js）**：`_POSADJ` 相邻位置表 + `_GRPIDX`（gk<def<mid<att）+ `_posOriginGrp` / `_posMoves` / `_posMoveOk`；上下文新增 `posMoves` / `posBackMoves`；`aF` 新增 `pos` / `posAny` / `posBack` / `number` 效果键（改位后自动重算 `playerType`）。规则＝合法相邻 + 距起始战线≤1（拦截 前→中→后）。
+- **号码规则**：`light_number` 仅队长；`num_10` 仅主力+；`num_demote`（轮换及以下+10号）强制换号并进 `forceQ` 调度（`sim.js` 赛季结算强制事件段）。
+- **接线事件**：`att_dropdeep`/`mid_deep`/`def_pace`/`vet_dropback`/`cn_waiyuan`/`position_change`/`att_number9`。
+- **测试**：`tests/test_position_number.py`。
+
 
 
 ### 半场比分（旧版 aW，2026-08-15）— 已废弃

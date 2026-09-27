@@ -68,7 +68,7 @@ return{'ovr':0x1,'roleDelta':-0x1,'text':"你把力气留给带球那几下。�
   'icon': '🔻',
   'weight': 0x34,
   'when': function(p){
-return "mid"===p["posGroup"];
+return "mid"===p["posGroup"]&&p["posMoves"].indexOf("CDM")>=0x0;
 },
 
 
@@ -80,7 +80,7 @@ return "mid"===p["posGroup"];
         'label': "改位置",
         'hint': "能力+4，进球没"+'了',
         'apply': function(){
-return{'ovr':0x3,'roleDelta':0x1,'fame':-0x6,'text':"你从进球的人，变成了让别人进球的人。数据难看，出场时间却翻了一倍。"};
+return{'ovr':0x3,'roleDelta':0x1,'fame':-0x6,'pos':"CDM",'text':"你从进球的人，变成了让别人进球的人。数据难看，出场时间却翻了一倍。"};
 }
     },
     {

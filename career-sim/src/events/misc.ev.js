@@ -199,7 +199,7 @@ return{'roleDelta':-0x1,'ovr':0x2,'text':"比赛少了一半，身体是保住�
   'icon': '🔄',
   'weight': 0x37,
   'when': function(p){
-return'gk'!==p["posGroup"];
+return'gk'!==p["posGroup"]&&p["posMoves"]["length"]>0x0;
 },
 
 
@@ -211,7 +211,7 @@ return'gk'!==p["posGroup"];
         'label': "改位置",
         'hint': "首发有保障，但能"+"力短期-2",
         'apply': function(){
-return{'ovr':-0x2,'roleDelta':0x1,'text':"新位置踢得别扭，可每场都有你的名字。习惯之后你才发现，这位置像是为你留的。"};
+return{'ovr':-0x2,'roleDelta':0x1,'posAny':!0x0,'text':"新位置踢得别扭，可每场都有你的名字。习惯之后你才发现，这位置像是为你留的。"};
 }
     },
     {
@@ -2782,7 +2782,7 @@ return{'text':"你把那页数值截下来，存进相册，谁也没发。那�
   'weight': 0x32,
   'tone': "light",
   'when': function(p){
-return p["roleRank"]>=0x2&&p["seasonsA"+"tClub"]>=0x2;
+return p["isCaptain"]&&0xa!==p["number"];
 },
 
 
@@ -2794,7 +2794,7 @@ return p["roleRank"]>=0x2&&p["seasonsA"+"tClub"]>=0x2;
         'label': '换',
         'hint': "名气+，关系-",
         'apply': function(){
-return{'fame':0x9,'guanxi':-0x5,'text':"你换了。第一场穿十号的比赛，你踢得格外紧。赛后，一个小球迷举着写你名字的十号球衣，来找你签名。"};
+return{'fame':0x9,'guanxi':-0x5,'number':0xa,'text':"你换了。第一场穿十号的比赛，你踢得格外紧。赛后，一个小球迷举着写你名字的十号球衣，来找你签名。"};
 }
     },
     {
