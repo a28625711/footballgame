@@ -205,6 +205,13 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - `genFlavor`（news.js）：`youth` 时不入 `FLAVOR_HOME`/`FLAVOR_ABROAD`（家乡/留洋主角向），仅保留 `FLAVOR_INTL`/`FLAVOR_CNFUN`。
 - **测试**：`tests/test_news_youth.py`。
 
+## 开局青训营档次 / 心仪球队（2026-09-27）
+
+- `_rollPot()`（sim.js）：天赋提前到选营步骤掷定并钉住（`flags._pot`），入营不重掷。
+- `loR` 由天赋决定；`pickBand` 区间上探 `loR+2`；`QQ>=0.68` 保底一支 rep>=4 国外青训营。
+- 心仪球队：`bf` 不再 `at(bG,bF)` → 转会窗不保证出现；仅青训营 `at(bI,*)`/unshift 保证。
+- **测试**：`tests/test_youth_band.py`。
+
 
 
 ### 半场比分（旧版 aW，2026-08-15）— 已废弃

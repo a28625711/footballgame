@@ -4098,11 +4098,7 @@ bI++){var bJ=ah(bF,function(bK){var bL=bc(bK);
 return _lgW(bK)/(0x1+0.35*Math["abs"](bz-bL));
 });
 bJ&&!bH[bJ['id']]&&(bH[bJ['id']]=0x1,bG["push"](bJ));
-}return at(bG,
-
-
-
-bF);
+}return bG;
 }function bg(){
 return aj(a2["youthTea"+"mId"]);
 }function bh(bx,by){
@@ -4177,9 +4173,13 @@ function _youthFee(rep){
 var _base=[12,20,35,55,80,100];
 return _base[rep]||_base[0x1];
 }
+/* 潜力(天赋)在“选青训营”这一步就掷定：青训营档次看潜力，而天赋原本要等入营才掷。
+   掷过即钉住(flags._pot)，入营时不再重掷，保证“看到的档次”与“实际天赋”一致。 */
+function _rollPot(){if(a2["flags"]["_pot"])return;a2["flags"]["_pot"]=!0x0;
+a2["talent"]=0.7+0.78*Math["pow"](ad(),1.7)+(a2["legacy"]?a2["legacy"]["talent"]:0x0)+(a2["legend"]?a2["legend"]['t']:0x0);}
 function bk(){
 if(a2["_trialQueued"]){var _tq=a2["_trialQueued"];a2["_trialQueued"]=null;return void(a2["pending"]={'type':"random",'eventId':"__trial__",'offers':_tq["offers"]});}
-if(a2["step"]++,"youth"===a2["phase"])return a2["youthTea"+"mId"]?bj():(function(){var bF=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];
+if(a2["step"]++,"youth"===a2["phase"])return a2["youthTea"+"mId"]?bj():(function(){_rollPot();var bF=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];
 }),bG=bF["filter"](function(bR){
 return ab(a2["originId"],bR['id']);
 }),bH=bF["filter"](function(bR){
@@ -4195,9 +4195,9 @@ bJ[bU['id']]||(bJ[bU['id']]=0x1,bI["push"](bU),bS--);
 bQ0=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];}),
 bG=bQ0["filter"](function(bR){return bL["indexOf"](bR)<0x0;}),
 bH=a0["TEAMS"]["filter"](function(bR){return !aq(bR)['cn'];}),
-nTv=(a2["talent"]-0.7)/0.78,nOv=(a2["ovr"]-40)/30,
-QQ=Math["max"](0,Math["min"](1,0.55*nTv+0.45*nOv)),
-loR=QQ<0.42?1:(QQ<0.72?2:3),bI=[],bJ={};
+nTv=Math["max"](0,Math["min"](1,(a2["talent"]-0.7)/0.78)),nOv=(a2["ovr"]-40)/30,
+QQ=nTv,/* 青训营档次按“潜力(天赋)”定，而非 12 岁时的当前能力 */
+loR=QQ<0.40?1:(QQ<0.68?2:3),bI=[],bJ={};
 function pU(bR){return bR&&!bJ[bR['id']]?(bJ[bR['id']]=0x1,bI.push(bR),!0x0):!0x1}
 
 
@@ -4209,7 +4209,7 @@ function pU(bR){return bR&&!bJ[bR['id']]?(bJ[bR['id']]=0x1,bI.push(bR),!0x0):!0x
 
 
 function pickBand(pool,n){for(var w=0;w<3&&n>0;w++){
-var cand=pool["filter"](function(bR){return !bJ[bR['id']]&&bR["rep"]>=loR-w&&bR["rep"]<=loR+1+w});
+var cand=pool["filter"](function(bR){return !bJ[bR['id']]&&bR["rep"]>=loR-w&&bR["rep"]<=loR+2+w});
 while(n>0&&cand["length"]){var cX=cand[Math["floor"](ad()*cand["length"])];
 if(pU(cX)){n--;}cand.splice(cand.indexOf(cX),1);}}}
 for(var _hh=0x0;_hh<_homes["length"];_hh++)pU(_homes[_hh]);
@@ -4233,6 +4233,9 @@ pickBand(bP["length"]?bP:bH,
 
 
 Math.max(0,forN));
+/* C: 高潜力(天赋)球员保底一支国外豪门(rep>=4)青训营——现实里豪门会提前来挖天才，学费由对方兜底 */
+if(QQ>=0.68){var _hasElite=!0x1;for(var _ez=0x0;_ez<bI["length"];_ez++)if(bI[_ez]["rep"]>=4){_hasElite=!0x0;break;}
+if(!_hasElite){var _el=bH["filter"](function(bR){return bR["rep"]>=4;});if(_el["length"])pU(_el[Math["floor"](ad()*_el["length"])]);}}
 var poolAll=bG["concat"](bH);
 while(bI["length"]<6){var before=bI["length"];pickBand(poolAll,1);if(bI["length"]===before)break;}
 while(bI["length"]>6){var lastK=bI[bI.length-1],
@@ -5057,7 +5060,7 @@ if(null===bB)return bk(),!0x0;
 return!!bB&&(bw(bB["res"]),!0x0);
 }if("youth_pa"+'th'===bA["type"]){var bC=bA["offers"][Number(bx)];
 return!!bC&&(bv(bx),a2["youthTea"+"mId"]=bC,a2["teamId"]=bC,aq(aj(bC))['cn']||(a2["money"]-=_youthFee(aj(bC)["rep"]),a2["flags"]["youthAbr"+"oad"]=!0x0),
-a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':"加入青训营",'text':"进入"+((aj(bC)["academy"])||aj(bC)["name"])}),a2["talent"]=0.7+0.78*Math["pow"](ad(),1.7)+(a2["legacy"]?a2["legacy"]["talent"]:0x0)+(a2["legend"]?a2["legend"]['t']:0x0),
+a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':"加入青训营",'text':"进入"+((aj(bC)["academy"])||aj(bC)["name"])}),_rollPot(),
 a2["playerType"]=calcPlayerType(),a2["pending"]=null,bk(),!0x0);
 }if("academy"===bA["type"]){if("youth"===bx)return!!bA["canStayY"+"outh"]&&(bv(bx),a2["flags"]["_gradCd"]=0x2,a2["phase"]="youth",
 a2["pending"]=null,bk(),!0x0);

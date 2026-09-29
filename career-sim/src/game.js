@@ -147,7 +147,7 @@ return "star"===c0['o']?c7="<path d="+"\"M100,26"+" l7,15 1"+"6,2 -12,"+"12 3,17
 function aV(bW){return bW+ ++aU;
 }var aW={'ST':[0x32,0x9],'LW':[0xf,0xf],'RW':[0x55,0xf],'CAM':[0x32,0x1b],'LM':[0xb,0x28],'CM':[0x32,0x2c],'RM':[0x59,0x28],
 'CDM':[0x32,0x3c],'LB':[0xe,0x47],'RB':[0x56,0x47],'CB':[0x32,0x4e],'GK':[0x32,0x5d]},aX=0x0,aY=[{'title':'出身','sub':"决定起步能力、家"+"里的底子，和你认"+"识多少人"},
-{'title':'位置','sub':"在场上站哪儿"},{'title':'身份','sub':"名字、号码、位置、惯用脚是"+"随机生成的，也可"+"以自己改；若随机"+"到中国球星会有小"+"加成"},{'title':"心仪球队",'sub':"12 岁那步一定"+"能选到它的青训营"+"；之后够得上它的"+"那一年，报价单上"+"也一定有它"}],
+{'title':'位置','sub':"在场上站哪儿"},{'title':'身份','sub':"名字、号码、位置、惯用脚是"+"随机生成的，也可"+"以自己改；若随机"+"到中国球星会有小"+"加成"},{'title':"心仪球队",'sub':"12 岁那步一定"+"能选到它的青训营"}],
 aZ=null;
 function b0(){var bW=aY[aX];
 aw("step-tit"+'le')["textCont"+"ent"]=bW["title"],aw("step-sub")["textCont"+"ent"]=bW["sub"],aw("step-pro"+"gress")["style"]["width"]=(aX+0x1)/aY["length"]*0x64+'%';
