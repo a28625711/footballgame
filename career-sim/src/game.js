@@ -249,7 +249,7 @@ var _pg=_hid===_pid?m["hg"]:m["ag"];
 var _og=_hid===_pid?m["ag"]:m["hg"];
 _cls=_pg>_og?" won":(_pg<_og?" lost":" draw");
 }
-h+="<span class=\"sm-round"+_cls+"\">"+(_hT?_crTm(m["hid"]||m["homeId"],hn):ax(hn))+" "+m["hg"]+"-"+m["ag"]+" "+(_aT2?_crTm(m["aid"]||m["awayId"],an):ax(an))+"</span>";
+h+="<span class=\"sm-round"+_cls+"\">"+_crTm(m["hid"]||m["homeId"],hn)+" "+m["hg"]+"-"+m["ag"]+" "+_crTm(m["aid"]||m["awayId"],an)+"</span>";
 }
 h+="</div>";
 }
@@ -287,7 +287,7 @@ return h;
    tools/fetch_flags.py 生成，NATS.img 存文件 key），无图时回退 emoji */
 var _natMap=null;
 function _natMapGet(){
-if(!_natMap){_natMap={};(window["NATS"]||[]).forEach(function(n2){_natMap[n2["i"]]={'n':n2["n"],'f':n2["f"]||'','img':n2["img"]||null};});}
+if(!_natMap){_natMap={};var _nsrc=window["NATS"]||(typeof NATS!=="undefined"?NATS:[]);_nsrc.forEach(function(n2){_natMap[n2["i"]]={'n':n2["n"],'f':n2["f"]||'','img':n2["img"]||null};});}
 return _natMap;
 }
 function _crTm(id,fb){

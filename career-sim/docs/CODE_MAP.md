@@ -193,6 +193,13 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - **接线事件**：`att_dropdeep`/`mid_deep`/`def_pace`/`vet_dropback`/`cn_waiyuan`/`position_change`/`att_number9`。
 - **测试**：`tests/test_position_number.py`。
 
+## 世界杯显示修复（2026-09-27）
+
+- `_natStage`（sim.js）：逐轮扫描去掉外层 `break`，取**最深**一轮 → 修正“永远三十二强”。
+- `_grpBox`（game.js）：小组赛比分两侧改用 `_crTm(id,fb)` 解析（支持国家队 `n_xxx` → 国旗+国名）。
+- `_natMapGet`（game.js）：`window.NATS` 缺失时回退裸 `NATS`。
+- **测试**：`tests/test_wc_ui.py`。
+
 
 
 ### 半场比分（旧版 aW，2026-08-15）— 已废弃

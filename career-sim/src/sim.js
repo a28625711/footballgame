@@ -1056,7 +1056,6 @@ var lastRound=null;
 if(ko)for(var r=0;r<ko.rounds.length;r++){
 var ms=ko.rounds[r].matches;
 for(var m=0;m<ms.length;m++){if(ms[m].home===playerName||ms[m].away===playerName){lastRound=ko.rounds[r].name;break;}}
-if(lastRound)break;
 }
 if(!lastRound)return"小组赛出局";
 if(lastRound==="决赛")return"亚军";
