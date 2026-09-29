@@ -200,6 +200,11 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - `_natMapGet`（game.js）：`window.NATS` 缺失时回退裸 `NATS`。
 - **测试**：`tests/test_wc_ui.py`。
 
+## 青训期新闻门控（2026-09-27）
+
+- `genFlavor`（news.js）：`youth` 时不入 `FLAVOR_HOME`/`FLAVOR_ABROAD`（家乡/留洋主角向），仅保留 `FLAVOR_INTL`/`FLAVOR_CNFUN`。
+- **测试**：`tests/test_news_youth.py`。
+
 
 
 ### 半场比分（旧版 aW，2026-08-15）— 已废弃

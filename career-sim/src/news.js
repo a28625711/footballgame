@@ -548,8 +548,11 @@ function genFlavor(a2, youth) {
     var i;
     for (i = 0; i < FLAVOR_INTL.length; i++) mixed.push({ item: FLAVOR_INTL[i], sub: 'lg', w: 3, cat: 'world' });
     for (i = 0; i < FLAVOR_CNFUN.length; i++) if (inCN) mixed.push({ item: FLAVOR_CNFUN[i], sub: 'none', w: 6, cat: 'cnfun' });
-    for (i = 0; i < FLAVOR_HOME.length; i++) if (inCN) mixed.push({ item: FLAVOR_HOME[i], sub: 'you', w: 4, cat: 'home' });
-    for (i = 0; i < FLAVOR_ABROAD.length; i++) if (!inCN) mixed.push({ item: FLAVOR_ABROAD[i], sub: 'you', w: 4, cat: 'abroad' });
+    /* 青训期不出现“职业球员才有的”主角向风味（家乡/留洋：有人认出你、队友、你的赛程表、你的球衣…）*/
+    if (!youth) {
+        for (i = 0; i < FLAVOR_HOME.length; i++) if (inCN) mixed.push({ item: FLAVOR_HOME[i], sub: 'you', w: 4, cat: 'home' });
+        for (i = 0; i < FLAVOR_ABROAD.length; i++) if (!inCN) mixed.push({ item: FLAVOR_ABROAD[i], sub: 'you', w: 4, cat: 'abroad' });
+    }
     while (out.length < n && tries++ < 40) {
         var item = pickWeighted(a2, mixed.map(function (m) { return { id: m.item.id, w: m.w, ref: m, req: m.item.req }; }));
         if (!item) continue;
