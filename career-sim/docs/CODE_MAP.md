@@ -212,6 +212,20 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - 心仪球队：`bf` 不再 `at(bG,bF)` → 转会窗不保证出现；仅青训营 `at(bI,*)`/unshift 保证。
 - **测试**：`tests/test_youth_band.py`。
 
+## 类型签名事件 / 成长差分事件（2026-09-29）
+
+- `src/events/type.ev.js`：11 条类型签名事件；`_TYPE_SIG[playerType]` 在赛季结算处 `b1()` 入队（职业期保底一次）。
+- `src/events/grow.ev.js`：5 条成长差分事件（青训快长/停滞、青年涨球/停滞、老将逆势）。
+- `flags._ovrD` / `flags._ovrPh`：年度 ovr 变化与阶段（青训年在 `bj()` 记，职业季在 `b2()` 记）。
+- `b1p(id)`（sim.js）：同 `b1` 但 `unshift` 到 forceQ 队首；给会被状态刷新淘汰的"即时信号"事件用。
+- **测试**：`tests/test_type_events.py`、`tests/test_growth_events.py`。
+
+## 天赋挂钩的成长天花板（2026-09-30）
+
+- `sim.js` 赛季成长段：`_tN/_capC(71+25*_tN)/_wall`，`bG *= max(0.16,(100-ovr)/50)*_wall`。
+- `sim.js` `aF` 事件 ovr 加成：同一天花板 `_cC`；但 `bB`（回血到 `maxOvr`）不受限。
+- 旋钮：`0x47`=天底下限、`0x19`=天赋跨度、`/0xa`=生效区宽、`0.06`=贴墙余量。
+
 
 
 ### 半场比分（旧版 aW，2026-08-15）— 已废弃

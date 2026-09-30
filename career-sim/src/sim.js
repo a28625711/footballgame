@@ -487,8 +487,10 @@ if(bJ){var bL=bJ>0x0,bM=(!0x1===bK?!bL:bL)?'up':"down";
 by["push"]({'cls':bM,'text':bI+(bL?'+':'')+bJ});
 }}if(bx["ovr"]){var bA;
 if(bx["ovr"]<0x0)bA=bx["ovr"];
-else{var bB=Math["min"](bx["ovr"],Math["max"](0x0,a2["maxOvr"]-a2["ovr"]));
-bA=bB+(bx["ovr"]-bB)*ac((0x64-a2["ovr"])/0x28,0.25,0x1);
+else{var bB=Math["min"](bx["ovr"],Math["max"](0x0,a2["maxOvr"]-a2["ovr"])),
+/* 事件 ovr 加成同样受天赋天花板约束（否则低天赋靠事件也能顶到 80+） */
+_cT=ac((a2["talent"]-0.7)/0.78,0x0,0x1),_cC=0x47+0x19*_cT;
+bA=bB+(bx["ovr"]-bB)*ac((_cC-a2["ovr"])/0x28,0.06,0x1);
 }a2["ovr"]=ac(a2["ovr"]+bA,0xc,0x63),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz('能力',Math["round"](0xa*bA)/0xa);
 }bx["talent"]&&(a2["talent"]=ac(a2["talent"]+bx["talent"],0.5,1.8),bz('天赋',Math["round"](0x64*bx["talent"])/0x64));
 bx["health"]&&(a2["healthBonus"]=ac((a2["healthBonus"]||0x1)*bx["health"],0.4,0x1),0x1!==bx["health"]&&bz('伤病',(bx["health"]<0x1?'-':'+')+Math["round"](0x64*Math["abs"](0x1-bx["health"]))+'%',bx["health"]>=0x1));
@@ -609,6 +611,8 @@ function _posOriginGrp(p){return a2["flags"]&&a2["flags"]["_posOrigin"]||al(p||a
 function _posMoves(p,back){var o=_POSADJ[p]||[],oi=_GRPIDX[_posOriginGrp(p)],cur=_GRPIDX[al(p)["group"]],out=[];
 for(var i=0x0;i<o["length"];i++){var t=o[i],gi=_GRPIDX[al(t)["group"]];if(Math["abs"](gi-oi)>0x1)continue;if(back&&!(gi<cur))continue;out["push"](t);}return out;}
 function _posMoveOk(from,to){return (_POSADJ[from]||[]).indexOf(to)>=0x0&&Math["abs"](_GRPIDX[al(to)["group"]]-_GRPIDX[_posOriginGrp(from)])<=0x1;}
+/* 类型签名事件表：下标 = playerType（0..10），门将(11)由 gk.ev.js 承担 */
+var _TYPE_SIG=["type_finisher","type_playmaker","type_complete","type_pace","type_target","type_shadow","type_b2b","type_anchor","type_fullback","type_libero","type_stopper"];
 
 
 
@@ -3646,6 +3650,15 @@ if(a2["forceQ"]["indexOf"](bx)>=0x0)return;
 if(a2["forceQ"]["length"]>=0x8)return;
 a2["forceQ"]["push"](bx);
 }
+/* 同 b1，但插到队首：用于"刚刚发生"的信号事件（_ovrD 每年刷新，排到队尾会失效） */
+function b1p(bx){
+a2["forceQ"]||(a2["forceQ"]=[]);
+if(!_evById(bx))return;
+if(a2["usedEven"+"ts"][bx])return;
+if(a2["forceQ"]["indexOf"](bx)>=0x0)return;
+if(a2["forceQ"]["length"]>=0x8)return;
+a2["forceQ"]["unshift"](bx);
+}
 function _repWeight(t){
 
 
@@ -3717,6 +3730,10 @@ delete a2["staff"][bC['id']],bB["push"](bC["name"]),bA-=bC["_fee"];
 
 bB["length"]&&(bz["staffGon"+'e']=bB["join"]('、'));
 }var bE=aG(a2["age"]),bF=bE[0x0]+ad()*(bE[0x1]-bE[0x0]),bG=a2["talent"];
+/* 天赋挂钩的成长天花板：低天赋的墙更低（talent 0.70→71 / 1.48→96），
+   只在接近该墙的 8 点区间内递减，不整体再压一刀（避免与 bG 里的天赋乘数双重惩罚）。 */
+/* _tN=0..1 归一化天赋；_capC=天赋天花板；_wall 在 _capC-8 处开始生效、贴到 _capC 时为 0.12 */
+var _tN=ac((a2["talent"]-0.7)/0.78,0x0,0x1),_capC=0x47+0x19*_tN,_wall=ac((_capC-a2["ovr"])/0xa,0.06,0x1);
 if(by&&(bG*=0x1+0.05*(by["rep"]-0x2)),
 
 
@@ -3727,7 +3744,7 @@ a2["stagnate"]&&(bG*=0.55),a6("chef")&&(bG*=(1+0.08*_stEff(_stT("chef")))*_stM("
 
 
 a2["achBonus"]&&a2["achBonus"]["growth"]&&(bG*=a2["achBonus"]["growth"]),
-bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)),
+bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)*_wall),
 
 
 
@@ -3885,6 +3902,7 @@ if(_natQual&&!_natTourn&&c3===0x3){aZ(bz,
 _natTick(_natTourn,!!(_natQual&&!_natTourn&&bX&&!a2["cheat"]),_natFxForce);
 if(bx&&by){_ntCareerHook();_bigHooks(bz);if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;a2["_promoDue"]=!0x0;}else{_lgFinalRefresh(bz);bAw(bz);}}return a2["_promoDue"]?0:_promoReleg(bz,
 bx,by),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz["ovrEnd"]=Math["round"](a2["ovr"]),
+a2["flags"]["_ovrD"]=bz["ovrEnd"]-Math["round"](bz["ovr"]||0x0),a2["flags"]["_ovrPh"]="p",a2["flags"]["_ovrA"]=bz["age"],
 bz["wage"]=(a2["_offerTerms"]&&a2["_offerTerms"][a2["teamId"]])?a2["_offerTerms"][a2["teamId"]]["wage"]:null,
 bz["cLeft"]=a2["contractLeft"]||0x0,
 bz["awardN"]=(a2["awards"]||[]).filter(function(x){return x["age"]===bz["age"];})["map"](function(x){return x["name"];}),
@@ -4143,6 +4161,12 @@ return bH?0.45+0.06*bH["rep"]:0x1;
 }(bE)*bG,0x0,0.55);
 }(a2["age"]);
 delete a2["flags"]["_yFit"];
+/* 年度成长差：青训年 vs 上一年（用于成长/停滞差分事件）
+   _yHas=false 表示还没有上一年可比（首年），此时 _ovrD 无意义，禁用该年事件；
+   仅 14 岁及以后的青训年才触发（12/13 岁身体未定型，涨跌没有叙事意义）。 */
+var _yL=a2["youthLog"],_yHas=_yL["length"]>0x0,_yNow=Math["round"](a2["ovr"]),_yPrev=_yHas?_yL[_yL["length"]-0x1]["ovr"]:_yNow;
+a2["flags"]["_ovrD"]=_yNow-_yPrev,a2["flags"]["_ovrPh"]=_yHas?"y":"y0",a2["flags"]["_ovrA"]=a2["age"];
+a2["flags"]["_ovrA"]>=0xe&&_yHas&&(a2["flags"]["_ovrD"]>=0x8?b1p("youth_surge"):(a2["flags"]["_ovrD"]<=0x1&&b1p("youth_stall")));
 return a2["youthLog"]["push"]({'age':a2["age"],'teamId':a2["youthTea"+"mId"],'ovr':Math["round"](a2["ovr"]),'cut':bC}),bC?(a2["youthCut"]=a2["age"],
 !0x0):(_newsTick(0x1),a2["age"]++,!0x1);
 }()))return br("青训淘汰");
@@ -4330,6 +4354,10 @@ a2["forceQ"].indexOf("club_10"+"yrs")<0x0&&a2["forceQ"].push("club_10"+"yrs")),a
 
 
 a2["forceQ"].indexOf("club_10yrs"+"_way")<0x0&&a2["forceQ"].push("club_10yrs"+"_way")),a2["number"]===0xa&&a0["ROLES"][a2["role"]]["rank"]<=0x2&&!a2["usedEven"+"ts"]["num_demote"]&&(a2["forceQ"]||(a2["forceQ"]=[]),a2["forceQ"].indexOf("num_demote")<0x0&&a2["forceQ"].push("num_demote"));
+/* 类型签名事件：职业期保证一生至少露一次（类型变了自动改推新类型的签名事件，已触发过的不再入队） */
+("prime"===aB(a2["age"])&&a2["playerType"]>=0x0&&a2["playerType"]<=0xa)&&(function(){var _ts=_TYPE_SIG[a2["playerType"]],_td=_ts&&_evById(_ts);_td&&(!_td["when"]||_td["when"](aA()))&&b1(_ts);})();
+/* 成长差分（职业）：青年涨球/停滞、老将不退反涨 → 强制事件 */
+(function(){if("career"!==a2["phase"])return;var _d=a2["flags"]["_ovrD"]||0x0,_a=a2["age"];if(_a>=0x21){if(_d>=0x0)b1p("vet_up");}else if(_a>=0x10&&_a<=0x18){if(_d>=0x6)b1p("young_surge");else if(_d<=0x0)b1p("young_stall");}})();
 /* 长期异地：连续留洋 ≥3 年且还没把伴侣接过来 → 强制触发"时差"抉择（避免满意度每季 −2 无限下滑）。
    若拖到 ≥6 年仍未解决，强制触发"最后通牒"，只能接她过来或分开。 */
 (a2["life"]&&a2["life"]["partner"]&&!(a2["flags"]&&a2["flags"]["_together"])&&a2["seasonsA"+"broad"]>=0x3&&!a2["usedEven"+'ts']["love_lon"+"gdistanc"+'e'])&&(a2["forceQ"]||(a2["forceQ"]=[]),a2["forceQ"]["indexOf"]("love_lon"+"gdistanc"+'e')<0x0&&a2["forceQ"]["push"]("love_lon"+"gdistanc"+'e'));
