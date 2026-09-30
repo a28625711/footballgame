@@ -579,6 +579,7 @@ return{'ovr':0x2,'text':"你什么都没做，只是把训练做得更细。半�
   'icon': '🔥',
   'weight': 0x46,
   'stage': "prime",
+  'when': function(p){return p["contractFinal"];},
   'desc': "{rival}想签你。钱和荣誉都更多，代价是穿上这座城里最不该穿的那件球衣。",
 
 
@@ -723,7 +724,7 @@ return d(q,s)?{'money':0x190+0x7*p["ovr"],'leave':!0x0,'text':"自由身换来�
   'weight': 0x28,
   'stage': "prime",
   'when': function(p){
-return!p["inChina"];
+return p["contractFinal"]&&!p["inChina"];
 },
 
 
@@ -1026,7 +1027,7 @@ return{'roleDelta':-0x1,'text':"翻译不能替你上场。比赛里那几次跑
   'icon': '🥟',
   'weight': 0x28,
   'when': function(p){
-return!p["inChina"];
+return p["contractFinal"]&&!p["inChina"];
 },
 
 
@@ -1229,7 +1230,7 @@ return d(q,Math["min"](0.7,(p["ovr"]-0x32)/0x28))?{'caps':0x3,'clean':0x5,'fame'
   'weight': 0x55,
   'cn': !0x0,
   'when': function(p){
-return p["inChina"]&&p["age"]>=0x12&&p["age"]<=0x1b&&p["ovr"]>=0x3e;
+return p["contractFinal"]&&p["inChina"]&&p["age"]>=0x12&&p["age"]<=0x1b&&p["ovr"]>=0x3e;
 },
 
 
@@ -1838,7 +1839,7 @@ return{'ovr':0x2,'roleDelta':-0x1,'text':"你回房间睡了。之"+"后半年�
   'weight': 0x2d,
   'cn': !0x0,
   'when': function(p){
-return p["inChina"]&&p["ovr"]>=0x42;
+return p["contractFinal"]&&p["inChina"]&&p["ovr"]>=0x42;
 },
 
 
@@ -13249,7 +13250,7 @@ return p["inAcadem"+'y']&&p["clubRep"]<=1;
   'weight': 0x40,
   'stage': "vet",
   'when': function(p){
-return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("home")["length"]>0x0;
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&p["contractFinal"]&&window["SIM"]["vetInvitePool"]("home")["length"]>0x0;
 },
 
   'desc': "电话那头是熟悉的口音。老家的球队想让你回去，踢完最后几年——那座球场离你小时候住的地方，只有两条街。",
@@ -13281,7 +13282,7 @@ return{'_vetInviteDone':!0x0,'roleDelta':0x1,'text':"你说再等等。挂了电
   'weight': 0x3c,
   'stage': "vet",
   'when': function(p){
-return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("youth")["length"]>0x0;
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&p["contractFinal"]&&window["SIM"]["vetInvitePool"]("youth")["length"]>0x0;
 },
 
   'desc': "当年把你从泥地里捡起来的青训营打来电话：回来吧，带带孩子们，顺便把球员生涯在这块场地上收个尾。",
@@ -13313,7 +13314,7 @@ return{'_vetInviteDone':!0x0,'text':"你说，再踢两年吧。对方说，门�
   'weight': 0x3a,
   'stage': "vet",
   'when': function(p){
-return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("first")["length"]>0x0;
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&p["contractFinal"]&&window["SIM"]["vetInvitePool"]("first")["length"]>0x0;
 },
 
   'desc': "你职业生涯的第一家俱乐部找上门来。他们说，希望你的最后一场比赛，穿回那件最初的球衣。",
@@ -13691,8 +13692,8 @@ return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好
   'when': function(p){return 0xa===p["number"]&&p["roleRank"]<=0x2&&!p["_numDone"];},
   'desc': "新赛季的号码表下来了。装备经理把你叫到一边：十号，要给新来的那个核心。你，得换一个。",
   'options': [
-    {'label': "痛快换掉", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'fame':-0x2,'guanxi':0x4,'_numDone':!0x0,'text':"你说，号码而已。第二天你换了新号，走进更衣室时，那件十号已经挂在了别人的柜子上。"};}},
-    {'label': "不情愿地换", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'roleDelta':-0x1,'fame':-0x4,'guanxi':-0x2,'_numDone':!0x0,'text':"你争了几句，最后还是把号码交了出去。更衣室里没人接话，只有柜门关上的声音。"};}}
+    {'label': "据理力争", 'p': function(p){return f(0.22,[[p["ovr"],0x4e,0.012],[p["roleRank"],0x3,0.14]],0.08,0.85);}, 'hint': function(p,q){return g(q,"十号留下","争了也没用");}, 'apply': function(p,q,s){return d(q,s)?{'fame':0x4,'roleDelta':0x1,'guanxi':-0x2,'text':"你把话说得很清楚：数据、出场时间、还有合同上写的位置。装备经理看了半天，说：那我再去跟上面商量商量。十号留在了你的柜子里。"}:{'number':0xb+Math["floor"](q()*0x28),'roleDelta':-0x1,'fame':-0x4,'guanxi':-0x2,'_numDone':!0x0,'_numLostClub':p["teamId"],'text':"你把能说的都说了。对方只回了一句：这是俱乐部的决定。第二天，十号挂在了别人的柜子上。"};}},
+    {'label': "痛快换掉", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'fame':-0x2,'guanxi':0x4,'_numDone':!0x0,'_numLostClub':p["teamId"],'text':"你说，号码而已。第二天你换了新号，走进更衣室时，那件十号已经挂在了别人的柜子上。"};}}
   ]
 },
 
@@ -13870,7 +13871,7 @@ return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好
   'icon': '🧊',
   'weight': 0x50,
   'stage': "youth",
-  'when': function(p){return "y"===p["_ovrPh"]&&p["_ovrA"]>=0xe&&p["_ovrD"]<=0x1;},
+  'when': function(p){return "y"===p["_ovrPh"]&&p["_ovrA"]>=0xe&&p["_ovrD"]<=0x1&&p["ovr"]<0x5a;},
   'desc': "一整年过去，你的数据几乎没动。跟你一批的人，已经有人被叫上一队了。",
   'options': [
     {'label': "去找教练要加练", 'p': function(p){return f(0.55,[[p["talent"],1.1,0.3]],0.25,0.85);}, 'hint': function(p,q){return g(q,"开窍了","练岔了");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x5,'talent':0.02,'text':"你堵在办公室门口要了个专项计划。三个月后，那个卡了一年的数字终于动了。"}:{'ovr':-0x2,'health':1.1,'roleDelta':-0x1,'text':"你自己加的量没人看着。动作练歪了，改回来花了整个冬天。"};}},
@@ -13896,7 +13897,7 @@ return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好
   'title': "停在原地",
   'icon': '🪨',
   'weight': 0x50,
-  'when': function(p){return "p"===p["_ovrPh"]&&p["age"]>=0x10&&p["age"]<=0x18&&p["_ovrD"]<=0x0&&!p["inAcademy"];},
+  'when': function(p){return "p"===p["_ovrPh"]&&p["age"]>=0x10&&p["age"]<=0x18&&p["_ovrD"]<=0x0&&p["ovr"]<0x5a&&!p["inAcademy"];},
   'desc': "这个赛季，你的能力值停在原地。教练嘴上说你年轻，可他手里的名单上，你的名字在往下挪。",
   'options': [
     {'label': "换个踢法，重新给自己找位置", 'p': function(p){return f(0.5,[[p["talent"],1.1,0.3]],0.25,0.85);}, 'hint': function(p,q){return g(q,"换出条路","两头不靠");}, 'apply': function(p,q,s){return d(q,s)?{'posAny':!0x0,'ovr':0x3,'text':"你换了个位置重新学起。刚开始踢得很难看，可半年后，那条被堵死的路通了。"}:{'ovr':-0x1,'roleDelta':-0x1,'text':"你换了位置，又换回来。两边都没练熟，教练在训练里开始不再叫你名字。"};}},
@@ -13925,7 +13926,7 @@ return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好
   'weight': 0x50,
   'stage': "vet",
   'when': function(p){
-    return p["age"]>=0x21&&!p["inAcademy"]&&p["leagueRep"]>=0x4&&
+    return p["age"]>=0x21&&!p["inAcademy"]&&p["leagueRep"]>=0x4&&p["contractFinal"]&&
       window["SIM"]["vetInvitePool"]({"lg":"spl","minRep":0x3})["length"]>0x0;
   },
   'desc': "经纪人的桌上摆着三份报价：沙特、美国，还有一份来自国内。每一份的年限都比你现在这份长，数字也都比现在这份厚。他们说的是同一句话——还来得及。",
@@ -13960,7 +13961,7 @@ return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好
   'icon': '📞',
   'weight': 0x50,
   'when': function(p){
-    return p["age"]<=0x18&&p["ovr"]>=0x4e&&p["clubRep"]<=0x3&&!p["inAcademy"]&&
+    return p["age"]<=0x18&&p["ovr"]>=0x4e&&p["clubRep"]<=0x3&&!p["inAcademy"]&&p["contractFinal"]&&
       window["SIM"]["vetInvitePool"]({"lg":["epl","liga","bund","seri","l1"],"minRep":0x4})["length"]>0x0;
   },
   'desc': "赛季结束的第二天，一个陌生号码打进来。对方自报家门的时候，你下意识站直了——那是你小时候贴在墙上的那块队徽。",
@@ -13974,6 +13975,32 @@ return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好
     {'label': "再留一年", 'hint': "能力+，地位+，关系+", 'apply': function(){
       return{'ovr':0x1,'roleDelta':0x1,'guanxi':0x6,'text':"你留下来了。教练拍着你的肩膀说：明年这个时候，他们还会打电话来。"};
     }}
+  ]
+},
+
+{
+  'id': "num_back_same",
+  'title': "十号该还回来了",
+  'icon': '1️⃣0️⃣',
+  'weight': 0x2e,
+  'when': function(p){return p["roleRank"]>=0x4&&p["_numDone"]&&p["_numLostClub"]&&p["teamId"]===p["_numLostClub"]&&0xa!==p["number"];},
+  'desc': "还是这间更衣室，还是那个装备经理。当年他把你叫到一边，让你把十号交出去。现在队里没有人比你更有资格穿它。",
+  'options': [
+    {'label': "去把十号要回来", 'hint': "换回 10 号，地位巩固", 'apply': function(){return{'number':0xa,'fame':0x6,'roleDelta':0x1,'text':"你走到装备间，把那件十号从架子上取了下来。这一次没有人拦你。"};}},
+    {'label': "算了，号码不重要", 'hint': "关系+，名望+", 'apply': function(){return{'guanxi':0x6,'fame':0x4,'text':"你摆摆手说不用了。装备经理愣了一下，说：其实那件，一直给你留着。"};}}
+  ]
+},
+
+{
+  'id': "num_back_other",
+  'title': "换个地方穿十号",
+  'icon': '🔟',
+  'weight': 0x2e,
+  'when': function(p){return p["roleRank"]>=0x4&&p["_numDone"]&&p["_numLostClub"]&&p["teamId"]!==p["_numLostClub"]&&0xa!==p["number"];},
+  'desc': "新东家的装备经理问你想要几号。他手上那张表里，十号还空着——上一次有人让你把它交出去，已经是很多年前的事了。",
+  'options': [
+    {'label': "就要十号", 'hint': "换回 10 号，名望+", 'apply': function(){return{'number':0xa,'fame':0x8,'roleDelta':0x1,'text':"你说十号。他抬头看了你一眼，把笔放下了：行，本来也没人敢要。"};}},
+    {'label': "随便给一个", 'hint': "关系+，不折腾", 'apply': function(){return{'guanxi':0x6,'fame':0x3,'text':"你说都行。他把号码表推给你，你随手点了一个。"};}}
   ]
 }
 ];

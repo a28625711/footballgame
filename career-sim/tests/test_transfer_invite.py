@@ -49,12 +49,13 @@ var E=window.EVENTS,by={};
 for(var j=0;j<E.length;j++)by[E[j].id]=E[j];
 out.hasVet=!!by['vet_payday'];out.hasYoung=!!by['bigclub_call'];
 st=mk(73);st.age=34;
-out.whenVet=!!by['vet_payday'].when({age:34,inAcademy:false,leagueRep:5,ovr:86,clubRep:5});
+out.whenVet=!!by['vet_payday'].when({age:34,inAcademy:false,leagueRep:5,ovr:86,clubRep:5,contractFinal:true});
 st=mk(74);st.age=21;st.ovr=84;st.teamId='cn-cd';
-out.whenYoung=!!by['bigclub_call'].when({age:21,inAcademy:false,leagueRep:2,ovr:84,clubRep:3});
+out.whenYoung=!!by['bigclub_call'].when({age:21,inAcademy:false,leagueRep:2,ovr:84,clubRep:3,contractFinal:true});
 /* 门控反例 */
 st=mk(76);st.age=34;
-out.whenVetLowLeague=!!by['vet_payday'].when({age:34,inAcademy:false,leagueRep:2,ovr:86,clubRep:5});
+out.whenVetLowLeague=!!by['vet_payday'].when({age:34,inAcademy:false,leagueRep:2,ovr:86,clubRep:5,contractFinal:true});
+out.whenVetNotFinal=!!by['vet_payday'].when({age:34,inAcademy:false,leagueRep:5,ovr:86,clubRep:5,contractFinal:false});
 
 /* 5) 受邀队进转会窗 + 合同 >=3 年 + wage 与条款一致 */
 st=mk(75);st.age=34;st.ovr=86;st.teamId='mci';
@@ -87,6 +88,7 @@ def run():
     harness.check(r['whenVet'], 'vet_payday 门控未命中(vet+五大): %s' % r)
     harness.check(r['whenYoung'], 'bigclub_call 门控未命中(年轻+高ovr): %s' % r)
     harness.check(not r['whenVetLowLeague'], 'vet_payday 不该在非五大联赛触发: %s' % r)
+    harness.check(not r['whenVetNotFinal'], 'vet_payday 不该在非合同末年触发: %s' % r)
     harness.check(r['pendingType'] == 'transfer', '未开出转会窗: %s' % r)
     harness.check(r['invited'], '受邀队未出现在转会窗报价里: %s' % r)
     harness.check(r['invTerms'] and r['invTerms']['years'] >= 3,

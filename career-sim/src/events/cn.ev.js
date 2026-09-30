@@ -258,7 +258,7 @@ return d(q,Math["min"](0.7,(p["ovr"]-0x32)/0x28))?{'caps':0x3,'clean':0x5,'fame'
   'weight': 0x55,
   'cn': !0x0,
   'when': function(p){
-return p["inChina"]&&p["age"]>=0x12&&p["age"]<=0x1b&&p["ovr"]>=0x3e;
+return p["contractFinal"]&&p["inChina"]&&p["age"]>=0x12&&p["age"]<=0x1b&&p["ovr"]>=0x3e;
 },
 
 
@@ -1101,7 +1101,7 @@ return{'ovr':0x2,'roleDelta':-0x1,'text':"你回房间睡了。之"+"后半年�
   'weight': 0x2d,
   'cn': !0x0,
   'when': function(p){
-return p["inChina"]&&p["ovr"]>=0x42;
+return p["contractFinal"]&&p["inChina"]&&p["ovr"]>=0x42;
 },
 
 

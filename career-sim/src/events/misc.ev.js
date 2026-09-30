@@ -493,6 +493,7 @@ return{'ovr':0x2,'text':"你什么都没做，只是把训练做得更细。半�
   'icon': '🔥',
   'weight': 0x46,
   'stage': "prime",
+  'when': function(p){return p["contractFinal"];},
   'desc': "{rival}想签你。钱和荣誉都更多，代价是穿上这座城里最不该穿的那件球衣。",
 
 
@@ -689,7 +690,7 @@ return d(q,s)?{'money':0x190+0x7*p["ovr"],'leave':!0x0,'text':"自由身换来�
   'weight': 0x28,
   'stage': "prime",
   'when': function(p){
-return!p["inChina"];
+return p["contractFinal"]&&!p["inChina"];
 },
 
 
@@ -1122,7 +1123,7 @@ return{'roleDelta':-0x1,'text':"翻译不能替你上场。比赛里那几次跑
   'icon': '🥟',
   'weight': 0x28,
   'when': function(p){
-return!p["inChina"];
+return p["contractFinal"]&&!p["inChina"];
 },
 
 

@@ -731,7 +731,7 @@ return{'text':"你说自己不懂经营。他点了点头，走的时候，把�
   'weight': 0x40,
   'stage': "vet",
   'when': function(p){
-return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("home")["length"]>0x0;
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&p["contractFinal"]&&window["SIM"]["vetInvitePool"]("home")["length"]>0x0;
 },
 
   'desc': "电话那头是熟悉的口音。老家的球队想让你回去，踢完最后几年——那座球场离你小时候住的地方，只有两条街。",
@@ -766,7 +766,7 @@ return{'_vetInviteDone':!0x0,'roleDelta':0x1,'text':"你说再等等。挂了电
   'weight': 0x3c,
   'stage': "vet",
   'when': function(p){
-return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("youth")["length"]>0x0;
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&p["contractFinal"]&&window["SIM"]["vetInvitePool"]("youth")["length"]>0x0;
 },
 
   'desc': "当年把你从泥地里捡起来的青训营打来电话：回来吧，带带孩子们，顺便把球员生涯在这块场地上收个尾。",
@@ -801,7 +801,7 @@ return{'_vetInviteDone':!0x0,'text':"你说，再踢两年吧。对方说，门�
   'weight': 0x3a,
   'stage': "vet",
   'when': function(p){
-return p["age"]>=0x21&&!p["_vetInviteDone"]&&window["SIM"]["vetInvitePool"]("first")["length"]>0x0;
+return p["age"]>=0x21&&!p["_vetInviteDone"]&&p["contractFinal"]&&window["SIM"]["vetInvitePool"]("first")["length"]>0x0;
 },
 
   'desc': "你职业生涯的第一家俱乐部找上门来。他们说，希望你的最后一场比赛，穿回那件最初的球衣。",

@@ -17,7 +17,7 @@ function chk(name,cond){ checks.push([name,!!cond]); }
 function rnd(){return 0.99;}
 function byId(id){for(var i=0;i<window.EVENTS.length;i++)if(window.EVENTS[i].id===id)return window.EVENTS[i];return null;}
 function callWhen(id,ctx){var e=byId(id);return e&&e.when?!!e.when(ctx):null;}
-function callApply(id,idx,ctx){var e=byId(id);return e.options[idx].apply(ctx,rnd,1);}
+function callApply(id,idx,ctx,prob){var e=byId(id);return e.options[idx].apply(ctx,rnd,prob==null?1:prob);}
 
 try{
   /* ---------- A) 引擎 ---------- */
@@ -89,8 +89,14 @@ try{
   // num_demote: rot- and below wearing 10
   chk('num_demote_when_rot',  callWhen('num_demote',Object.assign({},base,{number:10,roleRank:2,_numDone:false}))===true);
   chk('num_demote_when_star', callWhen('num_demote',Object.assign({},base,{number:10,roleRank:3,_numDone:false}))===false);
-  var rd=callApply('num_demote',0,Object.assign({},base,{number:10,roleRank:2,_numDone:false}));
-  chk('num_demote_num', (rd.number!=null&&rd.number!==10&&rd._numDone===true));
+  /* 选项0=据理力争：失败(阈值0)才被迫换号并记录老东家；成功(阈值1)保住十号、不置 _numDone */
+  var rdFail=callApply('num_demote',0,Object.assign({},base,{number:10,roleRank:2,_numDone:false,teamId:'mci'}),0);
+  chk('num_demote_arg_fail', (rdFail.number!=null&&rdFail.number!==10&&rdFail._numDone===true&&rdFail._numLostClub==='mci'));
+  var rdWin=callApply('num_demote',0,Object.assign({},base,{number:10,roleRank:2,_numDone:false,teamId:'mci',ovr:92}),1);
+  chk('num_demote_arg_win', (rdWin.number==null&&!rdWin._numDone));
+  /* 选项1=痛快换掉：必定换号 */
+  var rd=callApply('num_demote',1,Object.assign({},base,{number:10,roleRank:2,_numDone:false,teamId:'cn-cd'}));
+  chk('num_demote_num', (rd.number!=null&&rd.number!==10&&rd._numDone===true&&rd._numLostClub==='cn-cd'));
 
   // num_10: starters and above only
   chk('num_10_when_star',  callWhen('num_10',Object.assign({},base,{number:10,roleRank:3,_numDone:false}))===true);

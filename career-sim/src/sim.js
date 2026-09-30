@@ -543,7 +543,7 @@ bx["capDecline"]&&((a2["capDone"]||(a2["capDone"]=[]))["indexOf"](a2["teamId"])<
 
 
 bx["ntCaptain"]&&(a2["flags"]["_ntCaptain"]=!0x0);
-return["ageFraud","yinyang","fixed","gambled","degree","coachCer"+'t',"academy","bianzhi","assistan"+'t',"scout","_friend","_fan","_mentor","_rival","_sponsor","_injuryChain","_vetInviteDone","_vetInviteTeam","_crush","_metStar","_footDone","_footPath","_bloom","_numDone","_echoHome","_together"]["forEach"](function(bI){
+return["ageFraud","yinyang","fixed","gambled","degree","coachCer"+'t',"academy","bianzhi","assistan"+'t',"scout","_friend","_fan","_mentor","_rival","_sponsor","_injuryChain","_vetInviteDone","_vetInviteTeam","_crush","_metStar","_footDone","_footPath","_bloom","_numDone","_numLostClub","_echoHome","_together"]["forEach"](function(bI){
 bx[bI]&&(a2["flags"][bI]=bx[bI]);
 }),
 
@@ -2267,7 +2267,7 @@ bs=_bmOppStr(bI);
   }
   var bX=null;
   /* 赛后个人播报：不再用 40% 随机台词，直接按本场真实数据(_meG/_meA)套文案；未参与进球的按位置组给兜底句 */
-  bI["_injured"]||(a2["seasons"][bI["recIdx"]||0x0]||{"apps":0x0})["apps"]>0x0&&(bX=(function(){var _pk=function(a){return a[Math["floor"](_bmRnd()*a["length"])]},_mg=(bI["_meG"]||0x0),_ma=(bI["_meA"]||0x0);if(_mg>0x0&&_ma>0x0)return _pk(["打进 "+_mg+" 球，还送出 "+_ma+" 次助攻","一个人参与了本队每一个进球："+_mg+" 球 "+_ma+" 助攻",_mg+" 球 "+_ma+" 助攻，这场比赛没有别人什么事"]);if(_mg>0x0)return _mg>=0x3?_pk(["上演帽子戏法，全场 "+_mg+" 球","独中 "+_mg+" 元，对方整条防线都记住了你的号码"]):_mg===0x2?_pk(["梅开二度","两个进球，一个比一个关键"]):_pk(["打进了那个球","打进全场唯一一个进球","这球进得干净利落"]);if(_ma>0x0)return _ma>=0x2?_pk(["送出 "+_ma+" 次助攻，中场被你盘活了",""+_ma+" 次助攻，机会都是从你脚下出来的"]):_pk(["送出那记决定比赛的助攻","一脚传球撕开了整条防线"]);if("gk"===bW)return bS?"点球大战中扑出了关键一球":(bO===0x0?"零封了对手，站在球门前一整个下午":"高接低挡，把比分死死按住");if("def"===bW)return _pk(["在门线上把球解围出去","把对方的箭头彻底冻结","禁区里每一次高球都是你先到"]);if("mid"===bW)return bM?_pk(["送出了那记决定比赛的直塞","把节奏攥在自己手里"]):_pk(["把球权一次次抢回来","跑了整场，把中场填满"]);return _pk([bM?"打出了全队唯一一次射门":"几次拿球都被对方夹住"]);})()),
+  bI["_injured"]||(a2["seasons"][bI["recIdx"]||0x0]||{"apps":0x0})["apps"]>0x0&&(bX=(function(){var _pk=function(a){return a[Math["floor"](_bmRnd()*a["length"])]},_mg=(bI["_meG"]||0x0),_ma=(bI["_meA"]||0x0),_tot=bN+bO,_pool;if(_mg>0x0&&_ma>0x0){_pool=["打进 "+_mg+" 球，还送出 "+_ma+" 次助攻",_mg+" 球 "+_ma+" 助攻，这场比赛没有别人什么事"];if(_mg+_ma>=bN)_pool["push"]("一个人参与了本队每一个进球："+_mg+" 球 "+_ma+" 助攻");return _pk(_pool);}if(_mg>0x0){if(_mg>=0x3)return _pk(["上演帽子戏法，全场 "+_mg+" 球","独中 "+_mg+" 元，对方整条防线都记住了你的号码"]);if(_mg===0x2)return _pk(["梅开二度","两个进球，一个比一个关键"]);_pool=["打进了那个球","打进一球","这球进得干净利落"];if(_tot===0x1)_pool["push"]("打进全场唯一一个进球");return _pk(_pool);}if(_ma>0x0)return _ma>=0x2?_pk(["送出 "+_ma+" 次助攻，中场被你盘活了",""+_ma+" 次助攻，机会都是从你脚下出来的"]):_pk(["送出那记决定比赛的助攻","一脚传球撕开了整条防线"]);if("gk"===bW)return bS?"点球大战中扑出了关键一球":(bO===0x0?"零封了对手，站在球门前一整个下午":"高接低挡，把比分死死按住");if("def"===bW)return bO===0x0?_pk(["在门线上把球解围出去","把对方的每一次冲击都挡在了身前"]):_pk(["在门线上把球解围出去","禁区里的高球，大多是你先顶到"]);if("mid"===bW)return bM?_pk(["送出了那记决定比赛的直塞","把节奏攥在自己手里"]):_pk(["把球权一次次抢回来","跑了整场，把中场填满"]);/* 前锋既没进球也没助攻：不再声称"全队唯一一次射门"（前面可能已经有别人射门/进球） */return bN>0x0?_pk(["几次拿球都被对方夹住","为队友扯开了空间，机会都不在你这侧","跑位一直在做，只是球没传过来"]):_pk(["全场没有一次像样的机会","你在前场孤立无援，拿球就被夹住","九十分钟下来，一次像样的射门都没有"]);})()),
 
 
 
@@ -4184,7 +4184,7 @@ delete a2["flags"]["_yFit"];
    仅 14 岁及以后的青训年才触发（12/13 岁身体未定型，涨跌没有叙事意义）。 */
 var _yL=a2["youthLog"],_yHas=_yL["length"]>0x0,_yNow=Math["round"](a2["ovr"]),_yPrev=_yHas?_yL[_yL["length"]-0x1]["ovr"]:_yNow;
 a2["flags"]["_ovrD"]=_yNow-_yPrev,a2["flags"]["_ovrPh"]=_yHas?"y":"y0",a2["flags"]["_ovrA"]=a2["age"];
-a2["flags"]["_ovrA"]>=0xe&&_yHas&&(a2["flags"]["_ovrD"]>=0x8?b1p("youth_surge"):(a2["flags"]["_ovrD"]<=0x1&&b1p("youth_stall")));
+a2["flags"]["_ovrA"]>=0xe&&_yHas&&(a2["flags"]["_ovrD"]>=0x8?b1p("youth_surge"):(a2["flags"]["_ovrD"]<=0x1&&a2["ovr"]<0x5a&&b1p("youth_stall")));
 return a2["youthLog"]["push"]({'age':a2["age"],'teamId':a2["youthTea"+"mId"],'ovr':Math["round"](a2["ovr"]),'cut':bC}),bC?(a2["youthCut"]=a2["age"],
 !0x0):(_newsTick(0x1),a2["age"]++,!0x1);
 }()))return br("青训淘汰");
@@ -4372,10 +4372,12 @@ a2["forceQ"].indexOf("club_10"+"yrs")<0x0&&a2["forceQ"].push("club_10"+"yrs")),a
 
 
 a2["forceQ"].indexOf("club_10yrs"+"_way")<0x0&&a2["forceQ"].push("club_10yrs"+"_way")),a2["number"]===0xa&&a0["ROLES"][a2["role"]]["rank"]<=0x2&&!a2["usedEven"+"ts"]["num_demote"]&&(a2["forceQ"]||(a2["forceQ"]=[]),a2["forceQ"].indexOf("num_demote")<0x0&&a2["forceQ"].push("num_demote"));
+/* 十号后续：交过十号、又打回绝对核心 → 同队/换队两种差分事件，换回十号 */
+(a2["flags"]["_numDone"]&&a0["ROLES"][a2["role"]]["rank"]>=0x4&&a2["number"]!==0xa)&&(function(){var _id=(a2["flags"]["_numLostClub"]&&a2["teamId"]===a2["flags"]["_numLostClub"])?"num_back_same":"num_back_other";var _d=_evById(_id);_d&&(!_d["when"]||_d["when"](aA()))&&b1(_id);})();
 /* 类型签名事件：职业期保证一生至少露一次（类型变了自动改推新类型的签名事件，已触发过的不再入队） */
 ("prime"===aB(a2["age"])&&a2["playerType"]>=0x0&&a2["playerType"]<=0xa)&&(function(){var _ts=_TYPE_SIG[a2["playerType"]],_td=_ts&&_evById(_ts);_td&&(!_td["when"]||_td["when"](aA()))&&b1(_ts);})();
 /* 成长差分（职业）：青年涨球/停滞、老将不退反涨 → 强制事件 */
-(function(){if("career"!==a2["phase"])return;var _d=a2["flags"]["_ovrD"]||0x0,_a=a2["age"];if(_a>=0x21){if(_d>=0x0)b1p("vet_up");}else if(_a>=0x10&&_a<=0x18){if(_d>=0x6)b1p("young_surge");else if(_d<=0x0)b1p("young_stall");}})();
+(function(){if("career"!==a2["phase"])return;var _d=a2["flags"]["_ovrD"]||0x0,_a=a2["age"];if(_a>=0x21){if(_d>=0x0)b1p("vet_up");}else if(_a>=0x10&&_a<=0x18){if(_d>=0x6)b1p("young_surge");else if(_d<=0x0&&a2["ovr"]<0x5a)b1p("young_stall");}})();
 /* 长期异地：连续留洋 ≥3 年且还没把伴侣接过来 → 强制触发"时差"抉择（避免满意度每季 −2 无限下滑）。
    若拖到 ≥6 年仍未解决，强制触发"最后通牒"，只能接她过来或分开。 */
 (a2["life"]&&a2["life"]["partner"]&&!(a2["flags"]&&a2["flags"]["_together"])&&a2["seasonsA"+"broad"]>=0x3&&!a2["usedEven"+'ts']["love_lon"+"gdistanc"+'e'])&&(a2["forceQ"]||(a2["forceQ"]=[]),a2["forceQ"]["indexOf"]("love_lon"+"gdistanc"+'e')<0x0&&a2["forceQ"]["push"]("love_lon"+"gdistanc"+'e'));

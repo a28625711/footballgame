@@ -410,10 +410,38 @@ var EVT_club=[
   'when': function(p){return 0xa===p["number"]&&p["roleRank"]<=0x2&&!p["_numDone"];},
   'desc': "新赛季的号码表下来了。装备经理把你叫到一边：十号，要给新来的那个核心。你，得换一个。",
   'options': [
-    {'label': "痛快换掉", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'fame':-0x2,'guanxi':0x4,'_numDone':!0x0,'text':"你说，号码而已。第二天你换了新号，走进更衣室时，那件十号已经挂在了别人的柜子上。"};}},
-    {'label': "不情愿地换", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'roleDelta':-0x1,'fame':-0x4,'guanxi':-0x2,'_numDone':!0x0,'text':"你争了几句，最后还是把号码交了出去。更衣室里没人接话，只有柜门关上的声音。"};}}
+    {'label': "据理力争", 'p': function(p){return f(0.22,[[p["ovr"],0x4e,0.012],[p["roleRank"],0x3,0.14]],0.08,0.85);}, 'hint': function(p,q){return g(q,"十号留下","争了也没用");}, 'apply': function(p,q,s){return d(q,s)?{'fame':0x4,'roleDelta':0x1,'guanxi':-0x2,'text':"你把话说得很清楚：数据、出场时间、还有合同上写的位置。装备经理看了半天，说：那我再去跟上面商量商量。十号留在了你的柜子里。"}:{'number':0xb+Math["floor"](q()*0x28),'roleDelta':-0x1,'fame':-0x4,'guanxi':-0x2,'_numDone':!0x0,'_numLostClub':p["teamId"],'text':"你把能说的都说了。对方只回了一句：这是俱乐部的决定。第二天，十号挂在了别人的柜子上。"};}},
+    {'label': "痛快换掉", 'apply': function(p,q){return{'number':0xb+Math["floor"](q()*0x28),'fame':-0x2,'guanxi':0x4,'_numDone':!0x0,'_numLostClub':p["teamId"],'text':"你说，号码而已。第二天你换了新号，走进更衣室时，那件十号已经挂在了别人的柜子上。"};}}
   ]
 },
+
+// ---- idx:405 | num_back_same | 十号该还回来了 ----
+{
+  'id': "num_back_same",
+  'title': "十号该还回来了",
+  'icon': '1️⃣0️⃣',
+  'weight': 0x2e,
+  'when': function(p){return p["roleRank"]>=0x4&&p["_numDone"]&&p["_numLostClub"]&&p["teamId"]===p["_numLostClub"]&&0xa!==p["number"];},
+  'desc': "还是这间更衣室，还是那个装备经理。当年他把你叫到一边，让你把十号交出去。现在队里没有人比你更有资格穿它。",
+  'options': [
+    {'label': "去把十号要回来", 'hint': "换回 10 号，地位巩固", 'apply': function(){return{'number':0xa,'fame':0x6,'roleDelta':0x1,'text':"你走到装备间，把那件十号从架子上取了下来。这一次没有人拦你。"};}},
+    {'label': "算了，号码不重要", 'hint': "关系+，名望+", 'apply': function(){return{'guanxi':0x6,'fame':0x4,'text':"你摆摆手说不用了。装备经理愣了一下，说：其实那件，一直给你留着。"};}}
+  ]
+},
+
+// ---- idx:406 | num_back_other | 换个地方穿十号 ----
+{
+  'id': "num_back_other",
+  'title': "换个地方穿十号",
+  'icon': '🔟',
+  'weight': 0x2e,
+  'when': function(p){return p["roleRank"]>=0x4&&p["_numDone"]&&p["_numLostClub"]&&p["teamId"]!==p["_numLostClub"]&&0xa!==p["number"];},
+  'desc': "新东家的装备经理问你想要几号。他手上那张表里，十号还空着——上一次有人让你把它交出去，已经是很多年前的事了。",
+  'options': [
+    {'label': "就要十号", 'hint': "换回 10 号，名望+", 'apply': function(){return{'number':0xa,'fame':0x8,'roleDelta':0x1,'text':"你说十号。他抬头看了你一眼，把笔放下了：行，本来也没人敢要。"};}},
+    {'label': "随便给一个", 'hint': "关系+，不折腾", 'apply': function(){return{'guanxi':0x6,'fame':0x3,'text':"你说都行。他把号码表推给你，你随手点了一个。"};}}
+  ]
+}
 
 
 ];

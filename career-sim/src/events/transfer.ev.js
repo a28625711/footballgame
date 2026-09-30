@@ -13,7 +13,7 @@ var EVT_transfer=[
   'weight': 0x50,
   'stage': "vet",
   'when': function(p){
-    return p["age"]>=0x21&&!p["inAcademy"]&&p["leagueRep"]>=0x4&&
+    return p["age"]>=0x21&&!p["inAcademy"]&&p["leagueRep"]>=0x4&&p["contractFinal"]&&
       window["SIM"]["vetInvitePool"]({"lg":"spl","minRep":0x3})["length"]>0x0;
   },
   'desc': "经纪人的桌上摆着三份报价：沙特、美国，还有一份来自国内。每一份的年限都比你现在这份长，数字也都比现在这份厚。他们说的是同一句话——还来得及。",
@@ -49,7 +49,7 @@ var EVT_transfer=[
   'icon': '📞',
   'weight': 0x50,
   'when': function(p){
-    return p["age"]<=0x18&&p["ovr"]>=0x4e&&p["clubRep"]<=0x3&&!p["inAcademy"]&&
+    return p["age"]<=0x18&&p["ovr"]>=0x4e&&p["clubRep"]<=0x3&&!p["inAcademy"]&&p["contractFinal"]&&
       window["SIM"]["vetInvitePool"]({"lg":["epl","liga","bund","seri","l1"],"minRep":0x4})["length"]>0x0;
   },
   'desc': "赛季结束的第二天，一个陌生号码打进来。对方自报家门的时候，你下意识站直了——那是你小时候贴在墙上的那块队徽。",

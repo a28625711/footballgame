@@ -3,6 +3,7 @@
 //  _ovrD = 刚过去这一年的 ovr 变化（青训年是 youthLog 差值；职业年是 ovrEnd - round(ovr)）
 //  _ovrPh = 'y' 青训年(有上一年可比, 且仅 14 岁起) / 'y0' 青训首年(禁用) / 'p' 职业赛季
 //  _ovrA = 该年/该季的起始年龄（校验用）
+//  两个"停滞"事件额外要求 ovr<90（0x5a）：高能力球员不该被判"停在原地/这一年没长"
 // 入队由 sim.js 在两处钩子处调用 b1()（青训 bj() / 职业结算），此处 when 只做兜底校验。
 
 var EVT_grow=[
@@ -29,7 +30,7 @@ var EVT_grow=[
   'icon': '🧊',
   'weight': 0x50,
   'stage': "youth",
-  'when': function(p){return "y"===p["_ovrPh"]&&p["_ovrA"]>=0xe&&p["_ovrD"]<=0x1;},
+  'when': function(p){return "y"===p["_ovrPh"]&&p["_ovrA"]>=0xe&&p["_ovrD"]<=0x1&&p["ovr"]<0x5a;},
   'desc': "一整年过去，你的数据几乎没动。跟你一批的人，已经有人被叫上一队了。",
   'options': [
     {'label': "去找教练要加练", 'p': function(p){return f(0.55,[[p["talent"],1.1,0.3]],0.25,0.85);}, 'hint': function(p,q){return g(q,"开窍了","练岔了");}, 'apply': function(p,q,s){return d(q,s)?{'ovr':0x5,'talent':0.02,'text':"你堵在办公室门口要了个专项计划。三个月后，那个卡了一年的数字终于动了。"}:{'ovr':-0x2,'health':1.1,'roleDelta':-0x1,'text':"你自己加的量没人看着。动作练歪了，改回来花了整个冬天。"};}},
@@ -57,7 +58,7 @@ var EVT_grow=[
   'title': "停在原地",
   'icon': '🪨',
   'weight': 0x50,
-  'when': function(p){return "p"===p["_ovrPh"]&&p["age"]>=0x10&&p["age"]<=0x18&&p["_ovrD"]<=0x0&&!p["inAcademy"];},
+  'when': function(p){return "p"===p["_ovrPh"]&&p["age"]>=0x10&&p["age"]<=0x18&&p["_ovrD"]<=0x0&&p["ovr"]<0x5a&&!p["inAcademy"];},
   'desc': "这个赛季，你的能力值停在原地。教练嘴上说你年轻，可他手里的名单上，你的名字在往下挪。",
   'options': [
     {'label': "换个踢法，重新给自己找位置", 'p': function(p){return f(0.5,[[p["talent"],1.1,0.3]],0.25,0.85);}, 'hint': function(p,q){return g(q,"换出条路","两头不靠");}, 'apply': function(p,q,s){return d(q,s)?{'posAny':!0x0,'ovr':0x3,'text':"你换了个位置重新学起。刚开始踢得很难看，可半年后，那条被堵死的路通了。"}:{'ovr':-0x1,'roleDelta':-0x1,'text':"你换了位置，又换回来。两边都没练熟，教练在训练里开始不再叫你名字。"};}},

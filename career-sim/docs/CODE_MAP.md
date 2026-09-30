@@ -236,6 +236,16 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - `_invitePool`：支持 `{lg,minRep,maxRep}` 按联赛挑邀约；`_vetInviteTeam` 受邀队进转会窗，年限+2（≥3），高价联赛再 +35% 工资。
 - 新事件 `src/events/transfer.ev.js`：`vet_payday`、`bigclub_call`。
 - **测试**：`tests/test_transfer_role.py`、`tests/test_transfer_invite.py`、`tests/test_bigmatch_combo.py`。
+
+## 十号线 / 停滞门槛 / 播报事实 / 转会限末年（2026-09-30）
+
+- `num_demote` 选项：据理力争（ovr+地位 roll，成功保号）/ 痛快换掉；失败与痛快换掉都记 `_numLostClub`。
+- 后续 `num_back_same` / `num_back_other`：`roleRank>=4` + `_numDone` 时由结算处 `b1()` 强制入队，换回 `number:10`。
+- `_numLostClub` 加入 `aF` flag 白名单。
+- `young_stall` / `youth_stall`：`when` 与入队条件都加 `ovr<0x5a(90)`。
+- `_bmFinish` 赛后播报：绝对化断言全部按 `bN/_mg/_ma` 条件化。
+- 转会类事件统一要求 `p["contractFinal"]`。
+- **测试**：`tests/test_num10_followup.py`。
 - **测试**：`tests/test_type_events.py`、`tests/test_growth_events.py`。
 
 ## 天赋挂钩的成长天花板（2026-09-30）
