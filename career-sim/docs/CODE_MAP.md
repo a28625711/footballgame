@@ -220,11 +220,29 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - `b1p(id)`（sim.js）：同 `b1` 但 `unshift` 到 forceQ 队首；给会被状态刷新淘汰的"即时信号"事件用。
 - **测试**：`tests/test_type_events.py`、`tests/test_growth_events.py`。
 
+## 大场面：播报/并存/受伤（2026-09-30）
+
+- `_bmFinish`：赛后个人播报读 `bI._meG/_meA` 套文案（不再 40% 随机）；受伤另有真实代价（ovr-2 / healthBonus×1.15 / 记录 note）。
+- `_aVPri` + `_bmLane`：同档跨域（国家队 vs 俱乐部洲际）允许 `bigQ` 并存两条；`_bmFinish` 用 `shift()` 串行播出。
+- `_bmSeg`：`!bx._injured` 才做个人归属；`_bmAdvance`：受伤后跳过 kickoff/halftime 决策。
+- WC 决赛重新入队带 `age`（修 off-by-one）。
+- **测试**：`tests/test_bigmatch_combo.py`。
+
+## 加盟角色 / 薪资 / 转会邀约（2026-09-30）
+
+- `b8`：加盟/租借后立刻 `a2.role=aH()`（否则 `num_demote` 等按旧东家身份判定）。
+- `_lgPay`（sim.js）：富裕联赛工资系数；`aJ` 用它覆盖原 `cn/rep` 口径。
+- `_wageOf`：展示口径回落到 `wageMult`，与赛季实发一致。
+- `_invitePool`：支持 `{lg,minRep,maxRep}` 按联赛挑邀约；`_vetInviteTeam` 受邀队进转会窗，年限+2（≥3），高价联赛再 +35% 工资。
+- 新事件 `src/events/transfer.ev.js`：`vet_payday`、`bigclub_call`。
+- **测试**：`tests/test_transfer_role.py`、`tests/test_transfer_invite.py`、`tests/test_bigmatch_combo.py`。
+- **测试**：`tests/test_type_events.py`、`tests/test_growth_events.py`。
+
 ## 天赋挂钩的成长天花板（2026-09-30）
 
-- `sim.js` 赛季成长段：`_tN/_capC(71+25*_tN)/_wall`，`bG *= max(0.16,(100-ovr)/50)*_wall`。
-- `sim.js` `aF` 事件 ovr 加成：同一天花板 `_cC`；但 `bB`（回血到 `maxOvr`）不受限。
-- 旋钮：`0x47`=天底下限、`0x19`=天赋跨度、`/0xa`=生效区宽、`0.06`=贴墙余量。
+- `sim.js`：`_capWall(talent,ovr)` + 常量 `_CAPB(85)/_CAPS(34)/_CAPW(34)/_CAPP(1.6)/_CAPF(0.06)`；平滑衰减，成长与事件共用。
+- `sim.js` `aF` 事件 ovr 加成：用同一个 `_capWall`；但 `bB`（回血到 `maxOvr`）不受限。
+- 旋钮：`_CAPB/_CAPS/_CAPW/_CAPP/_CAPF`（`_CAPP=1` 即退化为线性宽窗）。
 
 
 

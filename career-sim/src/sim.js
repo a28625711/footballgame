@@ -295,6 +295,7 @@ bG(aj(a2["youthTea"+"mId"]));
 var bH=a2["youthLog"]||[];
 for(i=0x0;i<bH["length"];i++)bG(aj(bH[i]["teamId"]));
 }else if("first"===bx){bG(aj((a2["clubsPla"+"yed"]||[])[0x0]));}
+else if(bx&&bx["lg"]){var _lgs=bx["lg"];if("string"===typeof _lgs)_lgs=[_lgs];var _lo=bx["minRep"]!=null?bx["minRep"]:0x2,_hi=bx["maxRep"]!=null?bx["maxRep"]:0x5,_FT=a0["TEAMS"];for(i=0x0;i<_FT["length"];i++){t=_FT[i];var _LT=aq(t);if(_LT&&_lgs["indexOf"](_LT['id'])>=0x0&&t["rep"]>=_lo&&t["rep"]<=_hi)bG(t);}}
 return bC;
 }function ac(bx,by,bz){
 return Math["max"](by,Math["min"](bz,bx));
@@ -487,10 +488,9 @@ if(bJ){var bL=bJ>0x0,bM=(!0x1===bK?!bL:bL)?'up':"down";
 by["push"]({'cls':bM,'text':bI+(bL?'+':'')+bJ});
 }}if(bx["ovr"]){var bA;
 if(bx["ovr"]<0x0)bA=bx["ovr"];
-else{var bB=Math["min"](bx["ovr"],Math["max"](0x0,a2["maxOvr"]-a2["ovr"])),
-/* 事件 ovr 加成同样受天赋天花板约束（否则低天赋靠事件也能顶到 80+） */
-_cT=ac((a2["talent"]-0.7)/0.78,0x0,0x1),_cC=0x47+0x19*_cT;
-bA=bB+(bx["ovr"]-bB)*ac((_cC-a2["ovr"])/0x28,0.06,0x1);
+else{var bB=Math["min"](bx["ovr"],Math["max"](0x0,a2["maxOvr"]-a2["ovr"]));
+/* 事件 ovr 加成同样受天赋天花板约束（同一套平滑衰减，见 _capWall） */
+bA=bB+(bx["ovr"]-bB)*_capWall(a2["talent"],a2["ovr"]);
 }a2["ovr"]=ac(a2["ovr"]+bA,0xc,0x63),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz('能力',Math["round"](0xa*bA)/0xa);
 }bx["talent"]&&(a2["talent"]=ac(a2["talent"]+bx["talent"],0.5,1.8),bz('天赋',Math["round"](0x64*bx["talent"])/0x64));
 bx["health"]&&(a2["healthBonus"]=ac((a2["healthBonus"]||0x1)*bx["health"],0.4,0x1),0x1!==bx["health"]&&bz('伤病',(bx["health"]<0x1?'-':'+')+Math["round"](0x64*Math["abs"](0x1-bx["health"]))+'%',bx["health"]>=0x1));
@@ -614,6 +614,15 @@ function _posMoveOk(from,to){return (_POSADJ[from]||[]).indexOf(to)>=0x0&&Math["
 /* 类型签名事件表：下标 = playerType（0..10），门将(11)由 gk.ev.js 承担 */
 var _TYPE_SIG=["type_finisher","type_playmaker","type_complete","type_pace","type_target","type_shadow","type_b2b","type_anchor","type_fullback","type_libero","type_stopper"];
 
+/* ── 天赋挂钩的成长衰减（成长与事件共用）────────────────────────
+   软天花板 capC = _CAPB + _CAPS*tN，tN=clamp((talent-0.7)/0.78,0,1)
+   衰减：x = clamp((capC-ovr)/_CAPW, 0, 1)，wall = _CAPF + (1-_CAPF)*x^_CAPP
+   平滑曲线（可导、两端斜率趋 0）：早期即开始温和衰减、贴边不再断崖。
+   换更"硬"的窗口：_CAPP=1（线性）；换"更宽"：调大 _CAPW 并重拟合 _CAPB/_CAPS
+   实测（纯成长模型）：0.7→69.9 0.8→72.6 1.0→78.3 1.15→82.0 1.3→85.4 1.45→87.9 1.48→88.4 */
+var _CAPB=0x55,_CAPS=0x22,_CAPW=0x22,_CAPP=1.6,_CAPF=0.06;
+function _capWall(bx,by){var _x=ac((_CAPB+_CAPS*ac((bx-0.7)/0.78,0x0,0x1)-by)/_CAPW,0x0,0x1);return _CAPF+(1-_CAPF)*Math["pow"](_x,_CAPP);}
+
 
 
 
@@ -630,11 +639,13 @@ return aq(bx)['cn']&&(bz+=0.12*(a2["guanxi"]-0x32)),
 
 
 a2["age"]<=0x12&&(bz-=0x6),a2["age"]>=0x23&&(bz-=0x3),bz>=0x6?"star":bz>=0x2?"starter":bz>=-0x5?"rot":bz>=-0xc?"sub":"bench";
-}function aJ(bx,
+}/* 富裕联赛工资系数：现实里沙特联/美职联给五大联赛出来的球员开价很高；旧口径按 rep 只给 1.5×（沙特联 rep3、美职联 rep2）明显偏低 */
+var _lgPay={'mls':2.6,'spl':2.9,'csl':2.6,'mx':2.2,'jl':2.0,'kl':2.0,'ale':1.8,'bra':1.6,'arg':1.6};
+function aJ(bx,
 
 
 
-by,bz){var bA=Math["max"](0x0,bz-0x2d)/0x32,bB=by['cn']?2.6:by["rep"]>=0x4?2.4:1.5;
+by,bz){var bA=Math["max"](0x0,bz-0x2d)/0x32,bB=(by&&_lgPay[by['id']])||(by['cn']?2.6:by["rep"]>=0x4?2.4:1.5);
 return Math["max"](0x3,0x140*Math["pow"](bA,2.2)*(0.9+0.55*bx["rep"])*bB);
 }function aK(){var bx=al(a2["pos"])["group"];
 return "att"===bx?{'goal':0.65,'ast':0.28}:"mid"===bx?{'goal':0.2,'ast':0.38}:"def"===bx?{'goal':0.09,'ast':0.14}:{'goal':0x0,
@@ -1669,12 +1680,15 @@ return a2["bigQ"]=[_aVMk(bx,by,bz)],
 }/* 大场面赛季优先级：世界杯 > 洲际(俱乐部/国家队/U23) > 升降级 > 德比；同级随机。
    队列被占时低优先级在队者立即 AI 结算让位（_aiCtx），同级 50% 随机让位 */
 var _bmTier={'wc':0x4,'cont':0x3,'asia':0x3,'u23':0x3,'promo':0x2,'drop':0x2,'derby':0x1};
+/* 域：国家队大场面 vs 俱乐部洲际赛。同档次、跨域 → 允许同年并存（_bmFinish 后串行播第二场），就像世界杯小组赛与决赛 */
+var _bmLane={'wc':'nat','asia':'nat','u23':'nat','cont':'club'};
 function _aVPri(bx,by,bz){
 if(!(a2["bigQ"]&&a2["bigQ"]["length"]))return aV(bx,by,bz);
 var cur=a2["bigQ"][0x0],ct=_bmTier[cur["kind"]]||0x0,nt=_bmTier[bx]||0x0;
+if(a2["bigQ"]["length"]<0x2&&nt===ct&&nt>=0x3&&_bmLane[bx]&&_bmLane[cur["kind"]]&&_bmLane[bx]!==_bmLane[cur["kind"]]){a2["bigQ"]["push"](_aVMk(bx,by,bz));return!0x0;}
 if(!cur["_aiCtx"]||nt<ct)return!0x1;
 if(nt===ct&&ad()>=0.5)return!0x1;
-_bmAiSettle(cur);
+for(var _qi=0x0;_qi<a2["bigQ"]["length"];_qi++)_bmAiSettle(a2["bigQ"][_qi]);
 a2["bigQ"]=[];
 return aV(bx,by,bz);
 }
@@ -2104,7 +2118,7 @@ function _bmSeg(bx){
   bx["score"][0x0]+=hg;bx["score"][0x1]+=ag;
   /* 球员数据归属：与常规 _pMatchContrib 同概率（位置份额×OVR×对手），逐球分配；glory 提高个人倾向 */
   var _pp=_bmPlayerProb(bx,_sp[0x0],_sp[0x1]),_ps=_pp[0x0],_pa=_pp[0x1],_grp=_pp[0x2],_meG2=0x0,_meA2=0x0;
-  if(_grp!=="gk")for(var _gi=0x0;_gi<hg;_gi++){
+  if(_grp!=="gk"&&!bx["_injured"])for(var _gi=0x0;_gi<hg;_gi++){
     if(_bmRnd()<_ps){_meG2++;bx["_meG"]=(bx["_meG"]||0x0)+0x1;}
     else if(_bmRnd()<_pa){_meA2++;bx["_meA"]=(bx["_meA"]||0x0)+0x1;}
   }
@@ -2163,8 +2177,8 @@ function _bmAdvance(bx){
     if(seg===0x0){bx["seg"]=0x1;bx["dec"]="intro";
       /* U系列：intro 即赛前选拔态度决策（影响本场胜率与递进 flag） */
       bx["opts"]=_yKind(bx["kind"])?_ntSelOpts(bx):[{'key':"start",'label':"开始比赛",'hint':"走上球场，全场球迷都在等你"}];return;}
-    if(seg===0x1){bx["seg"]=0x2;bx["dec"]="kickoff";bx["opts"]=_bmOpts(bx,"kickoff");return;}
-    if(seg===0x5){bx["seg"]=0x6;bx["dec"]="halftime";bx["opts"]=_bmOpts(bx,"halftime");return;}
+    if(seg===0x1){bx["seg"]=0x2;if(bx["_injured"])continue;bx["dec"]="kickoff";bx["opts"]=_bmOpts(bx,"kickoff");return;}
+    if(seg===0x5){bx["seg"]=0x6;if(bx["_injured"])continue;bx["dec"]="halftime";bx["opts"]=_bmOpts(bx,"halftime");return;}
     if(seg===0x9){
       var sc=bx["score"];
       if(sc[0x0]===sc[0x1]){
@@ -2252,7 +2266,8 @@ bs=_bmOppStr(bI);
     bQ=bM?"领先":"落后";
   }
   var bX=null;
-  bI["_injured"]||(a2["seasons"][bI["recIdx"]]||{"apps":0x0})["apps"]>0x0&&ad()<0.4&&(bX='gk'===bW?bS?"点球大战中扑出了关键一球":'第\x20'+ae(0x3c,0x58)+(" 分钟单掌把必进"+"球托了出去"):"def"===bW?"在门线上把球解围"+'出去':"mid"===bW?bM?"送出了那记决定比"+"赛的直塞":"把球权一次次抢回"+'来':bM?"打进了那个球":"打出了全队唯一一"+"次射正"),
+  /* 赛后个人播报：不再用 40% 随机台词，直接按本场真实数据(_meG/_meA)套文案；未参与进球的按位置组给兜底句 */
+  bI["_injured"]||(a2["seasons"][bI["recIdx"]||0x0]||{"apps":0x0})["apps"]>0x0&&(bX=(function(){var _pk=function(a){return a[Math["floor"](_bmRnd()*a["length"])]},_mg=(bI["_meG"]||0x0),_ma=(bI["_meA"]||0x0);if(_mg>0x0&&_ma>0x0)return _pk(["打进 "+_mg+" 球，还送出 "+_ma+" 次助攻","一个人参与了本队每一个进球："+_mg+" 球 "+_ma+" 助攻",_mg+" 球 "+_ma+" 助攻，这场比赛没有别人什么事"]);if(_mg>0x0)return _mg>=0x3?_pk(["上演帽子戏法，全场 "+_mg+" 球","独中 "+_mg+" 元，对方整条防线都记住了你的号码"]):_mg===0x2?_pk(["梅开二度","两个进球，一个比一个关键"]):_pk(["打进了那个球","打进全场唯一一个进球","这球进得干净利落"]);if(_ma>0x0)return _ma>=0x2?_pk(["送出 "+_ma+" 次助攻，中场被你盘活了",""+_ma+" 次助攻，机会都是从你脚下出来的"]):_pk(["送出那记决定比赛的助攻","一脚传球撕开了整条防线"]);if("gk"===bW)return bS?"点球大战中扑出了关键一球":(bO===0x0?"零封了对手，站在球门前一整个下午":"高接低挡，把比分死死按住");if("def"===bW)return _pk(["在门线上把球解围出去","把对方的箭头彻底冻结","禁区里每一次高球都是你先到"]);if("mid"===bW)return bM?_pk(["送出了那记决定比赛的直塞","把节奏攥在自己手里"]):_pk(["把球权一次次抢回来","跑了整场，把中场填满"]);return _pk([bM?"打出了全队唯一一次射门":"几次拿球都被对方夹住"]);})()),
 
 
 
@@ -2296,7 +2311,14 @@ c0=[];
   }
   /* 互动赛真实表现折算（替换旧随机+1）：俱乐部场次记俱乐部赛季，国家队场次记国家队统计；
      你进球/助攻按比赛事件计数(_meG/_meA)，GK 零封计 cs；点球大战进球不计入个人进球 */
-  var _meG=(bI&&bI["_meG"])||0x0,_meA=(bI&&bI["_meA"])||0x0,_isNat=("wc"===bI["kind"]||"asia"===bI["kind"]),_gkCs=("gk"===bW&&bO===0x0)?0x1:0x0;
+  /* 大场面受伤的真实代价：不只是在文案里下场——本季记录标注伤病、能力受损、后续伤病概率上升 */
+  if(bI["_injured"]&&!bI["_injCost"]){bI["_injCost"]=!0x0;
+    var _bzI=bZ||a2["_curBz"];_bzI&&(_bzI["note"]="伤病",_bzI["injury"]=(_bzI["injury"]||0x0)-0x2);
+    a2["ovr"]=ac(a2["ovr"]-0x2,0xc,0x63);
+    a2["healthBonus"]=ac((a2["healthBonus"]||0x1)*1.15,0.4,0x1);
+    bP["push"]("队医的结论出来了：这一下要养一阵子。");
+  }
+  var _meG=(bI&&bI["_meG"])||0x0,_meA=(bI&&bI["_meA"])||0x0,_isNat=("wc"===bI["kind"]||"asia"===bI["kind"]),_gkCs=("gk"===bW&&bO===0x0&&!bI["_injured"])?0x1:0x0;
   if(bZ&&(_meG>0||_meA>0||_gkCs)){
     if(_isNat){
       if(a2["natStats"]){a2["natStats"]["goals"]=(a2["natStats"]["goals"]||0x0)+_meG;a2["natStats"]["assists"]=(a2["natStats"]["assists"]||0x0)+_meA;if(_gkCs)a2["natStats"]["cs"]=(a2["natStats"]["cs"]||0x0)+0x1;}
@@ -2342,7 +2364,7 @@ a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bI["comp"],'text
 
 
 a2["_awardDue"]&&(a2["_awardDue"]=!0x1,_lgFinalRefresh(a2["seasons"][bI["recIdx"]]),bAw(a2["seasons"][bI["recIdx"]])),
-  a2["bigQ"]=[],a2["_natGrpToFinal"]&&(a2["_natGrpToFinal"]=!0x1,_aVPri("wc",0.55,{"comp":"世界杯","opp":_finalOpp(a2["_natWC"]["rounds"],"中国队"),"_aiCtx":{"t":"nat","comp":"世界杯","stage":a2["_natWC"]["stage"]}})),a2["_promoDue"]&&(a2["_promoDue"]=!0x1,_promoReleg(a2["seasons"][bI["recIdx"]],null,null)),window["NEWSFACTS"]&&_newsLiveTick(),!0x0;
+  a2["bigQ"]["shift"](),a2["_natGrpToFinal"]&&(a2["_natGrpToFinal"]=!0x1,_aVPri("wc",0.55,{"comp":"世界杯","age":(a2["_natWC"]&&a2["_natWC"]["age"]!=null?a2["_natWC"]["age"]:a2["age"]),"opp":_finalOpp(a2["_natWC"]["rounds"],"中国队"),"_aiCtx":{"t":"nat","comp":"世界杯","stage":a2["_natWC"]["stage"]}})),a2["_promoDue"]&&(a2["_promoDue"]=!0x1,_promoReleg(a2["seasons"][bI["recIdx"]],null,null)),window["NEWSFACTS"]&&_newsLiveTick(),!0x0;
 }
 function aW(){var bx=a2["bigQ"][0x0];
 /* U13/U15 选拔营：不进交互比赛，直接按能力结算名单结果 */
@@ -3730,10 +3752,6 @@ delete a2["staff"][bC['id']],bB["push"](bC["name"]),bA-=bC["_fee"];
 
 bB["length"]&&(bz["staffGon"+'e']=bB["join"]('、'));
 }var bE=aG(a2["age"]),bF=bE[0x0]+ad()*(bE[0x1]-bE[0x0]),bG=a2["talent"];
-/* 天赋挂钩的成长天花板：低天赋的墙更低（talent 0.70→71 / 1.48→96），
-   只在接近该墙的 8 点区间内递减，不整体再压一刀（避免与 bG 里的天赋乘数双重惩罚）。 */
-/* _tN=0..1 归一化天赋；_capC=天赋天花板；_wall 在 _capC-8 处开始生效、贴到 _capC 时为 0.12 */
-var _tN=ac((a2["talent"]-0.7)/0.78,0x0,0x1),_capC=0x47+0x19*_tN,_wall=ac((_capC-a2["ovr"])/0xa,0.06,0x1);
 if(by&&(bG*=0x1+0.05*(by["rep"]-0x2)),
 
 
@@ -3744,7 +3762,7 @@ a2["stagnate"]&&(bG*=0.55),a6("chef")&&(bG*=(1+0.08*_stEff(_stT("chef")))*_stM("
 
 
 a2["achBonus"]&&a2["achBonus"]["growth"]&&(bG*=a2["achBonus"]["growth"]),
-bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)*_wall),
+bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)*_capWall(a2["talent"],a2["ovr"])),
 
 
 
@@ -4048,7 +4066,7 @@ a0["ROLES"][a2["role"]]["rank"]<=0x1?a2["lowSpell"]++:a2["lowSpell"]=0x0,bA;
 
 by){
 aj(bx)&&(a2["teamId"]=bx,a2["seasonsA"+"tClub"]=0x0,a2["roleAdju"+'st']=0x0,a2["lowSpell"]=0x0,a2["stagnate"]=!0x1,a2["contract"+"Left"]=a2["flags"]["_keepContract"]?a2["contract"+"Left"]:be(),a2["flags"]["_keepContract"]=!0x1,
-a2["loanFrom"]=null,a2["clubsPla"+"yed"]["indexOf"](bx)<0x0&&a2["clubsPla"+"yed"]["push"](bx),by||(a2["flags"]["_justMov"+'ed']=!0x0));
+a2["loanFrom"]=null,a2["clubsPla"+"yed"]["indexOf"](bx)<0x0&&a2["clubsPla"+"yed"]["push"](bx),by||(a2["flags"]["_justMov"+'ed']=!0x0),a2["role"]=aH());
 }function b9(bx){
 return!!bx&&a2["youthTea"+"mId"]===bx['id']&&a2["age"]<=0x17;
 }function ba(){
@@ -4079,7 +4097,7 @@ return Math["max"](1,Math["min"](5,Math["round"](1+4.2*fit*ageW+(ad()-0.5)*0.9))
 var _LGW={'epl':2.2,'liga':2.2,'seri':1.9,'bund':1.9,'l1':1.7,'csl':1.4,'spl':1.3,'mls':1.2,'pri':0.9,'ere':0.8,'tur':0.7,'bra':0.7,'jup':0.6,'mx':0.6,'jl':0.6,'arg':0.6,'kl':0.45,'pol':0.35,'ch':0.3,'seg':0.3,'b2':0.3,'l2':0.3,'serb':0.3,'ale':0.25,'cl1':0.25,'cpl':0.2};
 function _lgW(bx){var bL=aq(bx);return bL&&_LGW[bL['id']]||0.6;}
 /* 统一工资口径：报价/状态栏/实发都用此式 = 基础工资×合同系数×角色系数×年龄系数 */
-function _wageOf(bx,by,bz){var bR=aI(bx);return Math["round"](aJ(bx,by,a2["ovr"])*((a2["flags"]&&a2["flags"]["_wageMul"])||0x1)*(bz||0x1)*(a0["ROLES"][bR]["rank"]>=0x2?0x1:0.55)*bAge());}
+function _wageOf(bx,by,bz){var bR=aI(bx);return Math["round"](aJ(bx,by,a2["ovr"])*((a2["flags"]&&a2["flags"]["_wageMul"])||0x1)*(bz!=null?bz:(a2["wageMul"+"t"]||0x1))*(a0["ROLES"][bR]["rank"]>=0x2?0x1:0.55)*bAge());}
 function bf(bx,
 
 
@@ -4514,6 +4532,8 @@ bC["unshift"](_t);_vetInv=_iv;})();
 bD&&bO(bD),bC["forEach"](bO);
 /* 受邀回归：给一份更长的合同（在正常年限上+2，至少3年、封顶5年） */
 if(_vetInv&&a2["_offerTerms"]&&a2["_offerTerms"][_vetInv])a2["_offerTerms"][_vetInv]["years"]=Math["min"](0x5,Math["max"](0x3,a2["_offerTerms"][_vetInv]["years"]+0x2));
+/* 高薪联赛邀约：在正常条款上再抬 35% 工资（多给钱是这些联赛挖人的核心手段） */
+if(_vetInv&&a2["_offerTerms"]&&a2["_offerTerms"][_vetInv]){var _vc=aj(_vetInv),_vL=_vc?aq(_vc):null;if(_vL&&_lgPay[_vL['id']]){var _w2=a2["_offerTerms"][_vetInv];_w2["mult"]=Math["round"](_w2["mult"]*1.35*0x64)/0x64;_w2["wage"]=_wageOf(_vc,_vL,_w2["mult"]);}}
 bx&&!by&&(a2["age"]>=0x20&&a2["ovr"]>=0x4b||b9(bD))&&(bx=!0x1,a2["lowSpell"]=0x0);
 var bE=!bx&&!by&&bD&&(function(bG){var bH=bc(bG)-0x5;
 return bG&&a2["youthTea"+"mId"]===bG['id']&&(bH-=0x8),
