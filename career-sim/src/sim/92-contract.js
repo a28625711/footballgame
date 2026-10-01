@@ -28,8 +28,27 @@ null;
 return(function(){var by=a2["period"],bz=by['n'],bA=by["recs"];
 return a2["period"]=null,a2["pendingM"+"ult"]=null,a2["clean"]=ac(a2["clean"]-(au()?2.2:0.6)*bz,0x0,0x64),a2["fame"]=ac(a2["fame"]-(a6('pr')?Math["max"](0.05,1-0.65*_stEff(_stT('pr')))/_stM('pr'):1.5)*bz,
 0x0,0x64),a2["guanxi"]=ac(a2["guanxi"]+(au()?1.6:0.5)*bz,0x0,0x64),a2["contract"+"Left"]>0x0&&a2["contract"+"Left"]--,a2["lockAbro"+'ad']>0x0&&a2["lockAbro"+'ad']--,
-a0["ROLES"][a2["role"]]["rank"]<=0x1?a2["lowSpell"]++:a2["lowSpell"]=0x0,bA;
+a0["ROLES"][a2["role"]]["rank"]<=0x1?a2["lowSpell"]++:a2["lowSpell"]=0x0,_cleanSettle(bz),bA;
 }());
+}/* ── 清白有牙：低清白→赛季丑闻风险（停赛+N/罚款/掉名望）；高清白+名气→代言收入 ──
+   在赛季结算（b7）里按 period 季数结算，让 clean/fame 真正产生后果；
+   事件层随后可读 flags._scandal / _cleanBonus 叠加剧情。 */
+function _cleanSettle(bz){
+var cl=a2["clean"]||0x0;
+if(cl<0x2d){
+if(ad()<(0x2d-cl)*0.005*bz){
+var _fine=Math["round"]((0x2d-cl)*0x6+0x1e);
+a2["money"]=ac(Math["round"](a2["money"]-_fine),-0x320,0x895440);
+a2["fame"]=ac((a2["fame"]||0x0)-0x4,0x0,0x64);
+a2["clean"]=ac(cl-0x5,0x0,0x64);
+a2["banGames"]=(a2["banGames"]||0x0)+0x2;
+a2["flags"]["_scandal"]=0x1;
+}
+}else if(cl>=0x46&&(a2["fame"]||0x0)>=0x1e){
+a2["money"]=ac(Math["round"](a2["money"]+(a2["fame"]||0x0)*0.4*bz),-0x320,0x895440);
+a2["clean"]=ac(cl+0x1,0x0,0x64);
+a2["flags"]["_cleanBonus"]=0x1;
+}
 }function b8(bx,
 
 
@@ -66,8 +85,8 @@ return Math["max"](1,Math["min"](5,Math["round"](1+4.2*fit*ageW+(ad()-0.5)*0.9))
    数值可随时调整，未列出的联赛默认 0.6 */
 var _LGW={'epl':2.2,'liga':2.2,'seri':1.9,'bund':1.9,'l1':1.7,'csl':1.4,'spl':1.3,'mls':1.2,'pri':0.9,'ere':0.8,'tur':0.7,'bra':0.7,'jup':0.6,'mx':0.6,'jl':0.6,'arg':0.6,'kl':0.45,'pol':0.35,'ch':0.3,'seg':0.3,'b2':0.3,'l2':0.3,'serb':0.3,'ale':0.25,'cl1':0.25,'cpl':0.2};
 function _lgW(bx){var bL=aq(bx);return bL&&_LGW[bL['id']]||0.6;}
-/* 统一工资口径：报价/状态栏/实发都用此式 = 基础工资×合同系数×角色系数×年龄系数 */
-function _wageOf(bx,by,bz){var bR=aI(bx);return Math["round"](aJ(bx,by,a2["ovr"])*((a2["flags"]&&a2["flags"]["_wageMul"])||0x1)*(bz!=null?bz:(a2["wageMul"+"t"]||0x1))*(a0["ROLES"][bR]["rank"]>=0x2?0x1:0.55)*bAge());}
+/* 统一工资口径：报价/状态栏/实发都用此式 = 基础工资×合同系数×角色系数×年龄系数×名气议价 */
+function _wageOf(bx,by,bz){var bR=aI(bx);return Math["round"](aJ(bx,by,a2["ovr"])*((a2["flags"]&&a2["flags"]["_wageMul"])||0x1)*(bz!=null?bz:(a2["wageMul"+"t"]||0x1))*(a0["ROLES"][bR]["rank"]>=0x2?0x1:0.55)*bAge()*(1+Math["min"](0.2,(a2["fame"]||0x0)/0xfa)));}
 function bf(bx,
 
 

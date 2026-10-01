@@ -12,7 +12,8 @@
 function aH(){var bx=ar();
 return bx?aI(bx):"sub";
 }function aI(bx){var by=0x30+0x7*bx["rep"],bz=a2["ovr"]-by+0x3*a2["roleAdju"+'st'];
-return aq(bx)['cn']&&(bz+=0.12*(a2["guanxi"]-0x32)),
+/* 关系全国化：国内球队权重高（0.12），留洋球队也给 0.06 —— 人脉对角色/工资同样有意义 */
+return aq(bx)['cn']?bz+=0.12*(a2["guanxi"]-0x32):bz+=0.06*(a2["guanxi"]-0x32),
 
 
 

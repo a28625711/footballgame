@@ -553,3 +553,20 @@ ca = (0.5 + 0.04×(梯队数-1)) / 梯队数 × (1 + max(0, ovr-80)×0.06)   // 
 - bS() 开始生涯时 `newState(..., cAch().bonus if checked)`
 - bq() 结局图鉴（view-codex）：已见条目若有 bonus，底部显示金色「加成：...」块
 
+## 属性作用速查（名气/关系/清白/队内地位）
+
+| 属性 | 现有作用（改动后） |
+|------|--------------------|
+| 名气 fame | 员工档位门槛 `_staffMkt`；身价 `ba()`；罚款折扣；**工资议价 `_wageOf` ×(1+min(0.2,fame/250))** |
+| 关系 guanxi | **`aI()` 国内 0.12 / 留洋 0.06 ×(gx-50) → 角色**；国召阈值 `bW`；初始青训报价数 `bm` |
+| 清白 clean | **赛季结算 `_cleanSettle()`：<45 丑闻(停赛/罚款/掉名望)、>=70+fame>=30 代言收入**；衰减见 `b7()` |
+| 队内地位 roleAdjust | `aI()` 角色偏移；合同年限 `be()`；工资角色系数 `_wageOf`；**大场面参与 `_bmPlayerProb` ×(1+0.08·roleAdjust)** |
+### 里程碑（`84-world.js`）
+- `_milestoneScan(bz)`：季末在 `_promoReleg` 末尾扫描一次，只做条件判断 + 写锁存 flag；**本季只保留优先级最高的一条**（`_MILE_PRI`），其余丢弃（不排队）。
+- 里程碑 71 条。扫描来源：本季奖项/奖杯、`natRuns`（世界杯/亚洲杯名次）、`totals`（进球/助攻/零封/出场）、`caps`、奖杯数、连续金球（awards 连续 age）、金靴计数、联赛连冠（同赛事名连续 age）。
+- 阶梯：`_ladder(值,[[阈值,事件id,锁存flag],…])`，同季跨多档只播最高一档（世界杯名次/纪录/连冠/金球连庄）。
+- `_fireMilestone()`：把 `_mileQ` 里那条按优先级取出并置 `pending`（type=forced）。
+- `_emitReportOrMilestone(recs)`：**先播里程碑、再出赛季报告**；`bl()`（93-youth-settle）与 `cont()` 的大场面报告路径（99-api）都走它。里程碑因此不会延后到以后。
+- 事件图标国旗：`.ev-icon img.ev-flag` 基础样式限尺寸（`style.css`），媒体查询内再微调。
+
+测试钩子（`window.SIM`）：`snapshot()`（含 `roleAdjust`）、`roleOf(tid)`、`bmPlayerProb(my,opp)`、`cleanSettle(n)`。

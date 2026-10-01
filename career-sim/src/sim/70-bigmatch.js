@@ -363,8 +363,10 @@ function _bmPlayerProb(bx,myStr,oppStr){
   if(a2["cheat"])f*=1.25;
   var diff=(oppStr!=null&&myStr!=null)?ac((oppStr-myStr)/0x1e,-1,1):0;
   var sh={'att':[0.24,0.11],'mid':[0.15,0.19],'def':[0.07,0.045],'gk':[0,0]}[grp]||[0.15,0.15];
+  /* 队内地位（roleAdjust ±4）直接影响大场面参与度：核心球员更多触球/开火，边缘球员更少（±8%/档） */
+  var _roleF=Math["max"](0.7,Math["min"](1.35,1+0.08*(a2["roleAdju"+'st']||0x0)));
   var g=Math["max"](0,1+(bx["_glory"]||0x0)*0.6);
-  return[ac(sh[0]*f*(1-0.25*diff)*g,0.01,0.65),ac(sh[1]*f*(1-0.1*diff),0.01,0.5),grp];
+  return[ac(sh[0]*f*(1-0.25*diff)*g*_roleF,0.01,0.65),ac(sh[1]*f*(1-0.1*diff)*_roleF,0.01,0.5),grp];
 }
 /* 大场面专用随机流：叙述/事件/球员归属都不消耗主 RNG，保证"比分只由强弱决定"，
    不会因为球员 OVR 高→叙述行多→随机流分叉而反过来影响胜负 */

@@ -1555,29 +1555,19 @@ return{'roleDelta':0x1,'fame':-0x6,'text':"你把精力收回到自己身上。�
   'title': "劳工证",
   'icon': '🛂',
   'weight': 0x32,
+  /* 劳工证（英格兰 GBE）：只对英格兰球队 + 国家队出场不足的球员成立。
+     青年期对应事件是 aca_abr_visa（满十八岁那道关），此处只管职业期。 */
   'when': function(p){
-return!p["inChina"]&&p["seasonsA"+"broad"]<=0x2;
+return!p["inChina"]&&"EN"===p["country"]&&(p["caps"]||0x0)<0x3&&p["seasonsA"+"broad"]<=0x2;
 },
-
-
-
-
-  'desc': "转会敲定了，可劳工证卡在国家队的出场次数上——你差三场。",
+  'desc': function(p){return (p["caps"]||0x0)>0x0
+    ?"转会敲定了，可劳工证卡在国家队出场纪录上——英格兰的硬门槛还差"+(0x3-(p["caps"]||0x0))+"场国家队比赛。"
+    :"转会敲定了，可劳工证卡在国家队出场纪录上——你的国家队出场还是零，英格兰的门槛要三场。";},
   'options': [
-    {
-        'label': "等下一个窗口",
-        'hint': "空转半年",
-        'apply': function(){
-return{'ovr':-0x2,'roleDelta':-0x2,'text':"你在异国公寓里住了半年，每天跟着预备队。窗口开的那天，你的状态没了。"};
-}
-    },
-    {
-        'label': "先去别处过渡",
-        'hint': "转去次级联赛",
-        'apply': function(p){
-return{'leave':!0x0,'ovr':0x1,'text':"你先去了隔壁联赛，踢了一年半。这条路很多人走过，走通的不多。"};
-}
-    }
+    {'label': "等下一个窗口", 'hint': "空转半年",
+     'apply': function(){return{'ovr':-0x2,'roleDelta':-0x1,'text':"你在异乡的公寓里等了半年，每天跟着预备队训练。窗口重开那天，你发现自己慢了半拍。"};}},
+    {'label': "先换一支不卡这条的球队", 'hint': "换东家，先踢上球",
+     'apply': function(){return{'leave':!0x0,'ovr':0x1,'text':"你找了一支不卡出场纪录的球队先踢着。一年半后，工作许可的事已经没人再提。"};}}
   ]
 },
 

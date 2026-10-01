@@ -2510,29 +2510,19 @@ return{'ovr':0x2,'text':"你说还能再踢几年。讲师笑了笑，说你这�
   'title': "劳工证",
   'icon': '🛂',
   'weight': 0x32,
+  /* 劳工证（英格兰 GBE）：只对英格兰球队 + 国家队出场不足的球员成立。
+     青年期对应事件是 aca_abr_visa（满十八岁那道关），此处只管职业期。 */
   'when': function(p){
-return!p["inChina"]&&p["seasonsA"+"broad"]<=0x2;
+return!p["inChina"]&&"EN"===p["country"]&&(p["caps"]||0x0)<0x3&&p["seasonsA"+"broad"]<=0x2;
 },
-
-
-
-
-  'desc': "转会敲定了，可劳工证卡在国家队的出场次数上——你差三场。",
+  'desc': function(p){return (p["caps"]||0x0)>0x0
+    ?"转会敲定了，可劳工证卡在国家队出场纪录上——英格兰的硬门槛还差"+(0x3-(p["caps"]||0x0))+"场国家队比赛。"
+    :"转会敲定了，可劳工证卡在国家队出场纪录上——你的国家队出场还是零，英格兰的门槛要三场。";},
   'options': [
-    {
-        'label': "等下一个窗口",
-        'hint': "空转半年",
-        'apply': function(){
-return{'ovr':-0x2,'roleDelta':-0x2,'text':"你在异国公寓里住了半年，每天跟着预备队。窗口开的那天，你的状态没了。"};
-}
-    },
-    {
-        'label': "先去别处过渡",
-        'hint': "转去次级联赛",
-        'apply': function(p){
-return{'leave':!0x0,'ovr':0x1,'text':"你先去了隔壁联赛，踢了一年半。这条路很多人走过，走通的不多。"};
-}
-    }
+    {'label': "等下一个窗口", 'hint': "空转半年",
+     'apply': function(){return{'ovr':-0x2,'roleDelta':-0x1,'text':"你在异乡的公寓里等了半年，每天跟着预备队训练。窗口重开那天，你发现自己慢了半拍。"};}},
+    {'label': "先换一支不卡这条的球队", 'hint': "换东家，先踢上球",
+     'apply': function(){return{'leave':!0x0,'ovr':0x1,'text':"你找了一支不卡出场纪录的球队先踢着。一年半后，工作许可的事已经没人再提。"};}}
   ]
 },
 
@@ -14612,6 +14602,1203 @@ return{'guanxi':0x2,'ovr':0x1,'text':"你主动找了后腰和门将，商量好
   'options': [
     {'label': "把三座奖杯一次举起来", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"你在庆祝仪式上试着同时举起三座奖杯，举到一半差点掉下来。那张照片比奖杯本身有名。"};}},
     {'label': "把功劳分给所有人", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你把三座奖杯依次递给了队长、门将和那个整个赛季只出场三次的替补。最后一座才轮到自己。"};}}
+  ]
+},
+
+{
+  'id': "gx_cn_inv"+'ite',
+  'title': "一个电话",
+  'icon': '📞',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'desc': function(p){return p["guanxi"]>=0x3c
+    ?"老领队退休前把一个号码塞给你：「有事找他，就说我让的。」你把纸条攥了两条街，纸边被汗浸软了。"
+    :"同批的人陆续都有人往里递话，只有你，电话簿上没有一个能拨的号。";},
+  'options': [
+    {'label': "打这个电话", 'hint': function(p,q){return g(q,'那边答应递个话','对面只是客气两句');},
+     'p': function(p){return f(0.42,[[p["guanxi"],0x32,0.012]],0.15,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x1,'guanxi':0x4,'ovr':0x2,'text':"名单比预想早了两周。教练组开会时，有人提了你的名字。"}
+       :{'guanxi':-0x8,'clean':-0x4,'text':"话递到了，对面只是客气。你欠了个人情，还被人记在了本子上。"};}},
+    {'label': "把号码收起来，自己加练", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'guanxi':-0x2,'text':"你把纸条夹进训练日记。两个月后，体测数据替你说了话。"};}}
+  ]
+},
+
+{
+  'id': "gx_cn_youth"+'_coach',
+  'title': "教练的偏爱",
+  'icon': '🧑‍🏫',
+  'weight': 0x28,
+  'stage': "youth",
+  'cn': !0x0,
+  'desc': "梯队教练把加练的钥匙给了几个人，没给你。他说这不叫偏心，叫「看谁顺眼」。",
+  'options': [
+    {'label': "主动去蹭加练", 'hint': function(p,q){return g(q,'教练点了头','被赶了回来');},
+     'p': function(p){return f(0.4,[[p["guanxi"],0x28,0.01]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'ovr':0x3,'guanxi':0x6,'text':"你连着去了两周，教练把钥匙配了一把给你。「别到处说。」"}
+       :{'guanxi':-0x2,'ovr':0x1,'text':"你去了几次，都被门卫拦在外面。你改成在操场外的路灯下练球感。"};}},
+    {'label': "跟教练把话挑明", 'hint': "关系+或-，地位+", 'apply': function(p){return p["guanxi"]>=0x32
+       ?{'guanxi':0x4,'roleDelta':0x1,'text':"你把话说得直。教练愣了愣，笑了：「有点意思。」第二天你进了主力组。"}
+       :{'guanxi':-0x6,'ovr':0x2,'text':"你话说急了。教练记了你一个「不好带」。你只能踢得更狠。"};}}
+  ]
+},
+
+{
+  'id': "gx_abr_lock"+'er',
+  'title': "更衣室",
+  'icon': '🚪',
+  'weight': 0x28,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': function(p){return p["guanxi"]>=0x3c
+    ?"队友开始用你的外号叫你，训练里愿意把球交到你脚下。你终于听懂了更衣室里一半的笑话。"
+    :"战术板上的东西你靠猜，队友的笑话你只能跟着笑。你在自己的更衣室里，像个客人。";},
+  'options': [
+    {'label': "张罗一次全队聚餐", 'hint': function(p,q){return g(q,'这下算自己人了','花了不少，还是很生');},
+     'p': function(p){return f(0.45,[[p["guanxi"],0x32,0.012]],0.15,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0xa,'money':-0x28,'text':"你请了全队。有人教你说当地的干杯，你学得很认真，发音很烂，全桌都在鼓掌。"}
+       :{'guanxi':0x2,'money':-0x3c,'clean':0x2,'text':"你请了全队。他们来了，吃得很快，走得也早。第二天照旧。"};}},
+    {'label': "把精力全放训练上", 'hint': "能力+，关系-", 'apply': function(){return{'ovr':0x3,'guanxi':-0x4,'text':"你成了队里最早到、最晚走的人。他们叫你「机器」，语气里有敬意，也有距离。"};}}
+  ]
+},
+
+{
+  'id': "gx_abr_youth"+'_host',
+  'title': "寄宿家庭",
+  'icon': '🏠',
+  'weight': 0x28,
+  'stage': "youth",
+  'when': function(p){return !p["inChina"];},
+  'desc': "青训营把你安排在一对老夫妇家里。房东太太每天给你留一盏灯和一碗热汤，也每天问你「今天有没有交到朋友」。",
+  'options': [
+    {'label': "把队友请到家里", 'hint': function(p,q){return g(q,'生日会来了半支梯队','只有房东夫妇');},
+     'p': function(p){return f(0.45,[[p["guanxi"],0x28,0.012]],0.15,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0xa,'clean':0x4,'text':"你过生日那天，房东太太烤了蛋糕。来了半个梯队的人，队长把奶油抹了你一脸。"}
+       :{'guanxi':0x2,'clean':0x4,'text':"没人来。房东太太把蛋糕切了一半放进冰箱，说，明天带给队友也行。"};}},
+    {'label': "一个人待着，练语言", 'hint': "能力+，关系-", 'apply': function(){return{'ovr':0x2,'guanxi':-0x2,'talent':0.02,'text':"你认识了超市里的每一个单词。半年后，你能听懂教练的整段战术布置了。"};}}
+  ]
+},
+
+{
+  'id': "gx_cn_vet_me"+'dia',
+  'title': "名宿的分量",
+  'icon': '🎙️',
+  'weight': 0x28,
+  'stage': "vet",
+  'cn': !0x0,
+  'when': function(p){return p["guanxi"]>=0x28;},
+  'desc': "一档足球节目请你做嘉宾。主持人是个老名宿，开口第一句就是：「这孩子，我认识。」",
+  'options': [
+    {'label': "顺着他的话往下说", 'hint': function(p,q){return g(q,'节目火了，你也成了自己人','被说成蹭热度');},
+     'p': function(p){return f(0.5,[[p["guanxi"],0x32,0.01],[p["fame"],0x32,0.006]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0x8,'fame':0x8,'text':"老名宿在节目里替你说了很多好话。第二天，那段视频在球迷群里转疯了。"}
+       :{'fame':-0x4,'clean':-0x2,'text':"有人截图说你套近乎。老名宿没接话，你坐在那儿，笑得很勉强。"};}},
+    {'label': "只谈战术，不攀交情", 'hint': "地位+，名气+", 'apply': function(){return{'roleDelta':0x1,'fame':0x4,'ovr':0x1,'text':"你把一段战术讲得清楚。老名宿愣了一下：「这孩子，是真懂球。」"};}}
+  ]
+},
+
+{
+  'id': "gx_abr_prime"+'_agent',
+  'title': "换条门路",
+  'icon': '💼',
+  'weight': 0x28,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': "有人给你介绍一个「很有办法」的经纪人：他能把电话打到主管办公室，也能把电话打到不该打的地方。",
+  'options': [
+    {'label': "换他来运作", 'hint': function(p,q){return g(q,'门路真宽','被带进沟里');},
+     'p': function(p){return f(0.4,[[p["guanxi"],0x32,0.011]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0xc,'money':0x3c,'fame':0x4,'text':"两周内，两份报价摆到了桌上。你第一次觉得，有些门是要靠人推开的。"}
+       :{'guanxi':-0xa,'clean':-0x6,'money':-0x1e,'text':"他收了佣金就没影了。后来你才知道，他同时也在替你的对手办事。"};}},
+    {'label': "留在原经纪人身边", 'hint': "清白+，名气-", 'apply': function(){return{'clean':0x4,'fame':-0x2,'guanxi':0x2,'text':"你留下了。原经纪人话不多，但每个条款都替你抠。你睡得踏实。"};}}
+  ]
+},
+
+{
+  'id': "gx_cn_prime"+'_captain',
+  'title': "队长之争",
+  'icon': '🅲',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["roleRank"]>=0x2;},
+  'desc': "老队长要走。更衣室里分成两拨，一拨等着你说话，一拨等着看你怎么收场。",
+  'options': [
+    {'label': "挨个找队友谈", 'hint': function(p,q){return g(q,'队友都点了头','有人当面翻了脸');},
+     'p': function(p){return f(0.45,[[p["guanxi"],0x32,0.012]],0.15,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0xa,'roleDelta':0x1,'text':"你把每个人的心思都聊了一遍。投票那天，几乎没人反对。"}
+       :{'guanxi':-0x8,'roleDelta':-0x1,'text':"有人把你找他谈话的事捅了出去，说你拉帮结派。你解释不清。"};}},
+    {'label': "让教练直接宣布", 'hint': "地位+，关系-", 'apply': function(){return{'roleDelta':0x1,'guanxi':-0x4,'text':"教练在战术会上直接点名。袖标戴上了，可你总觉得背后有眼睛。"};}}
+  ]
+},
+
+{
+  'id': "gx_abr_young_"+'lang',
+  'title': "语言课",
+  'icon': '🗣️',
+  'weight': 0x28,
+  'stage': "youth",
+  'when': function(p){return !p["inChina"];},
+  'desc': "俱乐部给你排了语言课，一周三次。老师说，你要么把舌头练顺，要么把板凳坐穿。",
+  'options': [
+    {'label': "每天多加一小时", 'hint': function(p,q){return g(q,'能跟队友开玩笑了','还是只会点头');},
+     'p': function(p){return f(0.5,[[p["guanxi"],0x28,0.012]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0x8,'ovr':0x1,'text':"三个月后，你在更衣室讲出了第一个让人发笑的笑话。那天你才算真的到了这儿。"}
+       :{'ovr':0x2,'guanxi':0x2,'text':"你还是习惯用脚说话。教练喊你名字的速度，倒是快了一点。"};}},
+    {'label': "把时间用来练身体", 'hint': "能力+，关系-", 'apply': function(){return{'ovr':0x3,'guanxi':-0x2,'text':"你把语言课请了假。身体是练出来了，可战术会上你还是只能猜。"};}}
+  ]
+},
+
+{
+  'id': "gx_cn_fav"+'or',
+  'title': "人情到期",
+  'icon': '🤝',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["guanxi"]>=0x3c;},
+  'desc': "当年帮过你的那位，如今找上门了。他要你在媒体上替一个后辈说句话——那后辈，抢的正是你的位置。",
+  'options': [
+    {'label': "还这个人情", 'hint': function(p,q){return g(q,'对方记你一辈子','被后辈顶了位置');},
+     'p': function(p){return f(0.5,[[p["guanxi"],0x3c,0.011]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0xa,'clean':0x2,'text':"你说那句话时没犹豫。后来那后辈每次见面都叫你一声哥，是真心的。"}
+       :{'guanxi':0x2,'roleDelta':-0x1,'clean':0x2,'text':"话你说了，位置也丢了。你没后悔，只是那天回家开了很久的车。"};}},
+    {'label': "婉拒，说自己不方便", 'hint': "地位+，关系-", 'apply': function(){return{'roleDelta':0x1,'guanxi':-0x6,'text':"你说自己状态不好，不方便开口。对方说「理解」，语气你懂。"};}}
+  ]
+},
+
+{
+  'id': "gx_abr_community",
+  'title': "街坊",
+  'icon': '🏙️',
+  'weight': 0x28,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': "训练基地旁边的小店老板认得你了，每次都多给你一份。他说，这条街的人都在看你踢球。",
+  'options': [
+    {'label': "常去社区活动", 'hint': function(p,q){return g(q,'成了这条街的熟人','去了几次就没再去');},
+     'p': function(p){return f(0.5,[[p["guanxi"],0x28,0.012]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0x8,'fame':0x6,'clean':0x2,'text':"你陪着孩子们踢了一下午。第二天，整条街的窗户上都贴了你的海报。"}
+       :{'guanxi':0x2,'text':"你去了几次。语言不通，孩子们围着你要签名，你只知道笑。"};}},
+    {'label': "少抛头露面", 'hint': "能力+，名气-", 'apply': function(){return{'ovr':0x2,'fame':-0x4,'text':"你把周末都留给了恢复训练。球探的报告上写着：专注。"};}}
+  ]
+},
+
+{
+  'id': "gx_cn_suspic"+'ion',
+  'title': "口风",
+  'icon': '🤫',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'desc': "赛前有人拍着你的肩膀，说了句「今天天气不错」。你懂这句话的意思，也知道听懂这句话意味着什么。",
+  'options': [
+    {'label': "接话，探他的底", 'hint': function(p,q){return g(q,'套出了名字','被反将一军');},
+     'p': function(p){return f(0.4,[[p["guanxi"],0x28,0.011]],0.15,0.85);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0x8,'clean':-0x4,'text':"你顺着话往下聊，记住了那两个名字。你知道了一些不该知道的事。"}
+       :{'clean':-0x6,'guanxi':-0x6,'text':"你的试探太生。对方笑笑走了，赛前的更衣室里，气氛怪了一整年。"};}},
+    {'label': "装没听见", 'hint': "清白+，关系-", 'apply': function(){return{'clean':0x4,'guanxi':-0x4,'ovr':0x1,'text':"你戴上耳机走开了。那场球你踢得很干净，也很闷。"};}}
+  ]
+},
+
+{
+  'id': "gx_abr_netw"+'ork',
+  'title': "华裔社区",
+  'icon': '🏮',
+  'weight': 0x28,
+  'stage': "vet",
+  'when': function(p){return !p["inChina"]&&p["guanxi"]>=0x28;},
+  'desc': "当地华裔社区要办一场义赛，请你当队长。邀请函上写着：让这里的孩子看看，我们也能踢出来。",
+  'options': [
+    {'label': "去，当这个队长", 'hint': function(p,q){return g(q,'满场都是你的名字','雨里踢了九十分钟');},
+     'p': function(p){return f(0.5,[[p["guanxi"],0x28,0.012]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0xa,'fame':0x6,'clean':0x4,'text':"看台被国旗铺满。有个孩子举着牌子：我也要出国踢球。"}
+       :{'guanxi':0x4,'clean':0x4,'text':"那天下大雨，来的不到一百人。你把球衣挨个签完才走。"};}},
+    {'label': "婉拒，腿要保养", 'hint': "能力+，关系-", 'apply': function(){return{'ovr':0x2,'guanxi':-0x4,'text':"你让队医开了张单子。邀请函被你压在了抽屉最下面。"};}}
+  ]
+},
+
+{
+  'id': "fm_cn_spons"+'or',
+  'title': "本地广告",
+  'icon': '📣',
+  'weight': 0x2a,
+  'stage': "prime",
+  'cn': !0x0,
+  'desc': "一家本地食品厂想找你拍广告。钱不多，但那是你第一次被印在包装袋上。",
+  'options': [
+    {'label': "接，认真拍", 'hint': function(p,q){return g(q,'包装袋卖断货','被队友笑了半年');},
+     'p': function(p){return f(0.5,[[p["fame"],0x1e,0.01]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x28,'fame':0x6,'text':"包装袋上你的名字被印得比产品名还大。你妈买了一箱，分给整条街。"}
+       :{'money':0x14,'fame':0x2,'text':"广告拍得很土，队友笑了你半年。但钱到账那天，你给家里打了电话。"};}},
+    {'label': "先专注踢球", 'hint': "能力+，名气-", 'apply': function(){return{'ovr':0x2,'fame':-0x2,'text':"你把合同推了。教练知道后，多看了你两眼。"};}}
+  ]
+},
+
+{
+  'id': "fm_cn_br"+'and',
+  'title': "国民品牌",
+  'icon': '🥤',
+  'weight': 0x30,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["fame"]>=0x46;},
+  'desc': "一线品牌找上门，价钱后面带着一串零。合同很厚，其中一页写着：不得出现任何负面新闻。",
+  'options': [
+    {'label': "签，把形象也当成工作", 'hint': function(p,q){return g(q,'成了国民面孔','一次失言全砸了');},
+     'p': function(p){return f(0.55,[[p["fame"],0x46,0.008],[p["clean"],0x46,0.006]],0.2,0.92);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x64,'fame':0xc,'clean':0x2,'text':"你成了广告里的熟脸。你不知道，从此在球场上每一次失态都会被放大十倍。"}
+       :{'money':0x32,'fame':-0x6,'text':"一年后你的一次争执上了热搜。品牌方撤了海报，赔偿条款扣的钱比代言费还多。"};}},
+    {'label': "只签一年，先看看", 'hint': "名气+，钱少", 'apply': function(){return{'money':0x1e,'fame':0x4,'clean':0x2,'text':"你把长约换成了短约。经纪人说你傻，可你觉得，脚底下的东西更实在。"};}}
+  ]
+},
+
+{
+  'id': "fm_abr_br"+'and',
+  'title': "国际品牌",
+  'icon': '👟',
+  'weight': 0x30,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"]&&p["fame"]>=0x3c;},
+  'desc': "某个运动品牌想签你做区域代言。海报会挂在几条街的橱窗里，旁边是他们的头牌。",
+  'options': [
+    {'label': "接下，把自己当品牌经营", 'hint': function(p,q){return g(q,'上了全球广告','被当成陪衬');},
+     'p': function(p){return f(0.5,[[p["fame"],0x3c,0.009]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x50,'fame':0xa,'text':"你的海报挂上了橱窗。有中国游客在下面拍照，你隔着玻璃看了很久。"}
+       :{'money':0x28,'fame':0x4,'text':"你被安排在了海报最角落。但那张海报，你妈一直留着。"};}},
+    {'label': "不接，专心恢复", 'hint': "能力+", 'apply': function(){return{'ovr':0x2,'fame':-0x4,'text':"你把档期推了，把夏天留给了健身房。新赛季，你的冲刺次数全队第一。"};}}
+  ]
+},
+
+{
+  'id': "fm_cn_me"+'dia',
+  'title': "舆论放大",
+  'icon': '📰',
+  'weight': 0x2a,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["fame"]>=0x32;},
+  'desc': "你只是训练里摔了一跤，第二天的标题却是《核心球员伤退，球队前景成疑》。你盯着手机看了很久。",
+  'options': [
+    {'label': "发一条动态，把话说清", 'hint': function(p,q){return g(q,'把火压下去了','越描越黑');},
+     'p': function(p){return f(0.5,[[p["fame"],0x32,0.008]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0x4,'clean':0x2,'text':"你拍了自己的训练视频，配文两个字：没事。评论区安静了下去。"}
+       :{'fame':-0x6,'clean':-0x2,'text':"你的回应被解读成傲慢。热搜挂了两天，队里让你以后少说话。"};}},
+    {'label': "一个字都不回", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'fame':-0x2,'text':"你关了手机，一头扎进训练。两天后，那条新闻没人再提。"};}}
+  ]
+},
+
+{
+  'id': "fm_abr_pre"+'ss',
+  'title': "发布会",
+  'icon': '🎤',
+  'weight': 0x2a,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': "输了球，记者把话筒塞到你面前。第一个问题是关于那次没传出去的单刀。",
+  'options': [
+    {'label': "把责任揽下来", 'hint': function(p,q){return g(q,'赢得尊重','被写成认怂');},
+     'p': function(p){return f(0.5,[[p["fame"],0x28,0.008],[p["clean"],0x32,0.006]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0x6,'guanxi':0x4,'clean':0x2,'text':"你说「那个球是我的」。第二天，队长在群里发了你这句话。"}
+       :{'fame':-0x6,'guanxi':-0x2,'text':"你认了错，标题却写成《他承认自己不行了》。你捏紧了拳头。"};}},
+    {'label': "把话题引向下一场", 'hint': "地位+，名气-", 'apply': function(){return{'roleDelta':0x1,'fame':-0x2,'text':"你只谈下一场。记者觉得无趣，教练觉得你稳。"};}}
+  ]
+},
+
+{
+  'id': "fm_cn_fan"+'club',
+  'title': "球迷会",
+  'icon': '🧣',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["fame"]>=0x28;},
+  'desc': "客队球迷看台上有人举着你的名字。他坐了一千多公里，就为了看你一场球。",
+  'options': [
+    {'label': "赛后把球衣送过去", 'hint': function(p,q){return g(q,'那人哭了','球衣被转卖了');},
+     'p': function(p){return f(0.55,[[p["fame"],0x28,0.008]],0.2,0.92);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0x6,'guanxi':0x4,'clean':0x2,'text':"你把球衣从头上脱下来递过去。周围全在鼓掌，你很累，但站得笔直。"}
+       :{'fame':-0x4,'clean':-0x2,'text':"第二天你的球衣出现在网上，标价出售。举牌的人说那不是他。"};}},
+    {'label': "冲看台鞠个躬就走", 'hint': "能力+，名气+", 'apply': function(){return{'ovr':0x2,'fame':0x2,'text':"你朝看台鞠了一躬。回到更衣室，你把这场球的技术统计看了三遍。"};}}
+  ]
+},
+
+{
+  'id': "fm_abr_tabl"+'oid',
+  'title': "小报",
+  'icon': '📸',
+  'weight': 0x28,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"]&&p["fame"]>=0x3c;},
+  'desc': "狗仔拍到你和人吃饭的照片，配的标题很难听。照片里那人是你的队医。",
+  'options': [
+    {'label': "让俱乐部发律师函", 'hint': function(p,q){return g(q,'小报道歉了','被说成心虚');},
+     'p': function(p){return f(0.5,[[p["fame"],0x3c,0.008],[p["clean"],0x46,0.006]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0x4,'clean':0x3,'text':"小报删了稿并致歉。队友开玩笑说，你现在是有律师的人了。"}
+       :{'fame':-0x6,'clean':-0x2,'text':"律师函发出去，围观的人更多了。那顿饭，后来被讲了整整一年。"};}},
+    {'label': "不理会，训练场上见", 'hint': "地位+，能力+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'fame':-0x2,'text':"你一个字没回。周末你进了两个球，赛后只说了句「下一个」。"};}}
+  ]
+},
+
+{
+  'id': "fm_cn_youth_h"+'ype',
+  'title': "被捧杀",
+  'icon': '🌟',
+  'weight': 0x28,
+  'stage': "youth",
+  'cn': !0x0,
+  'desc': "一篇报道把你写成「十年一遇」。队友看你的眼神变了，教练在训练里却对你更凶了。",
+  'options': [
+    {'label': "把报道剪下来贴床头", 'hint': function(p,q){return g(q,'越踢越自信','被自己吓住');},
+     'p': function(p){return f(0.5,[[p["fame"],0x1e,0.01],[p["talent"],1,0.3]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'ovr':0x3,'fame':0x4,'text':"你把那句话当成了目标。半年后，你踢进了梯队一队。"}
+       :{'ovr':-0x2,'fame':-0x4,'roleDelta':-0x1,'text':"你开始害怕踢不好。越怕越紧，教练把你放回了替补席。"};}},
+    {'label': "把报道扔进垃圾桶", 'hint': "能力+，名气-", 'apply': function(){return{'ovr':0x3,'fame':-0x2,'clean':0x2,'text':"你只记住教练那三个字：还不够。你把加练时间又拉长了一小时。"};}}
+  ]
+},
+
+{
+  'id': "fm_abr_youth_"+'scout',
+  'title': "球探",
+  'icon': '🔭',
+  'weight': 0x28,
+  'stage': "youth",
+  'when': function(p){return !p["inChina"];},
+  'desc': "看台角落里坐着几个穿风衣的人，笔记本从头翻到尾。你知道他们在看谁，也希望他们是在看你。",
+  'options': [
+    {'label': "把这场当成面试", 'hint': function(p,q){return g(q,'名字进了笔记本','太想表现，踢乱了');},
+     'p': function(p){return f(0.48,[[p["ovr"],0x3c,0.008],[p["fame"],0x1e,0.006]],0.15,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0x8,'ovr':0x2,'text':"赛后有个风衣男在通道口等你，递了张名片。你攥着它,一路都没敢折。"}
+       :{'ovr':-0x2,'fame':-0x2,'text':"你太想表现，几次该传的球自己打了。终场哨响，看台已经空了。"};}},
+    {'label': "照常踢，不看他们", 'hint': "能力+，稳定", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'text':"你把注意力全放在了比赛上。教练说，这是他见过你踢得最像样的一场。"};}}
+  ]
+},
+
+{
+  'id': "fm_cn_vet_le"+'gend',
+  'title': "名宿",
+  'icon': '🏛️',
+  'weight': 0x2c,
+  'stage': "vet",
+  'cn': !0x0,
+  'when': function(p){return p["fame"]>=0x3c;},
+  'desc': "俱乐部想给你办一场纪念赛。海报上写着「传奇」两个字，你看着觉得，那两个字有点重。",
+  'options': [
+    {'label': "办，让球迷好好告别", 'hint': function(p,q){return g(q,'满场都是为你来的','办得冷冷清清');},
+     'p': function(p){return f(0.55,[[p["fame"],0x3c,0.008]],0.2,0.92);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0xa,'guanxi':0x8,'money':0x28,'text':"看台拼出了你的名字和号码。你绕场一圈，把每一步都走得很慢。"}
+       :{'guanxi':0x4,'fame':0x2,'text':"来的人不多。你在空荡荡的看台前鞠了一躬，心里反而踏实。"};}},
+    {'label': "不办，比赛还没结束", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你把纪念赛推了。「等我真跑不动了再说。」队友听完，看你的眼神不一样了。"};}}
+  ]
+},
+
+{
+  'id': "fm_abr_prime"+'_award',
+  'title': "奖项提名",
+  'icon': '🏅',
+  'weight': 0x30,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"]&&p["fame"]>=0x46;},
+  'desc': "年度最佳提名名单出来了，你在里面。这是亚洲球员很少能站进去的名单。",
+  'options': [
+    {'label': "去，穿上最好的西装", 'hint': function(p,q){return g(q,'上台领奖','被念错了名字');},
+     'p': function(p){return f(0.45,[[p["fame"],0x46,0.008],[p["ovr"],0x50,0.006]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0x10,'ovr':0x2,'text':"你上台时话筒高度是错的。你踮了踮脚，台下笑了，然后鼓了很久的掌。"}
+       :{'fame':0x4,'ovr':0x1,'text':"你没上台。坐在第三排，镜头扫过你的时候，你笑了笑。第二天训练照旧。"};}},
+    {'label': "不去，留在基地训练", 'hint': "能力+，名气-", 'apply': function(){return{'ovr':0x3,'fame':-0x4,'roleDelta':0x1,'text':"你留在了基地。颁奖那晚，你一个人在健身房练到十二点。"};}}
+  ]
+},
+
+{
+  'id': "fm_cn_soc"+'ial',
+  'title': "自媒体",
+  'icon': '📱',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'desc': "团队劝你多运营账号：「现在踢得好不够，得让人看见你踢得好。」",
+  'options': [
+    {'label': "认真做内容", 'hint': function(p,q){return g(q,'涨粉几十万','被说成不务正业');},
+     'p': function(p){return f(0.5,[[p["fame"],0x28,0.009]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0xa,'money':0x1e,'text':"你的一条训练幕后涨粉几十万。评论区第一次出现：原来球员这么练。"}
+       :{'fame':-0x4,'ovr':-0x1,'text':"视频拍得生硬，还被扒出摆拍。你把账号交给了团队，再也不看评论。"};}},
+    {'label': "关掉账号", 'hint': "能力+，清白+", 'apply': function(){return{'ovr':0x3,'clean':0x2,'fame':-0x2,'text':"你把账号注销了。屏幕黑下去的那一刻，你觉得轻了很多。"};}}
+  ]
+},
+
+{
+  'id': "cl_cn_youth_"+'age',
+  'title': "年龄那栏",
+  'icon': '🗂️',
+  'weight': 0x2c,
+  'stage': "youth",
+  'cn': !0x0,
+  'desc': "有人告诉你，只要把出生年份改小一岁，就能挤进那批「小年龄」的名单。表格就摊在你面前。",
+  'options': [
+    {'label': "改", 'hint': function(p,q){return g(q,'混进了名单','被查了出来');},
+     'p': function(p){return f(0.45,[[p["clean"],0x46,0.008]],0.15,0.85);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'ovr':0x2,'roleDelta':0x1,'clean':-0xc,'money':0x14,'text':"你混进了那批名单，多踢了两年「小年龄」。你总觉得有人在你背后算年纪。"}
+       :{'clean':-0x10,'fame':-0x6,'roleDelta':-0x1,'text':"事情被翻了出来。你被禁了半年赛，名字后面跟着一串小字。"};}},
+    {'label': "把表格推回去", 'hint': "清白+，能力+", 'apply': function(){return{'clean':0x8,'ovr':0x2,'roleDelta':0x1,'text':"你按真实年龄踢，别人投来的怀疑眼神，你当成加练的理由。"};}}
+  ]
+},
+
+{
+  'id': "cl_abr_youth_"+'agent',
+  'title': "提前签约",
+  'icon': '✍️',
+  'weight': 0x2c,
+  'stage': "youth",
+  'when': function(p){return !p["inChina"];},
+  'desc': "有经纪人悄悄找到你，说能帮你绕过监护人直接签职业合同，条件是抽成很高。",
+  'options': [
+    {'label': "偷偷签了", 'hint': function(p,q){return g(q,'拿到签字费','合同成了把柄');},
+     'p': function(p){return f(0.45,[[p["clean"],0x46,0.008]],0.15,0.85);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x3c,'fame':0x4,'clean':-0x8,'text':"签字费到账那天，你给家里换了台冰箱。那张纸，你没敢给父母看。"}
+       :{'clean':-0xc,'money':-0x14,'fame':-0x4,'text':"合同被俱乐部发现了。你补了一堆手续，还被罚了一笔。经纪人早换了号码。"};}},
+    {'label': "告诉父母和教练", 'hint': "清白+，关系+", 'apply': function(){return{'clean':0x8,'guanxi':0x4,'text':"你把事情原原本本说了。教练拍了拍你：「以后这种事，第一个告诉我。」"};}}
+  ]
+},
+
+{
+  'id': "cl_cn_prime_"+'fix',
+  'title': "一个球",
+  'icon': '⚽',
+  'weight': 0x2c,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["clean"]<0x50;},
+  'desc': "有人开价，只要你在一场无关紧要的联赛里「刚好」漏掉一次回追，下半程的难点全给你解决。",
+  'options': [
+    {'label': "答应", 'hint': function(p,q){return g(q,'钱到手，没人知道','东窗事发');},
+     'p': function(p){return f(0.4,[[p["clean"],0x32,0.006]],0.12,0.75);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x96,'clean':-0x12,'fame':0x2,'text':"那次回追你放慢了半步，没人看出来。钱是现金，你回家数了很久。"}
+       :{'money':0x32,'clean':-0x14,'fame':-0x8,'banGames':0x4,'text':"一个赛季后被翻了出来。你被停赛，名字上了通报。那笔钱，早花完了。"};}},
+    {'label': "拒绝并举报", 'hint': "清白+，名气+", 'apply': function(){return{'clean':0xa,'fame':0x6,'guanxi':-0x4,'text':"你把录音交给了俱乐部。几个人被带走，你在队里成了「话多的人」，睡得却很安稳。"};}}
+  ]
+},
+
+{
+  'id': "cl_abr_prime"+'_dive',
+  'title': "假摔",
+  'icon': '🎭',
+  'weight': 0x28,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': "补时最后一攻，防守队员的腿伸过来了。你只要顺势倒在禁区里，可能就是这一分的胜负。",
+  'options': [
+    {'label': "倒", 'hint': function(p,q){return g(q,'点球，三分','被吹假摔吃牌');},
+     'p': function(p){return f(0.5,[[p["clean"],0x32,0.007]],0.2,0.85);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'fame':0x6,'clean':-0x6,'ovr':0x1,'text':"裁判指向十二码。你没敢看倒在地上那人的眼睛。"}
+       :{'clean':-0x4,'fame':-0x4,'text':"裁判看穿了，第二张黄牌。你早早洗了澡，坐在更衣室里听着全场的嘘声。"};}},
+    {'label': "站住，把球传出去", 'hint': "清白+，地位+", 'apply': function(){return{'clean':0x6,'roleDelta':0x1,'ovr':0x1,'text':"你站住了，一脚横传。虽然那场没赢，但队里没人再说你「软」。"};}}
+  ]
+},
+
+{
+  'id': "cl_cn_vet_br"+'ibe',
+  'title': "最后一份人情",
+  'icon': '💰',
+  'weight': 0x2c,
+  'stage': "vet",
+  'cn': !0x0,
+  'desc': "生涯快到尾声，有人递来一个信封：「退役前，帮兄弟们一次。」信封很厚，厚得你不敢拆。",
+  'options': [
+    {'label': "收下", 'hint': function(p,q){return g(q,'无人知晓','晚节不保');},
+     'p': function(p){return f(0.42,[[p["clean"],0x32,0.006]],0.12,0.8);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x96,'clean':-0x10,'fame':0x2,'text':"那个赛季结束，你退役了，账上多了一笔说不清的钱。"}
+       :{'money':0x28,'clean':-0x12,'fame':-0xa,'banned':!0x0,'text':"事情在你退役前爆了。通报上写着终身禁足——你用最后一场球，换掉了所有的告别赛。"};}},
+    {'label': "退回，并提前退役", 'hint': "清白+，名气+", 'apply': function(){return{'clean':0xc,'fame':0x8,'guanxi':-0x4,'text':"你把信封退回去，第二天宣布退役。发布会很短，退场时全场起立。"};}}
+  ]
+},
+
+{
+  'id': "cl_abr_vet_su"+'pp',
+  'title': "补剂",
+  'icon': '💊',
+  'weight': 0x2c,
+  'stage': "vet",
+  'when': function(p){return !p["inChina"];},
+  'desc': "队医的抽屉里有一支「康复神药」，见效快，说明书上却写着禁用的字样。你的膝盖一直在响。",
+  'options': [
+    {'label': "打一针，先上场", 'hint': function(p,q){return g(q,'撑完这个赛季','药检不过');},
+     'p': function(p){return f(0.45,[[p["clean"],0x3c,0.006]],0.15,0.8);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'ovr':0x4,'clean':-0xa,'text':"膝盖不响了，你撑完了一整个赛季。每次抽检，你的手心都是湿的。"}
+       :{'ovr':-0x2,'clean':-0x10,'fame':-0x8,'banGames':0x6,'text':"药检没通过。你被禁赛，赞助商连夜撤了合同。退役比计划早了一年。"};}},
+    {'label': "按规程做康复", 'hint': "清白+，能力-", 'apply': function(){return{'clean':0x8,'ovr':-0x2,'roleDelta':0x1,'text':"你老老实实做康复，错过大半个赛季。回来时，教练说：「你还站得住，就好。」"};}}
+  ]
+},
+
+{
+  'id': "cl_cn_char"+'ity',
+  'title': "回家",
+  'icon': '🎗️',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["clean"]>=0x46;},
+  'desc': "市里想请你挂个名，给青少年足球基金募款。没人提辛苦费，只说「这是好事」。",
+  'options': [
+    {'label': "去，自己再捐一笔", 'hint': function(p,q){return g(q,'募款超额完成','被人说作秀');},
+     'p': function(p){return f(0.55,[[p["fame"],0x32,0.007],[p["clean"],0x4b,0.006]],0.2,0.92);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'clean':0x8,'fame':0x8,'money':-0x1e,'text':"募款超了目标。有个孩子在台上说，他也要当球员。你坐在台下，眼睛有点酸。"}
+       :{'clean':0x4,'goodName':!0x0,'text':"有人说你做秀。你没解释，只是把那笔钱又加了一点。"};}},
+    {'label': "挂个名，不露面", 'hint': "清白+，名气-", 'apply': function(){return{'clean':0x4,'fame':-0x2,'text':"你出了钱，没出席。基金会的名单上，你的名字排在最后一行。"};}}
+  ]
+},
+
+{
+  'id': "cl_abr_char"+'ity',
+  'title': "医院",
+  'icon': '🏥',
+  'weight': 0x28,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': "俱乐部安排你去儿童医院探访。护士说，有个小球迷坚持要来，因为他「想见踢球最努力的那个人」。",
+  'options': [
+    {'label': "去，待到探访时间结束", 'hint': function(p,q){return g(q,'孩子笑了一下午','走得太急，被写了一条');},
+     'p': function(p){return f(0.55,[[p["clean"],0x46,0.007]],0.2,0.92);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'clean':0x8,'fame':0x6,'guanxi':0x4,'text':"你陪孩子玩了两个小时的桌上足球，故意输了两局。离开时，他把贴纸贴在了你手背上。"}
+       :{'fame':-0x4,'clean':0x2,'text':"你只待了二十分钟。有人把你快步离开的照片发到了网上，配文：作秀。"};}},
+    {'label': "捐钱，让俱乐部发新闻", 'hint': "名气+，清白-", 'apply': function(){return{'money':-0x1e,'fame':0x6,'clean':-0x2,'text':"新闻稿发得很快。护士发来消息说，孩子的家长一直在道谢。你看着那条消息，没回。"};}}
+  ]
+},
+
+{
+  'id': "cl_cn_tax"+'_cn',
+  'title': "账面",
+  'icon': '🧾',
+  'weight': 0x2a,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["money"]>=0x12c;},
+  'desc': "会计说，有几笔代言费可以「处理一下」。数字不小，风险写着「一般不会有人查」。",
+  'options': [
+    {'label': "按规矩全额报", 'hint': function(p,q){return g(q,'干干净净','白白多交了钱');},
+     'p': function(p){return f(0.6,[[p["clean"],0x3c,0.006]],0.25,0.92);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'clean':0x8,'money':-0x1e,'text':"你把账一笔笔报清。会计摇头说你傻，你说，睡得着就行。"}
+       :{'clean':0x8,'money':-0x3c,'text':"你多交了一笔。那年你少买了一样想要很久的东西，但心里踏实。"};}},
+    {'label': "让他「处理一下」", 'hint': function(p,q){return g(q,'省了一大笔','被查出来');},
+     'p': function(p){return f(0.4,[[p["clean"],0x32,0.006]],0.12,0.8);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x50,'clean':-0xa,'text':"账面上看不出问题。你把省下的钱投进了房产，晚上偶尔会失眠。"}
+       :{'money':-0x96,'clean':-0x14,'fame':-0x6,'text':"几年后倒查。你补缴加罚款，数字比省下来的多得多，还被通报批评。"};}}
+  ]
+},
+
+{
+  'id': "cl_abr_tax"+'_abr',
+  'title': "税务居所",
+  'icon': '🌍',
+  'weight': 0x2a,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"]&&p["money"]>=0x12c;},
+  'desc': "财务顾问给你出了个方案：把税务居所挪到一个税率很低的小岛。合法，但经不起审问。",
+  'options': [
+    {'label': "照他说的办", 'hint': function(p,q){return g(q,'省下大笔税金','被媒体挖出来');},
+     'p': function(p){return f(0.5,[[p["clean"],0x32,0.006]],0.18,0.85);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'money':0x64,'clean':-0x8,'text':"税省下来一大笔。你在那座小岛上有了一间从没住过的房子。"}
+       :{'fame':-0xa,'clean':-0x6,'text':"媒体把「避税天堂」四个字印在你脸上。你补了税，也补不回人心。"};}},
+    {'label': "老老实实在当地交", 'hint': "清白+，钱少", 'apply': function(){return{'clean':0x8,'money':-0x1e,'fame':0x2,'text':"你按最高档交了税。顾问说你亏了，你说，我在哪儿踢球，就在哪儿交钱。"};}}
+  ]
+},
+
+{
+  'id': "cl_youth_b"+'ully',
+  'title': "新来的",
+  'icon': '😔',
+  'weight': 0x28,
+  'stage': "youth",
+  'desc': "梯队里有个新人被高年级堵在器材室门口。你正好路过，他抬起头看了你一眼。",
+  'options': [
+    {'label': "站出来", 'hint': function(p,q){return g(q,'没人再敢动他','被一起收拾了');},
+     'p': function(p){return f(0.5,[[p["clean"],0x32,0.007],[p["ovr"],0x3c,0.006]],0.2,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'clean':0x8,'guanxi':0x6,'roleDelta':0x1,'text':"你把器材室的门推开。从那以后，那个新人每次训练都站在你旁边。"}
+       :{'clean':0x6,'ovr':-0x2,'guanxi':0x2,'text':"你也被推了一把，膝盖擦破了。但你挡在他前面，直到教练来。"};}},
+    {'label': "装作没看见", 'hint': "清白-，关系-", 'apply': function(){return{'clean':-0x4,'guanxi':-0x2,'ovr':0x1,'text':"你低头走开了。那个新生后来退了队，你偶尔还会想起他抬头看你的那一眼。"};}}
+  ]
+},
+
+{
+  'id': "cl_abr_raci"+'sm',
+  'title': "看台",
+  'icon': '🚫',
+  'weight': 0x2a,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': "客场看台上传来针对你的叫声。队友看着你，裁判也看着你——比赛还在继续。",
+  'options': [
+    {'label': "停下比赛，示意裁判", 'hint': function(p,q){return g(q,'裁判中断了比赛','被说成小题大做');},
+     'p': function(p){return f(0.5,[[p["clean"],0x32,0.007],[p["fame"],0x32,0.006]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'clean':0x6,'fame':0x8,'guanxi':0x4,'text':"裁判中断了比赛，广播念了三遍警告。散场后有人等在通道口，只为跟你握个手。"}
+       :{'fame':-0x4,'clean':0x2,'text':"比赛照常。你咬了咬牙，把那股劲全用在了跑动上，最后跑抽了筋。"};}},
+    {'label': "不说话，用进球回击", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'fame':0x2,'text':"你一句话没说，进了两个球。谢场时你只是把手放在队徽上，看了那片看台很久。"};}}
+  ]
+},
+
+{
+  'id': "rl_cn_prime"+'_captain',
+  'title': "该不该戴",
+  'icon': '🎽',
+  'weight': 0x2a,
+  'stage': "prime",
+  'cn': !0x0,
+  'desc': "老队长伤了半个赛季，教练把袖标放在更衣室中间的桌上，没点名，只说了句「谁想戴，自己拿」。",
+  'options': [
+    {'label': "第一个拿起来", 'hint': function(p,q){return g(q,'全队认了这个队长','有人不服，闹了一季');},
+     'p': function(p){return f(0.45,[[p["guanxi"],0x32,0.011],[p["roleRank"],2,0.12]],0.15,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x2,'guanxi':0x6,'fame':0x4,'text':"你把袖标绑上，第一个走进球场。那半年，你连替补席上谁的情绪都要管。"}
+       :{'roleDelta':0x1,'guanxi':-0x6,'text':"袖标戴上了，可更衣室里总有几句话绕着你走。你练得更狠，话说得更少。"};}},
+    {'label': "让给更资深的人", 'hint': "关系+，地位-", 'apply': function(){return{'guanxi':0x8,'roleDelta':-0x1,'ovr':0x2,'text':"你把袖标推给了旁边的老将。他说了句谢谢，之后的直塞球多了不少。"};}}
+  ]
+},
+
+{
+  'id': "rl_abr_prime"+'_clash',
+  'title': "头牌",
+  'icon': '⚔️',
+  'weight': 0x2a,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"]&&p["roleRank"]>=0x2;},
+  'desc': "队里的头牌公开说，球应该先交到他脚下。你刚用两场最佳回应了这件事。",
+  'options': [
+    {'label': "当着全队把话说开", 'hint': function(p,q){return g(q,'他服了','关系闹僵');},
+     'p': function(p){return f(0.45,[[p["ovr"],0x46,0.008],[p["guanxi"],0x28,0.008]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x2,'guanxi':0x4,'ovr':0x2,'text':"你说，谁状态好球给谁。他愣了愣，伸手跟你碰了一下。那赛季你们配合进了很多球。"}
+       :{'roleDelta':-0x1,'guanxi':-0x8,'fame':0x2,'text':"话谈崩了。之后的比赛，你在禁区里举手，球总是从另一边过去。"};}},
+    {'label': "继续用表现说话", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'text':"你一个字没回，连着五场进球。数据面前，更衣室安静了。"};}}
+  ]
+},
+
+{
+  'id': "rl_cn_youth_"+'number',
+  'title': "号码",
+  'icon': '🔢',
+  'weight': 0x26,
+  'stage': "youth",
+  'cn': !0x0,
+  'desc': "梯队要报号码，10 号空着。教练说：「想穿就自己去挣，别伸手要。」",
+  'options': [
+    {'label': "去争这个 10 号", 'hint': function(p,q){return g(q,'10 号归你','被换回了边角号');},
+     'p': function(p){return f(0.45,[[p["ovr"],0x3c,0.008],[p["roleRank"],2,0.1]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x1,'ovr':0x2,'fame':0x2,'number':0xa,'text':"队内对抗赛你一场造了三个球。教练把 10 号递给你：「别辱没了它。」"}
+       :{'roleDelta':-0x1,'number':0x1e,'text':"10 号给了别人。你领了个大号，把它当成每天早起加练的理由。"};}},
+    {'label': "随便给个号就行", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x4,'ovr':0x2,'text':"你随便挑了个号码。「号码是印在背上的，球是踢在脚下的。」教练听完点了点头。"};}}
+  ]
+},
+
+{
+  'id': "rl_abr_youth_"+'promo',
+  'title': "提拔",
+  'icon': '⬆️',
+  'weight': 0x2a,
+  'stage': "youth",
+  'when': function(p){return !p["inChina"];},
+  'desc': "一线队缺人，教练想在梯队里临时提一个上来。名单上写了三个名字，你在最后一个。",
+  'options': [
+    {'label': "毛遂自荐", 'hint': function(p,q){return g(q,'当场被提上去','被认为太急');},
+     'p': function(p){return f(0.45,[[p["ovr"],0x3c,0.009],[p["guanxi"],0x28,0.008]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x2,'ovr':0x2,'fame':0x4,'text':"你直接敲了主教练的门。他看了你两秒，说：「明天跟着一队跑。」"}
+       :{'guanxi':-0x4,'roleDelta':-0x1,'text':"主教练皱了皱眉：「先把你自己的比赛踢好。」你在门口站了很久。"};}},
+    {'label': "等他们先看完另外两个", 'hint': "能力+，关系+", 'apply': function(){return{'ovr':0x3,'guanxi':0x4,'text':"你在U队又踢了两场好球。第三场，一队的教练自己下来看你了。"};}}
+  ]
+},
+
+{
+  'id': "rl_cn_vet_me"+'ntor',
+  'title': "带一带",
+  'icon': '🧭',
+  'weight': 0x28,
+  'stage': "vet",
+  'cn': !0x0,
+  'when': function(p){return p["roleRank"]>=0x2;},
+  'desc': "教练把一个十八岁的新人塞到你旁边：「你带带他，把自己会的那点都给他。」",
+  'options': [
+    {'label': "真教，不留一手", 'hint': function(p,q){return g(q,'新人成了你的继承人','教会徒弟，饿死师傅');},
+     'p': function(p){return f(0.5,[[p["clean"],0x3c,0.007],[p["guanxi"],0x28,0.008]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'guanxi':0xa,'clean':0x4,'fame':0x4,'text':"你把跑位、站位、什么时候该倒地都教了。半年后，他第一次首发，跑来抱了你。"}
+       :{'roleDelta':-0x2,'ovr':0x1,'clean':0x2,'text':"不到一个赛季，新人顶了你的位置。你没怨他，可你确实更早地坐上了替补席。"};}},
+    {'label': "应付两句就完", 'hint': "地位+，关系-", 'apply': function(){return{'roleDelta':0x1,'guanxi':-0x4,'clean':-0x2,'text':"你只教了他几个基础动作。新人很快不再来问你，你保住了位置，也更孤单了。"};}}
+  ]
+},
+
+{
+  'id': "rl_abr_vet_be"+'nch',
+  'title': "替补席",
+  'icon': '🪑',
+  'weight': 0x2a,
+  'stage': "vet",
+  'when': function(p){return !p["inChina"]&&p["roleRank"]<=0x2;},
+  'desc': "你连着五场坐在替补席。年轻的边锋在你面前热身、冲刺、抬头看大屏幕。",
+  'options': [
+    {'label': "找主教练要个定位", 'hint': function(p,q){return g(q,'拿到了轮换承诺','被明确告知是第三选择');},
+     'p': function(p){return f(0.45,[[p["ovr"],0x46,0.007],[p["guanxi"],0x32,0.009]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x2,'guanxi':0x4,'ovr':0x1,'text':"他给了你明确的轮换位置。你不再等全队伤一半才上场，反而踢得更放得开。"}
+       :{'roleDelta':-0x1,'guanxi':-0x2,'ovr':0x1,'text':"他很客气地告诉你：你是第三选择。你回去把这句话写在了训练本第一页。"};}},
+    {'label': "把每一分钟都当最后一分钟", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'text':"从那天起，你连热身都当成决赛。一次替补登场，你用一脚远射把位置抢了回来。"};}}
+  ]
+},
+
+{
+  'id': "rl_cn_prime"+'_penalty',
+  'title': "点球权",
+  'icon': '🎯',
+  'weight': 0x28,
+  'stage': "prime",
+  'cn': !0x0,
+  'when': function(p){return p["roleRank"]>=0x2&&p["posGroup"]!=="gk";},
+  'desc': "队里的点球手转走了。教练看着你：「你敢罚吗？」",
+  'options': [
+    {'label': "敢，我来", 'hint': function(p,q){return g(q,'成了第一点球手','罚丢了两个，被拿下');},
+     'p': function(p){return f(0.5,[[p["ovr"],0x46,0.007],[p["roleRank"],2,0.1]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x1,'fame':0x4,'ovr':0x2,'text':"接下来五个点球你全部罚进。主罚名单上，你的名字被排在了第一个。"}
+       :{'roleDelta':-0x1,'fame':-0x4,'ovr':-0x1,'text':"你连着罚丢两个。主场球迷叹气的那一刻，你听见了。点球权又交了出去。"};}},
+    {'label': "让给更稳的人", 'hint': "关系+", 'apply': function(){return{'guanxi':0x6,'roleDelta':0x1,'text':"你把机会让给了队里的老射手。他进了球，第一个跑来抱你。"};}}
+  ]
+},
+
+{
+  'id': "rl_abr_prime"+'_clause',
+  'title': "定位条款",
+  'icon': '📄',
+  'weight': 0x28,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"]&&p["contractLeft"]<=0x2;},
+  'desc': "续约谈判桌上，你的经纪人想让合同里写上一句：非伤病情况下保证首发。",
+  'options': [
+    {'label': "坚持加上这一条", 'hint': function(p,q){return g(q,'俱乐部让步了','谈判僵住');},
+     'p': function(p){return f(0.45,[[p["ovr"],0x46,0.007],[p["guanxi"],0x32,0.008]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x2,'money':0x28,'ovr':0x1,'text':"俱乐部签了。那句条款让你从此每场都必须拿出首发的样子。"}
+       :{'guanxi':-0x4,'roleDelta':-0x1,'text':"谈判僵了两周。到最后你什么也没加，签字的时候，心里憋着一口气。"};}},
+    {'label': "不写，用表现换", 'hint': "能力+，关系+", 'apply': function(){return{'ovr':0x2,'guanxi':0x4,'roleDelta':0x1,'text':"你把那条划掉了。教练知道后说：「这句话我记下了。」"};}}
+  ]
+},
+
+{
+  'id': "rl_cn_youth_"+'captain',
+  'title': "青年队队长",
+  'icon': '📛',
+  'weight': 0x26,
+  'stage': "youth",
+  'cn': !0x0,
+  'desc': "青年队选队长，教练问全队：「谁在你们心里是主心骨？」有人回头看了你一眼。",
+  'options': [
+    {'label': "举手，我想当", 'hint': function(p,q){return g(q,'票过半，就是你了','票不够，很尴尬');},
+     'p': function(p){return f(0.45,[[p["guanxi"],0x32,0.011],[p["roleRank"],2,0.1]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x1,'guanxi':0x8,'text':"你成了青年队的队长。第一次带队喊话，声音抖了，但没人笑。"}
+       :{'guanxi':-0x4,'roleDelta':-0x1,'text':"举手的人不多。你把票投给了自己，看着有点孤单。"};}},
+    {'label': "低头，让别人当", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x6,'ovr':0x2,'text':"你没举手。新队长上任后，第一个来找你商量战术。你说这比当队长踏实。"};}}
+  ]
+},
+
+{
+  'id': "rl_abr_prime"+'_formdrop',
+  'title': "状态",
+  'icon': '📉',
+  'weight': 0x2a,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"]&&p["ovr"]>=0x50;},
+  'desc': "你连着七场没进球。媒体开始讨论「他是不是老了」，你才二十七。",
+  'options': [
+    {'label': "加练射门到深夜", 'hint': function(p,q){return g(q,'把状态练回来了','越练越僵');},
+     'p': function(p){return f(0.48,[[p["ovr"],0x50,0.007],[p["clean"],0x3c,0.005]],0.18,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'ovr':0x4,'roleDelta':0x1,'fame':0x2,'text':"第八场你打进了两个。解说员说：这只是状态，不是年龄。"}
+       :{'ovr':-0x2,'roleDelta':-0x2,'fame':-0x4,'text':"你练到膝盖发炎，八场变成十场。教练把你放到了替补席上「歇一歇」。"};}},
+    {'label': "接受轮换，先把身体养好", 'hint': "清白+，地位-", 'apply': function(){return{'ovr':0x2,'clean':0x4,'roleDelta':-0x1,'text':"你主动提出轮换。三周后复出，你跑动距离全队第一。"};}}
+  ]
+},
+
+{
+  'id': "rl_cn_prime"+'_newcoach',
+  'title': "换帅",
+  'icon': '🧑‍💼',
+  'weight': 0x2a,
+  'stage': "prime",
+  'cn': !0x0,
+  'desc': "新教练上任第一件事，就是把上赛季的首发名单折起来，扔进了抽屉。所有人重新排队。",
+  'options': [
+    {'label': "第一时间去找他聊", 'hint': function(p,q){return g(q,'他记住了你','被当成求位置');},
+     'p': function(p){return f(0.45,[[p["guanxi"],0x32,0.009],[p["roleRank"],2,0.1]],0.15,0.88);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x2,'guanxi':0x6,'text':"你把上赛季的比赛录像剪了给他看。第二天，你出现在了他的计划里。"}
+       :{'roleDelta':-0x1,'guanxi':-0x2,'text':"他说：「先看训练。」你被排在了第二组，整整一个月。"};}},
+    {'label': "不说话，训练里见真章", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'text':"你成了他的队内对抗赛里最难对付的人。两周后，首发名单上有你。"};}}
+  ]
+},
+
+{
+  'id': "rl_abr_prime"+'_derby',
+  'title': "德比名单",
+  'icon': '🔥',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return !p["inChina"];},
+  'desc': "德比周的名单还没定。你对这座城市还没有那种恨，但看台上的人有。",
+  'options': [
+    {'label': "主动请战", 'hint': function(p,q){return g(q,'首发，并且进球','首发，但被换下');},
+     'p': function(p){return f(0.5,[[p["roleRank"],2,0.1],[p["ovr"],0x46,0.006]],0.2,0.9);},
+     'apply': function(p,q,s){return d(q,s)
+       ?{'roleDelta':0x2,'fame':0xa,'ovr':0x2,'text':"你在第六十分钟捅进一球，冲向看台的瞬间，你终于听懂了整座球场的恨与爱。"}
+       :{'roleDelta':0x1,'ovr':-0x1,'fame':-0x2,'text':"你首发，踢了五十分钟被换下。德比比你想象的更快，也更脏。"};}},
+    {'label': "听教练安排", 'hint': "能力+，关系+", 'apply': function(){return{'ovr':0x2,'guanxi':0x4,'roleDelta':0x1,'text':"你把选择权交给教练。他让你替补待命。终场前你上场，把球护在了角旗附近。"};}}
+  ]
+},
+
+{
+  'id': "mile_wc_r16",
+  'title': "世界杯十六强",
+  'icon': '🌍',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcR16"]!=null;},
+  'desc': "世界杯淘汰赛首轮，你们赢了。闯进十六强的那一刻，你在中圈站了很久——看台上唱国歌的声音，还都是中文。",
+  'options': [
+    {'label': "把这一刻记下来", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0x4,'guanxi':0x4,'text':"你在通道口拍了张照。多年后有人翻出来，说那是中国队第一次走得这么远。"};}},
+    {'label': "只想着下一场", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你没让任何人庆祝。第二天训练，你第一个到，最后一个走。"};}}
+  ]
+},
+
+{
+  'id': "mile_wc_qf",
+  'title': "八强",
+  'icon': '🎖️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcQf"]!=null;},
+  'desc': "世界杯八强。上一次中国队走到这里，你还没出生。",
+  'options': [
+    {'label': "接受全国的目光", 'hint': "名气大涨", 'apply': function(){return{'fame':0xa,'text':"回国时机场被围得水泄不通。你终于明白，有些比赛不属于你自己。"};}},
+    {'label': "把队伍拢在一起", 'hint': "关系+，地位+", 'apply': function(){return{'guanxi':0xa,'roleDelta':0x1,'text':"你把全队叫到一起，只说了一句：还没完。更衣室里没人说话，但眼睛都亮了。"};}}
+  ]
+},
+
+{
+  'id': "mile_wc_sf",
+  'title': "四强",
+  'icon': '🏟️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcSf"]!=null;},
+  'desc': "世界杯四强。那天全国几乎停了半天，街上没有人，所有人都在看这场球。",
+  'options': [
+    {'label': "享受这一刻", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0xa,'guanxi':0x8,'text':"谢场时你把球衣扔上看台。那片红色，你一辈子都忘不掉。"};}},
+    {'label': "跟教练说，我们还能再走一步", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x2,'text':"你在更衣室说，离冠军只差两场。教练看着你，像在看一个疯子，也像在看一支球队的队长。"};}}
+  ]
+},
+
+{
+  'id': "mile_wc_final",
+  'title': "决赛",
+  'icon': '🥈',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcFinal"]!=null;},
+  'desc': "世界杯决赛。你站在球场上，看着对面列队，忽然想起小时候那个在路灯下踢球的自己。银牌挂在脖子上，是凉的。",
+  'options': [
+    {'label': "把银牌收好", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x6,'ovr':0x2,'text':"你把银牌放进了柜子最下层。你说，等有一天把它换成金的，再拿出来。"};}},
+    {'label': "在采访里说，我们没输给自己", 'hint': "名气+，地位+", 'apply': function(){return{'fame':0x8,'roleDelta':0x1,'text':"你说了那句话。第二天它出现在所有的头版上。有人骂，也有人哭。"};}}
+  ]
+},
+
+{
+  'id': "mile_asia",
+  'title': "亚洲杯冠军",
+  'icon': '🏆',
+  'weight': 0x50,
+  'when': function(p){return p["_mileAsia"]!=null;},
+  'desc': "亚洲杯冠军。领奖台上你把金牌咬了一下，是甜的。身后的看台上，有人把国旗披在了栏杆上。",
+  'options': [
+    {'label': "把金牌给家里", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你把金牌寄回了家。你妈把它挂在客厅正中间，谁进门都要被指一下。"};}},
+    {'label': "举起来，绕场一周", 'hint': "名气+", 'apply': function(){return{'fame':0xa,'text':"你举着奖杯绕场一周。走到角旗区的时候，你把奖杯按在胸口，停了很久。"};}}
+  ]
+},
+
+{
+  'id': "mile_ballon_streak2",
+  'title': "金球连庄",
+  'icon': '🥇',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBallonS2"]!=null;},
+  'desc': "第二年，金球奖还是你的。主持人念出你名字的时候，台下的掌声和去年不太一样——更像一种习惯。",
+  'options': [
+    {'label': "照常领奖，照常训练", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你上台说了三句话，第二天准点出现在训练场。教练说，这才是最难的部分。"};}},
+    {'label': "把这一座送给家乡的青训营", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x4,'text':"你把它送回了当初那个水泥地球场。孩子们围着它看了整整一下午。"};}}
+  ]
+},
+
+{
+  'id': "mile_ballon_streak3",
+  'title': "金球三连",
+  'icon': '👑',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBallonS3"]!=null;},
+  'desc': "连续第三座金球奖。有人说这是时代，有人说这是垄断。你把奖杯放在桌上，第一次没有立刻发照片。",
+  'options': [
+    {'label': "说一句「还没结束」", 'hint': "名气+，地位+", 'apply': function(){return{'fame':0x8,'roleDelta':0x1,'text':"你在台上只说了这一句。台下安静了两秒，然后掌声把整个大厅顶了起来。"};}},
+    {'label': "把三座摆在一起，拍照", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"那张照片后来被做成了海报。配文只有四个字：还会继续。"};}}
+  ]
+},
+
+{
+  'id': "mile_boot3",
+  'title': "第三座金靴",
+  'icon': '👟',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBootN3"]!=null;},
+  'desc': "第三座金靴。前两座你还记得放在哪，这一座你一时想不起来了。",
+  'options': [
+    {'label': "专门腾一个柜子", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"你把所有金靴摆在一起，拍了张照。有人说，这是一代射手的证明。"};}},
+    {'label': "转会窗里不提这些", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x4,'ovr':0x2,'text':"经纪人想拿它抬价，被你按住了。你说，靴子是上一季的，下一季还得重新进。"};}}
+  ]
+},
+
+{
+  'id': "mile_boot5",
+  'title': "第五座金靴",
+  'icon': '🥾',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBootN5"]!=null;},
+  'desc': "第五座金靴。颁奖时你有点走神，想起第一个赛季那个连替补席都坐不上的自己。",
+  'options': [
+    {'label': "把第一座翻出来，并排放", 'hint': "关系+", 'apply': function(){return{'guanxi':0x6,'text':"你翻出第一座，上面还有一道划痕。两座并排放着，中间隔了整整五年。"};}},
+    {'label': "对媒体只说了一句话", 'hint': "名气+", 'apply': function(){return{'fame':0x8,'text':"你说：还能进。第二天这句话成了标题。"};}}
+  ]
+},
+
+{
+  'id': "mile_lg_streak3",
+  'title': "联赛三连冠",
+  'icon': '🔺',
+  'weight': 0x50,
+  'when': function(p){return p["_mileLgS3"]!=null;},
+  'desc': "联赛三连冠。第三年的夺冠夜，庆祝没有第一年那么吵，可你比谁都清楚，这比第一年难得多。",
+  'options': [
+    {'label': "和队友拍张合照", 'hint': "关系+", 'apply': function(){return{'guanxi':0xa,'text':"你把人一个个拉过来拍照。三个人赛季后就走了，可那晚谁也没提这件事。"};}},
+    {'label': "在报纸上写一小段话", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0x6,'clean':0x2,'text':"你写了一小段，谢谢球迷三年来的每个周末。那篇短文后来被贴在了看台上。"};}}
+  ]
+},
+
+{
+  'id': "mile_lg_streak5",
+  'title': "联赛五连冠",
+  'icon': '🖐️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileLgS5"]!=null;},
+  'desc': "联赛五连冠。奖杯橱窗里，这个赛事的奖杯已经快放不下。有人开始讨论，这算不算一个王朝。",
+  'options': [
+    {'label': "把五座摆成一排", 'hint': "名气+", 'apply': function(){return{'fame':0xa,'text':"五座奖杯排成一排，照片登上头版。评论区第一次有人用「王朝」两个字。"};}},
+    {'label': "说下一个冠军才重要", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你说五连冠是过去的事。庆祝结束，你回训练场加练了四十分钟。"};}}
+  ]
+},
+
+{
+  'id': "mile_goal500",
+  'title': "第500球",
+  'icon': '⚽',
+  'weight': 0x50,
+  'when': function(p){return p["_mileG500"]!=null;},
+  'desc': "生涯第500个进球。这个数字大到有点不真实，连你自己都要在心里默数一遍。",
+  'options': [
+    {'label': "把球留下来", 'hint': "关系+", 'apply': function(){return{'guanxi':0x6,'text':"你把那个球要了过来，让全队签了名，寄回了家乡的体校。"};}},
+    {'label': "继续往前看", 'hint': "能力+", 'apply': function(){return{'ovr':0x2,'text':"赛后你只说了一句：五百只是路过。第二天照常训练。"};}}
+  ]
+},
+
+{
+  'id': "mile_goal700",
+  'title': "第700球",
+  'icon': '🎯',
+  'weight': 0x50,
+  'when': function(p){return p["_mileG700"]!=null;},
+  'desc': "生涯第700个进球。做到这个数字的人，一只手数得过来。",
+  'options': [
+    {'label': "请全队吃饭", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'money':-0x28,'text':"你把整个一线队和工作人员都请了。饭桌上没人聊进球，都在聊下一场。"};}},
+    {'label': "把纪录当成压力", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'text':"你知道从今天起，每一个球都会被拿来和前面的比。你练得更狠了。"};}}
+  ]
+},
+
+{
+  'id': "mile_goal1000",
+  'title': "第1000球",
+  'icon': '💯',
+  'weight': 0x50,
+  'when': function(p){return p["_mileG1000"]!=null;},
+  'desc': "生涯第1000个进球。这个数字已经被写进历史，连你自己都觉得，像在说别人的故事。",
+  'options': [
+    {'label': "把球给陪了你最久的人", 'hint': "关系+", 'apply': function(){return{'guanxi':0xc,'text':"你把球送给了那个从青训就跟着你的老队务。他捧着球，半天说不出话。"};}},
+    {'label': "在球上写下日期，收起来", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0xa,'clean':0x4,'text':"你在球上写下日期和比分，放进了柜子。你说，这是给很多年后的人看的。"};}}
+  ]
+},
+
+{
+  'id': "mile_apps700",
+  'title': "第700场",
+  'icon': '📋',
+  'weight': 0x50,
+  'when': function(p){return p["_mileApps700"]!=null;},
+  'desc': "生涯第700场比赛。能踢到这个场次的人，靠的不只是天赋，还有每次都能爬起来。",
+  'options': [
+    {'label': "感谢队医和体能师", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x2,'text':"你在采访里说了他们的名字。第二天，队医把这句话抄在了自己的本子上。"};}},
+    {'label': "这只是个开始", 'hint': "能力+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你说七百场不算什么。教练听见了，点点头，给你又加了两组恢复训练。"};}}
+  ]
+},
+
+{
+  'id': "mile_apps1000",
+  'title': "第1000场",
+  'icon': '🗓️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileApps1000"]!=null;},
+  'desc': "生涯第1000场比赛。你踢过的草皮，连起来能铺满一整座城市。",
+  'options': [
+    {'label': "和每一个还在的队友拥抱", 'hint': "关系+", 'apply': function(){return{'guanxi':0xa,'text':"赛前你把队友挨个抱了一遍。有人笑着说你煽情，转身却红了眼睛。"};}},
+    {'label': "把纪念球衣送进博物馆", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0x8,'clean':0x4,'text':"那件球衣被收进了足球博物馆。玻璃柜旁边写着：1000场。"};}}
+  ]
+},
+
+{
+  'id': "mile_caps150",
+  'title': "国家队第150场",
+  'icon': '🇨🇳',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCap150"]!=null;},
+  'desc': "为国出场的第150场。每次穿上那件红色球衣，你还是会想起第一次的时候。",
+  'options': [
+    {'label': "把袖标戴紧一点", 'hint': "地位+，关系+", 'apply': function(){return{'roleDelta':0x2,'guanxi':0x6,'text':"你把袖标往下拽了拽，第一个走进球场。身后是他熟悉的脚步声。"};}},
+    {'label': "让年轻队员先出场", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x2,'text':"你让第一次入选的小将走在前面。他回头看你，你说，记住这种感觉。"};}}
+  ]
+},
+
+{
+  'id': "mile_caps200",
+  'title': "国家队第200场",
+  'icon': '🎌',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCap200"]!=null;},
+  'desc': "为国出场的第200场。这个数字，前面没有人。",
+  'options': [
+    {'label': "在球衣里写下家人的名字", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你在球衣内侧写下了他们的名字。赛前你按着胸口站了一会儿。"};}},
+    {'label': "把这件球衣送给球迷", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0x8,'clean':0x4,'text':"你把球衣扔上了看台。抢到它的那个人，哭着把它抱在怀里。"};}}
+  ]
+},
+
+{
+  'id': "mile_assist200",
+  'title': "第200次助攻",
+  'icon': '🅰️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileA200"]!=null;},
+  'desc': "生涯第200次助攻。进球的人会被记住，做球的人不一定，可你两样都做了。",
+  'options': [
+    {'label': "和进球的人一起庆祝", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你和那个进球的人撞在一起。他说，这球有你一半。"};}},
+    {'label': "把数据当成一种说明", 'hint': "名气+，能力+", 'apply': function(){return{'fame':0x4,'ovr':0x2,'text':"你说，进球和助攻都是为了让球队赢。第二天，助攻集锦上了头版。"};}}
+  ]
+},
+
+{
+  'id': "mile_assist300",
+  'title': "第300次助攻",
+  'icon': '🎁',
+  'weight': 0x50,
+  'when': function(p){return p["_mileA300"]!=null;},
+  'desc': "生涯第300次助攻。你传过的那些球，很多年后还会被拿出来看。",
+  'options': [
+    {'label': "组织一次老队友聚会", 'hint': "关系+", 'apply': function(){return{'guanxi':0xa,'money':-0x28,'text':"你把那些接过你传球的人聚到了一起。有人已经退役，有人还在踢。"};}},
+    {'label': "继续做那个传球的人", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你说助攻比进球更让你踏实。教练听完，把组织核心的位置又交回给了你。"};}}
+  ]
+},
+
+{
+  'id': "mile_cs200",
+  'title': "第200场零封",
+  'icon': '🧤',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCS200"]!=null;},
+  'desc': "生涯第200场零封。后防线上的每一次补位，都算在这数字里。",
+  'options': [
+    {'label': "请后卫们吃饭", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'money':-0x28,'text':"你把整条后防线请去吃了饭。你说，零封从来不是一个人的事。"};}},
+    {'label': "把这件事说成团队功劳", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0x4,'guanxi':0x4,'text':"采访里你只提了队友。第二天，那条后防线上的每个人都收到了表扬。"};}}
+  ]
+},
+
+{
+  'id': "mile_cs300",
+  'title': "第300场零封",
+  'icon': '🚪',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCS300"]!=null;},
+  'desc': "生涯第300场零封。你守过的球门，加起来能排成一堵墙。",
+  'options': [
+    {'label': "把守门手套收起来", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"你把那双手套收进了柜子。后来俱乐部把它挂进了荣誉室。"};}},
+    {'label': "指导年轻门将", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x6,'clean':0x2,'text':"你把经验一点点教给了年轻人。有人说你在给自己找接班人，你说，本来就是要有人接。"};}}
+  ]
+},
+
+{
+  'id': "mile_trophy40",
+  'title': "第40座奖杯",
+  'icon': '🏅',
+  'weight': 0x50,
+  'when': function(p){return p["_mileTr40"]!=null;},
+  'desc': "生涯第40座奖杯。家里早已经摆不下，你开始把一些送进青训营的展柜。",
+  'options': [
+    {'label': "给家乡球队送一座", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x4,'text':"你挑了一座送去家乡的体校。孩子们排着队和它合影。"};}},
+    {'label': "记下来，但不庆祝", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你在本子上写下编号40，然后合上，去训练了。"};}}
+  ]
+},
+
+{
+  'id': "mile_trophy50",
+  'title': "第50座奖杯",
+  'icon': '🏆',
+  'weight': 0x50,
+  'when': function(p){return p["_mileTr50"]!=null;},
+  'desc': "生涯第50座奖杯。这个数字摆在那里，比任何一句话都有分量。",
+  'options': [
+    {'label': "办一场小型的展览", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0x8,'guanxi':0x6,'text':"你把这些奖杯借给俱乐部办了一次展览。展厅门口排的队，绕了大楼一整圈。"};}},
+    {'label': "只留一座，其余全捐", 'hint': "清白+，关系+", 'apply': function(){return{'clean':0xa,'guanxi':0x8,'text':"你只留了第一座，其余全捐给了各地的青训机构。有人说你傻，你笑了笑。"};}}
   ]
 }
 ];

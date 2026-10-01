@@ -194,12 +194,9 @@ return bl();
 }function bl(){
 a2["flags"]["_double"]=!0x1;
 /* 旧版随机德比已移除：德比/保级大战改由 _bigHooks 在赛季结算时从真实赛程抽取 */
+if(a2["_mileRepPending"]){var _mp=a2["_mileRepPending"];a2["_mileRepPending"]=null;return void _emitReportOrMilestone(_mp);}
 var bx=b6();
-bx&&(a2["_mileRep"]=(a2["_mileRep"]||0x0)+0x1,a2["pending"]={'type':"report",
-
-
-
-'recs':bx});
+if(bx)_emitReportOrMilestone(bx);
 }function bm(){var bx,by=bp(a2["originId"])["guanxi"]>=0x12?0x3:0x2,bz=bg(),bA=[],bB={};
 bz&&a2["ovr"]>=(bx=bz,
 

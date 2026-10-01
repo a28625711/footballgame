@@ -665,6 +665,342 @@ var EVT_milestone=[
     {'label': "把三座奖杯一次举起来", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"你在庆祝仪式上试着同时举起三座奖杯，举到一半差点掉下来。那张照片比奖杯本身有名。"};}},
     {'label': "把功劳分给所有人", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你把三座奖杯依次递给了队长、门将和那个整个赛季只出场三次的替补。最后一座才轮到自己。"};}}
   ]
+},
+
+// ---- idx:502 | mile_wc_r16 | 世界杯十六强 ----
+{
+  'id': "mile_wc_r16",
+  'title': "世界杯十六强",
+  'icon': '🌍',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcR16"]!=null;},
+  'desc': "世界杯淘汰赛首轮，你们赢了。闯进十六强的那一刻，你在中圈站了很久——看台上唱国歌的声音，还都是中文。",
+  'options': [
+    {'label': "把这一刻记下来", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0x4,'guanxi':0x4,'text':"你在通道口拍了张照。多年后有人翻出来，说那是中国队第一次走得这么远。"};}},
+    {'label': "只想着下一场", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你没让任何人庆祝。第二天训练，你第一个到，最后一个走。"};}}
+  ]
+},
+
+// ---- idx:503 | mile_wc_qf | 世界杯八强 ----
+{
+  'id': "mile_wc_qf",
+  'title': "八强",
+  'icon': '🎖️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcQf"]!=null;},
+  'desc': "世界杯八强。上一次中国队走到这里，你还没出生。",
+  'options': [
+    {'label': "接受全国的目光", 'hint': "名气大涨", 'apply': function(){return{'fame':0xa,'text':"回国时机场被围得水泄不通。你终于明白，有些比赛不属于你自己。"};}},
+    {'label': "把队伍拢在一起", 'hint': "关系+，地位+", 'apply': function(){return{'guanxi':0xa,'roleDelta':0x1,'text':"你把全队叫到一起，只说了一句：还没完。更衣室里没人说话，但眼睛都亮了。"};}}
+  ]
+},
+
+// ---- idx:504 | mile_wc_sf | 世界杯四强 ----
+{
+  'id': "mile_wc_sf",
+  'title': "四强",
+  'icon': '🏟️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcSf"]!=null;},
+  'desc': "世界杯四强。那天全国几乎停了半天，街上没有人，所有人都在看这场球。",
+  'options': [
+    {'label': "享受这一刻", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0xa,'guanxi':0x8,'text':"谢场时你把球衣扔上看台。那片红色，你一辈子都忘不掉。"};}},
+    {'label': "跟教练说，我们还能再走一步", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x2,'text':"你在更衣室说，离冠军只差两场。教练看着你，像在看一个疯子，也像在看一支球队的队长。"};}}
+  ]
+},
+
+// ---- idx:505 | mile_wc_final | 世界杯亚军 ----
+{
+  'id': "mile_wc_final",
+  'title': "决赛",
+  'icon': '🥈',
+  'weight': 0x50,
+  'when': function(p){return p["_mileWcFinal"]!=null;},
+  'desc': "世界杯决赛。你站在球场上，看着对面列队，忽然想起小时候那个在路灯下踢球的自己。银牌挂在脖子上，是凉的。",
+  'options': [
+    {'label': "把银牌收好", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x6,'ovr':0x2,'text':"你把银牌放进了柜子最下层。你说，等有一天把它换成金的，再拿出来。"};}},
+    {'label': "在采访里说，我们没输给自己", 'hint': "名气+，地位+", 'apply': function(){return{'fame':0x8,'roleDelta':0x1,'text':"你说了那句话。第二天它出现在所有的头版上。有人骂，也有人哭。"};}}
+  ]
+},
+
+// ---- idx:506 | mile_asia | 亚洲杯冠军 ----
+{
+  'id': "mile_asia",
+  'title': "亚洲杯冠军",
+  'icon': '🏆',
+  'weight': 0x50,
+  'when': function(p){return p["_mileAsia"]!=null;},
+  'desc': "亚洲杯冠军。领奖台上你把金牌咬了一下，是甜的。身后的看台上，有人把国旗披在了栏杆上。",
+  'options': [
+    {'label': "把金牌给家里", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你把金牌寄回了家。你妈把它挂在客厅正中间，谁进门都要被指一下。"};}},
+    {'label': "举起来，绕场一周", 'hint': "名气+", 'apply': function(){return{'fame':0xa,'text':"你举着奖杯绕场一周。走到角旗区的时候，你把奖杯按在胸口，停了很久。"};}}
+  ]
+},
+
+// ---- idx:507 | mile_ballon_streak2 | 金球连庄 ----
+{
+  'id': "mile_ballon_streak2",
+  'title': "金球连庄",
+  'icon': '🥇',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBallonS2"]!=null;},
+  'desc': "第二年，金球奖还是你的。主持人念出你名字的时候，台下的掌声和去年不太一样——更像一种习惯。",
+  'options': [
+    {'label': "照常领奖，照常训练", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你上台说了三句话，第二天准点出现在训练场。教练说，这才是最难的部分。"};}},
+    {'label': "把这一座送给家乡的青训营", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x4,'text':"你把它送回了当初那个水泥地球场。孩子们围着它看了整整一下午。"};}}
+  ]
+},
+
+// ---- idx:508 | mile_ballon_streak3 | 金球三连 ----
+{
+  'id': "mile_ballon_streak3",
+  'title': "金球三连",
+  'icon': '👑',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBallonS3"]!=null;},
+  'desc': "连续第三座金球奖。有人说这是时代，有人说这是垄断。你把奖杯放在桌上，第一次没有立刻发照片。",
+  'options': [
+    {'label': "说一句「还没结束」", 'hint': "名气+，地位+", 'apply': function(){return{'fame':0x8,'roleDelta':0x1,'text':"你在台上只说了这一句。台下安静了两秒，然后掌声把整个大厅顶了起来。"};}},
+    {'label': "把三座摆在一起，拍照", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"那张照片后来被做成了海报。配文只有四个字：还会继续。"};}}
+  ]
+},
+
+// ---- idx:509 | mile_boot3 | 第三座金靴 ----
+{
+  'id': "mile_boot3",
+  'title': "第三座金靴",
+  'icon': '👟',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBootN3"]!=null;},
+  'desc': "第三座金靴。前两座你还记得放在哪，这一座你一时想不起来了。",
+  'options': [
+    {'label': "专门腾一个柜子", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"你把所有金靴摆在一起，拍了张照。有人说，这是一代射手的证明。"};}},
+    {'label': "转会窗里不提这些", 'hint': "关系+，能力+", 'apply': function(){return{'guanxi':0x4,'ovr':0x2,'text':"经纪人想拿它抬价，被你按住了。你说，靴子是上一季的，下一季还得重新进。"};}}
+  ]
+},
+
+// ---- idx:510 | mile_boot5 | 第五座金靴 ----
+{
+  'id': "mile_boot5",
+  'title': "第五座金靴",
+  'icon': '🥾',
+  'weight': 0x50,
+  'when': function(p){return p["_mileBootN5"]!=null;},
+  'desc': "第五座金靴。颁奖时你有点走神，想起第一个赛季那个连替补席都坐不上的自己。",
+  'options': [
+    {'label': "把第一座翻出来，并排放", 'hint': "关系+", 'apply': function(){return{'guanxi':0x6,'text':"你翻出第一座，上面还有一道划痕。两座并排放着，中间隔了整整五年。"};}},
+    {'label': "对媒体只说了一句话", 'hint': "名气+", 'apply': function(){return{'fame':0x8,'text':"你说：还能进。第二天这句话成了标题。"};}}
+  ]
+},
+
+// ---- idx:511 | mile_lg_streak3 | 联赛三连冠 ----
+{
+  'id': "mile_lg_streak3",
+  'title': "联赛三连冠",
+  'icon': '🔺',
+  'weight': 0x50,
+  'when': function(p){return p["_mileLgS3"]!=null;},
+  'desc': "联赛三连冠。第三年的夺冠夜，庆祝没有第一年那么吵，可你比谁都清楚，这比第一年难得多。",
+  'options': [
+    {'label': "和队友拍张合照", 'hint': "关系+", 'apply': function(){return{'guanxi':0xa,'text':"你把人一个个拉过来拍照。三个人赛季后就走了，可那晚谁也没提这件事。"};}},
+    {'label': "在报纸上写一小段话", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0x6,'clean':0x2,'text':"你写了一小段，谢谢球迷三年来的每个周末。那篇短文后来被贴在了看台上。"};}}
+  ]
+},
+
+// ---- idx:512 | mile_lg_streak5 | 联赛五连冠 ----
+{
+  'id': "mile_lg_streak5",
+  'title': "联赛五连冠",
+  'icon': '🖐️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileLgS5"]!=null;},
+  'desc': "联赛五连冠。奖杯橱窗里，这个赛事的奖杯已经快放不下。有人开始讨论，这算不算一个王朝。",
+  'options': [
+    {'label': "把五座摆成一排", 'hint': "名气+", 'apply': function(){return{'fame':0xa,'text':"五座奖杯排成一排，照片登上头版。评论区第一次有人用「王朝」两个字。"};}},
+    {'label': "说下一个冠军才重要", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你说五连冠是过去的事。庆祝结束，你回训练场加练了四十分钟。"};}}
+  ]
+},
+
+// ---- idx:513 | mile_goal500 | 生涯500球 ----
+{
+  'id': "mile_goal500",
+  'title': "第500球",
+  'icon': '⚽',
+  'weight': 0x50,
+  'when': function(p){return p["_mileG500"]!=null;},
+  'desc': "生涯第500个进球。这个数字大到有点不真实，连你自己都要在心里默数一遍。",
+  'options': [
+    {'label': "把球留下来", 'hint': "关系+", 'apply': function(){return{'guanxi':0x6,'text':"你把那个球要了过来，让全队签了名，寄回了家乡的体校。"};}},
+    {'label': "继续往前看", 'hint': "能力+", 'apply': function(){return{'ovr':0x2,'text':"赛后你只说了一句：五百只是路过。第二天照常训练。"};}}
+  ]
+},
+
+// ---- idx:514 | mile_goal700 | 生涯700球 ----
+{
+  'id': "mile_goal700",
+  'title': "第700球",
+  'icon': '🎯',
+  'weight': 0x50,
+  'when': function(p){return p["_mileG700"]!=null;},
+  'desc': "生涯第700个进球。做到这个数字的人，一只手数得过来。",
+  'options': [
+    {'label': "请全队吃饭", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'money':-0x28,'text':"你把整个一线队和工作人员都请了。饭桌上没人聊进球，都在聊下一场。"};}},
+    {'label': "把纪录当成压力", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x3,'roleDelta':0x1,'text':"你知道从今天起，每一个球都会被拿来和前面的比。你练得更狠了。"};}}
+  ]
+},
+
+// ---- idx:515 | mile_goal1000 | 生涯1000球 ----
+{
+  'id': "mile_goal1000",
+  'title': "第1000球",
+  'icon': '💯',
+  'weight': 0x50,
+  'when': function(p){return p["_mileG1000"]!=null;},
+  'desc': "生涯第1000个进球。这个数字已经被写进历史，连你自己都觉得，像在说别人的故事。",
+  'options': [
+    {'label': "把球给陪了你最久的人", 'hint': "关系+", 'apply': function(){return{'guanxi':0xc,'text':"你把球送给了那个从青训就跟着你的老队务。他捧着球，半天说不出话。"};}},
+    {'label': "在球上写下日期，收起来", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0xa,'clean':0x4,'text':"你在球上写下日期和比分，放进了柜子。你说，这是给很多年后的人看的。"};}}
+  ]
+},
+
+// ---- idx:516 | mile_apps700 | 生涯700场 ----
+{
+  'id': "mile_apps700",
+  'title': "第700场",
+  'icon': '📋',
+  'weight': 0x50,
+  'when': function(p){return p["_mileApps700"]!=null;},
+  'desc': "生涯第700场比赛。能踢到这个场次的人，靠的不只是天赋，还有每次都能爬起来。",
+  'options': [
+    {'label': "感谢队医和体能师", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x2,'text':"你在采访里说了他们的名字。第二天，队医把这句话抄在了自己的本子上。"};}},
+    {'label': "这只是个开始", 'hint': "能力+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你说七百场不算什么。教练听见了，点点头，给你又加了两组恢复训练。"};}}
+  ]
+},
+
+// ---- idx:517 | mile_apps1000 | 生涯1000场 ----
+{
+  'id': "mile_apps1000",
+  'title': "第1000场",
+  'icon': '🗓️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileApps1000"]!=null;},
+  'desc': "生涯第1000场比赛。你踢过的草皮，连起来能铺满一整座城市。",
+  'options': [
+    {'label': "和每一个还在的队友拥抱", 'hint': "关系+", 'apply': function(){return{'guanxi':0xa,'text':"赛前你把队友挨个抱了一遍。有人笑着说你煽情，转身却红了眼睛。"};}},
+    {'label': "把纪念球衣送进博物馆", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0x8,'clean':0x4,'text':"那件球衣被收进了足球博物馆。玻璃柜旁边写着：1000场。"};}}
+  ]
+},
+
+// ---- idx:518 | mile_caps150 | 国家队150场 ----
+{
+  'id': "mile_caps150",
+  'title': "国家队第150场",
+  'icon': '🇨🇳',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCap150"]!=null;},
+  'desc': "为国出场的第150场。每次穿上那件红色球衣，你还是会想起第一次的时候。",
+  'options': [
+    {'label': "把袖标戴紧一点", 'hint': "地位+，关系+", 'apply': function(){return{'roleDelta':0x2,'guanxi':0x6,'text':"你把袖标往下拽了拽，第一个走进球场。身后是他熟悉的脚步声。"};}},
+    {'label': "让年轻队员先出场", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x2,'text':"你让第一次入选的小将走在前面。他回头看你，你说，记住这种感觉。"};}}
+  ]
+},
+
+// ---- idx:519 | mile_caps200 | 国家队200场 ----
+{
+  'id': "mile_caps200",
+  'title': "国家队第200场",
+  'icon': '🎌',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCap200"]!=null;},
+  'desc': "为国出场的第200场。这个数字，前面没有人。",
+  'options': [
+    {'label': "在球衣里写下家人的名字", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你在球衣内侧写下了他们的名字。赛前你按着胸口站了一会儿。"};}},
+    {'label': "把这件球衣送给球迷", 'hint': "名气+，清白+", 'apply': function(){return{'fame':0x8,'clean':0x4,'text':"你把球衣扔上了看台。抢到它的那个人，哭着把它抱在怀里。"};}}
+  ]
+},
+
+// ---- idx:520 | mile_assist200 | 生涯200助攻 ----
+{
+  'id': "mile_assist200",
+  'title': "第200次助攻",
+  'icon': '🅰️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileA200"]!=null;},
+  'desc': "生涯第200次助攻。进球的人会被记住，做球的人不一定，可你两样都做了。",
+  'options': [
+    {'label': "和进球的人一起庆祝", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你和那个进球的人撞在一起。他说，这球有你一半。"};}},
+    {'label': "把数据当成一种说明", 'hint': "名气+，能力+", 'apply': function(){return{'fame':0x4,'ovr':0x2,'text':"你说，进球和助攻都是为了让球队赢。第二天，助攻集锦上了头版。"};}}
+  ]
+},
+
+// ---- idx:521 | mile_assist300 | 生涯300助攻 ----
+{
+  'id': "mile_assist300",
+  'title': "第300次助攻",
+  'icon': '🎁',
+  'weight': 0x50,
+  'when': function(p){return p["_mileA300"]!=null;},
+  'desc': "生涯第300次助攻。你传过的那些球，很多年后还会被拿出来看。",
+  'options': [
+    {'label': "组织一次老队友聚会", 'hint': "关系+", 'apply': function(){return{'guanxi':0xa,'money':-0x28,'text':"你把那些接过你传球的人聚到了一起。有人已经退役，有人还在踢。"};}},
+    {'label': "继续做那个传球的人", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你说助攻比进球更让你踏实。教练听完，把组织核心的位置又交回给了你。"};}}
+  ]
+},
+
+// ---- idx:522 | mile_cs200 | 生涯200场零封 ----
+{
+  'id': "mile_cs200",
+  'title': "第200场零封",
+  'icon': '🧤',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCS200"]!=null;},
+  'desc': "生涯第200场零封。后防线上的每一次补位，都算在这数字里。",
+  'options': [
+    {'label': "请后卫们吃饭", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'money':-0x28,'text':"你把整条后防线请去吃了饭。你说，零封从来不是一个人的事。"};}},
+    {'label': "把这件事说成团队功劳", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0x4,'guanxi':0x4,'text':"采访里你只提了队友。第二天，那条后防线上的每个人都收到了表扬。"};}}
+  ]
+},
+
+// ---- idx:523 | mile_cs300 | 生涯300场零封 ----
+{
+  'id': "mile_cs300",
+  'title': "第300场零封",
+  'icon': '🚪',
+  'weight': 0x50,
+  'when': function(p){return p["_mileCS300"]!=null;},
+  'desc': "生涯第300场零封。你守过的球门，加起来能排成一堵墙。",
+  'options': [
+    {'label': "把守门手套收起来", 'hint': "名气+", 'apply': function(){return{'fame':0x6,'text':"你把那双手套收进了柜子。后来俱乐部把它挂进了荣誉室。"};}},
+    {'label': "指导年轻门将", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x6,'clean':0x2,'text':"你把经验一点点教给了年轻人。有人说你在给自己找接班人，你说，本来就是要有人接。"};}}
+  ]
+},
+
+// ---- idx:524 | mile_trophy40 | 第40座奖杯 ----
+{
+  'id': "mile_trophy40",
+  'title': "第40座奖杯",
+  'icon': '🏅',
+  'weight': 0x50,
+  'when': function(p){return p["_mileTr40"]!=null;},
+  'desc': "生涯第40座奖杯。家里早已经摆不下，你开始把一些送进青训营的展柜。",
+  'options': [
+    {'label': "给家乡球队送一座", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0x8,'clean':0x4,'text':"你挑了一座送去家乡的体校。孩子们排着队和它合影。"};}},
+    {'label': "记下来，但不庆祝", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你在本子上写下编号40，然后合上，去训练了。"};}}
+  ]
+},
+
+// ---- idx:525 | mile_trophy50 | 第50座奖杯 ----
+{
+  'id': "mile_trophy50",
+  'title': "第50座奖杯",
+  'icon': '🏆',
+  'weight': 0x50,
+  'when': function(p){return p["_mileTr50"]!=null;},
+  'desc': "生涯第50座奖杯。这个数字摆在那里，比任何一句话都有分量。",
+  'options': [
+    {'label': "办一场小型的展览", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0x8,'guanxi':0x6,'text':"你把这些奖杯借给俱乐部办了一次展览。展厅门口排的队，绕了大楼一整圈。"};}},
+    {'label': "只留一座，其余全捐", 'hint': "清白+，关系+", 'apply': function(){return{'clean':0xa,'guanxi':0x8,'text':"你只留了第一座，其余全捐给了各地的青训机构。有人说你傻，你笑了笑。"};}}
+  ]
 }
 
 ];

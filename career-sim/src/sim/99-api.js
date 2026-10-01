@@ -275,7 +275,7 @@ if(by){_markEvent(by['id'],by);a2["flags"]["_double"]=!0x0;a2["pending"]={'type'
 
 void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
 if("bigmatch"===bx["type"]&&bx["result"]){if(a2["pending"]=null,a2["bigQ"]&&a2["bigQ"]["length"])return void aW();if(a2["period"]){var bz=b7();
-return void(bz&&(a2["_mileRep"]=(a2["_mileRep"]||0x0)+0x1,a2["pending"]={'type':"report",'recs':bz}));
+return void(bz&&_emitReportOrMilestone(bz));
 }bk();
 }else a2["pending"]=null,
 
@@ -528,7 +528,11 @@ return bx["banned"]?{'gen':by,
 'formOf':function(tid){return a2["teamForm"]&&a2["teamForm"][tid]||0;},
 'hangOf':function(tid){return a2["teamHang"]&&a2["teamHang"][tid]||0;},
 'lgChampStreakOf':function(tid){return a2["lgChampStreak"]&&a2["lgChampStreak"][tid]||0;},
-'lastTables':function(){return a2["lastTables"]||null;},'teams':function(){return a0["TEAMS"];}};
+'lastTables':function(){return a2["lastTables"]||null;},'teams':function(){return a0["TEAMS"];},
+'snapshot':function(){return aA();},
+'roleOf':function(tid){var t=aj(tid);return t?aI(t):null;},
+'bmPlayerProb':function(my,opp){return _bmPlayerProb({},my,opp);},
+'cleanSettle':function(n){return _cleanSettle(n==null?0x1:n);}};
 /* API 边界同步镜像：每次调用返回前把 _rs 刷回 a2.rngState（存档随时可能序列化 a2）；
    attach/newState 反向加载（新状态自带种子） */
 (function(){

@@ -44,8 +44,9 @@ out.otherHit=by['num_back_other'].when(ctx({teamId:'psg'}));
 out.otherMissTeam=by['num_back_other'].when(ctx({teamId:'mci'}));
 
 /* --- 3) 同队路线：驱动到 num_back_same 并选「要回十号」 --- */
-function drive(st,want){
+function drive(st,want,inv){
   for(var g=0;g<6000;g++){
+    if(inv)inv(st);
     var p=st.pending;
     if(!p){ try{window.SIM.nextStep();}catch(e){out.err=String(e).slice(0,80);return null;} continue; }
     if(p.type==='random'||p.type==='forced'){
@@ -63,13 +64,16 @@ function drive(st,want){
   }
   return null;
 }
+/* 每步维持"绝对核心 + 7号 + 交过十号"；同队/换队只差 _numLostClub 是否等于现东家 */
+function keepCore(st,other){st.number=7;st.role='star';st.flags._numDone=!0x0;
+  st.flags._numLostClub=other?'__none__':(st.teamId||'mci');}
 var st=mk(81,{number:7,ovr:93,role:'star',flags:{_numDone:!0x0,_numLostClub:'mci'}});
-var got=drive(st,'num_back_same');
+var got=drive(st,'num_back_same',function(s){keepCore(s,false);});
 out.gotSame=!!got;
 if(got){ window.__SIMTEST.option(0); out.numAfter=st.number; out.roleAfter=st.role; }
 /* 换队路线 */
 var st2=mk(82,{number:7,ovr:93,role:'star',flags:{_numDone:!0x0,_numLostClub:'cn-cd'}});
-var got2=drive(st2,'num_back_other');
+var got2=drive(st2,'num_back_other',function(s){keepCore(s,true);});
 out.gotOther=!!got2;
 if(got2){ window.__SIMTEST.option(0); out.numAfter2=st2.number; }
 return JSON.stringify(out);

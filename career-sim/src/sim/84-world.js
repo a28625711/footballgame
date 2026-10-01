@@ -622,18 +622,24 @@ if(a2["lgFx"]&&a2["lgFx"]["season"]!=null){a2["lgMoves"]=a2["lgMoves"]||[];a2["l
    此处数据全部定稿：_lgFinalRefresh 已写 bz.leaguePos、bAw 已发奖、_promoReleg 已定升降名单。
    五类：荣誉（首座/横扫/金球）、奖项（联赛金靴/最佳/欧洲金靴/金手套/亚洲足球先生）、
         纪录（进球/助攻/零封/出场/国家队/奖杯数/收入）、身份（首转会/第三家/突破90）、时代（豪门·死敌降级）。
-   扫描只做条件判断、不掷骰（不打乱随机序列）；命中写"一次锁存"flag 并入 _mileQ，
-   再由 _mileQ 按优先级 drain（每季最多 3 条）到 forceQ —— 队列满时留到以后，赛季性里程碑不会丢。 */
-var _MILE_PRI={'mile_ballon':1,'mile_ballon3':2,'mile_wc':3,'mile_sweep':4,'mile_dom_treble':5,
-'mile_first_ucl':6,'mile_ucl2':7,'mile_ucl3':8,'mile_ucl5':9,'mile_first_cont':10,
-'mile_first_league':11,'mile_first_cup':12,'mile_first_super':13,'mile_first_youth':14,
-'mile_euro_boot':15,'mile_afcpoy':16,'mile_glove':17,'mile_league_boot':18,'mile_league_mvp':19,
-'mile_lg_weak':20,'mile_goal300':21,'mile_goal200':22,'mile_goal100':23,'mile_goal50':24,
-'mile_goals40':25,'mile_goals30':26,'mile_goals20':27,'mile_streak20':28,'mile_assist100':29,
-'mile_assist15':30,'mile_cs100':31,'mile_apps500':32,'mile_apps300':33,'mile_caps100':34,
-'mile_caps50':35,'mile_trophy30':36,'mile_trophy20':37,'mile_trophy10':38,'mile_first_trophy':39,
-'mile_earn1e8':40,'mile_transfer1':41,'mile_clubs3':42,'mile_ovr90':43,'mile_promote':44,
-'mile_giant_down':45,'mile_releg':46,'mile_rival_down':47};
+   扫描只做条件判断、不掷骰（不打乱随机序列）；命中写"一次锁存"flag。
+   本季触发的里程碑只取最高优先级一条，由 _emitReportOrMilestone 在当季报告前先播；
+   其余低优先级直接丢弃、绝不排队延后（避免以后重夺时仍播"第一次"文案）。 */
+var _MILE_PRI={'mile_wc':1,'mile_ballon':2,'mile_ballon3':3,'mile_ballon_streak2':4,'mile_ballon_streak3':5,
+'mile_wc_final':6,'mile_wc_sf':7,'mile_wc_qf':8,'mile_wc_r16':9,'mile_sweep':10,'mile_dom_treble':11,'mile_asia':12,
+'mile_first_ucl':13,'mile_ucl2':14,'mile_ucl3':15,'mile_ucl5':16,'mile_first_cont':17,
+'mile_first_league':18,'mile_first_cup':19,'mile_first_super':20,'mile_first_youth':21,
+'mile_euro_boot':22,'mile_afcpoy':23,'mile_glove':24,'mile_league_boot':25,'mile_league_mvp':26,
+'mile_boot3':27,'mile_boot5':28,'mile_lg_streak3':29,'mile_lg_streak5':30,'mile_lg_weak':31,
+'mile_goal1000':32,'mile_goal700':33,'mile_goal500':34,'mile_goal300':35,'mile_goal200':36,'mile_goal100':37,
+'mile_goal50':38,'mile_goals40':39,'mile_goals30':40,'mile_goals20':41,'mile_streak20':42,
+'mile_assist300':43,'mile_assist200':44,'mile_assist100':45,'mile_assist15':46,
+'mile_cs300':47,'mile_cs200':48,'mile_cs100':49,
+'mile_apps1000':50,'mile_apps700':51,'mile_apps500':52,'mile_apps300':53,
+'mile_caps200':54,'mile_caps150':55,'mile_caps100':56,'mile_caps50':57,
+'mile_trophy50':58,'mile_trophy40':59,'mile_trophy30':60,'mile_trophy20':61,'mile_trophy10':62,
+'mile_first_trophy':63,'mile_earn1e8':64,'mile_transfer1':65,'mile_clubs3':66,'mile_ovr90':67,
+'mile_promote':68,'mile_giant_down':69,'mile_releg':70,'mile_rival_down':71};
 function _milestoneScan(bz){
   if(!bz||"career"!==a2["phase"]||!a2["teamId"])return;
   var _f=a2["flags"],_age=bz["age"],_aw=a2["awards"]||[],_tr=a2["trophies"]||[],_new=[],_i,_nm;
@@ -706,15 +712,33 @@ function _milestoneScan(bz){
   var _mv=String(bz["move"]||'');
   if(0x0===_mv["indexOf"]("升上"))_once("mile_promote","_mileUpLg",_mv["substr"](0x2));
   else if(0x0===_mv["indexOf"]("降入"))_once("mile_releg","_mileDownLg",_mv["substr"](0x2));
+  /* ── 世界杯名次 / 亚洲杯（本季 natRuns） ── */
+  var _wcSc=0x0,_asiaWin=!0x1,_nr=a2["natRuns"]||[];
+  for(_i=0x0;_i<_nr["length"];_i++){if(_nr[_i]["age"]!==_age)continue;
+    if(_nr[_i]["comp"]==="世界杯")_wcSc=Math["max"](_wcSc,_natFormVal(_nr[_i]["stage"],"wc"));
+    if(_nr[_i]["comp"]==="亚洲杯"&&_nr[_i]["stage"]==="冠军")_asiaWin=!0x0;}
+  _ladder(_wcSc,[[0.5,"mile_wc_r16","_mileWcR16"],[0x1,"mile_wc_qf","_mileWcQf"],[0x2,"mile_wc_sf","_mileWcSf"],[0x3,"mile_wc_final","_mileWcFinal"]]);
+  if(_asiaWin)_once("mile_asia","_mileAsia",0x1);
+  /* ── 连续金球 / 多个金靴 / 联赛连冠 ── */
+  var _bAges=[];for(_i=0x0;_i<_aw["length"];_i++)if(_aw[_i]["name"]===_AW["ballon"])_bAges.push(_aw[_i]["age"]);
+  var _bStk=0x0;for(var _ba=_age;;_ba--){if(_bAges["indexOf"](_ba)<0x0)break;_bStk++;}
+  _ladder(_bStk,[[0x2,"mile_ballon_streak2","_mileBallonS2"],[0x3,"mile_ballon_streak3","_mileBallonS3"]]);
+  var _bootN=0x0;for(_i=0x0;_i<_aw["length"];_i++)if(/金靴$/.test(_aw[_i]["name"]))_bootN++;
+  _ladder(_bootN,[[0x3,"mile_boot3","_mileBootN3"],[0x5,"mile_boot5","_mileBootN5"]]);
+  var _lgNm=null,_lgd=ak(bz["leagueId"]);if(_lgd)_lgNm=_lgd["name"];
+  var _lgStk=0x0;if(_lgNm){for(var _ca=_age;_ca>=_age-0x9;_ca--){var _hit=!0x1;
+    for(_i=0x0;_i<_tr["length"];_i++)if(_tr[_i]["age"]===_ca&&_tr[_i]["name"]===_lgNm+"冠军"){_hit=!0x0;break;}
+    if(!_hit)break;_lgStk++;}}
+  _ladder(_lgStk,[[0x3,"mile_lg_streak3","_mileLgS3"],[0x5,"mile_lg_streak5","_mileLgS5"]]);
   /* ── 纪录阶梯（同季跨多档只播最高一档） ── */
   _ladder(bz["goals"]||0x0,[[0x14,"mile_goals20","_mileG20"],[0x1e,"mile_goals30","_mileG30"],[0x28,"mile_goals40","_mileG40"]]);
   _ladder(bz["assists"]||0x0,[[0xf,"mile_assist15","_mileA15"]]);
-  _ladder(a2["totals"]["goals"]||0x0,[[0x32,"mile_goal50","_mileG50"],[0x64,"mile_goal100","_mileG100"],[0xc8,"mile_goal200","_mileG200"],[0x12c,"mile_goal300","_mileG300"]]);
-  _ladder(a2["totals"]["assists"]||0x0,[[0x64,"mile_assist100","_mileA100"]]);
-  _ladder(a2["totals"]['cs']||0x0,[[0x64,"mile_cs100","_mileCS100"]]);
-  _ladder(a2["totals"]["apps"]||0x0,[[0x12c,"mile_apps300","_mileApps300"],[0x1f4,"mile_apps500","_mileApps500"]]);
-  _ladder(a2["caps"]||0x0,[[0x32,"mile_caps50","_mileCap50"],[0x64,"mile_caps100","_mileCap100"]]);
-  _ladder(_tr["length"],[[0xa,"mile_trophy10","_mileTr10"],[0x14,"mile_trophy20","_mileTr20"],[0x1e,"mile_trophy30","_mileTr30"]]);
+  _ladder(a2["totals"]["goals"]||0x0,[[0x32,"mile_goal50","_mileG50"],[0x64,"mile_goal100","_mileG100"],[0xc8,"mile_goal200","_mileG200"],[0x12c,"mile_goal300","_mileG300"],[0x1f4,"mile_goal500","_mileG500"],[0x2bc,"mile_goal700","_mileG700"],[0x3e8,"mile_goal1000","_mileG1000"]]);
+  _ladder(a2["totals"]["assists"]||0x0,[[0x64,"mile_assist100","_mileA100"],[0xc8,"mile_assist200","_mileA200"],[0x12c,"mile_assist300","_mileA300"]]);
+  _ladder(a2["totals"]['cs']||0x0,[[0x64,"mile_cs100","_mileCS100"],[0xc8,"mile_cs200","_mileCS200"],[0x12c,"mile_cs300","_mileCS300"]]);
+  _ladder(a2["totals"]["apps"]||0x0,[[0x12c,"mile_apps300","_mileApps300"],[0x1f4,"mile_apps500","_mileApps500"],[0x2bc,"mile_apps700","_mileApps700"],[0x3e8,"mile_apps1000","_mileApps1000"]]);
+  _ladder(a2["caps"]||0x0,[[0x32,"mile_caps50","_mileCap50"],[0x64,"mile_caps100","_mileCap100"],[0x96,"mile_caps150","_mileCap150"],[0xc8,"mile_caps200","_mileCap200"]]);
+  _ladder(_tr["length"],[[0xa,"mile_trophy10","_mileTr10"],[0x14,"mile_trophy20","_mileTr20"],[0x1e,"mile_trophy30","_mileTr30"],[0x28,"mile_trophy40","_mileTr40"],[0x32,"mile_trophy50","_mileTr50"]]);
   _ladder(a2["careerEarnings"]||0x0,[[0x2710,"mile_earn1e8","_mileEarn"]]);
   /* 连续 3 季联赛 20+（bz 可能已/未在 seasons 里，统一排除 bz 后取前两季） */
   var _ss=a2["seasons"]||[],_prev=[];
@@ -730,11 +754,16 @@ function _milestoneScan(bz){
     _rl=_nq[_i]["tid"];if(_rl===a2["teamId"])continue;_rt=aj(_rl);
     if(_rt&&(_rt["rep"]||0x0)>=0x4&&_f["_mileGiant"]==null){_f["_mileGiant"]=_rt["name"];_new.push("mile_giant_down");}
     if(_f["_mileRival"]==null)for(_jj=0x0;_jj<_dbyL["length"];_jj++)if(_dbyL[_jj][0x0]===_rl){_f["_mileRival"]=(_rt&&_rt["name"])||"死敌";_new.push("mile_rival_down");break;}}
-  /* ── 只入 _mileQ，绝不占 forceQ 槽位 ──
-     常规强制事件（队长/十号/成长/类型签名/异地…）优先级永远更高：
-     里程碑只在"本季没有任何其它强制事件"时由 _fireMilestone() 补位，避免饿死常规事件。 */
-  var _q=a2["_mileQ"]=a2["_mileQ"]||[];
-  for(_i=0x0;_i<_new["length"];_i++)if(_q["indexOf"](_new[_i])<0x0&&!(a2["usedEven"+"ts"]||{})[_new[_i]])_q.push(_new[_i]);
+  /* ── 不排队、不延后：本季触发的里程碑里只留优先级最高的一条，其余直接丢弃 ──
+     低优先级的不再堆积到以后（否则会出现"第二年又夺冠、文案却仍是第一次夺冠"）。
+     连同上一次扫描未播的残留一起清掉：到了但没赶上优先级，就作废。 */
+  var _q=a2["_mileQ"]=[],_best=null,_bp=0x63;
+  for(_i=0x0;_i<_new["length"];_i++){
+    if((a2["usedEven"+"ts"]||{})[_new[_i]])continue;
+    var _pp=_MILE_PRI[_new[_i]]||0x63;
+    if(_pp<_bp){_bp=_pp;_best=_new[_i];}
+  }
+  if(_best!=null)_q.push(_best);
 }
 /* 里程碑补位：仅在 _fireForced() 未命中（本季无其它强制事件）时调用；按优先级取一条。 */
 function _fireMilestone(){
@@ -753,6 +782,15 @@ function _fireMilestone(){
     return!0x0;
   }
   return!0x1;
+}
+/* 赛季报告与里程碑的先后：里程碑（本季最高优先级、无队列）先播，报告随后。
+   这样里程碑只可能出现在"它发生的那个赛季"，不会延后到以后。 */
+function _emitReportOrMilestone(_recs){
+  a2["_mileRepPending"]=_recs;
+  if(_fireMilestone())return;              /* 里程碑先播；_mileRepPending 留到它结算后再出报告 */
+  a2["_mileRepPending"]=null;
+  a2["_mileRep"]=(a2["_mileRep"]||0x0)+0x1;
+  a2["pending"]={'type':"report",'recs':_recs};
 }
 function _promoReleg(bz,
 bx,by){

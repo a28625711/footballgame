@@ -20,6 +20,7 @@
   "type",
   "grow",
   "transfer",
-  "milestone"
+  "milestone",
+  "attr"
  ]
 }
