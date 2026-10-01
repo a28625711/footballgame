@@ -8,7 +8,7 @@
 > 更新：2026-08-31（目录整理：手写源进 `src/`，事件编译产物进 `build/`）
 
 - `src/game.js` — 主逻辑 / DOM 渲染（含时间线「世界」面板 bWorldHTML）
-- `src/sim.js` — 游戏引擎 / 纯逻辑（§7b 世界联赛引擎：真实联赛/杯赛/洲际模拟）
+- `src/sim.js` — 游戏引擎组装产物（AUTO-GENERATED，勿手改；源在 `src/sim/`，用 `py tools/build_sim.py` 重新组装）（§7b 世界联赛引擎：真实联赛/杯赛/洲际模拟）
 - `build/events.js` — 事件数据（由 `src/events/` 编译生成）
 - `src/data.js` — 数据组装产物（AUTO-GENERATED，勿手改；由 `src/data/*.ev.js` 模块经 `py tools/build_data.py` 生成：18 个 `teams_*.ev.js` 按联赛一队一文件 + awards/endings/positions/leagues/config）
 - `src/crests.js` — 队徽映射
@@ -17,6 +17,32 @@
 - `src/natdata.js` — 国家队数据
 - `src/events/` — 事件模块源（*.ev.js），编辑后用 `py tools/build_events.py` 编译到 `build/events.js`
 - `src/data/` — 数据模块源（*.ev.js），编辑后用 `py tools/build_data.py` 重新组装 `src/data.js`
+- `src/sim/` — 引擎模块源（按职责切 23 段 + `MANIFEST.json`，编辑后用 `py tools/build_sim.py` 重新组装 `src/sim.js`）
+  - 拆分原则：只在 IIFE 函数体的顶层语句边界切，片段是原文的连续子串且顺序不变 → 拼回逐字节一致；`tools/split_sim.py` 为拆分器
+  - `00-config.js` — 常量与配置 · §1（2 语句）
+  - `10-staff.js` — 团队员工（分级/市场/费用）（12 语句）
+  - `11-trial.js` — 报名试训（青训营选择）（8 语句）
+  - `20-util.js` — 工具函数 · §2（家乡队/老将回归/杂项）（5 语句）
+  - `21-rng.js` — 随机数与基础查询（ad..ay）（21 语句）
+  - `30-state.js` — 遗产与状态 · §3（快照 aA / 随机事件 aE / 伴侣 / 提交 aF）（12 语句）
+  - `40-growth-type.js` — 成长曲线 · §4 + 球员类型系统 · §5 + 天赋天花板（11 语句）
+  - `50-role.js` — 角色与能力 · §6（角色/工资系数/能力值）（8 语句）
+  - `60-match.js` — 赛事与德比 · §7（单场模拟/杯赛/点球）（22 语句）
+  - `61-national.js` — 国家队引擎（世界杯预选/亚洲杯/洲际）（31 语句）
+  - `70-bigmatch.js` — 大场面引擎（德比/决赛：叙述/事件/结算）（31 语句）
+  - `80-league-cfg.js` — 联赛/杯赛/洲际配置 + 球队实力起落（14 语句）
+  - `81-news-clubstr.js` — 新闻模块 + 球队绝对强度/卡片（14 语句）
+  - `82-league-run.js` — 单季联赛/真实榜/大场面抽取（6 语句）
+  - `83-youth-nt.js` — 国字号梯队 U 系列 + 青年赛文案（11 语句）
+  - `84-world.js` — 世界引擎总入口（洲际赛/杯赛/升降级/里程碑）（23 语句）
+  - `90-events.js` — 大赛系统 · §8 = 事件系统（链/强制队列）（17 语句）
+  - `91-season-outer.js` — 赛季主流程（b2/b3/b4/b5）+ 奖项门槛 + 颁奖（7 语句）
+  - `92-contract.js` — 合同期与报告 · §10（年龄/能力/工资）（21 语句）
+  - `93-youth-settle.js` — 青训 · §12 + 赛季结算主循环（bk/bl/bm）（5 语句）
+  - `94-transfer.js` — 转会与续约（报价条款/续约窗/bo..bw）（11 语句）
+  - `95-archive.js` — 赛程归档打包/解包（16 语句）
+  - `99-api.js` — 公共 API · §14（window.SIM + 边界镜像）（2 语句）
+- `tools/golden.py` — **成绩单语料**（定种子全生涯的每步状态指纹 + FNV 哈希）；基线 `tests/golden/corpus.json`，由 `tests/test_golden.py` 纳入回归；有意改动后用 `py tools/golden.py --update` 重新基线
 
 ## 重要函数索引（sim.deob.js）
 
@@ -246,6 +272,31 @@ base = 0.5/梯队数（联赛）或 0.35/梯队数（杯赛）
 - `_bmFinish` 赛后播报：绝对化断言全部按 `bN/_mg/_ma` 条件化。
 - 转会类事件统一要求 `p["contractFinal"]`。
 - **测试**：`tests/test_num10_followup.py`。
+
+## 奖项时机 / 图标 / 国旗 / 续约（2026-09-30）
+
+- `_bmFinish`：`_awardDue`/`_promoDue` 移到 `bigQ.shift()` + 世界杯决赛重入队之后，并按 `!bigQ.length` 门槛（多场决赛一起结算）。
+- 事件 `icon` 规则：只允许一个 emoji；`{flag:key}` → 国旗 SVG（`b1()` 里 `_icoHtml` 解析，`_FLAG_DATA`/`assets/flags`）。
+- `_openRenewal`：年限下限 2；到期窗当前队条款加 `wageMult` 保底（`bo` 内 `bO(bD)` 之后）。
+- **测试**：`tests/test_award_defer.py`、`tests/test_icon_flag.py`、`tests/test_renewal_wage.py`。
+
+## 里程碑结算事件（2026-10-01）
+
+- `_milestoneScan(bz)`（`_promoReleg` 末尾）→ 锁存 flags + `a2._mileQ`；`_fireMilestone()` 在 `bk()`/`cont()` 补位，每季 ≤2 条、不占 forceQ。
+- `_MILE_PRI` 优先级表；`_ladder` 阶梯（只播最高档）；名称集合 `a2._mileSets`。
+- `src/events/milestone.ev.js`（47 条；idx 407-453，`when` 读锁存 flag，名字/球队走 flags 动态 desc）。
+- 触发裁决：`aE()` 里 `/^mile_/` 排除（不进随机池）；`_fireMilestone` 用 `_mileRep`（产出赛季报告时自增）
+  保证**每份报告最多 1 条**，触发点均在年度结算前（`bk()`/`cont()`）。
+- **测试**：`tests/test_milestone.py`（含"每报告 ≤1 条""不进随机池"端到端断言）。
+
+## 大场面伤病接入（2026-10-01）
+
+- `_bmFinish` 大场面受伤：抽 `a0["INJURIES"]`（`ah` 按 `w`）→ 具体伤名 + 表值 `ovr` 代价；
+  `ovr<=-6` 且非门将 → `flags._severeInjury=1` + `b1("injury_chain_bad")`；`healthBonus *= (1+0.02*|ovr|)`。
+- 下游复用：`injury_chain_bad/callback/philosophy`（misc.ev.js）、`injury_type_shift`。
+- **测试**：`tests/test_bigmatch_combo.py`。
+  - 受伤概率：`inj` 台词仅 derby 池；`_bmSeg` 抽中后再判定 `_bmRnd()<0.22×healthBonus×achBonus.injury`（~3.8%/场）。
+  - `flags._severeInjName`（赛季/大场面重伤均写）；`injury_chain_bad.desc(p)` 用实际伤名。
 - **测试**：`tests/test_type_events.py`、`tests/test_growth_events.py`。
 
 ## 天赋挂钩的成长天花板（2026-09-30）

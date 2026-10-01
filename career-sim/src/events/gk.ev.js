@@ -731,7 +731,7 @@ return{'banGames':0x2,'fame':0x10,'guanxi':-0xe,'text':"黄牌，你没停下。
 {
   'id': "gk_nt_nu"+"mber1",
   'title': '国门',
-  'icon': "🇨🇳",
+  'icon': '{flag:n_chn}',
   'weight': 0x34,
   'when': function(p){
 return'gk'===p["posGroup"]&&p["caps"]>=0x5;

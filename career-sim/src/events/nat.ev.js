@@ -150,7 +150,7 @@ return{'ovr':0x3,'text':"你没在人堆里多待，拐进训练场。跑起来�
 {
   'id': "nat_firs"+"tgoal",
   'title': "第一个国家队进球",
-  'icon': "🇨🇳",
+  'icon': '{flag:n_chn}',
   'weight': 0x3c,
   'when': function(p){
 return p["natGoals"]>=0x1;
@@ -238,7 +238,7 @@ return{'ovr':0x3,'guanxi':0x6,'text':"你指了指给你助攻的人。那场赛
 {
   'id': "nat_firs"+"tgoal3",
   'title': "主场的那一下",
-  'icon': "🇨🇳",
+  'icon': '{flag:n_chn}',
   'weight': 0x3c,
   'when': function(p){
 return p["natGoals"]>=0x1;

@@ -3858,7 +3858,7 @@ return{'ovr':0x3,'_sponsor':0x4,'text':"你告诉经纪人不续了。挂了电�
   'when': function(p){
 return!p["_injuryChain"]&&p["_severeInjury"];
 },
-  'desc': "比赛第三十分钟，你起跳争顶落地。左膝传来一声脆响——十字韧带断了。你倒在草坪上，队医跑过来的时候你已经知道这次不一样了。",
+  'desc': function(p){return "比赛第三十分钟，你起跳争顶落地，身体的一处传来一声不该有的响动。后来诊断出来："+(p["_severeInjName"]||"重伤")+"。队医跑过来的时候，你已经知道这一次不一样了。";},
   'options': [
     {
       'label': "积极康复，按计划来",
@@ -3887,7 +3887,7 @@ return d(q,s)?{'_injuryChain':0x1,'ovr':0x1,'text':"你比预期提前两个月�
   'when': function(p){
 return p["_injuryChain"]===0x1&&p["seasonsAtClub"]>=0x1;
 },
-  'desc': "时隔十个月，你终于回到了大名单。膝盖上那道疤还在，但医生说已经完全恢复了。教练问你：首发还是替补？",
+  'desc': "时隔十个月，你终于回到了大名单。伤处那道疤还在，但医生说已经完全恢复了。教练问你：首发还是替补？",
   'options': [
     {
       'label': "首发，用表现证明自己",
@@ -3914,7 +3914,7 @@ return{'ovr':0x2,'_injuryChain':0x2,'text':"下半场你替补上场。二十分
   'when': function(p){
 return p["_injuryChain"]>=0x2&&p["age"]>=0x19;
 },
-  'desc': "赛季结束了。你坐在空荡荡的球场里，看着膝盖上那道疤。受伤之前你是靠身体踢球的——现在你得换个活法了。",
+  'desc': "赛季结束了。你坐在空荡荡的球场里，看着身上那道疤。受伤之前你是靠身体踢球的——现在你得换个活法了。",
   'options': [
     {
       'label': "变得更聪明，用脑子踢球",

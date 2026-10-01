@@ -128,7 +128,7 @@ while(g++<4000){
   if(!p){ try{window.SIM.nextStep();}catch(e){break;} continue; }
   if(p.type==='bigmatch'){
     if(!p.result){
-      if(!inj&&st.bigQ&&st.bigQ[0]){st.bigQ[0]._injured=!0x0;st.bigQ[0]._meG=0;st.bigQ[0]._meA=0;inj=true;ovrBefore=st.ovr;}
+      if(!inj&&st.bigQ&&st.bigQ[0]){st.bigQ[0]._injured=!0x0;st.bigQ[0]._meG=0;st.bigQ[0]._meA=0;inj=true;ovrBefore=st.ovr;st.flags._severeInjury=!0x1;}
       window.SIM.choose('push');
       if(inj&&st.bigQ&&st.bigQ[0]){var _m=(st.bigQ[0]._meG||0)+(st.bigQ[0]._meA||0);if(_m>0)gainAfter+=_m;}
     }else{
@@ -145,9 +145,15 @@ while(g++<4000){
   try{window.SIM.nextStep();}catch(e){break;}
 }
 var note=(st._curBz&&st._curBz.note)||null;
-if(!note){for(var i=0;i<(st.seasons||[]).length;i++)if(st.seasons[i].note==='伤病')note='伤病';}
+var names=((window.DATA&&window.DATA.INJURIES)||[]).map(function(x){return x.name;});
+var _e=null;for(var _i=0;_i<window.EVENTS.length;_i++)if(window.EVENTS[_i].id==='injury_chain_bad')_e=window.EVENTS[_i];
+var _cd=_e&&typeof _e.desc==='function'?_e.desc({'_severeInjName':'跟腱断裂'}):null;
 return JSON.stringify({inj:inj,gainAfter:gainAfter,benchLine:benchLine,
-  ovrBefore:ovrBefore,ovrAfter:st.ovr,note:note});
+  ovrBefore:ovrBefore,ovrAfter:st.ovr,note:note,
+  noteOK:names.indexOf(note)>=0, pen:ovrBefore-st.ovr, injV:(st._curBz&&st._curBz.injury),
+  sev:!!(st.flags&&st.flags._severeInjury),
+  chainDesc:_cd, chainDescFn:(_e&&typeof _e.desc==='function'),
+  chainQ:((st.forceQ||[]).indexOf('injury_chain_bad')>=0)||!!(st.usedEvents&&st.usedEvents['injury_chain_bad'])});
 })()
 """
 
@@ -176,12 +182,17 @@ def run():
     harness.check(n['inj'], 'injury injection failed: %s' % n)
     harness.check(n['gainAfter'] == 0, 'injured player still gained goals/assists: %s' % n)
     harness.check(n['benchLine'] >= 1, 'no bench narrative after injury: %s' % n)
-    harness.check(n['ovrBefore'] is not None and abs(n['ovrAfter'] - (n['ovrBefore'] - 2)) < 1e-6,
-                  'injury had no real ovr cost: %s' % n)
-    harness.check(n['note'] == '伤病', 'season record not marked as injured: %s' % n)
-    print('PASS bigmatch_combo (co-queue seq=%s, sameLane len=%s, wc=%s | careers: heroLines=%d 零封矛盾=%d twoKindYears=%d 点球=%d | 受伤: +%d球 替补席文案%d 能力%d->%d 记录=%s)'
+    # 大场面伤病已接入同一套伤病系统：具体伤名 + 表驱动的真实属性代价 + 重伤后续
+    harness.check(n['noteOK'], '赛季记录伤病不是 a0.INJURIES 里的具体伤名: %s' % n['note'])
+    harness.check(1 <= n['pen'] <= 11, '伤病属性代价不是表值: pen=%s' % n['pen'])
+    harness.check(n['injV'] == -n['pen'], '赛季记录 injury 与实扣不一致: %s vs %s' % (n['injV'], n['pen']))
+    harness.check(n['sev'] == (n['injV'] <= -6), '_severeInjury 与伤势严重度不一致: %s' % n)
+    harness.check((not n['sev']) or n['chainQ'], '重伤未排入伤病链: %s' % n)
+    harness.check(n['chainDescFn'] and n['chainDesc'] and '跟腱断裂' in n['chainDesc'] and '十字韧带' not in n['chainDesc'],
+                  'injury_chain_bad 文案未用实际伤名/仍写死十字韧带: %s' % n.get('chainDesc'))
+    print('PASS bigmatch_combo (co-queue seq=%s, sameLane len=%s, wc=%s | careers: heroLines=%d 零封矛盾=%d twoKindYears=%d 点球=%d | 受伤: +%d球 替补席文案%d 能力%d->%d 伤=%s 代价%d 重伤链=%s)'
           % (u['seq'], u['sameLaneLen'], u['wcKind'], r['heroNew'], r['csBad'], r['twoKindYears'], r['pens'],
-             n['gainAfter'], n['benchLine'], n['ovrBefore'], n['ovrAfter'], n['note']))
+             n['gainAfter'], n['benchLine'], n['ovrBefore'], n['ovrAfter'], n['note'], n['pen'], n['chainQ']))
 
 
 if __name__ == '__main__':

@@ -1688,6 +1688,8 @@ button[data-reroll]:hover { background: hsl(var(--accent) / .22); }
   /* 决策区：这一屏的主角，但也不能自己占掉半屏 */
   .col-c .event { margin-top: 0; padding-top: 0; border-top: 0; }
   .ev-icon { width: 2.3rem; height: 2.3rem; font-size: 1.2rem; }
+.ev-icon img.ev-flag { width: 1.7rem; height: auto; display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.18); }
+.col-c .ev-icon img.ev-flag { width: 1.45rem; }
   .ev-title { font-size: 1.05rem; }
   .ev-desc { margin-top: .35rem; font-size: .82rem; line-height: 1.45; }
   .opts { gap: .4rem; margin-top: .6rem; }

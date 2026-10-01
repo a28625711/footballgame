@@ -22,9 +22,18 @@ function resolve(st,p){var t=p.type;
  if(t==='transfer'){ if(p.offers&&p.offers.length){window.__SIMTEST.option('0');}else{window.__SIMTEST.option(p.canStay?'stay':'retire');} return; }
  if(t==='academy'||t==='youth_path'){ window.__SIMTEST.option(0); return; }
  if(t==='retire_forced'){ window.SIM.choose('retire'); return; }}
-function grab(st){ try{ var w=st.natFx&&st.natFx.data&&st.natFx.data.wc;
-  if(w&&w.groups&&w.groups.length&&w.groups[0].matches&&w.groups[0].matches.length&&!grpSample){
-   var ms=w.groups[0].matches; grpSample={flat:(typeof ms[0]!=='object'), ids:[(typeof ms[0]!=='object')?ms[0]:ms[0].homeId,(typeof ms[0]!=='object')?ms[1]:ms[0].awayId], n:ms.length}; }}catch(e){} }
+function grab(st){ try{
+  /* 中立世界杯（中国队不在场）才会写扁平比分；近季快照在 natFx 里，往季在 natFxArch。
+     逐季瞬时抓取太依赖 RNG，改为同时扫归档，稳定取样。 */
+  var list=[st.natFx].concat(st.natFxArch||[]);
+  for(var i=0;i<list.length&&!grpSample;i++){
+    var w=list[i]&&list[i]['data']&&list[i]['data'].wc;
+    if(w&&w.groups&&w.groups.length&&w.groups[0].matches&&w.groups[0].matches.length){
+      var ms=w.groups[0].matches;
+      grpSample={flat:(typeof ms[0]!=='object'), ids:[(typeof ms[0]!=='object')?ms[0]:ms[0].homeId,(typeof ms[0]!=='object')?ms[1]:ms[0].awayId], n:ms.length};
+    }
+  }
+ }catch(e){} }
 for(var s=1;s<=10;s++){
  var st=window.__SIMTEST.start('normal',P,s);
  st.ovr=88;st.maxOvr=96;st.money=1200;st.age=19;st.phase='career';

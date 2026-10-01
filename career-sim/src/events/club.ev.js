@@ -419,7 +419,7 @@ var EVT_club=[
 {
   'id': "num_back_same",
   'title': "十号该还回来了",
-  'icon': '1️⃣0️⃣',
+  'icon': '👕',
   'weight': 0x2e,
   'when': function(p){return p["roleRank"]>=0x4&&p["_numDone"]&&p["_numLostClub"]&&p["teamId"]===p["_numLostClub"]&&0xa!==p["number"];},
   'desc': "还是这间更衣室，还是那个装备经理。当年他把你叫到一边，让你把十号交出去。现在队里没有人比你更有资格穿它。",

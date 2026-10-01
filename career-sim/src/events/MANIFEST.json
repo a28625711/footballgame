@@ -19,6 +19,7 @@
   "tier",
   "type",
   "grow",
-  "transfer"
+  "transfer",
+  "milestone"
  ]
 }

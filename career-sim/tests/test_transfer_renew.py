@@ -93,11 +93,11 @@ try{
   var t12=au._offerTerms['cn-sh'];
   out.checks.renewFloor = !!t12 && t12.mult>=1.15;
 
-  /* 13) 事件指定续约待遇：老将 1 年砍六成 */
-  au=mk(3); au.wageMult=1.0; window.SIM.applyResult({'openContract':{'wage':0.4,'years':1}});
+  /* 13) 事件指定续约待遇：降薪续约，年限至少 2 年 */
+  au=mk(3); au.wageMult=1.0; window.SIM.applyResult({'openContract':{'wage':0.8,'years':1}});
   window.SIM.nextStep();
   var t13=au._offerTerms['cn-sh'];
-  out.checks.renewCut = !!t13 && t13.years===1 && t13.mult<0.5;
+  out.checks.renewCut = !!t13 && t13.years>=2 && t13.mult>=0.6 && t13.mult<0.95;
 
   /* 14) 事件指定续约待遇：天价 5 年翻倍 */
   au=mk(3); au.wageMult=1.0; window.SIM.applyResult({'openContract':{'wage':3,'years':5}});

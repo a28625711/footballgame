@@ -1,0 +1,142 @@
+{
+ "order": [
+  {
+   "f": "00-config.js",
+   "title": "常量与配置 · §1",
+   "bytes": 3069,
+   "stmts": 2
+  },
+  {
+   "f": "10-staff.js",
+   "title": "团队员工（分级/市场/费用）",
+   "bytes": 2721,
+   "stmts": 12
+  },
+  {
+   "f": "11-trial.js",
+   "title": "报名试训（青训营选择）",
+   "bytes": 4566,
+   "stmts": 8
+  },
+  {
+   "f": "20-util.js",
+   "title": "工具函数 · §2（家乡队/老将回归/杂项）",
+   "bytes": 1482,
+   "stmts": 5
+  },
+  {
+   "f": "21-rng.js",
+   "title": "随机数与基础查询（ad..ay）",
+   "bytes": 2716,
+   "stmts": 21
+  },
+  {
+   "f": "30-state.js",
+   "title": "遗产与状态 · §3（快照 aA / 随机事件 aE / 伴侣 / 提交 aF）",
+   "bytes": 11637,
+   "stmts": 12
+  },
+  {
+   "f": "40-growth-type.js",
+   "title": "成长曲线 · §4 + 球员类型系统 · §5 + 天赋天花板",
+   "bytes": 3178,
+   "stmts": 11
+  },
+  {
+   "f": "50-role.js",
+   "title": "角色与能力 · §6（角色/工资系数/能力值）",
+   "bytes": 1439,
+   "stmts": 8
+  },
+  {
+   "f": "60-match.js",
+   "title": "赛事与德比 · §7（单场模拟/杯赛/点球）",
+   "bytes": 9409,
+   "stmts": 22
+  },
+  {
+   "f": "61-national.js",
+   "title": "国家队引擎（世界杯预选/亚洲杯/洲际）",
+   "bytes": 22707,
+   "stmts": 31
+  },
+  {
+   "f": "70-bigmatch.js",
+   "title": "大场面引擎（德比/决赛：叙述/事件/结算）",
+   "bytes": 54823,
+   "stmts": 31
+  },
+  {
+   "f": "80-league-cfg.js",
+   "title": "联赛/杯赛/洲际配置 + 球队实力起落",
+   "bytes": 3887,
+   "stmts": 14
+  },
+  {
+   "f": "81-news-clubstr.js",
+   "title": "新闻模块 + 球队绝对强度/卡片",
+   "bytes": 6105,
+   "stmts": 14
+  },
+  {
+   "f": "82-league-run.js",
+   "title": "单季联赛/真实榜/大场面抽取",
+   "bytes": 4124,
+   "stmts": 6
+  },
+  {
+   "f": "83-youth-nt.js",
+   "title": "国字号梯队 U 系列 + 青年赛文案",
+   "bytes": 7466,
+   "stmts": 11
+  },
+  {
+   "f": "84-world.js",
+   "title": "世界引擎总入口（洲际赛/杯赛/升降级/里程碑）",
+   "bytes": 38276,
+   "stmts": 23
+  },
+  {
+   "f": "90-events.js",
+   "title": "大赛系统 · §8 = 事件系统（链/强制队列）",
+   "bytes": 5238,
+   "stmts": 17
+  },
+  {
+   "f": "91-season-outer.js",
+   "title": "赛季主流程（b2/b3/b4/b5）+ 奖项门槛 + 颁奖",
+   "bytes": 19842,
+   "stmts": 7
+  },
+  {
+   "f": "92-contract.js",
+   "title": "合同期与报告 · §10（年龄/能力/工资）",
+   "bytes": 7606,
+   "stmts": 21
+  },
+  {
+   "f": "93-youth-settle.js",
+   "title": "青训 · §12 + 赛季结算主循环（bk/bl/bm）",
+   "bytes": 10138,
+   "stmts": 5
+  },
+  {
+   "f": "94-transfer.js",
+   "title": "转会与续约（报价条款/续约窗/bo..bw）",
+   "bytes": 12702,
+   "stmts": 11
+  },
+  {
+   "f": "95-archive.js",
+   "title": "赛程归档打包/解包",
+   "bytes": 4095,
+   "stmts": 16
+  },
+  {
+   "f": "99-api.js",
+   "title": "公共 API · §14（window.SIM + 边界镜像）",
+   "bytes": 24868,
+   "stmts": 2
+  }
+ ]
+}

@@ -193,8 +193,10 @@ var c3=[];
 return c2["ovr"]&&c3["push"]("能力 +"+c2["ovr"]),c2["talent"]&&c3["push"]("天赋 +"+c2["talent"]["toFixed"](0x2)),c2["guanxi"]&&c3["push"]("关系 +"+c2["guanxi"]),
 c2["money"]&&c3["push"]("家底 +"+al(c2["money"])),"<div cla"+"ss=\"lega"+"cy-banne"+"r\"><div "+"class=\"l"+"egacy-ge"+"n\">第 "+c2["gen"]+(" 世</div>"+"<div cla"+"ss=\"lega"+"cy-bits\""+'>')+(c3["length"]?ax(c3["join"](" · ")):"上一世什么也没留"+'下')+("</div></"+"div>");
 }())+bX,aw("btn-next")["textCont"+"ent"]=aX===aY["length"]-0x1?"开始生涯":'继续',aw("btn-back")["textCont"+"ent"]=0x0===aX?'返回':"上一步";
-}function b1(bW,bX,bY,bZ){
-return "<div cla"+"ss=\"ev-h"+"ead\"><sp"+"an class"+"=\"ev-ico"+"n\">"+bW+("</span><"+"div clas"+"s=\"ev-he"+"ad-main\""+"><div cl"+"ass=\"ev-"+"tag")+(bZ?" decisio"+'n':'')+'\x22>'+ax(bX)+("</div><d"+"iv class"+"=\"ev-tit"+"le\">")+ax(bY)+("</div></"+"div></di"+'v>');
+}/* 事件/大场面图标里的国旗：icon 写 {flag:n_chn} → <img>（单文件走内联 _FLAG_DATA，dev 走 assets/flags） */
+function _icoHtml(bW){return String(bW)["replace"](/\{flag:([a-z0-9_]+)\}/g,function(_m,_k){var _s=(window["_FLAG_DATA"]&&window["_FLAG_DATA"][_k])||("assets/flags/"+_k+".svg");return '<img class="ev-flag" src="'+_s+'" alt="">';});}
+function b1(bW,bX,bY,bZ){
+return "<div cla"+"ss=\"ev-h"+"ead\"><sp"+"an class"+"=\"ev-ico"+"n\">"+_icoHtml(bW)+("</span><"+"div clas"+"s=\"ev-he"+"ad-main\""+"><div cl"+"ass=\"ev-"+"tag")+(bZ?" decisio"+'n':'')+'\x22>'+ax(bX)+("</div><d"+"iv class"+"=\"ev-tit"+"le\">")+ax(bY)+("</div></"+"div></di"+'v>');
 }var b2=null;
 function b3(bW){var bX=aw("career-r"+"oot");
 return bX&&bX["querySel"+"ector"]?bX["querySel"+"ector"](bW):null;

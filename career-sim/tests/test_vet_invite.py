@@ -12,7 +12,7 @@ function setup(seed){
   var au=window.__SIMTEST.start('normal',{'name':'p','origin':'sd','pos':'ST','nation':'cn','talent':1.2,'number':9,'foot':'r'},seed);
   au.phase='career'; au.age=34; au.ovr=72; au.maxOvr=80; au.talent=1.2; au.money=1000;
   au.originId='sd'; au.youthTeamId='cn-sd'; au.clubsPlayed=['cn-sh','cn-sd'];
-  au.teamId='wol'; au.role='star'; au.contractLeft=3; au.seasonsAtClub=3;
+  au.teamId='wol'; au.role='star'; au.contractLeft=1; au.seasonsAtClub=3;
   au.roleAdjust=0; au.guanxi=50; au.flags={}; au.pending=null; au.usedEvents={};
   return au;
 }
