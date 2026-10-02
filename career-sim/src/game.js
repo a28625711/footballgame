@@ -472,7 +472,7 @@ if(_ns2)h+='<span class="sm-nat-stats">'+_ns2+'</span>';
 if(nr["standings"]&&nr["standings"]["length"]){
 var _chp=-1;for(var _ch2=0;_ch2<nr["standings"]["length"];_ch2++)if(nr["standings"][_ch2]["i"]==="n_chn"){_chp=_ch2;break;}
 var _qset={};for(var qs2=0;qs2<nr["standings"]["length"];qs2++)_qset[nr["standings"][qs2]["i"]]=1;
-var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]])_qml["push"](_qm);}
+var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]||_qm["homeId"]]&&_qset[_qm["aid"]||_qm["awayId"]])_qml["push"](_qm);}
 h+=_grpBox(nr["comp"]||"预选赛",nr["standings"],_qml,_chp,"n_chn");
 }
 if(nr["friendly"]&&nr["matches"]&&nr["matches"]["length"]){
@@ -622,7 +622,7 @@ if(!bW){var bZ=ai(),c0=au["pending"]&&("academy"===au["pending"]["type"]||"trans
 
 
 c1=au["pending"]&&"youth_pa"+'th'===au["pending"]["type"];
-clubBody+=b8("now",'<span class="age-chip">'+au["age"]+'</span>','<span class="tl-club">'+(bZ&&!c0?aT(bZ):'')+('<span class="tl-club-name">')+(c1?"选青训营…":c0?"选择俱乐部…":"youth"===au["phase"]?b7()||'青训':ax(bZ?bZ["name"]:"自由身"))+'</span></span>',
+clubBody+=b8("now",'<span class="age-chip">'+(au["_dispAge"]!=null?au["_dispAge"]:au["age"])+'</span>','<span class="tl-club">'+(bZ&&!c0?aT(bZ):'')+('<span class="tl-club-name">')+(c1?"选青训营…":c0?"选择俱乐部…":"youth"===au["phase"]?b7()||'青训':ax(bZ?bZ["name"]:"自由身"))+'</span></span>',
 '<span class="r"><span class="ovr-pill '+b5(au["ovr"])+'">'+Math["round"](au["ovr"])+'</span></span>','','','');
 }
 clubBody+='</div></div>';
@@ -882,9 +882,7 @@ return a0["ENDINGS"][a0["ENDINGS"]["length"]-0x1];
 
 
 'label':"超级杯冠军",
-'rank':0xe},{'re':/杯冠军$/,'label':"杯赛冠军",'rank':0xf}],bo=["没走到那一步",
-"抹不掉的",'封神','巅峰','出色',"怎么收场","走过的路",
-'兜底'];
+'rank':0xe},{'re':/杯冠军$/,'label':"杯赛冠军",'rank':0xf}],bo=["没走到那一步","神话","传奇","巅峰","出色","立足","平凡","没走到那一步"];
 function bp(bW){
 return bW["endings"]&&bW["endings"]["length"]?bW["endings"]:bW["ending"]?[bW["ending"]]:[];
 }function bq(){
@@ -904,7 +902,7 @@ var c2="<div cla"+"ss=\"sect"+"ion-head"+"\"><h2>结局"+"图鉴</h2><"+"span>"+
 c3={},c4=[];
 a0["ENDINGS"]["forEach"](function(c5){var c6=null==c5["tier"]?0x7:c5["tier"];
 c3[c6]||(c3[c6]=[],c4["push"](c6)),c3[c6]["push"](c5);
-}),c4["sort"](function(c5,c6){return c5-c6;
+}),c4["sort"](function(c5,c6){return (c5===0x0?0x63:c5)-(c6===0x0?0x63:c6);
 }),c4["forEach"](function(c5){
 c2+="<div cla"+"ss=\"code"+"x-sec open\"><button type=\"button\" class=\"codex-tier\" data-act=\"codex-grp\"><span class=\"codex-tier-t\">"+ax(bo[c5]||'第\x20'+c5+'\x20档')+"</span><span class=\"codex-tier-s\">"+c3[c5]["filter"](function(c6){return bX[c6['id']];
 })["length"]+" / "+c3[c5]["length"]+"</span><span class=\"codex-tier-c\">\u25b8</span></button><div class=\"codex-grid\">"+c3[c5]["map"](function(c6){var c7=bX[c6['id']]||0x0,c8=c7>0x0,c9=function(cc){var cd=[cc["title"]];
@@ -2151,7 +2149,7 @@ if(view==="nat"&&(ageT["length"]||ageNat["length"])){
 h+="<div class=\"sm-section\"><div class=\"sm-sub\">\u56fd\u5bb6\u961f</div>";
 for(var nk=0;nk<ageNat["length"];nk++){
 var nr=ageNat[nk];
-var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";if(nr["standings"]&&nr["standings"]["length"]){var _chp=-1;for(var _ch2=0;_ch2<nr["standings"]["length"];_ch2++)if(nr["standings"][_ch2]["i"]==="n_chn"){_chp=_ch2;break;}var _qset={};for(var qs2=0;qs2<nr["standings"]["length"];qs2++)_qset[nr["standings"][qs2]["i"]]=1;var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]]&&_qset[_qm["aid"]])_qml["push"](_qm);}h+=_grpBox(nr["comp"]||"\u9884\u9009\u8d5b",nr["standings"],_qml,_chp,"n_chn");}if(nr["friendly"]&&nr["matches"]&&nr["matches"]["length"]){h+="<div class=\"sm-rounds\">";for(var _fm=0;_fm<nr["matches"]["length"];_fm++){var _f=nr["matches"][_fm];var _fg=(_f["homeId"]==="n_chn"||_f["hid"]==="n_chn")?_f["hg"]:_f["ag"];var _fa=(_f["homeId"]==="n_chn"||_f["hid"]==="n_chn")?_f["ag"]:_f["hg"];var _fcls=_fg>_fa?" won":(_fg<_fa?" lost":" draw");h+="<span class=\"sm-round"+_fcls+"\">"+ax(_f["home"]||_f["hn"]||"")+" "+_f["hg"]+"-"+_f["ag"]+" "+ax(_f["away"]||_f["an"]||"")+"</span>";}h+="</div>";}
+var _ns="";if(nr["caps"])_ns+=" "+nr["caps"]+"场";if(nr["natGoals"])_ns+=" \u00b7 "+nr["natGoals"]+"球";if(nr["natAssis"+"ts"])_ns+=" \u00b7 "+nr["natAssis"+"ts"]+"助";if(nr["natCs"])_ns+=" \u00b7 "+nr["natCs"]+"零封";h+="<div class=\"sm-nat-entry\"><span class=\"sm-nat-comp\">"+ax(nr["comp"]||"")+"</span> <span class=\"sm-nat-stage\">\u2014 "+ax(nr["stage"]||"")+"</span>"+(_ns?"<span class=\"sm-nat-stats\">"+_ns+"</span>":"")+"</div>";if(nr["standings"]&&nr["standings"]["length"]){var _chp=-1;for(var _ch2=0;_ch2<nr["standings"]["length"];_ch2++)if(nr["standings"][_ch2]["i"]==="n_chn"){_chp=_ch2;break;}var _qset={};for(var qs2=0;qs2<nr["standings"]["length"];qs2++)_qset[nr["standings"][qs2]["i"]]=1;var _qml=[];for(var qm=0;qm<(nr["matches"]||[]).length;qm++){var _qm=nr["matches"][qm];if(_qset[_qm["hid"]||_qm["homeId"]]&&_qset[_qm["aid"]||_qm["awayId"]])_qml["push"](_qm);}h+=_grpBox(nr["comp"]||"\u9884\u9009\u8d5b",nr["standings"],_qml,_chp,"n_chn");}if(nr["friendly"]&&nr["matches"]&&nr["matches"]["length"]){h+="<div class=\"sm-rounds\">";for(var _fm=0;_fm<nr["matches"]["length"];_fm++){var _f=nr["matches"][_fm];var _fg=(_f["homeId"]==="n_chn"||_f["hid"]==="n_chn")?_f["hg"]:_f["ag"];var _fa=(_f["homeId"]==="n_chn"||_f["hid"]==="n_chn")?_f["ag"]:_f["hg"];var _fcls=_fg>_fa?" won":(_fg<_fa?" lost":" draw");h+="<span class=\"sm-round"+_fcls+"\">"+ax(_f["home"]||_f["hn"]||"")+" "+_f["hg"]+"-"+_f["ag"]+" "+ax(_f["away"]||_f["an"]||"")+"</span>";}h+="</div>";}
 }
 for(var tk=0;tk<ageT["length"];tk++){
 var tn=ageT[tk];

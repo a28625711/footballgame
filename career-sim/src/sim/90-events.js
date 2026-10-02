@@ -8,14 +8,14 @@
 
 
 
-function aZ(bx,by,bz){
-b0(bx,by,bz,a2["age"]);
+function aZ(bx,by,bz,age){
+b0(bx,by,bz,age!=null?age:a2["age"]);
 }function b0(bx,by,bz,bA){
 a2["natRuns"]["push"]({'age':bA,'comp':by,'stage':bz,'caps':bx?bx['caps']:0,'natGoals':bx?bx['natGoals']:0,['natAssis'+'ts']:bx?bx['natAssis'+'ts']:0,'natCs':bx?bx['cs']:0}),
 
 
 
-'冠军'===bz?(bx["trophies"]["push"](by+'冠军'),a2["trophies"]["push"]({'name':by+'冠军','age':bA,'team':"国家队"})):bx["nat"]=by+bz;
+'冠军'===bz?(bx&&bx["trophies"]&&bx["trophies"]["push"](by+'冠军'),a2["trophies"]["push"]({'name':by+'冠军','age':bA,'team':"国家队"})):bx&&(bx["nat"]=by+bz);
 }function _evById(bx){
 for(var by=0x0;by<a1["length"];by++)if(a1[by]['id']===bx)return a1[by];
 return null;

@@ -291,15 +291,34 @@ return!0x1;
 (a2["seasons"]||[]).forEach(function(s){if(s["apps"]>_m)_m=s["apps"];});
 return _m;
 }()),
-
-
-
 'cupTitles':(function(){var _c=0x0;
 (a2["trophies"]||[]).forEach(function(t){var n=t["name"]||"";
 if(/杯冠军$/.test(n)||/超级杯/.test(n)||/社区盾/.test(n))_c++;
 });
 return _c;
-}())};
+}()),
+/* ── 结局图鉴补充字段（世界杯进球/队长/忠诚/家庭/年龄造假/退役方式/末年出场/青训负债） ── */
+'cupTrophies':(function(){return 0x0;})(),
+'wcGoals':a2["natStats"]&&a2["natStats"]["wcGoals"]||(a2["flags"]&&a2["flags"]["_wcGoals"])||0x0,
+'natCaptain':!!(a2["flags"]&&a2["flags"]["_natCaptain"]),
+'familySame':!!(a2["life"]&&a2["life"]["married"]&&!a2["life"]["splits"]),
+'ageFraud':!!(a2["flags"]&&a2["flags"]["_ageFraud"]),
+'noName':String(a2["endReaso"+'n']||'')==="无人问津",
+'lastApps':(function(){var _s=a2["seasons"]||[];return _s["length"]?_s[_s["length"]-0x1]["apps"]||0x0:0x0;})(),
+'youthDebt':!!(a2["flags"]&&a2["flags"]["_debt"]),
+'loyalLong':!!(bI&&bI["seasons"]>=0xa&&bI["apps"]>=0x190&&a2["age"]>=0x21&&bK>=0x3),
+'sameYearTriple':(function(){
+var _wc={},_ucl={},_bal={};
+(a2["trophies"]||[]).forEach(function(t){var n=t["name"]||"",_a=t["age"];if(_a==null)return;
+if(/世界杯冠军/.test(n))_wc[_a]=0x1;if(/欧冠冠军/.test(n))_ucl[_a]=0x1;});
+(a2["awards"]||[]).forEach(function(w){if(w["name"]===a0["AWARDS"]["ballon"]&&w["age"]!=null)_bal[w["age"]]=0x1;});
+for(var _y in _wc)if(_ucl[_y]&&_bal[_y])return!0x0;
+return!0x1;
+}()),
+/* 单赛季峰值（进球/助攻/出场/零封）：供"单赛季成就"结局使用 */
+'seasonMaxGoals':(function(){var _m=0x0;(a2["seasons"]||[]).forEach(function(s){if((s["goals"]||0)>_m)_m=s["goals"];});return _m;})(),
+'seasonMaxAssists':(function(){var _m=0x0;(a2["seasons"]||[]).forEach(function(s){if((s["assists"]||0)>_m)_m=s["assists"];});return _m;})(),
+'seasonMaxCs':(function(){var _m=0x0;(a2["seasons"]||[]).forEach(function(s){if((s["cs"]||0)>_m)_m=s["cs"];});return _m;})()};
 }function br(bx){
 a2["phase"]="summary",
 
@@ -323,6 +342,17 @@ bD<a0["ENDINGS"]["length"];
 bD++){var bE=a0["ENDINGS"][bD];
 bz===(0x0===bA(bE))&&bE["test"](by)&&(bC["push"](bE['id']),(!bB||bA(bE)<bA(bB))&&(bB=bE));
 }bB&&(a2["ending"]=bB['id']),
+/* 同族阶梯（如单赛季30/40/50球）只记最高一条：避免一局同时点亮多档 */
+(function(){var _grp={},_keep=[];
+for(var _i=0x0;_i<bC["length"];_i++){var _id=bC[_i],_df=null;
+for(var _j=0x0;_j<a0["ENDINGS"]["length"];_j++)if(a0["ENDINGS"][_j]['id']===_id){_df=a0["ENDINGS"][_j];break;}
+var _g=_df&&_df["ego"]?(_df["ego"]):null;
+if(!_g){_keep.push(_id);continue;}
+if(_grp[_g]==null){_grp[_g]=_id;_keep.push(_id);}
+else{var _cur=null,_new=null;
+for(var _k=0x0;_k<a0["ENDINGS"]["length"];_k++){if(a0["ENDINGS"][_k]['id']===_grp[_g])_cur=a0["ENDINGS"][_k];if(a0["ENDINGS"][_k]['id']===_id)_new=a0["ENDINGS"][_k];}
+if(_new&&_cur&&bA(_new)<bA(_cur)){for(var _t=0x0;_t<_keep["length"];_t++)if(_keep[_t]===_grp[_g]){_keep[_t]=_id;break;}_grp[_g]=_id;}}
+}bC=_keep;}()),
 
 
 
@@ -339,7 +369,7 @@ bA++)a1[bA]['id']===by["eventId"]&&(bz=a1[bA]);
 if(!bz)bz=_pendingEvent();
 if(!bz)return null;
 var bB=_matOpts(bz)||[];bB=bB[Number(bx)];if(!bB)return!0x1;
-var bR4=function(bG2){a2["eventLog"]&&a2["eventLog"]["push"]({'age':a2["age"],'title':bG2&&bG2["title"]||"事件",'text':bG2&&bG2["text"]||''});};
+var bR4=function(bG2){a2["eventLog"]&&a2["eventLog"]["push"]({'age':(by&&by["age"]!=null?by["age"]:a2["age"]),'title':bG2&&bG2["title"]||"事件",'text':bG2&&bG2["text"]||''});};
 if(bv(bx),
 
 

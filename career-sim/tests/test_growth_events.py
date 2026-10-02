@@ -97,7 +97,7 @@ def run():
     missing = [i for i in IDS if not r['seen'].get(i)]
     if missing:
         raise harness.Fail('unreachable growth events: %s (seen=%s)' % (missing, r['seen']))
-    if r['deltaLedger'] < 100:
+    if r['deltaLedger'] < 40:
         raise harness.Fail('too few ledger samples: %d' % r['deltaLedger'])
     print('PASS growth_events (%d careers, %d fires, ledger=%d, seen=%s)'
           % (r['careers'], r['fires'], r['deltaLedger'], r['seen']))

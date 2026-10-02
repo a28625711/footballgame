@@ -23,7 +23,7 @@ var ALL=['mile_ballon','mile_ballon3','mile_wc','mile_sweep','mile_dom_treble','
 'mile_ballon_streak2','mile_ballon_streak3','mile_boot3','mile_boot5','mile_lg_streak3','mile_lg_streak5',
 'mile_goal500','mile_goal700','mile_goal1000','mile_apps700','mile_apps1000',
 'mile_caps150','mile_caps200','mile_assist200','mile_assist300','mile_cs200','mile_cs300',
-'mile_trophy40','mile_trophy50'];
+'mile_trophy40','mile_trophy50','mile_goals50','mile_assist20s','mile_assist30s'];
 function mk(seed,tid,lg,pre){
   var st=window.__SIMTEST.start('normal',{name:'lg',origin:'sd',pos:'ST',nation:'cn',talent:1.1,number:9,foot:'r'},seed);
   st.age=27;st.phase='career';st.role='star';st.money=1200;st.ovr=88;st.maxOvr=80;
@@ -90,6 +90,9 @@ R.caps100=rec(36,function(st){st.caps=120;});
 R.earn=rec(37,function(st){st.careerEarnings=12000;});
 var s24=mk(38);s24.trophies=[];for(var i=0;i<22;i++)s24.trophies.push({'name':'某杯冠军','age':s24.age-1,'team':'x'});R.tr22=go(s24);
 var s25=mk(39);R.a15=go(s25,{'assists':18});
+R.g55=go(mk(73),{'goals':55});
+R.a25s=go(mk(74),{'assists':25});
+R.a33s=go(mk(75),{'assists':33});
 /* 连续 3 季 20+（先锁存 20 球档，隔离出连续档） */
 var s26=mk(40,null,null,{_mileG20:1});s26.seasons=[{'age':24,'goals':21},{'age':25,'goals':22},{'age':26,'goals':23}];R.streak=go(s26,{'goals':24});
 /* ── 身份 ── */
@@ -109,8 +112,9 @@ var s56=mk(56,null,null,{_mileBallon3:1,_mileBallonS2:1});
 s56.awards=[{'name':'金球奖','age':s56.age-2},{'name':'金球奖','age':s56.age-1},{'name':'金球奖','age':s56.age}];R.bstreak3=go(s56);
 var s57=mk(57,null,null,{_mileLgBoot:1});s57.awards=[{'name':'德甲金靴','age':s57.age-2},{'name':'德甲金靴','age':s57.age-1},{'name':'德甲金靴','age':s57.age}];R.boot3=go(s57);
 var s57b=mk(57,null,null,{_mileLgBoot:1});s57b.awards=[{'name':'德甲金靴','age':s57b.age-4},{'name':'德甲金靴','age':s57b.age-3},{'name':'德甲金靴','age':s57b.age-2},{'name':'德甲金靴','age':s57b.age-1},{'name':'德甲金靴','age':s57b.age}];R.boot5=go(s57b);
-var s58=mk(58,'cn-sh','csl',{_mileFirstLg:'x'});s58.trophies=[{'name':_lg,'age':s58.age-2,'team':'曼城'},{'name':_lg,'age':s58.age-1,'team':'曼城'},{'name':_lg,'age':s58.age,'team':'曼城'}];R.lgS3=go(s58);
-var s58b=mk(59,'cn-sh','csl',{_mileFirstLg:'x'});s58b.trophies=[];for(var _q=4;_q>=0;_q--)s58b.trophies.push({'name':_lg,'age':s58b.age-_q,'team':'曼城'});R.lgS5=go(s58b);
+var _lgTm=(window.SIM.teamById('cn-sh')||{})['name'];
+var s58=mk(58,'cn-sh','csl',{_mileFirstLg:'x'});s58.trophies=[{'name':_lg,'age':s58.age-2,'team':_lgTm},{'name':_lg,'age':s58.age-1,'team':_lgTm},{'name':_lg,'age':s58.age,'team':_lgTm}];R.lgS3=go(s58);
+var s58b=mk(59,'cn-sh','csl',{_mileFirstLg:'x'});s58b.trophies=[];for(var _q=4;_q>=0;_q--)s58b.trophies.push({'name':_lg,'age':s58b.age-_q,'team':_lgTm});R.lgS5=go(s58b);
 /* ── 更高的生涯纪录阶梯 ── */
 R.g500=rec(60,function(st){st.totals={'apps':0,'goals':520,'assists':0,'cs':0,'ga':0};});
 R.g700=rec(61,function(st){st.totals={'apps':0,'goals':720,'assists':0,'cs':0,'ga':0};});
@@ -125,6 +129,14 @@ R.cs200=rec(69,function(st){st.totals={'apps':0,'goals':0,'assists':0,'cs':220,'
 R.cs300=rec(70,function(st){st.totals={'apps':0,'goals':0,'assists':0,'cs':320,'ga':0};});
 R.tr42=rec(71,function(st){st.trophies=[];for(var i=0;i<42;i++)st.trophies.push({'name':'某杯冠军','age':st.age-1,'team':'x'});});
 R.tr52=rec(72,function(st){st.trophies=[];for(var i=0;i<52;i++)st.trophies.push({'name':'某杯冠军','age':st.age-1,'team':'x'});});
+/* ── 俱乐部里程碑随换队重置 ── */
+var s60=mk(60);
+s60.trophies=[{'name':'欧冠冠军','age':s60.age-1,'team':'曼城'},{'name':'欧冠冠军','age':s60.age,'team':'曼城'}];
+var rA=go(s60);R.clubOld={mq:rA.mq,u1:!!rA.f['_mileFirstUcl'],u2:!!rA.f['_mileUcl2']};
+s60.teamId='rma';s60.leagueId='liga';
+var rB=go(s60);R.clubTrans={mq:rB.mq,u1:!!rB.f['_mileFirstUcl'],u2:!!rB.f['_mileUcl2']};
+s60.trophies=[{'name':'欧冠冠军','age':s60.age,'team':(window.SIM.teamById('rma')||{})['name']}];
+var rC=go(s60);R.clubNew={mq:rC.mq};
 /* ── 同季多命中：只留一条、不占 forceQ、重扫不重复 ── */
 var s30=mk(44);s30.trophies=ucl(s30,[s30.age-4,s30.age-3,s30.age-2,s30.age-1,s30.age]);
 var r30=go(s30);R.queue1={fq:r30.fq,mq:r30.mq};
@@ -238,6 +250,9 @@ def run():
     has('earn', 'mile_earn1e8', '生涯收入过亿')
     has('tr22', 'mile_trophy20', '第20座奖杯')
     has('a15', 'mile_assist15', '单季15助攻')
+    has('g55', 'mile_goals50', '单季50球')
+    has('a25s', 'mile_assist20s', '单季20助攻')
+    has('a33s', 'mile_assist30s', '单季30助攻')
     has('streak', 'mile_streak20', '连续3季20+')
     has('trans', 'mile_transfer1', '首次转会')
     has('clubs3', 'mile_clubs3', '第三家俱乐部')
@@ -270,6 +285,14 @@ def run():
     has('cs300', 'mile_cs300', '生涯300零封')
     has('tr42', 'mile_trophy40', '第40座奖杯')
     has('tr52', 'mile_trophy50', '第50座奖杯')
+    # 俱乐部里程碑随换队重置
+    has('clubOld', 'mile_first_ucl', '旧队首夺欧冠')
+    harness.check(r['clubTrans']['u1'] is False and r['clubTrans']['u2'] is False,
+                  '换队后旧队欧冠锁存未清除: %s' % r['clubTrans'])
+    harness.check('mile_first_ucl' not in r['clubTrans']['mq'] and 'mile_ucl2' not in r['clubTrans']['mq'],
+                  '旧队欧冠里程碑被带到新队: %s' % r['clubTrans']['mq'])
+    harness.check('mile_first_ucl' in r['clubNew']['mq'],
+                  '新队首夺欧冠未重新触发: %s' % r['clubNew'])
     # 同季多命中：只留一条最高优先级 + 不占 forceQ + 重扫不重复
     harness.check(r['queue1']['mq'] == ['mile_first_ucl'],
                   '同季多命中应只留最高优先级一条（首夺欧冠）且不占 forceQ: %s' % r['queue1'])

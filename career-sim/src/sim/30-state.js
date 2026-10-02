@@ -47,6 +47,9 @@ return String(bx)["replace"](/\{club\}/g,by?by["name"]:'球队')["replace"](/\{r
 bz?bz["name"]:'联赛');
 }function aE(){
 for(var bx=aA(),by=aB(a2["age"]),bz=a2["flags"]["_cnCount"]||0x0,bA=a2["flags"]["_evCount"]||0x0,bB=bA>=0x4&&bz/bA>0.45,bC=0x0,
+/* 职业期（不在青训营）不抽 youth 档事件：aB 按年龄把 16-20 也算作 youth，
+   若不修正，青训专属事件（提拔/寄宿/语言课等）会在进入成年队后继续触发。 */
+by=(!bx["inAcadem"+'y']&&"youth"===by?"prime":by),
 bD=0x0;
 bD<a1["length"];
 bD++)"light"===a1[bD]["tone"]&&(bC+=a2["usedEven"+'ts'][a1[bD]['id']]||0x0);

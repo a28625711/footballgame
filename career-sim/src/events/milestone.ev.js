@@ -1001,6 +1001,48 @@ var EVT_milestone=[
     {'label': "办一场小型的展览", 'hint': "名气+，关系+", 'apply': function(){return{'fame':0x8,'guanxi':0x6,'text':"你把这些奖杯借给俱乐部办了一次展览。展厅门口排的队，绕了大楼一整圈。"};}},
     {'label': "只留一座，其余全捐", 'hint': "清白+，关系+", 'apply': function(){return{'clean':0xa,'guanxi':0x8,'text':"你只留了第一座，其余全捐给了各地的青训机构。有人说你傻，你笑了笑。"};}}
   ]
+},
+
+// ---- idx:526 | mile_goals50 | 单赛季五十球 ----
+{
+  'id': "mile_goals50",
+  'title': "单赛季五十球",
+  'icon': '💥',
+  'weight': 0x50,
+  'when': function(p){return p["_mileG50s"]!=null;},
+  'desc': "一个赛季进了五十个球。这个数字已经开始和历史上那些名字并排了，连你自己都要在心里默数一遍。",
+  'options': [
+    {'label': "把进球数写进训练本", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你在训练本第一页写下「五十」，然后在后面画了个箭头，指向更高的地方。"};}},
+    {'label': "说这只是团队的结果", 'hint': "关系+，名气+", 'apply': function(){return{'guanxi':0x8,'fame':0x6,'text':"你在采访里一个个念出了助攻你的队友。第二天，那几个人的身价都涨了。"};}}
+  ]
+},
+
+// ---- idx:527 | mile_assist20s | 单赛季二十助攻 ----
+{
+  'id': "mile_assist20s",
+  'title': "单赛季二十助攻",
+  'icon': '🅰️',
+  'weight': 0x50,
+  'when': function(p){return p["_mileA20s"]!=null;},
+  'desc': "一个赛季送出二十次助攻。进球的人换来换去，喂球的那双脚一直是你。",
+  'options': [
+    {'label': "和锋线去搓一顿", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'text':"你把那几个进球的前锋都请去吃了饭。他们笑说，明年还得靠你这双脚。"};}},
+    {'label': "把助攻集锦发给教练", 'hint': "地位+，能力+", 'apply': function(){return{'roleDelta':0x1,'ovr':0x2,'text':"你剪了一段自己的传球集锦。教练看完，把组织核心的位置彻底交给了你。"};}}
+  ]
+},
+
+// ---- idx:528 | mile_assist30s | 单赛季三十助攻 ----
+{
+  'id': "mile_assist30s",
+  'title': "单赛季三十助攻",
+  'icon': '🎯',
+  'weight': 0x50,
+  'when': function(p){return p["_mileA30s"]!=null;},
+  'desc': "一个赛季三十次助攻。这个数字，很多顶级中场一整个生涯都到不了。",
+  'options': [
+    {'label': "把这个纪录献给中场前辈", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0xa,'clean':0x4,'text':"你把纪录献给了当年教你传球的那个人。他回了四个字：值了，徒弟。"};}},
+    {'label': "把它当成新的起点", 'hint': "能力+，地位+", 'apply': function(){return{'ovr':0x2,'roleDelta':0x1,'text':"你说三十只是一个赛季的答案，问题还有很多个。第二天你第一个到训练场。"};}}
+  ]
 }
 
 ];

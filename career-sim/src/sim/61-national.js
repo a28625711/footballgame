@@ -448,9 +448,9 @@ return tour;
 function _natChampId(rounds){if(!rounds||!rounds.length)return null;var m=rounds[rounds.length-1]["matches"][0x0];if(!m||m["hg"]==null)return null;return (m["pens"]&&m["pens"]["length"]>=2)?(m["pens"][0x0]>=m["pens"][0x1]?m["homeId"]:m["awayId"]):(m["hg"]>=m["ag"]?m["homeId"]:m["awayId"]);}
 function _natAfterKO(bz,tour,stage){
 var _isWC=tour["comp"]==="世界杯",_k=_isWC?"wc":"asia";
-if(stage==="小组赛出局"){aZ(bz,tour["comp"],"小组赛出局");return;}
-if(stage==="冠军"||stage==="亚军"){var _t=_aVPri(_k,0.55,{"comp":tour["comp"],"opp":_finalOpp(tour["rounds"],"中国队"),"_aiCtx":{"t":"nat","comp":tour["comp"],"stage":stage}});if(_t){a2[_isWC?"_natWC":"_natAsia"]=tour;return;}}
-aZ(bz,tour["comp"],stage);
+if(stage==="小组赛出局"){aZ(bz,tour["comp"],"小组赛出局",tour["age"]);return;}
+if(stage==="冠军"||stage==="亚军"){var _t=_aVPri(_k,0.55,{"comp":tour["comp"],"opp":_finalOpp(tour["rounds"],"中国队"),"age":tour["age"],"_aiCtx":{"t":"nat","comp":tour["comp"],"stage":stage}});if(_t){a2[_isWC?"_natWC":"_natAsia"]=tour;return;}}
+aZ(bz,tour["comp"],stage,tour["age"]);
 }
 
 function _natKoBracket(seeds){

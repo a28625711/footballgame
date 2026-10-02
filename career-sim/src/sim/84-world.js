@@ -632,8 +632,8 @@ var _MILE_PRI={'mile_wc':1,'mile_ballon':2,'mile_ballon3':3,'mile_ballon_streak2
 'mile_euro_boot':22,'mile_afcpoy':23,'mile_glove':24,'mile_league_boot':25,'mile_league_mvp':26,
 'mile_boot3':27,'mile_boot5':28,'mile_lg_streak3':29,'mile_lg_streak5':30,'mile_lg_weak':31,
 'mile_goal1000':32,'mile_goal700':33,'mile_goal500':34,'mile_goal300':35,'mile_goal200':36,'mile_goal100':37,
-'mile_goal50':38,'mile_goals40':39,'mile_goals30':40,'mile_goals20':41,'mile_streak20':42,
-'mile_assist300':43,'mile_assist200':44,'mile_assist100':45,'mile_assist15':46,
+'mile_goal50':38,'mile_goals40':39,'mile_goals30':40,'mile_goals20':41,'mile_streak20':42,'mile_goals50':42.5,
+'mile_assist300':43,'mile_assist200':44,'mile_assist100':45,'mile_assist15':46,'mile_assist20s':46.5,'mile_assist30s':46.7,
 'mile_cs300':47,'mile_cs200':48,'mile_cs100':49,
 'mile_apps1000':50,'mile_apps700':51,'mile_apps500':52,'mile_apps300':53,
 'mile_caps200':54,'mile_caps150':55,'mile_caps100':56,'mile_caps50':57,
@@ -643,6 +643,16 @@ var _MILE_PRI={'mile_wc':1,'mile_ballon':2,'mile_ballon3':3,'mile_ballon_streak2
 function _milestoneScan(bz){
   if(!bz||"career"!==a2["phase"]||!a2["teamId"])return;
   var _f=a2["flags"],_age=bz["age"],_aw=a2["awards"]||[],_tr=a2["trophies"]||[],_new=[],_i,_nm;
+  var _clubId=a2["teamId"],_clubT=aj(_clubId),_clubName=_clubT?_clubT["name"]:null;
+  /* 俱乐部成就类里程碑：换队后从新俱乐部重新算（清掉锁存与 usedEvents，让它们能再次触发；
+     统计侧也只算当前俱乐部期间拿到的冠军） */
+  if(_f["_mileClubSeen"]!=null&&_f["_mileClubSeen"]!==_clubId){
+    var _CM={'mile_first_ucl':"_mileFirstUcl",'mile_ucl2':"_mileUcl2",'mile_ucl3':"_mileUclTeam",'mile_ucl5':"_mileUcl5",'mile_first_league':"_mileFirstLg",'mile_lg_streak3':"_mileLgS3",'mile_lg_streak5':"_mileLgS5"};
+    var _ue=a2["usedEven"+"ts"]||{};
+    for(var _cm in _CM){delete _f[_CM[_cm]];if(_ue[_cm]!=null)delete _ue[_cm];}
+  }
+  _f["_mileClubSeen"]=_clubId;
+  a2["_mileAge"]=_age;   /* 本季里程碑所属赛季年龄（结算后 a2.age 已 +1，记录时用它纠偏） */
   var _thisAw=[],_thisTr=[];
   for(_i=0x0;_i<_aw["length"];_i++)if(_aw[_i]["age"]===_age)_thisAw.push(_aw[_i]["name"]);
   for(_i=0x0;_i<_tr["length"];_i++)if(_tr[_i]["age"]===_age)_thisTr.push(_tr[_i]["name"]);
@@ -681,12 +691,14 @@ function _milestoneScan(bz){
   /* ── 本季奖杯分类 → 首座各类 ── */
   var _cLg=null,_cCont=null,_cCup=null,_cSup=null,_cYouth=null,_hasUcl=!0x1,_hasWC=!0x1;
   for(_i=0x0;_i<_thisTr["length"];_i++){_nm=_thisTr[_i];
-    if(/欧冠/["test"](_nm))_hasUcl=!0x0;if(/世界杯冠军/["test"](_nm))_hasWC=!0x0;
+    if(/世界杯冠军/["test"](_nm))_hasWC=!0x0;
     if(_cLg==null&&_S['lg'][_nm])_cLg=_nm;
     if(_cCont==null&&_S['cont'][_nm])_cCont=_nm;
     if(_cCup==null&&_S['cup'][_nm])_cCup=_nm;
     if(_cSup==null&&_S['sup'][_nm])_cSup=_nm;
     if(_cYouth==null&&_S['youth'][_nm])_cYouth=_nm;}
+  /* 本季欧冠须是"当前俱乐部"拿的（换队后旧队那座不算） */
+  for(_i=0x0;_i<_tr["length"];_i++){var _ttl=_tr[_i];if(_ttl["age"]===_age&&/欧冠/["test"](_ttl["name"])&&(!_clubName||_ttl["team"]===_clubName)){_hasUcl=!0x0;break;}}
   if(_thisTr["length"])_once("mile_first_trophy","_mileFirstTr",_thisTr[0x0]);
   if(_cLg)_once("mile_first_league","_mileFirstLg",_cLg);
   if(_cCont)_once("mile_first_cont","_mileFirstCont",_cCont);
@@ -698,7 +710,7 @@ function _milestoneScan(bz){
   if(_cLg&&_hasUcl&&_thisBallon)_once("mile_sweep","_mileSweep",0x1);
   if(_cLg&&_cCup&&_cSup)_once("mile_dom_treble","_mileDomTr",0x1);
   /* ── 欧冠累计/连庄 ── */
-  var _u=[];for(_i=0x0;_i<_tr["length"];_i++)if(/欧冠/["test"](_tr[_i]["name"]))_u.push(_tr[_i]);
+  var _u=[];for(_i=0x0;_i<_tr["length"];_i++)if(/欧冠/["test"](_tr[_i]["name"])&&(!_clubName||_tr[_i]["team"]===_clubName))_u.push(_tr[_i]);
   _u["sort"](function(x,y){return x["age"]-y["age"];});
   var _un=_u["length"];
   if(_hasUcl&&_un>=0x2)_once("mile_ucl2","_mileUcl2",0x1);
@@ -727,12 +739,12 @@ function _milestoneScan(bz){
   _ladder(_bootN,[[0x3,"mile_boot3","_mileBootN3"],[0x5,"mile_boot5","_mileBootN5"]]);
   var _lgNm=null,_lgd=ak(bz["leagueId"]);if(_lgd)_lgNm=_lgd["name"];
   var _lgStk=0x0;if(_lgNm){for(var _ca=_age;_ca>=_age-0x9;_ca--){var _hit=!0x1;
-    for(_i=0x0;_i<_tr["length"];_i++)if(_tr[_i]["age"]===_ca&&_tr[_i]["name"]===_lgNm+"冠军"){_hit=!0x0;break;}
+    for(_i=0x0;_i<_tr["length"];_i++)if(_tr[_i]["age"]===_ca&&_tr[_i]["name"]===_lgNm+"冠军"&&(!_clubName||_tr[_i]["team"]===_clubName)){_hit=!0x0;break;}
     if(!_hit)break;_lgStk++;}}
   _ladder(_lgStk,[[0x3,"mile_lg_streak3","_mileLgS3"],[0x5,"mile_lg_streak5","_mileLgS5"]]);
   /* ── 纪录阶梯（同季跨多档只播最高一档） ── */
-  _ladder(bz["goals"]||0x0,[[0x14,"mile_goals20","_mileG20"],[0x1e,"mile_goals30","_mileG30"],[0x28,"mile_goals40","_mileG40"]]);
-  _ladder(bz["assists"]||0x0,[[0xf,"mile_assist15","_mileA15"]]);
+  _ladder(bz["goals"]||0x0,[[0x14,"mile_goals20","_mileG20"],[0x1e,"mile_goals30","_mileG30"],[0x28,"mile_goals40","_mileG40"],[0x32,"mile_goals50","_mileG50s"]]);
+  _ladder(bz["assists"]||0x0,[[0xf,"mile_assist15","_mileA15"],[0x14,"mile_assist20s","_mileA20s"],[0x1e,"mile_assist30s","_mileA30s"]]);
   _ladder(a2["totals"]["goals"]||0x0,[[0x32,"mile_goal50","_mileG50"],[0x64,"mile_goal100","_mileG100"],[0xc8,"mile_goal200","_mileG200"],[0x12c,"mile_goal300","_mileG300"],[0x1f4,"mile_goal500","_mileG500"],[0x2bc,"mile_goal700","_mileG700"],[0x3e8,"mile_goal1000","_mileG1000"]]);
   _ladder(a2["totals"]["assists"]||0x0,[[0x64,"mile_assist100","_mileA100"],[0xc8,"mile_assist200","_mileA200"],[0x12c,"mile_assist300","_mileA300"]]);
   _ladder(a2["totals"]['cs']||0x0,[[0x64,"mile_cs100","_mileCS100"],[0xc8,"mile_cs200","_mileCS200"],[0x12c,"mile_cs300","_mileCS300"]]);
@@ -778,7 +790,7 @@ function _fireMilestone(){
     if(_def["when"]&&!_def["when"](aA()))continue;
     _q["splice"](_i,0x1);a2["_mileFired"]=_st;
     _matOpts(_def);_markEvent(_id,_def);
-    a2["pending"]={'type':"forced",'eventId':_id,'descText':_descOf(_def)};
+    a2["pending"]={'type':"forced",'eventId':_id,'descText':_descOf(_def),'age':(a2["_mileAge"]!=null?a2["_mileAge"]:a2["age"])};
     return!0x0;
   }
   return!0x1;
@@ -786,6 +798,7 @@ function _fireMilestone(){
 /* 赛季报告与里程碑的先后：里程碑（本季最高优先级、无队列）先播，报告随后。
    这样里程碑只可能出现在"它发生的那个赛季"，不会延后到以后。 */
 function _emitReportOrMilestone(_recs){
+  if(_recs==null||typeof _recs["length"]!=="number")return;   /* 非赛季数组（如 aW 的中途返回）不当作报告 */
   a2["_mileRepPending"]=_recs;
   if(_fireMilestone())return;              /* 里程碑先播；_mileRepPending 留到它结算后再出报告 */
   a2["_mileRepPending"]=null;
