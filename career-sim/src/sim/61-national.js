@@ -38,7 +38,7 @@ A.gf+=hg;A.ga+=ag;B.gf+=ag;B.ga+=hg;
 if(hg>ag){A.w++;A.pts+=3;B.l++;}else if(ag>hg){B.w++;B.pts+=3;A.l++;}else{A.d++;B.d++;A.pts++;B.pts++;}
 }
 var arr=[];for(var k in byId)arr.push(byId[k]);
-arr.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;return(y.gf-y.ga)-(x.gf-x.ga);});
+(function(){var _hm=_h2hIdx(matches);arr.sort(_tbCmp("std",_hm));})();
 return{standings:arr,matches:matches};
 }
 function _simGroupRecompute(sim,skipIdx){
@@ -46,7 +46,7 @@ var byId={};for(var k=0;k<sim.standings.length;k++){var r=sim.standings[k];byId[
 for(var m=0;m<sim.matches.length;m++){if(m===skipIdx)continue;var mm=sim.matches[m];var A=byId[mm.homeId],B=byId[mm.awayId];if(!A||!B)continue;
 A.gf+=mm.hg;A.ga+=mm.ag;B.gf+=mm.ag;B.ga+=mm.hg;if(mm.hg>mm.ag){A.w++;A.pts+=3;B.l++;}else if(mm.ag>mm.hg){B.w++;B.pts+=3;A.l++;}else{A.d++;B.d++;A.pts++;B.pts++;}}
 var arr=[];for(var kk in byId)arr.push(byId[kk]);
-arr.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;return (y.gf-y.ga)-(x.gf-x.ga);});
+(function(){var _hm=_h2hIdx(sim["matches"]);arr.sort(_tbCmp("std",_hm));})();
 sim.standings=arr;return arr;
 }
 function _natDecider(standings,playerId){
@@ -219,7 +219,7 @@ else if(m["hg"]<m["ag"]){a["w"]++;a["pts"]+=0x3;h["l"]++;}
 else{h["d"]++;a["d"]++;h["pts"]+=0x1;a["pts"]+=0x1;}
 });
 var arr=[];for(var k in st)if(st[k])arr["push"](st[k]);
-arr["sort"](function(a,b){return b["pts"]-a["pts"]||(b["gf"]-b["ga"])-(a["gf"]-a["ga"]);});
+(function(){var _hm=_h2hIdx(matches);arr["sort"](_tbCmp("std",_hm));})();
 return arr;
 }
 function _runFriendlies(_fmin,_fmax){
@@ -451,6 +451,34 @@ var _isWC=tour["comp"]==="世界杯",_k=_isWC?"wc":"asia";
 if(stage==="小组赛出局"){aZ(bz,tour["comp"],"小组赛出局",tour["age"]);return;}
 if(stage==="冠军"||stage==="亚军"){var _t=_aVPri(_k,0.55,{"comp":tour["comp"],"opp":_finalOpp(tour["rounds"],"中国队"),"age":tour["age"],"_aiCtx":{"t":"nat","comp":tour["comp"],"stage":stage}});if(_t){a2[_isWC?"_natWC":"_natAsia"]=tour;return;}}
 aZ(bz,tour["comp"],stage,tour["age"]);
+}
+
+/* 世界杯/亚洲杯决赛统一记账（唯一出口）：
+   tag='wc'|'asia'，tour 为挂起赛事对象，win 胜否，hg/ag/pens 比分。
+   负责：stage/比分回填、b0 记账(幂等)、natForm、natFx 签表、tournaments 回写并清除挂起。 */
+function _natFinalBook(tag,tour,seasonRec,win,hg,ag,pens,cmpName){
+var _comp=cmpName||(tag==="wc"?"世界杯":"亚洲杯");
+var _stage=win?"冠军":"亚军";
+tour["stage"]=_stage;
+_natFinalScore(tour,"中国队",hg,ag,pens);
+/* 决赛大场面可能在当季记录尚未入列时挂起（recIdx 越界→bZ null）：回退到 _curBz，
+   保证冠军也写入本季 season.trophies（奖项/国家队页签的数据源） */
+b0(seasonRec||a2["_curBz"],_comp,_stage,tour["age"]!=null?tour["age"]:a2["age"]);
+a2["natForm"][tag]=tag==="wc"?(win?0x4:0x3):(win?0x3:0x2);
+var _fr=tour["rounds"]&&tour["rounds"]["length"]?tour["rounds"][tour["rounds"]["length"]-0x1]:null;
+if(_fr)_fr["won"]=win;
+var _pw=tour["path"]&&tour["path"]["length"]?tour["path"][tour["path"]["length"]-0x1]:null;
+if(_pw){_pw["won"]=win;_pw["score"]=(pens&&pens["length"]>=2)?(hg+"-"+ag+" (点球 "+pens[0x0]+"-"+pens[0x1]+")"):(hg+"-"+ag);}
+if(a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"][tag]){
+  a2["natFx"]["data"][tag]["rounds"]=tour["rounds"];
+  var _fo=tour["rounds"]&&tour["rounds"]["length"]?tour["rounds"][tour["rounds"]["length"]-0x1]["matches"]:null;
+  if(_fo&&_fo["length"])a2["natFx"]["data"][tag]["champion"]=win?"n_chn":(_fo[0x0]["homeId"]==='n_chn'?_fo[0x0]["awayId"]:_fo[0x0]["homeId"]);
+}
+var _ti=-0x1,_q;
+for(_q=0x0;_q<a2["tournaments"]["length"];_q++){if(a2["tournaments"][_q]===tour){_ti=_q;break;}}
+if(_ti<0)for(_q=0x0;_q<a2["tournaments"]["length"];_q++)if(a2["tournaments"][_q]["comp"]===_comp&&a2["tournaments"][_q]["age"]===tour["age"]){_ti=_q;break;}
+if(_ti>=0)a2["tournaments"][_ti]=tour;
+delete a2[tag==="wc"?"_natWC":"_natAsia"];
 }
 
 function _natKoBracket(seeds){

@@ -799,8 +799,10 @@ function _fireMilestone(){
    这样里程碑只可能出现在"它发生的那个赛季"，不会延后到以后。 */
 function _emitReportOrMilestone(_recs){
   if(_recs==null||typeof _recs["length"]!=="number")return;   /* 非赛季数组（如 aW 的中途返回）不当作报告 */
+  if(_recs["_rep"+'Emitted'])return;      /* 幂等：同一批赛季记录只发一次报告（多季+里程碑重发防重） */
   a2["_mileRepPending"]=_recs;
   if(_fireMilestone())return;              /* 里程碑先播；_mileRepPending 留到它结算后再出报告 */
+  _recs["_rep"+'Emitted']=!0x0;
   a2["_mileRepPending"]=null;
   a2["_mileRep"]=(a2["_mileRep"]||0x0)+0x1;
   a2["pending"]={'type':"report",'recs':_recs};

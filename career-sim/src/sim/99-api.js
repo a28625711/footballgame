@@ -268,7 +268,7 @@ if(!_wF&&a2["forceQ"]&&a2["forceQ"]["length"]&&_fireForced())return;
 if(!_wF&&!a2["flags"]["_double"]&&ad()<0.35){var by=aE();
 if(by){_markEvent(by['id'],by);a2["flags"]["_double"]=!0x0;a2["pending"]={'type':"random",'eventId':by['id'],'descText':_descOf(by)};return;}
 }if(_fireMilestone())return;return "youth"===a2["phase"]?void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk()):void bl();
-}if("report"===bx["type"])return a2["pending"]=null,(a2["bigQ"]&&a2["bigQ"]["length"]?0:a2["_dispAge"]=null),void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
+}if("report"===bx["type"])return a2["pending"]=null,void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
 
 
 
@@ -282,7 +282,7 @@ return void(bz&&_emitReportOrMilestone(bz));
 
 void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
 }}else bk();
-},'resolveEvent':bs,'commitEvent':bw,'goSummary':br,'endingContext':function(){return bq();},'optHint':function(bx,by){var bz=(_matOpts(bx)||[])[by];
+},'resolveEvent':bs,'commitEvent':bw,'goSummary':br,'endingContext':function(){return bq();},'tbSort':function(rows,fx,mode){rows.sort(_tbCmp(mode||'std',_h2hIdx(fx)));return rows;},'optHint':function(bx,by){var bz=(_matOpts(bx)||[])[by];
 if(!bz)return'';
 if("function"!=typeof bz["hint"])return bz["hint"]||'';
 var bA=aA();

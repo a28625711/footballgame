@@ -41,7 +41,7 @@ fx[r+leg*half].push([hh,aa,_hg,_ag]);
 }
 var out=[];
 for(var k in tbl)out.push(tbl[k]);
-out.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;if((y.gf-y.ga)!==(x.gf-x.ga))return(y.gf-y.ga)-(x.gf-x.ga);if(y.gf!==x.gf)return y.gf-x.gf;return x.i<y.i?-1:1;});
+out.sort(_tbCmp(TIEBR[lgId]||"std",_h2hIdx(fx)));
 for(i=0;i<out.length;i++)out[i]["pos"]=i+1;
 return{'table':out,'fx':fx};
 }
@@ -105,7 +105,7 @@ else{row.d++;row.pts++;}
 }
 function _tblResort(lg){
 var rows=a2["lgTables"][lg];
-rows.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;if((y.gf-y.ga)!==(x.gf-x.ga))return(y.gf-y.ga)-(x.gf-x.ga);if(y.gf!==x.gf)return y.gf-x.gf;return x.i<y.i?-1:1;});
+rows.sort(_tbCmp(TIEBR[lg]||"std",_h2hIdx(a2["lgFx"]&&a2["lgFx"]["data"]?a2["lgFx"]["data"][lg]:null)));
 for(var i=0;i<rows.length;i++)rows[i]["pos"]=i+1;
 var o=[];for(i=0;i<rows.length;i++)o.push(rows[i]["i"]);
 a2["lastTables"][lg]=o;

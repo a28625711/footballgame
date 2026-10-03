@@ -622,7 +622,7 @@ if(!bW){var bZ=ai(),c0=au["pending"]&&("academy"===au["pending"]["type"]||"trans
 
 
 c1=au["pending"]&&"youth_pa"+'th'===au["pending"]["type"];
-clubBody+=b8("now",'<span class="age-chip">'+(au["_dispAge"]!=null?au["_dispAge"]:au["age"])+'</span>','<span class="tl-club">'+(bZ&&!c0?aT(bZ):'')+('<span class="tl-club-name">')+(c1?"选青训营…":c0?"选择俱乐部…":"youth"===au["phase"]?b7()||'青训':ax(bZ?bZ["name"]:"自由身"))+'</span></span>',
+clubBody+=b8("now",'<span class="age-chip">'+au["age"]+'</span>','<span class="tl-club">'+(bZ&&!c0?aT(bZ):'')+('<span class="tl-club-name">')+(c1?"选青训营…":c0?"选择俱乐部…":"youth"===au["phase"]?b7()||'青训':ax(bZ?bZ["name"]:"自由身"))+'</span></span>',
 '<span class="r"><span class="ovr-pill '+b5(au["ovr"])+'">'+Math["round"](au["ovr"])+'</span></span>','','','');
 }
 clubBody+='</div></div>';

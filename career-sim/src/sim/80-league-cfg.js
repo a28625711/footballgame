@@ -89,3 +89,29 @@ var b=champ?v*_devChampM(tid):v;
 if(champ){a2["_titWin"]=a2["_titWin"]||{};a2["_titWin"][tid]=1;}
 a2["_devBonus"][tid]=(a2["_devBonus"][tid]||0)+b;
 }
+/* ── 同分排序（与现实规则对齐，只对主要联赛差分，其余走通用链） ──
+   "std"（FIFA/英超/德甲/法甲等）：积分→净胜→进球→相互战绩(小循环积分/净胜/进球)→id(抽签位)
+   "h2h"（西甲/意甲/葡超/中超等现实使用相互战绩优先）：积分→相互战绩(积分/净胜/进球)→净胜→进球→id
+   国家队小组赛（世预/亚洲杯/世界杯）一律 "std"（FIFA 2018 规则）。
+   h2h 索引支持两种数据：联赛 fx（嵌套轮次 [h,a,hg,ag]，撤退比分 hg<0 跳过）与小组 matches 
+   （{homeId,awayId,hg,ag} 对象），递归遍历任意嵌套。 */
+var TIEBR={'liga':'h2h','seri':'h2h','pri':'h2h','csl':'h2h'};
+function _h2hOne(m,h,a,hg,ag){var k=h+"~"+a,e=m[k];if(!e)e=m[k]=[0x0,0x0];e[0x0]+=hg;e[0x1]+=ag;}
+function _h2hRow(m,f){
+if(f==null||typeof f!=="object")return;
+if(f["length"]>=0x4&&typeof f[0x0]==="string"&&typeof f[0x2]==="number"){if(f[0x2]<0x0)return;_h2hOne(m,f[0x0],f[0x1],f[0x2],f[0x3]);return;}
+if(f["homeId"]!=null&&f["hg"]!=null){_h2hOne(m,f["homeId"],f["awayId"],f["hg"],f["ag"]);return;}
+if(f["length"]){for(var _i=0x0;_i<f["length"];_i++)_h2hRow(m,f[_i]);}
+}
+function _h2hIdx(fx){var m={};if(fx)_h2hRow(m,fx);return m;}
+function _h2hOf(m,ha,aa){var e=m[ha+"~"+aa]||[0x0,0x0],f=m[aa+"~"+ha]||[0x0,0x0];return{'pts':(e[0x0]>e[0x1]?0x3:(e[0x0]<e[0x1]?0x0:0x1))+(f[0x1]>f[0x0]?0x3:(f[0x1]<f[0x0]?0x0:0x1)),'gd':(e[0x0]-e[0x1])+(f[0x1]-f[0x0]),'gf':e[0x0]+f[0x1]};}
+function _tbCmp(mode,m){return function(x,y){
+if(y["pts"]!==x["pts"])return y["pts"]-x["pts"];
+var A,B;
+if(mode==="h2h"){A=_h2hOf(m,x["i"],y["i"]);B=_h2hOf(m,y["i"],x["i"]);
+if(A["pts"]!==B["pts"])return B["pts"]-A["pts"];if(A["gd"]!==B["gd"])return B["gd"]-A["gd"];if(A["gf"]!==B["gf"])return B["gf"]-A["gf"];}
+if((y["gf"]-y["ga"])!==(x["gf"]-x["ga"]))return(y["gf"]-y["ga"])-(x["gf"]-x["ga"]);
+if(y["gf"]!==x["gf"])return y["gf"]-x["gf"];
+if(mode!=="h2h"){A=_h2hOf(m,x["i"],y["i"]);B=_h2hOf(m,y["i"],x["i"]);
+if(A["pts"]!==B["pts"])return B["pts"]-A["pts"];if(A["gd"]!==B["gd"])return B["gd"]-A["gd"];if(A["gf"]!==B["gf"])return B["gf"]-A["gf"];}
+return x["i"]<y["i"]?-0x1:0x1;};}

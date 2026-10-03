@@ -977,7 +977,7 @@ A.gf+=hg;A.ga+=ag;B.gf+=ag;B.ga+=hg;
 if(hg>ag){A.w++;A.pts+=3;B.l++;}else if(ag>hg){B.w++;B.pts+=3;A.l++;}else{A.d++;B.d++;A.pts++;B.pts++;}
 }
 var arr=[];for(var k in byId)arr.push(byId[k]);
-arr.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;return(y.gf-y.ga)-(x.gf-x.ga);});
+(function(){var _hm=_h2hIdx(matches);arr.sort(_tbCmp("std",_hm));})();
 return{standings:arr,matches:matches};
 }
 function _simGroupRecompute(sim,skipIdx){
@@ -985,7 +985,7 @@ var byId={};for(var k=0;k<sim.standings.length;k++){var r=sim.standings[k];byId[
 for(var m=0;m<sim.matches.length;m++){if(m===skipIdx)continue;var mm=sim.matches[m];var A=byId[mm.homeId],B=byId[mm.awayId];if(!A||!B)continue;
 A.gf+=mm.hg;A.ga+=mm.ag;B.gf+=mm.ag;B.ga+=mm.hg;if(mm.hg>mm.ag){A.w++;A.pts+=3;B.l++;}else if(mm.ag>mm.hg){B.w++;B.pts+=3;A.l++;}else{A.d++;B.d++;A.pts++;B.pts++;}}
 var arr=[];for(var kk in byId)arr.push(byId[kk]);
-arr.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;return (y.gf-y.ga)-(x.gf-x.ga);});
+(function(){var _hm=_h2hIdx(sim["matches"]);arr.sort(_tbCmp("std",_hm));})();
 sim.standings=arr;return arr;
 }
 function _natDecider(standings,playerId){
@@ -1158,7 +1158,7 @@ else if(m["hg"]<m["ag"]){a["w"]++;a["pts"]+=0x3;h["l"]++;}
 else{h["d"]++;a["d"]++;h["pts"]+=0x1;a["pts"]+=0x1;}
 });
 var arr=[];for(var k in st)if(st[k])arr["push"](st[k]);
-arr["sort"](function(a,b){return b["pts"]-a["pts"]||(b["gf"]-b["ga"])-(a["gf"]-a["ga"]);});
+(function(){var _hm=_h2hIdx(matches);arr["sort"](_tbCmp("std",_hm));})();
 return arr;
 }
 function _runFriendlies(_fmin,_fmax){
@@ -1390,6 +1390,34 @@ var _isWC=tour["comp"]==="世界杯",_k=_isWC?"wc":"asia";
 if(stage==="小组赛出局"){aZ(bz,tour["comp"],"小组赛出局",tour["age"]);return;}
 if(stage==="冠军"||stage==="亚军"){var _t=_aVPri(_k,0.55,{"comp":tour["comp"],"opp":_finalOpp(tour["rounds"],"中国队"),"age":tour["age"],"_aiCtx":{"t":"nat","comp":tour["comp"],"stage":stage}});if(_t){a2[_isWC?"_natWC":"_natAsia"]=tour;return;}}
 aZ(bz,tour["comp"],stage,tour["age"]);
+}
+
+/* 世界杯/亚洲杯决赛统一记账（唯一出口）：
+   tag='wc'|'asia'，tour 为挂起赛事对象，win 胜否，hg/ag/pens 比分。
+   负责：stage/比分回填、b0 记账(幂等)、natForm、natFx 签表、tournaments 回写并清除挂起。 */
+function _natFinalBook(tag,tour,seasonRec,win,hg,ag,pens,cmpName){
+var _comp=cmpName||(tag==="wc"?"世界杯":"亚洲杯");
+var _stage=win?"冠军":"亚军";
+tour["stage"]=_stage;
+_natFinalScore(tour,"中国队",hg,ag,pens);
+/* 决赛大场面可能在当季记录尚未入列时挂起（recIdx 越界→bZ null）：回退到 _curBz，
+   保证冠军也写入本季 season.trophies（奖项/国家队页签的数据源） */
+b0(seasonRec||a2["_curBz"],_comp,_stage,tour["age"]!=null?tour["age"]:a2["age"]);
+a2["natForm"][tag]=tag==="wc"?(win?0x4:0x3):(win?0x3:0x2);
+var _fr=tour["rounds"]&&tour["rounds"]["length"]?tour["rounds"][tour["rounds"]["length"]-0x1]:null;
+if(_fr)_fr["won"]=win;
+var _pw=tour["path"]&&tour["path"]["length"]?tour["path"][tour["path"]["length"]-0x1]:null;
+if(_pw){_pw["won"]=win;_pw["score"]=(pens&&pens["length"]>=2)?(hg+"-"+ag+" (点球 "+pens[0x0]+"-"+pens[0x1]+")"):(hg+"-"+ag);}
+if(a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"][tag]){
+  a2["natFx"]["data"][tag]["rounds"]=tour["rounds"];
+  var _fo=tour["rounds"]&&tour["rounds"]["length"]?tour["rounds"][tour["rounds"]["length"]-0x1]["matches"]:null;
+  if(_fo&&_fo["length"])a2["natFx"]["data"][tag]["champion"]=win?"n_chn":(_fo[0x0]["homeId"]==='n_chn'?_fo[0x0]["awayId"]:_fo[0x0]["homeId"]);
+}
+var _ti=-0x1,_q;
+for(_q=0x0;_q<a2["tournaments"]["length"];_q++){if(a2["tournaments"][_q]===tour){_ti=_q;break;}}
+if(_ti<0)for(_q=0x0;_q<a2["tournaments"]["length"];_q++)if(a2["tournaments"][_q]["comp"]===_comp&&a2["tournaments"][_q]["age"]===tour["age"]){_ti=_q;break;}
+if(_ti>=0)a2["tournaments"][_ti]=tour;
+delete a2[tag==="wc"?"_natWC":"_natAsia"];
 }
 
 function _natKoBracket(seeds){
@@ -1731,7 +1759,7 @@ if(meW){
    必须用 _curBz：被让位时本季赛季记录还没 push 进 seasons，取 length-1 会写到上一季。 */
 var _cz2=a2["_curBz"]||a2["seasons"][a2["seasons"]["length"]-0x1];
 if(_cz2){_cz2["trophies"]=_cz2["trophies"]||[];if(_cz2["trophies"]["indexOf"](_cr["comp"]+'冠军')<0x0)_cz2["trophies"]["push"](_cr["comp"]+'冠军');}
-a2["trophies"]["push"]({'name':_cr["comp"]+'冠军','age':(_cr["age"]!=null?_cr["age"]:a2["age"]),'team':(aj(a2["teamId"])||{"name":''})["name"]});
+var _tn1=_cr["comp"]+'冠军',_ta1=(_cr["age"]!=null?_cr["age"]:a2["age"]),_dup1=!0x1;for(var _ti1=0x0;_ti1<a2["trophies"]["length"];_ti1++)if(a2["trophies"][_ti1]["name"]===_tn1&&a2["trophies"][_ti1]["age"]===_ta1){_dup1=!0x0;break;}if(!_dup1)a2["trophies"]["push"]({'name':_tn1,'age':_ta1,'team':(aj(a2["teamId"])||{"name":''})["name"]});
 }
 a2["contHist"]=a2["contHist"]||[];
 a2["contHist"]["push"]({'age':(_cr["age"]!=null?_cr["age"]:a2["age"]),'comp':c["tag"],'tid':_tie["w"]});
@@ -2303,8 +2331,8 @@ bs=_bmOppStr(bI);
 
 c0=[];
   bZ&&bZ["apps"]>0x0&&(
-  ('wc'===bI["kind"]||"asia"===bI["kind"])&&!bI["_grpWC"]?(b0(bZ,bI["comp"],bM?'冠军':'亚军',bI["age"]),'wc'===bI["kind"]?a2["natForm"]["wc"]=bM?0x4:0x3:a2["natForm"]["asia"]=bM?0x3:0x2):"cont"===bI["kind"]&&bM?(bZ["trophies"]["push"](bI["comp"]+'冠军'),a2["trophies"]["push"]({'name':bI["comp"]+'冠军','age':bI["age"],'team':bI["team"]||(aj(a2["teamId"])||{"name":''})["name"]})):"promo"===bI["kind"]&&bM?(_moveTeam(bI["teamId"],am[bI["fromLeag"+'ue']],!0x0,0x1),bZ["move"]='升上'+ak(am[bI["fromLeag"+'ue']])["name"]):"drop"!==bI["kind"]||bM||(_moveTeam(bI["teamId"],ao[bI["fromLeag"+'ue']],!0x1,0x1),bZ["move"]='降入'+ak(ao[bI["fromLeag"+'ue']])["name"]),bI["counterTid"]&&!bM&&_moveTeam(bI["counterTid"],bI["counterTo"],!0x0,0x2));
-  if(a2["_natWC"]&&a2["_natWC"]["phase"]==="group"){var _gw=a2["_natWC"];var _gi=_gw["_lastIdx"],_gm=_gw["_gsim"]["matches"][_gi];if(_gm["homeId"]==='n_chn'){_gm["hg"]=bN;_gm["ag"]=bO;}else{_gm["hg"]=bO;_gm["ag"]=bN;}var _gr=_natResolveComp("wc",_gw["_team"],_gw);a2["natForm"]["wc"]=_natFormVal(_gr["stage"],"wc");if(a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"]["wc"]){a2["natFx"]["data"]["wc"]["rounds"]=_gr["rounds"];a2["natFx"]["data"]["wc"]["groups"]=(_gr["allGroups"]||[]).map(function(st,gi2){return{'name':'第'+(gi2+1)+'组','standings':st};});var _cid=_natChampId(_gr["rounds"]);if(_cid)a2["natFx"]["data"]["wc"]["champion"]=_cid;}if(_gr["stage"]==="冠军"||_gr["stage"]==="亚军"){_gw["phase"]="final";a2["_natGrpToFinal"]=!0x0;}else{aZ(bZ,'世界杯',_gr["stage"],_gw["age"]);delete a2["_natWC"];}}else if(a2["_natWC"]){var _tw=a2["_natWC"];_tw["stage"]=bM?'冠军':'亚军';_natFinalScore(_tw,"中国队",bN,bO,bS);b0(bZ,'世界杯',_tw["stage"],_tw["age"]);var _frw=_tw["rounds"]&&_tw["rounds"]["length"]?_tw["rounds"][_tw["rounds"]["length"]-0x1]:null;if(_frw)_frw["won"]=bM;var _pw=_tw["path"]&&_tw["path"]["length"]?_tw["path"][_tw["path"]["length"]-0x1]:null;if(_pw){_pw["won"]=bM;var _ps2=(bS&&bS["length"]>=2)?(bN+"-"+bO+" (点球 "+bS[0x0]+"-"+bS[0x1]+")"):(bN+"-"+bO);_pw["score"]=_ps2;}a2["natForm"]["wc"]=bM?0x4:0x3;if(a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"]["wc"])a2["natFx"]["data"]["wc"]["rounds"]=_tw["rounds"];var _foW=_tw["rounds"]&&_tw["rounds"]["length"]?_tw["rounds"][_tw["rounds"]["length"]-0x1]["matches"]:null;if(_foW&&_foW["length"]&&a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"]["wc"])a2["natFx"]["data"]["wc"]["champion"]=bM?'n_chn':(_foW[0x0]["homeId"]==='n_chn'?_foW[0x0]["awayId"]:_foW[0x0]["homeId"]);var _trI=-0x1;for(var _tq=0;_tq<a2["tournaments"]["length"];_tq++){if(a2["tournaments"][_tq]===_tw){_trI=_tq;break;}}if(_trI<0)for(_tq=0;_tq<a2["tournaments"]["length"];_tq++)if(a2["tournaments"][_tq]["comp"]==="\u4e16\u754c\u676f"&&a2["tournaments"][_tq]["age"]===bI["age"]){_trI=_tq;break;}if(_trI>=0)a2["tournaments"][_trI]=_tw;delete a2["_natWC"];}if(a2["_natAsia"]){var _ta=a2["_natAsia"];_ta["stage"]=bM?'冠军':'亚军';_natFinalScore(_ta,"中国队",bN,bO,bS);b0(bZ,'亚洲杯',_ta["stage"],_ta["age"]);var _fra=_ta["rounds"]&&_ta["rounds"]["length"]?_ta["rounds"][_ta["rounds"]["length"]-0x1]:null;if(_fra)_fra["won"]=bM;var _pa2=_ta["path"]&&_ta["path"]["length"]?_ta["path"][_ta["path"]["length"]-0x1]:null;if(_pa2){_pa2["won"]=bM;var _ps3=(bS&&bS["length"]>=2)?(bN+"-"+bO+" (点球 "+bS[0x0]+"-"+bS[0x1]+")"):(bN+"-"+bO);_pa2["score"]=_ps3;}a2["natForm"]["asia"]=bM?0x3:0x2;if(a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"]["asia"])a2["natFx"]["data"]["asia"]["rounds"]=_ta["rounds"];var _foA=_ta["rounds"]&&_ta["rounds"]["length"]?_ta["rounds"][_ta["rounds"]["length"]-0x1]["matches"]:null;if(_foA&&_foA["length"]&&a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"]["asia"])a2["natFx"]["data"]["asia"]["champion"]=bM?'n_chn':(_foA[0x0]["homeId"]==='n_chn'?_foA[0x0]["awayId"]:_foA[0x0]["homeId"]);var _tq2=-0x1;for(var _tq3=0;_tq3<a2["tournaments"]["length"];_tq3++){if(a2["tournaments"][_tq3]===_ta){_tq2=_tq3;break;}}if(_tq2<0)for(_tq3=0;_tq3<a2["tournaments"]["length"];_tq3++)if(a2["tournaments"][_tq3]["comp"]==="\u4e9a\u6d32\u676f"&&a2["tournaments"][_tq3]["age"]===bI["age"]){_tq2=_tq3;break;}if(_tq2>=0)a2["tournaments"][_tq2]=_ta;delete a2["_natAsia"];}if(a2["_contRun"]){var _cr3=a2["_contRun"];_cr3["result"]=bM?"冠军":"止步决赛";var _fr3=_cr3["rounds"][_cr3["rounds"]["length"]-0x1];_fr3["won"]=bM;_fr3["score"]=bN+"-"+bO;if(bS)_fr3["score"]+=(" (点球 "+bS[0x0]+"-"+bS[0x1]+")");a2["cupRuns"]["push"](_cr3);if(a2["contFx"])for(var _ck2 in a2["contFx"]["data"])if(a2["contFx"]["data"][_ck2]["name"]===_cr3["comp"]){var _cd2=a2["contFx"]["data"][_ck2];_cd2["champion"]=bM?bI["teamId"]:_fr3["oppId"];var _lt3=_cd2["rounds"][_cd2["rounds"]["length"]-0x1]["ties"][0];_lt3["w"]=_cd2["champion"];_lt3["sa"]=bN;_lt3["sb"]=bO;_lt3["p"]=bS?[bS[0x0],bS[0x1]]:null;delete _lt3["pd"];a2["contHist"]=a2["contHist"]||[];a2["contHist"]["push"]({'age':a2["age"],'comp':_ck2,'tid':_cd2["champion"]});_devAdd(_cd2["champion"],1.5,0x1);}delete a2["_contRun"];}
+  "cont"===bI["kind"]&&bM?(bZ["trophies"]["push"](bI["comp"]+'冠军'),a2["trophies"]["push"]({'name':bI["comp"]+'冠军','age':bI["age"],'team':bI["team"]||(aj(a2["teamId"])||{"name":''})["name"]})):"promo"===bI["kind"]&&bM?(_moveTeam(bI["teamId"],am[bI["fromLeag"+'ue']],!0x0,0x1),bZ["move"]='升上'+ak(am[bI["fromLeag"+'ue']])["name"]):"drop"!==bI["kind"]||bM||(_moveTeam(bI["teamId"],ao[bI["fromLeag"+'ue']],!0x1,0x1),bZ["move"]='降入'+ak(ao[bI["fromLeag"+'ue']])["name"]),bI["counterTid"]&&!bM&&_moveTeam(bI["counterTid"],bI["counterTo"],!0x0,0x2));
+  if(a2["_natWC"]&&a2["_natWC"]["phase"]==="group"){var _gw=a2["_natWC"];var _gi=_gw["_lastIdx"],_gm=_gw["_gsim"]["matches"][_gi];if(_gm["homeId"]==='n_chn'){_gm["hg"]=bN;_gm["ag"]=bO;}else{_gm["hg"]=bO;_gm["ag"]=bN;}var _gr=_natResolveComp("wc",_gw["_team"],_gw);a2["natForm"]["wc"]=_natFormVal(_gr["stage"],"wc");if(a2["natFx"]&&a2["natFx"]["data"]&&a2["natFx"]["data"]["wc"]){a2["natFx"]["data"]["wc"]["rounds"]=_gr["rounds"];a2["natFx"]["data"]["wc"]["groups"]=(_gr["allGroups"]||[]).map(function(st,gi2){return{'name':'第'+(gi2+1)+'组','standings':st};});var _cid=_natChampId(_gr["rounds"]);if(_cid)a2["natFx"]["data"]["wc"]["champion"]=_cid;}if(_gr["stage"]==="冠军"||_gr["stage"]==="亚军"){_gw["phase"]="final";a2["_natGrpToFinal"]=!0x0;}else{aZ(bZ,'世界杯',_gr["stage"],_gw["age"]);delete a2["_natWC"];}}else if(a2["_natWC"]){_natFinalBook("wc",a2["_natWC"],bZ,bM,bN,bO,bS);}if(a2["_natAsia"]){_natFinalBook("asia",a2["_natAsia"],bZ,bM,bN,bO,bS);}if(!a2["_natWC"]&&!a2["_natAsia"]&&('wc'===bI["kind"]||"asia"===bI["kind"])&&!bI["_grpWC"]){(function(){var _fbEx=!0x1,_fbN=a2["natRuns"]||[];for(var _fi=0x0;_fi<_fbN["length"];_fi++)if(_fbN[_fi]["comp"]===bI["comp"]&&_fbN[_fi]["age"]===bI["age"]){_fbEx=!0x0;break;}if(!_fbEx){b0(bZ,bI["comp"],bM?'冠军':'亚军',bI["age"]);a2["natForm"][bI["kind"]]=bI["kind"]==="wc"?(bM?0x4:0x3):(bM?0x3:0x2);}})();}if(a2["_contRun"]){var _cr3=a2["_contRun"];_cr3["result"]=bM?"冠军":"止步决赛";var _fr3=_cr3["rounds"][_cr3["rounds"]["length"]-0x1];_fr3["won"]=bM;_fr3["score"]=bN+"-"+bO;if(bS)_fr3["score"]+=(" (点球 "+bS[0x0]+"-"+bS[0x1]+")");a2["cupRuns"]["push"](_cr3);if(a2["contFx"])for(var _ck2 in a2["contFx"]["data"])if(a2["contFx"]["data"][_ck2]["name"]===_cr3["comp"]){var _cd2=a2["contFx"]["data"][_ck2];_cd2["champion"]=bM?bI["teamId"]:_fr3["oppId"];var _lt3=_cd2["rounds"][_cd2["rounds"]["length"]-0x1]["ties"][0];_lt3["w"]=_cd2["champion"];_lt3["sa"]=bN;_lt3["sb"]=bO;_lt3["p"]=bS?[bS[0x0],bS[0x1]]:null;delete _lt3["pd"];a2["contHist"]=a2["contHist"]||[];a2["contHist"]["push"]({'age':a2["age"],'comp':_ck2,'tid':_cd2["champion"]});_devAdd(_cd2["champion"],1.5,0x1);}delete a2["_contRun"];}
   /* 德比/保级大战回填：互动比分写回真实赛程与积分榜并重排序 */
   if(bI["_fx"]&&(bI["kind"]==='derby'||bI["kind"]==='drop')){
     var _fw=bI["_fx"],_rows=a2["lgTables"]&&a2["lgTables"][_fw["lg"]],_ri;
@@ -2357,7 +2385,7 @@ c0=[];
     a2["_yCaps"][bI["kind"]]=(a2["_yCaps"][bI["kind"]]||0x0)+0x1;
     a2["_yGoals"][bI["kind"]]=(a2["_yGoals"][bI["kind"]]||0x0)+_meG;
     if(bM){a2["flags"][_yNT[_yk]["flag"]+"core"]=0x1;
-      a2["trophies"]["push"]({'name':_yNT[_yk]["comp"]+'冠军','age':bI["age"],'team':_yNT[_yk]["band"]});}
+      var _tn2=_yNT[_yk]["comp"]+'冠军',_dup2=!0x1;for(var _ti2=0x0;_ti2<a2["trophies"]["length"];_ti2++)if(a2["trophies"][_ti2]["name"]===_tn2&&a2["trophies"][_ti2]["age"]===bI["age"]){_dup2=!0x0;break;}if(!_dup2)a2["trophies"]["push"]({'name':_tn2,'age':bI["age"],'team':_yNT[_yk]["band"]});}
   }
   var c1=bM?_yk?_yNT[_yk]["win"]:'derby'===bI["kind"]?0xc:'wc'===bI["kind"]?0x1e:"asia"===bI["kind"]?0x12:0x10:_yk?_yNT[_yk]["lose"]:_drawLg?0x6:'derby'===bI["kind"]?0x2:'wc'===bI["kind"]?0xa:0x4,
 
@@ -2528,6 +2556,33 @@ var b=champ?v*_devChampM(tid):v;
 if(champ){a2["_titWin"]=a2["_titWin"]||{};a2["_titWin"][tid]=1;}
 a2["_devBonus"][tid]=(a2["_devBonus"][tid]||0)+b;
 }
+/* ── 同分排序（与现实规则对齐，只对主要联赛差分，其余走通用链） ──
+   "std"（FIFA/英超/德甲/法甲等）：积分→净胜→进球→相互战绩(小循环积分/净胜/进球)→id(抽签位)
+   "h2h"（西甲/意甲/葡超/中超等现实使用相互战绩优先）：积分→相互战绩(积分/净胜/进球)→净胜→进球→id
+   国家队小组赛（世预/亚洲杯/世界杯）一律 "std"（FIFA 2018 规则）。
+   h2h 索引支持两种数据：联赛 fx（嵌套轮次 [h,a,hg,ag]，撤退比分 hg<0 跳过）与小组 matches 
+   （{homeId,awayId,hg,ag} 对象），递归遍历任意嵌套。 */
+var TIEBR={'liga':'h2h','seri':'h2h','pri':'h2h','csl':'h2h'};
+function _h2hOne(m,h,a,hg,ag){var k=h+"~"+a,e=m[k];if(!e)e=m[k]=[0x0,0x0];e[0x0]+=hg;e[0x1]+=ag;}
+function _h2hRow(m,f){
+if(f==null||typeof f!=="object")return;
+if(f["length"]>=0x4&&typeof f[0x0]==="string"&&typeof f[0x2]==="number"){if(f[0x2]<0x0)return;_h2hOne(m,f[0x0],f[0x1],f[0x2],f[0x3]);return;}
+if(f["homeId"]!=null&&f["hg"]!=null){_h2hOne(m,f["homeId"],f["awayId"],f["hg"],f["ag"]);return;}
+if(f["length"]){for(var _i=0x0;_i<f["length"];_i++)_h2hRow(m,f[_i]);}
+}
+function _h2hIdx(fx){var m={};if(fx)_h2hRow(m,fx);return m;}
+function _h2hOf(m,ha,aa){var e=m[ha+"~"+aa]||[0x0,0x0],f=m[aa+"~"+ha]||[0x0,0x0];return{'pts':(e[0x0]>e[0x1]?0x3:(e[0x0]<e[0x1]?0x0:0x1))+(f[0x1]>f[0x0]?0x3:(f[0x1]<f[0x0]?0x0:0x1)),'gd':(e[0x0]-e[0x1])+(f[0x1]-f[0x0]),'gf':e[0x0]+f[0x1]};}
+function _tbCmp(mode,m){return function(x,y){
+if(y["pts"]!==x["pts"])return y["pts"]-x["pts"];
+var A,B;
+if(mode==="h2h"){A=_h2hOf(m,x["i"],y["i"]);B=_h2hOf(m,y["i"],x["i"]);
+if(A["pts"]!==B["pts"])return B["pts"]-A["pts"];if(A["gd"]!==B["gd"])return B["gd"]-A["gd"];if(A["gf"]!==B["gf"])return B["gf"]-A["gf"];}
+if((y["gf"]-y["ga"])!==(x["gf"]-x["ga"]))return(y["gf"]-y["ga"])-(x["gf"]-x["ga"]);
+if(y["gf"]!==x["gf"])return y["gf"]-x["gf"];
+if(mode!=="h2h"){A=_h2hOf(m,x["i"],y["i"]);B=_h2hOf(m,y["i"],x["i"]);
+if(A["pts"]!==B["pts"])return B["pts"]-A["pts"];if(A["gd"]!==B["gd"])return B["gd"]-A["gd"];if(A["gf"]!==B["gf"])return B["gf"]-A["gf"];}
+return x["i"]<y["i"]?-0x1:0x1;};}
+
 
 /* ── 新闻模块：赛季结算时生成一批（纯风味，主要新闻带微量fx，限幅在此执行） ── */
 function _newsFx(o){
@@ -2683,7 +2738,7 @@ fx[r+leg*half].push([hh,aa,_hg,_ag]);
 }
 var out=[];
 for(var k in tbl)out.push(tbl[k]);
-out.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;if((y.gf-y.ga)!==(x.gf-x.ga))return(y.gf-y.ga)-(x.gf-x.ga);if(y.gf!==x.gf)return y.gf-x.gf;return x.i<y.i?-1:1;});
+out.sort(_tbCmp(TIEBR[lgId]||"std",_h2hIdx(fx)));
 for(i=0;i<out.length;i++)out[i]["pos"]=i+1;
 return{'table':out,'fx':fx};
 }
@@ -2747,7 +2802,7 @@ else{row.d++;row.pts++;}
 }
 function _tblResort(lg){
 var rows=a2["lgTables"][lg];
-rows.sort(function(x,y){if(y.pts!==x.pts)return y.pts-x.pts;if((y.gf-y.ga)!==(x.gf-x.ga))return(y.gf-y.ga)-(x.gf-x.ga);if(y.gf!==x.gf)return y.gf-x.gf;return x.i<y.i?-1:1;});
+rows.sort(_tbCmp(TIEBR[lg]||"std",_h2hIdx(a2["lgFx"]&&a2["lgFx"]["data"]?a2["lgFx"]["data"][lg]:null)));
 for(var i=0;i<rows.length;i++)rows[i]["pos"]=i+1;
 var o=[];for(i=0;i<rows.length;i++)o.push(rows[i]["i"]);
 a2["lastTables"][lg]=o;
@@ -3689,8 +3744,10 @@ function _fireMilestone(){
    这样里程碑只可能出现在"它发生的那个赛季"，不会延后到以后。 */
 function _emitReportOrMilestone(_recs){
   if(_recs==null||typeof _recs["length"]!=="number")return;   /* 非赛季数组（如 aW 的中途返回）不当作报告 */
+  if(_recs["_rep"+'Emitted'])return;      /* 幂等：同一批赛季记录只发一次报告（多季+里程碑重发防重） */
   a2["_mileRepPending"]=_recs;
   if(_fireMilestone())return;              /* 里程碑先播；_mileRepPending 留到它结算后再出报告 */
+  _recs["_rep"+'Emitted']=!0x0;
   a2["_mileRepPending"]=null;
   a2["_mileRep"]=(a2["_mileRep"]||0x0)+0x1;
   a2["pending"]={'type':"report",'recs':_recs};
@@ -3786,13 +3843,33 @@ if(pro)a2["_worldRan"]=!0x0;
 
 function aZ(bx,by,bz,age){
 b0(bx,by,bz,age!=null?age:a2["age"]);
-}function b0(bx,by,bz,bA){
-a2["natRuns"]["push"]({'age':bA,'comp':by,'stage':bz,'caps':bx?bx['caps']:0,'natGoals':bx?bx['natGoals']:0,['natAssis'+'ts']:bx?bx['natAssis'+'ts']:0,'natCs':bx?bx['cs']:0}),
-
-
-
-'冠军'===bz?(bx&&bx["trophies"]&&bx["trophies"]["push"](by+'冠军'),a2["trophies"]["push"]({'name':by+'冠军','age':bA,'team':"国家队"})):bx&&(bx["nat"]=by+bz);
-}function _evById(bx){
+}
+/* 国家队一届赛事结果记账（世界杯/亚洲杯/…统一出口，幂等）：
+   同一 comp+age 只写一条 natRuns（已存在则更新 stage）；冠军奖杯按 name+age 去重。
+   避免交互决赛与 AI 结算两条路径重复发奖。 */
+function b0(bx,by,bz,bA){
+a2["natRuns"]=a2["natRuns"]||[];
+var _ex=null,_i;
+for(_i=0x0;_i<a2["natRuns"]["length"];_i++){var _r=a2["natRuns"][_i];if(_r["comp"]===by&&_r["age"]===bA){_ex=_r;break;}}
+if(_ex){
+/* 冲突取更高名次（aQ：冠军7 最高）：交互决赛夺冠后，任何后续的亚军/淘汰结算都不许把冠军降级 */
+if((aQ[bz]!=null?aQ[bz]:0x0)>=(aQ[_ex["stage"]]!=null?aQ[_ex["stage"]]:0x0))_ex["stage"]=bz;
+if(bx){_ex["caps"]=bx['caps'];['natGoals','natAssis'+'ts','natCs']["forEach"](function(k){_ex[k]=bx[k];});}
+_syncTourStage(by,bA,_ex["stage"]);}
+else{a2["natRuns"]["push"]({'age':bA,'comp':by,'stage':bz,'caps':bx?bx['caps']:0,'natGoals':bx?bx['natGoals']:0,['natAssis'+'ts']:bx?bx['natAssis'+'ts']:0,'natCs':bx?bx['cs']:0});_syncTourStage(by,bA,bz);}
+if('冠军'===bz){var _tn=by+'冠军';a2["trophies"]=a2["trophies"]||[];var _has=!0x1;
+for(_i=0x0;_i<a2["trophies"]["length"];_i++)if(a2["trophies"][_i]["name"]===_tn&&a2["trophies"][_i]["age"]===bA){_has=!0x0;break;}
+if(!_has)a2["trophies"]["push"]({'name':_tn,'age':bA,'team':"国家队"});
+if(bx&&bx["trophies"]&&bx["trophies"]["indexOf"](_tn)<0x0)bx["trophies"]["push"](_tn);}
+else if(bx)bx["nat"]=by+bz;
+}
+/* 单一真相同步：natRuns 记下的最终名次反向传播到 tournaments 同届条目，
+   消除"AI 代结亚军 vs 交互夺冠"结算后签名面板与成绩面板不一致 */
+function _syncTourStage(by,bA,bz){
+a2["tournaments"]=a2["tournaments"]||[];
+for(var _si=0x0;_si<a2["tournaments"]["length"];_si++){var _st=a2["tournaments"][_si];
+if(_st&&_st["comp"]===by&&_st["age"]===bA&&_st["stage"]!==bz)_st["stage"]=bz;}}
+function _evById(bx){
 for(var by=0x0;by<a1["length"];by++)if(a1[by]['id']===bx)return a1[by];
 return null;
 }
@@ -4103,7 +4180,7 @@ if(_natTourn){var _ntCaps=_natTourn["matches"]["length"],
 
 
 
-_ntStage=_natTourn["stage"];a2["tournaments"]["push"](_natTourn);if(_natTourn["phase"]==="group"){var _gb=_aVPri("wc",0.62,{"comp":_natTourn["comp"],"opp":_natTourn["_opp"],"oppStr":_natTourn["_oppStr"],"age":_natTourn["age"],"_grpWC":!0x0,"_drawOk":!0x0,"_ctx":"世界杯小组赛生死战","_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":"小组赛"}});if(_gb){a2["_natWC"]=_natTourn;}else{_natTourn=_natResolveComp("wc",_natTourn["_team"],_natTourn);_ntStage=_natTourn["stage"];a2["natForm"]["wc"]=_natFormVal(_ntStage,"wc");_natAfterKO(bz,_natTourn,_ntStage);}}else{a2["natForm"][_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia"]=_natFormVal(_ntStage,_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia");if(_ntStage==="\u5c0f\u7ec4\u8d5b\u51fa\u5c40"){aZ(bz,_natTourn["comp"],"\u5c0f\u7ec4\u8d5b\u51fa\u5c40");}else{var _tBM=false;if(_ntStage==="\u51a0\u519b"||_ntStage==="\u4e9a\u519b"){_tBM=_aVPri(_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia",0.55,{"comp":_natTourn["comp"],"opp":_finalOpp(_natTourn["rounds"],"\u4e2d\u56fd\u961f"),"_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":_ntStage}});}if(_tBM){a2[_natTourn["comp"]==="\u4e16\u754c\u676f"?"_natWC":"_natAsia"]=_natTourn;}else aZ(bz,_natTourn["comp"],_ntStage);}}}
+_ntStage=_natTourn["stage"];a2["tournaments"]["push"](_natTourn);(a2["__nfbLog"]=(a2["__nfbLog"]||[]))["push"]("PUSH-T comp="+_natTourn["comp"]+" age="+_natTourn["age"]+" stageAI="+_ntStage+" phase="+(_natTourn["phase"]||"null")+" sameRefAsSuspended="+(a2["_natWC"]===_natTourn||a2["_natAsia"]===_natTourn));if(_natTourn["phase"]==="group"){var _gb=_aVPri("wc",0.62,{"comp":_natTourn["comp"],"opp":_natTourn["_opp"],"oppStr":_natTourn["_oppStr"],"age":_natTourn["age"],"_grpWC":!0x0,"_drawOk":!0x0,"_ctx":"世界杯小组赛生死战","_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":"小组赛"}});if(_gb){a2["_natWC"]=_natTourn;}else{_natTourn=_natResolveComp("wc",_natTourn["_team"],_natTourn);_ntStage=_natTourn["stage"];a2["natForm"]["wc"]=_natFormVal(_ntStage,"wc");_natAfterKO(bz,_natTourn,_ntStage);}}else{a2["natForm"][_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia"]=_natFormVal(_ntStage,_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia");if(_ntStage==="\u5c0f\u7ec4\u8d5b\u51fa\u5c40"){aZ(bz,_natTourn["comp"],"\u5c0f\u7ec4\u8d5b\u51fa\u5c40");}else{var _tBM=false;if(_ntStage==="\u51a0\u519b"||_ntStage==="\u4e9a\u519b"){_tBM=_aVPri(_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia",0.55,{"comp":_natTourn["comp"],"opp":_finalOpp(_natTourn["rounds"],"\u4e2d\u56fd\u961f"),"_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":_ntStage}});}if(_tBM){a2[_natTourn["comp"]==="\u4e16\u754c\u676f"?"_natWC":"_natAsia"]=_natTourn;}else aZ(bz,_natTourn["comp"],_ntStage);}}}
 if(_natFr["length"]){a2["natRuns"]["push"]({age:a2["age"],comp:"\u53cb\u8c0a\u8d5b",stage:"",friendly:true,matches:_natFr,caps:_natFr["length"],natGoals:0,natAssists:0,natCs:0});}
 if(_natQual&&!_natTourn&&c3===0x1){aZ(bz,
 
@@ -4129,7 +4206,7 @@ a2["seasons"]["push"](bz),
 
 _newsTick(0x0),
 
-a2["age"]++,a2["_dispAge"]=bz["age"],
+a2["age"]++,
 
 
 a2["seasonsA"+"tClub"]++,au()||a2["seasonsA"+"broad"]++,bz;
@@ -5461,7 +5538,7 @@ if(!_wF&&a2["forceQ"]&&a2["forceQ"]["length"]&&_fireForced())return;
 if(!_wF&&!a2["flags"]["_double"]&&ad()<0.35){var by=aE();
 if(by){_markEvent(by['id'],by);a2["flags"]["_double"]=!0x0;a2["pending"]={'type':"random",'eventId':by['id'],'descText':_descOf(by)};return;}
 }if(_fireMilestone())return;return "youth"===a2["phase"]?void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk()):void bl();
-}if("report"===bx["type"])return a2["pending"]=null,(a2["bigQ"]&&a2["bigQ"]["length"]?0:a2["_dispAge"]=null),void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
+}if("report"===bx["type"])return a2["pending"]=null,void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
 
 
 
@@ -5475,7 +5552,7 @@ return void(bz&&_emitReportOrMilestone(bz));
 
 void(a2["bigQ"]&&a2["bigQ"]["length"]?aW():bk());
 }}else bk();
-},'resolveEvent':bs,'commitEvent':bw,'goSummary':br,'endingContext':function(){return bq();},'optHint':function(bx,by){var bz=(_matOpts(bx)||[])[by];
+},'resolveEvent':bs,'commitEvent':bw,'goSummary':br,'endingContext':function(){return bq();},'tbSort':function(rows,fx,mode){rows.sort(_tbCmp(mode||'std',_h2hIdx(fx)));return rows;},'optHint':function(bx,by){var bz=(_matOpts(bx)||[])[by];
 if(!bz)return'';
 if("function"!=typeof bz["hint"])return bz["hint"]||'';
 var bA=aA();
