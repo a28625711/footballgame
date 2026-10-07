@@ -280,7 +280,15 @@ function _bmAiSettle(bx){
 var c=bx&&bx["_aiCtx"];
 if(!c)return;
 var _bz2=a2["_curBz"]||a2["seasons"][bx["recIdx"]]||null;
-if(c["t"]==='nat'){_bz2&&aZ(_bz2,c["comp"],c["stage"],bx["age"]);}
+if(c["t"]==='nat'){
+/* 国家队决赛被让位代结：走统一出口 _natFinalBook（设 stage/写 natFx/同步 tournaments/清挂起），
+   避免只 aZ 后残留 _natWC/_natAsia，导致后续 _bmFinish 用残留挂起再结算一次（同届冠军+亚军双记）。
+   生死战（phase='group'）代结时按 AI 重算整段签表结果再记。 */
+var _wcc=(c["comp"]==="世界杯"),_tag=_wcc?"wc":"asia",_susp=_wcc?a2["_natWC"]:a2["_natAsia"];
+if(_susp&&_susp["phase"]==="group"){var _gr=_natResolveComp(_wcc?"wc":"asia",_susp["_team"],_susp);delete a2[_wcc?"_natWC":"_natAsia"];_bz2&&aZ(_bz2,c["comp"],_gr["stage"],_susp["age"]);}
+else if(_susp){_natFinalBook(_tag,_susp,_bz2,c["stage"]==="冠军",0x0,0x0,null,c["comp"]);}
+else{_bz2&&aZ(_bz2,c["comp"],c["stage"],bx["age"]);}
+}
 else if(c["t"]==='cont')_contAiSettle(bx);
 else if(c["t"]==='promo'){
 var wC=_poOne(c["f1"],c["f2"],!0x0);
@@ -360,7 +368,6 @@ function _bmShare(bx,myStr,oppStr){
 function _bmPlayerProb(bx,myStr,oppStr){
   var grp=al(a2["pos"])["group"]||"att";
   var f=(0.55+0.55*(a2["ovr"]-0x32)/0x32)*(a2["ovr"]>=0x58?1.10+0.03*(a2["ovr"]-0x58):0x1);
-  if(a2["cheat"])f*=1.25;
   var diff=(oppStr!=null&&myStr!=null)?ac((oppStr-myStr)/0x1e,-1,1):0;
   var sh={'att':[0.24,0.11],'mid':[0.15,0.19],'def':[0.07,0.045],'gk':[0,0]}[grp]||[0.15,0.15];
   /* 队内地位（roleAdjust ±4）直接影响大场面参与度：核心球员更多触球/开火，边缘球员更少（±8%/档） */

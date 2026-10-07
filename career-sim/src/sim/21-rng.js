@@ -87,8 +87,9 @@ return!bx||aq(bx)['cn'];
 return!by||by['cn'];
 }function av(bx){
 return Math["abs"](bx)>=0x2710?(bx/0x2710)["toFixed"](0x1)["replace"](/\.0$/,'')+'\x20亿':Math["round"](bx)+'\x20万';
-}function aw(bx){
-return "胡雪儿"===String(bx["name"]||'')["trim"]()&&!!bx["origin"]&&'sd'===bx["origin"]['id']&&0x2===Number(bx["number"]);
+}function aw(bx,bF){
+/* bF 为 newState 里解析后的 origin 对象（字符串 id 已归一）：按 id 判，兼容 UI/字符串两路 */
+return "胡雪儿"===String(bx["name"]||'')["trim"]()&&bF&&'sd'===bF['id']&&0x2===Number(bx["number"]);
 }function ax(){
 return Math["min"](0x5,(a2["ovr"]-0x32)/0x7);
 }var ay={'ovr':0xa,

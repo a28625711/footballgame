@@ -38,7 +38,7 @@ return a2["_offerTerms"][bG['id']]={'wage':_wageOf(bG,aq(bG),bJ*bK),
 
 
 'years':bI,'mult':bJ*bK};
-}if(a2["cheat"]&&a2["ovr"]>=0x3e){var bz=ax(),bA=a0["TEAMS"]["filter"](function(bG){var bH=aq(bG);
+}if(0x0){var bz=ax(),bA=a0["TEAMS"]["filter"](function(bG){var bH=aq(bG);
 return!bH['cn']&&('欧冠'===bH["cont"]||'欧联'===bH["cont"])&&bG["rep"]<=bz;
 }),
 
@@ -370,18 +370,7 @@ if(!bz)bz=_pendingEvent();
 if(!bz)return null;
 var bB=_matOpts(bz)||[];bB=bB[Number(bx)];if(!bB)return!0x1;
 var bR4=function(bG2){a2["eventLog"]&&a2["eventLog"]["push"]({'age':(by&&by["age"]!=null?by["age"]:a2["age"]),'title':bG2&&bG2["title"]||"事件",'text':bG2&&bG2["text"]||''});};
-if(bv(bx),
-
-
-
-a2["cheat"]){var bF4=function(bD){
-for(var bE=_rs,bF=null,bG=bE,bH=-0x1/0x0,bI=0x0;
-bI<0x2;
-bI++){_rs=bE,window["EV_ROLL"]&&(window["EV_ROLL"]["reset"](),window["EV_ROLL"]["force"](0x0===bI));
-var bJ=aA(),bK=bD["apply"](bJ,ad,bt(bD,bJ)),bL=bu(bK);
-bL>bH&&(bH=bL,bG=_rs,bF={'res':bK,'opt':bD,'roll':window["EV_ROLL"]?window["EV_ROLL"]["last"]():null});
-}return window["EV_ROLL"]&&window["EV_ROLL"]["force"](null),_rs=bG,bF;
-}(bB);bR4({'title':bz["title"],'text':bF4["res"]["text"]});return bF4;}
+bv(bx);
 window["EV_ROLL"]&&window["EV_ROLL"]["reset"]();
 var bC=aA(),
 

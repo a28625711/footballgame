@@ -14,7 +14,7 @@ return _base[rep]||_base[0x1];
 /* 潜力(天赋)在“选青训营”这一步就掷定：青训营档次看潜力，而天赋原本要等入营才掷。
    掷过即钉住(flags._pot)，入营时不再重掷，保证“看到的档次”与“实际天赋”一致。 */
 function _rollPot(){if(a2["flags"]["_pot"])return;a2["flags"]["_pot"]=!0x0;
-a2["talent"]=0.7+0.78*Math["pow"](ad(),1.7)+(a2["legacy"]?a2["legacy"]["talent"]:0x0)+(a2["legend"]?a2["legend"]['t']:0x0);}
+a2["talent"]=0.7+0.78*Math["pow"](ad(),1.7)+(a2["legacy"]?a2["legacy"]["talent"]:0x0)+(a2["legend"]?a2["legend"]['t']:0x0);a2["cheat"]&&(a2["talent"]+=0.5);}
 function bk(){
 if(a2["_trialQueued"]){var _tq=a2["_trialQueued"];a2["_trialQueued"]=null;return void(a2["pending"]={'type':"random",'eventId':"__trial__",'offers':_tq["offers"]});}
 if(a2["step"]++,"youth"===a2["phase"])return a2["youthTea"+"mId"]?bj():(function(){_rollPot();var bF=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];
@@ -94,23 +94,11 @@ a2["pending"]={'type':'youth_path',
 
 'offers':bI["map"](function(bR){return bR['id'];}),'abroadIdx':abIdx};
 }());
-if(a2["cheat"]&&(a2["banned"]=!0x1,a2["banLeft"]=0x0,
-
-
-
-a2["banGames"]=0x0,a2["flags"]["_forceRe"+"tire"]=!0x1,a2["clean"]=0x64,a2["guanxi"]=0x64),
-a2["banned"])return br("终身禁足");
+if(a2["banned"])return br("终身禁足");
 if(a2["flags"]["_forceRe"+"tire"])return br('伤退');
 if(a2["age"]>=0x37)return br("年龄到了");
-if(a2["cheat"]&&a2["age"]>=0x2d)return br("年龄到了");
 if(!a2["teamId"]&&!a2["clubsPla"+"yed"]["length"])return bm();
-if(a2["cheat"]){var bx=ar();
-if(au()?a2["ovr"]>=0x3e:bx&&bx["rep"]<=ax()-0x2)return a2["flags"]["_forceLe"+"ave"]=!0x1,
-
-
-
-bo(!0x1);
-}if(a2["flags"]["_contractDue"]){a2["flags"]["_contractDue"]=!0x1;return void _openRenewal();}var by=a2["flags"]["_forceLe"+"ave"],bz=a2["lowSpell"]>=("long"===a2["mode"]?0x3:0x2),bA=a2["contract"+"Left"]<=0x0;
+if(a2["flags"]["_contractDue"]){a2["flags"]["_contractDue"]=!0x1;return void _openRenewal();}var by=a2["flags"]["_forceLe"+"ave"],bz=a2["lowSpell"]>=("long"===a2["mode"]?0x3:0x2),bA=a2["contract"+"Left"]<=0x0;
 if(by||bz||bA){if(a2["loanFrom"]){var bB=aj(a2["loanFrom"]);
 return bB&&(a2["teamId"]=bB['id'],
 

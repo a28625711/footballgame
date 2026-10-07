@@ -18,17 +18,22 @@ function b0(bx,by,bz,bA){
 a2["natRuns"]=a2["natRuns"]||[];
 var _ex=null,_i;
 for(_i=0x0;_i<a2["natRuns"]["length"];_i++){var _r=a2["natRuns"][_i];if(_r["comp"]===by&&_r["age"]===bA){_ex=_r;break;}}
+var _fin=bz;
 if(_ex){
 /* 冲突取更高名次（aQ：冠军7 最高）：交互决赛夺冠后，任何后续的亚军/淘汰结算都不许把冠军降级 */
 if((aQ[bz]!=null?aQ[bz]:0x0)>=(aQ[_ex["stage"]]!=null?aQ[_ex["stage"]]:0x0))_ex["stage"]=bz;
+_fin=_ex["stage"];
 if(bx){_ex["caps"]=bx['caps'];['natGoals','natAssis'+'ts','natCs']["forEach"](function(k){_ex[k]=bx[k];});}
 _syncTourStage(by,bA,_ex["stage"]);}
 else{a2["natRuns"]["push"]({'age':bA,'comp':by,'stage':bz,'caps':bx?bx['caps']:0,'natGoals':bx?bx['natGoals']:0,['natAssis'+'ts']:bx?bx['natAssis'+'ts']:0,'natCs':bx?bx['cs']:0});_syncTourStage(by,bA,bz);}
-if('冠军'===bz){var _tn=by+'冠军';a2["trophies"]=a2["trophies"]||[];var _has=!0x1;
+/* 奖杯与赛季 nat 字段都以「最终名次」_fin 为准：
+   防止「亚军先记、冠军后覆盖」或反向时，冠军奖杯与"亚洲杯亚军"字段在同季并存 */
+if('冠军'===_fin){var _tn=by+'冠军';a2["trophies"]=a2["trophies"]||[];var _has=!0x1;
 for(_i=0x0;_i<a2["trophies"]["length"];_i++)if(a2["trophies"][_i]["name"]===_tn&&a2["trophies"][_i]["age"]===bA){_has=!0x0;break;}
 if(!_has)a2["trophies"]["push"]({'name':_tn,'age':bA,'team':"国家队"});
-if(bx&&bx["trophies"]&&bx["trophies"]["indexOf"](_tn)<0x0)bx["trophies"]["push"](_tn);}
-else if(bx)bx["nat"]=by+bz;
+if(bx&&bx["trophies"]&&bx["trophies"]["indexOf"](_tn)<0x0)bx["trophies"]["push"](_tn);
+if(bx)bx["nat"]="";}
+else if(bx)bx["nat"]=by+_fin;
 }
 /* 单一真相同步：natRuns 记下的最终名次反向传播到 tournaments 同届条目，
    消除"AI 代结亚军 vs 交互夺冠"结算后签名面板与成绩面板不一致 */

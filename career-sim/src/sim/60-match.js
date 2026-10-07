@@ -154,7 +154,7 @@ return Math.max(0.12,Math.min(0.93,c0+_msCfg["k"]*sd+_msCfg["k2"]*sd*Math["abs"]
 /* 球员单场数据归属（全赛事统一）：从本队真实进球中分配进球/助攻，永不越过比分。
    share 按位置：前锋吃球队 ~34% 进球、中场 ~20%（助攻 20%），随 OVR 与对手强度缩放 */
 function _pMatchContrib(tg,og,oppStr,ownStr,grp,boost){
-var f=(0.55+0.55*(a2["ovr"]-0x32)/0x32)*(a2["ovr"]>=0x58?1.10+0.03*(a2["ovr"]-0x58):0x1)*(boost||1);if(a2["cheat"])f*=1.25;
+var f=(0.55+0.55*(a2["ovr"]-0x32)/0x32)*(a2["ovr"]>=0x58?1.10+0.03*(a2["ovr"]-0x58):0x1)*(boost||1);
 var diff=(oppStr!=null&&ownStr!=null)?ac((oppStr-ownStr)/0x1e,-1,1):0;
 var sh={'att':[0.24,0.11],'mid':[0.15,0.19],'def':[0.07,0.045],'gk':[0,0]}[grp]||[0.15,0.15];
 var ps=ac(sh[0]*f*(1-0.25*diff),0.01,0.6);

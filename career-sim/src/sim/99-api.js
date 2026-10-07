@@ -143,7 +143,7 @@ else if(bC["number"]===16&&bC["pos"]==="CDM"&&bC["foot"]==="right")cK={'id':"rod
 else if(bC["number"]===4&&bC["pos"]==="CB"&&bC["foot"]==="right")cK={'id':"vandijk",'o':1,'t':0,'i':-1};
 else if(bC["number"]===17&&bC["pos"]==="CM"&&bC["foot"]==="right")cK={'id':"debruyne",'o':1,'t':0.01,'i':0};
 return{'ver':0x6,'seed':bD,'rngState':ai(String(bD)),'mode':bB,'phase':"youth",'step':0x0,'name':bC["name"],'number':bC["number"],
-'foot':bC["foot"],'pos':bC["pos"],'originId':bF['id'],'cheat':aw(bC),'legend':cK,'dreamId':bC["dreamId"]||null,'gen':bG?bG["gen"]:0x1,
+'foot':bC["foot"],'pos':bC["pos"],'originId':bF['id'],'cheat':aw(bC,bF),'legend':cK,'dreamId':bC["dreamId"]||null,'gen':bG?bG["gen"]:0x1,
 'legacy':bG,'age':0xc,'ovr':ac(0x18+0.5*bF["ovr"]+(bG?0.5*bG["ovr"]:0x0),0x12,0x24)+(cK?cK['o']:0x0)+(bAch&&bAch['ovr']?bAch['ovr']:0x0),'maxOvr':0x0,'talent':0x1+(bAch&&bAch['talent']?bAch['talent']:0x0),
 'guanxi':ac(0x1e+bF["guanxi"]+(bG?bG["guanxi"]:0x0),0x0,0x64),'clean':0x50,'fame':0x5,'money':bF["money"]+(bG?bG["money"]:0x0)+(bAch&&bAch['money']?bAch['money']:0x0),
 'seasonWage':0x0,'wageMult':0x1,'peakAnnualWage':0x0,'careerEarnings':0x0,'teamId':null,'role':"sub",'roleAdjust':0x0,'seasonsAtClub':0x0,

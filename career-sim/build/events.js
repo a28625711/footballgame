@@ -689,7 +689,7 @@ return p["contractFinal"]&&p["seasonsA"+"tClub"]>=0x1;
   'options': [
     {
         'label': "签字",
-        'hint': "地位稳固，收入一"+'般',
+        'hint': "地位稳固，收入一般，强制续约",
         'apply': function(p){
 return{'roleDelta':0x1,'openContract':!0x0,'text':"你把续约的事交给了合同本身——经纪人去谈数字，你只管踢球。"};
 }
@@ -698,7 +698,7 @@ return{'roleDelta':0x1,'openContract':!0x0,'text':"你把续约的事交给了�
         'label': "让经纪人去谈",
         'p': function(p){return f(p["agentType"]==='pro'?0.72:(p["agentType"]==='family'?0.6:0.45),[[p["guanxi"],45,0.006]],0.2,0.9);
 },
-        'hint': function(p,q){return g(q,'谈下来一份好合同','被经纪人摆了一道');
+        'hint': function(p,q){return g(q,'谈下来一份好合同，强制续约','被经纪人摆了一道，强制续约');
 },
         'apply': function(p,q,s){
 return d(q,s)?{'roleDelta':0x1,'money':0x64,'openContract':{'wage':0x2,'years':0x3},'text':"经纪人把条款一条条抠了下来。签字那天，俱乐部的人脸色不太好看。"}:{'money':-0x32,'roleDelta':-0x1,'openContract':!0x0,'text':"你全权交给了他，结果他连你上一份合同里的奖金条款都没争回来。"};
@@ -1272,7 +1272,7 @@ return p["inChina"]&&p["ovr"]>=0x44;
   'options': [
     {
         'label': "签字",
-        'hint': "巨额收入，锁死留"+'洋',
+        'hint': "巨额收入，续约+锁死留洋",
         'apply': function(){
 return{'money':0x384,'lockAbroad':0x5,'roleDelta':0x1,'ovr':-0x1,'openContract':{'wage':0x3,'years':0x5},'text':"你签了。那一年，你成了亚洲身价最高的中国球员——也是最后一次，有人这么形容你。"};
 }
@@ -5081,7 +5081,6 @@ return{'ovr':0x1,'guanxi':0x6,'text':"你留下了。整整一年，你坐在替
   'icon': "🛏️",
   'weight': 0x37,
   'stage': "youth",
-  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -5192,23 +5191,23 @@ return p["inAcadem"+'y'];
 
 
 
-  'desc': "俱乐部把合同放在"+"桌上：五年，工资"+"很低，违约金写得"+"很高。",
+  'desc': "俱乐部把合同放在"+"桌上：五年，工资"+"很低，签下去就"+"等于把未来几年"+"锁在这里。",
   'options': [
     {
         'label': "签字",
-        'hint': "钱少，位置稳",
+        'hint': "钱少，位置稳，强制续约",
         'apply': function(){
-return{'money':0x1e,'roleDelta':0x1,'contract':{'years':0x5,'wage':0.5,'lock':0x4},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那个违约金意味着什么。"};
+return{'money':0x1e,'roleDelta':0x1,'openContract':{'wage':0.5,'years':0x5},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那份合同意味着什么。"};
 }
     },
     {
         'p': function(p){return f(0.6,[[p["guanxi"],45,0.008]],0.2,0.9);
 },
         'label': "让家里找人看看",
-        'hint': function(p,q){return g(q,'改好了','俱乐部翻脸');
+        'hint': function(p,q){return g(q,'改好了，强制续约','俱乐部翻脸');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'money':0x3c,'clean':0x4,'contract':{'years':0x3,'wage':0.7,'lock':0x2},'text':"违约金砍掉一半，年限缩到三年。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
+return d(q,s)?{'money':0x3c,'clean':0x4,'openContract':{'wage':0.7,'years':0x3},'text':"年限缩到三年，工资高了一档。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
 }
     }
   ]
@@ -5809,7 +5808,8 @@ return d(q,s)?{'ovr':0x1,'clean':0x4,'text':"第二年，注册办法改了。�
   'icon': '📝',
   'weight': 0x34,
   'stage': "prime",
-  'desc': "续约文本里有一条解约金条款。经纪人说，数字写低些，将来好走。",
+  'cn': !0x0,
+  'desc': "续约文本里有一条解约金条款。经纪人说，数字写低些，将来好留洋。",
 
 
 
@@ -5817,7 +5817,7 @@ return d(q,s)?{'ovr':0x1,'clean':0x4,'text':"第二年，注册办法改了。�
   'options': [
     {
         'label': '写低',
-        'hint': "工资少些，好脱身",
+        'hint': "工资少些，好留洋",
         'apply': function(){
 return{'money':-0x3c,'lockAbroad':0x0,'ovr':0x1,'text':"俱乐部答应了，代价是工资折了一截。两年后，真有人按那个数字把你买走了。"};
 }
@@ -5826,10 +5826,10 @@ return{'money':-0x3c,'lockAbroad':0x0,'ovr':0x1,'text':"俱乐部答应了，代
         'p': function(p){return f(0.6,[[p["ovr"],60,0.008]],0.2,0.9);
 },
         'label': "要高工资",
-        'hint': function(p,q){return g(q,'值','被卡死');
+        'hint': function(p,q){return g(q,'值','被卡死，锁死留洋');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'money':0xc8,'text':"你拿到了队里第二"+"高的工资，踏踏实"+"实踢了三年。"}:{'money':0xc8,'roleDelta':-0x1,'lockAbroad':0x2,'text':"工资是高，可那个天价解约金，让每个来问价的球队都掉头走了。"};
+return d(q,s)?{'money':0xc8,'text':"你拿到了队里第二"+"高的工资，踏踏实"+"实踢了三年。"}:{'money':0xc8,'roleDelta':-0x1,'lockAbroad':0x2,'text':"工资是高，可那个天价解约金，让每个来问价的海外球队都掉头走了。"};
 }
     }
   ]
@@ -6123,15 +6123,15 @@ return p["contractFinal"];
 },
 
 
-  'desc': "整个冬窗，你要走的传闻没断过。训练场上，有人开始绕着你走。",
+  'desc': "整个冬窗，你要走的传闻没断过。俱乐部把你叫进办公室，谈续约。",
 
 
   'options': [
     {
         'label': "公开表态留下",
-        'hint': "关系+，将来难走",
+        'hint': "关系+，强制续约",
         'apply': function(){
-return{'guanxi':0xe,'fame':0xa,'lockAbroad':0x2,'roleDelta':0x1,'text':"你在采访里说，「我哪儿也不去」。那句话被印上围巾，也把你钉在了原地。"};
+return{'guanxi':0xe,'fame':0xa,'openContract':!0x0,'roleDelta':0x1,'text':"你在采访里说，「我哪儿也不去」。俱乐部顺势递上续约合同，你签了。"};
 }
     },
     {
@@ -6272,7 +6272,7 @@ return d(q,s)?{'roleDelta':0x1,'guanxi':-0x8,'text':"一个电话打上去，你
   'options': [
     {
         'label': "签字",
-        'hint': "钱少，踢得久",
+        'hint': "钱少，踢得久，强制续约",
         'apply': function(){
 return{'guanxi':0xc,'roleDelta':-0x1,'openContract':{'wage':0.8,'years':0x2},'text':"更衣室里，你说的话越来越有分量；工资单上，你的名字却越来越靠下。"};
 }
@@ -12664,11 +12664,12 @@ return{'ovr':0x2,'guanxi':-0x2,'_injuryChain':0x3,'text':"你开始更多地身�
   'icon': '🛡️',
   'weight': 0x2c,
   'stage': "prime",
+  'cn': !0x0,
   'when': function(p){return p["agentType"]==='family';},
   'desc': "一家俱乐部递来一份合同，数字很高，但有一条：五年内不得转会海外。他看完直接给你打了电话，说这单不能签。",
   'options': [
     {'label': "听他的", 'hint': "关系+，钱少", 'apply': function(){return{'guanxi':0xa,'money':-0x32,'text':"他替你回绝了那份合同。三年后你才明白，那条「五年不得转会海外」，会把你钉死在原地。"};}},
-    {'label': "钱要紧，签", 'hint': "钱+，关系-", 'apply': function(){return{'money':0x1f4,'lockAbroad':0x3,'guanxi':-0xa,'text':"你签了。他没再说什么，只是那份独家协议到期后，没有续。"};}}
+    {'label': "钱要紧，签", 'hint': "钱+，关系-，锁死留洋", 'apply': function(){return{'money':0x1f4,'lockAbroad':0x3,'guanxi':-0xa,'text':"你签了。他没再说什么，只是那份独家协议到期后，没有续。"};}}
   ]
 },
 

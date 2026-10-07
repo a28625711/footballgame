@@ -387,8 +387,9 @@ return!bx||aq(bx)['cn'];
 return!by||by['cn'];
 }function av(bx){
 return Math["abs"](bx)>=0x2710?(bx/0x2710)["toFixed"](0x1)["replace"](/\.0$/,'')+'\x20亿':Math["round"](bx)+'\x20万';
-}function aw(bx){
-return "胡雪儿"===String(bx["name"]||'')["trim"]()&&!!bx["origin"]&&'sd'===bx["origin"]['id']&&0x2===Number(bx["number"]);
+}function aw(bx,bF){
+/* bF 为 newState 里解析后的 origin 对象（字符串 id 已归一）：按 id 判，兼容 UI/字符串两路 */
+return "胡雪儿"===String(bx["name"]||'')["trim"]()&&bF&&'sd'===bF['id']&&0x2===Number(bx["number"]);
 }function ax(){
 return Math["min"](0x5,(a2["ovr"]-0x32)/0x7);
 }var ay={'ovr':0xa,
@@ -825,7 +826,7 @@ return Math.max(0.12,Math.min(0.93,c0+_msCfg["k"]*sd+_msCfg["k2"]*sd*Math["abs"]
 /* 球员单场数据归属（全赛事统一）：从本队真实进球中分配进球/助攻，永不越过比分。
    share 按位置：前锋吃球队 ~34% 进球、中场 ~20%（助攻 20%），随 OVR 与对手强度缩放 */
 function _pMatchContrib(tg,og,oppStr,ownStr,grp,boost){
-var f=(0.55+0.55*(a2["ovr"]-0x32)/0x32)*(a2["ovr"]>=0x58?1.10+0.03*(a2["ovr"]-0x58):0x1)*(boost||1);if(a2["cheat"])f*=1.25;
+var f=(0.55+0.55*(a2["ovr"]-0x32)/0x32)*(a2["ovr"]>=0x58?1.10+0.03*(a2["ovr"]-0x58):0x1)*(boost||1);
 var diff=(oppStr!=null&&ownStr!=null)?ac((oppStr-ownStr)/0x1e,-1,1):0;
 var sh={'att':[0.24,0.11],'mid':[0.15,0.19],'def':[0.07,0.045],'gk':[0,0]}[grp]||[0.15,0.15];
 var ps=ac(sh[0]*f*(1-0.25*diff),0.01,0.6);
@@ -1728,7 +1729,15 @@ function _bmAiSettle(bx){
 var c=bx&&bx["_aiCtx"];
 if(!c)return;
 var _bz2=a2["_curBz"]||a2["seasons"][bx["recIdx"]]||null;
-if(c["t"]==='nat'){_bz2&&aZ(_bz2,c["comp"],c["stage"],bx["age"]);}
+if(c["t"]==='nat'){
+/* 国家队决赛被让位代结：走统一出口 _natFinalBook（设 stage/写 natFx/同步 tournaments/清挂起），
+   避免只 aZ 后残留 _natWC/_natAsia，导致后续 _bmFinish 用残留挂起再结算一次（同届冠军+亚军双记）。
+   生死战（phase='group'）代结时按 AI 重算整段签表结果再记。 */
+var _wcc=(c["comp"]==="世界杯"),_tag=_wcc?"wc":"asia",_susp=_wcc?a2["_natWC"]:a2["_natAsia"];
+if(_susp&&_susp["phase"]==="group"){var _gr=_natResolveComp(_wcc?"wc":"asia",_susp["_team"],_susp);delete a2[_wcc?"_natWC":"_natAsia"];_bz2&&aZ(_bz2,c["comp"],_gr["stage"],_susp["age"]);}
+else if(_susp){_natFinalBook(_tag,_susp,_bz2,c["stage"]==="冠军",0x0,0x0,null,c["comp"]);}
+else{_bz2&&aZ(_bz2,c["comp"],c["stage"],bx["age"]);}
+}
 else if(c["t"]==='cont')_contAiSettle(bx);
 else if(c["t"]==='promo'){
 var wC=_poOne(c["f1"],c["f2"],!0x0);
@@ -1808,7 +1817,6 @@ function _bmShare(bx,myStr,oppStr){
 function _bmPlayerProb(bx,myStr,oppStr){
   var grp=al(a2["pos"])["group"]||"att";
   var f=(0.55+0.55*(a2["ovr"]-0x32)/0x32)*(a2["ovr"]>=0x58?1.10+0.03*(a2["ovr"]-0x58):0x1);
-  if(a2["cheat"])f*=1.25;
   var diff=(oppStr!=null&&myStr!=null)?ac((oppStr-myStr)/0x1e,-1,1):0;
   var sh={'att':[0.24,0.11],'mid':[0.15,0.19],'def':[0.07,0.045],'gk':[0,0]}[grp]||[0.15,0.15];
   /* 队内地位（roleAdjust ±4）直接影响大场面参与度：核心球员更多触球/开火，边缘球员更少（±8%/档） */
@@ -3851,17 +3859,22 @@ function b0(bx,by,bz,bA){
 a2["natRuns"]=a2["natRuns"]||[];
 var _ex=null,_i;
 for(_i=0x0;_i<a2["natRuns"]["length"];_i++){var _r=a2["natRuns"][_i];if(_r["comp"]===by&&_r["age"]===bA){_ex=_r;break;}}
+var _fin=bz;
 if(_ex){
 /* 冲突取更高名次（aQ：冠军7 最高）：交互决赛夺冠后，任何后续的亚军/淘汰结算都不许把冠军降级 */
 if((aQ[bz]!=null?aQ[bz]:0x0)>=(aQ[_ex["stage"]]!=null?aQ[_ex["stage"]]:0x0))_ex["stage"]=bz;
+_fin=_ex["stage"];
 if(bx){_ex["caps"]=bx['caps'];['natGoals','natAssis'+'ts','natCs']["forEach"](function(k){_ex[k]=bx[k];});}
 _syncTourStage(by,bA,_ex["stage"]);}
 else{a2["natRuns"]["push"]({'age':bA,'comp':by,'stage':bz,'caps':bx?bx['caps']:0,'natGoals':bx?bx['natGoals']:0,['natAssis'+'ts']:bx?bx['natAssis'+'ts']:0,'natCs':bx?bx['cs']:0});_syncTourStage(by,bA,bz);}
-if('冠军'===bz){var _tn=by+'冠军';a2["trophies"]=a2["trophies"]||[];var _has=!0x1;
+/* 奖杯与赛季 nat 字段都以「最终名次」_fin 为准：
+   防止「亚军先记、冠军后覆盖」或反向时，冠军奖杯与"亚洲杯亚军"字段在同季并存 */
+if('冠军'===_fin){var _tn=by+'冠军';a2["trophies"]=a2["trophies"]||[];var _has=!0x1;
 for(_i=0x0;_i<a2["trophies"]["length"];_i++)if(a2["trophies"][_i]["name"]===_tn&&a2["trophies"][_i]["age"]===bA){_has=!0x0;break;}
 if(!_has)a2["trophies"]["push"]({'name':_tn,'age':bA,'team':"国家队"});
-if(bx&&bx["trophies"]&&bx["trophies"]["indexOf"](_tn)<0x0)bx["trophies"]["push"](_tn);}
-else if(bx)bx["nat"]=by+bz;
+if(bx&&bx["trophies"]&&bx["trophies"]["indexOf"](_tn)<0x0)bx["trophies"]["push"](_tn);
+if(bx)bx["nat"]="";}
+else if(bx)bx["nat"]=by+_fin;
 }
 /* 单一真相同步：natRuns 记下的最终名次反向传播到 tournaments 同届条目，
    消除"AI 代结亚军 vs 交互夺冠"结算后签名面板与成绩面板不一致 */
@@ -4030,32 +4043,26 @@ delete a2["staff"][bC['id']],bB["push"](bC["name"]),bA-=bC["_fee"];
 
 bB["length"]&&(bz["staffGon"+'e']=bB["join"]('、'));
 }var bE=aG(a2["age"]),bF=bE[0x0]+ad()*(bE[0x1]-bE[0x0]),bG=a2["talent"];
-if(by&&(bG*=0x1+0.05*(by["rep"]-0x2)),
+by&&(bG*=0x1+0.05*(by["rep"]-0x2));
 
 
 
-a2["stagnate"]&&(bG*=0.55),a6("chef")&&(bG*=(1+0.08*_stEff(_stT("chef")))*_stM("chef")),a0["ROLES"][a2["role"]]["rank"]<=0x1&&(bG*=a2["age"]<=0x17&&bx&&bx["rep"]>=0x4?0.85:0.5),
+a2["stagnate"]&&(bG*=0.55);a6("chef")&&(bG*=(1+0.08*_stEff(_stT("chef")))*_stM("chef"));a0["ROLES"][a2["role"]]["rank"]<=0x1&&(bG*=a2["age"]<=0x17&&bx&&bx["rep"]>=0x4?0.85:0.5);
 
 
 
 
-a2["achBonus"]&&a2["achBonus"]["growth"]&&(bG*=a2["achBonus"]["growth"]),
-bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)*_capWall(a2["talent"],a2["ovr"])),
+a2["achBonus"]&&a2["achBonus"]["growth"]&&(bG*=a2["achBonus"]["growth"]);
+bF>0x0&&(bG*=Math["max"](0.16,(0x64-a2["ovr"])/0x32)*_capWall(a2["talent"],a2["ovr"]));
 
 
 
-bF<0x0&&(a2["achBonus"]&&a2["achBonus"]["decay"]&&(bF*=a2["achBonus"]["decay"]),bG=(a2["ovr"]>a2["maxOvr"]*0.94?1.3:Math["max"](0.78,1.34-0.38*a2["talent"]))*(a6("fitness")?(1-0.2*_stEff(_stT("fitness")))/_stM("fitness"):0x1)),
+bF<0x0&&(a2["achBonus"]&&a2["achBonus"]["decay"]&&(bF*=a2["achBonus"]["decay"]),bG=(a2["ovr"]>a2["maxOvr"]*0.94?1.3:Math["max"](0.78,1.34-0.38*a2["talent"]))*(a6("fitness")?(1-0.2*_stEff(_stT("fitness")))/_stM("fitness"):0x1));
 
 
 
-a2["ovr"]=ac(a2["ovr"]+bF*bG,0x14,0x63),
-a2["cheat"]){var bH=ac(0x2a+bp(a2["originId"])["ovr"]+(a2["legacy"]?a2["legacy"]["ovr"]:0x0),0x1e,0x3c),
-
-
-
-bI=bH+(0x63-bH)*ac((a2["age"]-0x10)/0xa,0x0,0x1);
-a2["ovr"]=ac(Math["max"](a2["ovr"],bI),0x14,0x63);
-}_runWorld(bz,bx,by);
+a2["ovr"]=ac(a2["ovr"]+bF*bG,0x14,0x63);
+_runWorld(bz,bx,by);
 if(a2["banLeft"]>0x0)bz["note"]='禁赛',
 
 
@@ -4067,11 +4074,10 @@ if(_nTeam>0x0){var _avail={'star':[0.82,0.97],'starter':[0.68,0.88],'rot':[0.42,
 bK=Math["round"](ae(Math["round"](_avail[0x0]*0x3e8),Math["round"](_avail[0x1]*0x3e8))/0x3e8*_nTeam);}
 else bK=ae(bJ["apps"][0x0],bJ["apps"][0x1]);
 if(a2["age"]<=0x13?bK=Math["round"](0.5*bK):0x14===a2["age"]?bK=Math["round"](0.78*bK):a2["age"]>=0x2b?bK=Math["round"](0.45*bK):a2["age"]>=0x29?bK=Math["round"](0.58*bK):a2["age"]>=0x27?bK=Math["round"](0.7*bK):a2["age"]>=0x25?bK=Math["round"](0.82*bK):a2["age"]>=0x23&&(bK=Math["round"](0.92*bK)),
-a2["cheat"]&&(bK=Math["round"](1.05*bK)),a6("nutritio"+'n')&&(bK=Math["round"](1.05*bK)),a2["banGames"]>0x0){var bL=Math["min"](bK,a2["banGames"]);
+a6("nutritio"+'n')&&(bK=Math["round"](1.05*bK)),a2["banGames"]>0x0){var bL=Math["min"](bK,a2["banGames"]);
 bK-=bL,a2["banGames"]-=bL,bL>0x0&&(bz["note"]="停赛 "+bL+'\x20场');
 }bK=Math["round"](bK*APPS_F(a2["age"])/OLDF(a2["age"])),_nTeam>0x0&&(bK=Math["min"](bK,_nTeam)),bz["teamGames"]=_nTeam;
 var bM=ac((a2["ovr"]-0x2a)/0x30,0.05,1.4);
-a2["cheat"]&&(bM*=1.25);
 var bN=aK(),_pm=TYPE_MODS[a2["playerType"]>=0x0&&a2["playerType"]<=0xb?a2["playerType"]:0xb];bz["_type"]=a2["playerType"]>=0x0&&a2["playerType"]<=0xb?a2["playerType"]:0xb;
 if(bz["apps"]=bK,'gk'===al(a2["pos"])["group"])bz['cs']=Math["min"](bK,Math["round"](bK*(0.15+0.28*bM)*(0.8+0.5*ad()))),bz['ga']=Math["round"]((bK-bz['cs'])*(1.85-0.47*ac(bM,0x0,0x1))*(0.9+0.2*ad()));
 else{
@@ -4144,21 +4150,17 @@ bZ=a0["ROLES"][a2["role"]]["rank"],c0=ac(bY*(bZ>=0x3?0x1:bZ>=0x2?0.85:0.6)*(by["
 
 
 0x0,0x1),fl=ac((a2["ovr"]-0x52)/0x8,0x0,0x1);if(c0<fl)c0=fl;
-bX=a2["cheat"]||ad()<c0;
+bX=ad()<c0;
 }if(bX){var c2=aL(),c3=_natYr();
 var _natMatches=[],_natFr=[],_natQual=null,
 
 
 
 _natTourn=null,_natFxForce=null;
-if(0x1===c3){if(a2["cheat"]&&a2["ovr"]>=0x55){_natFxForce='wc';aZ(bz,"\u4e16\u754c\u676f","\u51a0\u519b");a2["natForm"]["wc"]=0x4;}else{var _playerTeam={i:"n_chn",n:"\u4e2d\u56fd\u961f",s:60,ovr:_natStr()};_natQual=_runNatQual("wc",_playerTeam);_natMatches=_natMatches["concat"](_chnGroup(_natQual["matches"]));if(_natQual["qualified"]){_natTourn=_runNatComp("wc",_playerTeam);_natMatches=_natMatches["concat"](_chnGroup(_natTourn["matches"]));_natMatches=_natMatches["concat"](_chnRounds(_natTourn["rounds"]));}var _frW=_runFriendlies(0x2,0x3);_natFr=_frW["matches"];_natMatches=_natMatches["concat"](_natFr);}}
-if(0x3===c3){if(a2["cheat"]&&a2["ovr"]>=0x4a){_natFxForce='asia';aZ(bz,"\u4e9a\u6d32\u676f","\u51a0\u519b");a2["natForm"]["asia"]=0x3;}else{var _playerTeam2={i:"n_chn",n:"\u4e2d\u56fd\u961f",s:60,ovr:a2["ovr"]};_natQual=_runNatQual("asia",_playerTeam2);_natMatches=_natMatches["concat"](_chnGroup(_natQual["matches"]));if(_natQual["qualified"]){_natTourn=_runNatComp("asia",_playerTeam2);_natMatches=_natMatches["concat"](_chnGroup(_natTourn["matches"]));_natMatches=_natMatches["concat"](_chnRounds(_natTourn["rounds"]));}var _frA=_runFriendlies(0x2,0x3);_natFr=_frA["matches"];_natMatches=_natMatches["concat"](_natFr);}}
+if(0x1===c3){if(0x0&&a2["ovr"]>=0x55){_natFxForce='wc';aZ(bz,"\u4e16\u754c\u676f","\u51a0\u519b");a2["natForm"]["wc"]=0x4;}else{var _playerTeam={i:"n_chn",n:"\u4e2d\u56fd\u961f",s:60,ovr:_natStr()};_natQual=_runNatQual("wc",_playerTeam);_natMatches=_natMatches["concat"](_chnGroup(_natQual["matches"]));if(_natQual["qualified"]){_natTourn=_runNatComp("wc",_playerTeam);_natMatches=_natMatches["concat"](_chnGroup(_natTourn["matches"]));_natMatches=_natMatches["concat"](_chnRounds(_natTourn["rounds"]));}var _frW=_runFriendlies(0x2,0x3);_natFr=_frW["matches"];_natMatches=_natMatches["concat"](_natFr);}}
+if(0x3===c3){if(0x0&&a2["ovr"]>=0x4a){_natFxForce='asia';aZ(bz,"\u4e9a\u6d32\u676f","\u51a0\u519b");a2["natForm"]["asia"]=0x3;}else{var _playerTeam2={i:"n_chn",n:"\u4e2d\u56fd\u961f",s:60,ovr:a2["ovr"]};_natQual=_runNatQual("asia",_playerTeam2);_natMatches=_natMatches["concat"](_chnGroup(_natQual["matches"]));if(_natQual["qualified"]){_natTourn=_runNatComp("asia",_playerTeam2);_natMatches=_natMatches["concat"](_chnGroup(_natTourn["matches"]));_natMatches=_natMatches["concat"](_chnRounds(_natTourn["rounds"]));}var _frA=_runFriendlies(0x2,0x3);_natFr=_frA["matches"];_natMatches=_natMatches["concat"](_natFr);}}
 if(c3!==0x1&&c3!==0x3){var _fr=_runFriendlies(0x6,0x8);_natFr=_fr["matches"];_natMatches=_natMatches["concat"](_natFr);}
-var c1=a2["cheat"]?ae(0x5,
-
-
-
-0x8):(function(){var _av={'star':[0.85,1],'starter':[0.72,0.92],'rot':[0.45,0.68],'sub':[0.2,0.45],'bench':[0x0,0.15]}[a2["role"]]||[0.5,0.8];return Math["min"](_natMatches["length"],Math["round"](ae(Math["round"](_av[0]*0x3e8),Math["round"](_av[1]*0x3e8))/0x3e8*_natMatches["length"]));})();
+var c1=(function(){var _av={'star':[0.85,1],'starter':[0.72,0.92],'rot':[0.45,0.68],'sub':[0.2,0.45],'bench':[0x0,0.15]}[a2["role"]]||[0.5,0.8];return Math["min"](_natMatches["length"],Math["round"](ae(Math["round"](_av[0]*0x3e8),Math["round"](_av[1]*0x3e8))/0x3e8*_natMatches["length"]));})();
 a2["caps"]+=c1,bz["caps"]=c1,bz["natGames"]=_natMatches["length"];
 if(!a2["flags"]["_natCall"+"ed"]){a2["flags"]["_natCall"+"ed"]=!0x0;b1(["nat_firs"+"tcall","nat_firs"+"tcall2","nat_firs"+"tcall3"][Math["floor"](ad()*0x3)]);a2["usedEven"+"ts"]["nat_firs"+"tcall"]=(a2["usedEven"+"ts"]["nat_firs"+"tcall"]||0x0)+0x1;a2["usedEven"+"ts"]["nat_firs"+"tcall2"]=(a2["usedEven"+"ts"]["nat_firs"+"tcall2"]||0x0)+0x1;a2["usedEven"+"ts"]["nat_firs"+"tcall3"]=(a2["usedEven"+"ts"]["nat_firs"+"tcall3"]||0x0)+0x1;}
 if(c1&&a2["natStats"]&&_natMatches["length"]){var _pg=al(a2["pos"])["group"],
@@ -4180,7 +4182,7 @@ if(_natTourn){var _ntCaps=_natTourn["matches"]["length"],
 
 
 
-_ntStage=_natTourn["stage"];a2["tournaments"]["push"](_natTourn);(a2["__nfbLog"]=(a2["__nfbLog"]||[]))["push"]("PUSH-T comp="+_natTourn["comp"]+" age="+_natTourn["age"]+" stageAI="+_ntStage+" phase="+(_natTourn["phase"]||"null")+" sameRefAsSuspended="+(a2["_natWC"]===_natTourn||a2["_natAsia"]===_natTourn));if(_natTourn["phase"]==="group"){var _gb=_aVPri("wc",0.62,{"comp":_natTourn["comp"],"opp":_natTourn["_opp"],"oppStr":_natTourn["_oppStr"],"age":_natTourn["age"],"_grpWC":!0x0,"_drawOk":!0x0,"_ctx":"世界杯小组赛生死战","_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":"小组赛"}});if(_gb){a2["_natWC"]=_natTourn;}else{_natTourn=_natResolveComp("wc",_natTourn["_team"],_natTourn);_ntStage=_natTourn["stage"];a2["natForm"]["wc"]=_natFormVal(_ntStage,"wc");_natAfterKO(bz,_natTourn,_ntStage);}}else{a2["natForm"][_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia"]=_natFormVal(_ntStage,_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia");if(_ntStage==="\u5c0f\u7ec4\u8d5b\u51fa\u5c40"){aZ(bz,_natTourn["comp"],"\u5c0f\u7ec4\u8d5b\u51fa\u5c40");}else{var _tBM=false;if(_ntStage==="\u51a0\u519b"||_ntStage==="\u4e9a\u519b"){_tBM=_aVPri(_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia",0.55,{"comp":_natTourn["comp"],"opp":_finalOpp(_natTourn["rounds"],"\u4e2d\u56fd\u961f"),"_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":_ntStage}});}if(_tBM){a2[_natTourn["comp"]==="\u4e16\u754c\u676f"?"_natWC":"_natAsia"]=_natTourn;}else aZ(bz,_natTourn["comp"],_ntStage);}}}
+_ntStage=_natTourn["stage"];a2["tournaments"]["push"](_natTourn);if(_natTourn["phase"]==="group"){var _gb=_aVPri("wc",0.62,{"comp":_natTourn["comp"],"opp":_natTourn["_opp"],"oppStr":_natTourn["_oppStr"],"age":_natTourn["age"],"_grpWC":!0x0,"_drawOk":!0x0,"_ctx":"世界杯小组赛生死战","_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":"小组赛"}});if(_gb){a2["_natWC"]=_natTourn;}else{_natTourn=_natResolveComp("wc",_natTourn["_team"],_natTourn);_ntStage=_natTourn["stage"];a2["natForm"]["wc"]=_natFormVal(_ntStage,"wc");_natAfterKO(bz,_natTourn,_ntStage);}}else{a2["natForm"][_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia"]=_natFormVal(_ntStage,_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia");if(_ntStage==="\u5c0f\u7ec4\u8d5b\u51fa\u5c40"){aZ(bz,_natTourn["comp"],"\u5c0f\u7ec4\u8d5b\u51fa\u5c40");}else{var _tBM=false;if(_ntStage==="\u51a0\u519b"||_ntStage==="\u4e9a\u519b"){_tBM=_aVPri(_natTourn["comp"]==="\u4e16\u754c\u676f"?"wc":"asia",0.55,{"comp":_natTourn["comp"],"opp":_finalOpp(_natTourn["rounds"],"\u4e2d\u56fd\u961f"),"_aiCtx":{"t":"nat","comp":_natTourn["comp"],"stage":_ntStage}});}if(_tBM){a2[_natTourn["comp"]==="\u4e16\u754c\u676f"?"_natWC":"_natAsia"]=_natTourn;}else aZ(bz,_natTourn["comp"],_ntStage);}}}
 if(_natFr["length"]){a2["natRuns"]["push"]({age:a2["age"],comp:"\u53cb\u8c0a\u8d5b",stage:"",friendly:true,matches:_natFr,caps:_natFr["length"],natGoals:0,natAssists:0,natCs:0});}
 if(_natQual&&!_natTourn&&c3===0x1){aZ(bz,
 
@@ -4195,7 +4197,7 @@ if(_natQual&&!_natTourn&&c3===0x3){aZ(bz,
 }
 /* 中立国家队赛事：每季归档上一届，本届按四年周期模拟（玩家参赛版直接引用原数据，决赛大场面改分可同步） */
 /* _cnElim：本季玩家队(中国)打了预选赛却出局 → 中立签表强制排除中国；_natFxForce：作弊直接夺冠 → 世界面板记录中国队冠军 */
-_natTick(_natTourn,!!(_natQual&&!_natTourn&&bX&&!a2["cheat"]),_natFxForce);
+_natTick(_natTourn,!!(_natQual&&!_natTourn&&bX),_natFxForce);
 if(bx&&by){_ntCareerHook();_bigHooks(bz);if(a2["bigQ"]&&a2["bigQ"]["length"]){a2["_awardDue"]=!0x0;a2["_promoDue"]=!0x0;}else{_lgFinalRefresh(bz);bAw(bz);}}return a2["_promoDue"]?0:_promoReleg(bz,
 bx,by),a2["maxOvr"]=Math["max"](a2["maxOvr"],a2["ovr"]),bz["ovrEnd"]=Math["round"](a2["ovr"]),
 a2["flags"]["_ovrD"]=bz["ovrEnd"]-Math["round"](bz["ovr"]||0x0),a2["flags"]["_ovrPh"]="p",a2["flags"]["_ovrA"]=bz["age"],
@@ -4262,7 +4264,7 @@ var bx=bz["teamId"]?aj(bz["teamId"]):null,
 by=bx?ak(bx["league"]):null,age0=bz["age"];
 if(!bx||!by)return;
 var c7=al(a2["pos"])["group"];
-if(a2["cheat"]){(by["rep"]>=0x4||function(){
+if(0x0){(by["rep"]>=0x4||function(){
 for(var cb4=0x0;cb4<a2["trophies"]["length"];cb4++)if(a2["trophies"][cb4]["name"]["indexOf"]('欧冠')>=0x0&&a2["trophies"][cb4]["age"]===age0)return!0x0;
 return!0x1;
 }()||function(){
@@ -4515,7 +4517,7 @@ return _base[rep]||_base[0x1];
 /* 潜力(天赋)在“选青训营”这一步就掷定：青训营档次看潜力，而天赋原本要等入营才掷。
    掷过即钉住(flags._pot)，入营时不再重掷，保证“看到的档次”与“实际天赋”一致。 */
 function _rollPot(){if(a2["flags"]["_pot"])return;a2["flags"]["_pot"]=!0x0;
-a2["talent"]=0.7+0.78*Math["pow"](ad(),1.7)+(a2["legacy"]?a2["legacy"]["talent"]:0x0)+(a2["legend"]?a2["legend"]['t']:0x0);}
+a2["talent"]=0.7+0.78*Math["pow"](ad(),1.7)+(a2["legacy"]?a2["legacy"]["talent"]:0x0)+(a2["legend"]?a2["legend"]['t']:0x0);a2["cheat"]&&(a2["talent"]+=0.5);}
 function bk(){
 if(a2["_trialQueued"]){var _tq=a2["_trialQueued"];a2["_trialQueued"]=null;return void(a2["pending"]={'type':"random",'eventId':"__trial__",'offers':_tq["offers"]});}
 if(a2["step"]++,"youth"===a2["phase"])return a2["youthTea"+"mId"]?bj():(function(){_rollPot();var bF=a0["TEAMS"]["filter"](function(bR){return aq(bR)['cn'];
@@ -4595,23 +4597,11 @@ a2["pending"]={'type':'youth_path',
 
 'offers':bI["map"](function(bR){return bR['id'];}),'abroadIdx':abIdx};
 }());
-if(a2["cheat"]&&(a2["banned"]=!0x1,a2["banLeft"]=0x0,
-
-
-
-a2["banGames"]=0x0,a2["flags"]["_forceRe"+"tire"]=!0x1,a2["clean"]=0x64,a2["guanxi"]=0x64),
-a2["banned"])return br("终身禁足");
+if(a2["banned"])return br("终身禁足");
 if(a2["flags"]["_forceRe"+"tire"])return br('伤退');
 if(a2["age"]>=0x37)return br("年龄到了");
-if(a2["cheat"]&&a2["age"]>=0x2d)return br("年龄到了");
 if(!a2["teamId"]&&!a2["clubsPla"+"yed"]["length"])return bm();
-if(a2["cheat"]){var bx=ar();
-if(au()?a2["ovr"]>=0x3e:bx&&bx["rep"]<=ax()-0x2)return a2["flags"]["_forceLe"+"ave"]=!0x1,
-
-
-
-bo(!0x1);
-}if(a2["flags"]["_contractDue"]){a2["flags"]["_contractDue"]=!0x1;return void _openRenewal();}var by=a2["flags"]["_forceLe"+"ave"],bz=a2["lowSpell"]>=("long"===a2["mode"]?0x3:0x2),bA=a2["contract"+"Left"]<=0x0;
+if(a2["flags"]["_contractDue"]){a2["flags"]["_contractDue"]=!0x1;return void _openRenewal();}var by=a2["flags"]["_forceLe"+"ave"],bz=a2["lowSpell"]>=("long"===a2["mode"]?0x3:0x2),bA=a2["contract"+"Left"]<=0x0;
 if(by||bz||bA){if(a2["loanFrom"]){var bB=aj(a2["loanFrom"]);
 return bB&&(a2["teamId"]=bB['id'],
 
@@ -4784,7 +4774,7 @@ return a2["_offerTerms"][bG['id']]={'wage':_wageOf(bG,aq(bG),bJ*bK),
 
 
 'years':bI,'mult':bJ*bK};
-}if(a2["cheat"]&&a2["ovr"]>=0x3e){var bz=ax(),bA=a0["TEAMS"]["filter"](function(bG){var bH=aq(bG);
+}if(0x0){var bz=ax(),bA=a0["TEAMS"]["filter"](function(bG){var bH=aq(bG);
 return!bH['cn']&&('欧冠'===bH["cont"]||'欧联'===bH["cont"])&&bG["rep"]<=bz;
 }),
 
@@ -5116,18 +5106,7 @@ if(!bz)bz=_pendingEvent();
 if(!bz)return null;
 var bB=_matOpts(bz)||[];bB=bB[Number(bx)];if(!bB)return!0x1;
 var bR4=function(bG2){a2["eventLog"]&&a2["eventLog"]["push"]({'age':(by&&by["age"]!=null?by["age"]:a2["age"]),'title':bG2&&bG2["title"]||"事件",'text':bG2&&bG2["text"]||''});};
-if(bv(bx),
-
-
-
-a2["cheat"]){var bF4=function(bD){
-for(var bE=_rs,bF=null,bG=bE,bH=-0x1/0x0,bI=0x0;
-bI<0x2;
-bI++){_rs=bE,window["EV_ROLL"]&&(window["EV_ROLL"]["reset"](),window["EV_ROLL"]["force"](0x0===bI));
-var bJ=aA(),bK=bD["apply"](bJ,ad,bt(bD,bJ)),bL=bu(bK);
-bL>bH&&(bH=bL,bG=_rs,bF={'res':bK,'opt':bD,'roll':window["EV_ROLL"]?window["EV_ROLL"]["last"]():null});
-}return window["EV_ROLL"]&&window["EV_ROLL"]["force"](null),_rs=bG,bF;
-}(bB);bR4({'title':bz["title"],'text':bF4["res"]["text"]});return bF4;}
+bv(bx);
 window["EV_ROLL"]&&window["EV_ROLL"]["reset"]();
 var bC=aA(),
 
@@ -5413,7 +5392,7 @@ else if(bC["number"]===16&&bC["pos"]==="CDM"&&bC["foot"]==="right")cK={'id':"rod
 else if(bC["number"]===4&&bC["pos"]==="CB"&&bC["foot"]==="right")cK={'id':"vandijk",'o':1,'t':0,'i':-1};
 else if(bC["number"]===17&&bC["pos"]==="CM"&&bC["foot"]==="right")cK={'id':"debruyne",'o':1,'t':0.01,'i':0};
 return{'ver':0x6,'seed':bD,'rngState':ai(String(bD)),'mode':bB,'phase':"youth",'step':0x0,'name':bC["name"],'number':bC["number"],
-'foot':bC["foot"],'pos':bC["pos"],'originId':bF['id'],'cheat':aw(bC),'legend':cK,'dreamId':bC["dreamId"]||null,'gen':bG?bG["gen"]:0x1,
+'foot':bC["foot"],'pos':bC["pos"],'originId':bF['id'],'cheat':aw(bC,bF),'legend':cK,'dreamId':bC["dreamId"]||null,'gen':bG?bG["gen"]:0x1,
 'legacy':bG,'age':0xc,'ovr':ac(0x18+0.5*bF["ovr"]+(bG?0.5*bG["ovr"]:0x0),0x12,0x24)+(cK?cK['o']:0x0)+(bAch&&bAch['ovr']?bAch['ovr']:0x0),'maxOvr':0x0,'talent':0x1+(bAch&&bAch['talent']?bAch['talent']:0x0),
 'guanxi':ac(0x1e+bF["guanxi"]+(bG?bG["guanxi"]:0x0),0x0,0x64),'clean':0x50,'fame':0x5,'money':bF["money"]+(bG?bG["money"]:0x0)+(bAch&&bAch['money']?bAch['money']:0x0),
 'seasonWage':0x0,'wageMult':0x1,'peakAnnualWage':0x0,'careerEarnings':0x0,'teamId':null,'role':"sub",'roleAdjust':0x0,'seasonsAtClub':0x0,

@@ -310,7 +310,6 @@ var EVT_youth=[
   'icon': "🛏️",
   'weight': 0x37,
   'stage': "youth",
-  'repeat': 1,
   'when': function(p){
 return p["inAcadem"+'y'];
 },
@@ -463,23 +462,23 @@ return p["inAcadem"+'y'];
 
 
 
-  'desc': "俱乐部把合同放在"+"桌上：五年，工资"+"很低，违约金写得"+"很高。",
+  'desc': "俱乐部把合同放在"+"桌上：五年，工资"+"很低，签下去就"+"等于把未来几年"+"锁在这里。",
   'options': [
     {
         'label': "签字",
-        'hint': "钱少，位置稳",
+        'hint': "钱少，位置稳，强制续约",
         'apply': function(){
-return{'money':0x1e,'roleDelta':0x1,'contract':{'years':0x5,'wage':0.5,'lock':0x4},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那个违约金意味着什么。"};
+return{'money':0x1e,'roleDelta':0x1,'openContract':{'wage':0.5,'years':0x5},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那份合同意味着什么。"};
 }
     },
     {
         'p': function(p){return f(0.6,[[p["guanxi"],45,0.008]],0.2,0.9);
 },
         'label': "让家里找人看看",
-        'hint': function(p,q){return g(q,'改好了','俱乐部翻脸');
+        'hint': function(p,q){return g(q,'改好了，强制续约','俱乐部翻脸');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'money':0x3c,'clean':0x4,'contract':{'years':0x3,'wage':0.7,'lock':0x2},'text':"违约金砍掉一半，年限缩到三年。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
+return d(q,s)?{'money':0x3c,'clean':0x4,'openContract':{'wage':0.7,'years':0x3},'text':"年限缩到三年，工资高了一档。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
 }
     }
   ]
