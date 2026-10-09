@@ -32,7 +32,7 @@ return!p["hasPartn"+'er'];
   'pool': [{'label':"老家从小一起踢球的",'hint':"青梅竹马，天赋+",'apply':function(){
 return{'partner':"青梅竹马",'ovr':0x1,'talent':0.02,'guanxi':0x4,'text':"你们八岁就认识。那时候她比你还敢往人堆里冲。她说这些年你的比赛，一场都没落。"};
 }},{'label':"队里的康复师",'hint':"天天见面的那个人，伤病-15%",'apply':function(){
-return{'partner':"队里的康复师",'ovr':0x2,'health':0.85,'text':"她给你处理了两年脚踝，知道你每一处旧伤。第一次约饭，她开口第一句：「今天别喝冰的。」"};
+return{'partner':"队里的康复师",'ovr':0x2,'health':0.85,'_together':!0x0,'text':"她给你处理了两年脚踝，知道你每一处旧伤。第一次约饭，她开口第一句：「今天别喝冰的。」"};
 }},{'label':"评论区里那个总在"+'的人','hint':"镜头那头的，伤病少一点",'apply':function(){
 return{'partner':"屏幕那头的人",'fame':0xa,'money':-0x14,'health':0.95,'text':"她做美食账号，粉丝比你多。见面那天，她把手机反扣在桌上，说今天不拍。"};
 }},{'label':"客场看台上每场都来的那个球迷",'hint':"你一直记得她，激励加练",'apply':function(){
@@ -172,7 +172,7 @@ return p["hasPartn"+'er']&&!p["inChina"]&&!p["_together"];
         'label': "让她过来",
         'hint': "花钱，两个人都稳",
         'apply': function(){
-return{'money':-0x50,'ovr':0x2,'guanxi':0x5,'bond':0x8,'_together':!0x0,'text':"她辞了那边的工作搬了过来。头半年，这座城市里她没有半个熟人，每天只等你训练完回家。"};
+return{'money':-0x50,'ovr':0x2,'guanxi':0x5,'bond':0x8,'_together':!0x0,'_movedOnce':!0x0,'text':"她辞了那边的工作搬了过来。头半年，这座城市里她没有半个熟人，每天只等你训练完回家。"};
 }
     },
     {
@@ -570,7 +570,7 @@ return{'money':-0xb4,'ovr':0x2,'bond':0x6,'text':"新家在城郊，通勤多了
   'icon': '✈️',
   'weight': 0x30,
   'when': function(p){
-return p["hasPartn"+'er']&&p["partnerY"+"ears"]>=0x2;
+return p["hasPartn"+'er']&&!p["_toget"+"her"]&&p["partnerY"+"ears"]>=0x2;
 },
 
 
@@ -582,14 +582,14 @@ return p["hasPartn"+'er']&&p["partnerY"+"ears"]>=0x2;
         'label': "让她跟着走",
         'hint': "你的路顺，她的断"+'了',
         'apply': function(){
-return{'ovr':0x2,'roleDelta':0x1,'bond':-0x5,'text':"她辞了职，跟你搬了过来。第二年，她在这边重新开始，从助理做起。这件事，你们再没聊过。"};
+return{'ovr':0x2,'roleDelta':0x1,'bond':-0x5,'_together':!0x0,'_movedOnce':!0x0,'text':"她辞了职，跟你搬了过来。第二年，她在这边重新开始，从助理做起。这件事，你们再没聊过。"};
 }
     },
     {
         'label': "你留下",
         'hint': "地位受损，家里稳",
         'apply': function(){
-return{'roleDelta':-0x2,'ovr':0x1,'guanxi':0x6,'bond':0x8,'text':"你续了一份不算好的合同，条件是留下来。那年出场时间少了一半，但每天都能回家吃饭。"};
+return{'roleDelta':-0x2,'ovr':0x1,'guanxi':0x6,'bond':0x8,'_movedOnce':!0x0,'text':"你续了一份不算好的合同，条件是留下来。那年出场时间少了一半，但每天都能回家吃饭。"};
 }
     },
     {
@@ -599,7 +599,7 @@ return{'roleDelta':-0x2,'ovr':0x1,'guanxi':0x6,'bond':0x8,'text':"你续了一�
         'hint': function(p,q){return g(q,'撑住','就这么散了');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'ovr':0x2,'fame':0x4,'bond':-0x2,'text':"你们靠航班表过了两年。她说，这样也挺好，两个人都没停下。"}:{'split':!0x0,'ovr':-0x2,'money':-0x3c,'text':"分开是她先提的，说得很平静。东西分两次搬走，第二次，你没在家。"};
+return d(q,s)?{'ovr':0x2,'fame':0x4,'bond':-0x2,'_movedOnce':!0x0,'text':"你们靠航班表过了两年。她说，这样也挺好，两个人都没停下。"}:{'split':!0x0,'ovr':-0x2,'money':-0x3c,'text':"分开是她先提的，说得很平静。东西分两次搬走，第二次，你没在家。"};
 }
     }
   ]
@@ -761,7 +761,7 @@ return p["inAcademy"]&&p["inChina"]&&!p["_crush"];
         'label': "现在就拆开",
         'hint': "有个人了，能力-1",
         'apply': function(){
-return{'partner':"初恋·同校女生",'guanxi':0x4,'ovr':-0x1,'_crush':0x1,'text':"信上只有一句话：我看过你每一场校队比赛。那天晚上你没睡着，第二天训练被教练骂了两次。"};
+return{'partner':"初恋·同校女生",'guanxi':0x4,'ovr':-0x1,'_crush':0x1,'_together':!0x0,'text':"信上只有一句话：我看过你每一场校队比赛。那天晚上你没睡着，第二天训练被教练骂了两次。"};
 }
     },
     {
@@ -796,7 +796,7 @@ return p["inAcademy"]&&!p["inChina"]&&!p["_crush"];
         'label': "请她看一场你的训练",
         'hint': "有个人了，能力+1",
         'apply': function(){
-return{'partner':"初恋·语言课同桌",'ovr':0x1,'talent':0.02,'_crush':0x2,'text':"她站在场边看完了整堂训练。结束后她说：你踢球的时候，一点都不像那个连点餐都要比划的人。"};
+return{'partner':"初恋·语言课同桌",'ovr':0x1,'talent':0.02,'_crush':0x2,'_together':!0x0,'text':"她站在场边看完了整堂训练。结束后她说：你踢球的时候，一点都不像那个连点餐都要比划的人。"};
 }
     },
     {
@@ -1160,7 +1160,7 @@ return{'fame':0x8,'money':-0xf,'guanxi':0x4,'text':"她坐在最好的位置看�
   'when': function(p){return p["hasPartn"+'er']&&!p["inChina"]&&!p["_together"]&&p["partnerY"+"ears"]>=0x4;},
   'desc': "分开住了这么久，她这次没绕弯子：要么我搬过来，要么就这样吧。她把手机里的机票页面递给你看，日期是空的。",
   'options': [
-    {'label': "让她搬过来", 'hint': "关系+，花一笔", 'apply': function(){return{'money':-0xc8,'ovr':0x1,'bond':0xa,'_together':!0x0,'text':"你订了那两张机票。她辞了那边的工作，落地那天，你在机场等了三小时，一点没觉得久。"};}},
+    {'label': "让她搬过来", 'hint': "关系+，花一笔", 'apply': function(){return{'money':-0xc8,'ovr':0x1,'bond':0xa,'_together':!0x0,'_movedOnce':!0x0,'text':"你订了那两张机票。她辞了那边的工作，落地那天，你在机场等了三小时，一点没觉得久。"};}},
     {'label': "再等等，等我踢出来", 'hint': "能力+，关系-", 'apply': function(){return{'ovr':0x2,'bond':-0xa,'text':"你说，再给我两年。她把手机收起来，说，好。那两个字，说得比平时轻。"};}},
     {'label': "分开吧", 'hint': "各自往前走", 'apply': function(){return{'split':!0x0,'money':-0x12c,'ovr':-0x1,'fame':0x4,'text':"你们隔着屏幕把话说完。挂断之后，你把那张机票页面，收藏了很久。"};}}
   ]

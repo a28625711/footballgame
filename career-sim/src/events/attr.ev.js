@@ -77,7 +77,7 @@ var EVT_attr=[
   'icon': '🏠',
   'weight': 0x28,
   'stage': "youth",
-  'when': function(p){return !p["inChina"];},
+  'when': function(p){return !p["inChina"]&&p["_liveChain"]==="host";},
   'desc': "青训营把你安排在一对老夫妇家里。房东太太每天给你留一盏灯和一碗热汤，也每天问你「今天有没有交到朋友」。",
   'options': [
     {'label': "把队友请到家里", 'hint': function(p,q){return g(q,'生日会来了半支梯队','只有房东夫妇');},

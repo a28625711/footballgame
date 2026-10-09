@@ -311,7 +311,7 @@ var EVT_youth=[
   'weight': 0x37,
   'stage': "youth",
   'when': function(p){
-return p["inAcadem"+'y'];
+return p["inAcadem"+'y']&&p["_liveChain"]==="dorm";
 },
 
 
@@ -466,19 +466,19 @@ return p["inAcadem"+'y'];
   'options': [
     {
         'label': "签字",
-        'hint': "钱少，位置稳，强制续约",
+        'hint': "钱少，位置稳，五年长约",
         'apply': function(){
-return{'money':0x1e,'roleDelta':0x1,'openContract':{'wage':0.5,'years':0x5},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那份合同意味着什么。"};
+return{'money':0x1e,'roleDelta':0x1,'contract':{'years':0x5,'wage':0.5},'text':"你爸妈坐在旁边，一直点头。你后来才知道，那份合同意味着什么。"};
 }
     },
     {
         'p': function(p){return f(0.6,[[p["guanxi"],45,0.008]],0.2,0.9);
 },
         'label': "让家里找人看看",
-        'hint': function(p,q){return g(q,'改好了，强制续约','俱乐部翻脸');
+        'hint': function(p,q){return g(q,'改好了，三年长约','俱乐部翻脸');
 },
         'apply': function(p,q,s){
-return d(q,s)?{'money':0x3c,'clean':0x4,'openContract':{'wage':0.7,'years':0x3},'text':"年限缩到三年，工资高了一档。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
+return d(q,s)?{'money':0x3c,'clean':0x4,'contract':{'years':0x3,'wage':0.7},'text':"年限缩到三年，工资高了一档。经理签字的时候，脸色不好看。"}:{'roleDelta':-0x2,'guanxi':-0xa,'text':"俱乐部说，不签就先下二队。你在二队待了一年半。"};
 }
     }
   ]
@@ -1277,6 +1277,164 @@ return p["inAcadem"+'y']&&p["clubRep"]<=1;
         'hint': "天赋+",
         'apply': function(){return{'talent':0.04,'text':"每天训练结束后你对着墙练传球，虽然条件简陋，但你比任何人都珍惜每一脚球。"};}
     }
+  ]
+},
+
+// ==== 居住线：宿舍 / 寄宿 / 在家（首个随机触发即锁定，早期可换环境）====
+{
+  'id': "live_dorm",
+  'title': "住进宿舍",
+  'icon': '🛏️',
+  'weight': 0x36,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&!p["_liveChain"]&&(!p["inChina"]||!window["SIM"]["isHome"](p["originId"],p["youthTeamId"]||p["teamId"]));},
+  'desc': "俱乐部把你安排进基地的球员宿舍。同屋是几个和你一样、从外地来的孩子。",
+  'options': [
+    {'label': "主动跟室友打成一片", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'_liveChain':'dorm','text':"你把家乡带来的零食分了一圈。熄灯后你们聊到半夜，第二天被宿管罚跑圈，谁也没抱怨。"};}},
+    {'label': "一个人待着，只管训练", 'hint': "能力+2", 'apply': function(){return{'ovr':0x2,'guanxi':-0x4,'_liveChain':'dorm','text':"你把床铺收拾得整整齐齐，其余时间都在训练场和录像室。室友说你像个客人。"};}}
+  ]
+},
+{
+  'id': "live_host",
+  'title': "寄宿家庭",
+  'icon': '🏡',
+  'weight': 0x36,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&!p["_liveChain"]&&!p["inChina"];},
+  'desc': "俱乐部在本地给你找了户人家寄宿。房东夫妇很客气，只是饭菜和作息都要从头适应。",
+  'options': [
+    {'label': "努力融入这家人", 'hint': "关系+，语言+", 'apply': function(){return{'guanxi':0xa,'ovr':0x1,'_liveChain':'host','text':"你学着帮房东太太洗碗、陪男主人看球。半年后你能用他们的语言开玩笑了。"};}},
+    {'label': "把自己关在房间里", 'hint': "能力+2，关系-", 'apply': function(){return{'ovr':0x2,'guanxi':-0x6,'_liveChain':'host','text':"你尽量错开吃饭时间，回房就练语言、看录像。房东夫妇后来也不太主动找你说话了。"};}}
+  ]
+},
+{
+  'id': "live_home",
+  'title': "住在家里",
+  'icon': '🏠',
+  'weight': 0x38,
+  'stage': "youth",
+  'when': function(p){return p["inAcademy"]&&!p["_liveChain"]&&p["inChina"]&&!!window["SIM"]["isHome"](p["originId"],p["youthTeamId"]||p["teamId"]);},
+  'desc': "家乡球队的青训营离家只有几站路。别人住宿舍，你每天训练完骑车回家，饭是热的。",
+  'options': [
+    {'label': "让爸妈盯着作息", 'hint': "成长稳，关系+", 'apply': function(){return{'ovr':0x1,'guanxi':0x6,'_liveChain':'home','text':"你妈把你的作息排得明明白白，几点睡、吃什么、加练多久。你嫌她啰嗦，却很少生病。"};}},
+    {'label': "自己拿主意", 'hint': "能力+2，独立", 'apply': function(){return{'ovr':0x2,'clean':0x3,'_liveChain':'home','text':"你给自己定了规矩：不熬夜、不加练过头、每场自己复盘。爸妈只管在场边看你踢球。"};}}
+  ]
+},
+{
+  'id': "live_dorm_2",
+  'title': "宿舍里的夜晚",
+  'icon': '🌙',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){return p["_liveChain"]==="dorm"&&p["inAcademy"];},
+  'desc': "宿舍的作息越来越乱，训练状态也跟着起伏。有人劝你，不如去寄宿家庭换个环境。",
+  'options': [
+    {'label': "申请去寄宿家庭", 'hint': "换个环境", 'apply': function(){return{'guanxi':0x2,'_liveChain':'host','text':"你递交了申请。搬进那户人家那天，房东太太给你铺好了床，说以后这里就是你的家。"};}},
+    {'label': "留下来，管好自己", 'hint': "能力+2", 'apply': function(){return{'ovr':0x2,'guanxi':0x2,'text':"你买了耳塞和台灯，给自己划出一小块安静的地方。室友慢慢也学着轻手轻脚。"};}}
+  ]
+},
+{
+  'id': "live_dorm_3",
+  'title': "熄灯以后",
+  'icon': '🔦',
+  'weight': 0x2e,
+  'stage': "youth",
+  'when': function(p){return p["_liveChain"]==="dorm"&&p["inAcademy"];},
+  'desc': "熄灯后，上铺的室友翻来覆去睡不着，说他可能撑不过这个冬天就要回家了。",
+  'options': [
+    {'label': "陪他聊到天亮", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'ovr':-0x1,'text':"你们聊了家乡、聊了怕不怕被淘汰。他最后留了下来，后来成了你最铁的兄弟。"};}},
+    {'label': "装作睡着", 'hint': "能力+1", 'apply': function(){return{'ovr':0x1,'guanxi':-0x4,'text':"你没接话。第二天他照常训练，谁也没提那晚。有些话，说出来就散了。"};}}
+  ]
+},
+{
+  'id': "live_dorm_prime",
+  'title': "搬出宿舍",
+  'icon': '🔑',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["_liveChain"]==="dorm"&&!p["inAcademy"];},
+  'desc': "一线队的宿舍越来越像个中转站。经纪人劝你搬出去，说该有自己的地方了。",
+  'options': [
+    {'label': "自己租房，安静", 'hint': "花钱，能力+", 'apply': function(){return{'money':-0x96,'ovr':0x2,'clean':0x3,'text':"你租了套离训练基地十分钟的房子，请了个阿姨做饭。第一次有了「下班回家」的感觉。"};}},
+    {'label': "还住宿舍，图省事", 'hint': "关系+，省钱", 'apply': function(){return{'guanxi':0x6,'money':0x32,'text':"你留了下来。年轻队员围着你问东问西，你想起自己当年睡上铺的样子，笑了。"};}}
+  ]
+},
+{
+  'id': "live_host_2",
+  'title': "寄宿家庭的规矩",
+  'icon': '🍲',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){return p["_liveChain"]==="host"&&p["inAcademy"];},
+  'desc': "房东家规矩多，七点开饭、十点熄灯。你开始怀念宿舍里那群同龄人。",
+  'options': [
+    {'label': "申请搬去宿舍", 'hint': "换个环境", 'apply': function(){return{'guanxi':-0x2,'_liveChain':'dorm','text':"你搬进了球员宿舍。热闹是热闹，只是再没人给你留一盏灯、一碗热汤。"};}},
+    {'label': "继续住下去", 'hint': "关系+，能力+1", 'apply': function(){return{'guanxi':0x6,'ovr':0x1,'text':"你慢慢习惯了他们的节奏。男主人开始每天开车送你去训练，风雨无阻。"};}}
+  ]
+},
+{
+  'id': "live_host_3",
+  'title': "房东家的事",
+  'icon': '🧓',
+  'weight': 0x2e,
+  'stage': "youth",
+  'when': function(p){return p["_liveChain"]==="host"&&p["inAcademy"];},
+  'desc': "房东先生病了，家里一下子安静下来。房东太太还是每天准时给你做饭。",
+  'options': [
+    {'label': "训练之余帮着搭把手", 'hint': "关系+，清白+", 'apply': function(){return{'guanxi':0xa,'clean':0x4,'text':"你陪房东先生去医院复查，帮太太拎菜。他们说，自己的孩子也没这么上心。"};}},
+    {'label': "专心训练，别分心", 'hint': "能力+2", 'apply': function(){return{'ovr':0x2,'guanxi':-0x4,'text':"你把心思全放在球场上。房东太太没说什么，只是你房间的汤，凉了也没人收。"};}}
+  ]
+},
+{
+  'id': "live_host_prime",
+  'title': "回那座小城",
+  'icon': '✈️',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["_liveChain"]==="host"&&!p["inAcademy"];},
+  'desc': "客场路过当年寄宿的那座小城，你鬼使神差让司机绕到了那条街。",
+  'options': [
+    {'label': "去敲门看看", 'hint': "关系+，花一笔", 'apply': function(){return{'money':-0x32,'guanxi':0x8,'fame':0x4,'text':"房东太太开门愣了半天，然后一把把你拉进屋。桌上还是当年那碗汤，味道一点没变。"};}},
+    {'label': "在车里看一会儿就走", 'hint': "能力+1", 'apply': function(){return{'ovr':0x1,'text':"你在车里坐了十分钟。灯还亮着，窗帘换了新的。你没有下车。"};}}
+  ]
+},
+{
+  'id': "live_home_2",
+  'title': "在家训练",
+  'icon': '🚲',
+  'weight': 0x30,
+  'stage': "youth",
+  'when': function(p){return p["_liveChain"]==="home"&&p["inAcademy"];},
+  'desc': "每天骑车去训练，路过你小时候踢野球的那块空地。队里有人笑你「走读生」。",
+  'options': [
+    {'label': "在空地加练到天黑", 'hint': "能力+2，天赋+", 'apply': function(){return{'ovr':0x2,'talent':0.02,'text':"那块空地上，你一个人对着墙练到路灯亮起。邻居说，这孩子天天如此。"};}},
+    {'label': "回家吃饭，养好身体", 'hint': "成长稳，关系+", 'apply': function(){return{'ovr':0x1,'guanxi':0x6,'health':0.95,'text':"你妈变着花样给你补，你爸陪你复盘录像。你比同龄人壮实，也少受伤。"};}}
+  ]
+},
+{
+  'id': "live_home_3",
+  'title': "家里的晚饭",
+  'icon': '🍚',
+  'weight': 0x2e,
+  'stage': "youth",
+  'when': function(p){return p["_liveChain"]==="home"&&p["inAcademy"];},
+  'desc': "饭桌上，爸妈小心翼翼地问你：要是踢不出来，家里还能供你读几年书。",
+  'options': [
+    {'label': "把话说开，让他们放心", 'hint': "关系+", 'apply': function(){return{'guanxi':0x8,'clean':0x4,'text':"你说，再给你三年。爸妈没再问，只是那顿饭后，你妈开始把你的每场比赛都记在本子上。"};}},
+    {'label': "埋头吃饭，不接话", 'hint': "能力+1", 'apply': function(){return{'ovr':0x1,'guanxi':-0x2,'text':"你没抬头。碗里的饭很香，可你吃得很慢。有些话，你还没准备好说。"};}}
+  ]
+},
+{
+  'id': "live_home_prime",
+  'title': "给家里买房",
+  'icon': '🏡',
+  'weight': 0x2c,
+  'stage': "prime",
+  'when': function(p){return p["_liveChain"]==="home"&&!p["inAcademy"];},
+  'desc': "你的名字上了本地报纸。爸妈嘴上说不用，可你看见你妈把那页报纸折了又折。",
+  'options': [
+    {'label': "在老家给家里买套房", 'hint': "花一笔，关系+", 'apply': function(){return{'money':-0x3e8,'guanxi':0xa,'clean':0x4,'text':"房子买在你小时候踢球那块空地旁边。你妈站在阳台上看了很久，说，以后你回来就有地方住了。"};}},
+    {'label': "先把钱投进训练和团队", 'hint': "能力+，省钱", 'apply': function(){return{'ovr':0x2,'money':0x32,'text':"你把钱请了私教、买了设备。爸妈说这样挺好，房子以后再说。"};}}
   ]
 }
 

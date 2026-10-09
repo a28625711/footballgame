@@ -355,7 +355,7 @@ return{'guanxi':0xa,'ovr':-0x1,'text':"你托人问了几家低级别球队。�
   'stage': "youth",
   'repeat': 1,
   'when': function(p){
-return p["inAcadem"+'y']&&!p["inChina"];
+return p["inAcadem"+'y']&&!p["inChina"]&&p["_liveChain"]==="dorm";
 },
 
 

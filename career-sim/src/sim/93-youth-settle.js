@@ -120,7 +120,7 @@ by);
 
 
 
-b1("love_fir"+'st'))){}_drainScheduled();(a2["teamId"]&&(a2["capDone"]||[]).indexOf(a2["teamId"])<0x0&&a2["seasonsA"+"tClub"]>=0x2&&a0["ROLES"][a2["role"]]["rank"]>=0x4&&a2["ovr"]>=0x32+0x4*((ar()||{})["rep"]||0x0)&&"prime"===aB(a2["age"]))&&(a2["forceQ"]||(a2["forceQ"]=[]),
+b1("love_fir"+'st'))){}_drainScheduled();if(a2["flags"]["_liveChain"]&&a2["age"]>=0x16&&!a2["usedEven"+"ts"]["live_"+a2["flags"]["_liveChain"]+"_prime"])b1("live_"+a2["flags"]["_liveChain"]+"_prime");(a2["teamId"]&&(a2["capDone"]||[]).indexOf(a2["teamId"])<0x0&&a2["seasonsA"+"tClub"]>=0x2&&a0["ROLES"][a2["role"]]["rank"]>=0x4&&a2["ovr"]>=0x32+0x4*((ar()||{})["rep"]||0x0)&&"prime"===aB(a2["age"]))&&(a2["forceQ"]||(a2["forceQ"]=[]),
 
 
 

@@ -55,7 +55,7 @@ a2["flags"]["_cleanBonus"]=0x1;
 
 by){
 aj(bx)&&(a2["teamId"]=bx,a2["seasonsA"+"tClub"]=0x0,a2["roleAdju"+'st']=0x0,a2["lowSpell"]=0x0,a2["stagnate"]=!0x1,a2["contract"+"Left"]=a2["flags"]["_keepContract"]?a2["contract"+"Left"]:be(),a2["flags"]["_keepContract"]=!0x1,
-a2["loanFrom"]=null,a2["clubsPla"+"yed"]["indexOf"](bx)<0x0&&a2["clubsPla"+"yed"]["push"](bx),by||(a2["flags"]["_justMov"+'ed']=!0x0),a2["role"]=aH());
+a2["loanFrom"]=null,a2["clubsPla"+"yed"]["indexOf"](bx)<0x0&&a2["clubsPla"+"yed"]["push"](bx),a2["flags"]&&!a2["flags"]["_movedOnce"]&&(a2["flags"]["_toget"+"her"]=!0x1),by||(a2["flags"]["_justMov"+'ed']=!0x0),a2["role"]=aH());
 }function b9(bx){
 return!!bx&&a2["youthTea"+"mId"]===bx['id']&&a2["age"]<=0x17;
 }function ba(){
@@ -188,8 +188,15 @@ if(a2["bigQ"]&&a2["bigQ"]["length"]&&bi()&&!(a2["flags"]["_gradCd"]>0x0))a2["fla
 if(bi()){if(a2["flags"]["_gradCd"]>0x0)a2["flags"]["_gradCd"]--;
 else return a2["phase"]="career",bm();
 }
+if(a2["phase"]==="youth"&&a2["youthTeamId"]&&!a2["flags"]["_liveChain"]&&a2["age"]>=0xc){
+if(au()&&window["SIM"]["isHome"](a2["originId"],a2["youthTeamId"]))b1("live_home");
+else if(!au())b1(ad()<0.5?"live_dorm":"live_host");
+else b1("live_dorm");
+}
+_drainScheduled();
 var bx=aE();
-if(!bx)return a2["bigQ"]&&a2["bigQ"]["length"]?aW():void 0x0;
+if(!bx){if(a2["bigQ"]&&a2["bigQ"]["length"])return aW();if(_fireForced())return;return;}
+_markEvent(bx['id'],bx);
 _markEvent(bx['id'],bx);
 a2["pending"]={'type':"random",'eventId':bx['id'],'descText':_descOf(bx)};
 }

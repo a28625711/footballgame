@@ -70,20 +70,29 @@ var _chainNext={
 'injury_chain_bad':{'id':'injury_chain_comeback','y':0x1},'injury_chain_comeback':{'id':'injury_chain_philosophy','y':0x2},
 'youth_crush_cn':{'id':'first_love_cn','y':0x7},'youth_crush_abroad':{'id':'first_love_abroad','y':0x7},
 'youth_meet_star':{'id':'meet_star_again','y':0x4},
-'foot_left':{'id':'foot_reckoning','y':0x8},'foot_right':{'id':'foot_reckoning','y':0x8}};
+'foot_left':{'id':'foot_reckoning','y':0x8},'foot_right':{'id':'foot_reckoning','y':0x8},
+'live_dorm':{'id':'live_dorm_2','y':0x2},
+'live_host':{'id':'live_host_2','y':0x2},
+'live_home':{'id':'live_home_2','y':0x2},'live_home_2':{'id':'live_home_3','y':0x2}};
+/* 早期居住线可切换：宿舍↔寄宿（切换事件结算后按新的 _liveChain 续接对应链） */
+var _chainSwitchNext={'live_dorm_2':{'dorm':'live_dorm_3','host':'live_host_3'},'live_host_2':{'host':'live_host_3','dorm':'live_dorm_3'}};
 var _chainFollower={'friend_part':1,'friend_reunion':1,'friend_end':1,'fan_match':1,'fan_social':1,'fan_pro':1,
 'mentor_grow':1,'mentor_pass':1,'rival_pro':1,'rival_clash':1,'rival_end':1,
 'sponsor_conflict':1,'sponsor_end':1,'injury_chain_comeback':1,'injury_chain_philosophy':1,
-'first_love_cn':1,'first_love_abroad':1,'meet_star_again':1,'foot_reckoning':1};
+'first_love_cn':1,'first_love_abroad':1,'meet_star_again':1,'foot_reckoning':1,
+'live_dorm_2':1,'live_dorm_3':1,'live_host_2':1,'live_host_3':1,
+'live_home_2':1,'live_home_3':1};
 function _scheduleEvent(bx,by){a2["forceLater"]=a2["forceLater"]||[];a2["forceLater"]["push"]({'id':bx,'due':(a2["age"]||0x0)+(by||0x0)});}
-function _chainAdvance(bx){var _n=_chainNext[bx];if(_n)_scheduleEvent(_n["id"],_n["y"]);}
+function _chainAdvance(bx){var _sw=_chainSwitchNext[bx];
+if(_sw){var _c=a2["flags"]&&a2["flags"]["_liveChain"],_t=_sw[_c]||_sw[_c==='host'?'host':'dorm'];if(_t)_scheduleEvent(_t,0x2);return;}
+var _n=_chainNext[bx];if(_n)_scheduleEvent(_n["id"],_n["y"]);}
 /* 到期扫描：满足 when/stage 才入 forceQ，否则顺延；过期超过 15 年丢弃 */
 function _drainScheduled(){
 var q=a2["forceLater"];if(!q||!q["length"])return;
 var keep=[],_stg=aB(a2["age"]),_inAc="youth"===a2["phase"];
 for(var i=0x0;i<q["length"];i++){var e=q[i],def=_evById(e["id"]);
 if(!def)continue;
-if(e["due"]<=a2["age"]&&(!def["when"]||def["when"](aA()))&&(!def["stage"]||_inAc||def["stage"]===_stg)){
+if(e["due"]<=a2["age"]&&(!def["when"]||def["when"](aA()))&&(!def["stage"]||(_inAc?def["stage"]==="youth":def["stage"]===_stg))){
 a2["forceQ"]||(a2["forceQ"]=[]);
 if(a2["forceQ"]["indexOf"](e["id"])<0x0&&!a2["usedEven"+'ts'][e["id"]])a2["forceQ"]["push"](e["id"]);
 continue;}

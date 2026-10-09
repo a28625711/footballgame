@@ -26,7 +26,7 @@ by=as(),bz={'age':a2["age"],'ovr':a2["ovr"],'talent':a2["talent"],'guanxi':a2["g
 'clubRep':bx?bx["rep"]:0x0,'leagueId':by?by['id']:null,'country':by?by["country"]:null,'leagueRep':by?by["rep"]:0x0,'hasCont':!(!by||!by["cont"]),
 'rivalId':aC()&&aC()['id'],'teamId':a2["teamId"],'isCaptain':a2["flags"]["_captain"]===a2["teamId"],'capDone':a2["capDone"]||[],
 'foot':a2["foot"],'number':a2["number"],'youthTeamId':a2["youthTea"+"mId"]||'','clubsCount':(a2["clubsPla"+"yed"]||[])["length"],'posMoves':_posMoves(a2["pos"]),'posBackMoves':_posMoves(a2["pos"],!0x0),
-'partnerType':a2["life"]&&a2["life"]["partner"]?a2["life"]["partner"]["type"]:null,'bond':a2["life"]&&a2["life"]["partner"]?(a2["life"]["partner"]["bond"]||0x0):0x0,'agentType':a2["agentType"]||null};
+'partnerType':a2["life"]&&a2["life"]["partner"]?a2["life"]["partner"]["type"]:null,'bond':a2["life"]&&a2["life"]["partner"]?(a2["life"]["partner"]["bond"]||0x0):0x0,'agentType':a2["agentType"]||null,'originId':a2["originId"]};
 for(var bA in a2["flags"])a2["flags"]["hasOwnPr"+"operty"](bA)&&(bz[bA]=a2["flags"][bA]);
 return bz;
 }function aB(bx){
@@ -113,7 +113,7 @@ bF&&by["push"]({'cls':bF>0x0?'up':"down",'text':(bF>0x0?'+':'-')+av(Math["abs"](
 }if(bx["caps"]&&(a2["caps"]+=bx["caps"],by["push"]({'cls':'up','text':"国家队+"+bx["caps"]})),(bx["partner"]||bx["marry"]||bx["kid"]||bx["split"])&&(a2["life"]||(a2["life"]={'partner':null,'married':0x0,'kids':[],'splits':0x0}),
 bx["partner"]&&(a2["life"]["partner"]={'label':bx["partner"],'type':_ptype(bx["partner"],bx["partnerType"]),'bond':_pbond(bx["partner"],bx["partnerType"]),'since':a2["age"]},by["push"]({'cls':'up','text':"在一起了"})),bx["marry"]&&a2["life"]["partner"]&&(a2["life"]["married"]=a2["age"],by["push"]({'cls':'up','text':'结婚'}),b1("love_kid"+"_first")),
 bx["kid"]&&(a2["life"]["kids"]["push"]({'born':a2["age"]}),by["push"]({'cls':'up','text':0x1===a2["life"]["kids"]["length"]?"当爸爸了":"又一个孩子"})),
-bx["split"]&&a2["life"]["partner"]&&(a2["life"]["partner"]=null,a2["life"]["married"]=0x0,a2["life"]["splits"]++,by["push"]({'cls':"down",'text':"分开了"}))),
+bx["split"]&&a2["life"]["partner"]&&(a2["flags"]["_toget"+"her"]=!0x1,a2["flags"]["_movedOnce"]=!0x1,a2["life"]["partner"]=null,a2["life"]["married"]=0x0,a2["life"]["splits"]++,by["push"]({'cls':"down",'text':"分开了"}))),
 bx["bond"]&&a2["life"]&&a2["life"]["partner"]&&(a2["life"]["partner"]["bond"]=ac((a2["life"]["partner"]["bond"]||0x0)+bx["bond"],0x0,0x64),by["push"]({'cls':bx["bond"]>0x0?'up':"down",'text':bx["bond"]>0x0?"关系升温":"闹别扭"})),bx["agentType"]&&(a2["agentType"]=bx["agentType"]),
 bx["roleDelt"+'a']&&(a2["roleAdju"+'st']=Math["max"](-0x4,Math["min"](0x4,a2["roleAdju"+'st']+bx["roleDelt"+'a'])),by["push"]({'cls':bx["roleDelt"+'a']>0x0?'up':"down",'text':bx["roleDelt"+'a']>0x0?"队内地位↑":"队内地位↓"})),
 bx["pos"]&&bx["pos"]!==a2["pos"]&&_posMoveOk(a2["pos"],bx["pos"])&&(a2["flags"]["_posOrigin"]||(a2["flags"]["_posOrigin"]=al(a2["pos"])["group"]),a2["pos"]=bx["pos"],bx["playerType"]==null&&(a2["playerType"]=calcPlayerType()),by["push"]({'cls':'up','text':"位置→"+al(a2["pos"])["name"]})),
@@ -150,7 +150,7 @@ bx["capDecline"]&&((a2["capDone"]||(a2["capDone"]=[]))["indexOf"](a2["teamId"])<
 
 
 bx["ntCaptain"]&&(a2["flags"]["_ntCaptain"]=!0x0);
-return["ageFraud","yinyang","fixed","gambled","degree","coachCer"+'t',"academy","bianzhi","assistan"+'t',"scout","_friend","_fan","_mentor","_rival","_sponsor","_injuryChain","_vetInviteDone","_vetInviteTeam","_crush","_metStar","_footDone","_footPath","_bloom","_numDone","_numLostClub","_echoHome","_together"]["forEach"](function(bI){
+return["ageFraud","yinyang","fixed","gambled","degree","coachCer"+'t',"academy","bianzhi","assistan"+'t',"scout","_friend","_fan","_mentor","_rival","_sponsor","_injuryChain","_vetInviteDone","_vetInviteTeam","_crush","_metStar","_footDone","_footPath","_bloom","_numDone","_numLostClub","_echoHome","_together","_movedOnce","_liveChain"]["forEach"](function(bI){
 bx[bI]&&(a2["flags"][bI]=bx[bI]);
 }),
 
