@@ -68,6 +68,7 @@ var _TYPE_SIG=["type_finisher","type_playmaker","type_complete","type_pace","typ
    衰减：x = clamp((capC-ovr)/_CAPW, 0, 1)，wall = _CAPF + (1-_CAPF)*x^_CAPP
    平滑曲线（可导、两端斜率趋 0）：早期即开始温和衰减、贴边不再断崖。
    换更"硬"的窗口：_CAPP=1（线性）；换"更宽"：调大 _CAPW 并重拟合 _CAPB/_CAPS
+   现行：宽窗(W=52)线性(P=1)缓降——衰减更早开始、坡度更缓；峰值由 _CAPB/_CAPS 重拟保住。
    实测（纯成长模型）：0.7→69.9 0.8→72.6 1.0→78.3 1.15→82.0 1.3→85.4 1.45→87.9 1.48→88.4 */
-var _CAPB=0x55,_CAPS=0x22,_CAPW=0x22,_CAPP=1.6,_CAPF=0.06;
+var _CAPB=0x5e,_CAPS=0x28,_CAPW=0x34,_CAPP=0x1,_CAPF=0.06;
 function _capWall(bx,by){var _x=ac((_CAPB+_CAPS*ac((bx-0.7)/0.78,0x0,0x1)-by)/_CAPW,0x0,0x1);return _CAPF+(1-_CAPF)*Math["pow"](_x,_CAPP);}

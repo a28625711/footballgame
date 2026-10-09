@@ -87,14 +87,23 @@ var _LGW={'epl':2.2,'liga':2.2,'seri':1.9,'bund':1.9,'l1':1.7,'csl':1.4,'spl':1.
 function _lgW(bx){var bL=aq(bx);return bL&&_LGW[bL['id']]||0.6;}
 /* 统一工资口径：报价/状态栏/实发都用此式 = 基础工资×合同系数×角色系数×年龄系数×名气议价 */
 function _wageOf(bx,by,bz){var bR=aI(bx);return Math["round"](aJ(bx,by,a2["ovr"])*((a2["flags"]&&a2["flags"]["_wageMul"])||0x1)*(bz!=null?bz:(a2["wageMul"+"t"]||0x1))*(a0["ROLES"][bR]["rank"]>=0x2?0x1:0.55)*bAge()*(1+Math["min"](0.2,(a2["fame"]||0x0)/0xfa)));}
+/* 分位对齐：球队强度用 489 队经验分布(_tcdf)，球员身价用参考曲线(_pcdf)，
+   权重比的是"分位接近度"而非绝对数值——单调，年龄↓身价↓ → 只会往低档，不会反转 */
+var _TCDF=null;
+function _tcdf(rep){if(!_TCDF){_TCDF={};var n=a0["TEAMS"]["length"],_c={},_i,_r;
+for(_i=0x0;_i<n;_i++){_r=a0["TEAMS"][_i]["rep"];_c[_r]=(_c[_r]||0x0)+0x1;}
+var _b=0x0;for(_i=0x0;_i<=0x6;_i++){var _cc=_c[_i]||0x0;_TCDF[_i]=(_b+0.5*_cc)/n;_b+=_cc;}}
+return _TCDF[rep]!=null?_TCDF[rep]:0.99;}
+function _pcdf(v){return 1/(1+Math["exp"](-(v-0x50)/0x6));}
+function _tlvl(){var r=Math["floor"]((a2["ovr"]-0x3e)/0x4);return Math["max"](0x0,Math["min"](0x5,r));}
 function bf(bx,
+
 
 
 
 by){
 by=by||{};
-var bz=ba(),bA=ar(),bB=as(),bC=bB?bB["rep"]:0x1,bD=a2["ovr"]>=0x52?0x2:0x1;
-
+var bz=ba(),bA=ar(),bB=as(),bC=bB?bB["rep"]:0x1,bD=a2["ovr"]>=0x52?0x2:0x1,bT=_tlvl();
 
 
 
@@ -103,27 +112,38 @@ var bz=ba(),bA=ar(),bB=as(),bC=bB?bB["rep"]:0x1,bD=a2["ovr"]>=0x52?0x2:0x1;
 
 
 
-function bE(bK){
+function bE(bK,bFloor){
+var _fl=(bFloor==null?bT-0x1:bFloor);
 return a0["TEAMS"]["filter"](function(bL){
 if(bA&&bL['id']===bA['id'])return!0x1;
 var bM=aq(bL),bN=bc(bL);
 if(!bM['cn']){if(!by["forceAbr"+"oad"]&&!by["ignoreLock"]&&a2["lockAbro"+'ad']>0x0)return!0x1;
-bN+=a2["seasonsA"+"broad"]>0x0?0x3:0x5,a6("agent")&&(bN-=Math["round"](0x3*_stEff(_stT("agent"))*_stM("agent")));
-}return!(by["forceAbr"+"oad"]&&bM['cn']||by["chinaOnl"+'y']&&!bM['cn']||null!=by["maxRep"]&&_er(bL)>by["maxRep"]||_er(bL)>=0x3&&a2["ovr"]<0x3e+0x4*_er(bL)||bM["rep"]>bC+bK||!(bd(bL)>=bN-0x5)||!(a2["ovr"]<=bN+0x1a));
+a6("agent")&&(bN-=Math["round"](0x3*_stEff(_stT("agent"))*_stM("agent")));
+}return!(by["forceAbr"+"oad"]&&bM['cn']||by["chinaOnl"+'y']&&!bM['cn']||null!=by["maxRep"]&&_er(bL)>by["maxRep"]||_er(bL)<_fl||_er(bL)>=0x3&&a2["ovr"]<0x3e+0x4*_er(bL)||bM["rep"]>bC+bK||!(bd(bL)>=bN-0x5)||!(a2["ovr"]<=bN+0x1a));
 });
-}var bF=bE(bD);
-if(bF["length"]||(bF=bE(bD+0x1)),
+}var bF=bE(bD,bT-0x1);
+if(bF["length"]||(bF=bE(bD+0x1,bT-0x1)),
 
 
 
-bF["length"]||(bF=bE(0x9)),!bF["length"])return[];
+bF["length"]||(bF=bE(0x9,bT-0x1)),bF["length"]||(bF=bE(0x9,0x0)),!bF["length"])return[];
+var _pq=_pcdf(bz);
 for(var bG=[],bH={},bI=0x0;
 bI<0x4*bx&&bG["length"]<bx;
-bI++){var bJ=ah(bF,function(bK){var bL=bc(bK);
-return _lgW(bK)/(0x1+0.35*Math["abs"](bz-bL));
+bI++){var bJ=ah(bF,function(bK){
+return _lgW(bK)*(0x1+0.7*Math["max"](0x0,_er(bK)-(bT-0x1)))/(0x1+0x6*Math["abs"](_pq-_tcdf(_er(bK))));
 });
 bJ&&!bH[bJ['id']]&&(bH[bJ['id']]=0x1,bG["push"](bJ));
-}return bG;
+}
+/* 豪门保底：目标档位>=豪门时，报价中必给一支 rep>=目标档 的队（池中有就必出） */
+if(bT>=0x4&&bG["length"]){var _has=0x0,_i;
+for(_i=0x0;_i<bG["length"];_i++)if(_er(bG[_i])>=bT)_has=0x1;
+if(!_has){var _c=null;
+for(_i=0x0;_i<bF["length"];_i++){var _t=bF[_i];if(_er(_t)>=bT&&(!_c||_er(_t)>_er(_c)))_c=_t;}
+if(_c){if(bG["length"]>=bx){var _wi=0x0;for(_i=0x1;_i<bG["length"];_i++)if(_er(bG[_i])<_er(bG[_wi]))_wi=_i;bG[_wi]=_c;}else bG["push"](_c);}
+}
+}
+return bG;
 }function bg(){
 return aj(a2["youthTea"+"mId"]);
 }function bh(bx,by){
